@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The SDK operates in a stateless mode by default, meaning each get_flag call triggers a fresh evaluation of the flag against the current user context.
+The SDK operates in a stateless mode by default, meaning each get\_flag call triggers a fresh evaluation of the flag against the current user context.
 
 To optimize performance and maintain consistency, you can implement a custom storage mechanism by passing a storage parameter during initialization. This allows you to persist feature flag decisions in your preferred database system (like Redis, MongoDB, or any other data store).
 
@@ -61,7 +61,7 @@ vwo.init({
 });
 ```
 
-Storage Service should expose two methods: _get_ and _set_. These methods are used by VWO whenever there is a need to read or write from the storage service.
+Storage Service should expose two methods: *get* and *set*. These methods are used by VWO whenever there is a need to read or write from the storage service.
 
 | Method Name | Params             | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
