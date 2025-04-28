@@ -20,15 +20,14 @@ next:
 }
 [/block]
 
-
 ```json
 {
   "name": "API Account Name",
-  "timezone": "Asia\/Kolkata",
+  "timezone": "Asia/Kolkata",
   "enabled": true,
   "company": {
     "name": "API Company Name",
-    "website": "http:\/\/wingify.com",
+    "website": "http://wingify.com",
     "size": "1-200",
     "industry": {
       "type": "saas"
