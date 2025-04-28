@@ -15,7 +15,7 @@ next:
 ---
 [block:textarea]
 {
-  "text": "Request URI for Sub Account\n```\nGET /accounts/account_id/projects/project_id\n```\n\nGet details of a specific project",
+  "text": "Request URI for Sub Account\n```\nGET /accounts/{account_id}/projects/{project_id}\n```\n\nGet details of a specific project",
   "sidebar": true
 }
 [/block]
