@@ -9,3 +9,4 @@
 - go-get-feature-variable-value
 - go-track
 - go-push
+- go-set-sdk-environment
