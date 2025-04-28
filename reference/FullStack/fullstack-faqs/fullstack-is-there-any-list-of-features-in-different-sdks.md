@@ -12,154 +12,707 @@ next:
 ---
 The below list displays the list of all features different VWO SDKs support, along with the version in which they are supported.
 
-[block:parameters]
-{
-  "data": {
-    "0-0": "**A/B Test** ",
-    "0-1": "Supported\n**v1.3.0** ",
-    "h-2": "Python",
-    "h-0": "",
-    "h-1": "Node.js",
-    "h-3": "PHP",
-    "2-0": "**Feature Rollout** ",
-    "3-0": "**Feature Test** ",
-    "1-0": "**Tracking Conversions** ",
-    "4-0": "**Pre-segmentation / Targeting** ",
-    "5-0": "**Custom Dimension / Post-segmentation** ",
-    "6-0": "**Forced Variation / Whitelisting** ",
-    "h-4": "Java",
-    "h-5": ".NET",
-    "h-6": "Ruby",
-    "0-2": "Supported\n**v1.3.0**",
-    "0-3": "Supported\n**v1.3.0**",
-    "0-4": "Supported\n**v1.3.0**",
-    "0-5": "Supported\n**v1.3.0**",
-    "0-6": "Supported\n**v1.3.0**",
-    "1-1": "Supported\n**v1.3.0**",
-    "1-2": "Supported\n**v1.3.0**",
-    "1-3": "Supported\n**v1.3.0**",
-    "1-4": "Supported\n**v1.3.0**",
-    "1-5": "Supported\n**v1.3.0**",
-    "1-6": "Supported\n**v1.3.0**",
-    "2-1": "Supported\n**v1.4+**",
-    "3-1": "Supported\n**v1.4+**",
-    "2-2": "Supported\n**v1.4+**",
-    "3-2": "Supported\n**v1.4+**",
-    "2-3": "Supported\n**v1.4+**",
-    "3-3": "Supported\n**v1.4+**",
-    "2-4": "Supported\n**v1.4+** ",
-    "3-4": "Supported\n**v1.4+**",
-    "2-5": "Supported\n**v1.5+**",
-    "3-5": "Supported\n**v1.5+**",
-    "2-6": "Supported\n**v1.5+**",
-    "3-6": "Supported\n**v1.5+**",
-    "4-1": "Supported\n**v1.5+**",
-    "4-2": "Supported\n**v1.5+**",
-    "4-3": "Supported\n**v1.5+**",
-    "4-4": "Supported\n**v1.5+**",
-    "4-5": "Supported\n**v1.5+**",
-    "4-6": "Supported\n**v1.5+**",
-    "5-1": "Supported\n**v1.5+**",
-    "5-2": "Supported\n**v1.5+**",
-    "5-3": "Supported\n**v1.5+**",
-    "5-4": "Supported\n**v1.5+**",
-    "5-5": "Supported\n**v1.5+**",
-    "5-6": "Supported\n**v1.5+**",
-    "6-1": "Supported\n**v1.6+**",
-    "6-2": "Supported\n**v1.6+**",
-    "6-3": "Supported\n**v1.6+**",
-    "6-4": "Supported\n**v1.6+**",
-    "6-5": "Supported\n**v1.6+**",
-    "6-6": "Supported\n**v1.6+**",
-    "7-0": "Client-side Capabilities",
-    "7-1": "Supported\nSame SDK can be used on client-side and get all capabilities of server-side on client-side\n**v1.7+**",
-    "7-2": "Not applicable",
-    "7-3": "Not applicable",
-    "7-4": "Not applicable",
-    "7-5": "Not applicable",
-    "7-6": "Not applicable",
-    "h-7": "JavaScript (client-side)",
-    "0-7": "Supported\n**v1.7+**",
-    "1-7": "Supported\n**v1.7+**",
-    "2-7": "Supported\n**v1.7+**",
-    "3-7": "Supported\n**v1.7+**",
-    "4-7": "Supported\n**v1.7+**",
-    "5-7": "Supported\n**v1.7+**",
-    "6-7": "Supported\n**v1.7+**",
-    "h-8": "GO",
-    "0-8": "Supported\n**v1.0+**",
-    "1-8": "Supported\n**v1.0+**",
-    "2-8": "Supported\n**v1.0+**",
-    "3-8": "Supported\n**v1.0+**",
-    "4-8": "Supported\n**v1.0+**",
-    "5-8": "Supported\n**v1.0+**",
-    "6-8": "Supported\n**v1.0+**",
-    "8-0": "Same goal tracking in multiple campaigns",
-    "8-1": "Supported\n**v1.8+**",
-    "8-2": "Supported\n**v1.8+**",
-    "8-4": "Supported\n**v1.8+**",
-    "8-3": "Not yet",
-    "8-5": "Supported\n**v1.8+**",
-    "8-6": "Not yet",
-    "8-7": "Supported\n**v1.8+**",
-    "8-8": "Not yet",
-    "9-0": "Tracking Unique/Duplicate conversions",
-    "9-1": "Supported\n**v1.8+**",
-    "9-2": "Supported\n**v1.8+**",
-    "9-3": "Not yet",
-    "9-4": "Supported\n**v1.8+**",
-    "9-5": "Supported\n**v1.8+**",
-    "9-7": "Supported\n**v1.8+**",
-    "9-6": "Not yet",
-    "9-8": "Not yet",
-    "10-0": "Event Batching",
-    "10-1": "Supported\n**v1.9+**",
-    "10-2": "Supported\n**v1.11+**",
-    "10-3": "NA",
-    "10-7": "Not Applicable",
-    "10-8": "Not yet",
-    "10-6": "Not yet",
-    "10-5": "Not yet",
-    "10-4": "Not yet",
-    "11-0": "Webhooks",
-    "12-0": "Environment-level Reporting",
-    "13-0": "Prevent duplicates of visitors",
-    "11-1": "Supported\n**v1.10+**",
-    "12-1": "Supported\n**v1.12+**",
-    "13-1": "Supported\n**v1.13+**",
-    "11-2": "Supported\n**v1.10+**",
-    "12-2": "Supported\n**v1.12+**",
-    "13-2": "Supported\n**v1.12+**",
-    "11-3": "Supported\n**v1.10+**",
-    "12-3": "Supported\n**v1.13+**",
-    "13-3": "Supported\n**v1.13+**",
-    "14-0": "Integrations",
-    "14-1": "Supported\n**v1.14+**",
-    "14-2": "Supported\n**v1.13+**",
-    "14-3": "Supported\n**v1.14+**",
-    "11-4": "Supported\n**v1.10+**",
-    "11-5": "Not yet",
-    "11-6": "Not yet",
-    "11-7": "Not yet",
-    "11-8": "Not yet",
-    "12-4": "Supported\n**v1.11+**",
-    "13-4": "Supported\n**v1.11+**",
-    "14-4": "Supported\n**v1.12+**",
-    "12-5": "Not yet",
-    "13-5": "Not yet",
-    "14-5": "Not yet",
-    "12-6": "Not yet",
-    "12-7": "Supported\n**v1.12+**",
-    "13-6": "Not yet",
-    "13-7": "Supported\n**v1.13+**",
-    "14-6": "Not yet",
-    "14-7": "Supported\n**v1.14+**",
-    "12-8": "Not yet",
-    "13-8": "Not yet",
-    "14-8": "Not yet"
-  },
-  "cols": 9,
-  "rows": 15
-}
-[/block]
+<Table align={["left","left","left","left","left","left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Node.js
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Python
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        PHP
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Java
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        .NET
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Ruby
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        JavaScript (client-side)
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        GO
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        **A/B Test** 
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0** 
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.7+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.0+**
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        **Tracking Conversions** 
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.3.0**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.7+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.0+**
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        **Feature Rollout** 
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.4+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.4+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.4+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.4+** 
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.7+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.0+**
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        **Feature Test** 
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.4+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.4+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.4+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.4+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.7+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.0+**
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        **Pre-segmentation / Targeting** 
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.7+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.0+**
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        **Custom Dimension / Post-segmentation** 
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.5+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.7+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.0+**
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        **Forced Variation / Whitelisting** 
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.6+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.6+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.6+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.6+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.6+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.6+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.7+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.0+**
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Client-side Capabilities
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        Same SDK can be used on client-side and get all capabilities of server-side on client-side\
+        **v1.7+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not applicable
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not applicable
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not applicable
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not applicable
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not applicable
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Same goal tracking in multiple campaigns
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.8+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.8+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.8+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.8+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.8+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Tracking Unique/Duplicate conversions
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.8+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.8+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.8+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.8+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.8+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Event Batching
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.9+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.11+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        NA
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not Applicable
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Webhooks
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.10+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.10+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.10+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.10+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Environment-level Reporting
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.12+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.12+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.13+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.11+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.12+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Prevent duplicates of visitors
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.13+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.12+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.13+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.11+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.13+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Integrations
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.14+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.13+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.14+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.12+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Supported\
+        **v1.14+**
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Not yet
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 If you want to know what went in which version, please check the [CHANGELOG](https://developers.vwo.com/reference#fullstack-is-there-any-history-of-changes-that-went-live-in-different-sdks) section.
