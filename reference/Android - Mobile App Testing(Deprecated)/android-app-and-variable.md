@@ -10,5 +10,5 @@ metadata:
 next:
   description: ''
 ---
-This section shows details on how to create a mobile app and variables.
+This section shows details on how to create a mobile app and variables.\
 Read further for more details.
