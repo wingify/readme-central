@@ -14,13 +14,13 @@ The **VWO FME Tech Debt Client** is a tool that analyzes your VWO flags usage an
 
 ## Features
 
-- Analyze VWO flag usage in your codebase.
-- Provide recommendations for optimizing VWO flags.
+* Analyze VWO flag usage in your codebase.
+* Provide recommendations for optimizing VWO flags.
 
 ## Prerequisites
 
-- Go (if building from source): [Install Go](https://go.dev/doc/install)
-- Ensure you have your _VWO API Token_ and _Account ID_.
+* Go (if building from source): [Install Go](https://go.dev/doc/install)
+* Ensure you have your *VWO API Token* and *Account ID*.
 
 ## Installation
 
@@ -32,6 +32,7 @@ The **VWO FME Tech Debt Client** is a tool that analyzes your VWO flags usage an
    cd vwo-fme-tech-debt-client
    ```
 2. Build the binary
+
    ```shell
    # Build the binary
    go build
@@ -85,6 +86,6 @@ Run the client with the required parameters:
 
 ## Resources
 
-| Resource | Link                                                              |
-| :------- | :---------------------------------------------------------------- |
-| GitHub   | <https://github.com/wingify/vwo-fme-tech-debt-client/tree/master> |
+| Resource | Link                                                                                                                               |
+| :------- | :--------------------------------------------------------------------------------------------------------------------------------- |
+| GitHub   | [https://github.com/wingify/vwo-fme-tech-debt-client/tree/master](https://github.com/wingify/vwo-fme-tech-debt-client/tree/master) |
