@@ -6,3 +6,4 @@
 - go-activate
 - go-get-variation-name
 - go-is-feature-enabled
+- go-get-feature-variable-value
