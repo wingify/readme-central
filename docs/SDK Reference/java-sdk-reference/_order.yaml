@@ -6,3 +6,4 @@
 - java-activate
 - java-get-variation-name
 - java-is-feature-enabled
+- java-get-feature-variable-value
