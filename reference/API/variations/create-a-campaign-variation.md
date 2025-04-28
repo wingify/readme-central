@@ -38,11 +38,10 @@ Request Format
 [/block]
 Create a campaign variation
 
-
 [block:callout]
 {
   "type": "info",
   "title": "Info:",
-  "body": "To add changes to the variation, please add changes under the key 'changes'. For e.g. to show an alert in variation\n\n{\n  \"variations\" : {\n\t.\n        .\n        \"changes\" : \"<script>alert('Hello World');</script>\"\n        .\n        .\n    }\n}"
+  "body": "To add changes to the variation, please add changes under the key 'changes'. For e.g. to show an alert in variation\n\n```\n{\n  \"variations\" : {\n\t.\n        .\n        \"changes\" : \"<script>alert('Hello World');</script>\"\n        .\n        .\n    }\n}\n```"
 }
 [/block]
