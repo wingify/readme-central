@@ -14,3 +14,4 @@
 - ruby-set-sdk-environment
 - ruby-configure-the-logger
 - ruby-implement-a-user-storage-service
+- ruby-configure-event-batching
