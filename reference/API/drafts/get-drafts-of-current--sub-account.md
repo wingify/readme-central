@@ -13,18 +13,21 @@ metadata:
 next:
   description: ''
 ---
+```json
 [block:textarea]
 {
   "text": "Request URI for Sub Account\n```\nGET /accounts/1/drafts\n```",
   "sidebar": true
 }
 [/block]
+```
 
-
+```json
 [block:html]
 {
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+```
 
 Get Workspace Drafts.
