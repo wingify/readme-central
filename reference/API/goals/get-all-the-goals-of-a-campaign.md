@@ -20,7 +20,8 @@ metadata:
 
 [block:html]
 {
-  "html": "<div></div>\n\n<style></style>"
+  "html": "<div></div><style></style>"
 }
 [/block]
+
 Get all the goals of a campaign
