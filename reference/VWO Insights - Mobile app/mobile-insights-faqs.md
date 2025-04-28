@@ -12,19 +12,19 @@ next:
 ---
 List of Frequently Asked Questions:
 
-- [What are Mobile Recordings in VWO, and how do they work?](https://developers.vwo.com/reference/mobile-insights-faqs#what-are-mobile-recordings-in-vwo-and-how-do-they-work)
-- [What is the maximum duration of the saved recording?](https://developers.vwo.com/reference/mobile-insights-faqs#what-is-the-maximum-duration-of-the-saved-recording)
-- [When does a recording start?](https://developers.vwo.com/reference/mobile-insights-faqs#when-does-a-recording-start)
-- [When does a recording session expire?](https://developers.vwo.com/reference/mobile-insights-faqs#when-does-a-recording-session-expire)
-- [Can I view all the recordings of the previous/next previous session of the user?](https://developers.vwo.com/reference/mobile-insights-faqs#can-i-view-all-the-recordings-of-the-previousnext-previous-session-of-the-user)
-- [Do the recordings involve sensitive data?](https://developers.vwo.com/reference/mobile-insights-faqs#do-the-recordings-involve-sensitive-data)
-- [How to record all the screens of your mobile application?](https://developers.vwo.com/reference/mobile-insights-faqs#how-to-record-all-the-screens-of-your-mobile-application)
-- [How does VWO affect my application speed?](https://developers.vwo.com/reference/mobile-insights-faqs#how-does-vwo-affect-my-application-speed)
-- [Why data is not reflected in the campaign report?](https://developers.vwo.com/reference/mobile-insights-faqs#why-data-is-not-reflected-in-the-campaign-report)
-- [Which programming languages are supported by VWO Mobile Insights SDKs?](https://developers.vwo.com/reference/mobile-insights-faqs#which-programming-languages-are-supported-by-vwo-mobile-insights-sdks)
-- [What's the minimum version supported by each VWO SDK?](https://developers.vwo.com/reference/mobile-insights-faqs#whats-the-minimum-version-supported-by-each-vwo-sdk)
-- [How to make sure you are running the latest version of the SDK?](https://developers.vwo.com/reference/mobile-insights-faqs#how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
-- [Do I need to modify my firewall when using VWO Mobile Insight?](https://developers.vwo.com/reference/mobile-insights-faqs#do-i-need-to-modify-my-firewall-when-using-vwo-fullstack)
+* [What are Mobile Recordings in VWO, and how do they work?](https://developers.vwo.com/reference/mobile-insights-faqs#what-are-mobile-recordings-in-vwo-and-how-do-they-work)
+* [What is the maximum duration of the saved recording?](https://developers.vwo.com/reference/mobile-insights-faqs#what-is-the-maximum-duration-of-the-saved-recording)
+* [When does a recording start?](https://developers.vwo.com/reference/mobile-insights-faqs#when-does-a-recording-start)
+* [When does a recording session expire?](https://developers.vwo.com/reference/mobile-insights-faqs#when-does-a-recording-session-expire)
+* [Can I view all the recordings of the previous/next previous session of the user?](https://developers.vwo.com/reference/mobile-insights-faqs#can-i-view-all-the-recordings-of-the-previousnext-previous-session-of-the-user)
+* [Do the recordings involve sensitive data?](https://developers.vwo.com/reference/mobile-insights-faqs#do-the-recordings-involve-sensitive-data)
+* [How to record all the screens of your mobile application?](https://developers.vwo.com/reference/mobile-insights-faqs#how-to-record-all-the-screens-of-your-mobile-application)
+* [How does VWO affect my application speed?](https://developers.vwo.com/reference/mobile-insights-faqs#how-does-vwo-affect-my-application-speed)
+* [Why data is not reflected in the campaign report?](https://developers.vwo.com/reference/mobile-insights-faqs#why-data-is-not-reflected-in-the-campaign-report)
+* [Which programming languages are supported by VWO Mobile Insights SDKs?](https://developers.vwo.com/reference/mobile-insights-faqs#which-programming-languages-are-supported-by-vwo-mobile-insights-sdks)
+* [What's the minimum version supported by each VWO SDK?](https://developers.vwo.com/reference/mobile-insights-faqs#whats-the-minimum-version-supported-by-each-vwo-sdk)
+* [How to make sure you are running the latest version of the SDK?](https://developers.vwo.com/reference/mobile-insights-faqs#how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
+* [Do I need to modify my firewall when using VWO Mobile Insight?](https://developers.vwo.com/reference/mobile-insights-faqs#do-i-need-to-modify-my-firewall-when-using-vwo-fullstack)
 
 ## What are Mobile Recordings in VWO, and how do they work?
 
@@ -60,24 +60,24 @@ VWO Mobile Insights SDKs are built in such a way that they track users' journeys
 
 We have benchmarked our SDKs and below is the impact analysis for different SDKs:
 
-| Android | Impact Analysis                                                                |
-| :------ | :----------------------------------------------------------------------------- |
-| Android | <https://developers.vwo.com/reference/mobile-insights-android-impact-analysis> |
-| iOS     | <https://developers.vwo.com/reference/mobile-insights-ios-impact-analysis>     |
+| Android | Impact Analysis                                                                                                                                              |
+| :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Android | [https://developers.vwo.com/reference/mobile-insights-android-impact-analysis](https://developers.vwo.com/reference/mobile-insights-android-impact-analysis) |
+| iOS     | [https://developers.vwo.com/reference/mobile-insights-ios-impact-analysis](https://developers.vwo.com/reference/mobile-insights-ios-impact-analysis)         |
 
 ## Why data is not reflected in the campaign report?
 
 Please check the following:
 
-- The campaign must be running on the VWO dashboard
-- The tracking calls are not reaching the VWO server because of some firewall settings at your end.
+* The campaign must be running on the VWO dashboard
+* The tracking calls are not reaching the VWO server because of some firewall settings at your end.
 
 ## Which programming languages are supported by VWO Mobile Insights SDKs?
 
-| SDK                   | Link                                                  |
-| :-------------------- | :---------------------------------------------------- |
-| Android (Java/Kotlin) | <https://mvnrepository.com/artifact/com.vwo/insights> |
-| iOS (Swift)           | <https://cocoapods.org/pods/VWO-Insights>             |
+| SDK                   | Link                                                                                                       |
+| :-------------------- | :--------------------------------------------------------------------------------------------------------- |
+| Android (Java/Kotlin) | [https://mvnrepository.com/artifact/com.vwo/insights](https://mvnrepository.com/artifact/com.vwo/insights) |
+| iOS (Swift)           | [https://cocoapods.org/pods/VWO-Insights](https://cocoapods.org/pods/VWO-Insights)                         |
 
 ## What's the minimum version supported by each VWO SDK?
 
@@ -91,8 +91,8 @@ Please check the following:
 
 Please use the latest version of the SDK by periodically checking for updates and updating the SDK to enjoy new features we keep on shipping time-to-time.
 
-- VWO Insights Android SDK is hosted on **Maven** - <https://mvnrepository.com/artifact/com.vwo/insights>
-- VWO Insights iOS SDK is available on **Cocoapods** - <https://cocoapods.org/pods/VWO-Insights>
+* VWO Insights Android SDK is hosted on **Maven** - [https://mvnrepository.com/artifact/com.vwo/insights](https://mvnrepository.com/artifact/com.vwo/insights)
+* VWO Insights iOS SDK is available on **Cocoapods** - [https://cocoapods.org/pods/VWO-Insights](https://cocoapods.org/pods/VWO-Insights)
 
 ## Do I need to modify my firewall when using VWO Mobile Insights?
 
