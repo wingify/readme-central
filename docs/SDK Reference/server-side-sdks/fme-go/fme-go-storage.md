@@ -16,9 +16,9 @@ The VWO Go SDK uses the Gateway Service for caching and storage. Unlike some oth
 
 The Gateway Service handles caching and storage of:
 
-- Feature flag configurations
-- User-specific variation assignments
-- Metrics data
+* Feature flag configurations
+* User-specific variation assignments
+* Metrics data
 
 This centralized storage approach ensures consistency across your application instances and reduces the load on VWO's servers.
 
