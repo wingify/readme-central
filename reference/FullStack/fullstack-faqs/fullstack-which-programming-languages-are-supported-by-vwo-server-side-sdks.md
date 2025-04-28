@@ -12,27 +12,99 @@ next:
 ---
 We support the following programming languages:
 
-[block:parameters]
-{
-  "data": {
-    "0-0": ".NET",
-    "1-0": "Java",
-    "2-0": "Node.js",
-    "3-0": "PHP",
-    "4-0": "Python",
-    "0-1": "https://github.com/wingify/vwo-dotnet-sdk",
-    "1-1": "https://github.com/wingify/vwo-java-sdk",
-    "2-1": "https://github.com/wingify/vwo-node-sdk",
-    "3-1": "https://github.com/wingify/vwo-php-sdk",
-    "4-1": "https://github.com/wingify/vwo-python-sdk",
-    "5-0": "Ruby",
-    "5-1": "https://github.com/wingify/vwo-ruby-sdk",
-    "6-0": "Go",
-    "6-1": "https://github.com/wingify/vwo-go-sdk",
-    "7-0": "JavaScript (client-side)",
-    "7-1": "https://github.com/wingify/vwo-node-sdk\n(Same as Node.js SDK, shares the common code, build and packaged differently.)"
-  },
-  "cols": 2,
-  "rows": 8
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        .NET
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [https://github.com/wingify/vwo-dotnet-sdk](https://github.com/wingify/vwo-dotnet-sdk)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Java
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [https://github.com/wingify/vwo-java-sdk](https://github.com/wingify/vwo-java-sdk)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Node.js
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [https://github.com/wingify/vwo-node-sdk](https://github.com/wingify/vwo-node-sdk)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        PHP
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [https://github.com/wingify/vwo-php-sdk](https://github.com/wingify/vwo-php-sdk)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Python
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [https://github.com/wingify/vwo-python-sdk](https://github.com/wingify/vwo-python-sdk)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Ruby
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [https://github.com/wingify/vwo-ruby-sdk](https://github.com/wingify/vwo-ruby-sdk)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        Go
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [https://github.com/wingify/vwo-go-sdk](https://github.com/wingify/vwo-go-sdk)
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        JavaScript (client-side)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        [https://github.com/wingify/vwo-node-sdk](https://github.com/wingify/vwo-node-sdk)\
+        (Same as Node.js SDK, shares the common code, build and packaged differently.)
+      </td>
+    </tr>
+  </tbody>
+</Table>
