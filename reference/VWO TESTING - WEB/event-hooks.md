@@ -16,9 +16,9 @@ next:
 
 The `addPreHook` and `addPostHook` APIs allow you to register callback functions that execute before and after a VWO event occurs, respectively. Together, these hooks enable complete control over event lifecycles, allowing developers to modify event payloads before transmission and respond to events after they occur.  
 
-- **Pre-hook (`addPreHook`)**: Executes before an event request is made, offering an opportunity to modify, add, or remove event properties. This is particularly useful for customizing event payloads for accurate reporting.  
+* **Pre-hook (`addPreHook`)**: Executes before an event request is made, offering an opportunity to modify, add, or remove event properties. This is particularly useful for customizing event payloads for accurate reporting.  
 
-- **Post-hook (`addPostHook`)**: Executes after an event occurs, enabling actions like syncing events with third-party platforms, triggering additional workflows, or performing analytics operations. Post-hooks ensure seamless integration with external systems and provide a unified view of visitor interactions.  
+* **Post-hook (`addPostHook`)**: Executes after an event occurs, enabling actions like syncing events with third-party platforms, triggering additional workflows, or performing analytics operations. Post-hooks ensure seamless integration with external systems and provide a unified view of visitor interactions.  
 
 By combining pre- and post-hooks, developers can ensure enriched event tracking while maintaining flexibility for cross-platform integrations.  
 
@@ -71,6 +71,6 @@ window.VWO.push(['addPostHook', function(vwoEventPayload) {
 
 ### Use Cases
 
-- **Custom Data Capture**: Enhance event payloads by dynamically adding properties such as user segments, session attributes, or experiment metadata. This can improve reporting and analytics accuracy by including business-specific data points.  
+* **Custom Data Capture**: Enhance event payloads by dynamically adding properties such as user segments, session attributes, or experiment metadata. This can improve reporting and analytics accuracy by including business-specific data points.  
 
-- **Cross-Platform Integration**: Extend event tracking by forwarding VWO events to external marketing and analytics platforms such as Google Analytics, Segment, or Mixpanel. This ensures a unified view of user behavior across multiple tools.
+* **Cross-Platform Integration**: Extend event tracking by forwarding VWO events to external marketing and analytics platforms such as Google Analytics, Segment, or Mixpanel. This ensures a unified view of user behavior across multiple tools.
