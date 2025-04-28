@@ -12,12 +12,15 @@ metadata:
   robots: noindex
 ---
 Request URI for Sub Account
+
 ```
 GET /accounts/40505/campaigns/7/share
 ```
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
+
 Get share link for a specific campaign
