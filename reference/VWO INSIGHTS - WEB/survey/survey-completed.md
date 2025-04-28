@@ -55,8 +55,8 @@ window.VWO.push(['onSurveyCompleted', function (data) {
 
 ### Use-cases
 
-- **Customer Data Integration**: Use this callback to tag survey responses with customer data and push them to your Customer Data Platform (CDP) or data warehouse for deeper analysis.
-- **Behavior Analysis**: Send survey response data to analytics tools like Google Analytics to study user behavior, including entry points, time spent, and average page visits.
-- **CRM Integration**: For sales teams, send survey insights into your CRM system to enhance their approach based on customer feedback (e.g., identifying competitors being evaluated).
+* **Customer Data Integration**: Use this callback to tag survey responses with customer data and push them to your Customer Data Platform (CDP) or data warehouse for deeper analysis.
+* **Behavior Analysis**: Send survey response data to analytics tools like Google Analytics to study user behavior, including entry points, time spent, and average page visits.
+* **CRM Integration**: For sales teams, send survey insights into your CRM system to enhance their approach based on customer feedback (e.g., identifying competitors being evaluated).
 
-You may also refer to the following article: <https://vwo.com/product-updates/vwo-survey-api/>
+You may also refer to the following article: [https://vwo.com/product-updates/vwo-survey-api/](https://vwo.com/product-updates/vwo-survey-api/)
