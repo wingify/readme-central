@@ -17,47 +17,139 @@ next:
 The FullStack A/B campaign requires linking at least one project to create a campaign, while Feature Rollout and Feature Test campaigns require at least one project and one feature. A feature cannot be used in two similar campaigns. You must create projects and features from the App before designing these campaigns so that they can be used in the campaigns.
 
 **FullStack Campaign resource that differs from Web Campaign**
-[block:parameters]
-{
-  "data": {
-    "1-0": "testKey",
-    "2-0": "projects",
-    "3-0": "feature",
-    "4-0": "variations",
-    "5-0": "goals",
-    "h-0": "Property",
-    "h-3": "Feature Rollout",
-    "h-2": "Feature Test",
-    "h-1": "FullStack A/B",
-    "2-3": "Yes",
-    "4-3": "No",
-    "5-3": "No",
-    "3-1": "No",
-    "1-1": "Yes",
-    "2-1": "Yes",
-    "4-1": "Yes",
-    "5-1": "Yes",
-    "5-2": "Yes",
-    "4-2": "Yes",
-    "3-2": "Yes",
-    "3-3": "Yes",
-    "2-2": "Yes",
-    "1-2": "Yes",
-    "1-3": "Yes",
-    "0-0": "type",
-    "0-1": "server-ab",
-    "0-2": "feature-test",
-    "0-3": "feature-rollout"
-  },
-  "cols": 4,
-  "rows": 6
-}
-[/block]
 
-[block:callout]
-{
-  "type": "info",
-  "title": "Note:",
-  "body": "As stated in the table above, a Feature Rollout does not have Goals and Variations."
-}
-[/block]
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Property
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        FullStack A/B
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Feature Test
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Feature Rollout
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        type
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        server-ab
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        feature-test
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        feature-rollout
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        testKey
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        projects
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        feature
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variations
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        goals
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+> 📘 Note:
+>
+> As stated in the table above, a Feature Rollout does not have Goals and Variations.
