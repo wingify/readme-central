@@ -12,3 +12,4 @@
 - php-set-opt-out
 - php-set-sdk-environment
 - php-configure-the-logger
+- php-implement-a-user-storage-service
