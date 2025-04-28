@@ -2,3 +2,4 @@
 - fme-get-feature-flag-projects-and-environments
 - fme-get-all-feature-flags-rules
 - fme-get-details-of-a-specific-feature-flag-rule
+- fme-create-a-feature-flag-rule
