@@ -13,9 +13,9 @@ metadata:
 next:
   description: ''
 ---
-[block:textarea]
+```json
 {
-  "text": "Request URI for Sub Account\n```\nGET /accounts/account_id/features/feature_id\n```\n\nGet details of a specific feature",
+  "text": "Request URI for Sub Account\n```\nGET /accounts/`{account_id}`/features/`{feature_id}`\n```\n\nGet details of a specific feature",
   "sidebar": true
 }
-[/block]
+```
