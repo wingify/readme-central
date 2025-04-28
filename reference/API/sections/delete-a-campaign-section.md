@@ -25,4 +25,5 @@ next:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+
 Delete a campaign section
