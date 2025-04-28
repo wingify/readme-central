@@ -13,13 +13,12 @@ metadata:
 next:
   description: ''
 ---
-[block:textarea]
+```json
 {
   "text": "Request URI for Sub Account\n```\nPOST /accounts/1/users\n```",
   "sidebar": true
 }
-[/block]
-
+```
 
 ```json
 {
