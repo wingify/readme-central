@@ -20,7 +20,8 @@ metadata:
 
 [block:html]
 {
-  "html": "<div></div>\n\n<style></style>"
+  "html": "<div></div>\n<style></style>"
 }
 [/block]
+
 Delete a campaign goal
