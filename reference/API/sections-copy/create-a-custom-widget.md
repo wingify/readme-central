@@ -30,12 +30,12 @@ next:
 ```
 
 > 📘 Note:
-> 
+>
 > The following fields are mandatory for creation of widget
-> 
-> - `html`
-> - `name`
-> - `type` with a fixed value of 'custom'
-> - `isGlobal`: true/false (boolean) is used to make the widget global, any modification done in the global widget, will reflect in all the running campaigns using the widget reference
-> 
-> _Global widget has size limit of 500Kb_
+>
+> * `html`
+> * `name`
+> * `type` with a fixed value of 'custom'
+> * `isGlobal`: true/false (boolean) is used to make the widget global, any modification done in the global widget, will reflect in all the running campaigns using the widget reference
+>
+> *Global widget has size limit of 500Kb*
