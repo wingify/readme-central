@@ -30,48 +30,110 @@ final vwoOptions = VWOInitOptions(
 VWO? vwoClient = await VWO.init(initOptions);
 ```
 
-The `init()` method is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
+The `init()` method is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature\
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "**accountId**  \n_Required_",
-    "0-1": "Number",
-    "0-2": "Your VWO application's Account ID.",
-    "1-0": "**sdkKey**  \n_Required_",
-    "1-1": "String",
-    "1-2": "A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.",
-    "2-0": "**pollInterval**  \n_Optional_",
-    "2-1": "Number",
-    "2-2": "Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) ",
-    "3-0": "**logger**  \n_Optional_",
-    "3-1": "Object",
-    "3-2": "An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-flutter-logging)",
-    "4-0": "**integrations**  \n_Optional_",
-    "4-1": "Object",
-    "4-2": "A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-flutter-integrations)"
-  },
-  "cols": 3,
-  "rows": 5,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **accountId**
+        *Required*
+      </td>
+
+      <td>
+        Number
+      </td>
+
+      <td>
+        Your VWO application's Account ID.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **sdkKey**\
+        *Required*
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **pollInterval**\
+        *Optional*
+      </td>
+
+      <td>
+        Number
+      </td>
+
+      <td>
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **logger**\
+        *Optional*
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-flutter-logging)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **integrations**\
+        *Optional*
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-flutter-integrations)
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the _vwoClient_ on your mobile, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized on your mobile, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the *vwoClient* on your mobile, it pulls the latest configurations you've done in the VWO application.\
+If/when you make any changes to the feature flags or rules within VWO after the *vwoClient* has been initialized on your mobile, there needs to be some way to update your *vwoClient* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
