@@ -11,3 +11,4 @@
 - go-push
 - go-set-sdk-environment
 - go-configure-the-logger
+- go-implement-a-user-storage-service
