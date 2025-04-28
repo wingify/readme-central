@@ -6,3 +6,4 @@
 - dotnet-activate
 - dotnet-get-variation-name
 - dotnet-is-feature-enabled
+- dotnet-get-feature-variable-value
