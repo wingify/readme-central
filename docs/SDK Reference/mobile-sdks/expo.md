@@ -24,9 +24,9 @@ Running `expo prebuild` generates these folders so the native SDKs can be proper
 
 Run command `npx expo prebuild` in your project root:
 
-- This command creates the ios and android folders inside your project.
-- These folders contain the native code for iOS and Android platforms.
-- You only need to run this once or whenever you add or update native code.
+* This command creates the ios and android folders inside your project.
+* These folders contain the native code for iOS and Android platforms.
+* You only need to run this once or whenever you add or update native code.
 
 <br />
 
@@ -49,9 +49,9 @@ Navigate to the generated `ios` folder and install CocoaPods dependencies:
 
 `cd ios && pod install`
 
-- CocoaPods manages native iOS libraries.
-- Running pod install ensures the SDK’s native code is properly linked.
-- You need to have CocoaPods installed on your machine. If not, install it by running `sudo gem install cocoapods`or `brew install cocoapods`
+* CocoaPods manages native iOS libraries.
+* Running pod install ensures the SDK’s native code is properly linked.
+* You need to have CocoaPods installed on your machine. If not, install it by running `sudo gem install cocoapods`or `brew install cocoapods`
 
 <br />
 
@@ -65,8 +65,8 @@ No additional steps are required for Android. The native code is linked automati
 
 The VWO FME React Native SDK **does not support** the new React Native architecture.
 
-- If you use a newer Expo SDK version with the new architecture enabled, disable the new architecture.
-- Alternatively, use an Expo SDK version that supports the old architecture.
+* If you use a newer Expo SDK version with the new architecture enabled, disable the new architecture.
+* Alternatively, use an Expo SDK version that supports the old architecture.
 
 ***
 
@@ -85,7 +85,7 @@ The VWO FME React Native SDK **does not support** the new React Native architect
 <br />
 
 > 👍 This will complete the integration process.
-> 
+>
 > For detailed usage instructions and example, please refer to below links:
 
 > 📘 [React Native SDK documentation](https://developers.vwo.com/v2/docs/fme-react-native-initialization)
