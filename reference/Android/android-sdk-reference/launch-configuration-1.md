@@ -11,38 +11,38 @@ next:
   description: ''
 ---
 You can setup VWO Config while initializing your VWO SDK. This is helpful if you want to do the following:
-  *  [Targeting Visitor Groups](ref:android-targeting-visitor-groups).
-  *  [Opt Out](ref:android-opt-out)
-  *  [Disable Preview Mode](ref:android-preview-mode)
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "Map<String, String> userSegmentationMapping = new HashMap<>();\nuserSegmentationMapping.put(\"user_type\", \"paid\");\n\nVWOConfig vwoConfig = new VWOConfig\n  .Builder()\n  .setCustomVariables(userSegmentationMapping)\n  .disablePreview()\n  .setOptOut(true)\n  .build();",
-      "language": "java"
-    },
-    {
-      "code": "val userSegmentationMapping = mutableMapOf<String, String>()\nuserSegmentationMapping[\"key\"] = \"value\"\n  \nval vwoConfig = VWOConfig.Builder()\n  .setCustomVariables(userSegmentationMapping)\n  .disablePreview()                               // To disable preview mode\n  .setOptOut(true)                                // To opt out of VWO SDK\n  .build()",
-      "language": "kotlin",
-      "name": "Kotlin"
-    }
-  ]
-}
-[/block]
+* [Targeting Visitor Groups](ref:android-targeting-visitor-groups).
+* [Opt Out](ref:android-opt-out)
+* [Disable Preview Mode](ref:android-preview-mode)
+
+```java
+Map<String, String> userSegmentationMapping = new HashMap<>();
+userSegmentationMapping.put("user_type", "paid");
+
+VWOConfig vwoConfig = new VWOConfig
+  .Builder()
+  .setCustomVariables(userSegmentationMapping)
+  .disablePreview()
+  .setOptOut(true)
+  .build();
+```
+```kotlin Kotlin
+val userSegmentationMapping = mutableMapOf<String, String>()
+userSegmentationMapping["key"] = "value"
+  
+val vwoConfig = VWOConfig.Builder()
+  .setCustomVariables(userSegmentationMapping)
+  .disablePreview()                               // To disable preview mode
+  .setOptOut(true)                                // To opt out of VWO SDK
+  .build()
+```
+
 This configuration can set during SDK initialization as follows:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "VWO.with(this, VWO_API_KEY).config(vwoConfig).launch(null);",
-      "language": "java"
-    },
-    {
-      "code": "VWO.with(this, VWO_API_KEY).config(vwoConfig).launch(null)",
-      "language": "kotlin",
-      "name": "Kotlin"
-    }
-  ]
-}
-[/block]
+
+```java
+VWO.with(this, VWO_API_KEY).config(vwoConfig).launch(null);
+```
+```kotlin Kotlin
+VWO.with(this, VWO_API_KEY).config(vwoConfig).launch(null)
+```
