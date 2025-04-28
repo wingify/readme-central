@@ -12,25 +12,23 @@ metadata:
   robots: noindex
 ---
 Request URI for Sub Account
+
 ```
 POST /accounts/1/campaigns/72/labels
 ```
 
 Request Format
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n    \"labels\": [\n      {\n        \"name\" : \"New shiny label\"\n      }\n    ]\n}",
-      "language": "json"
-    }
-  ]
+    "labels": [
+      {
+        "name" : "New shiny label"
+      }
+    ]
 }
-[/block]
+```
+
 Add labels to a campaign
-[block:callout]
-{
-  "type": "info",
-  "title": "Note: Mention id for associating existing account labels to campaign and name for creating a new label"
-}
-[/block]
+
+> 📘 Note: Mention id for associating existing account labels to campaign and name for creating a new label
