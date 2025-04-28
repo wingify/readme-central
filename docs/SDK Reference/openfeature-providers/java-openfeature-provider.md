@@ -18,9 +18,9 @@ This VWO Openfeature Provider for Java helps you integrate feature management an
 
 | Resource              | Link                                                              |
 | :-------------------- | :---------------------------------------------------------------- |
-| GitHub repository     | <https://github.com/wingify/vwo-openfeature-provider-java>        |
+| GitHub repository     | &lt;https://github.com/wingify/vwo-openfeature-provider-java&gt;        |
 | Published on          |                                                                   |
-| Openfeature Java docs | <https://openfeature.dev/docs/reference/technologies/server/java> |
+| Openfeature Java docs | &lt;https://openfeature.dev/docs/reference/technologies/server/java&gt; |
 
 > 🚧 Please Note
 > 
