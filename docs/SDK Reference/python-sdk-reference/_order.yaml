@@ -14,3 +14,4 @@
 - python-set-sdk-environment
 - python-configure-the-logger
 - python-implement-a-user-storage-service
+- python-configure-event-batching
