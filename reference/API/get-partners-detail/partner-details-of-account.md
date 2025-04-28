@@ -23,4 +23,5 @@ metadata:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+
 Get partner details associated with an account.
