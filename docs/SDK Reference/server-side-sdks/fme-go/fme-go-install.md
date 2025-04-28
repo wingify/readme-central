@@ -18,7 +18,7 @@ To integrate the VWO Feature Management and Experimentation SDK into your Go pro
 
 ## Requirements
 
-- Go version 1.16 or higher
+* Go version 1.16 or higher
 
 ## Installation
 
@@ -28,7 +28,7 @@ Run the following command in your project directory:
 go get github.com/wingify/vwo-fme-go-sdk
 ```
 
-This command will download and install the VWO FME SDK and its dependencies in your project.  
+This command will download and install the VWO FME SDK and its dependencies in your project.\
 Import the SDK
 
 After installation, you can import the SDK in your Go files:
