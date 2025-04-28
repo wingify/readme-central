@@ -6,3 +6,4 @@
 - fme-update-a-feature-flag-rule
 - fme-toggle-feature-flag-rule-status
 - fme-toggle-feature-flag-status-for-an-environment
+- fme-delete-a-feature-flag-rule
