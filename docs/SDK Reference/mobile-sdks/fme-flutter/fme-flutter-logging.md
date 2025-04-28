@@ -36,4 +36,4 @@ final vwoOptions = VWOInitOptions(
 VWO? vwoClient = await VWO.init(initOptions);
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing _vwoClient_.](https://developers.vwo.com/v2/docs/fme-initialization)
+This "logger" object can be passed as one of the parameters when [initializing *vwoClient*.](https://developers.vwo.com/v2/docs/fme-initialization)
