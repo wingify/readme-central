@@ -20,19 +20,19 @@ Some campaigns may have variations that would be absurd if presented together. F
 
 Using the Mutually Exclusive Groups option in VWO, you can group multiple campaigns together that are mutually exclusive. By ensuring that your users are not exposed to multiple campaigns running on the same page, you can keep the reports clean, attribute the change in conversion rate to the correct campaign, remove bias, and avoid overlapping users across campaigns. 
 
-> 🚧 
-> 
+> 🚧
+>
 > A campaign can only become a part of one exclusive group.
 
 Many VWO users set up multiple campaigns on the same page and want them to run simultaneously. In such situations, a user on the page can become a part of multiple campaigns running on the same URL, and the user data is collected from all the campaign reports.
 
-**For example**, let's say you want to run a campaign by changing the color and position of your primary CTA button on the homepage to make it more prominent on the page. Simultaneously, you also want to run another campaign on the same page by changing the headline of the page to campaign if an idea is communicated effectively to the users.  
+**For example**, let's say you want to run a campaign by changing the color and position of your primary CTA button on the homepage to make it more prominent on the page. Simultaneously, you also want to run another campaign on the same page by changing the headline of the page to campaign if an idea is communicated effectively to the users.\
 In such a scenario, if you run both campaigns at the same time to track the increase in engagement on the page, you cannot be sure which change delivered positive or negative results. In other words, you can not say accurately which set of changes had the maximum impact. Creating mutually exclusive groups allows you to run these campaigns without overlapping users' data between the campaigns.
 
 For unrelated campaigns, it does not matter if your users become a part of more than one campaign. However, if the campaigns are related, you may want to keep the users exclusive to each campaign when you are:
 
-- Running multiple campaigns on the same page
-- Running multiple campaigns on the same funnel where there is a possibility of user overlap (like checkout or form pages)
+* Running multiple campaigns on the same page
+* Running multiple campaigns on the same funnel where there is a possibility of user overlap (like checkout or form pages)
 
 ## Create a Mutually Exclusive Group
 
@@ -44,9 +44,9 @@ To learn about configuring the mutually exclusive campaign groups in VWO, refer 
 
 ## Demo
 
-You can play around with different options and observe how the decision is evaluated.  
+You can play around with different options and observe how the decision is evaluated.\
 Please visit [here](https://repl-nodejs-demo.wingify.repl.co/meg).
 
 > 🚧 Note
-> 
+>
 > This feature is only available for Java, Node.js, PHP, Python, and .NET SDKs as of now. We will soon be releasing this functionality in other SDKs.
