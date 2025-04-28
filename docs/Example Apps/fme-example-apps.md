@@ -14,55 +14,55 @@ This section serves as a comprehensive guide for developers looking to implement
 
 ## Purpose
 
-- Demonstrate VWO FME integration patterns across multiple programming languages
-- Showcase both server-side and client-side implementation approaches
-- Provide practical, real-world examples using a consistent demo application
-- Help developers understand FME capabilities and best practices
+* Demonstrate VWO FME integration patterns across multiple programming languages
+* Showcase both server-side and client-side implementation approaches
+* Provide practical, real-world examples using a consistent demo application
+* Help developers understand FME capabilities and best practices
 
 ## Core Features Demonstrated
 
-- 🎯 User ID-based feature flag evaluation
-- 🚦 Feature flag status checking
-- 🔄 Real-time settings visualization
-- 📊 SDK log monitoring
-- 🌐 Interactive web interface
-- 📈 Event tracking capabilities
-- 🎨 User attributes management
+* 🎯 User ID-based feature flag evaluation
+* 🚦 Feature flag status checking
+* 🔄 Real-time settings visualization
+* 📊 SDK log monitoring
+* 🌐 Interactive web interface
+* 📈 Event tracking capabilities
+* 🎨 User attributes management
 
 ## Available Implementations
 
 Select your preferred technology stack to explore the implementation:
 
-- Server-side
-  - [.NET](https://github.com/wingify/vwo-fme-examples/tree/master/dotnet)
-  - [Java](https://github.com/wingify/vwo-fme-examples/tree/master/java)
-  - [Node.js](https://github.com/wingify/vwo-fme-examples/tree/master/node)
-  - [PHP](https://github.com/wingify/vwo-fme-examples/tree/master/php)
-  - [Python](https://github.com/wingify/vwo-fme-examples/tree/master/python)
-  - [Ruby](https://github.com/wingify/vwo-fme-examples/tree/master/ruby)
+* Server-side
+  * [.NET](https://github.com/wingify/vwo-fme-examples/tree/master/dotnet)
+  * [Java](https://github.com/wingify/vwo-fme-examples/tree/master/java)
+  * [Node.js](https://github.com/wingify/vwo-fme-examples/tree/master/node)
+  * [PHP](https://github.com/wingify/vwo-fme-examples/tree/master/php)
+  * [Python](https://github.com/wingify/vwo-fme-examples/tree/master/python)
+  * [Ruby](https://github.com/wingify/vwo-fme-examples/tree/master/ruby)
 
-- Client-side
-  - [Android](https://github.com/wingify/vwo-fme-examples/tree/master/android)
-  - [iOS](https://github.com/wingify/vwo-fme-examples/tree/master/ios)
-  - [Flutter](https://github.com/wingify/vwo-fme-examples/tree/master/flutter)
-  - [React-Native](https://github.com/wingify/vwo-fme-examples/tree/master/react-native)
-  - [React-Web](https://github.com/wingify/vwo-fme-examples/tree/master/react-web)
+* Client-side
+  * [Android](https://github.com/wingify/vwo-fme-examples/tree/master/android)
+  * [iOS](https://github.com/wingify/vwo-fme-examples/tree/master/ios)
+  * [Flutter](https://github.com/wingify/vwo-fme-examples/tree/master/flutter)
+  * [React-Native](https://github.com/wingify/vwo-fme-examples/tree/master/react-native)
+  * [React-Web](https://github.com/wingify/vwo-fme-examples/tree/master/react-web)
 
 ## Why A Specific Example?
 
 We've chosen a simple yet practical application to demonstrate FME capabilities consistently across all implementations. This approach allows developers to:
 
-- Understand core concepts regardless of programming language
-- Compare implementations across different technologies
-- Quickly adapt the examples to their specific use cases
-- Learn best practices for FME integration
+* Understand core concepts regardless of programming language
+* Compare implementations across different technologies
+* Quickly adapt the examples to their specific use cases
+* Learn best practices for FME integration
 
 ## Key Benefits
 
-- **Consistent Example**: Same application logic across all implementations
-- **Clear Integration Patterns**: Well-documented integration approaches
-- **Best Practices**: Production-ready code following language-specific standards
-- **Complete Features**: Full demonstration of VWO FME capabilities
+* **Consistent Example**: Same application logic across all implementations
+* **Clear Integration Patterns**: Well-documented integration approaches
+* **Best Practices**: Production-ready code following language-specific standards
+* **Complete Features**: Full demonstration of VWO FME capabilities
 
 ## Getting Started
 
