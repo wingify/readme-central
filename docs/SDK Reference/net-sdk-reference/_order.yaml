@@ -8,3 +8,4 @@
 - dotnet-is-feature-enabled
 - dotnet-get-feature-variable-value
 - dotnet-track
+- dotnet-push
