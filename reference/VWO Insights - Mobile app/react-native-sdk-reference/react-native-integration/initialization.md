@@ -14,7 +14,7 @@ After installing the SDK, initialize it in App.tsx file
 
 <br />
 
-Copy the code below and replace the "ACCOUNT_ID" and "SDK_KEY" with the appropriate values from the dashboard.
+Copy the code below and replace the "ACCOUNT\_ID" and "SDK\_KEY" with the appropriate values from the dashboard.
 
 ```javascript
 import {config} from 'vwo-insights-react-native-sdk';
