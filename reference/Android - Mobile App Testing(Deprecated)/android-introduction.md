@@ -12,22 +12,7 @@ next:
 ---
 To create and run A/B tests, sign in to the VWO dashboard and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the VWO A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/1ac220a-Screen_Shot_2017-12-15_at_3.15.46_PM.png",
-        "Screen Shot 2017-12-15 at 3.15.46 PM.png",
-        348
-      ],
-      "align": "center",
-      "border": true
-    }
-  ]
-}
-[/block]
-
+<Image align="center" className="border" border={true} src="https://files.readme.io/1ac220a-Screen_Shot_2017-12-15_at_3.15.46_PM.png" />
 
 To create A/B tests for mobile apps:
 
@@ -43,7 +28,7 @@ To add a new app for A/B testing, go to the **Apps** section on the page.
 
 ![](https://files.readme.io/7c4d57f-MobileAppAB-1.png "MobileAppAB-1.png")
 
-On the right side of the screen, click **Create App**.  
+On the right side of the screen, click **Create App**.\
 Type the name of the app you want to add, and then click **Create**.
 
 ![](https://files.readme.io/be06a8c-MobileAppAB-1.jpg "MobileAppAB-1.jpg")
@@ -72,7 +57,7 @@ dependencies {
 ```
 
 > 📘 NOTE
-> 
+>
 > Please refer [this](https://github.com/wingify/vwo-android/releases) for the latest VWO Android SDK version.
 
 Add following permissions to your `AndroidManifest.xml` file
@@ -143,7 +128,7 @@ Test variables are elements or parameters of your mobile app. After you define a
 
 Under the **Apps** tab, select the mobile app for which you want to create test variables.
 
-To add an element for testing, under Variables section, click **Create **Variable.
+To add an element for testing, under Variables section, click **Create** Variable.
 
 Assign a name to the variable, and then select its data type. 
 
@@ -166,13 +151,13 @@ val speed = VWO.getIntegerForKey("speed", 5)
 
 ## Creating A/B Tests for Mobile Apps
 
-On the **Mobile App A/B** testing screen, go to the **Campaigns **tab, and then click **Create**. 
+On the **Mobile App A/B** testing screen, go to the **Campaigns** tab, and then click **Create**. 
 
 Choose the App you want to test. All mobile apps you have added to VWO are listed here.
 
 Select a platform where the app is running.
 
-Enter a unique identifier in the **Define a campaign key **field to filter your tests easily. The campaign key helps you execute custom logic, as explained in this [Code Blocks](ref:code-blocks) section.
+Enter a unique identifier in the **Define a campaign key** field to filter your tests easily. The campaign key helps you execute custom logic, as explained in this [Code Blocks](ref:code-blocks) section.
 
 ![](https://files.readme.io/0e3b074-mobile-app-6.jpg "mobile-app-6.jpg")
 
@@ -226,8 +211,8 @@ VWO.trackConversion("conversionGoal")
 
 ## Finalize
 
-In the **Finalize** step, we can set the percentage of users that we want to include in the campaign.  
-Under the **Advanced** option, we can also target the campaign for specific user types, enable scheduling, or change traffic allocation for each variation.  
+In the **Finalize** step, we can set the percentage of users that we want to include in the campaign.\
+Under the **Advanced** option, we can also target the campaign for specific user types, enable scheduling, or change traffic allocation for each variation.\
 For quick setup, we can leave the settings in Advanced as default.
 
 To run the campaign, click **Finish > Start Now**.
@@ -238,10 +223,10 @@ From the Mobile App A/B menu option, select your campaign and click on **DETAILE
 
 ## Source Code
 
-VWO Android SDK code is available on GitHub:  
-<https://github.com/wingify/vwo-android>
+VWO Android SDK code is available on GitHub:\
+[https://github.com/wingify/vwo-android](https://github.com/wingify/vwo-android)
 
 ## Next Steps
 
-As a next step, take a look at [SDK Reference](ref:android-sdk-reference)  to look at more advanced options of using the SDK.  
+As a next step, take a look at [SDK Reference](ref:android-sdk-reference)  to look at more advanced options of using the SDK.\
 We would look forward to hear from you about any question or feedback at [support@vwo.com](mailto:support@vwo.com).
