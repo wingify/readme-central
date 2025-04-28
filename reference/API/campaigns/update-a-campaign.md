@@ -20,13 +20,11 @@ next:
 }
 [/block]
 
-
 [block:html]
 {
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
-
 
 Request Format
 
