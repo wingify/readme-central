@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-After installing the SDK, initialize the app inside your _Appdelegate_ file following the below-mentioned steps-
+After installing the SDK, initialize the app inside your *Appdelegate* file following the below-mentioned steps-
 
 `Import VWO_Insights`
 
 After, add the following Initialization code inside the function -> 
 
-_func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)\_ 
+*func application(* application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)\_ 
 
 ```swift
 VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the VWO account
@@ -32,27 +32,54 @@ VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where account
 
 ## Parameters
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Key",
-    "h-1": "Description",
-    "0-0": "**ACCOUNT_ID**  \n_Required_",
-    "0-1": "VWO Account ID",
-    "1-0": "**SDK_KEY**  \n_Required_",
-    "1-1": "SDK Key",
-    "2-0": "**USER_ID**  \n_Optional_",
-    "2-1": "Unique identifier for the user"
-  },
-  "cols": 2,
-  "rows": 3,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Key
+      </th>
 
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **ACCOUNT\_ID**
+        *Required*
+      </td>
+
+      <td>
+        VWO Account ID
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **SDK\_KEY**\
+        *Required*
+      </td>
+
+      <td>
+        SDK Key
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **USER\_ID**\
+        *Optional*
+      </td>
+
+      <td>
+        Unique identifier for the user
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 An example implementation is for Swift
 
