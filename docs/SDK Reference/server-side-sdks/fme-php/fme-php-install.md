@@ -21,7 +21,7 @@ To integrate VWO FME SDK into your Php application, you must first install the S
 ## Requirements
 
 > 📘 Php Version
-> 
+>
 > PHP version >= 7.4
 
 ## Installation via Composer
@@ -34,8 +34,8 @@ composer install vwo/vwo-fme-php-sdk
 
 ## Source Code
 
-| Language | Repository                                   |
-| :------- | :------------------------------------------- |
-| PHP      | <https://github.com/wingify/vwo-fme-php-sdk> |
+| Language | Repository                                                                               |
+| :------- | :--------------------------------------------------------------------------------------- |
+| PHP      | [https://github.com/wingify/vwo-fme-php-sdk](https://github.com/wingify/vwo-fme-php-sdk) |
 
 The FME SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.
