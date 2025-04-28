@@ -26,10 +26,10 @@ Request Format
   "urls": [
     {
       "type": "url",
-      "value": "http:\/\/wingify.com"
+      "value": "http://wingify.com"
     }
   ],
-  "primaryUrl": "http:\/\/wingify.com",
+  "primaryUrl": "http://wingify.com",
   "globalSegment": {
     "segmentationType": "pre",
     "platform": "website",
@@ -64,7 +64,7 @@ Request Format
             "el": 0,
             "op": {
               "opName": "html",
-              "html": "The company  pioneered easy A\/B testing"
+              "html": "The company pioneered easy A/B testing"
             },
             "depending": false,
             "XPath": "BODY > NOSCRIPT:first-child + SCRIPT + HEADER#top_header + SECTION > DIV:first-child > DIV:first-child > H2:first-child",
@@ -74,7 +74,7 @@ Request Format
       },
       "deployContent": [
         {
-          "jsString": "var ctx=vwo_$(x);ctx.html(\"The company  pioneered easy A\/B testing\");",
+          "jsString": "var ctx=vwo_$(x);ctx.html(\"The company pioneered easy A/B testing\");",
           "cssSelector": "HEADER#top_header + SECTION > DIV:first-child > DIV:first-child > H2:first-child"
         }
       ],
@@ -96,7 +96,7 @@ Request Format
       "urls": [
         {
           "type": "url",
-          "value": "http:\/\/wingify.com"
+          "value": "http://wingify.com"
         }
       ],
       "cssSelectors": []
@@ -135,10 +135,9 @@ Update draft for a Workspace
 
 ## 
 
-
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nPATCH /accounts/1/drafts/14597\n```",
-  "sidebar": true
-}
-[/block]
+<div>
+  Request URI for Sub Account
+  <pre>
+PATCH /accounts/1/drafts/14597
+  </pre>
+</div>
