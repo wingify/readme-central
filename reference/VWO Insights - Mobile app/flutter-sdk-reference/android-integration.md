@@ -16,13 +16,13 @@ After installing the SDK, initialize it within the onCreate() function of the Fl
 
 <br />
 
-If your project doesn't already include a FlutterApplication class, create a file named MyApp.java inside the folder <projectRoot>/android/app/src/main/java/<your package>/. 
+If your project doesn't already include a FlutterApplication class, create a file named MyApp.java inside the folder &lt;projectRoot&gt;/android/app/src/main/java/&lt;your package&gt;/. 
 
-If you selected Kotlin when creating the project, the folder path will be <projectRoot>/android/app/src/main/kotlin/<your package>/. 
+If you selected Kotlin when creating the project, the folder path will be &lt;projectRoot&gt;/android/app/src/main/kotlin/&lt;your package&gt;/. 
 
 <br />
 
-Then, copy the code below and replace the "ACCOUNT_ID" and "SDK_KEY" with the appropriate values from the dashboard.
+Then, copy the code below and replace the "ACCOUNT\_ID" and "SDK\_KEY" with the appropriate values from the dashboard.
 
 <br />
 
