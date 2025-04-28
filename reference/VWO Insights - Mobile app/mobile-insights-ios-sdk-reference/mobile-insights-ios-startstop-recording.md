@@ -12,30 +12,14 @@ next:
 ---
 After initializing the SDK successfully, a developer can start/stop the session recording feature from the application class or any activity using the below methods. 
 
-
-
 **To start the session recording** 
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "VWO.startSessionRecording()",
-      "language": "swift"
-    }
-  ]
-}
-[/block]
+```swift
+VWO.startSessionRecording()
+```
+
 **To stop the session recording** 
 
-
-[block:code]
-{
-  "codes": [
-    {
-      "code": "VWO.stopSessionRecording()",
-      "language": "swift"
-    }
-  ]
-}
-[/block]
+```swift
+VWO.stopSessionRecording()
+```
