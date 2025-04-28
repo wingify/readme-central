@@ -14,3 +14,4 @@
 - dotnet-configure-the-logger
 - dotnet-implement-a-user-storage-service
 - dotnet-configure-event-batching
+- dotnet-configure-webhooks
