@@ -13,9 +13,11 @@ metadata:
 next:
   description: ''
 ---
+```json
 [block:textarea]
 {
-  "text": "Request URI for Sub Account\n```\nGET /accounts/account_id/projects\n```\n\nGet the projects of an account",
+  "text": "Request URI for Sub Account\n```\nGET /accounts/`{account_id}`/projects\n```\n\nGet the projects of an account",
   "sidebar": true
 }
 [/block]
+```
