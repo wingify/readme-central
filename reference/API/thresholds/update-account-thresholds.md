@@ -20,7 +20,6 @@ next:
 }
 [/block]
 
-
 ```json
 {
   "winningPercent": 95,
