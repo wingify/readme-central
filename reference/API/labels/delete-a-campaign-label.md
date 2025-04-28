@@ -12,13 +12,15 @@ metadata:
   robots: noindex
 ---
 Request URL for Sub Account
+
 ```
 DELETE accounts/1/campaigns/72/labels/1
 ```
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 
 Delete a campaign label
