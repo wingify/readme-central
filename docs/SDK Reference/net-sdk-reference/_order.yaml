@@ -12,3 +12,4 @@
 - dotnet-get-and-update-settings-file
 - dotnet-set-sdk-environment
 - dotnet-configure-the-logger
+- dotnet-implement-a-user-storage-service
