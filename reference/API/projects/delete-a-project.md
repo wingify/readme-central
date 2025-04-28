@@ -14,6 +14,7 @@ next:
   description: ''
 ---
 Request URI for Sub Account
+
 ```
 DELETE /accounts/account_id/projects/project_id
 ```
