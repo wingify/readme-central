@@ -12,16 +12,8 @@ next:
 ---
 A developer can set the same/multiple tags to multiple views for dynamic view hiding functionality as below:
 
-
-[block:code]
-{
-  "codes": [
-    {
-      "code": "yourView.tag = \"YOUR TAG VALUE\";",
-      "language": "swift"
-    }
-  ]
-}
-[/block]
+```swift
+yourView.tag = "YOUR TAG VALUE";
+```
 
 Alternatively you can set tags in StoryBoard as well.
