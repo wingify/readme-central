@@ -22,7 +22,7 @@ import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
 VwoFlutter.startRecording();
 ```
 
-> _**startRecording()**_ is not required in Flutter web. 
+> ***startRecording()*** is not required in Flutter web. 
 
 <br />
 
@@ -34,4 +34,4 @@ import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
 VwoFlutter.stopRecording();
 ```
 
-> **_stopRecording()_** is not required in Flutter web.
+> ***stopRecording()*** is not required in Flutter web.
