@@ -22,14 +22,14 @@ next:
 
 **❌ No new features, enhancements, or non-critical updates will be added.**
 
-### Switch to _VWO Feature Management & Experimentation(FME)_ – The Better Alternative! 🚀
+### Switch to *VWO Feature Management & Experimentation(FME)* – The Better Alternative! 🚀
 
 VWO’s FME product empowers teams to seamlessly test, release, optimize, and roll back features across their entire tech stack while minimizing risk and maximizing business impact.
 
-- Check out FME developer documentation [here](https://developers.vwo.com/v2/docs/fme-overview).
-- Check [this](https://developers.vwo.com/v2/docs/sdks-release-info) for the list of all FME-supported SDKs.
+* Check out FME developer documentation [here](https://developers.vwo.com/v2/docs/fme-overview).
+* Check [this](https://developers.vwo.com/v2/docs/sdks-release-info) for the list of all FME-supported SDKs.
 
-**💡 Need Help?**  
+**💡 Need Help?**\
 For migration assistance or any questions, contact us at [support@vwo.com](support@vwo.com)
 
 ***
@@ -40,10 +40,10 @@ With VWO FullStack, you can perform the testing wherein the variations of a part
 
 **Typical use cases of VWO FullStack are:**
 
-- A/B Test deep within your stack 
-- You can test multiple variations of the feature with a different set of variables 
-- Manage Features' Lifecycle With Feature Flag Management
-- Deliver Features Confidently with Staged Feature Rollouts
+* A/B Test deep within your stack 
+* You can test multiple variations of the feature with a different set of variables 
+* Manage Features' Lifecycle With Feature Flag Management
+* Deliver Features Confidently with Staged Feature Rollouts
 
 VWO FullStack enables you to test much deeper. Rather than being limited to testing images or buttons on your website, you can test algorithms, architectures, and re-brands. But for complex applications, client-side testing may not be the best option: Layering more JavaScript on top of an already bulky application means an even slower load time and an even more cumbersome user experience.
 
