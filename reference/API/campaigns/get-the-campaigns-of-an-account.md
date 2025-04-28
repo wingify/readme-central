@@ -23,7 +23,9 @@ metadata:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+
 Get the campaigns of an account
+
 [block:callout]
 {
   "type": "info",
