@@ -35,7 +35,7 @@ dependencies {
 }
 ```
 
-**2.** Update your project AndroidManifest.xml file to add the INTERNET and ACCESS_NETWORK_STATE permissions.
+**2.** Update your project AndroidManifest.xml file to add the INTERNET and ACCESS\_NETWORK\_STATE permissions.
 
 ```xml AndroidManifest.xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -69,7 +69,7 @@ public <init>(android.os.Parcel);
 
 ## Source Code
 
-The VWO Android SDK code is available on GitHub:  
-<https://github.com/wingify/vwo-android>
+The VWO Android SDK code is available on GitHub:\
+[https://github.com/wingify/vwo-android](https://github.com/wingify/vwo-android)
 
 ##
