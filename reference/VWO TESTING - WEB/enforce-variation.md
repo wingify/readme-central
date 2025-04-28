@@ -39,11 +39,11 @@ window.VWO.push(['setVariation', [{e: '8', v: '2'}]]);
 
 ### Use-cases
 
-- **Controlled Testing**: Force a specific variation to test or debug campaigns.
-- **A/B Test Consistency**: Enforce same variation for the same visitor across all devices like for the same logged in user.
+* **Controlled Testing**: Force a specific variation to test or debug campaigns.
+* **A/B Test Consistency**: Enforce same variation for the same visitor across all devices like for the same logged in user.
 
 ### Note
 
-- Ensure that this is implemented before SmartCode
-- This will only function in live mode and will not function in preview mode.
-- This will not track visitors or conversions for disabled campaigns.
+* Ensure that this is implemented before SmartCode
+* This will only function in live mode and will not function in preview mode.
+* This will not track visitors or conversions for disabled campaigns.
