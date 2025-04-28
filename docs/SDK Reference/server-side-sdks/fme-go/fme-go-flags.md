@@ -41,39 +41,65 @@ if flag.IsEnabled() {
 
 <br />
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "**feature_key**  \n_Required_",
-    "0-1": "string",
-    "0-2": "unique identifier for the particular feature flag that you're implementing. You will see this while creating a feature flag, and you can also find it under 'Settings' for the Feature Flag after creating it.",
-    "1-0": "**userContext**  \n_Required_",
-    "1-1": "map[string]interface{}",
-    "1-2": "Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-node-context)."
-  },
-  "cols": 3,
-  "rows": 2,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **feature\_key**
+        *Required*
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        unique identifier for the particular feature flag that you're implementing. You will see this while creating a feature flag, and you can also find it under 'Settings' for the Feature Flag after creating it.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **userContext**\
+        *Required*
+      </td>
+
+      <td>
+        map[string]interface\{}
+      </td>
+
+      <td>
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-node-context).
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 <br />
 
 ### Return Value
 
-The _GetFlag()_ function returns a _GetFlagResponse_ object, which has the following methods:
+The *GetFlag()* function returns a *GetFlagResponse* object, which has the following methods:
 
-- IsEnabled(): Returns a boolean indicating if the feature is enabled for the user.
-- GetVariables(): Returns a list of variables associated with the feature.
-- GetVariable(key string, defaultValue interface{}): Returns the value of a specific variable.
+* IsEnabled(): Returns a boolean indicating if the feature is enabled for the user.
+* GetVariables(): Returns a list of variables associated with the feature.
+* GetVariable(key string, defaultValue interface\{}): Returns the value of a specific variable.
 
 ### Example Usage
 
