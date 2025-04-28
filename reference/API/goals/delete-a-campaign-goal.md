@@ -13,6 +13,7 @@ metadata:
 next:
   description: ''
 ---
+```json
 [block:textarea]
 {
   "text": "Request URI for Sub Account\n```\nDELETE /accounts/40505/campaigns/7/goals/2\n```",
@@ -25,4 +26,6 @@ next:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+```
+
 Delete a campaign goal
