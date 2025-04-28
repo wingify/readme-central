@@ -10,20 +10,21 @@ metadata:
 next:
   description: ''
 ---
+```mdx
 ## Get Started
 
 An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
 This VWO Openfeature Provider for .NET helps you integrate feature management and experimentation systems within your .NET-based server applications.
 
-| Resource              | Link                                                                |
-| :-------------------- | :------------------------------------------------------------------ |
-| GitHub repository     | <https://github.com/wingify/vwo-openfeature-provider-dotnet>        |
-| Published on          | <https://www.nuget.org/packages/VWO.OpenFeature.Provider>           |
-| Openfeature .NET docs | <https://openfeature.dev/docs/reference/technologies/server/dotnet> |
+| Resource              | Link                                                                                                                                   |
+| :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
+| GitHub repository     | [https://github.com/wingify/vwo-openfeature-provider-dotnet](https://github.com/wingify/vwo-openfeature-provider-dotnet)               |
+| Published on          | [https://www.nuget.org/packages/VWO.OpenFeature.Provider](https://www.nuget.org/packages/VWO.OpenFeature.Provider)                     |
+| Openfeature .NET docs | [https://openfeature.dev/docs/reference/technologies/server/dotnet](https://openfeature.dev/docs/reference/technologies/server/dotnet) |
 
 > 🚧 Please Note
-> 
+>
 > This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
 
 ## Requirements
@@ -105,69 +106,198 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
 
 ## API Details
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "API",
-    "h-1": "Arguments",
-    "h-2": "Argument Description",
-    "h-3": "API Description",
-    "0-0": "`VWO.Init`",
-    "0-1": "`VWOInitOptions vwoInitOptions`",
-    "0-2": "**SdkKey**: Unique key for authentication with VWO.<br>**AccountId**: VWO account identifier.<br>**Logger**: Dictionary defining logging level.",
-    "0-3": "Initializes the VWO client with the provided SDK key, account ID, and logging options.",
-    "1-0": "`new VWOProvider(vwoClient)`",
-    "1-1": "`vwoClient: VWO`",
-    "1-2": "**vwoClient**: The initialized VWO SDK client instance.",
-    "1-3": "Creates a new instance of `VWOProvider`, integrating VWO with OpenFeature.",
-    "2-0": "`Api.Instance.GetClient()`",
-    "2-1": "None",
-    "2-2": "-",
-    "2-3": "Returns an OpenFeature client instance that is used for feature flag evaluations.",
-    "3-0": "`EvaluationContext.Builder()`",
-    "3-1": "None",
-    "3-2": "-",
-    "3-3": "Creates a builder instance to construct an `EvaluationContext`.",
-    "4-0": "`context.Set(\"key\",\nnew Value(\"variable-key\"))`",
-    "4-1": "`\"key\": string, \"value\": Value`",
-    "4-2": "**key**: The attribute key to set.<br>**value**: The value associated with the key.",
-    "4-3": "Sets a key-value pair inside the evaluation context.",
-    "5-0": "`context.Build()`",
-    "5-1": "None",
-    "5-2": "-",
-    "5-3": "Finalizes the `EvaluationContext` with set attributes.",
-    "6-0": "`await Api.Instance.SetProviderAsync(\nvwoProvider)`",
-    "6-1": "`vwoProvider: VWOProvider`",
-    "6-2": "**vwoProvider**: The VWO provider instance that will handle feature flag evaluations.",
-    "6-3": "Asynchronously sets the provider for OpenFeature, enabling it to evaluate feature flags using VWO.",
-    "7-0": "`await client.GetBooleanValueAsync`",
-    "7-1": "`featureKey: string, defaultValue: bool, context: EvaluationContext`",
-    "7-2": "**featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback boolean value if the flag evaluation fails.<br>**context**: The evaluation context containing user details and attributes.",
-    "7-3": "Asynchronously fetches the boolean value of a feature flag.",
-    "8-0": "`await client.GetStringValueAsync`",
-    "8-1": "`featureKey: string, defaultValue: string, context: EvaluationContext`",
-    "8-2": "**featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback string value if the flag evaluation fails.<br>**context**: The evaluation context containing user details and attributes.",
-    "8-3": "Asynchronously fetches the string value of a feature flag.",
-    "9-0": "`await client.GetIntegerValueAsync`",
-    "9-1": "`featureKey: string, defaultValue: int, context: EvaluationContext`",
-    "9-2": "**featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback integer value if the flag evaluation fails.<br>**context**: The evaluation context containing user details and attributes.",
-    "9-3": "Asynchronously fetches the integer value of a feature flag.",
-    "10-0": "`await client.GetDoubleValueAsync`",
-    "10-1": "`featureKey: string, defaultValue: double, context: EvaluationContext`",
-    "10-2": "**featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback float value if the flag evaluation fails.<br>**context**: The evaluation context containing user details and attributes.",
-    "10-3": "Asynchronously fetches the float value of a feature flag.",
-    "11-0": "`await client.GetObjectValueAsync`",
-    "11-1": "`featureKey: string, defaultValue: Value, context: EvaluationContext`",
-    "11-2": "**featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback object if the flag evaluation fails.<br>**context**: The evaluation context containing user details and attributes.",
-    "11-3": "Asynchronously fetches the object value of a feature flag."
-  },
-  "cols": 4,
-  "rows": 12,
-  "align": [
-    null,
-    null,
-    null,
-    null
-  ]
-}
-[/block]
+<Table>
+  <thead>
+    <tr>
+      <th>
+        API
+      </th>
+      <th>
+        Arguments
+      </th>
+      <th>
+        Argument Description
+      </th>
+      <th>
+        API Description
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        `VWO.Init`
+      </td>
+      <td>
+        `VWOInitOptions vwoInitOptions`
+      </td>
+      <td>
+        * **SdkKey**: Unique key for authentication with VWO.<br>**AccountId**: VWO account identifier.<br>**Logger**: Dictionary defining logging level.
+      </td>
+      <td>
+        Initializes the VWO client with the provided SDK key, account ID, and logging options.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        `new VWOProvider(vwoClient)`
+      </td>
+      <td>
+        `vwoClient: VWO`
+      </td>
+      <td>
+        * **vwoClient**: The initialized VWO SDK client instance.
+      </td>
+      <td>
+        Creates a new instance of `VWOProvider`, integrating VWO with OpenFeature.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        `Api.Instance.GetClient()`
+      </td>
+      <td>
+        None
+      </td>
+      <td>
+        *
+      </td>
+      <td>
+        Returns an OpenFeature client instance that is used for feature flag evaluations.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        `EvaluationContext.Builder()`
+      </td>
+      <td>
+        None
+      </td>
+      <td>
+        *
+      </td>
+      <td>
+        Creates a builder instance to construct an `EvaluationContext`.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        ```
+        context.Set("key",
+        new Value("variable-key"))
+        ```
+      </td>
+      <td>
+        `"key": string, "value": Value`
+      </td>
+      <td>
+        * **key**: The attribute key to set.<br>**value**: The value associated with the key.
+      </td>
+      <td>
+        Sets a key-value pair inside the evaluation context.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        `context.Build()`
+      </td>
+      <td>
+        None
+      </td>
+      <td>
+        *
+      </td>
+      <td>
+        Finalizes the `EvaluationContext` with set attributes.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        ```
+        await Api.Instance.SetProviderAsync(
+        vwoProvider)
+        ```
+      </td>
+      <td>
+        `vwoProvider: VWOProvider`
+      </td>
+      <td>
+        * **vwoProvider**: The VWO provider instance that will handle feature flag evaluations.
+      </td>
+      <td>
+        Asynchronously sets the provider for OpenFeature, enabling it to evaluate feature flags using VWO.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        `await client.GetBooleanValueAsync`
+      </td>
+      <td>
+        `featureKey: string, defaultValue: bool, context: EvaluationContext`
+      </td>
+      <td>
+        * **featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback boolean value if the flag evaluation fails.<br>**context**: The evaluation context containing user details and attributes.
+      </td>
+      <td>
+        Asynchronously fetches the boolean value of a feature flag.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        `await client.GetStringValueAsync`
+      </td>
+      <td>
+        `featureKey: string, defaultValue: string, context: EvaluationContext`
+      </td>
+      <td>
+        * **featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback string value if the flag evaluation fails.<br>**context**: The evaluation context containing user details and attributes.
+      </td>
+      <td>
+        Asynchronously fetches the string value of a feature flag.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        `await client.GetIntegerValueAsync`
+      </td>
+      <td>
+        `featureKey: string, defaultValue: int, context: EvaluationContext`
+      </td>
+      <td>
+        * **featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback integer value if the flag evaluation fails.<br>**context**: The evaluation context containing user details and attributes.
+      </td>
+      <td>
+        Asynchronously fetches the integer value of a feature flag.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        `await client.GetDoubleValueAsync`
+      </td>
+      <td>
+        `featureKey: string, defaultValue: double, context: EvaluationContext`
+      </td>
+      <td>
+        * **featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback float value if the flag evaluation fails.<br>**context**: The evaluation context containing user details and attributes.
+      </td>
+      <td>
+        Asynchronously fetches the float value of a feature flag.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        `await client.GetObjectValueAsync`
+      </td>
+      <td>
+        `featureKey: string, defaultValue: Value, context: EvaluationContext`
+      </td>
+      <td>
+        * **featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback object if the flag evaluation fails.<br>**context**: The evaluation context containing user details and attributes.
+      </td>
+      <td>
+        Asynchronously fetches the object value of a feature flag.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+```
