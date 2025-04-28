@@ -12,15 +12,15 @@ next:
 ---
 ## Authentication for Third-Party Applications
 
-For Third Party Applications, create an application via our Developers Dashboard  
-<https://app.vwo.com/#/developers/applications>  
+For Third Party Applications, create an application via our Developers Dashboard\
+[https://app.vwo.com/#/developers/applications](https://app.vwo.com/#/developers/applications)\
 After creating the application, redirect the user to the following Authorization URL(shared below).
 
-`Path Syntax`:  
-<https://app.vwo.com/#/authorize/:applicationId>
+`Path Syntax`:\
+[https://app.vwo.com/#/authorize/:applicationId](https://app.vwo.com/#/authorize/:applicationId)
 
-`Example`:  
-<https://app.vwo.com/#/authorize/123456>
+`Example`:\
+[https://app.vwo.com/#/authorize/123456](https://app.vwo.com/#/authorize/123456)
 
 \*where the Application getting authorized has the applicationId as 123456
 
