@@ -73,5 +73,5 @@ Different destinations have their own formats for integrating with them and usin
 Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party tool capable of receiving it via APIs. 
 
 > 📘 Note
-> 
+>
 > Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
