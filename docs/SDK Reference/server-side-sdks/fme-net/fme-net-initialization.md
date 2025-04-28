@@ -28,54 +28,140 @@ var vwoClient = VWO.Init(vwoInitOptions);
 
 An object of `VWOInitOptions` is created to store the SDK configuration details.
 
-The `Init()` function is called with the `vwoInitOptions` object. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
+The `Init()` function is called with the `vwoInitOptions` object. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature\
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "**AccountId**  \n_Required_",
-    "0-1": "integer",
-    "0-2": "Your VWO application's Account ID.",
-    "1-0": "**SdkKey**  \n_Required_",
-    "1-1": "string",
-    "1-2": "A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.",
-    "2-0": "**PollInterval**  \n_Optional_",
-    "2-1": "integer",
-    "2-2": "Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check - [Polling](https://developers.vwo.com/v2/docs/polling)",
-    "3-0": "**Logger**  \n_Optional_",
-    "3-1": "ILogger",
-    "3-2": "An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-net-logging)",
-    "4-0": "**Storage**  \n_Optional_",
-    "4-1": "IStorage",
-    "4-2": "Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-net-storage) ",
-    "5-0": "**GatewayService**  \n_Optional_",
-    "5-1": "Dictionary",
-    "5-2": "If using the [FME Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers. ",
-    "6-0": "**Integrations**  \n_Optional_",
-    "6-1": "Action",
-    "6-2": "Contains a callback function that receives campaign data which can be pushed to any external tool that you need to integrate with. [Integrations](https://developers.vwo.com/v2/docs/fme-net-integrations)"
-  },
-  "cols": 3,
-  "rows": 7,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **AccountId**
+        *Required*
+      </td>
+
+      <td>
+        integer
+      </td>
+
+      <td>
+        Your VWO application's Account ID.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **SdkKey**\
+        *Required*
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **PollInterval**\
+        *Optional*
+      </td>
+
+      <td>
+        integer
+      </td>
+
+      <td>
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check - [Polling](https://developers.vwo.com/v2/docs/polling)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Logger**\
+        *Optional*
+      </td>
+
+      <td>
+        ILogger
+      </td>
+
+      <td>
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-net-logging)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Storage**\
+        *Optional*
+      </td>
+
+      <td>
+        IStorage
+      </td>
+
+      <td>
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-net-storage) 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **GatewayService**\
+        *Optional*
+      </td>
+
+      <td>
+        Dictionary
+      </td>
+
+      <td>
+        If using the [FME Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers. 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **Integrations**\
+        *Optional*
+      </td>
+
+      <td>
+        Action
+      </td>
+
+      <td>
+        Contains a callback function that receives campaign data which can be pushed to any external tool that you need to integrate with. [Integrations](https://developers.vwo.com/v2/docs/fme-net-integrations)
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the *vwoClient* on your server, it pulls the latest configurations you've done in the VWO application.\
+If/when you make any changes to the feature flags or rules within VWO after the *vwoClient* has been initialized in your server, there needs to be some way to update your *vwoClient* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -109,7 +195,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-net-logging) for more
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each _get_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each *get\_flag* call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```csharp
 var vwoInitOptions = new VWOInitOptions
@@ -124,7 +210,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-net-storage)  to lear
 
 ### Gateway Service
 
-The VWO FME Gateway Service enhances Feature Management and Experimentation (FME) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
+The VWO FME Gateway Service enhances Feature Management and Experimentation (FME) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```csharp
 var vwoInitOptions = new VWOInitOptions
@@ -136,7 +222,7 @@ var vwoInitOptions = new VWOInitOptions
 };
 ```
 
-Please click [here](<>)  to learn more about gateway service.
+Please click [here]()  to learn more about gateway service.
 
 ### Integrations
 
