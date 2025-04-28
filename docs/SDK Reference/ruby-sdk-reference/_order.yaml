@@ -5,3 +5,4 @@
 - ruby-launch
 - ruby-activate
 - ruby-get-variation-name
+- ruby-is-feature-enabled
