@@ -23,4 +23,5 @@ metadata:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
-Get threshold for current  and sub-accounts.
+
+Get threshold for current and sub-accounts.
