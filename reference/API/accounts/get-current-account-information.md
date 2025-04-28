@@ -23,4 +23,5 @@ metadata:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+
 To retrieve information of a specific account, enter the associated campaign ID.
