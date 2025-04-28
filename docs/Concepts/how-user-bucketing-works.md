@@ -20,7 +20,7 @@ The SDK evaluates every user to determine their eligibility for participating in
 
 The bucketing system operates by allocating a specific range to each variation based on the campaign’s traffic distribution settings. The minimum possible bucket value is **1**, while the maximum is **10,000**. These values are fixed to support the arithmetic logic used in the bucketing process.  
 
-For example, consider a campaign with two variations—_Control_ and _Variation-1_—with a traffic distribution of 40% and 60%, respectively. The allocated bucket ranges will be:  
+For example, consider a campaign with two variations—*Control* and *Variation-1*—with a traffic distribution of 40% and 60%, respectively. The allocated bucket ranges will be:  
 
 | **Variation Name** | **Bucket Range** |
 | ------------------ | ---------------- |
@@ -33,8 +33,8 @@ A third-party hashing algorithm, [MurmurHash](https://en.wikipedia.org/wiki/Murm
 
 To determine whether a user qualifies for a campaign, the system considers the campaign’s percent traffic setting, which ranges from **0% to 100%**. The user’s hash value is normalized to generate an integer between **0 and 100**, which is then compared against the campaign’s percent traffic value.  
 
-- If the normalized hash value is **less than or equal to** the campaign’s percent traffic, the user is included in the campaign.  
-- Otherwise, the user is excluded.  
+* If the normalized hash value is **less than or equal to** the campaign’s percent traffic, the user is included in the campaign.  
+* Otherwise, the user is excluded.  
 
 #### **Example:**
 
@@ -46,7 +46,7 @@ Once a user is deemed eligible, they are assigned a variation based on the pre-d
 
 #### **Example:**
 
-A campaign has two variations, _Control_ (40%) and _Variation-1_ (60%). A user lands on the webpage, and their hash value is generated. After normalization, the value is **6,278**. Since **6,278** falls within the range **4,001–10,000**, the user is assigned to **Variation-1**.
+A campaign has two variations, *Control* (40%) and *Variation-1* (60%). A user lands on the webpage, and their hash value is generated. After normalization, the value is **6,278**. Since **6,278** falls within the range **4,001–10,000**, the user is assigned to **Variation-1**.
 
 ## Ensuring Consistent User Bucketing
 
