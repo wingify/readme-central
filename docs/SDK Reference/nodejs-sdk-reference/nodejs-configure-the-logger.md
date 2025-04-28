@@ -13,26 +13,26 @@ next:
 Every backend application relies on some kind of logs to debug it. The VWO SDK **logger** logs information about your running campaigns to help you with debugging. You can customize what kind of logs you need and where to send these, that is, you can write your own logger implementation to write the logs on some file, database, or some third-party logging service.
 
 > 📘 Note
-> 
+>
 > For the production environment, we recommend that you pass in your custom logger implementation while creating a VWO client instance.
 
 ## Logger
 
-A **_logger_** is a JSON object, which has the following keys:
+A ***logger*** is a JSON object, which has the following keys:
 
 | Key name | Type     | Default (if any)                                          | Description                       |
 | :------- | :------- | :-------------------------------------------------------- | :-------------------------------- |
 | log      | Function | Do NOT create this key for default logger implementation. | Custom implementation of logger.  |
-| level    | String   | **ERROR**, that is, _vwoSDK.logging.LogLevelEnum.ERROR_   | The kind of logs that are needed. |
+| level    | String   | **ERROR**, that is, *vwoSDK.logging.LogLevelEnum.ERROR*   | The kind of logs that are needed. |
 
 ## Log Levels
 
-| Log Level    | Description                                                                                                                                                                                                                                                  |
-| :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **ERROR**    | The events that prevent campaigns from functioning properly (for example, invalid settingsFile while initializing the VWO SDK, invalid campaign keys, or goal identifiers) are logged.                                                                       |
-| **WARNING**  | The events that don't prevent campaigns from functioning correctly, but can have unexpected outcomes (for example, future API deprecation) are logged.                                                                                                       |
-| **INFO**     | The events which are useful and provide a certain level of information (for example, activate started, bucket value assigned, part of a campaign, tracking user, conversion succeeded, and others) are logged. This depicts the flow of the API method used. |
-| **DEBUG**    | Any kind of useful information that can help VWO debug the issue in case of unexpected behavior (for example, a user is not in a campaign, bucket value assigned, hash value assigned, and stored User Storage Service used, and others) are logged.         |
+| Log Level   | Description                                                                                                                                                                                                                                                  |
+| :---------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **ERROR**   | The events that prevent campaigns from functioning properly (for example, invalid settingsFile while initializing the VWO SDK, invalid campaign keys, or goal identifiers) are logged.                                                                       |
+| **WARNING** | The events that don't prevent campaigns from functioning correctly, but can have unexpected outcomes (for example, future API deprecation) are logged.                                                                                                       |
+| **INFO**    | The events which are useful and provide a certain level of information (for example, activate started, bucket value assigned, part of a campaign, tracking user, conversion succeeded, and others) are logged. This depicts the flow of the API method used. |
+| **DEBUG**   | Any kind of useful information that can help VWO debug the issue in case of unexpected behavior (for example, a user is not in a campaign, bucket value assigned, hash value assigned, and stored User Storage Service used, and others) are logged.         |
 
 To filter these log levels while writing your own logger implementation, use the Enum provided to you by VWO SDKs.
 
