@@ -5,3 +5,4 @@
 - nodejs-launch
 - nodejs-activate
 - nodejs-get-variation-name
+- nodejs-is-feature-enabled
