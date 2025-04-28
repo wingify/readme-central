@@ -45,29 +45,55 @@ GetVariable(key string, defaultValue interface{}) interface{}
 
 <br />
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "**key**  \n_Required_",
-    "0-1": "string",
-    "0-2": "The name of the variable.",
-    "1-0": "**defaultValue**  \n_Required_",
-    "1-1": "interface{}",
-    "1-2": "The default value to return if the variable is not found."
-  },
-  "cols": 3,
-  "rows": 2,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **key**
+        *Required*
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        The name of the variable.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **defaultValue**\
+        *Required*
+      </td>
+
+      <td>
+        interface\{}
+      </td>
+
+      <td>
+        The default value to return if the variable is not found.
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 <br />
 
@@ -80,5 +106,5 @@ for _, variable := range variables {
 }
 ```
 
-This method returns a slice of maps, where each map represents a variable with its key and value.  
+This method returns a slice of maps, where each map represents a variable with its key and value.\
 Remember that variables must be defined in your VWO dashboard for the corresponding feature flag before you can use them in your code.
