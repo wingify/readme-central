@@ -9,3 +9,4 @@
 - dotnet-get-feature-variable-value
 - dotnet-track
 - dotnet-push
+- dotnet-get-and-update-settings-file
