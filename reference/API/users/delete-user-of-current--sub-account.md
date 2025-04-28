@@ -11,6 +11,7 @@ metadata:
   description: ''
   robots: noindex
 ---
+```json
 [block:textarea]
 {
   "text": "Request URI for Sub Account\n```\nDELETE /accounts/1/users/874\n```",
@@ -23,4 +24,5 @@ metadata:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+```
 DELETE specific user of Current / Sub Account.
