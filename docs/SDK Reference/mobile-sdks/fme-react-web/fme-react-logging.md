@@ -75,11 +75,11 @@ The transport parameter allows you to implement custom logging behavior by provi
 
 For example, you could:
 
-- Send logs to a third-party logging service
-- Write logs to a file
-- Format log messages differently
-- Filter or transform log messages
-- Route different log levels to different destinations
+* Send logs to a third-party logging service
+* Write logs to a file
+* Format log messages differently
+* Filter or transform log messages
+* Route different log levels to different destinations
 
 The transport object should implement handlers for the log levels you want to customize. Each handler receives the log message as a parameter.
 
@@ -112,4 +112,4 @@ function App() {
 export default App;
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing _VWOProvider_.](https://dash.readme.com/project/vwo/v2/docs/fme-react-initialization)
+This "logger" object can be passed as one of the parameters when [initializing *VWOProvider*.](https://dash.readme.com/project/vwo/v2/docs/fme-react-initialization)
