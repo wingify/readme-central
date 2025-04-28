@@ -5,3 +5,4 @@
 - python-launch
 - python-activate
 - python-get-variation-name
+- python-is-feature-enabled
