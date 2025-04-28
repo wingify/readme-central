@@ -24,8 +24,8 @@ $ flutter pub add vwo_insights_flutter_sdk
 
 This will add a line like the one below to your package's pubspec.yaml file.
 
-> dependencies:  
->   vwo_insights_flutter_sdk: ^0.0.9
+> dependencies:\
+>   vwo\_insights\_flutter\_sdk: ^0.0.9
 
 <br />
 
