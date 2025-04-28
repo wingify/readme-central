@@ -24,57 +24,154 @@ vwo_client = VWO.init({
 });
 ```
 
-The `init()` function is called with the `sdk_key`and `account_id`. It initializes and returns a VWO Client Object`vwo_client`, which can be used to perform feature  
+The `init()` function is called with the `sdk_key`and `account_id`. It initializes and returns a VWO Client Object`vwo_client`, which can be used to perform feature\
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "**account_id**  \n_Required_",
-    "0-1": "Integer",
-    "0-2": "Your VWO application's Account ID.",
-    "1-0": "**sdk_key**  \n_Required_",
-    "1-1": "String",
-    "1-2": "A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.",
-    "2-0": "**poll_interval**  \n_Optional_",
-    "2-1": "Integer",
-    "2-2": "Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) ",
-    "3-0": "**logger**  \n_Optional_",
-    "3-1": "Hash",
-    "3-2": "An optional logger object that defines the logging behavior. For more details, please check - [Logging](https://developers.vwo.com/v2/docs/fme-ruby-logging)",
-    "4-0": "**storage**  \n_Optional_",
-    "4-1": "Hash",
-    "4-2": "Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-ruby-storage) ",
-    "5-0": "**gateway_service**  \n_Optional_",
-    "5-1": "Hash",
-    "5-2": "If using the [FME Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers. ",
-    "6-0": "**integrations**  \n_Optional_",
-    "6-1": "Hash",
-    "6-2": "A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-ruby-integrations)",
-    "7-0": "**threading**",
-    "7-1": "Hash",
-    "7-2": "Toggle threading for better performance (enabled by default)."
-  },
-  "cols": 3,
-  "rows": 8,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **account\_id**
+        *Required*
+      </td>
+
+      <td>
+        Integer
+      </td>
+
+      <td>
+        Your VWO application's Account ID.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **sdk\_key**\
+        *Required*
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **poll\_interval**\
+        *Optional*
+      </td>
+
+      <td>
+        Integer
+      </td>
+
+      <td>
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **logger**\
+        *Optional*
+      </td>
+
+      <td>
+        Hash
+      </td>
+
+      <td>
+        An optional logger object that defines the logging behavior. For more details, please check - [Logging](https://developers.vwo.com/v2/docs/fme-ruby-logging)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **storage**\
+        *Optional*
+      </td>
+
+      <td>
+        Hash
+      </td>
+
+      <td>
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-ruby-storage) 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **gateway\_service**\
+        *Optional*
+      </td>
+
+      <td>
+        Hash
+      </td>
+
+      <td>
+        If using the [FME Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers. 
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **integrations**\
+        *Optional*
+      </td>
+
+      <td>
+        Hash
+      </td>
+
+      <td>
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-ruby-integrations)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **threading**
+      </td>
+
+      <td>
+        Hash
+      </td>
+
+      <td>
+        Toggle threading for better performance (enabled by default).
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the _vwo_client_ on your server, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwo_client_ has been initialized in your server, there needs to be some way to update your _vwo_client_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the *vwo\_client* on your server, it pulls the latest configurations you've done in the VWO application.\
+If/when you make any changes to the feature flags or rules within VWO after the *vwo\_client* has been initialized in your server, there needs to be some way to update your *vwo\_client* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -106,7 +203,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-ruby-logging) for mor
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each _get_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each *get\_flag* call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```ruby
 # Init options with storage
@@ -121,7 +218,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-ruby-storage)  to lea
 
 ### Gateway Service
 
-The VWO FME Gateway Service enhances Feature Management and Experimentation (FME) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
+The VWO FME Gateway Service enhances Feature Management and Experimentation (FME) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```ruby
 # Init options with gateway_service
