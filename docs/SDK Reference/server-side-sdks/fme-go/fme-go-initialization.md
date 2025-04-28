@@ -41,32 +41,70 @@ func main() {
 
 ```
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "**accountId**  \n_Required_",
-    "0-1": "Number",
-    "0-2": "Your VWO application's Account ID.",
-    "1-0": "**sdkKey**  \n_Required_",
-    "1-1": "String",
-    "1-2": "Unique environment key provided to you inside the Websites & Apps section in VWO application, under \"Default Project\".",
-    "2-0": "**gatewayServiceUrl**  \n_Required_",
-    "2-1": "String",
-    "2-2": "URL of your [Gateway Service](https://developers.vwo.com/v2/docs/gateway-service). "
-  },
-  "cols": 3,
-  "rows": 3,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **accountId**
+        *Required*
+      </td>
+
+      <td>
+        Number
+      </td>
+
+      <td>
+        Your VWO application's Account ID.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **sdkKey**\
+        *Required*
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        Unique environment key provided to you inside the Websites & Apps section in VWO application, under "Default Project".
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **gatewayServiceUrl**\
+        *Required*
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        URL of your [Gateway Service](https://developers.vwo.com/v2/docs/gateway-service). 
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 <br />
 
