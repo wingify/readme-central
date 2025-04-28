@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can use Gradle to install the VWO Insights Android SDK by adding VWO Insights SDK dependency in your _build.gradle_ file. 
+You can use Gradle to install the VWO Insights Android SDK by adding VWO Insights SDK dependency in your *build.gradle* file. 
 
 ```java
 repositories {
@@ -22,7 +22,7 @@ dependencies {
 }
 ```
 
-Add the following permissions to your _AndroidManifest.xml_ file
+Add the following permissions to your *AndroidManifest.xml* file
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
