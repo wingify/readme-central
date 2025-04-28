@@ -40,14 +40,14 @@ window.VWO.push(['activate', {
 
 ### Use-cases
 
-- **SPAs Without URL Changes**: Trigger virtual pages in SPAs where navigation doesn’t update the URL to rerun campaigns.  
-  _Example_: Track tab switches in a dashboard app (e.g., "Analytics" to "Settings").  
+* **SPAs Without URL Changes**: Trigger virtual pages in SPAs where navigation doesn’t update the URL to rerun campaigns.\
+  *Example*: Track tab switches in a dashboard app (e.g., "Analytics" to "Settings").  
 
-- **Checkout Flow Testing**: Activate campaigns for multi-step checkout processes without reloading or URL updates.  
-  _Example_: Test button placements or form designs across steps like "Address" and "Payment."  
+* **Checkout Flow Testing**: Activate campaigns for multi-step checkout processes without reloading or URL updates.\
+  *Example*: Test button placements or form designs across steps like "Address" and "Payment."  
 
-- **Dynamic Content Updates**: Keep experiments running on pages with frequently added content like feeds.  
-  _Example_: Apply experiments to newly loaded articles on a news homepage.
+* **Dynamic Content Updates**: Keep experiments running on pages with frequently added content like feeds.\
+  *Example*: Apply experiments to newly loaded articles on a news homepage.
 
-- **Page State Experiments**: Test variations for different web app states like onboarding or gameplay like SPA's component data.  
-  _Example_: Experiment with progress indicators during an onboarding tutorial.
+* **Page State Experiments**: Test variations for different web app states like onboarding or gameplay like SPA's component data.\
+  *Example*: Experiment with progress indicators during an onboarding tutorial.
