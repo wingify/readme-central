@@ -14,122 +14,188 @@ You can send VWO's campaign information to third-party analytics platforms by us
 
 Next, you will find suggested implementations for some common analytics platforms. Feel free to use these as showcased, or adapt these to meet your specific needs.
 
-
 ## Notification Listener
-The code can listen to an NSNotification on the key ```VWOUserStartedTrackingInCampaignNotification```.
+
+The code can listen to an NSNotification on the key `VWOUserStartedTrackingInCampaignNotification`.
 
 Here is how notifications can be integrated in AppDelegate.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "#import \"AppDelegate.h\"\n@import VWO;\n\n@implementation AppDelegate\n- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {\n\n    [VWO launchForAPIKey:@\"8116fb11614377a61fb7eb2fa2754660-295084\" completion:^{\n        NSLog(@\"Launch success\");\n    } failure:^(NSString * _Nonnull error) {\n    }];\n\n    [self addVWOObserver];\n\n    return YES;\n}\n\n- (void)addVWOObserver {\n    [NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {\n        NSDictionary *campaign = note.userInfo;\n        NSString *campaignName = campaign[@\"vwo_campaign_name\"];\n        NSString * campaignId = campaign[@\"vwo_campaign_id\"];\n        NSString * variationName = campaign[@\"vwo_variation_name\"];\n        NSString * variationId = campaign[@\"vwo_variation_id\"];\n\n        NSLog(@\"Campaign %@ %@\", campaignName, campaignId);\n        NSLog(@\"Variation %@, %@\", variationName, variationId);\n    }];\n}\n\n@end\n",
-      "language": "objectivec"
-    },
-    {
-      "code": "import VWO\n\n@UIApplicationMain\nclass AppDelegate: UIResponder, UIApplicationDelegate {\n\n    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {\n        VWO.launch(apiKey: \"YOUR-API-KEY\", config: nil, completion: {\n            // Launch success\n        }, failure: nil)\n\n        addVWOObserver()\n        return true\n    }\n\n    func addVWOObserver() {\n        NotificationCenter.default.addObserver(\n            forName: NSNotification.Name.VWOUserStartedTrackingInCampaign,\n            object: nil, queue: nil) {\n                notification in\n                if let campaign = notification.userInfo as? [String : String] {\n                    let campaignName = campaign[\"vwo_campaign_name\"]!\n                    let campaignId = campaign[\"vwo_campaign_id\"]!\n                    let variationName = campaign[\"vwo_variation_name\"]!\n                    let variationId = campaign[\"vwo_variation_id\"]!\n                    print(\"Campaign \\(campaignName) \\(campaignId)\")\n                    print(\"Variation \\(variationName) \\(variationId)\")\n                }\n        }\n    }\n}\n",
-      "language": "swift"
-    }
-  ]
+
+```objectivec
+#import "AppDelegate.h"
+@import VWO;
+
+@implementation AppDelegate
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
+    [VWO launchForAPIKey:@"8116fb11614377a61fb7eb2fa2754660-295084" completion:^{
+        NSLog(@"Launch success");
+    } failure:^(NSString * _Nonnull error) {
+    }];
+
+    [self addVWOObserver];
+
+    return YES;
 }
-[/block]
+
+- (void)addVWOObserver {
+    [NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+        NSDictionary *campaign = note.userInfo;
+        NSString *campaignName = campaign[@"vwo_campaign_name"];
+        NSString * campaignId = campaign[@"vwo_campaign_id"];
+        NSString * variationName = campaign[@"vwo_variation_name"];
+        NSString * variationId = campaign[@"vwo_variation_id"];
+
+        NSLog(@"Campaign %@ %@", campaignName, campaignId);
+        NSLog(@"Variation %@, %@", variationName, variationId);
+    }];
+}
+
+@end
+```
+```swift
+import VWO
+
+@UIApplicationMain
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        VWO.launch(apiKey: "YOUR-API-KEY", config: nil, completion: {
+            // Launch success
+        }, failure: nil)
+
+        addVWOObserver()
+        return true
+    }
+
+    func addVWOObserver() {
+        NotificationCenter.default.addObserver(
+            forName: NSNotification.Name.VWOUserStartedTrackingInCampaign,
+            object: nil, queue: nil) {
+                notification in
+                if let campaign = notification.userInfo as? [String : String] {
+                    let campaignName = campaign["vwo_campaign_name"]!
+                    let campaignId = campaign["vwo_campaign_id"]!
+                    let variationName = campaign["vwo_variation_name"]!
+                    let variationId = campaign["vwo_variation_id"]!
+                    print("Campaign \(campaignName) \(campaignId)")
+                    print("Variation \(variationName) \(variationId)")
+                }
+        }
+    }
+}
+```
+
 ## Notification Data
+
 On receiving a notification, you can get the campaign data from the notification object which is passed to the callback.
 
 The data contains the following keys:
-- ```vwo_campaign_id ```: Identifier of the campaign; this is generated by VWO. This is unique for your account.
-- ```vwo_campaign_name ```: Name of the campaign, as set by you. This is not necessarily unique.
-- ```vwo_variation_id ```: Identifier of the variation in the campaign of which the user became a part. Variation Id is unique for its campaign, but it is not unique across different campaigns.
-- ```vwo_variation_name ```: Name of the variation in the campaign, as set by you. This is not necessarily unique.
-[block:api-header]
-{
-  "title": "Amplitude"
-}
-[/block]
+
+* `vwo_campaign_id `: Identifier of the campaign; this is generated by VWO. This is unique for your account.
+* `vwo_campaign_name `: Name of the campaign, as set by you. This is not necessarily unique.
+* `vwo_variation_id `: Identifier of the variation in the campaign of which the user became a part. Variation Id is unique for its campaign, but it is not unique across different campaigns.
+* `vwo_variation_name `: Name of the variation in the campaign, as set by you. This is not necessarily unique.
+
+## Amplitude
+
 Please refer to the [Amplitude iOS guide](https://amplitude.zendesk.com/hc/en-us/articles/115003970027-iOS-SDK-Reference) if you are getting started with Amplitude.
 
 In the following suggested approach for Amplitude, we use [Events](https://amplitude.zendesk.com/hc/en-us/articles/115003970027#tracking-events).
 
-We add a notification listener to listen to the notification with the key ```VWOUserStartedTrackingInCampaignNotification```. When the callback is requested, we send an event to Amplitude when a user becomes a part of a campaign. In the event, we are sending the campaign name and id, along with the variation name and id.
+We add a notification listener to listen to the notification with the key `VWOUserStartedTrackingInCampaignNotification`. When the callback is requested, we send an event to Amplitude when a user becomes a part of a campaign. In the event, we are sending the campaign name and id, along with the variation name and id.
 
 Events in Amplitude take an event name and event properties in the form of a dictionary. 
 
-If the campaign name is **TestSignup** and campaign id is **21**, we can set the event name as **VWO Campaign - TestSignup - 21**. We also send event parameters as campaign_name, campaign_id, variation_name, and variation_id.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {\n   NSDictionary *campaign = note.userInfo;\n   NSString *event = [NSString stringWithFormat:@\"VWO Campaign - %@ - %@\", campaign[@\"vwo_campaign_name\"], campaign[@\"vwo_campaign_id\"]];\n   [Amplitude.instance logEvent:event withEventProperties:campaign];\n}];",
-      "language": "objectivec",
-      "name": null
-    },
-    {
-      "code": "NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in\n   if let campaign = notification.userInfo as? [String : String] {\n      let event = \"VWO Campaign - \\(campaign[\"vwo_campaign_name\"]!) - \\(campaign[\"vwo_campaign_id\"]!)\"\n       Amplitude.instance().logEvent(event, withEventProperties: campaign)\n   }\n}",
-      "language": "swift"
-    }
-  ]
-}
-[/block]
+If the campaign name is **TestSignup** and campaign id is **21**, we can set the event name as **VWO Campaign - TestSignup - 21**. We also send event parameters as campaign\_name, campaign\_id, variation\_name, and variation\_id.
 
-[block:api-header]
-{
-  "title": "Flurry"
+```objectivec
+[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+   NSDictionary *campaign = note.userInfo;
+   NSString *event = [NSString stringWithFormat:@"VWO Campaign - %@ - %@", campaign[@"vwo_campaign_name"], campaign[@"vwo_campaign_id"]];
+   [Amplitude.instance logEvent:event withEventProperties:campaign];
+}];
+```
+```swift
+NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in
+   if let campaign = notification.userInfo as? [String : String] {
+      let event = "VWO Campaign - \(campaign["vwo_campaign_name"]!) - \(campaign["vwo_campaign_id"]!)"
+       Amplitude.instance().logEvent(event, withEventProperties: campaign)
+   }
 }
-[/block]
+```
+
+## Flurry
+
 Please refer to the [Flurry iOS guide](https://developer.yahoo.com/flurry/docs/integrateflurry/ios/) if you are getting started with Flurry.
 
 In the following suggested approach for Flurry, we use [Custom Events](https://developer.yahoo.com/flurry/docs/analytics/gettingstarted/events/ios/).
 
-We add a notification listener to listen to NSNotification with the key ```VWOUserStartedTrackingInCampaignNotification```. When the callback is requested, we send an event to Flurry when a user becomes part of a campaign. In the event, we are sending the campaign name and id, along with the variation name and id.
+We add a notification listener to listen to NSNotification with the key `VWOUserStartedTrackingInCampaignNotification`. When the callback is requested, we send an event to Flurry when a user becomes part of a campaign. In the event, we are sending the campaign name and id, along with the variation name and id.
 
 Events in Flurry have a two-level structure. The highest level is the specific action, in this case, **VWO**. The second level in the Events structure is the Event parameter.
 
-If the campaign name is **TestSignup** and campaign id is **21**, we can set the event name as **VWO Campaign - TestSignup - 21**. We also send event parameters as campaign_name, campaign_id, variation_name, and variation_id.
+If the campaign name is **TestSignup** and campaign id is **21**, we can set the event name as **VWO Campaign - TestSignup - 21**. We also send event parameters as campaign\_name, campaign\_id, variation\_name, and variation\_id.
 
 Per Flurry, prior to logging any events, you must initiate the session with one of the **startSession** method variants . Any events logged prior to session initialization will not be recorded.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {\n   NSDictionary *campaign = note.userInfo;\n   NSString *event = [NSString stringWithFormat:@\"VWO Campaign - %@ - %@\", campaign[@\"vwo_campaign_name\"], campaign[@\"vwo_campaign_id\"]];\n   [Flurry logEvent:event withParameters:campaign];\n}];",
-      "language": "objectivec"
-    },
-    {
-      "code": "NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in\n   if let campaign = notification.userInfo as? [String : String] {\n      let event = \"VWO Campaign - \\(campaign[\"vwo_campaign_name\"]!) - \\(campaign[\"vwo_campaign_id\"]!)\"\n      Flurry.logEvent(event, withParameters: campaign)\n   }\n}",
-      "language": "swift"
-    }
-  ]
-}
-[/block]
 
-[block:api-header]
-{
-  "title": "Google Analytics"
+```objectivec
+[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+   NSDictionary *campaign = note.userInfo;
+   NSString *event = [NSString stringWithFormat:@"VWO Campaign - %@ - %@", campaign[@"vwo_campaign_name"], campaign[@"vwo_campaign_id"]];
+   [Flurry logEvent:event withParameters:campaign];
+}];
+```
+```swift
+NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in
+   if let campaign = notification.userInfo as? [String : String] {
+      let event = "VWO Campaign - \(campaign["vwo_campaign_name"]!) - \(campaign["vwo_campaign_id"]!)"
+      Flurry.logEvent(event, withParameters: campaign)
+   }
 }
-[/block]
+```
+
+## Google Analytics
+
 Please refer to the [Google Analytics iOS guide](https://developers.google.com/analytics/devguides/collection/ios/v3/), if you are getting started with Google Analytics.
 
 In the following approach for Google Analytics, we use [Events](https://developers.google.com/analytics/devguides/collection/ios/v3/events). 
 
-We add a notification listener to listen to NSNotification with the key ```VWOUserStartedTrackingInCampaignNotification```. When the callback is requested, we send an event to Google Analytics when a user becomes a part of a campaign. In the event, we are sending the campaign name and id, along with the variation name and id.
+We add a notification listener to listen to NSNotification with the key `VWOUserStartedTrackingInCampaignNotification`. When the callback is requested, we send an event to Google Analytics when a user becomes a part of a campaign. In the event, we are sending the campaign name and id, along with the variation name and id.
 
 The next step is to build segments for each variation of your campaign. In the segment-builder user interface, look under **Advanced** and add a new Condition. Filter **Users** by **Event Action** and **Event Label**, enter a name for the segment, and then click **Save**.
 
 Finally, build a report of metrics you are interested in.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {\n    NSDictionary *campaign = notification.userInfo\n    NSString *event = [NSString stringWithFormat:@\"VWO Campaign - %@ - %@\", campaign[@\"vwo_campaign_name\"], campaign[@\"vwo_campaign_id\"]];\n    NSString *action = [NSString stringWithFormat:@\"%@ - %@\", campaign[@\"vwo_campaign_name\"], campaign[@\"vwo_campaign_id\"]];\n    NSString *label = [NSString stringWithFormat:@\"%@ - %@\", campaign[@\"vwo_variation_name\"], campaign[@\"vwo_variation_id\"]];\n  \n    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;\n    [tracker send:[[GAIDictionaryBuilder\n                    createEventWithCategory:category\n                                     action:action\n                                      label:label\n                                      value:nil] build]];\n}];",
-      "language": "objectivec"
-    },
-    {
-      "code": "NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in\n   if let campaign = notification.userInfo as? [String : String] {\n      let category = \"VWO Campaign - \\(campaign[\"vwo_campaign_name\"]!) - \\(campaign[\"vwo_campaign_id\"]!)\"\n      let action = \"\\(campaign[\"vwo_campaign_name\"]!) - \\(campaign[\"vwo_campaign_id\"]!)\"\n      let label = \"\\(campaign[\"vwo_variation_name\"]!) - \\(campaign[\"vwo_variation_id\"]!)\"\n\n      if let builder = GAIDictionaryBuilder.createEvent(withCategory: category, action: action, label: label, value: nil),\n         let tracker = GAI.sharedInstance().defaultTracker {\n            tracker.send(builder.build() as! [AnyHashable : Any]!)\n         }   \n    }\n}",
-      "language": "swift"
+
+```objectivec
+[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+    NSDictionary *campaign = notification.userInfo
+    NSString *event = [NSString stringWithFormat:@"VWO Campaign - %@ - %@", campaign[@"vwo_campaign_name"], campaign[@"vwo_campaign_id"]];
+    NSString *action = [NSString stringWithFormat:@"%@ - %@", campaign[@"vwo_campaign_name"], campaign[@"vwo_campaign_id"]];
+    NSString *label = [NSString stringWithFormat:@"%@ - %@", campaign[@"vwo_variation_name"], campaign[@"vwo_variation_id"]];
+  
+    id<GAITracker> tracker = [GAI sharedInstance].defaultTracker;
+    [tracker send:[[GAIDictionaryBuilder
+                    createEventWithCategory:category
+                                     action:action
+                                      label:label
+                                      value:nil] build]];
+}];
+```
+```swift
+NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in
+   if let campaign = notification.userInfo as? [String : String] {
+      let category = "VWO Campaign - \(campaign["vwo_campaign_name"]!) - \(campaign["vwo_campaign_id"]!)"
+      let action = "\(campaign["vwo_campaign_name"]!) - \(campaign["vwo_campaign_id"]!)"
+      let label = "\(campaign["vwo_variation_name"]!) - \(campaign["vwo_variation_id"]!)"
+
+      if let builder = GAIDictionaryBuilder.createEvent(withCategory: category, action: action, label: label, value: nil),
+         let tracker = GAI.sharedInstance().defaultTracker {
+            tracker.send(builder.build() as! [AnyHashable : Any]!)
+         }   
     }
-  ]
 }
-[/block]
+```
+
 ## Google Custom Dimension
 
 Google also offers [Custom Dimensions](https://developers.google.com/analytics/devguides/collection/ios/v3/customdimsmets) which enables association of metadata with hits, users, and sessions in Google Analytics.
@@ -139,88 +205,98 @@ In the above approach, we only send an event to Google Analytics. You may choose
 The next step is to make changes in Google Analytics. Look for the **Admin** option in the menu bar, and then select the appropriate account and a property. Under **Property**, click **Custom Definitions > New Custom Dimension**. Enter a unique name for the dimension, select **User** for the scope, and then click **Create**.
 
 You can now see the reports according to the custom dimension.
-[block:api-header]
-{
-  "title": "Localytics"
-}
-[/block]
+
+## Localytics
+
 Please refer to the [Localytics iOS guide](https://docs.localytics.com/dev/ios.html#getting-started-ios) if you are getting started with Localytics.
 
 In the following suggested approach for Localytics, we use [Custom event with attributes](https://docs.localytics.com/dev/ios.html#tag-event-with-attributes-ios).
 
-We add a notification listener to listen to NSNotification with key ```VWOUserStartedTrackingInCampaignNotification```. When the callback is requested, we send an event to Localytics when a user becomes part of a campaign. In the event, we send the campaign name and id, along with the variation name and id.
+We add a notification listener to listen to NSNotification with key `VWOUserStartedTrackingInCampaignNotification`. When the callback is requested, we send an event to Localytics when a user becomes part of a campaign. In the event, we send the campaign name and id, along with the variation name and id.
 
 Localytics also offers a way to set [user attributes](https://docs.localytics.com/dev/ios.html#profiles-ios). You can set user attributes for VWO's campaign data as well.
 
-The custom event in Localytics has an event name and attributes.
-If the campaign name is **TestSignup** and campaign id is **21**, we can set the event name as **VWO Campaign - TestSignup - 21**. We also send event parameters as campaign_name, campaign_id, variation_name, and variation_id.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {\n   NSDictionary *campaign = note.userInfo;\n   NSString *event = [NSString stringWithFormat:@\"VWO Campaign - %@ - %@\", campaign[@\"vwo_campaign_name\"], campaign[@\"vwo_campaign_id\"]];\n   [Localytics tagEvent:event attributes:campaign];\n}];",
-      "language": "objectivec"
-    },
-    {
-      "code": "NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in\n   if let campaign = notification.userInfo as? [String : String] {\n      let event = \"VWO Campaign - \\(campaign[\"vwo_campaign_name\"]!) - \\(campaign[\"vwo_campaign_id\"]!)\"\n      Localytics.tagEvent(event, attributes: campaign)\n   }\n}",
-      "language": "swift"
-    }
-  ]
-}
-[/block]
+The custom event in Localytics has an event name and attributes.\
+If the campaign name is **TestSignup** and campaign id is **21**, we can set the event name as **VWO Campaign - TestSignup - 21**. We also send event parameters as campaign\_name, campaign\_id, variation\_name, and variation\_id.
 
-[block:api-header]
-{
-  "title": "Mixpanel"
+```objectivec
+[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+   NSDictionary *campaign = note.userInfo;
+   NSString *event = [NSString stringWithFormat:@"VWO Campaign - %@ - %@", campaign[@"vwo_campaign_name"], campaign[@"vwo_campaign_id"]];
+   [Localytics tagEvent:event attributes:campaign];
+}];
+```
+```swift
+NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in
+   if let campaign = notification.userInfo as? [String : String] {
+      let event = "VWO Campaign - \(campaign["vwo_campaign_name"]!) - \(campaign["vwo_campaign_id"]!)"
+      Localytics.tagEvent(event, attributes: campaign)
+   }
 }
-[/block]
+```
+
+## Mixpanel
+
 Please refer to the [Mixpanel iOS guide](https://mixpanel.com/help/reference/ios) if you are getting started with Mixpanel.
 
 In the following suggested approach for Mixpanel, we use [Events](https://mixpanel.com/help/reference/ios#sending-events). Mixpanel also offers a way to set [super properties](https://mixpanel.com/help/reference/ios#super-properties) and [user profiles](https://mixpanel.com/help/reference/ios#storing-user-profiles).
 
-We add a notification listener to listen to NSNotification with key ```VWOUserStartedTrackingInCampaignNotification```. When the callback is requested, we send an event to Mixpanel when a user becomes part of a campaign. In the event, we send the campaign name and id, along with the variation name and id.
+We add a notification listener to listen to NSNotification with key `VWOUserStartedTrackingInCampaignNotification`. When the callback is requested, we send an event to Mixpanel when a user becomes part of a campaign. In the event, we send the campaign name and id, along with the variation name and id.
 
 If you need to use super properties or people properties, modify the following code and send appropriate values to Mixpanel.
 
 The next step is to look for VWO events in your Mixpanel account. You can look at the funnels with the VWO event or look at the segment data.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {\n   NSDictionary *campaign = note.userInfo;\n   NSString *event = [NSString stringWithFormat:@\"VWO Campaign - %@ - %@\", campaign[@\"vwo_campaign_name\"], campaign[@\"vwo_campaign_id\"]];\n   [Mixpanel.sharedInstance track:event properties:campaign];\n}];",
-      "language": "objectivec"
-    },
-    {
-      "code": "NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in\n   if let campaign = notification.userInfo as? [String : String] {\n      let event = \"VWO Campaign - \\(campaign[\"vwo_campaign_name\"]!) - \\(campaign[\"vwo_campaign_id\"]!)\"\n      Mixpanel.mainInstance().track(event: event, properties: campaign)\n   }\n}",
-      "language": "swift"
-    }
-  ]
-}
-[/block]
 
-[block:api-header]
-{
-  "title": "Segment"
+```objectivec
+[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+   NSDictionary *campaign = note.userInfo;
+   NSString *event = [NSString stringWithFormat:@"VWO Campaign - %@ - %@", campaign[@"vwo_campaign_name"], campaign[@"vwo_campaign_id"]];
+   [Mixpanel.sharedInstance track:event properties:campaign];
+}];
+```
+```swift
+NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in
+   if let campaign = notification.userInfo as? [String : String] {
+      let event = "VWO Campaign - \(campaign["vwo_campaign_name"]!) - \(campaign["vwo_campaign_id"]!)"
+      Mixpanel.mainInstance().track(event: event, properties: campaign)
+   }
 }
-[/block]
+```
+
+## Segment
+
 Please refer to the [Segment iOS guide](https://segment.com/docs/sources/mobile/ios/#getting-started) if you are getting started with Segment.
 
 Segment has a [spec](https://segment.com/docs/spec/ab-testing/) for A/B testing events.
 
-We add a notification listener to listen to NSNotification with the key ```VWOUserStartedTrackingInCampaignNotification```. When the callback is requested, we send an event to Segment when a user becomes part of a campaign. In the event, we are sending the campaign name and id, along with the variation name and id.
+We add a notification listener to listen to NSNotification with the key `VWOUserStartedTrackingInCampaignNotification`. When the callback is requested, we send an event to Segment when a user becomes part of a campaign. In the event, we are sending the campaign name and id, along with the variation name and id.
 
 If the campaign name is **TestSignup** and campaign id is **21**, we can set the event name as **Experiment Viewed**. We also send event parameters as experimentId, experimentName, variationId, and variationName.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {\n   NSDictionary *campaign = note.userInfo;\n   NSString *event = [NSString stringWithFormat:@\"VWO Campaign - %@ - %@\", campaign[@\"vwo_campaign_name\"], campaign[@\"vwo_campaign_id\"]];\n   NSDictionary *properties = @{\n       @\"experimentId\"   : campaign[@\"vwo_campaign_id\"],\n       @\"experimentName\" : campaign[@\"vwo_campaign_name\"],\n       @\"variationId\"    : campaign[@\"vwo_variation_id\"],\n       @\"variationName\"  : campaign[@\"vwo_variation_name\"]\n    };\n    [SEGAnalytics.sharedAnalytics track:event properties:properties];\n}];",
-      "language": "objectivec"
-    },
-    {
-      "code": "NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in\n   if let campaignDict = notification.userInfo as? [String : String] {\n      let event = \"VWO Campaign - \\(campaign[\"vwo_campaign_name\"]!) - \\(campaign[\"vwo_campaign_id\"]!)\"\n      let properties = [\n         \"experimentId\"   : campaign[\"vwo_campaign_id\"]!,\n         \"experimentName\" : campaign[\"vwo_campaign_name\"]!,\n         \"variationId\"    : campaign[\"vwo_variation_id\"]!,\n         \"variationName\"  : campaign[\"vwo_variation_name\"]!\n      ]\n      SEGAnalytics.shared().track(event, properties: properties)\n   }\n}",
-      "language": "swift"
-    }
-  ]
+
+```objectivec
+[NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+   NSDictionary *campaign = note.userInfo;
+   NSString *event = [NSString stringWithFormat:@"VWO Campaign - %@ - %@", campaign[@"vwo_campaign_name"], campaign[@"vwo_campaign_id"]];
+   NSDictionary *properties = @{
+       @"experimentId"   : campaign[@"vwo_campaign_id"],
+       @"experimentName" : campaign[@"vwo_campaign_name"],
+       @"variationId"    : campaign[@"vwo_variation_id"],
+       @"variationName"  : campaign[@"vwo_variation_name"]
+    };
+    [SEGAnalytics.sharedAnalytics track:event properties:properties];
+}];
+```
+```swift
+NotificationCenter.default.addObserver(forName: NSNotification.Name.VWOUserStartedTrackingInCampaign, object: nil, queue: nil) { (notification) in
+   if let campaignDict = notification.userInfo as? [String : String] {
+      let event = "VWO Campaign - \(campaign["vwo_campaign_name"]!) - \(campaign["vwo_campaign_id"]!)"
+      let properties = [
+         "experimentId"   : campaign["vwo_campaign_id"]!,
+         "experimentName" : campaign["vwo_campaign_name"]!,
+         "variationId"    : campaign["vwo_variation_id"]!,
+         "variationName"  : campaign["vwo_variation_name"]!
+      ]
+      SEGAnalytics.shared().track(event, properties: properties)
+   }
 }
-[/block]
+```
