@@ -49,5 +49,5 @@ Request Format
 ```
 
 > 📘 Note:
-> 
+>
 > Maximum 25 widgets can be created.
