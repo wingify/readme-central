@@ -14,8 +14,8 @@ An **OpenFeature Provider** is a **pluggable integration layer** that connects t
 
 VWO supports the following Openfeature providers
 
-| Provider | GitHub Link                                                  |
-| :------- | :----------------------------------------------------------- |
-| Java     | <https://github.com/wingify/vwo-openfeature-provider-java>   |
-| Node     | <https://github.com/wingify/vwo-openfeature-provider-node>   |
-| Python   | <https://github.com/wingify/vwo-openfeature-provider-python> |
+| Provider | GitHub Link                                                                                                              |
+| :------- | :----------------------------------------------------------------------------------------------------------------------- |
+| Java     | [https://github.com/wingify/vwo-openfeature-provider-java](https://github.com/wingify/vwo-openfeature-provider-java)     |
+| Node     | [https://github.com/wingify/vwo-openfeature-provider-node](https://github.com/wingify/vwo-openfeature-provider-node)     |
+| Python   | [https://github.com/wingify/vwo-openfeature-provider-python](https://github.com/wingify/vwo-openfeature-provider-python) |
