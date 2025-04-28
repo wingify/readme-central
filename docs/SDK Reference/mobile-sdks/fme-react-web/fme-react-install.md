@@ -17,7 +17,7 @@ To integrate VWO FME SDK into your React application, you must first install the
 ## Requirements
 
 > 📘 React Version
-> 
+>
 > 16.8.0+
 
 ## Installation via npm
@@ -40,6 +40,6 @@ yarn add vwo-fme-react-sdk
 
 VWO FME SDKs source code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2025.
 
-| Language | Repository                                     |
-| :------- | :--------------------------------------------- |
-| React    | <https://github.com/wingify/vwo-fme-react-sdk> |
+| Language | Repository                                                                                   |
+| :------- | :------------------------------------------------------------------------------------------- |
+| React    | [https://github.com/wingify/vwo-fme-react-sdk](https://github.com/wingify/vwo-fme-react-sdk) |
