@@ -11,59 +11,60 @@ next:
   description: ''
 ---
 You can setup VWO Config while initializing your VWO SDK. This is helpful if you want to do the following:
-  *  [Targeting Visitor Groups](ref:android-targeting-visitor-groups).
-  *  [Opt Out](ref:android-opt-out)
-  *  [Disable Preview Mode](ref:android-preview-mode)
-  *  [Push Custom Dimension](ref:android-custom-dimension) 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "Map<String, String> userSegmentationMapping = new HashMap<>();\nuserSegmentationMapping.put(\"user_type\", \"paid\");\n\nVWOConfig vwoConfig = new VWOConfig\n  .Builder()\n  .setCustomVariables(userSegmentationMapping)\n  .disablePreview()\n  .setOptOut(true)\n  .setCustomDimension(\"CUSTOM_DIMENSION_KEY\", \"CUSTOM_DIMENSION_VALUE\")\n  .build();",
-      "language": "java"
-    },
-    {
-      "code": "val userSegmentationMapping = mutableMapOf<String, String>()\nuserSegmentationMapping[\"key\"] = \"value\"\n  \nval vwoConfig = VWOConfig.Builder()\n  .setCustomVariables(userSegmentationMapping)\n  .disablePreview()                               // To disable preview mode\n  .setOptOut(true)                                // To opt out of VWO SDK\n  .setCustomDimension(\"CUSTOM_DIMENSION_KEY\", \"CUSTOM_DIMENSION_VALUE\")\n  .build()",
-      "language": "kotlin",
-      "name": "Kotlin"
-    }
-  ]
-}
-[/block]
-This configuration can set during SDK initialization as follows:
-[block:code]
-{
-  "codes": [
-    {
-      "code": "VWO.with(this, VWO_API_KEY).config(vwoConfig).launch(null);",
-      "language": "java"
-    },
-    {
-      "code": "VWO.with(this, VWO_API_KEY).config(vwoConfig).launch(null)",
-      "language": "kotlin",
-      "name": "Kotlin"
-    }
-  ]
-}
-[/block]
 
-[block:api-header]
-{
-  "title": "Configure VWO CDN for China"
-}
-[/block]
+* [Targeting Visitor Groups](ref:android-targeting-visitor-groups).
+* [Opt Out](ref:android-opt-out)
+* [Disable Preview Mode](ref:android-preview-mode)
+* [Push Custom Dimension](ref:android-custom-dimension) 
+
+```java
+Map<String, String> userSegmentationMapping = new HashMap<>();
+userSegmentationMapping.put("user_type", "paid");
+
+VWOConfig vwoConfig = new VWOConfig
+  .Builder()
+  .setCustomVariables(userSegmentationMapping)
+  .disablePreview()
+  .setOptOut(true)
+  .setCustomDimension("CUSTOM_DIMENSION_KEY", "CUSTOM_DIMENSION_VALUE")
+  .build();
+```
+```kotlin Kotlin
+val userSegmentationMapping = mutableMapOf<String, String>()
+userSegmentationMapping["key"] = "value"
+  
+val vwoConfig = VWOConfig.Builder()
+  .setCustomVariables(userSegmentationMapping)
+  .disablePreview()                               // To disable preview mode
+  .setOptOut(true)                                // To opt out of VWO SDK
+  .setCustomDimension("CUSTOM_DIMENSION_KEY", "CUSTOM_DIMENSION_VALUE")
+  .build()
+```
+
+This configuration can set during SDK initialization as follows:
+
+```java
+VWO.with(this, VWO_API_KEY).config(vwoConfig).launch(null);
+```
+```kotlin Kotlin
+VWO.with(this, VWO_API_KEY).config(vwoConfig).launch(null)
+```
+
+## Configure VWO CDN for China
+
 VWO initialization supports VWO Chinese CDN in order to prevent tracking calls being getting blocked in China. This can be achieved by configuring the SDK at the time of instantiating it. 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "VWOConfig vwoConfig = new VWOConfig\n  .Builder()\n  .isChinaCDN(true)\n  .build();",
-      "language": "java"
-    },
-    {
-      "code": "val vwoConfig = VWOConfig.Builder()\n  .setCustomVariables(userSegmentationMapping)\n  .disablePreview()                               // To disable preview mode\n  .setOptOut(true)                                // To opt out of VWO SDK\n  .setCustomDimension(\"CUSTOM_DIMENSION_KEY\", \"CUSTOM_DIMENSION_VALUE\")\n  .build()",
-      "language": "kotlin"
-    }
-  ]
-}
-[/block]
+
+```java
+VWOConfig vwoConfig = new VWOConfig
+  .Builder()
+  .isChinaCDN(true)
+  .build();
+```
+```kotlin
+val vwoConfig = VWOConfig.Builder()
+  .setCustomVariables(userSegmentationMapping)
+  .disablePreview()                               // To disable preview mode
+  .setOptOut(true)                                // To opt out of VWO SDK
+  .setCustomDimension("CUSTOM_DIMENSION_KEY", "CUSTOM_DIMENSION_VALUE")
+  .build()
+```
