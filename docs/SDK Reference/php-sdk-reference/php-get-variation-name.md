@@ -11,129 +11,189 @@ next:
   description: ''
 ---
 After successfully instantiating a VWO class, *getVariationName API* returns the variation assigned to the specified user if the user qualifies to become part of the specified campaign. This API doesn't activate the campaign i.e. it will not send any impression call to the VWO servers for tracking any data.
-[block:api-header]
-{
-  "title": "Description"
-}
-[/block]
-The API method:
-  * Validates the parameters passed.
-  * Checks whether the user is whitelisted.
-  * Checks if User Storage Service is provided to know whether the user is returning. If yes, show the previously assigned variation always.
-  * Checks if the campaign is part of [Mutually Exclusive Group](https://developers.vwo.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
-  * Checks whether the user is eligible based on the campaign's pre-segmentation conditions.
-  * Checks whether the user qualifies to become a part of the campaign based on traffic allocation.
-  * Assigns a deterministic variation to the qualified user.
-  * Does ***not*** send an impression event to the VWO server.
 
-It takes the same parameters and returns the same value as [Activate API](https://developers.vwo.com/docs/php-activate). The only difference is that this API method does ***not*** send a tracking impression to the VWO server. This API method is used to get the variation assigned to the *userId*.
+## Description
+
+The API method:
+
+* Validates the parameters passed.
+* Checks whether the user is whitelisted.
+* Checks if User Storage Service is provided to know whether the user is returning. If yes, show the previously assigned variation always.
+* Checks if the campaign is part of [Mutually Exclusive Group](https://developers.vwo.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
+* Checks whether the user is eligible based on the campaign's pre-segmentation conditions.
+* Checks whether the user qualifies to become a part of the campaign based on traffic allocation.
+* Assigns a deterministic variation to the qualified user.
+* Does ***not*** send an impression event to the VWO server.
+
+It takes the same parameters and returns the same value as [Activate API](https://developers.vwo.com/docs/php-activate). The only difference is that this API method does ***not*** send a tracking impression to the VWO server. This API method is used to get the variation assigned to the *userId*.\
 The behaviour of the two API methods, that is, [activate](https://developers.vwo.com/docs/php-activate) and [getVariationName](https://developers.vwo.com/docs/php-get-variation-name) is identical otherwise.
 
 Use *Get Variation Name* API if *Activate* API has already been triggered to prevent a user from being tracked again. Also, this API is also helpful in retrieving the variation assignment to a particular User Id, respecting all other factors like segmentation, whitelisting, etc. without sending any impression call to the VWO servers.
-[block:api-header]
-{
-  "title": "Parameter definitions"
-}
-[/block]
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "**campaignKey**\n*Required*",
-    "1-0": "**userId**\n*Required*",
-    "0-2": "The campaign needs to be identified based on the unique test-key provided at the time of campaign creation.",
-    "1-2": "The User ID which uniquely identifies each user.",
-    "1-1": "String",
-    "0-1": "String",
-    "2-0": "**options**\n*Optional*",
-    "2-1": "Object",
-    "2-2": "Pass params for pre-segmentation and whitelisting \n\ncustomVariables(Object): Custom variables to be matched  against Campaign's pre-segmentation.\n\nvariationTargetingVariables(Object): Custom variation targeting variables to be matched  against Campaign's forced variation/whitelisting conditions.",
-    "3-0": "**customVariables**\n*Optional*\n**Note**: only for SDKs other than NodeJs and Python for now",
-    "3-1": "Object",
-    "3-2": "Custom variables to be matched against Campaign's pre-segmentation"
-  },
-  "cols": 3,
-  "rows": 3
-}
-[/block]
+## Parameter definitions
 
-[block:api-header]
-{
-  "title": "Returns"
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **campaignKey**
+        *Required*
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        The campaign needs to be identified based on the unique test-key provided at the time of campaign creation.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **userId**\
+        *Required*
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        The User ID which uniquely identifies each user.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **options**\
+        *Optional*
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        Pass params for pre-segmentation and whitelisting 
+
+        customVariables(Object): Custom variables to be matched  against Campaign's pre-segmentation.
+
+        variationTargetingVariables(Object): Custom variation targeting variables to be matched  against Campaign's forced variation/whitelisting conditions.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+## Returns
+
 The name of the variation in which the user is bucketed, or is *null* if the user does not qualify for a campaign.
-[block:parameters]
-{
-  "data": {
-    "h-0": "Value",
-    "h-1": "Type",
-    "0-0": "Variation name",
-    "0-1": "String",
-    "1-0": "null",
-    "h-2": "Description",
-    "0-2": "When a user qualifies for the campaign, *variation name* is returned.",
-    "1-1": "Object",
-    "1-2": "When a user is not qualified for a campaign, *null* is returned."
-  },
-  "cols": 3,
-  "rows": 2
-}
-[/block]
 
-[block:api-header]
-{
-  "title": "Usage"
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Value
+      </th>
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "<?php\n\n// campaignKey: you provide at the time of campaign creation\n// userId: how you identify a particular user\n// options: (Optional)\n//   customVariables: pre-segmentation variables\n//   variationTargetingVariables: forced variation variables\n$variationName = $vwoClientInstance->getVariationName($campaignKey, $userId, $options);\n\nif ($variationName !== null && $variationName == \"Control\") {\n  // CODE: write code for Control\n} elseif($variationName !== null && $variationName == \"Variation-1\") {\n  // CODE: write code for Variation-1\n} else {\n  // CODE: User is not qualified for the campaign. Would be due to configuring campaign's percent-traffic less than 100% while creating or updating a FullStack campaign.\n}",
-      "language": "php"
-    }
-  ]
-}
-[/block]
+      <th>
+        Type
+      </th>
 
-[block:api-header]
-{
-  "title": "Campaign Activation with User Storage Service"
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Variation name
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        When a user qualifies for the campaign, *variation name* is returned.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        null
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        When a user is not qualified for a campaign, *null* is returned.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+## Usage
+
+```php
+<?php
+
+// campaignKey: you provide at the time of campaign creation
+// userId: how you identify a particular user
+// options: (Optional)
+//   customVariables: pre-segmentation variables
+//   variationTargetingVariables: forced variation variables
+$variationName = $vwoClientInstance->getVariationName($campaignKey, $userId, $options);
+
+if ($variationName !== null && $variationName == "Control") {
+  // CODE: write code for Control
+} elseif($variationName !== null && $variationName == "Variation-1") {
+  // CODE: write code for Variation-1
+} else {
+  // CODE: User is not qualified for the campaign. Would be due to configuring campaign's percent-traffic less than 100% while creating or updating a FullStack campaign.
 }
-[/block]
+```
+
+## Campaign Activation with User Storage Service
+
 If [User Storage Service](https://developers.vwo.com/docs/php-implement-a-user-storage-service) is provided, campaign activation is mandatory before tracking any goal, getting a variation of a campaign, and getting the value of the feature's variable.
 
 **Correct Usage**
-[block:code]
-{
-  "codes": [
-    {
-      "code": "$vwoClientInstance->activate($campaignKey, $userId, $options);\n$vwoClientInstance->track($campaignKey, $userId, $goalIdentifier, $options);",
-      "language": "php"
-    }
-  ]
-}
-[/block]
+
+```php
+$vwoClientInstance->activate($campaignKey, $userId, $options);
+$vwoClientInstance->track($campaignKey, $userId, $goalIdentifier, $options);
+```
+
 **Wrong Usage**
 
-[block:code]
-{
-  "codes": [
-    {
-      "code": "// Calling track API before activate API\n// This will not track goal as campaign has not been activated yet.\n$vwoClientInstance->track($campaignKey, $userId, $goalIdentifier, $options);\n\n// After calling track APi\n$vwoClientInstance->activate($campaignKey, $userId, $options);",
-      "language": "php"
-    }
-  ]
-}
-[/block]
+```php
+// Calling track API before activate API
+// This will not track goal as campaign has not been activated yet.
+$vwoClientInstance->track($campaignKey, $userId, $goalIdentifier, $options);
 
-[block:api-header]
-{
-  "title": ""
-}
-[/block]
+// After calling track APi
+$vwoClientInstance->activate($campaignKey, $userId, $options);
+```
+
+##
