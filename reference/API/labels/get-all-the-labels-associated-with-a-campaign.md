@@ -14,13 +14,15 @@ next:
   description: ''
 ---
 Request URL for Sub Account
+
 ```
 GET /accounts/1/campaigns/72/labels
 ```
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
+
 Get all the labels associated with a campaign
