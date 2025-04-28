@@ -8,39 +8,102 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:parameters]
-{
-  "data": {
-    "h-0": "Property",
-    "h-1": "Type",
-    "h-2": "Description",
-    "h-3": "Editable",
-    "0-0": "id",
-    "0-1": "int",
-    "0-2": "Section Id",
-    "0-3": "No",
-    "1-0": "name",
-    "2-0": "cssSelector",
-    "1-1": "string",
-    "2-1": "string",
-    "1-2": "Section Name",
-    "1-3": "Yes",
-    "2-3": "No",
-    "2-2": "Section Path",
-    "3-0": "variations",
-    "3-1": "nested object",
-    "3-2": "See variation resource",
-    "3-3": ""
-  },
-  "cols": 4,
-  "rows": 4
-}
-[/block]
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Property
+      </th>
 
-[block:callout]
-{
-  "type": "info",
-  "title": "Note:",
-  "body": "Only allowed for the MULTIVARIATE campaign"
-}
-[/block]
+      <th style={{ textAlign: "left" }}>
+        Type
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Editable
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        id
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        int
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Section Id
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        name
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Section Name
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        cssSelector
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Section Path
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variations
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        nested object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        See variation resource
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+> 📘 Note:
+>
+> Only allowed for the MULTIVARIATE campaign
