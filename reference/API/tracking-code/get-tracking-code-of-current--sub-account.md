@@ -22,7 +22,8 @@ next:
 
 [block:html]
 {
-  "html": "<div></div>\n\n<style></style>"
+  "html": "<div></div>\n<style></style>"
 }
 [/block]
+
 Get VWO Synchronous/Asynchronous SmartCode for Current / Sub Account
