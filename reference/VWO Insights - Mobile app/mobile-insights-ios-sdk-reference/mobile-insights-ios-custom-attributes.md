@@ -12,17 +12,12 @@ next:
 ---
 Custom attributes can be created by creating a map that contains all the key and value pairs as follows:
 
+**The below implementation is for Swift**
 
-**The below implementation is for Swift **
-
-
-[block:code]
-{
-  "codes": [
-    {
-      "code": "var dict = Dictionary<String, Any>()\ndict[\"email\"] = \"abc@xyz.com\"\ndict[\"rollNumber\"] = 21\n     \nVWO.triggerSyncVisitorPropEvent(visitorData: dict)",
-      "language": "swift"
-    }
-  ]
-}
-[/block]
+```swift
+var dict = Dictionary<String, Any>()
+dict["email"] = "abc@xyz.com"
+dict["rollNumber"] = 21
+     
+VWO.triggerSyncVisitorPropEvent(visitorData: dict)
+```
