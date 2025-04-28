@@ -51,4 +51,4 @@ Use this API when you want to stop new tracking but still show the campaign vari
 
 ### Notes
 
-- If a user opts out by mistake, they can opt back in by deleting the cookie named `_vis_opt_out`.
+* If a user opts out by mistake, they can opt back in by deleting the cookie named `_vis_opt_out`.
