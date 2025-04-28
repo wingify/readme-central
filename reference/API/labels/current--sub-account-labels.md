@@ -11,6 +11,7 @@ metadata:
   description: ''
   robots: noindex
 ---
+```json
 [block:textarea]
 {
   "text": "Request URI for Sub Account\n```\nGET /accounts/1/labels\n```",
@@ -23,4 +24,6 @@ metadata:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+```
+
 Get labels for Current / Sub Accounts.
