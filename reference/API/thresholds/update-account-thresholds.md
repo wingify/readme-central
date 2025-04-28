@@ -13,7 +13,7 @@ metadata:
 ---
 [block:textarea]
 {
-  "text": "Request URI for Sub Account\n```\nPATCH /accounts/1/thresholds\n```\n### Request Format: ",
+  "text": "Request URI for Sub Account\n```\nPATCH /accounts/1/thresholds\n```\n### Request Format:",
   "sidebar": true
 }
 [/block]
@@ -29,4 +29,5 @@ metadata:
   "sidebar": true
 }
 [/block]
+
 Update account Thresholds.
