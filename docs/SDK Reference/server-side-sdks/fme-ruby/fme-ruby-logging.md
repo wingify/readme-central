@@ -46,4 +46,4 @@ vwo_client = VWO.init({
 })
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing _vwo_client_.](https://developers.vwo.com/v2/docs/fme-ruby-initialization)
+This "logger" object can be passed as one of the parameters when [initializing *vwo\_client*.](https://developers.vwo.com/v2/docs/fme-ruby-initialization)
