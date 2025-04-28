@@ -26,9 +26,9 @@ window.VWO.push(['onVariationApplied',
 
 #### Arguments
 
-| Parameter         | Data Type  | Required | Description                                          |
-| ----------------- | ---------- | -------- | ---------------------------------------------------- |
-| callback_function | `Function` | Yes      | The callback function executes when a campaign runs. |
+| Parameter          | Data Type  | Required | Description                                          |
+| ------------------ | ---------- | -------- | ---------------------------------------------------- |
+| callback\_function | `Function` | Yes      | The callback function executes when a campaign runs. |
 
 ### Callback Data
 
@@ -79,6 +79,6 @@ window.VWO.push(['onVariationApplied', function (data) {
 
 ### Use-case
 
-- **Analytics Integration**: Automatically push variation data to Google Tag Manager or other analytics platforms to track which variations visitors are exposed to and how they affect their behavior.
-- **CRM Integration**: Sync variation data with CRM systems to tailor follow-up communications based on the variations visitors have seen, enhancing the personalization of marketing efforts.
-- **Feature Flag Management**: Use the variation data to toggle features on or off in your application based on the variation a visitor is bucketed into.
+* **Analytics Integration**: Automatically push variation data to Google Tag Manager or other analytics platforms to track which variations visitors are exposed to and how they affect their behavior.
+* **CRM Integration**: Sync variation data with CRM systems to tailor follow-up communications based on the variations visitors have seen, enhancing the personalization of marketing efforts.
+* **Feature Flag Management**: Use the variation data to toggle features on or off in your application based on the variation a visitor is bucketed into.
