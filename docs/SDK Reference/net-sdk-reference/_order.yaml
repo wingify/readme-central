@@ -10,3 +10,4 @@
 - dotnet-track
 - dotnet-push
 - dotnet-get-and-update-settings-file
+- dotnet-set-sdk-environment
