@@ -23,7 +23,9 @@ metadata:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+
 Request Format
+
 [block:code]
 {
   "codes": [
@@ -34,4 +36,5 @@ Request Format
   ]
 }
 [/block]
+
 Create a campaign section
