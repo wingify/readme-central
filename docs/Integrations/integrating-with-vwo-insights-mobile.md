@@ -18,24 +18,24 @@ With this integration, customers can **link session data** between VWO Insights 
 
 Benefits of Integrating Both SDKs:
 
-- Seamlessly link user sessions between VWO Insights Mobile SDK and VWO FME SDK.
-- Post-segment session data based on specific attributes or flags.
-- Ensure session consistency when sessions are renewed in the VWO Insights Mobile SDK.
-- Enhance tracking, analysis, and insights across both platforms.
+* Seamlessly link user sessions between VWO Insights Mobile SDK and VWO FME SDK.
+* Post-segment session data based on specific attributes or flags.
+* Ensure session consistency when sessions are renewed in the VWO Insights Mobile SDK.
+* Enhance tracking, analysis, and insights across both platforms.
 
 # Prerequisites
 
 Before integrating, ensure the following:
 
-- You have access to the latest versions of both SDKs.
-- You have already added **VWO Insights Mobile SDK** and **VWO FME SDK** separately in your application.
-- You have your **VWO Insights Mobile SDK API key** and **VWO FME SDK credentials** along with the **AccountId** and unique **USER_ID**
+* You have access to the latest versions of both SDKs.
+* You have already added **VWO Insights Mobile SDK** and **VWO FME SDK** separately in your application.
+* You have your **VWO Insights Mobile SDK API key** and **VWO FME SDK credentials** along with the **AccountId** and unique **USER\_ID**
 
 ## Integration
 
 While integrating both SDKs, ensure the following:
 
-- Implement the **Session Callback** as shown and pass the received session data to the **VWO FME SDK** for session validation.
+* Implement the **Session Callback** as shown and pass the received session data to the **VWO FME SDK** for session validation.
 
 ```kotlin
 private fun getSessionCallback(): IVwoSessionCallback {
@@ -50,7 +50,7 @@ func vwoScreenCaptureSessionDidUpdate(sessionData: [String : Any]) {
 }
 ```
 
-- **USER_ID** is mandatory to link both SDKs and ensure session continuity by passing the session callback.
+* **USER\_ID** is mandatory to link both SDKs and ensure session continuity by passing the session callback.
 
 ```kotlin
 val sessionCallback = getSessionCallback()
@@ -61,9 +61,9 @@ VWOInsights.linkFME(sessionCallback, USER_ID)
 VWO.linkFme(sessionCallback: self, userId: "")
 ```
 
-- **Initialize the VWO Insights Mobile SDK first**, as it handles session recording and tracking.
-- **Wait for a successful initialization callback** from VWO Insights before starting the **VWO FME SDK** to avoid misalignment in session data.
-- **Start session recording before initializing the VWO FME SDK** to ensure all interactions are captured correctly.
+* **Initialize the VWO Insights Mobile SDK first**, as it handles session recording and tracking.
+* **Wait for a successful initialization callback** from VWO Insights before starting the **VWO FME SDK** to avoid misalignment in session data.
+* **Start session recording before initializing the VWO FME SDK** to ensure all interactions are captured correctly.
 
 ## Step 1: Configure and Initialize the VWO Insights Mobile SDK
 
@@ -192,21 +192,7 @@ func vwoScreenCaptureSessionDidUpdate(sessionDetails: [String : Any]) {
 
 ## Sequence Diagram
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/9934d795f79209e4d2c39261460b85ffe673cf8fdb50040514cba8af13f280ad-Screenshot_2025-04-03_at_1.21.19_PM.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/9934d795f79209e4d2c39261460b85ffe673cf8fdb50040514cba8af13f280ad-Screenshot_2025-04-03_at_1.21.19_PM.png" />
 
 # Summary
 
