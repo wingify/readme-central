@@ -10,33 +10,69 @@ metadata:
 next:
   description: ''
 ---
-After installing the SDK, initialize the app in the _onCreate_ function of the Application class. 
+After installing the SDK, initialize the app in the *onCreate* function of the Application class. 
 
 ## Parameters
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Key",
-    "h-1": "Description",
-    "0-0": "**ACCOUNT_ID**  \n_Required_ ",
-    "0-1": "VWO Account ID",
-    "1-0": "**SDK_KEY**  \n_Required_",
-    "1-1": "SDK key",
-    "2-0": "**USER_ID**  \n_Optional_",
-    "2-1": "Unique identifier for the user",
-    "3-0": "**IVwoInitCallback**  \n_Optional_",
-    "3-1": "SDK Initialization callback"
-  },
-  "cols": 2,
-  "rows": 4,
-  "align": [
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Key
+      </th>
 
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **ACCOUNT\_ID**
+        *Required* 
+      </td>
+
+      <td>
+        VWO Account ID
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **SDK\_KEY**\
+        *Required*
+      </td>
+
+      <td>
+        SDK key
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **USER\_ID**\
+        *Optional*
+      </td>
+
+      <td>
+        Unique identifier for the user
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **IVwoInitCallback**\
+        *Optional*
+      </td>
+
+      <td>
+        SDK Initialization callback
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 ```java
 package com.wingify.screenshotsample
