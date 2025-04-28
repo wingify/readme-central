@@ -5,3 +5,4 @@
 - go-launch
 - go-activate
 - go-get-variation-name
+- go-is-feature-enabled
