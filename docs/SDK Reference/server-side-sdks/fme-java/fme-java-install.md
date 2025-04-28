@@ -31,13 +31,13 @@ You must then install the dependencies using`mvn install`
 ## Requirements
 
 > 📘 Java Version
-> 
+>
 > Java version >= 8
 
 ## Source Code
 
-| Language | Repository                                    |
-| :------- | :-------------------------------------------- |
-| Java     | <https://github.com/wingify/vwo-fme-java-sdk> |
+| Language | Repository                                                                                 |
+| :------- | :----------------------------------------------------------------------------------------- |
+| Java     | [https://github.com/wingify/vwo-fme-java-sdk](https://github.com/wingify/vwo-fme-java-sdk) |
 
 The VWO SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.
