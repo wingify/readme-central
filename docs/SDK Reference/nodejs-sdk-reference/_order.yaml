@@ -14,3 +14,4 @@
 - nodejs-set-sdk-environment
 - nodejs-configure-the-logger
 - nodejs-implement-a-user-storage-service
+- nodejs-configure-event-batching
