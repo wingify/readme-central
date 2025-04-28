@@ -14,7 +14,7 @@ next:
 
 After installing the SDK, initialize it within the onCreate() function of the MainApplication.java class or MainApplication.kt class if you use Kotlin.
 
-Copy the code below and replace the "ACCOUNT_ID" and "SDK_KEY" with the appropriate values from the dashboard.
+Copy the code below and replace the "ACCOUNT\_ID" and "SDK\_KEY" with the appropriate values from the dashboard.
 
 <br />
 
