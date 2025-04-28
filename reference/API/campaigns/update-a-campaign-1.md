@@ -25,7 +25,9 @@ next:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+
 Request Format
+
 [block:code]
 {
   "codes": [
@@ -36,7 +38,9 @@ Request Format
   ]
 }
 [/block]
+
 Update campaign status
+
 [block:callout]
 {
   "type": "info",
