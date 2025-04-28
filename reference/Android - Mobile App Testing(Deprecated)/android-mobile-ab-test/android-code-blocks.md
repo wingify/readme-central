@@ -14,21 +14,29 @@ Code blocks is a powerful way to run custom logic for different variations. For 
 
 The VWO SDK identifies a test by its campaign key. The campaign key should match the key you created when you set up the A/B test in the VWO web portal.
 
-The ```VWO.getVariationNameForTestKey(String testKey)``` function returns the name of the variation you created in VWO web portal.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "String variationName = VWO.getVariationNameForTestKey(\"campaign_key\");\nif (variationName != null && variationName.equals(\"Control\")) {\n   // code for Control variation\n} else if(variationName != null && variationName.equals(\"Variation 1\")) {\n   // code for Variation 1\n} else {\n   // default case\n}",
-      "language": "java"
-    },
-    {
-      "code": "val variationName = VWO.getVariationNameForTestKey(\"campaign_key\")\nif (variationName != null && variationName == \"Control\") {\n  // code for Control variation\n} else if (variationName != null && variationName == \"Variation 1\") {\n  // code for Variation 1\n} else {\n  // default case\n}",
-      "language": "kotlin"
-    }
-  ]
+The `VWO.getVariationNameForTestKey(String testKey)` function returns the name of the variation you created in VWO web portal.
+
+```java
+String variationName = VWO.getVariationNameForTestKey("campaign_key");
+if (variationName != null && variationName.equals("Control")) {
+   // code for Control variation
+} else if(variationName != null && variationName.equals("Variation 1")) {
+   // code for Variation 1
+} else {
+   // default case
 }
-[/block]
-The variation name should match the name you used in VWO web portal.
-Use the last else or default section to code the behaviour of your app if this A/B test is not running.
+```
+```kotlin
+val variationName = VWO.getVariationNameForTestKey("campaign_key")
+if (variationName != null && variationName == "Control") {
+  // code for Control variation
+} else if (variationName != null && variationName == "Variation 1") {
+  // code for Variation 1
+} else {
+  // default case
+}
+```
+
+The variation name should match the name you used in VWO web portal.\
+Use the last else or default section to code the behaviour of your app if this A/B test is not running.\
 If your control and default behaviour are same, you can remove the control condition.
