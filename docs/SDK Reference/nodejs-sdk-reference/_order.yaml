@@ -13,3 +13,4 @@
 - node-set-opt-out
 - nodejs-set-sdk-environment
 - nodejs-configure-the-logger
+- nodejs-implement-a-user-storage-service
