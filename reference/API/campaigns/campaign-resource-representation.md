@@ -8,251 +8,1098 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:parameters]
-{
-  "data": {
-    "h-0": "Property",
-    "h-1": "Type",
-    "h-2": "Description",
-    "h-3": "Editable",
-    "0-0": "id",
-    "1-0": "name",
-    "2-0": "type",
-    "3-0": "status",
-    "4-0": "createdOn",
-    "5-0": "labels",
-    "6-0": "percentTraffic",
-    "8-0": "createdBy",
-    "12-0": "urls",
-    "15-0": "excludedUrls",
-    "18-0": "primaryUrl",
-    "19-0": "integrations",
-    "20-0": "thresholds",
-    "24-0": "device",
-    "25-0": "variations",
-    "26-0": "sections",
-    "27-0": "goals",
-    "28-0": "dataIntervalRange",
-    "34-0": "variationGoalData",
-    "0-1": "integer",
-    "0-2": "Campaign Id",
-    "0-3": "No",
-    "1-1": "string",
-    "1-2": "Campaign Name",
-    "1-3": "Yes",
-    "2-1": "string",
-    "2-2": "Campaign type\n\nValid values include `ab`, `multivariate`, `heatmap`, `conversion`, `split`",
-    "2-3": "Yes",
-    "3-1": "string",
-    "3-2": "Campaign status",
-    "3-3": "Yes",
-    "4-1": "timestamp",
-    "4-3": "No",
-    "4-2": "Campaign creation time",
-    "5-1": "Nested Object",
-    "5-2": "See CampaignLabel resource",
-    "5-3": "Yes",
-    "6-1": "float",
-    "6-2": "Percentage traffic allocated to the campaign",
-    "6-3": "Yes",
-    "8-1": "NestedObject",
-    "8-2": "Contains the information of user who created the campaign",
-    "9-0": "createdBy.id",
-    "10-0": "createdBy.name",
-    "11-0": "createdBy.imageUrl",
-    "8-3": "",
-    "9-1": "integer",
-    "9-2": "User Id",
-    "10-1": "string",
-    "10-2": "User name",
-    "11-1": "link",
-    "11-2": "User gravatar link",
-    "25-1": "Nested Object",
-    "25-2": "See variation resource for details",
-    "25-3": "Yes",
-    "26-1": "Nested Object",
-    "26-2": "See section resource for details",
-    "26-3": "Yes",
-    "27-1": "Nested Object",
-    "27-2": "See goal resource for details",
-    "27-3": "Yes",
-    "24-1": "string",
-    "24-2": "Device for which the campaign was created",
-    "24-3": "No",
-    "9-3": "No",
-    "10-3": "No",
-    "11-3": "No",
-    "20-1": "Nested Object",
-    "20-3": "",
-    "20-2": "Thresholds for campaign data collection",
-    "21-0": "thresholds.winningPercent",
-    "21-1": "Float",
-    "21-3": "Yes",
-    "22-3": "Yes",
-    "23-3": "Yes",
-    "22-1": "Float",
-    "23-1": "integer",
-    "21-2": "Threshold for winning variation",
-    "22-2": "Threshold for losing variation",
-    "23-2": "Threshold for number of visitors",
-    "22-0": "thresholds.losingPercent",
-    "23-0": "thresholds.visitors",
-    "19-1": "Nested Object",
-    "19-2": "See integration resource for more details",
-    "19-3": "Yes",
-    "18-1": "link",
-    "18-2": "Url on which test needs to be created",
-    "18-3": "Yes",
-    "12-1": "Nested Object",
-    "15-1": "Nested Object",
-    "12-2": "Urls to be included in the campaign",
-    "15-2": "Urls to be excluded in the campaign",
-    "12-3": "Yes",
-    "15-3": "Yes",
-    "13-0": "urls.{index}.type",
-    "14-0": "urls.{index}.value",
-    "13-1": "String",
-    "13-2": "Url type\n\nValid values include `url`,`startsWith`, `endsWith`,`contains`,`pattern`,`regex`",
-    "13-3": "Yes",
-    "14-2": "Url value",
-    "14-3": "Yes",
-    "14-1": "Link",
-    "16-0": "excludedUrls.{index}.type",
-    "17-0": "excludedUrls.{index}.value",
-    "16-1": "String",
-    "17-1": "Link",
-    "16-2": "Url type",
-    "16-3": "Yes",
-    "17-3": "Yes",
-    "17-2": "Url value",
-    "28-1": "Nested Object",
-    "28-2": "Date Range for collected campaign range",
-    "28-3": "",
-    "30-3": "No",
-    "31-3": "No",
-    "32-3": "No",
-    "33-3": "No",
-    "29-3": "No",
-    "29-0": "dataIntervalRange.intervalSize",
-    "30-0": "dataIntervalRange.startTime",
-    "31-0": "dataIntervalRange.endTime",
-    "32-0": "dataIntervalRange.limitingStartTime",
-    "33-0": "dataIntervalRange.limitingEndTime",
-    "29-1": "timestamp",
-    "30-1": "timestamp",
-    "31-1": "timestamp",
-    "32-1": "timestamp",
-    "33-1": "timestamp",
-    "29-2": "Size of intervals for which data is shown",
-    "30-2": "Campaign data start time which is selected",
-    "31-2": "Campaign data end time which is selected",
-    "32-2": "Campaign data start time for which overall data is collected",
-    "33-2": "Campaign data end time for which overall data is collected",
-    "34-1": "Nested Object",
-    "34-2": "Campaign data for each variation-goal combination",
-    "34-3": "No",
-    "35-0": "variationGoalData.variation",
-    "36-0": "variationGoalData.goal",
-    "37-0": "variationGoalData.aggregated",
-    "47-0": "variationGoalData.isLoser",
-    "48-0": "variationGoalData.isWinner",
-    "49-0": "variationGoalData.intervalWise",
-    "50-0": "variationGoalData.intervalWise.{index}.interval",
-    "35-1": "integer",
-    "35-2": "Variation Id",
-    "35-3": "No",
-    "36-3": "No",
-    "37-3": "No",
-    "47-3": "No",
-    "48-3": "No",
-    "49-3": "No",
-    "50-3": "No",
-    "36-1": "integer",
-    "36-2": "Goal Id",
-    "38-0": "variationGoalData.aggregated.visitorCount",
-    "39-0": "variationGoalData.aggregated.conversionCount",
-    "40-0": "variationGoalData.aggregated.conversionRate",
-    "41-0": "variationGoalData.aggregated.standardError",
-    "42-0": "variationGoalData.aggregated.totalRevenue",
-    "43-0": "variationGoalData.aggregated.revenuePerVisitor",
-    "44-0": "variationGoalData.aggregated.revenuePerConversion",
-    "45-0": "variationGoalData.aggregated.revenuePerVisitorStandardError",
-    "46-0": "variationGoalData.aggregated.revenuePerConversionStandardError",
-    "51-0": "variationGoalData.intervalWise.{index}.visitorCount",
-    "52-0": "variationGoalData.intervalWise.{index}.conversionCount",
-    "53-0": "variationGoalData.intervalWise.{index}.totalCount",
-    "51-3": "No",
-    "52-3": "No",
-    "53-3": "No",
-    "38-3": "No",
-    "39-3": "No",
-    "40-3": "No",
-    "41-3": "No",
-    "42-3": "No",
-    "43-3": "No",
-    "44-3": "No",
-    "45-3": "No",
-    "46-3": "No",
-    "37-1": "Nested Object",
-    "37-2": "Aggregated data for variation-goal combination",
-    "38-1": "integer",
-    "39-1": "integer",
-    "40-1": "float",
-    "41-1": "float",
-    "42-1": "integer",
-    "43-1": "float",
-    "44-1": "float",
-    "45-1": "float",
-    "46-1": "float",
-    "47-1": "boolean",
-    "48-1": "boolean",
-    "49-1": "Nested Object",
-    "49-2": "Interval wise data for variation-goal combination",
-    "50-1": "timestamp",
-    "51-1": "integer",
-    "52-1": "integer",
-    "53-1": "integer",
-    "52-2": "conversion count",
-    "53-2": "total count",
-    "51-2": "visitor count",
-    "50-2": "interval time",
-    "38-2": "visitor count",
-    "39-2": "conversion count",
-    "40-2": "conversion rate",
-    "41-2": "standard error",
-    "42-2": "total revenue if revenue type goal is selected",
-    "43-2": "revenue per visitor",
-    "44-2": "revenue per conversion",
-    "45-2": "revenue per visitor standard error",
-    "46-2": "revenue per conversion standard error",
-    "47-2": "if variation-goal combination is loser",
-    "48-2": "if variation-goal combination is winner",
-    "7-0": "isCrossDomainEnabled",
-    "7-1": "boolean",
-    "7-2": "Tracking conversions across multiple domains",
-    "7-3": "Yes",
-    "54-0": "stats.conversionRate",
-    "54-1": "integer",
-    "54-2": "Conversion rate for the campaign (Default :0.05)",
-    "54-3": "Yes",
-    "55-0": "stats.certaintyMode",
-    "55-1": "integer",
-    "55-2": "Certainty Modes\nHigh Certainty: 0.01\nBalanced Mode: 0.075\nQuick Learnings: 0.20 \n\n (Default : 0.01)",
-    "55-3": "Yes",
-    "56-0": "stats.expectedMonthlyVisitors",
-    "56-1": "integer",
-    "56-2": "Monthly expected Visitors on the website whose campaign is created (Default : 300000)",
-    "56-3": "Yes",
-    "57-0": "stats.expectedRevenuePerVisitor",
-    "57-1": "integer",
-    "57-2": "Expected Revenue per visitor (Default : 2)",
-    "57-3": "Yes",
-    "58-0": "stats.liftInConversionRate",
-    "58-1": "integer",
-    "58-2": "Expected lift in Improvement Rate to be achieved by this campaign\n(Default : 0.05)",
-    "58-3": "Yes"
-  },
-  "cols": 4,
-  "rows": 59
-}
-[/block]
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th style={{ textAlign: "left" }}>
+        Property
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Type
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Description
+      </th>
+
+      <th style={{ textAlign: "left" }}>
+        Editable
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        id
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Campaign Id
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        name
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Campaign Name
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        type
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Campaign type
+
+        Valid values include `ab`, `multivariate`, `heatmap`, `conversion`, `split`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        status
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Campaign status
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        createdOn
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        timestamp
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Campaign creation time
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        labels
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        See CampaignLabel resource
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        percentTraffic
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        float
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Percentage traffic allocated to the campaign
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        isCrossDomainEnabled
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        boolean
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Tracking conversions across multiple domains
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        createdBy
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        NestedObject
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Contains the information of user who created the campaign
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        createdBy.id
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        User Id
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        createdBy.name
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        User name
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        createdBy.imageUrl
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        link
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        User gravatar link
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        urls
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Urls to be included in the campaign
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        urls.\{index}.type
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        String
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Url type
+
+        Valid values include `url`,`startsWith`, `endsWith`,`contains`,`pattern`,`regex`
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        urls.\{index}.value
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Link
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Url value
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        excludedUrls
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Urls to be excluded in the campaign
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        excludedUrls.\{index}.type
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        String
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Url type
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        excludedUrls.\{index}.value
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Link
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Url value
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        primaryUrl
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        link
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Url on which test needs to be created
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        integrations
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        See integration resource for more details
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        thresholds
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Thresholds for campaign data collection
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        thresholds.winningPercent
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Float
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Threshold for winning variation
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        thresholds.losingPercent
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Float
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Threshold for losing variation
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        thresholds.visitors
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Threshold for number of visitors
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        device
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        string
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Device for which the campaign was created
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variations
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        See variation resource for details
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        sections
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        See section resource for details
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        goals
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        See goal resource for details
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        dataIntervalRange
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Date Range for collected campaign range
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        dataIntervalRange.intervalSize
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        timestamp
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Size of intervals for which data is shown
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        dataIntervalRange.startTime
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        timestamp
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Campaign data start time which is selected
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        dataIntervalRange.endTime
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        timestamp
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Campaign data end time which is selected
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        dataIntervalRange.limitingStartTime
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        timestamp
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Campaign data start time for which overall data is collected
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        dataIntervalRange.limitingEndTime
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        timestamp
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Campaign data end time for which overall data is collected
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Campaign data for each variation-goal combination
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.variation
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Variation Id
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.goal
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Goal Id
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.aggregated
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Aggregated data for variation-goal combination
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.aggregated.visitorCount
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        visitor count
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.aggregated.conversionCount
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        conversion count
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.aggregated.conversionRate
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        float
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        conversion rate
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.aggregated.standardError
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        float
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        standard error
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.aggregated.totalRevenue
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        total revenue if revenue type goal is selected
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.aggregated.revenuePerVisitor
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        float
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        revenue per visitor
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.aggregated.revenuePerConversion
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        float
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        revenue per conversion
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.aggregated.revenuePerVisitorStandardError
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        float
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        revenue per visitor standard error
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.aggregated.revenuePerConversionStandardError
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        float
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        revenue per conversion standard error
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.isLoser
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        boolean
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        if variation-goal combination is loser
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.isWinner
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        boolean
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        if variation-goal combination is winner
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.intervalWise
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Nested Object
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Interval wise data for variation-goal combination
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.intervalWise.\{index}.interval
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        timestamp
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        interval time
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.intervalWise.\{index}.visitorCount
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        visitor count
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.intervalWise.\{index}.conversionCount
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        conversion count
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        variationGoalData.intervalWise.\{index}.totalCount
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        total count
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        No
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        stats.conversionRate
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Conversion rate for the campaign (Default :0.05)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        stats.certaintyMode
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Certainty Modes\
+        High Certainty: 0.01\
+        Balanced Mode: 0.075\
+        Quick Learnings: 0.20 
+
+         (Default : 0.01)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        stats.expectedMonthlyVisitors
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Monthly expected Visitors on the website whose campaign is created (Default : 300000)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        stats.expectedRevenuePerVisitor
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Expected Revenue per visitor (Default : 2)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+
+    <tr>
+      <td style={{ textAlign: "left" }}>
+        stats.liftInConversionRate
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        integer
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Expected lift in Improvement Rate to be achieved by this campaign\
+        (Default : 0.05)
+      </td>
+
+      <td style={{ textAlign: "left" }}>
+        Yes
+      </td>
+    </tr>
+  </tbody>
+</Table>
