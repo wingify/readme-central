@@ -18,30 +18,30 @@ Metrics in FME are based on "Custom Events" that you can create in VWO > Data360
 
 Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet: 
 
-## _**Track Event**_ API
+## ***Track Event*** API
 
 This API sends data to VWO whenever a defined user action occurs. The captured event data can be used to:
 
-- Measure the success of experiments (e.g., conversion rates).
-- Track key performance indicators (KPIs), such as sign-ups or purchases.
-- Analyze user engagement with new features or content.
-- Trigger real-time personalization based on user behavior.
+* Measure the success of experiments (e.g., conversion rates).
+* Track key performance indicators (KPIs), such as sign-ups or purchases.
+* Analyze user engagement with new features or content.
+* Trigger real-time personalization based on user behavior.
 
 ### How It Works:
 
 When this API is executed:
 
-- The application sends the event name and user details to VWO’s platform.
-- VWO logs the event and associates it with ongoing experiments or feature rollouts.
-- The collected data is then available in VWO’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
+* The application sends the event name and user details to VWO’s platform.
+* VWO logs the event and associates it with ongoing experiments or feature rollouts.
+* The collected data is then available in VWO’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
 
 ### Why It’s Valuable:
 
-- _Conversion Tracking_: Measure how many users complete desired actions, like purchases or sign-ups.
-- _Experiment Analysis_: Evaluate the performance of different variations in A/B tests.
-- _User Behavior Insights_: Understand how users interact with features and content.
-- _Personalization Triggers_: Deliver dynamic content based on real-time user actions.
-- _Performance Optimization_: Identify friction points in the user journey to improve the overall experience.
+* *Conversion Tracking*: Measure how many users complete desired actions, like purchases or sign-ups.
+* *Experiment Analysis*: Evaluate the performance of different variations in A/B tests.
+* *User Behavior Insights*: Understand how users interact with features and content.
+* *Personalization Triggers*: Deliver dynamic content based on real-time user actions.
+* *Performance Optimization*: Identify friction points in the user journey to improve the overall experience.
 
 ## Usage
 
@@ -58,33 +58,71 @@ vwo_client.track_event('event-name', user_context, {userType: 'paid'})
 
 ## Parameters Definition
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "**event_name**  \n_Required_",
-    "0-1": "String",
-    "0-2": "The unique event name you will see when creating the event in Data360. When the trackEvent() function is called, it will record a metric conversion in VWO for the given event name.",
-    "1-0": "**user_context**  \n_Required_",
-    "1-1": "String",
-    "1-2": "Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-node-context) .",
-    "2-0": "**event_properties**  \n_Optional_",
-    "2-1": "Hash",
-    "2-2": "any properties of this event that you wish to pass to VWO. E.g: for a \"purchase\" event, some properties could be \"cartValue\", \"currency\", \"shippingMethod\" etc. These must be passed as key-value pairs, and the property name should exactly match what you set while creating the event in VWO > Data360>Events."
-  },
-  "cols": 3,
-  "rows": 3,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **event\_name**
+        *Required*
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        The unique event name you will see when creating the event in Data360. When the trackEvent() function is called, it will record a metric conversion in VWO for the given event name.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **user\_context**\
+        *Required*
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-node-context) .
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **event\_properties**\
+        *Optional*
+      </td>
+
+      <td>
+        Hash
+      </td>
+
+      <td>
+        any properties of this event that you wish to pass to VWO. E.g: for a "purchase" event, some properties could be "cartValue", "currency", "shippingMethod" etc. These must be passed as key-value pairs, and the property name should exactly match what you set while creating the event in VWO > Data360>Events.
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 > 🚧 Note
-> 
-> Please note that the _Event_ must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application.
+>
+> Please note that the *Event* must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application.
