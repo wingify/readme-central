@@ -23,36 +23,17 @@ Type **Default Value**(current value or a value if there is no A/B test).
 You can view the relevant Java, Objective, or Swift code snippet in the right panel as you create the variable. You can use this code snippet to update the changes in your mobile app code.
 
 To add the variable, touch **Create**. You can add multiple variables to an app.
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/0fb2726-mobile-app-ab-3.jpg",
-        "mobile-app-ab-3.jpg",
-        1349,
-        740,
-        "#8e8f91"
-      ]
-    }
-  ]
-}
-[/block]
-The Default Value field helps you write consistent code, without introducing checks for nil.
-In the example above, we have defined the ```speed``` integer variable with the default value as 5.
-The corresponding code for Java, Objective-C, and Swift is also generated.
-Now, instead of using ```int speed = 5;``` use the code below.
-[block:code]
-{
-  "codes": [
-    {
-      "code": "int speed = [VWO intForKey:@\"speed\" defaultValue:5];",
-      "language": "objectivec"
-    },
-    {
-      "code": "int speed = VWO.intFor(key: \"speed\", defaultValue: 5)",
-      "language": "swift"
-    }
-  ]
-}
-[/block]
+
+![1349](https://files.readme.io/0fb2726-mobile-app-ab-3.jpg "mobile-app-ab-3.jpg")
+
+The Default Value field helps you write consistent code, without introducing checks for nil.\
+In the example above, we have defined the `speed` integer variable with the default value as 5.\
+The corresponding code for Java, Objective-C, and Swift is also generated.\
+Now, instead of using `int speed = 5;` use the code below.
+
+```objectivec
+int speed = [VWO intForKey:@"speed" defaultValue:5];
+```
+```swift
+int speed = VWO.intFor(key: "speed", defaultValue: 5)
+```
