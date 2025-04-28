@@ -25,6 +25,7 @@ next:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+
 Request Format
 [block:code]
 {
@@ -36,4 +37,5 @@ Request Format
   ]
 }
 [/block]
+
 Update a campaign variation
