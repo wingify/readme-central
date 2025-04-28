@@ -23,4 +23,5 @@ metadata:
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
+
 Get all the variations of a campaign
