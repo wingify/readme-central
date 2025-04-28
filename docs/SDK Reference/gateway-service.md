@@ -33,40 +33,26 @@ The Gateway Service is designed to be deployed within your backend infrastructur
 
 Your application calls the VWO FME SDK, which communicates with the locally deployed Gateway Service. The Gateway Service handles complex logic and data management required for feature management and experimentation.
 
-[block:image]
-{
-  "images": [
-    {
-      "image": [
-        "https://files.readme.io/f983ba3e8432b9bc7e203f76372310430473131856b354b494c6f0930238fa9b-FME_Gateway.drawio.png",
-        "",
-        ""
-      ],
-      "align": "center"
-    }
-  ]
-}
-[/block]
-
+<Image align="center" src="https://files.readme.io/f983ba3e8432b9bc7e203f76372310430473131856b354b494c6f0930238fa9b-FME_Gateway.drawio.png" />
 
 ## Key Features
 
-- Handles location and user agent information requests
-- Provides a unified interface for VWO SDK operations
-- Supports caching for improved response times
-- Offers configurable polling for VWO campaign settings updates
-- Enables low-latency, internal communication with FME SDKs
+* Handles location and user agent information requests
+* Provides a unified interface for VWO SDK operations
+* Supports caching for improved response times
+* Offers configurable polling for VWO campaign settings updates
+* Enables low-latency, internal communication with FME SDKs
 
 ## Deployment
 
-VWO FME Gateway Service is available on the docker hub.  
-Docker Image: <https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service>
+VWO FME Gateway Service is available on the docker hub.\
+Docker Image: [https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service](https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service)
 
 ### Prerequisites
 
-- Docker and Docker Compose
-- VWO Account ID and SDK Key
-- (Optional) MaxMind GeoIP database credentials
+* Docker and Docker Compose
+* VWO Account ID and SDK Key
+* (Optional) MaxMind GeoIP database credentials
 
 ### Setup
 
@@ -149,50 +135,50 @@ networks:
 
 ### Configuration Options
 
-- `ACCOUNT_ID` (required): Your VWO account ID. This uniquely identifies your VWO account.
+* `ACCOUNT_ID` (required): Your VWO account ID. This uniquely identifies your VWO account.
 
-- `SDK_KEY` (required): Your VWO SDK key. This is used to identify the environment you're running and for authentication.
+* `SDK_KEY` (required): Your VWO SDK key. This is used to identify the environment you're running and for authentication.
 
-- `POLLING_TIME` (optional, default: 60000): The interval in milliseconds at which the Gateway Service polls VWO servers for updates to campaign settings. Adjust this based on how frequently you update your VWO campaigns.
+* `POLLING_TIME` (optional, default: 60000): The interval in milliseconds at which the Gateway Service polls VWO servers for updates to campaign settings. Adjust this based on how frequently you update your VWO campaigns.
 
-- `MAXMIND_USER_ID` and `MAXMIND_LICENSE_KEY` (optional): Credentials for MaxMind GeoIP database. This is mandatory if you want to leverage accurate geolocation-based targeting and segmentation in FME.
+* `MAXMIND_USER_ID` and `MAXMIND_LICENSE_KEY` (optional): Credentials for MaxMind GeoIP database. This is mandatory if you want to leverage accurate geolocation-based targeting and segmentation in FME.
 
-- `CORS_CONFIG_REQUIRED` (optional, default: false): Set to true if requests are being sent from the client-side (e.g., browser-based applications). This enables Cross-Origin Resource Sharing (CORS) headers.
+* `CORS_CONFIG_REQUIRED` (optional, default: false): Set to true if requests are being sent from the client-side (e.g., browser-based applications). This enables Cross-Origin Resource Sharing (CORS) headers.
 
-- `DECISION_REQUIRED` (optional, default: false): Set to true if you want the Gateway Service to make decisions about feature flags and experiments. If false, the SDK will make these decisions.
+* `DECISION_REQUIRED` (optional, default: false): Set to true if you want the Gateway Service to make decisions about feature flags and experiments. If false, the SDK will make these decisions.
 
-- `LOG_LEVEL` (optional, default: ERROR): Sets the logging verbosity. Options are:
-  - ERROR: Only log errors
-  - INFO: Log informational messages and errors
-  - DEBUG: Log detailed debug information, informational messages, and errors
+* `LOG_LEVEL` (optional, default: ERROR): Sets the logging verbosity. Options are:
+  * ERROR: Only log errors
+  * INFO: Log informational messages and errors
+  * DEBUG: Log detailed debug information, informational messages, and errors
 
-- `REDIS_HOST` (required if using Redis): The hostname of your Redis server.
+* `REDIS_HOST` (required if using Redis): The hostname of your Redis server.
 
-- `REDIS_PORT` (required if using Redis): The port number on which your Redis server is running.
+* `REDIS_PORT` (required if using Redis): The port number on which your Redis server is running.
 
-- `REDIS_PASSWORD` (optional): The password for your Redis server, if authentication is enabled.
+* `REDIS_PASSWORD` (optional): The password for your Redis server, if authentication is enabled.
 
-- `REDIS_ENABLE_TLS` (optional, default: false): Set to true if your Redis server uses TLS encryption.
+* `REDIS_ENABLE_TLS` (optional, default: false): Set to true if your Redis server uses TLS encryption.
 
-- `REDIS_TLS_CA_PATH` (optional): The path to the CA certificate file for Redis TLS connection.
+* `REDIS_TLS_CA_PATH` (optional): The path to the CA certificate file for Redis TLS connection.
 
-- `REDIS_TLS_KEY_PATH` (optional): The path to the client key file for Redis TLS connection.
+* `REDIS_TLS_KEY_PATH` (optional): The path to the client key file for Redis TLS connection.
 
-- `REDIS_TLS_CERT_PATH` (optional): The path to the client certificate file for Redis TLS connection.
+* `REDIS_TLS_CERT_PATH` (optional): The path to the client certificate file for Redis TLS connection.
 
-- `REDIS_TLS_REJECT_UNAUTHORIZED` (optional, default: false): Set to true to reject unauthorized Redis TLS connections.
+* `REDIS_TLS_REJECT_UNAUTHORIZED` (optional, default: false): Set to true to reject unauthorized Redis TLS connections.
 
 Additional environment variables can be set for fine-tuning the Gateway Service:
 
-- `PORT` (optional, default: 8000): The port on which the Gateway Service will run.
+* `PORT` (optional, default: 8000): The port on which the Gateway Service will run.
 
-- `MAX_EVENTS_PER_REQUEST` (optional, default: 5000): The maximum number of events that can be sent in a single batch request.
+* `MAX_EVENTS_PER_REQUEST` (optional, default: 5000): The maximum number of events that can be sent in a single batch request.
 
-- `FLUSH_EVENTS_INTERVAL` (optional, default: 600): The interval in seconds at which events are flushed to VWO servers.
+* `FLUSH_EVENTS_INTERVAL` (optional, default: 600): The interval in seconds at which events are flushed to VWO servers.
 
-- `EVENTS_PER_REQUEST` (optional, default: 100): The number of events to be sent in each request during event flushing.
+* `EVENTS_PER_REQUEST` (optional, default: 100): The number of events to be sent in each request during event flushing.
 
-- `SOCKET_TIMEOUT` (optional, default: 5): The timeout in seconds for socket connections.
+* `SOCKET_TIMEOUT` (optional, default: 5): The timeout in seconds for socket connections.
 
 These configuration options allow you to customize the Gateway Service to fit your specific needs, from basic setup to advanced configurations involving security, caching, and performance optimization.
 
@@ -202,9 +188,9 @@ The Gateway Service exposes these main endpoints. These endpoints should be used
 
 ### 1. GetFlag
 
-- **Endpoint**: `POST /server-side/getFlag`
-- **Purpose**: Retrieve feature flag status and variables
-- **Usage**: Use this endpoint to check if a feature is enabled for a user and retrieve associated variables.
+* **Endpoint**: `POST /server-side/getFlag`
+* **Purpose**: Retrieve feature flag status and variables
+* **Usage**: Use this endpoint to check if a feature is enabled for a user and retrieve associated variables.
 
 **Request Example:**
 
@@ -242,9 +228,9 @@ Note: `featureKey` and `userId` are required parameters.
 
 ### 2. TrackEvent
 
-- **Endpoint**: `POST /server-side/trackEvent`
-- **Purpose**: Track custom events
-- **Usage**: Use this endpoint to record user actions or conversions.
+* **Endpoint**: `POST /server-side/trackEvent`
+* **Purpose**: Track custom events
+* **Usage**: Use this endpoint to record user actions or conversions.
 
 **Request Example:**
 
@@ -272,9 +258,9 @@ Note: `eventName` and `userId` are required parameters.
 
 ### 3. SetAttribute
 
-- **Endpoint**: `POST /server-side/setAttribute`
-- **Purpose**: Set custom user attributes
-- **Usage**: Use this endpoint to update user properties that may affect feature flag evaluations.
+* **Endpoint**: `POST /server-side/setAttribute`
+* **Purpose**: Set custom user attributes
+* **Usage**: Use this endpoint to update user properties that may affect feature flag evaluations.
 
 **Request Example:**
 
