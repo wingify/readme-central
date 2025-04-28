@@ -5,3 +5,4 @@
 - dotnet-launch
 - dotnet-activate
 - dotnet-get-variation-name
+- dotnet-is-feature-enabled
