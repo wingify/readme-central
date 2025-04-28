@@ -34,7 +34,7 @@ window.VWO.push(['onSurveyAnswerSubmitted', function(data) {
 | surveyId     | number    | Yes      | The survey campaign ID of the survey being answered.                                   |
 | uuid         | string    | Yes      | The unique identifier for the visitor.                                                 |
 | questionId   | number    | Yes      | The unique ID of the question being answered.                                          |
-| questionType | string    | Yes      | The type of the question (e.g., "multi_line", "checkbox", "radio").                    |
+| questionType | string    | Yes      | The type of the question (e.g., "multi\_line", "checkbox", "radio").                   |
 | questionText | string    | Yes      | The text of the question being answered.                                               |
 | answers      | array     | Yes      | An array of answer objects containing id (number) and value (string).                  |
 | skipped      | boolean   | No       | Indicates whether the visitor skipped the question. If true, the question was skipped. |
@@ -72,8 +72,8 @@ window.VWO.push(['onSurveyAnswerSubmitted', function(data) {
 
 ### Use-cases
 
-- **Customer Data Integration**: Use this callback to tag survey answers with visitor data and send it to your Customer Data Platform (CDP) or data warehouse for deeper analysis.
-- **Behavior Analysis**: Push survey response data to analytics tools like Google Analytics to track visitor behavior, such as response patterns and survey interactions.
-- **CRM Integration**: For sales teams, integrate survey responses into your CRM system to refine strategies based on customer feedback, such as identifying competitors being evaluated.
+* **Customer Data Integration**: Use this callback to tag survey answers with visitor data and send it to your Customer Data Platform (CDP) or data warehouse for deeper analysis.
+* **Behavior Analysis**: Push survey response data to analytics tools like Google Analytics to track visitor behavior, such as response patterns and survey interactions.
+* **CRM Integration**: For sales teams, integrate survey responses into your CRM system to refine strategies based on customer feedback, such as identifying competitors being evaluated.
 
-You may also refer to the following article: <https://vwo.com/product-updates/vwo-survey-api/>
+You may also refer to the following article: [https://vwo.com/product-updates/vwo-survey-api/](https://vwo.com/product-updates/vwo-survey-api/)
