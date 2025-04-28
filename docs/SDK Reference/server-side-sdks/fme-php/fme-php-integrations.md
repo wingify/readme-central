@@ -41,7 +41,7 @@ All VWO SDKs provide the following properties when a decision is made. This mean
 
 ```
 
-Different destinations have their own formats for integrating with them and using their respective methods/APIs. Please check the documentation of the respective third-party destination so that the above properties can be mapped accordingly before using the destination APIs.  
+Different destinations have their own formats for integrating with them and using their respective methods/APIs. Please check the documentation of the respective third-party destination so that the above properties can be mapped accordingly before using the destination APIs.\
 This is the reason why VWO SDKs do not provide different libraries to connect with different third-party sources. You can simply refer to the third-party destination's documentation and connect VWO the way you want.
 
 ## Which platforms I can integrate with?
@@ -49,5 +49,5 @@ This is the reason why VWO SDKs do not provide different libraries to connect wi
 Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party destination. 
 
 > 📘 Note
-> 
+>
 > Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
