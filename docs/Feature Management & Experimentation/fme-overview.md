@@ -28,7 +28,7 @@ With VWO FME, you can perform the testing wherein the variations of a particular
 
 - Manage Features' Lifecycle With Feature Flag Management
 - Deliver Features Confidently with Staged Feature Rollouts
-- You can test multiple variations of the feature with a different set of variables 
+- You can test multiple variations of the feature with a different set of variables
 - A/B Test deep within your stack
 
 VWO FME enables you to test much deeper. Rather than being limited to testing images or buttons on your website, you can test algorithms, architectures, and re-brands. But for complex applications, client-side testing may not be the best option: Layering more JavaScript on top of an already bulky application means an even slower load time and an even more cumbersome user experience.
