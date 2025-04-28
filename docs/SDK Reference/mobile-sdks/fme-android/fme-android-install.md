@@ -24,13 +24,13 @@ implementation 'com.vwo.sdk:vwo-fme-android-sdk:<latestVersion>'
 ## Requirements
 
 > 📘 Android API Level
-> 
+>
 > Android API level 21 onwards
 
 ## Source Code
 
-| Language | Repository                                       |
-| :------- | :----------------------------------------------- |
-| Android  | <https://github.com/wingify/vwo-fme-android-sdk> |
+| Language | Repository                                                                                       |
+| :------- | :----------------------------------------------------------------------------------------------- |
+| Android  | [https://github.com/wingify/vwo-fme-android-sdk](https://github.com/wingify/vwo-fme-android-sdk) |
 
 The FME SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.
