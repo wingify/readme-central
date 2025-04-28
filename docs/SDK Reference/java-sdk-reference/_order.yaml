@@ -14,3 +14,4 @@
 - java-set-sdk-environment
 - java-configure-the-logger
 - java-implement-a-user-storage-service
+- java-configure-event-batching
