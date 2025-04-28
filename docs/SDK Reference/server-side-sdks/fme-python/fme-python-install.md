@@ -17,7 +17,7 @@ To integrate VWO FME SDK into your Python application, you must first install th
 ## Requirements
 
 > 📘 Python Version
-> 
+>
 > 3.6 onwards
 
 ## Installation via pip
@@ -34,6 +34,6 @@ pip install vwo-fme-python-sdk
 
 VWO FME SDKs source code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2025.
 
-| Language | Repository                                      |
-| :------- | :---------------------------------------------- |
-| Python   | <https://github.com/wingify/vwo-fme-python-sdk> |
+| Language | Repository                                                                                     |
+| :------- | :--------------------------------------------------------------------------------------------- |
+| Python   | [https://github.com/wingify/vwo-fme-python-sdk](https://github.com/wingify/vwo-fme-python-sdk) |
