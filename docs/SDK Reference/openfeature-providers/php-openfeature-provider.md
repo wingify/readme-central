@@ -10,6 +10,7 @@ metadata:
 next:
   description: ''
 ---
+```mdx
 ## Get Started
 
 An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
@@ -18,12 +19,12 @@ This VWO Openfeature Provider for PHP helps you integrate feature management and
 
 | Resource             | Link                                                                                                                                |
 | :------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
-| GitHub repository    | <https://github.com/wingify/vwo-openfeature-provider-php>                                                                           |
-| Published on         | <https://pypi.org/project/vwo-openfeature-provider-php/>                                                                            |
-| Openfeature PHP docs | [\<https://openfeature.dev/docs/reference/technologies/server/php>](https://openfeature.dev/docs/reference/technologies/server/php) |
+| GitHub repository    | [https://github.com/wingify/vwo-openfeature-provider-php](https://github.com/wingify/vwo-openfeature-provider-php)                  |
+| Published on         | [https://pypi.org/project/vwo-openfeature-provider-php/](https://pypi.org/project/vwo-openfeature-provider-php/)                    |
+| Openfeature PHP docs | [&lt;https://openfeature.dev/docs/reference/technologies/server/php&gt;](https://openfeature.dev/docs/reference/technologies/server/php) |
 
 > 🚧 Please Note
-> 
+>
 > This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
 
 ## Requirements
@@ -101,53 +102,171 @@ OpenFeatureTest::main();
 
 ## API Details
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "API",
-    "h-1": "Arguments",
-    "h-2": "Argument Description",
-    "h-3": "API Description",
-    "0-0": "`VWO::init`",
-    "0-1": "`$vwoInitOptions: array`",
-    "0-2": "**sdkKey**: Unique key for authentication with VWO.<br>**accountId**: VWO account identifier.",
-    "0-3": "Initializes the VWO client with the provided SDK key and account ID. Returns a VWO client instance or `null` if initialization fails.",
-    "1-0": "`new VWOProvider($vwoClient)`",
-    "1-1": "`$vwoClient: VWO`",
-    "1-2": "**vwoClient**: The initialized VWO SDK client instance.",
-    "1-3": "Creates a new instance of `VWOProvider`, integrating VWO with OpenFeature.",
-    "2-0": "`OpenFeatureAPI::getInstance()`",
-    "2-1": "None",
-    "2-2": "-",
-    "2-3": "Returns a singleton instance of OpenFeatureAPI for managing feature flag evaluations.",
-    "3-0": "`$api->setProvider($vwoProvider)`",
-    "3-1": "`$vwoProvider: VWOProvider`",
-    "3-2": "**vwoProvider**: The VWO provider instance that will handle feature flag evaluations.",
-    "3-3": "Sets the provider for OpenFeature, enabling it to evaluate feature flags using VWO.",
-    "4-0": "`new EvaluationContext($targetingKey, $attributes)`",
-    "4-1": "`$targetingKey: string, $attributes: Attributes`",
-    "4-2": "**targetingKey**: Unique identifier for the user.<br>**attributes**: Object containing additional attributes (e.g., `key`, `customVariables`).",
-    "4-3": "Creates an evaluation context with user-specific details and attributes for feature flag evaluation.",
-    "5-0": "`new Attributes($attributeArray)`",
-    "5-1": "`$attributeArray: array`",
-    "5-2": "**attributeArray**: Key-value pairs of attributes (e.g., `['key' => 'variable-key', 'customVariables' => ['name' => 'Ashley']]`).",
-    "5-3": "Initializes attributes for evaluation context, containing user-specific details.",
-    "6-0": "`$api->getClient()`",
-    "6-1": "None",
-    "6-2": "-",
-    "6-3": "Returns a client instance from OpenFeature API for evaluating feature flags.",
-    "7-0": "`$client->getObjectValue($featureKey, $defaultValue, $context)`",
-    "7-1": "`$featureKey: string, $defaultValue: mixed, $context: EvaluationContext`",
-    "7-2": "**featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback value if the flag evaluation fails.<br>**context**: The evaluation context containing user details and attributes.",
-    "7-3": "Fetches the object value of a feature flag. Uses `context` to retrieve user-specific values."
-  },
-  "cols": 4,
-  "rows": 8,
-  "align": [
-    null,
-    null,
-    null,
-    null
-  ]
-}
-[/block]
+<Table>
+  <thead>
+    <tr>
+      <th>
+        API
+      </th>
+
+      <th>
+        Arguments
+      </th>
+
+      <th>
+        Argument Description
+      </th>
+
+      <th>
+        API Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        `VWO::init`
+      </td>
+
+      <td>
+        `$vwoInitOptions: array`
+      </td>
+
+      <td>
+        * \*sdkKey\*\*: Unique key for authentication with VWO.<br>**accountId\*\*: VWO account identifier.
+      </td>
+
+      <td>
+        Initializes the VWO client with the provided SDK key and account ID. Returns a VWO client instance or `null` if initialization fails.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `new VWOProvider($vwoClient)`
+      </td>
+
+      <td>
+        `$vwoClient: VWO`
+      </td>
+
+      <td>
+        * \*vwoClient\*\*: The initialized VWO SDK client instance.
+      </td>
+
+      <td>
+        Creates a new instance of `VWOProvider`, integrating VWO with OpenFeature.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `OpenFeatureAPI::getInstance()`
+      </td>
+
+      <td>
+        None
+      </td>
+
+      <td>
+        *
+      </td>
+
+      <td>
+        Returns a singleton instance of OpenFeatureAPI for managing feature flag evaluations.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `$api->setProvider($vwoProvider)`
+      </td>
+
+      <td>
+        `$vwoProvider: VWOProvider`
+      </td>
+
+      <td>
+        * \*vwoProvider\*\*: The VWO provider instance that will handle feature flag evaluations.
+      </td>
+
+      <td>
+        Sets the provider for OpenFeature, enabling it to evaluate feature flags using VWO.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `new EvaluationContext($targetingKey, $attributes)`
+      </td>
+
+      <td>
+        `$targetingKey: string, $attributes: Attributes`
+      </td>
+
+      <td>
+        * \*targetingKey\*\*: Unique identifier for the user.<br>**attributes\*\*: Object containing additional attributes (e.g., `key`, `customVariables`).
+      </td>
+
+      <td>
+        Creates an evaluation context with user-specific details and attributes for feature flag evaluation.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `new Attributes($attributeArray)`
+      </td>
+
+      <td>
+        `$attributeArray: array`
+      </td>
+
+      <td>
+        * \*attributeArray\*\*: Key-value pairs of attributes (e.g., `['key' => 'variable-key', 'customVariables' => ['name' => 'Ashley']]`).
+      </td>
+
+      <td>
+        Initializes attributes for evaluation context, containing user-specific details.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `$api->getClient()`
+      </td>
+
+      <td>
+        None
+      </td>
+
+      <td>
+        *
+      </td>
+
+      <td>
+        Returns a client instance from OpenFeature API for evaluating feature flags.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `$client->getObjectValue($featureKey, $defaultValue, $context)`
+      </td>
+
+      <td>
+        `$featureKey: string, $defaultValue: mixed, $context: EvaluationContext`
+      </td>
+
+      <td>
+        * \*featureKey\*\*: The unique key representing the feature flag.<br>**defaultValue\*\*: The fallback value if the flag evaluation fails.<br>**context\*\*: The evaluation context containing user details and attributes.
+      </td>
+
+      <td>
+        Fetches the object value of a feature flag. Uses `context` to retrieve user-specific values.
+      </td>
+    </tr>
+  </tbody>
+</Table>
+```
