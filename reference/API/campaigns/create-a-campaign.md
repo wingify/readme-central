@@ -20,13 +20,11 @@ next:
 }
 [/block]
 
-
 [block:html]
 {
   "html": "<div></div>\n\n<style></style>"
 }
 [/block]
-
 
 Request Format
 
@@ -57,7 +55,7 @@ Request Format
     "certaintyMode": 0.01,
     "expectedMonthlyVisitors": 0,
     "expectedRevenuePerVisitor": 2,
-    "liftInConversionRate": 0.05,
+    "liftInConversionRate": 0.05
   },
   "globalCode": {
     "js": {
