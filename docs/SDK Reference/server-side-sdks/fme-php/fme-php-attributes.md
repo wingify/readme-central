@@ -22,41 +22,41 @@ These attributes would typically be any additional user info that you'd like to 
 
 For example, you might want to analyze the performance of a test based on the user type to see which user type converted better or worse than the other. For this, you can pass on the "user type" as an attribute to VWO, with the relevant values for each user, ie "free", "paid" or whatever internal parameters you'd like to use for post-segmentation.
 
-## _Set Attribute_ API
+## *Set Attribute* API
 
 This API allows you to assign a specific attribute key-value pair to a user. By doing so, VWO can:
 
-- Segment users based on defined attributes.
-- Deliver personalized experiences tailored to individual user preferences.
-- Enable targeted feature rollouts to specific user groups.
-- Improve the accuracy of experiments by analyzing results across different audience segments.
+* Segment users based on defined attributes.
+* Deliver personalized experiences tailored to individual user preferences.
+* Enable targeted feature rollouts to specific user groups.
+* Improve the accuracy of experiments by analyzing results across different audience segments.
 
 ### How It Works:
 
 When this API is executed:
 
-- The application assigns the specified attribute (attribute_key and attribute_value) to the user defined in the user_context.
-- VWO stores this attribute information and uses it to influence feature flag decisions, experiment variations, and targeting rules.
-- This data is then factored into real-time decision-making, allowing VWO to determine which features, content, or experiments are relevant to the user.
+* The application assigns the specified attribute (attribute\_key and attribute\_value) to the user defined in the user\_context.
+* VWO stores this attribute information and uses it to influence feature flag decisions, experiment variations, and targeting rules.
+* This data is then factored into real-time decision-making, allowing VWO to determine which features, content, or experiments are relevant to the user.
 
 ### Why It’s Valuable:
 
-- _Audience Segmentation_: Create dynamic user segments based on attributes like location, membership status, or behavior.
-- _Personalized Experiences_: Tailor content and features to individual user preferences, enhancing user engagement.
-- _Targeted Feature Rollouts_: Roll out new features gradually to specific user groups, minimizing risk.
-- _Advanced Experimentation_: Analyze A/B test results across different user segments for deeper insights.
-- _Behavioral Targeting_: Trigger specific experiences based on real-time changes in user attributes.
+* *Audience Segmentation*: Create dynamic user segments based on attributes like location, membership status, or behavior.
+* *Personalized Experiences*: Tailor content and features to individual user preferences, enhancing user engagement.
+* *Targeted Feature Rollouts*: Roll out new features gradually to specific user groups, minimizing risk.
+* *Advanced Experimentation*: Analyze A/B test results across different user segments for deeper insights.
+* *Behavioral Targeting*: Trigger specific experiences based on real-time changes in user attributes.
 
 > 📘 Important Note
-> 
-> The attributes set using the **_setAttribute_** API differ from the **User Context attributes**
-> 
-> - **_setAttribute_ API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
-> - **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
+>
+> The attributes set using the ***setAttribute*** API differ from the **User Context attributes**
+>
+> * ***setAttribute* API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
+> * **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
 
 > 🚧 Current Limitation
-> 
-> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the _setAttribute_ API.
+>
+> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
 
 ## Usage
 
@@ -69,33 +69,71 @@ $vwoClient->setAttribute('attribute-name', 'attribute-value', $userContext);
 
 ### Parameters Definition
 
-[block:parameters]
-{
-  "data": {
-    "h-0": "Parameter",
-    "h-1": "Type",
-    "h-2": "Description",
-    "0-0": "**attribute_key**  \n_Required_",
-    "0-1": "string",
-    "0-2": "The unique identifier/name of the attribute you want to set",
-    "1-0": "**attribute_value**  \n_Required_",
-    "1-1": "string",
-    "1-2": "The value to be assigned to the attribute",
-    "2-0": "**userContext**  \n_Required_",
-    "2-1": "Object",
-    "2-2": "Object containing user identification and other contextual information"
-  },
-  "cols": 3,
-  "rows": 3,
-  "align": [
-    "left",
-    "left",
-    "left"
-  ]
-}
-[/block]
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
 
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **attribute\_key**
+        *Required*
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        The unique identifier/name of the attribute you want to set
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **attribute\_value**\
+        *Required*
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        The value to be assigned to the attribute
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **userContext**\
+        *Required*
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        Object containing user identification and other contextual information
+      </td>
+    </tr>
+  </tbody>
+</Table>
 
 > 🚧 Note
-> 
-> Please note that the _Attribute_ must already be defined in the VWO Application for this, otherwise an unregistered attribute won't get tracked in VWO application.
+>
+> Please note that the *Attribute* must already be defined in the VWO Application for this, otherwise an unregistered attribute won't get tracked in VWO application.
