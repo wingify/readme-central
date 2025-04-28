@@ -17,7 +17,7 @@ To integrate FME SDK into your web application, you first need to install the SD
 ## Requirements
 
 > 📘 Node Version
-> 
+>
 > Node.js version >= 12.0
 
 ## Installation via npm
@@ -44,8 +44,8 @@ yarn add vwo-fme-node-sdk
 
 ## Source Code
 
-| Language | Repository                                    |
-| :------- | :-------------------------------------------- |
-| Node.js  | <https://github.com/wingify/vwo-fme-node-sdk> |
+| Language | Repository                                                                                 |
+| :------- | :----------------------------------------------------------------------------------------- |
+| Node.js  | [https://github.com/wingify/vwo-fme-node-sdk](https://github.com/wingify/vwo-fme-node-sdk) |
 
 The FME SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.
