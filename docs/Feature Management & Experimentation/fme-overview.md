@@ -37,25 +37,26 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
 
 ### FME currently supports the following programming languages:
 
+
 The VWO SDKs code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2024.
 
 | Language                                                                                          | Repository                                            |
 | :------------------------------------------------------------------------------------------------ | :---------------------------------------------------- |
 | **Server-side SDKs**                                                                              |                                                       |
-| .NET                                                                                              | <https://github.com/wingify/vwo-fme-dotnet-sdk>       |
-| GO(thin-client, requires [_Gateway Service_](https://developers.vwo.com/v2/docs/gateway-service)) | <https://github.com/wingify/vwo-fme-go-sdk>           |
-| Java                                                                                              | <https://github.com/wingify/vwo-fme-java-sdk>         |
-| Node.js                                                                                           | <https://github.com/wingify/vwo-fme-node-sdk>         |
-| JavaScript(client-side)                                                                           | <https://github.com/wingify/vwo-fme-node-sdk>         |
-| React(web)                                                                                        | <https://github.com/wingify/vwo-fme-react-sdk>        |
-| PHP                                                                                               | <https://github.com/wingify/vwo-fme-php-sdk>          |
-| Python                                                                                            | <https://github.com/wingify/vwo-fme-python-sdk>       |
-| Ruby                                                                                              | <https://github.com/wingify/vwo-fme-ruby-sdk>         |
+| .NET                                                                                              |        |
+| GO(thin-client, requires [_Gateway Service_](https://developers.vwo.com/v2/docs/gateway-service)) |            |
+| Java                                                                                              |          |
+| Node.js                                                                                           |          |
+| JavaScript(client-side)                                                                           |          |
+| React(web)                                                                                        |         |
+| PHP                                                                                               |           |
+| Python                                                                                            |        |
+| Ruby                                                                                              |          |
 | **Client-side SDKs**                                                                              |                                                       |
-| Android                                                                                           | <https://github.com/wingify/vwo-fme-android-sdk>      |
-| iOS                                                                                               | <https://github.com/wingify/vwo-fme-ios-sdk>          |
-| Flutter                                                                                           | <https://github.com/wingify/vwo-fme-flutter-sdk>      |
-| React Native                                                                                      | <https://github.com/wingify/vwo-fme-react-native-sdk> |
-| React(web)                                                                                        | <https://github.com/wingify/vwo-fme-react-sdk>        |
+| Android                                                                                           |       |
+| iOS                                                                                               |           |
+| Flutter                                                                                           |       |
+| React Native                                                                                      |  |
+| React(web)                                                                                        |         |
 
 For any other languages or frameworks you want to use FME with or for a demo of the product, please reach out to us at [support@vwo.com](mailto:support@vwo.com).
