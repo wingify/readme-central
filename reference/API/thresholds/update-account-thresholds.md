@@ -11,23 +11,20 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nPATCH /accounts/1/thresholds\n```\n### Request Format:",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:code]
+```
+PATCH /accounts/1/thresholds
+```
+
+Request Format:
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"winningPercent\": 95,\n  \"losingPercent\": 5,\n  \"visitors\": 21\n}",
-      "language": "json"
-    }
-  ],
-  "sidebar": true
+    "winningPercent": 95,
+    "losingPercent": 5,
+    "visitors": 21
 }
-[/block]
+```
 
 Update account Thresholds.
