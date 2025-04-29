@@ -128,7 +128,7 @@ Request Format
   "isPostSegmentationEnabled": false
 }
 ```
-
+Update draft of Current / Sub Account
 
 
 Request URI for Sub Account
