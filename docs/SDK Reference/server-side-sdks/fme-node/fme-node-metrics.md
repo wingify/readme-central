@@ -16,11 +16,11 @@ next:
 ---
 Every feature flag that you create can have connected metrics that can be used to track strategic KPIs relating to the feature. These metrics can be used to track the performance of control vs variation in the case of testing rules, and can also be used to measure the impact of personalize and rollout campaigns.
 
-For each feature flag, you need to define at least one "Primary Metric", and you can set up as many secondary metrics as you'd like. 
+For each feature flag, you need to define at least one "Primary Metric", and you can set up as many secondary metrics as you'd like.
 
-Metrics in FME are based on "Custom Events" that you can create in VWO > Data360>Events. All the custom events created in Data360 will be available to be used as metrics in your feature flags. 
+Metrics in FME are based on "Custom Events" that you can create in VWO > Data360>Events. All the custom events created in Data360 will be available to be used as metrics in your feature flags.
 
-Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet: 
+Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet:
 
 ## ***Track Event*** API
 
@@ -100,7 +100,7 @@ vwoClient.trackEvent('event-name', userContext, {
 
     <tr>
       <td>
-        **userContext**\
+        **userContext**
         *Required*
       </td>
 
@@ -115,7 +115,7 @@ vwoClient.trackEvent('event-name', userContext, {
 
     <tr>
       <td>
-        **eventProperties**\
+        **eventProperties**
         *Optional*
       </td>
 
