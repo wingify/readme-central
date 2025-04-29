@@ -13,17 +13,16 @@ metadata:
 next:
   description: ''
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nGET /accounts/40505/campaigns/7/variations/1\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+```
+GET /accounts/40505/campaigns/7/variations/1
+```
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 
 Get details of a specific campaign variation
