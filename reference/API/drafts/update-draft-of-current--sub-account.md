@@ -129,12 +129,7 @@ Request Format
 }
 ```
 
-Update draft of Current / Sub Account.
-[block:api-header]
-{
-  "type": "basic"
-}
-[/block]
+
 
 Request URI for Sub Account
 
