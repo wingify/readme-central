@@ -13,23 +13,18 @@ metadata:
 next:
   description: ''
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nDELETE /accounts/40505/campaigns/7/variations/1\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+```
+DELETE /accounts/40505/campaigns/7/variations/1
+```
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 Delete a campaign variation
-[block:callout]
-{
-  "type": "danger",
-  "body": "Please ensure that variation Id is serial. For example, if you have variations with ids 1,2,3 and you delete variation id 2, now you would have the variation ids 1, 2, whereas 3 would be updated to 2. So, issue a GET /variations after the delete which would return the updated variations.",
-  "title": "Note:"
-}
-[/block]
+> ❗️ Note
+> >
+> > Please ensure that variation ID is serial. For example, if you have variations with ids 1,2,3 and you delete variation ID 2, now you would have the variation ids 1, 2, whereas 3 would be updated to 2. So, issue a GET /variations after the delete which would return the updated variations.
