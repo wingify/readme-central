@@ -13,21 +13,39 @@ metadata:
 next:
   description: ''
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nPOST /accounts/1/drafts\n```\nRequest Format",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:code]
+```
+POST /accounts/1/drafts
+```
+
+Request Format
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"platform\": \"website\",\n  \"isAdvancedMode\": false,\n  \"currentDraftStepIndex\": 0,\n  \"type\": \"ab\",\n  \"urls\": [\n    {\n      \"type\": \"url\",\n      \"value\": \"http:\\/\\/wingify.com\"\n    }\n  ],\n  \"primaryUrl\": \"http:\\/\\/wingify.com\",\n  \"globalSegment\": {\n    \"segmentationType\": \"pre\",\n    \"platform\": \"website\",\n    \"id\": \"1\",\n    \"type\": \"predefined\",\n    \"name\": \"Direct\",\n    \"description\": \"Segment to allow only direct traffic\"\n  },\n  \"status\": \"draft\",\n  \"percentTraffic\": 100,\n  \"isHeatmapEnabled\": true\n}",
-      "language": "json"
-    }
-  ]
+    "platform": "website",
+    "isAdvancedMode": false,
+    "currentDraftStepIndex": 0,
+    "type": "ab",
+    "urls": [
+        {
+            "type": "url",
+            "value": "http://wingify.com"
+        }
+    ],
+    "primaryUrl": "http://wingify.com",
+    "globalSegment": {
+        "segmentationType": "pre",
+        "platform": "website",
+        "id": "1",
+        "type": "predefined",
+        "name": "Direct",
+        "description": "Segment to allow only direct traffic"
+    },
+    "status": "draft",
+    "percentTraffic": 100,
+    "isHeatmapEnabled": true
 }
-[/block]
+```
+
 Create a draft in Current / Sub Account.
