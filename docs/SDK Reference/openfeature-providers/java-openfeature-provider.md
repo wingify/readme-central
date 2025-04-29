@@ -16,22 +16,24 @@ An **OpenFeature Provider** is a **pluggable integration layer** that connects t
 
 This VWO Openfeature Provider for Java helps you integrate feature management and experimentation systems within your Java based server applications.
 
-| Resource              | Link                                                              |
-| :-------------------- | :---------------------------------------------------------------- |
-| GitHub repository     | &lt;https://github.com/wingify/vwo-openfeature-provider-java&gt;        |
-| Published on          |                                                                   |
-| Openfeature Java docs | &lt;https://openfeature.dev/docs/reference/technologies/server/java&gt; |
+| Resource              | Link                                                                                                                                  |
+| :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
+| GitHub repository     | \<[https://github.com/wingify/vwo-openfeature-provider-java](https://github.com/wingify/vwo-openfeature-provider-java)>               |
+| Published on          |                                                                                                                                       |
+| Openfeature Java docs | \<[https://openfeature.dev/docs/reference/technologies/server/java](https://openfeature.dev/docs/reference/technologies/server/java)> |
 
-> 🚧 Please Note
-> 
+> 🚧 **Warning**
+>
+> Please Note
+>
 > This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
 
 ## Requirements
 
 The Java SDK supports:
 
-- Open JDK - 8 onwards
-- Oracle JDK - 8 onwards
+* Open JDK - 8 onwards
+* Oracle JDK - 8 onwards
 
 ## SDK Installation
 
@@ -39,7 +41,7 @@ Install dependencies using `mvn install`
 
 Add below Maven dependency in your project.
 
-```xml XML
+```xml
 <dependency>
     <groupId>com.vwo.sdk</groupId>
     <artifactId>vwo-openfeature-provider-java</artifactId>
@@ -49,7 +51,7 @@ Add below Maven dependency in your project.
 
 ## Usage
 
-```java Java
+```java
 import dev.openfeature.sdk.*;
 import com.vwo.VWOProvider;
 import java.util.Map;
@@ -78,53 +80,14 @@ Client vwoClient = api.getClient("vwo-openfeature-provider-java-provider");
 apiClient.getStringValue("featureKey", "defaultValue", context)
 ```
 
-<br />
+<br />## API Details
 
-## API Details
-
-[block:parameters]
-{
-  "data": {
-    "h-0": "API",
-    "h-1": "Arguments",
-    "h-2": "Argument Description",
-    "h-3": "API Description",
-    "0-0": "`new VWOProvider(vwoClient)`",
-    "0-1": "`vwoClient` (VWO SDK instance)",
-    "0-2": "**vwoClient**: The initialized VWO SDK client instance.",
-    "0-3": "Creates a new instance of `VWOProvider`, which integrates VWO with OpenFeature.",
-    "1-0": "`OpenFeature.setProvider(provider)`",
-    "1-1": "`provider` (Instance of `VWOProvider`)",
-    "1-2": "**provider**: The VWO provider instance that will handle feature flag evaluations.",
-    "1-3": "Sets the provider for OpenFeature, enabling it to evaluate feature flags using VWO.",
-    "2-0": "`client.setContext(context)`",
-    "2-1": "`context: object`",
-    "2-2": "**context**: Contains user details (e.g., `{ user: { id: 'unique-user-id' } }`).",
-    "2-3": "Sets the evaluation context for feature flag evaluations, helping with user-based targeting.",
-    "3-0": "`client.getBooleanValue`",
-    "3-1": "`featureKey: string,\ndefaultValue: boolean, context: object`",
-    "3-2": "**featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback boolean value if the flag evaluation fails.<br>**context**: The evaluation context containing user details and an optional `key` to fetch a specific variable.",
-    "3-3": "Fetches the boolean value of a feature flag. If `key` is present in `context`, it retrieves a specific variable; otherwise, it returns whether the feature is enabled.",
-    "4-0": "`client.getStringValue`",
-    "4-1": "`featureKey: string, defaultValue: string, context: object`",
-    "4-2": "**featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback string value if the flag evaluation fails.<br>**context**: The evaluation context with user details and optional `key` to fetch a specific variable.",
-    "4-3": "Fetches the string value of a feature flag. Requires `key` in `context` to return a specific variable's value; otherwise, returns `undefined`.",
-    "5-0": "`client.getNumberValue`",
-    "5-1": "`featureKey: string, defaultValue: number, context: object`",
-    "5-2": "**featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback numeric value if the flag evaluation fails.<br>**context**: The evaluation context with user details and optional `key` to fetch a specific variable.",
-    "5-3": "Fetches the numeric value of a feature flag. Requires `key` in `context` to return a specific variable's value; otherwise, returns `undefined`.",
-    "6-0": "`client.getObjectValue`",
-    "6-1": "`featureKey: string, defaultValue: object, context: object`",
-    "6-2": "**featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback JSON object if the flag evaluation fails.<br>**context**: The evaluation context with user details and optional `key` to fetch a specific variable.",
-    "6-3": "Fetches the JSON object value of a feature flag. If `key` is provided in `context`, it retrieves a specific variable value; otherwise, it returns all JSON variables."
-  },
-  "cols": 4,
-  "rows": 7,
-  "align": [
-    null,
-    null,
-    null,
-    null
-  ]
-}
-[/block]
+| API                                 | Arguments                                                    | Argument Description                                                                                                                                                                                                                                               | API Description                                                                                                                                                        |
+| ----------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `new VWOProvider(vwoClient)`        | `vwoClient` (VWO SDK instance)                               | **vwoClient**: The initialized VWO SDK client instance.                                                                                                                                                                                                            | Creates a new instance of `VWOProvider`, which integrates VWO with OpenFeature.                                                                                        |
+| `OpenFeature.setProvider(provider)` | `provider` (Instance of `VWOProvider`)                       | **provider**: The VWO provider instance that will handle feature flag evaluations.                                                                                                                                                                                 | Sets the provider for OpenFeature, enabling it to evaluate feature flags using VWO.                                                                                    |
+| `client.setContext(context)`        | `context: object`                                            | **context**: Contains user details (e.g., `{ user: { id: 'unique-user-id' } }`).                                                                                                                                                                                   | Sets the evaluation context for feature flag evaluations, helping with user-based targeting.                                                                           |
+| `client.getBooleanValue`            | `featureKey: string, defaultValue: boolean, context: object` | **featureKey**: The unique key representing the feature flag.<br />**defaultValue**: The fallback boolean value if the flag evaluation fails.<br />**context**: The evaluation context containing user details and an optional `key` to fetch a specific variable. | Fetches the boolean value of a feature flag. If `key` is present in `context`, it retrieves a specific variable; otherwise, it returns whether the feature is enabled. |
+| `client.getStringValue`             | `featureKey: string, defaultValue: string, context: object`  | **featureKey**: The unique key representing the feature flag.<br />**defaultValue**: The fallback string value if the flag evaluation fails.<br />**context**: The evaluation context with user details and optional `key` to fetch a specific variable.           | Fetches the string value of a feature flag. Requires `key` in `context` to return a specific variable's value; otherwise, returns `undefined`.                         |
+| `client.getNumberValue`             | `featureKey: string, defaultValue: number, context: object`  | **featureKey**: The unique key representing the feature flag.<br />**defaultValue**: The fallback numeric value if the flag evaluation fails.<br />**context**: The evaluation context with user details and optional `key` to fetch a specific variable.          | Fetches the numeric value of a feature flag. Requires `key` in `context` to return a specific variable's value; otherwise, returns `undefined`.                        |
+| `client.getObjectValue`             | `featureKey: string, defaultValue: object, context: object`  | **featureKey**: The unique key representing the feature flag.<br />**defaultValue**: The fallback JSON object if the flag evaluation fails.<br />**context**: The evaluation context with user details and optional `key` to fetch a specific variable.            | Fetches the JSON object value of a feature flag. If `key` is provided in `context`, it retrieves a specific variable value; otherwise, it returns all JSON variables.  |
