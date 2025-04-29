@@ -36,7 +36,7 @@ vwo_client.track_event('event_name', user_context, event_properties)
 vwo_client.set_attribute('attribute_key', 'attribute_value', user_context)
 ```
 
-```node Node
+```javascript Node
 const { init } = require('vwo-fme-node-sdk');
 
 (async function () {
@@ -49,22 +49,22 @@ const { init } = require('vwo-fme-node-sdk');
   // Set user context
   // id(required) - uniquely identifies a user
   const userContext = { id: 'unique_user_id' };
-  
+
   // Returns a flag object which can be used to get flag's status or variable(s)
   const flag = await vwoClient.getFlag('feature_key', userContext);
-  
+
   // Check if flag is enabled
   if (flag.isEnabled()) {
     // Get value of the flag's variable
     const value = flag.getVariable('variable_key', 'default_value');
-    
+
     // Get value of all the variables of the flag
     const allVariables = flag.getVariables();
   }
 
   // Track a metric conversion for the specified event-name
   vwoClient.trackEvent('event_name', userContext, { userType});
-  
+
   // Send a user attribute to VWO
   vwoClient.setAttribute('attribute_name', 'attribute_value', { id: 'unique_user_id' });
 })();
@@ -170,13 +170,13 @@ class Program
 
       // Returns a flag object which can be used to get flag's status or variable(s)
       var flag = vwoClient.GetFlag("feature_key", userContext);
-      
+
       // Check if flag is enabled
       bool isFeatureEnabled = flag.IsEnabled();
 
       // Get value of all the variables of the flag
       var variableValue = flag.GetVariable("variable_key", "default_value");
-      
+
       // Get value of all the variables of the flag
       var allVariables = flag.GetVariables();
 
@@ -190,6 +190,35 @@ class Program
 }
 ```
 
+```ruby Ruby
+require 'vwo'
+
+# Initialize VWO client
+vwo_client = VWO.init({
+  sdk_key: '32-alpha-numeric-sdk-key',
+  account_id: '123456'
+})
+
+# Check if feature is enabled for user
+user_context = { id: 'unique_user_id' }
+
+flag = vwo_client.get_flag('feature_key', user_context)
+
+if flag.is_enabled
+  puts 'Feature is enabled!'
+
+  # Get feature variable
+  value = flag.get_variable('feature_variable', 'default_value')
+  puts "Variable value: #{value}"
+end
+
+# Track an event
+vwo_client.track_event('event_name', user_context)
+
+# Set attribute(s)
+vwo_client.set_attribute({ attribute_key: 'attribute_value' }, user_context)
+```
+
 ```json Response Example
 {"success":true}
 ```
@@ -201,6 +230,7 @@ class Program
 <!-- java@1-4 -->
 <!-- php@1 -->
 <!-- csharp@1-2 -->
+<!-- ruby@1 -->
 
 Import the VWO FME SDK so that it can be initialized
 
@@ -211,6 +241,7 @@ Import the VWO FME SDK so that it can be initialized
 <!-- java@9-15 -->
 <!-- php@3-7 -->
 <!-- csharp@8-15 -->
+<!-- ruby@3-7 -->
 
 This code initializes the VWO SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc. can be passed depending upon the requirements.
 
@@ -221,6 +252,7 @@ This code initializes the VWO SDK using the init function. The init function tak
 <!-- java@17-20 -->
 <!-- php@9-11 -->
 <!-- csharp@17-22 -->
+<!-- ruby@9-10 -->
 
 The context uniquely identifies users and is crucial for consistent feature rollouts. A typical context is an object with a required id key for user identification. Other user attributes can also be passed for segmentation purposes.
 
@@ -231,6 +263,7 @@ The context uniquely identifies users and is crucial for consistent feature roll
 <!-- java@22-31 -->
 <!-- php@13-23 -->
 <!-- csharp@24-34 -->
+<!-- ruby@12-20 -->
 
 This code verifies whether the flag associated with the provided feature-key is enabled and allows access to the corresponding variable(s).
 
@@ -241,6 +274,7 @@ This code verifies whether the flag associated with the provided feature-key is 
 <!-- java@33-34 -->
 <!-- php@25-26 -->
 <!-- csharp@36-38 -->
+<!-- ruby@22-23 -->
 
 Tracks a metric conversion for a specified event, requiring a User Context and optional event properties.
 
@@ -251,5 +285,6 @@ Tracks a metric conversion for a specified event, requiring a User Context and o
 <!-- java@36-37 -->
 <!-- php@28-29 -->
 <!-- csharp@40-41 -->
+<!-- ruby@25-26 -->
 
 Sends a user attribute to VWO for filtering campaign reports based on attributes.
