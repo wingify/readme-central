@@ -22,7 +22,9 @@ This VWO Openfeature Provider for Node helps you integrate feature management an
 | Published on          | [https://www.npmjs.com/package/vwo-openfeature-provider-node](https://www.npmjs.com/package/vwo-openfeature-provider-node)                       |
 | Openfeature Node docs | [https://openfeature.dev/docs/reference/technologies/server/javascript/](https://openfeature.dev/docs/reference/technologies/server/javascript/) |
 
-> 🚧 Please Note
+> 🚧 **Warning**
+>
+> Please Note
 >
 > This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
 
@@ -34,23 +36,25 @@ Node.js 10+
 
 ```shell
 # via npm
+
 npm install vwo-openfeature-provider-node --save
 
 # via yarn
+
 yarn add vwo-openfeature-provider-node
 ```
 
 ## Usage
 
-```node Node.js
+```javascript
 const OpenFeature = require('@openfeature/server-sdk').OpenFeature;
 const VWOProvider = require('vwo-openfeature-provider-node').VWOProvider;
 const vwo = require('vwo-fme-node-sdk');
 
 async function start() {
   const vwoClient = await vwo.init({
-    sdkKey: '&lt;enter-vwo-sdk-key-here&gt;',
-    accountId: '&lt;vwo-account-id&gt;'
+    sdkKey: '',
+    accountId: ''
   });
   const context = {
     user: {
@@ -95,121 +99,163 @@ start();
 
 ## API Details
 
-<table>
+<Table align={["left","left","left","left"]}>
   <thead>
     <tr>
       <th>
         API
       </th>
+
       <th>
         Arguments
       </th>
+
       <th>
         Argument Description
       </th>
+
       <th>
         API Description
       </th>
     </tr>
   </thead>
+
   <tbody>
     <tr>
       <td>
         `new VWOProvider(vwoClient)`
       </td>
+
       <td>
         `vwoClient` (VWO SDK instance)
       </td>
+
       <td>
-        * **vwoClient**: The initialized VWO SDK client instance.
+        **vwoClient**: The initialized VWO SDK client instance.
       </td>
+
       <td>
         Creates a new instance of `VWOProvider`, which integrates VWO with OpenFeature.
       </td>
     </tr>
+
     <tr>
       <td>
         `OpenFeature.setProvider(provider)`
       </td>
+
       <td>
         `provider` (Instance of `VWOProvider`)
       </td>
+
       <td>
-        * **provider**: The VWO provider instance that will handle feature flag evaluations.
+        **provider**: The VWO provider instance that will handle feature flag evaluations.
       </td>
+
       <td>
         Sets the provider for OpenFeature, enabling it to evaluate feature flags using VWO.
       </td>
     </tr>
+
     <tr>
       <td>
         `client.setContext(context)`
       </td>
+
       <td>
         `context: object`
       </td>
+
       <td>
-        * **context**: Contains user details (e.g., `{ user: { id: 'unique-user-id' } }`).
+        **context**: Contains user details (e.g., `{ user: { id: 'unique-user-id' } }`).
       </td>
+
       <td>
         Sets the evaluation context for feature flag evaluations, helping with user-based targeting.
       </td>
     </tr>
+
     <tr>
       <td>
         `client.getBooleanValue`
       </td>
+
       <td>
-        `featureKey: string, defaultValue: boolean, context: object`
+        ```
+        featureKey: string,
+        defaultValue: boolean, context: object
+        ```
       </td>
+
       <td>
-        * **featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback boolean value if the flag evaluation fails.<br>**context**: The evaluation context containing user details and an optional `key` to fetch a specific variable.
+        **featureKey**: The unique key representing the feature flag.<br />\
+        **defaultValue**: The fallback boolean value if the flag evaluation fails.<br />
+        **context**: The evaluation context containing user details and an optional `key` to fetch a specific variable.
       </td>
+
       <td>
         Fetches the boolean value of a feature flag. If `key` is present in `context`, it retrieves a specific variable; otherwise, it returns whether the feature is enabled.
       </td>
     </tr>
+
     <tr>
       <td>
         `client.getStringValue`
       </td>
+
       <td>
         `featureKey: string, defaultValue: string, context: object`
       </td>
+
       <td>
-        * **featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback string value if the flag evaluation fails.<br>**context**: The evaluation context with user details and optional `key` to fetch a specific variable.
+        **featureKey**: The unique key representing the feature flag.<br />\
+        **defaultValue**: The fallback string value if the flag evaluation fails.<br />
+        **context**: The evaluation context with user details and optional `key` to fetch a specific variable.
       </td>
+
       <td>
         Fetches the string value of a feature flag. Requires `key` in `context` to return a specific variable's value; otherwise, returns `undefined`.
       </td>
     </tr>
+
     <tr>
       <td>
         `client.getNumberValue`
       </td>
+
       <td>
         `featureKey: string, defaultValue: number, context: object`
       </td>
+
       <td>
-        * **featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback numeric value if the flag evaluation fails.<br>**context**: The evaluation context with user details and optional `key` to fetch a specific variable.
+        **featureKey**: The unique key representing the feature flag.<br />\
+        **defaultValue**: The fallback numeric value if the flag evaluation fails.<br />
+        **context**: The evaluation context with user details and optional `key` to fetch a specific variable.
       </td>
+
       <td>
         Fetches the numeric value of a feature flag. Requires `key` in `context` to return a specific variable's value; otherwise, returns `undefined`.
       </td>
     </tr>
+
     <tr>
       <td>
         `client.getObjectValue`
       </td>
+
       <td>
         `featureKey: string, defaultValue: object, context: object`
       </td>
+
       <td>
-        * **featureKey**: The unique key representing the feature flag.<br>**defaultValue**: The fallback JSON object if the flag evaluation fails.<br>**context**: The evaluation context with user details and optional `key` to fetch a specific variable.
+        **featureKey**: The unique key representing the feature flag.<br />\
+        **defaultValue**: The fallback JSON object if the flag evaluation fails.<br />
+        **context**: The evaluation context with user details and optional `key` to fetch a specific variable.
       </td>
+
       <td>
         Fetches the JSON object value of a feature flag. If `key` is provided in `context`, it retrieves a specific variable value; otherwise, it returns all JSON variables.
       </td>
     </tr>
   </tbody>
-</table>
+</Table>
