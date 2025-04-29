@@ -58,8 +58,8 @@ Create a new feature flag by specifying its name, key, and other configurations.
 
 ### Update a Feature Flag
 
-Modify the name, description, tags, or key of an existing feature flag.\
-**Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-update-a-feature-flag)
+Modify an existing feature flag's name, description, tags, or key.\
+**Detailed documentation →** [here](https://developers.vwo.com/reference/fme-update-a-feature-flag)
 
 ***
 
