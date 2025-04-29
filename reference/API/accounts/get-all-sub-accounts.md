@@ -13,15 +13,14 @@ metadata:
 next:
   description: ''
 ---
-[block:textarea]
-{
-  "text": "###Request URI\n```\nGET /accounts\n```",
-  "sidebar": true
-}
-[/block]
+Request URI
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+```
+GET /accounts
+```
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
