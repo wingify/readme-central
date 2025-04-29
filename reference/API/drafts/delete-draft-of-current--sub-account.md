@@ -11,17 +11,15 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nDELETE /accounts/1/drafts/14597\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n<style></style>"
-}
-[/block]
+```
+DELETE /accounts/1/drafts/14597
+```
+
+<HTMLBlock>{`
+<div></div>
+<style></style>
+`}</HTMLBlock>
 
 Delete draft of Current / Sub Account.
