@@ -11,17 +11,15 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nGET /accounts/1/users\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n<style></style>"
-}
-[/block]
+```
+GET /accounts/1/users
+```
+
+<HTMLBlock>{`
+<div></div>
+<style></style>
+`}</HTMLBlock>
 
 Get Current / Sub Account Users.
