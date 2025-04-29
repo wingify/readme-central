@@ -13,17 +13,16 @@ metadata:
 next:
   description: ''
 ---
-[block:textarea]
-{
-  "text": "Request URI\n```\nGET /accounts/:account_id/integrations\n```",
-  "sidebar": true
-}
-[/block]
+Request URI
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+```
+GET /accounts/:account_id/integrations
+```
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 
 Get Third Party Integrations for a Workspace.
