@@ -11,17 +11,14 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "```\nGET /accounts/billing-cycles\n```",
-  "sidebar": true
-}
-[/block]
+```
+GET /accounts/billing-cycles
+```
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 
 Get Billing Cycle details of Current Account.
