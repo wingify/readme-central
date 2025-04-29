@@ -13,9 +13,10 @@ metadata:
 next:
   description: ''
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nGET /accounts/{account_id}/projects/{project_id}\n```\n\nGet details of a specific project",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
+
+```
+GET /accounts/{account_id}/projects/{project_id}
+```
+
+Get details of a specific project
