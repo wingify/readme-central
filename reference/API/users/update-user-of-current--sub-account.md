@@ -11,22 +11,23 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nPATCH /accounts/1/users/874\n```\nRequest Format",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:code]
+```
+PATCH /accounts/1/users/874
+```
+
+Request Format
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"name\": \"API User Name\",\n  \"phone\": \"9999988877\",\n  \"country\": \"India\",\n  \"department\": \"Software Engineering\",\n  \"title\": \"API Evangelist\",\n  \"permission\": \"Browse\"\n}",
-      "language": "json"
-    }
-  ]
+    "name": "API User Name",
+    "phone": "9999988877",
+    "country": "India",
+    "department": "Software Engineering",
+    "title": "API Evangelist",
+    "permission": "Browse"
 }
-[/block]
+```
 
 Update specific user of Current / Sub Account.
