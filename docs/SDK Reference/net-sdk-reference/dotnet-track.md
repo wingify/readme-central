@@ -14,9 +14,11 @@ next:
       slug: dotnet-push
       title: Push
 ---
+
 Tracks a conversion event for a particular user for a running FullStack campaign.
 
 ## Description
+
 
 The API method:
 
@@ -28,14 +30,15 @@ The API method:
 
 The API method requires a campaign unique-key - *campaignKey*, unique user identifier - *userId* and the goal-identifier - *goalIdentifer*. You can also pass other flags under the *options* key.
 
-*campaignKey* is the required key provided at the time of FullStack campaign creation.\
-*userId* is the required unique id associated with the user for identification.\
-*goalIdentifier* is the required key provided at the time of creating the goal in a FullStack campaign.\
+*campaignKey* is the required key provided at the time of FullStack campaign creation.  
+*userId* is the required unique id associated with the user for identification.  
+*goalIdentifier* is the required key provided at the time of creating the goal in a FullStack campaign.  
 *options* is the optional key to provide targeting, whitelisting, User Storage Service stored data, and other flags based on your campaign setup and requirements.
 
 ## Parameter Definitions
 
-<Table align={["left","left","left"]}>
+
+<Table>
   <thead>
     <tr>
       <th>
@@ -55,29 +58,29 @@ The API method requires a campaign unique-key - *campaignKey*, unique user ident
   <tbody>
     <tr>
       <td>
-        **campaignKey**
-        *Required*
+        <strong>campaignKey</strong><br/>
+        <em>Required</em>
       </td>
 
       <td>
         String  
 
-        From v1.8.0+\
-        String | Array<string> | Null
+        From v1.8.0+<br/>
+        String | Array&lt;string&gt; | Null
       </td>
 
       <td>
         The Campaign key to uniquely identify a FullStack campaign.  
 
-        From v1.8.0+\
+        From v1.8.0+<br/>
         Campaign key, a list of campaign keys, or empty are supported as the type of parameter
       </td>
     </tr>
 
     <tr>
       <td>
-        **userId**\
-        *Required*
+        <strong>userId</strong><br/>
+        <em>Required</em>
       </td>
 
       <td>
@@ -87,14 +90,14 @@ The API method requires a campaign unique-key - *campaignKey*, unique user ident
       <td>
         User ID, which uniquely identifies each user.  
 
-        * \*Important\*\*: This User ID must match the User ID provided to activate or getVariation API.
+        <strong>Important</strong>: This User ID must match the User ID provided to activate or getVariation API.
       </td>
     </tr>
 
     <tr>
       <td>
-        **goalIdentifier**\
-        *Required*
+        <strong>goalIdentifier</strong><br/>
+        <em>Required</em>
       </td>
 
       <td>
@@ -108,8 +111,8 @@ The API method requires a campaign unique-key - *campaignKey*, unique user ident
 
     <tr>
       <td>
-        **options**\
-        *Optional*
+        <strong>options</strong><br/>
+        <em>Optional</em>
       </td>
 
       <td>
@@ -127,7 +130,7 @@ The API method requires a campaign unique-key - *campaignKey*, unique user ident
 
         goalTypeToTrack(String): If you want to track a particular goal across multiple campaigns(having the same identifier), use this flag to define which type of goal you would like to track i.e. conversion-only or revenue-only, or both. Defaults to ALL i.e. Conversion as well as Revenue goals.  
 
-        shouldTrackReturningUser(Boolean): Calling track APIs with same user ID will track that user multiple times in the campaign reports. Pass a true value to track only unique conversions of a particular user. This is applicable only if you've implemented a User Storage Service]\([https://developers.vwo.com/docs/dotnet-implement-a-user-storage-service](https://developers.vwo.com/docs/dotnet-implement-a-user-storage-service)) at your end.  
+        shouldTrackReturningUser(Boolean): Calling track APIs with same user ID will track that user multiple times in the campaign reports. Pass a true value to track only unique conversions of a particular user. This is applicable only if you've implemented a User Storage Service](https://developers.vwo.com/docs/dotnet-implement-a-user-storage-service) at your end.  
 
         userAgent(string): userAgent of the visitor    
 
@@ -139,6 +142,7 @@ The API method requires a campaign unique-key - *campaignKey*, unique user ident
 
 ## Returns
 
+
 A boolean value based on whether the impression was made to the VWO server.
 
 | Value | Type    | Description                                                                                                                 |
@@ -148,7 +152,8 @@ A boolean value based on whether the impression was made to the VWO server.
 
 ## Usage
 
-```csharp .NET
+
+```csharp
 // Without Revenue Value and Custom Variable
 Dictionary<string, dynamic> options = new Dictionary<string, dynamic>(){};
 bool isSuccessful = vwoClientInstance.Track(campaignKey, userId, goalIdentifier, options);
@@ -194,6 +199,7 @@ bool isSuccessful = vwoClientInstance.Track(campaignKey, userId, goalIdentifier,
 
 ## Tracking goal having same identifier across different campaigns
 
+
 When you want to track a goal having the same identifier across multiple campaigns, there is no need to trigger the goal for each different campaign individually. This will reduce the manual effort in case you plan to use the same goal in many campaigns. For example, in case you are planning to run 3 A/B tests and 4 Feature Tests, where you would be using the same goal, you don't have to trigger the goal having the same identifier for each of those 7 campaigns individually.
 
 > 👍 Same Goal Definition
@@ -209,7 +215,7 @@ VWO offer two types of goal i.e. **Conversion** and **Revenue**, which can be co
 
 Passing the type of goal at the time of launching the SDK will consider the flag for all the track API calls. Defaults to ALL i.e. Conversion as well as Revenue.
 
-```csharp .NET
+```csharp
 //  Available GoalTypes - GoalTypes.REVENUE, GoalTypes.CUSTOM, GoalTypes.ALL (Default)
 
 var vwoClient = VWO.Launch(settingsFile, goalTypeToTrack: Constants.GoalTypes.CUSTOM);
@@ -217,7 +223,7 @@ var vwoClient = VWO.Launch(settingsFile, goalTypeToTrack: Constants.GoalTypes.CU
 
 Passing the type of goal at the time of calling track API. This flag will be considered for the called track API. If you're using the track API at different places, please make sure to pass the flag in options at every instance.
 
-```csharp .NET
+```csharp
 //  Available GoalTypes - GoalTypes.REVENUE, GoalTypes.CUSTOM, GoalTypes.ALL (Default)
 
 public static Dictionary<string, dynamic> options = new Dictionary<string, dynamic>()
@@ -236,7 +242,8 @@ bool isSuccessful = vwoClientInstance.Track(campaignKey, userId, goalIdentifier,
 
 ## Usage(when tracking same goal across campaigns)
 
-```csharp .NET
+
+```csharp
 // Tracking a goal of a particular campaign
 vwoClientInstance.Track('campaign-in-context', userId, goalIdentifier, options);
 
@@ -247,6 +254,8 @@ vwoClientInstance.Track(new List<string>() { campaignKey1, campaignKey2 }, userI
 vwoClientInstance.Track(userId, goalIdentifier, options);
 ```
 
-> 🚧 Unique Conversions
+> 🚧 **Warning**
+> 
+> Unique Conversions
 >
 > VWO only tracks a conversion corresponding to a visitor hit only once even if the SDK sends multiple calls for the same user per campaign.
