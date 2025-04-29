@@ -11,22 +11,34 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nPATCH /accounts/1/integrations\n```\nRequest Format",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:code]
+```
+PATCH /accounts/1/integrations
+```
+
+Request Format
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"ga\": {\n    \"enabled\": true,\n    \"slot\": 4,\n    \"prefix\": \"\"\n  },\n  \"ua\": {\n    \"enabled\": false,\n    \"dimension\": 1,\n    \"prefix\": \"\"\n  },\n  \"gtm\": {\n    \"enabled\": false\n  },\n  \"clicktale\": {\n    \"enabled\": false\n  },\n  \"isGaPremium\": false\n}",
-      "language": "json"
-    }
-  ],
-  "sidebar": true
+    "ga": {
+        "enabled": true,
+        "slot": 4,
+        "prefix": ""
+    },
+    "ua": {
+        "enabled": false,
+        "dimension": 1,
+        "prefix": ""
+    },
+    "gtm": {
+        "enabled": false
+    },
+    "clicktale": {
+        "enabled": false
+    },
+    "isGaPremium": false
 }
-[/block]
+```
+
 Update Third Party Integrations. Here's an example of the request params:
