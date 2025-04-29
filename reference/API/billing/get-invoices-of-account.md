@@ -11,17 +11,14 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "```\nGET /accounts/invoice\n```",
-  "sidebar": true
-}
-[/block]
+```
+GET /accounts/invoice
+```
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 
 Returns PDF as response.
