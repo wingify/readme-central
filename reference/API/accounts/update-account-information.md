@@ -13,27 +13,16 @@ metadata:
 next:
   description: ''
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nPATCH /accounts/1\n```\n### Request Format",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-```json
-{
-  "name": "API Account Name",
-  "timezone": "Asia/Kolkata",
-  "enabled": true,
-  "company": {
-    "name": "API Company Name",
-    "website": "http://wingify.com",
-    "size": "1-200",
-    "industry": {
-      "type": "saas"
-    }
-  }
-}
+```
+PATCH /accounts/1
+```
+
+Request Format
+
+```
+PATCH /accounts/1
 ```
 
 Update details of Account.
