@@ -11,29 +11,26 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nPATCH /accounts/40505/campaigns/8/sections/1\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+```
+PATCH /accounts/40505/campaigns/8/sections/1
+```
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 
 Request Format
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"sections\" : {\n    \"name\" : \"New name\"\n  }\n}",
-      "language": "json"
+    "sections": {
+        "name": "New name"
     }
-  ]
 }
-[/block]
+```
 
 Get details of a specific campaign section
