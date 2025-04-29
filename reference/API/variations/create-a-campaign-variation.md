@@ -13,35 +13,43 @@ metadata:
 next:
   description: ''
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nPOST /accounts/40505/campaigns/7/variations\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+```
+POST /accounts/40505/campaigns/7/variations
+```
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 Request Format
-[block:code]
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"variations\" : {\n\t\t\"name\": \"New shiny variation\"\n  }\n}",
-      "language": "json"
+    "variations": {
+        "name": "New shiny variation"
     }
-  ]
 }
-[/block]
+```
+
 Create a campaign variation
 
-[block:callout]
-{
-  "type": "info",
-  "title": "Info:",
-  "body": "To add changes to the variation, please add changes under the key 'changes'. For e.g. to show an alert in variation\n\n```\n{\n  \"variations\" : {\n\t.\n        .\n        \"changes\" : \"<script>alert('Hello World');</script>\"\n        .\n        .\n    }\n}\n```"
-}
-[/block]
+> 📘 **Note**
+> 
+> Info
+> >
+> > To add changes to the variation, please add changes under the key 'changes'. For e.g. to show an alert in variation
+> 
+> ```
+> {
+>  "variations" : {
+> 	.
+>     .
+>     "changes" : "<script>alert('Hello World');</script>"
+>     .
+>     .
+>   }
+> }
+> ```
