@@ -11,17 +11,14 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "```\nGET /accounts/partners\n```",
-  "sidebar": true
-}
-[/block]
+```
+GET /accounts/partners
+```
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 
 Get partner details associated with an account.
