@@ -11,17 +11,14 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nGET /accounts/40505/campaigns/7/goals\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div><style></style>"
-}
-[/block]
+```
+GET /accounts/40505/campaigns/7/goals
+```
+
+<HTMLBlock>{`
+<div></div><style></style>
+`}</HTMLBlock>
 
 Get all the goals of a campaign
