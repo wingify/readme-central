@@ -11,38 +11,34 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nPATCH /accounts/40505/campaigns/status\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+```
+PATCH /accounts/40505/campaigns/status
+```
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 
 Request Format
 
-[block:code]
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"ids\" : [14, 15],\n  \"status\" : \"TRASHED\"\n}",
-      "language": "json"
-    }
-  ]
+    "ids": [
+        14,
+        15
+    ],
+    "status": "TRASHED"
 }
-[/block]
+```
 
 Update campaign status
 
-[block:callout]
-{
-  "type": "info",
-  "title": "Note:",
-  "body": "Valid status changes include `TRASHED`, `RESTORED`, `RUNNING`, `STOPPED`, `PAUSED`"
-}
-[/block]
+> 📘 **Note**
+> 
+> Note
+> >
+> > ValID status changes include `TRASHED`, `RESTORED`, `RUNNING`, `STOPPED`, `PAUSED`
