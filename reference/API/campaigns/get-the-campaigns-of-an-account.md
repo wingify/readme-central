@@ -11,25 +11,22 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nGET /accounts/40505/campaigns\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+```
+GET /accounts/40505/campaigns
+```
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 
 Get the campaigns of an account
 
-[block:callout]
-{
-  "type": "info",
-  "title": "Note:",
-  "body": "Data will be returned wrapped in the `partialCollection` along with count of total campaigns if the campaign count exceed the limit."
-}
-[/block]
+> 📘 **Note**
+> 
+> Note
+> >
+> > Data will be returned wrapped in the `partialCollection` along with count of total campaigns if the campaign count exceed the limit.
