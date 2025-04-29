@@ -37,42 +37,42 @@ VWO’s Feature Management and Experimentation (FME) APIs allow developers to pr
 
 ### Get All Feature Flags of a Workspace
 
-Retrieve all feature flags configured within a workspace.  
-**Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-get-all-feature-flags-of-a-workspace)
+Retrieve all feature flags configured within a workspace.\
+**Detailed documentation →** [here](https://developers.vwo.com/reference/fme-get-all-feature-flags-of-a-workspace)
 
 ***
 
 ### Get Details of a Specific Feature Flag
 
-Fetch detailed information about a specific feature flag using its ID.  
-**Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-get-details-of-a-specific-feature-flag)
+Fetch detailed information about a specific feature flag using its ID.\
+**Detailed documentation →** [here](https://developers.vwo.com/v2/reference/fme-get-details-of-a-specific-feature-flag)
 
 ***
 
 ### Create a Feature Flag
 
-Create a new feature flag by specifying its name, key, and other configurations.  
+Create a new feature flag by specifying its name, key, and other configurations.\
 **Detailed documentation →** [here](https://developers.vwo.com/v2/reference/fme-create-a-feature-flag)
 
 ***
 
 ### Update a Feature Flag
 
-Modify the name, description, tags, or key of an existing feature flag.  
+Modify the name, description, tags, or key of an existing feature flag.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-update-a-feature-flag)
 
 ***
 
 ### Feature Flag Resource Representation
 
-Understand the structure and fields of the feature flag object.  
+Understand the structure and fields of the feature flag object.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-feature-flag-resource-representation)
 
 ***
 
 ### Feature Flag Rules Overview
 
-A general conceptual overview of rules that can be applied to feature flags.  
+A general conceptual overview of rules that can be applied to feature flags.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-feature-flags-rules)
 
 ***
@@ -81,61 +81,61 @@ A general conceptual overview of rules that can be applied to feature flags.
 
 ### Get Feature Flag Projects and Environments
 
-Fetch the list of projects and environments a flag is assigned to.  
+Fetch the list of projects and environments a flag is assigned to.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-get-feature-flag-projects-and-environments)
 
 ***
 
 ### Get All Feature Flag Rules
 
-List all rules configured for a given feature flag.  
+List all rules configured for a given feature flag.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-get-all-feature-flags-rules)
 
 ***
 
 ### Get Details of a Specific Feature Flag Rule
 
-Get full configuration details for a specific rule of a feature flag.  
+Get full configuration details for a specific rule of a feature flag.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-get-details-of-a-specific-feature-flag-rule)
 
 ***
 
 ### Create a Feature Flag Rule
 
-Create a new rule for a feature flag with targeting conditions and rollout type.  
+Create a new rule for a feature flag with targeting conditions and rollout type.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-create-a-feature-flag-rule)
 
 ***
 
 ### Update a Feature Flag Rule
 
-Update an existing rule to modify its audience conditions, variations, or strategy.  
+Update an existing rule to modify its audience conditions, variations, or strategy.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-update-a-feature-flag-rule)
 
 ***
 
 ### Toggle Feature Flag Rule Status
 
-Enable or disable a specific rule without deleting it.  
+Enable or disable a specific rule without deleting it.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-toggle-feature-flag-rule-status)
 
 ***
 
 ### Toggle Feature Flag Status for an Environment
 
-Enable or disable a feature flag for a specific environment.  
+Enable or disable a feature flag for a specific environment.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-toggle-feature-flag-status-for-an-environment)
 
 ***
 
 ### Delete a Feature Flag Rule
 
-Permanently delete a rule from a feature flag.  
+Permanently delete a rule from a feature flag.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-delete-a-feature-flag-rule)
 
 ***
 
 ### Feature Flag Rule Resource Representation
 
-View the structure of the rule object and its configurable fields.  
+View the structure of the rule object and its configurable fields.\
 **Detailed documentation →** [here](https://developers.vwo.com/v4/reference/fme-feature-flag-rules-resource-representation)
