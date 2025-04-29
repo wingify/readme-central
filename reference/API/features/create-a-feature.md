@@ -13,20 +13,39 @@ metadata:
 next:
   description: ''
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nPOST /accounts/account_id/features\n```\nRequest Format",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:code]
+```
+POST /accounts/account_id/features
+```
+
+Request Format
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n    \"name\": \"Feature3\",\n    \"variables\": [\n        {\n            \"variableName\": \"var1\",\n            \"dataType\": \"string\",\n            \"defaultValue\": \"strVal\"\n        },\n        {\n            \"variableName\": \"var2\",\n            \"dataType\": \"int\",\n            \"defaultValue\": 32\n        },\n        {\n            \"variableName\": \"var3\",\n            \"dataType\": \"float\",\n            \"defaultValue\": 22.5\n        },\n        {\n            \"variableName\": \"var4\",\n            \"dataType\": \"boolean\",\n            \"defaultValue\": false\n        }\n    ],\n    \"type\": \"feature\"\n}",
-      "language": "json"
-    }
-  ]
+    "name": "Feature3",
+    "variables": [
+        {
+            "variableName": "var1",
+            "dataType": "string",
+            "defaultValue": "strVal"
+        },
+        {
+            "variableName": "var2",
+            "dataType": "int",
+            "defaultValue": 32
+        },
+        {
+            "variableName": "var3",
+            "dataType": "float",
+            "defaultValue": 22.5
+        },
+        {
+            "variableName": "var4",
+            "dataType": "boolean",
+            "defaultValue": false
+        }
+    ],
+    "type": "feature"
 }
-[/block]
+```
