@@ -11,17 +11,16 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nGET /accounts/1/drafts/14597\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+```
+GET /accounts/1/drafts/14597
+```
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
 
 Get specific draft of Current / Sub Account.
