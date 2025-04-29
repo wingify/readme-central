@@ -11,22 +11,24 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nPOST /accounts/1/users\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:code]
+```
+POST /accounts/1/users
+```
+
+```json
 {
-  "codes": [
-    {
-      "code": "{\n  \"name\": \"Test via API\",\n  \"email\": \"test+api@wingify.com\",\n  \"password\": \"*password*\",\n  \"confirmPassword\": \"*password*\",\n  \"phone\": \"9999988877\",\n  \"country\": \"India\",\n  \"department\": \"Software Engineering\",\n  \"title\": \"API Evangelist\",\n  \"permission\": \"Admin\"\n}",
-      "language": "json"
-    }
-  ],
-  "sidebar": true
+    "name": "Test via API",
+    "email": "test+api@wingify.com",
+    "password": "*password*",
+    "confirmPassword": "*password*",
+    "phone": "9999988877",
+    "country": "India",
+    "department": "Software Engineering",
+    "title": "API Evangelist",
+    "permission": "Admin"
 }
-[/block]
+```
+
 Create User in Current / Sub Account.
