@@ -11,17 +11,15 @@ metadata:
   description: ''
   robots: noindex
 ---
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nDELETE /accounts/40505/campaigns/7/goals/2\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n<style></style>"
-}
-[/block]
+```
+DELETE /accounts/40505/campaigns/7/goals/2
+```
+
+<HTMLBlock>{`
+<div></div>
+<style></style>
+`}</HTMLBlock>
 
 Delete a campaign goal
