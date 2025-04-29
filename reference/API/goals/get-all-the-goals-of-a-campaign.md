@@ -10,6 +10,8 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
 Request URI for Sub Account
 
@@ -18,7 +20,9 @@ GET /accounts/40505/campaigns/7/goals
 ```
 
 <HTMLBlock>{`
-<div></div><style></style>
+<div></div>
+
+<style></style>
 `}</HTMLBlock>
 
 Get all the goals of a campaign

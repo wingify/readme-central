@@ -1,5 +1,5 @@
 ---
-title: Update account thresholds
+title: Update workspace thresholds
 excerpt: ''
 api:
   file: api.json
@@ -10,6 +10,8 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
 Request URI for Sub Account
 
@@ -17,14 +19,10 @@ Request URI for Sub Account
 PATCH /accounts/1/thresholds
 ```
 
-Request Format:
+Request Format: 
 
-```json
-{
-    "winningPercent": 95,
-    "losingPercent": 5,
-    "visitors": 21
-}
+```
+PATCH /accounts/1/thresholds
 ```
 
-Update account Thresholds.
+Update workspace Thresholds.

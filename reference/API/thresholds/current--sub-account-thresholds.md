@@ -1,5 +1,5 @@
 ---
-title: Get account thresholds
+title: Get workspace thresholds
 excerpt: ''
 api:
   file: api.json
@@ -10,6 +10,8 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
 Request URI for Sub Account
 
@@ -19,8 +21,7 @@ GET /accounts/1/thresholds
 
 <HTMLBlock>{`
 <div></div>
-
 <style></style>
 `}</HTMLBlock>
 
-Get threshold for current and sub-accounts.
+Get threshold for workspace.

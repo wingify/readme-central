@@ -10,19 +10,19 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
-```json
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nDELETE /accounts/1/users/874\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
 ```
-DELETE specific user of Current / Sub Account.
+DELETE /accounts/1/users/874
+```
+
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
+
+DELETE specific user of a workspace.

@@ -1,5 +1,5 @@
 ---
-title: Retrieve all accounts
+title: Retrieve all workspaces
 excerpt: ''
 api:
   file: api.json

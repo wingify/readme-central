@@ -17,8 +17,6 @@ GET /accounts/billing-details
 
 <HTMLBlock>{`
 <div></div>
-
 <style></style>
 `}</HTMLBlock>
-
 Get Billing details for Account.

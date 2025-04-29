@@ -1,5 +1,5 @@
 ---
-title: Get VWO SmartCode of accounts
+title: Get VWO SmartCode of workspace
 excerpt: ''
 api:
   file: api.json
@@ -21,7 +21,8 @@ GET /accounts/8740000/smartcode
 
 <HTMLBlock>{`
 <div></div>
+
 <style></style>
 `}</HTMLBlock>
 
-Get VWO Synchronous/Asynchronous SmartCode for Current / Sub Account
+Get VWO Synchronous/Asynchronous SmartCode for workspace

@@ -10,16 +10,22 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
-Request URI for Sub Account
+```json
+[block:textarea]
+{
+  "text": "Request URI for Sub Account\n```\nDELETE /accounts/40505/campaigns/7/goals/2\n```",
+  "sidebar": true
+}
+[/block]
 
+[block:html]
+{
+  "html": "<div></div>\n\n<style></style>"
+}
+[/block]
 ```
-DELETE /accounts/40505/campaigns/7/goals/2
-```
-
-<HTMLBlock>{`
-<div></div>
-<style></style>
-`}</HTMLBlock>
 
 Delete a campaign goal

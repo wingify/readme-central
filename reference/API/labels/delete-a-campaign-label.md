@@ -10,8 +10,10 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
-Request URL for Sub Account
+Request URL for Workspace
 
 ```
 DELETE accounts/1/campaigns/72/labels/1

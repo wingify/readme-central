@@ -10,6 +10,8 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
 Request URI for Sub Account
 
@@ -19,8 +21,7 @@ GET /accounts/1/drafts/14597
 
 <HTMLBlock>{`
 <div></div>
-
 <style></style>
 `}</HTMLBlock>
 
-Get specific draft of Current / Sub Account.
+Get a specific draft for a workspace.

@@ -10,8 +10,10 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
-Request URI for Sub Account
+Request URL for a Workspace
 
 ```
 PATCH /accounts/40505/campaigns/7/goals/2

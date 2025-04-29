@@ -9,7 +9,9 @@ hidden: false
 metadata:
   title: ''
   description: ''
-  robots: noindex
+  robots: index
+next:
+  description: ''
 ---
 Request URI for Sub Account
 
@@ -22,14 +24,17 @@ PATCH /accounts/40505/campaigns/15
 
 <style></style>
 `}</HTMLBlock>
+
 Request Format
 
-```json
-{
-    "campaigns": {
-        "name": "New name"
-    }
-}
+```
+PATCH /accounts/40505/campaigns/15
 ```
 
 Update a campaign
+
+> 🚧 **Warning**
+> 
+> Note:
+> 
+> The "globalCode" section allows you to add Pre/Post-Campaign JS/CSS snippets within the editor. This globalCode block is optional and can be omitted if not needed.

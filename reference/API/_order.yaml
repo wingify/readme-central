@@ -1,11 +1,17 @@
 - introduction-1
 - authentication
+- accounts
 - drafts
 - campaigns
 - goals
 - variations
 - sections
-- accounts
+- sections-copy
+- projects
+- features
+- fme-feature-flags-api
+- fme-feature-flags-rules
+- websites
 - users
 - tracking-code
 - thresholds
@@ -13,3 +19,4 @@
 - billing
 - labels
 - get-partners-detail
+- page-overview

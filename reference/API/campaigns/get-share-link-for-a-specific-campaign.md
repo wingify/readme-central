@@ -9,9 +9,11 @@ hidden: false
 metadata:
   title: ''
   description: ''
-  robots: noindex
+  robots: index
+next:
+  description: ''
 ---
-Request URI for Sub Account
+Request URL for Workspace
 
 ```
 GET /accounts/40505/campaigns/7/share

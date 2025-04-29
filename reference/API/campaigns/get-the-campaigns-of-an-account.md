@@ -1,5 +1,5 @@
 ---
-title: Get all campaigns in an account / sub-account
+title: Get all campaigns in a workspace
 excerpt: ''
 api:
   file: api.json
@@ -10,23 +10,26 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
-Request URI for Sub Account
+```json
+[block:textarea]
+{
+  "text": "Request URI for Sub Account\n```\nGET /accounts/40505/campaigns\n```",
+  "sidebar": true
+}
+[/block]
 
+[block:html]
+{
+  "html": "<div></div>\n\n<style></style>"
+}
+[/block]
+
+Get campaigns from a workspace
+
+> 📘 Note:
+>
+> Data will be returned wrapped in the `partialCollection` along with count of total campaigns if the campaign count exceed the limit.
 ```
-GET /accounts/40505/campaigns
-```
-
-<HTMLBlock>{`
-<div></div>
-
-<style></style>
-`}</HTMLBlock>
-
-Get the campaigns of an account
-
-> 📘 **Note**
-> 
-> Note
-> >
-> > Data will be returned wrapped in the `partialCollection` along with count of total campaigns if the campaign count exceed the limit.

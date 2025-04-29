@@ -10,8 +10,10 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
-Request URI for Sub Account
+Request URL for Workspace
 
 ```
 POST /accounts/1/campaigns/72/labels

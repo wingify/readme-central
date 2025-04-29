@@ -10,20 +10,19 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
-```json
-[block:textarea]
-{
-  "text": "Request URI for Sub Account\n```\nGET /accounts/1/labels\n```",
-  "sidebar": true
-}
-[/block]
+Request URI for Sub Account
 
-[block:html]
-{
-  "html": "<div></div>\n\n<style></style>"
-}
-[/block]
+```
+GET /accounts/1/labels
 ```
 
-Get labels for Current / Sub Accounts.
+<HTMLBlock>{`
+<div></div>
+
+<style></style>
+`}</HTMLBlock>
+
+Get labels for Workspaces.

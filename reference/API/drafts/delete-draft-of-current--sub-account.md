@@ -10,6 +10,8 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
 Request URI for Sub Account
 
@@ -19,7 +21,8 @@ DELETE /accounts/1/drafts/14597
 
 <HTMLBlock>{`
 <div></div>
+
 <style></style>
 `}</HTMLBlock>
 
-Delete draft of Current / Sub Account.
+Delete draft for a Workspace.

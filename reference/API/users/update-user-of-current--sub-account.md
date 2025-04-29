@@ -10,24 +10,26 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
-Request URI for Sub Account
-
-```
-PATCH /accounts/1/users/874
-```
-
-Request Format
-
 ```json
 {
-    "name": "API User Name",
-    "phone": "9999988877",
-    "country": "India",
-    "department": "Software Engineering",
-    "title": "API Evangelist",
-    "permission": "Browse"
+  "text": "Request URI for Sub Account\n```\nPATCH /accounts/1/users/874\n```\nRequest Format",
+  "sidebar": true
 }
 ```
 
-Update specific user of Current / Sub Account.
+
+```json
+{
+  "name": "API User Name",
+  "phone": "9999988877",
+  "country": "India",
+  "department": "Software Engineering",
+  "title": "API Evangelist",
+  "permission": "Browse"
+}
+```
+
+Update specific user of a workspace.

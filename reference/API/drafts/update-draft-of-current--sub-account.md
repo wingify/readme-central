@@ -9,7 +9,9 @@ hidden: false
 metadata:
   title: ''
   description: ''
-  robots: noindex
+  robots: index
+next:
+  description: ''
 ---
 Request Format
 
@@ -72,7 +74,7 @@ Request Format
       },
       "deployContent": [
         {
-          "jsString": "var ctx=vwo_$(x);ctx.html("The company pioneered easy A/B testing");",
+          "jsString": "var ctx=vwo_$(x);ctx.html(\"The company pioneered easy A/B testing\");",
           "cssSelector": "HEADER#top_header + SECTION > DIV:first-child > DIV:first-child > H2:first-child"
         }
       ],
@@ -128,11 +130,14 @@ Request Format
   "isPostSegmentationEnabled": false
 }
 ```
-Update draft of Current / Sub Account
 
+Update draft for a Workspace
 
-Request URI for Sub Account
+## 
 
-```
+<div>
+  Request URI for Sub Account
+  <pre>
 PATCH /accounts/1/drafts/14597
-```
+  </pre>
+</div>

@@ -1,5 +1,5 @@
 ---
-title: Create a sub-account
+title: Create a workspace
 excerpt: ''
 api:
   file: api.json
@@ -10,6 +10,8 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
 Request URI
 

@@ -1,5 +1,5 @@
 ---
-title: Get integration settings of Current / Sub Account
+title: Get integration settings of a Workspace
 excerpt: ''
 api:
   file: api.json
@@ -10,6 +10,8 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
 Request URI
 
@@ -23,4 +25,4 @@ GET /accounts/:account_id/integrations
 <style></style>
 `}</HTMLBlock>
 
-Get Third Party Integrations for Current / Sub Account.
+Get Third Party Integrations for a Workspace.

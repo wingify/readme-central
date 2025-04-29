@@ -1,5 +1,5 @@
 ---
-title: Retrieve specific account
+title: Retrieve specific workspace
 excerpt: ''
 api:
   file: api.json
@@ -10,6 +10,8 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
 Request URI for Sub Account
 
@@ -19,8 +21,7 @@ GET /accounts/1
 
 <HTMLBlock>{`
 <div></div>
-
 <style></style>
 `}</HTMLBlock>
 
-To retrieve information of a specific account, enter the associated campaign ID.
+To retrieve information of a specific workspace, enter the associated campaign ID.

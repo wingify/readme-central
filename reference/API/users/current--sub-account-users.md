@@ -10,6 +10,8 @@ metadata:
   title: ''
   description: ''
   robots: noindex
+next:
+  description: ''
 ---
 Request URI for Sub Account
 
@@ -19,7 +21,8 @@ GET /accounts/1/users
 
 <HTMLBlock>{`
 <div></div>
+
 <style></style>
 `}</HTMLBlock>
 
-Get Current / Sub Account Users.
+Get Workspace Users.

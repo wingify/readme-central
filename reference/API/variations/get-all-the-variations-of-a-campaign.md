@@ -9,7 +9,9 @@ hidden: false
 metadata:
   title: ''
   description: ''
-  robots: noindex
+  robots: index
+next:
+  description: ''
 ---
 Request URI for Sub Account
 
