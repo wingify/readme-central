@@ -4,7 +4,7 @@ excerpt: >-
   Easily integrate the VWO FME React Native SDK into your Expo project with this
   step-by-step guide.
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''
