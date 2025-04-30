@@ -28,32 +28,36 @@ Run command `npx expo prebuild` in your project root:
 * These folders contain the native code for iOS and Android platforms.
 * You only need to run this once or whenever you add or update native code.
 
-<br />
-
 ### Step 2: Install the VWO FME React Native SDK Package
 
 Install the SDK package using yarn or npm:
 
-```Text yarn
+```text Bash
+#via NPM
+npm install vwo-fme-react-native-sdk
+
+#via Yarn
 yarn add vwo-fme-react-native-sdk
 ```
-```Text npm
-npm install vwo-fme-react-native-sdk
-```
-
-<br />
 
 ### Step 3: Install iOS Native Dependencies
 
 Navigate to the generated `ios` folder and install CocoaPods dependencies:
 
-`cd ios && pod install`
+```Text Bash
+cd ios && pod install
+```
 
 * CocoaPods manages native iOS libraries.
 * Running pod install ensures the SDK’s native code is properly linked.
-* You need to have CocoaPods installed on your machine. If not, install it by running `sudo gem install cocoapods`or `brew install cocoapods`
+* You need to have CocoaPods installed on your machine. If not, install it by running
+  ```Text Bash
+  # via gem
+  sudo gem install cocoapods
 
-<br />
+  # or via brew
+  brew install cocoapods
+  ```
 
 ### Step 4: Android Setup
 
@@ -70,13 +74,13 @@ The VWO FME React Native SDK **does not support** the new React Native architect
 
 ## Summary checklist
 
-| Step                     | Command                             | Notes                                    |
-| :----------------------- | :---------------------------------- | :--------------------------------------- |
-| Generate native folders  | `npx expo prebuild`                 | Required for native SDK integration      |
-| Add SDK package          | `yarn add vwo-fme-react-native-sdk` | Adds SDK to your project dependencies    |
-| Install iOS pods         | `cd ios && pod install`             | Required for iOS native linking          |
-| Android setup            | No extra steps                      | Android linking is automatic             |
-| Verify Expo architecture | Use old architecture or disable new | SDK not compatible with new architecture |
+| Step                     | Command                                 | Notes                                           |
+| :----------------------- | :-------------------------------------- | :---------------------------------------------- |
+| Generate native folders  | `npx expo prebuild`                     | Required for native SDK integration             |
+| Add SDK package          | `yarn add vwo-fme-react-native-sdk`     | Adds SDK to your project dependencies           |
+| Install iOS pods         | `cd ios && pod install`                 | Required for iOS native linking                 |
+| Android setup            | No extra steps                          | Android linking is automatic                    |
+| Verify Expo architecture | Use old architecture or disable the new | SDK is not compatible with the new architecture |
 
 <br />
 
