@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-## Why These Steps Are Needed
+## Steps Required
 
 The VWO FME React Native SDK uses native SDKs for iOS and Android, which require access to the native project files. By default, Expo projects do not expose the native iOS and Android folders.
 
