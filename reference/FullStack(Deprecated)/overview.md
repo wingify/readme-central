@@ -32,4 +32,4 @@ For migration assistance or any questions, contact us at [support@vwo.com](suppo
 
 ## Documentation
 
-Please refer to the FullStack documentation [here](https://developers.vwo.com/docs/fullstack-overview).
+Please refer to the VWO FullStack documentation [here](https://developers.vwo.com/docs/fullstack-overview).
