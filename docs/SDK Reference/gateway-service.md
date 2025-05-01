@@ -20,7 +20,7 @@ The Gateway Service is required in the following scenarios:
 
 1. When using pre-segmentation features based on user location or user agent.
 2. For applications requiring advanced targeting capabilities.
-3. It's mandatory when using any thin-client SDK (e.g., Go and Ruby).
+3. It's mandatory when using any thin-client SDK (e.g., [Go](https://github.com/wingify/vwo-fme-go-sdk)).
 
 ## Architecture and Deployment
 
