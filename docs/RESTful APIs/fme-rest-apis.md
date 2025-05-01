@@ -63,13 +63,6 @@ Modify an existing feature flag's name, description, tags, or key.\
 
 ***
 
-### Feature Flag Resource Representation
-
-Understand the structure and fields of the feature flag object.\
-**Detailed documentation →** [here](https://developers.vwo.com/reference/fme-feature-flag-resource-representation)
-
-***
-
 ### Feature Flag Rules Overview
 
 A general conceptual overview of rules that can be applied to feature flags.\
@@ -132,10 +125,3 @@ Enable or disable a feature flag for a specific environment.\
 
 Permanently delete a rule from a feature flag.\
 **Detailed documentation →** [here](https://developers.vwo.com/reference/fme-delete-a-feature-flag-rule)
-
-***
-
-### Feature Flag Rule Resource Representation
-
-View the structure of the rule object and its configurable fields.\
-**Detailed documentation →** [here](https://developers.vwo.com/reference/fme-feature-flag-rules-resource-representation)
