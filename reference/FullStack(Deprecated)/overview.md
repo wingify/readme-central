@@ -22,7 +22,7 @@ next:
 
 VWO’s FME product empowers teams to seamlessly test, release, optimize, and roll back features across their entire tech stack while minimizing risk and maximizing business impact.
 
-* Check out FME developer documentation [here](https://developers.vwo.com/v2/docs/fme-overview).
+* Check out the FME developer documentation [here](https://developers.vwo.com/v2/docs/fme-overview).
 * Check [this](https://developers.vwo.com/v2/docs/sdks-release-info) for the list of all FME-supported SDKs.
 
 **💡 Need Help?**\
