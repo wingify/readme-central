@@ -14,4 +14,4 @@ next:
       slug: sdks-release-info
       title: SDKs Release Info
 ---
-This section is a complete reference for VWO server-side SDKs.
+This section is a complete reference for VWO FullStack server-side SDKs.
