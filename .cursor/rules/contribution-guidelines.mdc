@@ -1,0 +1,31 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+# Contribution Guidelines
+
+## Code Standards
+1. Follow consistent formatting and style
+2. Document all public APIs and interfaces
+3. Write clear commit messages
+
+## Documentation Contributions
+1. Follow the established directory structure
+2. Update relevant documentation when making code changes
+3. Use Markdown for all documentation files
+4. Include examples for complex features
+5. Test all code samples before submitting
+
+## Review Process
+1. Documentation is clear and follows guidelines
+2. Code examples are working and up-to-date
+3. Cross-references are valid
+4. No sensitive information is included
+
+## Pull Request Guidelines
+1. Reference related issues
+2. Include a clear description of changes
+3. Update documentation as needed
+4. Add tests for new features
+5. Ensure all checks pass
