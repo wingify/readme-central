@@ -14,7 +14,7 @@ next:
       slug: caching-your-settingsfile
       title: Caching Your settingsFile
 ---
-VWO SDKs maks different types of network calls to VWO server depending on the API method used.
+VWO SDKs make different types of network calls to VWO server depending on the API method used.
 
 * *getSettingsFile* - To fetch settings before SDK initialization.
 * *activate* - To send an impression to the VWO server when a user becomes part of a campaign to count a new visitor. Only for A/B Campaign.
