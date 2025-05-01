@@ -26,7 +26,7 @@ VWO’s FME product empowers teams to seamlessly test, release, optimize, and ro
 * Check [this](https://developers.vwo.com/v2/docs/sdks-release-info) for the list of all FME-supported SDKs.
 
 **💡 Need Help?**\
-For migration assistance or any questions, contact us at [support@vwo.com](support@vwo.com)
+For migration assistance or any questions, contact us at [support@vwo.com](support@vwo.com).
 
 ***
 
