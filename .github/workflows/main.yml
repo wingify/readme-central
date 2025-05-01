@@ -1,0 +1,36 @@
+name: Notify Slack on File Add/Delete
+
+on:
+  push:
+    branches:
+      - v2
+      - v1.0
+
+jobs:
+  notify-changes:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Run file detection script
+        id: file_changes
+        run: |
+          node .github/scripts/file-detection.js
+
+      - name: Send Slack Notification
+        if: ${{ steps.file_changes.outputs.message != '' }}
+        id: slack
+        uses: wingify/slack-github-action@v1.15.1-wingify
+        with:
+          channel-id: 'vwo-fs-fme-sdk-job-status' # 'fs-review-team'
+          slack-message: "${{ steps.file_changes.outputs.message }}"
+          color: "${{job.status == 'success' && '#00FF00' || '#FF0000'}}"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_NOTIFICATIONS_BOT_TOKEN }}
