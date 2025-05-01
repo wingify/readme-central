@@ -45,7 +45,7 @@ Your application calls the VWO FME SDK, which communicates with the locally depl
 
 ## Deployment
 
-VWO FME Gateway Service is available on the docker hub.\
+VWO FME Gateway Service is available on the Docker Hub.\
 Docker Image: [https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service](https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service)
 
 ### Prerequisites
@@ -58,7 +58,7 @@ Docker Image: [https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service]
 
 Choose the appropriate setup based on your Redis configuration:
 
-#### Without Existing Redis Instance
+#### Without an Existing Redis Instance
 
 Create a `docker-compose.yaml` file:
 
