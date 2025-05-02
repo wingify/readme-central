@@ -3,7 +3,7 @@
 - fme-dotnet-context
 - fme-dotnet-flags
 - fme-dotnet-metrics
-- fme-net-attributes
+- fme-dotnet-attributes
 - fme-net-logging
 - fme-net-storage
 - fme-net-integrations
