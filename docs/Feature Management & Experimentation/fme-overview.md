@@ -39,35 +39,23 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
 
 #### Server-side SDKs
 
-\<Cards columns=\{4}>
-&#x20; \<Card title="" href="https\://developers.vwo.com/v2/docs/fme-node" />
-&#x20;   \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Node.js logo" /> Node.js
-&#x20; \</Card>
+<Cards columns={3}>
+  <Card title="" href="https://developers.vwo.com/v2/docs/fme-node">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Node.js logo" /> Node.js
+  </Card>
 
-&#x20; \<Card title="" href="https\://developers.vwo.com/v2/docs/fme-java" >
-&#x20;   \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Java
-&#x20; \</Card>
+  <Card title="">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Java
+  </Card>
 
-&#x20; \<Card title="" href="https\://developers.vwo.com/v2/docs/fme-python" >
-&#x20;   \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Python logo" /> Python
-&#x20; \</Card>
+  <Card title="">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Python logo" /> Python
+  </Card>
 
-&#x20; \<Card title="" href="https\://developers.vwo.com/v2/docs/fme-ruby" >
-&#x20;   \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Ruby logo" /> Ruby
-&#x20; \</Card>
-
-&#x20; \<Card title="" href="https\://developers.vwo.com/v2/docs/fme-dotnet" >
-&#x20;   \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt=".NET logo" /> .NET
-&#x20; \</Card>
-
-&#x20; \<Card title="" href="https\://developers.vwo.com/v2/docs/fme-go" >
-&#x20;   \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Go logo" /> Go
-&#x20; \</Card>
-
-&#x20; \<Card title="" href="https\://developers.vwo.com/v2/docs/fme-php" >
-&#x20;   \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="PHP logo" /> PHP
-&#x20; \</Card>
-\</Cards>
+  <Card title="">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Ruby logo" /> Ruby
+  </Card>
+</Cards>
 
 | Language                                                                                          | Repository                                                                                                 |
 | :------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------- |
