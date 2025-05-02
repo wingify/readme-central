@@ -43,7 +43,7 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
   <Card title="Node.js" href="https://readme.com" icon="fa-home" />
 
   <Card title=".NET SDK" icon="fa-dotnet">
-    .NET
+    <img src="https://cdn.simpleicons.org/java/007396" alt="Java" width="24" />
   </Card>
 
   <Card title="Python SDK" icon="fa-python">
