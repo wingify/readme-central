@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Please check the table below for the up-to-date history of changes that go live in different SDKs.
+Click on the SDK card for the up-to-date history of changes that went live.
 
 **Server-side SDKs**
 
