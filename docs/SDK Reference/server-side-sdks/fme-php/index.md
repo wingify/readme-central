@@ -21,7 +21,7 @@ The SDK's source code is openly available under the Apache 2.0 License and can b
 To facilitate a comprehensive understanding and effective implementation of the SDK, the documentation is organized into the following sections:
 
 1. [Installing the SDK](doc:fme-php-install)\
-   Learn how to import and reference the SDK in your Node.js project.
+   Learn how to import and reference the SDK in your PHP project.
 2. [Initialization](doc:fme-php-initialization)\
    Learn how to initialize the VWO client within your application, including configuring essential parameters such as accountId, sdkKey, and optional settings like pollInterval, logger, storage, gatewayService, and integrations.
 3. [User Context](doc:fme-php-context)\
