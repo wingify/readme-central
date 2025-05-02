@@ -20,7 +20,7 @@ Please note that this is different from the ServerSide or FullStack Testing prod
 
 VWO FME lets you do the enterprise-grade testing of your product by deploying code behind features, experimenting with A/B tests, and rolling out or rolling back features immediately. With VWO FME, you can literally test anything - be it the search algorithms or recommendation engine for your e-commerce store or subscription workflows for your SaaS business. VWO FME is built to help you execute even the most complex tests. It enables you to test on any platform and not just limited to devices that have a browser. Think native apps, beacons, and connected devices.
 
-With VWO FME, you can perform the testing wherein the variations of a particular test are rendered directly from the web server and are then sent to the visitors’ device. Implementing directly on the server allows you to run more sophisticated tests that might otherwise hamper the user experience if implemented on the client side. In addition to that, serverside testing is also opted for in cases when it is simply unfeasible to experiment on the client-side. For example, testing two different product recommendation algorithms for an eCommerce website.
+With VWO FME, you can perform the testing wherein the variations of a particular test are rendered directly from the web server and are then sent to the visitors’ devices. Implementing directly on the server allows you to run more sophisticated tests that might otherwise hamper the user experience if implemented on the client side. In addition to that, server-side testing is also opted for in cases when it is simply unfeasible to experiment on the client-side. For example, testing two different product recommendation algorithms for an e-commerce website.
 
 <br />
 
@@ -37,7 +37,37 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
 
 ### FME currently supports the following programming languages:
 
-The VWO SDKs code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2024.
+#### Server-side SDKs
+
+<Cards columns={3}>
+  <Card title="Node.js SDK" href="https://readme.com" icon="fa-node-js">
+    Node.js
+  </Card>
+
+  <Card title=".NET SDK" icon="fa-dotnet">
+    .NET
+  </Card>
+
+  <Card title="Python SDK" icon="fa-python">
+    Python
+  </Card>
+
+  <Card title="Ruby SDK" icon="fa-ruby">
+    Ruby
+  </Card>
+
+  <Card title="PHP SDK" icon="fa-php">
+    PHP
+  </Card>
+
+  <Card title="Java SDK" icon="fa-java">
+    Java
+  </Card>
+
+  <Card title="Go SDK" icon="fa-go">
+    Go
+  </Card>
+</Cards>
 
 | Language                                                                                          | Repository                                                                                                 |
 | :------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------- |
@@ -58,3 +88,5 @@ The VWO SDKs code is available in various languages on GitHub. All different SDK
 | React(web)                                                                                        | [https://github.com/wingify/vwo-fme-react-sdk](https://github.com/wingify/vwo-fme-react-sdk)               |
 
 For any other languages or frameworks you want to use FME with or for a demo of the product, please reach out to us at [support@vwo.com](mailto:support@vwo.com).
+
+The VWO SDKs code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2024-2025.
