@@ -42,8 +42,8 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
 <Cards columns={3}>
   <Card title="Node.js" href="https://readme.com" icon="fa-home" />
 
-  <Card title=".NET SDK" icon="fa-dotnet">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" />
+  <Card title="" icon="fa-dotnet">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Java
   </Card>
 
   <Card title="Python SDK" icon="fa-python">
