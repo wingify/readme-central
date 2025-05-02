@@ -41,7 +41,7 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
 
 <Cards columns={3}>
   <Card title="" href="https://developers.vwo.com/v2/docs/fme-node">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Node.js logo" /> Node.js
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" /> Node.js
   </Card>
 
   <Card title="">
@@ -49,11 +49,23 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
   </Card>
 
   <Card title="">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Python logo" /> Python
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" /> Python
   </Card>
 
   <Card title="">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Ruby logo" /> Ruby
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/ruby/ruby-original.svg" width="24" alt="Ruby logo" /> Ruby
+  </Card>
+
+  <Card title="">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt="Ruby logo" /> .NET
+  </Card>
+
+  <Card title="">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" width="24" alt="Ruby logo" /> Go
+  </Card>
+
+  <Card title="">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="24" alt="Ruby logo" /> PHP
   </Card>
 </Cards>
 
