@@ -39,8 +39,7 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
 
 #### Server-side SDKs
 
-\<Cards columns=\{3}>
-
+\<Cards columns=\{4}>
 &#x20; \<Card title="" href="https\://developers.vwo.com/v2/docs/fme-node" />
 &#x20;   \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Node.js logo" /> Node.js
 &#x20; \</Card>
@@ -68,7 +67,6 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
 &#x20; \<Card title="" href="https\://developers.vwo.com/v2/docs/fme-php" >
 &#x20;   \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="PHP logo" /> PHP
 &#x20; \</Card>
-
 \</Cards>
 
 | Language                                                                                          | Repository                                                                                                 |
