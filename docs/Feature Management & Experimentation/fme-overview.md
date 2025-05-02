@@ -39,7 +39,7 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
 
 #### Server-side SDKs
 
-<Cards columns={3}>
+<Cards columns={4}>
   <Card title="" href="https://developers.vwo.com/v2/docs/fme-node">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" /> Node.js
   </Card>
@@ -96,26 +96,6 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" width="24" alt="React logo" /> React(web)
   </Card>
 </Cards>
-
-<br />
-
-| Language                                                                                          | Repository                                                                                                 |
-| :------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------- |
-| **Server-side SDKs**                                                                              |                                                                                                            |
-| .NET                                                                                              | [https://github.com/wingify/vwo-fme-dotnet-sdk](https://github.com/wingify/vwo-fme-dotnet-sdk)             |
-| GO(thin-client, requires [*Gateway Service*](https://developers.vwo.com/v2/docs/gateway-service)) | [https://github.com/wingify/vwo-fme-go-sdk](https://github.com/wingify/vwo-fme-go-sdk)                     |
-| Java                                                                                              | [https://github.com/wingify/vwo-fme-java-sdk](https://github.com/wingify/vwo-fme-java-sdk)                 |
-| Node.js                                                                                           | [https://github.com/wingify/vwo-fme-node-sdk](https://github.com/wingify/vwo-fme-node-sdk)                 |
-| PHP                                                                                               | [https://github.com/wingify/vwo-fme-php-sdk](https://github.com/wingify/vwo-fme-php-sdk)                   |
-| Python                                                                                            | [https://github.com/wingify/vwo-fme-python-sdk](https://github.com/wingify/vwo-fme-react-sdk)              |
-| Ruby                                                                                              | [https://github.com/wingify/vwo-fme-ruby-sdk](https://github.com/wingify/vwo-fme-react-sdk)                |
-| **Client-side SDKs**                                                                              |                                                                                                            |
-| Android                                                                                           | [https://github.com/wingify/vwo-fme-android-sdk](https://github.com/wingify/vwo-fme-react-sdk)             |
-| iOS                                                                                               | [https://github.com/wingify/vwo-fme-ios-sdk](https://github.com/wingify/vwo-fme-react-sdk)                 |
-| JavaScript(client-side)                                                                           | [https://github.com/wingify/vwo-fme-node-sdk](https://github.com/wingify/vwo-fme-node-sdk)                 |
-| Flutter                                                                                           | [https://github.com/wingify/vwo-fme-flutter-sdk](https://github.com/wingify/vwo-fme-react-sdk)             |
-| React Native                                                                                      | [https://github.com/wingify/vwo-fme-react-native-sdk](https://github.com/wingify/vwo-fme-react-native-sdk) |
-| React(web)                                                                                        | [https://github.com/wingify/vwo-fme-react-sdk](https://github.com/wingify/vwo-fme-react-sdk)               |
 
 For any other languages or frameworks you want to use FME with or for a demo of the product, please reach out to us at [support@vwo.com](mailto:support@vwo.com).
 
