@@ -26,7 +26,7 @@ To facilitate a comprehensive understanding and effective implementation of the 
    Understand how to define and manage user contexts to enable targeted feature rollouts and personalized user experiences.
 3. [Feature Flags & Variables](doc:fme-php-flags)\
    Explore how to create, manage, and evaluate feature flags and variables to control feature availability dynamically.
-4. [Metrics Tracking](doc:fme-php-metrics-tracking)\
+4. [Metrics Tracking](doc:fme-php-metrics)\
    Discover methods to track user interactions and measure the impact of feature rollouts and experiments on key performance indicators.
 5. [Attributes](doc:fme-php-attributes)\
    Learn how to utilize user attributes for advanced targeting and segmentation in your feature management strategy.
