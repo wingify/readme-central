@@ -36,5 +36,9 @@ To facilitate a comprehensive understanding and effective implementation of the 
    Configure logging to monitor SDK operations, debug issues, and maintain observability within your application.
 8. [Storage Service](doc:fme-flutter-storage)\
    Implement custom storage solutions to persist user assignments and enhance performance.
+9. [Integrations](doc:fme-flutter-integrations)\
+   Integrate the SDK with third-party tools and services to extend functionality and streamline workflows.
+
+   Each
 
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.
