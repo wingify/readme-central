@@ -40,9 +40,7 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
 #### Server-side SDKs
 
 <Cards columns={3}>
-  <Card title="Node.js SDK" href="https://readme.com" icon="fa-home">
-    Node.js
-  </Card>
+  <Card title="Node.js" href="https://readme.com" icon="fa-home" />
 
   <Card title=".NET SDK" icon="fa-dotnet">
     .NET
