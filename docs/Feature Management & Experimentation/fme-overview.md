@@ -71,7 +71,7 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
 
 #### Client-side SDKs
 
-<Cards columns={3}>
+<Cards columns={4}>
   <Card title="" href="https://developers.vwo.com/v2/docs/fme-android">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original.svg" width="24" alt="Android logo" /> Android
   </Card>
