@@ -37,36 +37,6 @@ Consider the following situation. An eCommerce store owner, with an aim to optim
 
 ### FME currently supports the following programming languages:
 
-#### Server-side SDKs
-
-<Cards columns={3}>
-  <Card title="Node.js" href="https://readme.com" icon="fa-home" />
-
-  <Card title="" icon="fa-dotnet">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Java
-  </Card>
-
-  <Card title="Python SDK" icon="fa-python">
-    Python
-  </Card>
-
-  <Card title="Ruby SDK" icon="fa-ruby">
-    Ruby
-  </Card>
-
-  <Card title="PHP SDK" icon="fa-php">
-    PHP
-  </Card>
-
-  <Card title="Java SDK" icon="fa-java">
-    Java
-  </Card>
-
-  <Card title="Go SDK" icon="fa-go">
-    Go
-  </Card>
-</Cards>
-
 | Language                                                                                          | Repository                                                                                                 |
 | :------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------- |
 | **Server-side SDKs**                                                                              |                                                                                                            |
