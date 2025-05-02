@@ -2,7 +2,7 @@
 - fme-dotnet-initialization
 - fme-dotnet-context
 - fme-dotnet-flags
-- fme-net-metrics
+- fme-dotnet-metrics
 - fme-net-attributes
 - fme-net-logging
 - fme-net-storage
