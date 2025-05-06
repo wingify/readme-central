@@ -31,13 +31,23 @@ The Gateway Service is designed to be deployed within your backend infrastructur
 3. **Scalability**: You can scale the Gateway Service according to your needs and traffic patterns.
 4. **Network Efficiency**: The internal communication reduces external network calls, potentially lowering bandwidth usage and associated costs.
 
+## Key Features
+
+* Handles location and user agent information requests
+* Provides a unified interface for VWO SDK operations
+* Supports caching for improved response times
+* Offers configurable polling for VWO campaign settings updates
+* Enables low-latency, internal communication with FME SDKs
+
+## Flow
+
 Your application calls the VWO FME SDK, which communicates with the locally deployed Gateway Service. The Gateway Service handles complex logic and data management required for feature management and experimentation.
 
 <Image align="center" src="https://files.readme.io/f983ba3e8432b9bc7e203f76372310430473131856b354b494c6f0930238fa9b-FME_Gateway.drawio.png" />
 
-## How the Gateway Service Works
+### How the Gateway Service Works
 
-### User Context and Pre-segmentation
+#### User Context and Pre-segmentation
 
 Whenever you evaluate a feature flag using the `getFlag` API in the SDK with the provided **user context** (which includes the unique user ID and optional parameters such as user-agent and IP address), the SDK checks if the feature flag rule contains any segmentation conditions that require **user-agent** or **location-related information**. These segments includes:
 
@@ -54,7 +64,7 @@ If any of these conditions are present, the SDK sends the **user-agent** and **I
 
 Once the user details are received from the Gateway Service, they are used to evaluate the pre-segmentation rules for the feature flags.
 
-### Visitor Tracking and Batching
+#### Visitor Tracking and Batching
 
 After the flag evaluation, the SDK sends a **visitor tracking call** to the **VWO Gateway Service** to log the event. These tracking calls are batched for optimal performance and efficient network usage.
 
@@ -64,14 +74,6 @@ After the flag evaluation, the SDK sends a **visitor tracking call** to the **VW
 2. **30 seconds request time interval**: If 1000 events are not collected within 30 seconds, all the collected events are sent as a batch.
 
 Once the batching condition is met (either 1000 events or 30 seconds), all the collected tracking calls are sent in a single batch request from the Gateway Service to the VWO Servers. This batching mechanism helps reduce the overhead of sending tracking calls one by one, making it more efficient by grouping events together and minimizing network requests.
-
-## Key Features
-
-* Handles location and user agent information requests
-* Provides a unified interface for VWO SDK operations
-* Supports caching for improved response times
-* Offers configurable polling for VWO campaign settings updates
-* Enables low-latency, internal communication with FME SDKs
 
 ## Deployment
 
