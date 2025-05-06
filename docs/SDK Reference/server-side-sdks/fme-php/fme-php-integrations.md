@@ -14,7 +14,7 @@ VWO FME SDKs help you integrate with several third-party tools, be it analytics,
 
 ## Usage
 
-```
+```php
 function callback($properties) {
     // properties will contain all the required VWO specific information
     echo json_encode($properties);
