@@ -24,7 +24,7 @@ Running `expo prebuild` generates these folders so the native SDKs can be proper
 
 Run command `npx expo prebuild` in your project root:
 
-* This command creates the ios and android folders inside your project.
+* This command creates the ios and Android folders inside your project.
 * These folders contain the native code for iOS and Android platforms.
 * You only need to run this once or whenever you add or update native code.
 
@@ -82,11 +82,9 @@ The VWO FME React Native SDK **does not support** the new React Native architect
 | Android setup            | No extra steps                          | Android linking is automatic                    |
 | Verify Expo architecture | Use old architecture or disable the new | SDK is not compatible with the new architecture |
 
-<br />
+## References
 
-> 👍 This will complete the integration process.
->
-> For detailed usage instructions and example, please refer to below links:
+For detailed usage instructions and examples, please refer to links below:
 
 > 📘 [FME React Native SDK documentation](https://developers.vwo.com/v2/docs/fme-react-native-initialization)
 
