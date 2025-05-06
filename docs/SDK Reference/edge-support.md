@@ -9,7 +9,7 @@ metadata:
 next:
   description: ''
 ---
-JavaScript is fully supported on edge platforms like **Cloudflare Workers, AWS Lambda, Netlify Functions**, and other similar environments. As a result, **VWO FME JavaScript SDK**, which is a port of the **VWO FME Node SDK**, is fully compatible with these edge environments.
+JavaScript is fully supported on edge platforms like **Cloudflare Workers, AWS Lambda, Netlify Functions**, and other similar environments. As a result, **VWO FME JavaScript SDK**, which is a part of the **VWO FME Node SDK**, is fully compatible with these edge environments.
 
 When running the VWO Feature Management and Experimentation SDK on edge environments like Cloudflare Workers or similar serverless platforms, certain configurations need to be adjusted for optimal performance and compatibility. This document outlines the required parameters and settings to run the SDK successfully in edge computing environments.
 
