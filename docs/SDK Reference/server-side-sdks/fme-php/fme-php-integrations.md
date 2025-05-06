@@ -14,8 +14,21 @@ VWO FME SDKs help you integrate with several third-party tools, be it analytics,
 
 ## Usage
 
-```php
-// Under development
+```
+function callback($properties) {
+    // properties will contain all the required VWO specific information
+    echo json_encode($properties);
+}
+
+$options = [
+    'sdkKey' => '32-alpha-numeric-sdk-key', // SDK Key
+    'accountId' => '12345', // VWO Account ID
+    'integrations' => [
+        'callback' => 'callback'
+    ]
+];
+
+$vwoClient = VWO::init($options);
 ```
 
 ## Properties available to use for integrations
@@ -46,7 +59,7 @@ This is the reason why VWO SDKs do not provide different libraries to connect wi
 
 ## Which platforms I can integrate with?
 
-Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party destination. 
+Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party destination.
 
 > 📘 Note
 >
