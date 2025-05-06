@@ -12,7 +12,7 @@ Welcome to the VWO Feature Management & Experimentation (FME) documentation. Thi
 ### 📘 Core Concepts
 
 Understand the foundational ideas behind FME — including feature flags, experimentation, variable management, targeting rules, and environments. Perfect for getting familiar with how FME works under the hood.\
-👉 [Explore Core Concepts](https://developers.vwo.com/v2/docs/fme-core-concepts)
+👉 [Explore Core Concepts](https://developers.vwo.com/v2/docs/user-id-management#/)
 
 ***
 
