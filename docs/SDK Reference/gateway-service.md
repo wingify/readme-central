@@ -39,7 +39,7 @@ Your application calls the VWO FME SDK, which communicates with the locally depl
 
 ### User Context and Pre-segmentation
 
-Whenever you evaluate a feature flag using the `getFlag` API in the SDK with the provided **user context** (which includes the unique user ID and optional parameters such as user-agent and IP address), the SDK checks if the feature flag rule contains any segmentation conditions that require **user-agent** or **location-related information**. These conditions may include factors such as:
+Whenever you evaluate a feature flag using the `getFlag` API in the SDK with the provided **user context** (which includes the unique user ID and optional parameters such as user-agent and IP address), the SDK checks if the feature flag rule contains any segmentation conditions that require **user-agent** or **location-related information**. These segments includes:
 
 * **Operating system**
 * **Browser**
