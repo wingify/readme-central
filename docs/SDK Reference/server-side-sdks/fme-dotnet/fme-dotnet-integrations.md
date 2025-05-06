@@ -35,7 +35,7 @@ var vwoClient = VWO.Init(new VWOInitOptions
 
 ## Properties available to use for integrations
 
-All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.vwo.com/v2/docs/fme-net-flags) and [trackEvent](https://developers.vwo.com/v2/docs/fme-net-metrics) APIs.
+All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.vwo.com/v2/docs/fme-dotnet-flags) and [trackEvent](https://developers.vwo.com/v2/docs/fme-dotnet-metrics) APIs.
 
 ```json
 {
@@ -60,9 +60,9 @@ All VWO SDKs provide the following properties when a decision is made. This mean
 
 Different destinations have their own formats for integrating with them and using their respective methods/APIs. Please check the documentation of the respective third-party destination so that the above properties can be mapped accordingly before using the destination APIs.
 
-## Which platforms I can integrate with?
+## Which platforms can I integrate with?
 
-Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party tool capable of receiving it via APIs. 
+Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party tool capable of receiving it via APIs.
 
 > 📘 Note
 >
