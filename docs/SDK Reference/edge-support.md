@@ -13,6 +13,8 @@ JavaScript is fully supported on edge platforms like **Cloudflare Workers, AWS L
 
 When running the VWO Feature Management and Experimentation SDK on edge environments like Cloudflare Workers or similar serverless platforms, certain configurations need to be adjusted for optimal performance and compatibility. This document outlines the required parameters and settings to run the SDK successfully in edge computing environments.
 
+For further details on the VWO FME JavaScript SDK, including specific configuration examples and advanced usage, refer to the [VWO JavaScript SDK Documentation](https://developers.vwo.com/v2/update/docs/fme-javascript#/).
+
 ## Key Configuration for Edge Environments
 
 In edge environments, the SDK has to ensure that tracking calls are properly managed before resolving promises. To achieve this, the `shouldWaitForTrackingCalls` Parameter must be explicitly set.
