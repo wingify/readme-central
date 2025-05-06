@@ -24,7 +24,7 @@ $options = [
     'sdkKey' => '32-alpha-numeric-sdk-key', // SDK Key
     'accountId' => '12345', // VWO Account ID
     'integrations' => [
-        'callback' => 'callback'
+        'callback' => callback
     ]
 ];
 
