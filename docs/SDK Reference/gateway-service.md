@@ -39,9 +39,14 @@ Your application calls the VWO FME SDK, which communicates with the locally depl
 
 ### User Context and Pre-segmentation
 
-When a user makes a request, they provide a **user context**, which typically includes a unique identifier and optionally their user-agent and IP address.
+Whenever you evaluate a feature flag using the `getFlag` API in the SDK with the provided **user context** (which includes the unique user ID and optional parameters such as user-agent and IP address), the SDK checks if the feature flag rule contains any segmentation conditions that require **user-agent** or **location-related information**. These conditions may include factors such as:
 
-These details are sent to the **VWO Gateway Service**, which returns information about the user, such as:
+* **Operating system**
+* **Browser**
+* **User-Agent**
+* **Location**
+
+If any of these conditions are present, the SDK sends the **user-agent** and **IP address** details to the **VWO Gateway Service**, which returns enriched information about the user, including:
 
 1. **Device type**: Information about the user’s device (e.g., mobile, desktop).
 2. **Operating system**: The OS version and type (e.g., Windows, macOS, iOS, Android).
