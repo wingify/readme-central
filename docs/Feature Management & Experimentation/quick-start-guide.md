@@ -61,7 +61,7 @@ Enable AI-assisted workflows with integrations into IDEs like Cursor, helping yo
 ### ❓ FAQs
 
 Get answers to commonly asked questions about features, usage, billing, and troubleshooting.\
-👉 [Read FAQs](https://developers.vwo.com/v2/docs/fme-list-of-questions)
+👉 [Read FAQs](https://developers.vwo.com/v2/docs/fme-faqs)
 
 ***
 
