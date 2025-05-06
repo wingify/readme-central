@@ -35,6 +35,31 @@ Your application calls the VWO FME SDK, which communicates with the locally depl
 
 <Image align="center" src="https://files.readme.io/f983ba3e8432b9bc7e203f76372310430473131856b354b494c6f0930238fa9b-FME_Gateway.drawio.png" />
 
+## How the Gateway Service Works
+
+### User Context and Pre-segmentation
+
+When a user makes a request, they provide a **user context**, which typically includes a unique identifier and optionally their user-agent and IP address.
+
+These details are sent to the **VWO Gateway Service**, which returns information about the user, such as:
+
+1. **Device type**: Information about the user’s device (e.g., mobile, desktop).
+2. **Operating system**: The OS version and type (e.g., Windows, macOS, iOS, Android).
+3. **Location**: Geographical details such as country, city, and region.
+
+Once the user details are received from the Gateway Service, they are used to evaluate the pre-segmentation rules for the feature flags.
+
+### Visitor Tracking and Batching
+
+After the flag evaluation, the SDK sends a **visitor tracking call** to the **VWO Gateway Service** to log the event. These tracking calls are batched for optimal performance and efficient network usage.
+
+**Batch Configuration**: The Gateway Service uses the following default batching configuration:
+
+1. **1000 events per request**: The SDK collects up to 1000 tracking calls before sending them in a single batch.
+2. **30 seconds request time interval**: If 1000 events are not collected within 30 seconds, all the collected events are sent as a batch.
+
+Once the batching condition is met (either 1000 events or 30 seconds), all the collected tracking calls are sent in a single batch request. This batching mechanism helps reduce the overhead of sending tracking calls one by one, making it more efficient by grouping events together and minimizing network requests.
+
 ## Key Features
 
 * Handles location and user agent information requests
