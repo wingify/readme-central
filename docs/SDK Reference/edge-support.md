@@ -1,5 +1,5 @@
 ---
-title: VWO FME Node SDK Edge Environment Support
+title: Edge Support
 deprecated: false
 hidden: true
 metadata:
@@ -9,6 +9,8 @@ metadata:
 next:
   description: ''
 ---
+JavaScript is fully supported on edge platforms like **Cloudflare Workers, AWS Lambda, Netlify Functions**, and other similar environments. As a result, **VWO FME JavaScript SDK**, which is a port of the **VWO FME Node SDK**, is fully compatible with these edge environments.
+
 When running the VWO Feature Management and Experimentation SDK on edge environments like Cloudflare Workers or similar serverless platforms, certain configurations need to be adjusted for optimal performance and compatibility. This document outlines the required parameters and settings to run the SDK successfully in edge computing environments.
 
 ## Key Configuration for Edge Environments
@@ -59,7 +61,7 @@ const { init } = require('vwo-fme-node-sdk');
 
 ## Summary
 
-To summarize, when running the **VWO FME Node SDK** in edge environments, you need to configure the `shouldWaitForTrackingCalls` parameter as follows:
+To summarize, when running the **VWO FME Javascript SDK** in edge environments, you need to configure the `shouldWaitForTrackingCalls` parameter as follows:
 
 * Set `shouldWaitForTrackingCalls: true` to ensure that tracking calls complete before promises are resolved.
 * This configuration is crucial for platforms like **Cloudflare Workers, AWS Lambda**, or similar environments to ensure reliable data tracking.
