@@ -1,7 +1,7 @@
 ---
 title: Edge Support
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''
