@@ -33,7 +33,7 @@ $vwoClient = VWO::init($options);
 
 ## Properties available to use for integrations
 
-All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.vwo.com/docs/nodejs-activate), [getVariable](https://developers.vwo.com/docs/nodejs-get-variation-name) and [trackMetric](https://developers.vwo.com/docs/nodejs-get-feature-variable-value) APIs.
+All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.vwo.com/docs/fme-php-flags) and [trackEvent](https://developers.vwo.com/docs/fme-php-metrics) APIs.
 
 ```json
 {
