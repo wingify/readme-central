@@ -55,10 +55,10 @@ After the flag evaluation, the SDK sends a **visitor tracking call** to the **VW
 
 **Batch Configuration**: The Gateway Service uses the following default batching configuration:
 
-1. **1000 events per request**: The SDK collects up to 1000 tracking calls before sending them in a single batch.
+1. **1000 events per request**: The Gateway Service collects up to 1000 tracking calls before sending them in a single batch.
 2. **30 seconds request time interval**: If 1000 events are not collected within 30 seconds, all the collected events are sent as a batch.
 
-Once the batching condition is met (either 1000 events or 30 seconds), all the collected tracking calls are sent in a single batch request. This batching mechanism helps reduce the overhead of sending tracking calls one by one, making it more efficient by grouping events together and minimizing network requests.
+Once the batching condition is met (either 1000 events or 30 seconds), all the collected tracking calls are sent in a single batch request from the Gateway Service to the VWO Servers. This batching mechanism helps reduce the overhead of sending tracking calls one by one, making it more efficient by grouping events together and minimizing network requests.
 
 ## Key Features
 
