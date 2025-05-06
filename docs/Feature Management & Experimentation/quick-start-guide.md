@@ -40,7 +40,7 @@ Learn how to connect FME with popular platforms, CI/CD pipelines, and third-part
 ### 🌐 REST APIs
 
 Comprehensive documentation of all available REST API endpoints to manage feature flags, segments, variables, and more — programmatically.\
-👉 [Explore REST APIs](https://developers.vwo.com/v2/reference/fme-rest-apis-overview)
+👉 [Explore REST APIs](https://developers.vwo.com/v2/docs/fme-rest-apis-overview)
 
 ***
 
