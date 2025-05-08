@@ -299,9 +299,7 @@ export default YourComponent;
   </tbody>
 </Table>
 
-### Returns
-
-The value of a specific variable associated with the feature flag. If the variable is found, it returns its assigned value; otherwise, it returns the provided default value.
+`Returns` the value of a specific variable associated with the feature flag. If the variable is found, it returns its assigned value; otherwise, it returns the provided default value.
 
 ## ***useGetFlagVariables*** Hook
 
@@ -369,6 +367,4 @@ export default YourComponent;
   </tbody>
 </Table>
 
-### Returns
-
-Returns an array of objects containing the variables in the flag.
+`Returns` an array of objects containing the variables in the flag.
