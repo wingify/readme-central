@@ -170,13 +170,15 @@ export default YourComponent;
 | **flag**         | Object   | Represents the feature flag and provides methods to interact with the flag’s state and its associated variables. For example, `flag.isEnabled()`, `flag.getVariables()`, and `flag.getVariable('variable\_value', 'default\_value')`. |
 | **isReady**      | Function | A function that checks whether the hook has finished initializing and is ready for use. Returns a boolean (`true` or `false`).                                                                                                        |
 
-## ***Is Enabled***
+## Usage of Flag and isReady
 
-After fetching the flag object, you can call the *isEnabled()* function, which checks if that particular feature flag is enabled for the current user.
+After fetching the `flag` object, you can call `flag.isEnabled()`, which checks if the particular feature flag is enabled for the current user. This is evaluated based on the rules and targeting conditions configured with your feature flag. If the current user satisfies the conditions for any rollout, testing, or personalization rule associated with a specific feature flag, `isEnabled()` will return true; otherwise, it will return false.
 
-This is evaluated based on the rules and targeting conditions configured with your feature flag.
+The `flag.getVariable()` function retrieves the value of a specific variable associated with the feature flag. If the variable is found, it returns its assigned value; otherwise, it returns the provided default value.
 
-If the current user satisfies the conditions for any rollout, testing, or personalize rule connected to a specific feature flag, *isEnabled()* will return 'true'; otherwise, it will return 'false'.
+The `flag.getVariables()` function returns an object containing all variables associated with the feature flag.
+
+The `isReady()` function checks if the useGetFlag hook is initialized and the feature flag data is ready to be used. `isReady()` returns a boolean value:
 
 ### Usage
 
@@ -185,16 +187,17 @@ import { useGetFlag } from "vwo-fme-react-sdk"; // Import the hook
 
 const { flag, isReady } = useGetFlag("feature_key");
 
+// check if the feature flag data is ready to be used
 if (!isReady()) {
     return <div>Default/Zero state</div>;
  }
 // To check if the flag is enabled or disabled, use isEnabled method
 const isFeatureEnabled = flag.isEnabled();
+// get value of a specific variable
+const variableValue = flag.getVariable('variable_value', 'default_value');
+// get all variables value
+const allVariables = flag.getVariables();
 ```
-
-### Returns
-
-Returns True if flag is enabled otherwise false
 
 ## ***useGetFlagVariable*** Hook
 
@@ -297,6 +300,10 @@ export default YourComponent;
     </tr>
   </tbody>
 </Table>
+
+### Returns
+
+The value of a specific variable associated with the feature flag. If the variable is found, it returns its assigned value; otherwise, it returns the provided default value.
 
 ## ***useGetFlagVariables*** Hook
 
