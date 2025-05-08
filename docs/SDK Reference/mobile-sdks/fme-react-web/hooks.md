@@ -37,3 +37,10 @@ The `useTrackEvent` hook allows you to track custom events within your app, such
 
 * **Usage**: Track important metrics, such as button clicks or completed purchases.
 * **More Info**: [Learn more about useTrackEvent](https://developers.vwo.com/v2/docs/fme-react-metrics-tracking#usetrackevent-hook)
+
+## useSetAttribute
+
+The `useSetAttribute` hook provides a simple way to associate these attributes with users in VWO for advanced segmentation.
+
+* **Usage**: Assign user attributes to help with segmentation and personalization.
+* **More Info**: [Learn more about useSetAttribute](https://developers.vwo.com/v2/docs/fme-react-attributes#usesetattribute-hook)
