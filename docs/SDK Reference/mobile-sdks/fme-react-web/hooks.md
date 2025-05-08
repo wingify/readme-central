@@ -14,16 +14,82 @@ Here are the available hooks:
 
 The `useVWOClient` hook provides access to the `VWO FME React SDK` client. You can use this client to do feature flagging, track an event and set an user attribute.
 
-### Usage
+### Usage with getFlag
 
 ```javascript
-const { useVWOClient } = require('vwo-fme-react-sdk');
+import React, { useEffect, useState } from 'react';
+import { useVWOClient } from 'vwo-fme-react-sdk';
+
+const FeatureFlagComponent = () => {
+  const [isFeatureEnabled, setIsFeatureEnabled] = useState(false);
+  const vwoClient = useVWOClient();
+
+  useEffect(() => {
+    const checkFeature = async () => {
+      if (!vwoClient) {
+        console.log('VWO Client not available');
+        return;
+      }
+
+      // Define user context (could be dynamic)
+      const userContext = { id: 'unique_user_id' };
+
+      try {
+        // Fetch the feature flag
+        const feature = await vwoClient.getFlag('feature_key', userContext);
+
+        // Check if the feature is enabled
+        setIsFeatureEnabled(feature.isEnabled());
+      } catch (error) {
+        console.error('Error checking feature flag:', error);
+      }
+    };
+
+    checkFeature();
+  }, [vwoClient]);
+
+  return (
+    <div>
+      {isFeatureEnabled ? (
+        <p>The feature is enabled!</p>
+      ) : (
+        <p>The feature is not enabled.</p>
+      )}
+    </div>
+  );
+};
+
+export default FeatureFlagComponent;
+
+```
+
+[Learn more about feature flagging](https://developers.vwo.com/v2/docs/fme-javascript-flags#/)
+
+Similarly, for `trackEvent` function, please check the example below
+
+```javascript
+import { useVWOClient } from 'vwo-fme-react-sdk';
 
 const vwoClient = useVWOClient();
 
-// Evaluate and retrieve the flag value
-const flag = await vwoClient.getFlag('feature_key', userContext);
+// Record a metric conversion for the specified event 
+vwoClient.trackEvent('event-name', userContext);
 ```
+
+[Learn more about metric conversion](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/)
+
+Similarly, for `setAttribute` function, please check the example below
+
+```javascript
+import { useVWOClient } from 'vwo-fme-react-sdk';
+
+const vwoClient = useVWOClient();
+
+// Record a metric conversion for the specified event 
+vwoClient.setAttribute('attributeKey', 'attributeValue', userContext);
+```
+
+[Learn more about Set Attribute](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/)
 
 ## useGetFlag
 
