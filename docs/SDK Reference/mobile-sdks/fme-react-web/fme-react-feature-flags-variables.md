@@ -29,7 +29,7 @@ The returned `flag` object allows you to:
    `isFeatureEnabled = flag.isEnabled()`
 2. Retrieve associated feature variables (if configured):\
    `variableValue = useGetFlagVariable(flag, 'variableKey', 'defaultValue')
-     allVariables = useGetFlagVariables(flag)`\
+     allVariables = useGetFlagVariables(flag)`
    These variables can define UI elements, feature limits, or configuration settings, enabling personalized experiences without changing the codebase.
 
 ## ***useGetFlag*** Hook
@@ -144,7 +144,7 @@ export default YourComponent;
 
     <tr>
       <td>
-        **UserContext**\
+        **UserContext**
         *Optional*
       </td>
 
@@ -162,6 +162,13 @@ export default YourComponent;
 > 🚧 Note
 >
 > Please note that the flag must already be defined in the VWO Application for this otherwise False will be returned.
+
+### Returns
+
+| Return Parameter | Type     | Description                                                                                                                                                                                                                           |
+| :--------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **flag**         | Object   | Represents the feature flag and provides methods to interact with the flag’s state and its associated variables. For example, `flag.isEnabled()`, `flag.getVariables()`, and `flag.getVariable('variable\_value', 'default\_value')`. |
+| **isReady**      | Function | A function that checks whether the hook has finished initializing and is ready for use. Returns a boolean (`true` or `false`).                                                                                                        |
 
 ## ***Is Enabled***
 
@@ -261,7 +268,7 @@ export default YourComponent;
 
     <tr>
       <td>
-        **variableKey**\
+        **variableKey**
         *Required*
       </td>
 
@@ -276,7 +283,7 @@ export default YourComponent;
 
     <tr>
       <td>
-        **defaultValue**\
+        **defaultValue**
         *Optional*
       </td>
 
@@ -293,7 +300,7 @@ export default YourComponent;
 
 ## ***useGetFlagVariables*** Hook
 
-The *useGetFlagVariables()* hook returns all variables associated with the feature flag as a dictionary. 
+The *useGetFlagVariables()* hook returns all variables associated with the feature flag as a dictionary.
 
 ### Usage
 
