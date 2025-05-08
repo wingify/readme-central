@@ -10,7 +10,7 @@ The `VWO FME React SDK` provides a set of hooks to help you seamlessly integrate
 
 Here are the available hooks:
 
-## useGetFlag
+## 1. useGetFlag
 
 The `useGetFlag` hook is used to retrieve a feature flag and check its status. It also provides access to associated variables.
 
