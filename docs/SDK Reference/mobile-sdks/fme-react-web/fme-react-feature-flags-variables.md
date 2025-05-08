@@ -161,7 +161,7 @@ export default YourComponent;
 >
 > Please note that the flag must already be defined in the VWO Application for this otherwise False will be returned.
 
-### Returns
+### Returns an object having the following keys:
 
 | Return Parameter | Type     | Description                                                                                                                                                                                                                           |
 | :--------------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
