@@ -10,6 +10,21 @@ The `VWO FME React SDK` provides a set of hooks to help you seamlessly integrate
 
 Here are the available hooks:
 
+## useVWOClient
+
+The `useVWOClient` hook provides access to the `VWO FME React SDK` client. You can use this client to do feature flagging, track an event and set an user attribute.
+
+### Usage
+
+```javascript
+const { useVWOClient } = require('vwo-fme-react-sdk');
+
+const vwoClient = useVWOClient();
+
+// Evaluate and retrieve the flag value
+const flag = await vwoClient.getFlag('feature_key', userContext);
+```
+
 ## useGetFlag
 
 The `useGetFlag` hook is used to retrieve a feature flag and check its status. It also provides access to associated variables.
