@@ -105,8 +105,6 @@ const YourComponent = () => {
 export default YourComponent;
 ```
 
-<br />
-
 ### Parameters Definition
 
 <Table align={["left","left","left"]}>
