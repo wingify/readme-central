@@ -21,7 +21,7 @@ An **OpenFeature Provider** is a **pluggable integration layer** that connects t
 5. [Python Provider](doc:python-openfeature-provider)
 
 <Cards columns={4}>
-  <Card title="" href="doc:dotnet-openfeature-provider">
+  <Card title="" href="https://developers.vwo.com/v2/update/docs/node-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" /> Node.js
   </Card>
 
