@@ -14,30 +14,24 @@ An **OpenFeature Provider** is a **pluggable integration layer** that connects t
 
 #### VWO supports the following OpenFeature providers
 
-1. [.NET Provider](doc:dotnet-openfeature-provider)
-2. [Java Provider](doc:java-openfeature-provider)
-3. [Node Provider](doc:node-openfeature-provider)
-4. [PHP Provider](doc:php-openfeature-provider)
-5. [Python Provider](doc:python-openfeature-provider)
-
 <Cards columns={4}>
   <Card title="" href="https://developers.vwo.com/v2/update/docs/node-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" /> Node.js
   </Card>
 
-  <Card title="" href="doc:dotnet-openfeature-provider">
+  <Card title="" href="https://developers.vwo.com/v2/update/docs/java-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Java
   </Card>
 
-  <Card title="" href="doc:dotnet-openfeature-provider">
+  <Card title="" href="https://developers.vwo.com/v2/update/docs/python-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" /> Python
   </Card>
 
-  <Card title="" href="doc:dotnet-openfeature-provider">
+  <Card title="" href="https://developers.vwo.com/v2/update/docs/dotnet-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET
   </Card>
 
-  <Card title="" href="doc:dotnet-openfeature-provider">
+  <Card title="" href="https://developers.vwo.com/v2/update/docs/php-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="24" alt="PHP logo" /> PHP
   </Card>
 </Cards>
