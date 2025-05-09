@@ -16,6 +16,8 @@ VWO supports the following Openfeature providers
 
 | Provider | GitHub Link                                                                                                              |
 | :------- | :----------------------------------------------------------------------------------------------------------------------- |
+| .NET     | [https://github.com/wingify/vwo-openfeature-provider-dotnet](https://github.com/wingify/vwo-openfeature-provider-dotnet) |
 | Java     | [https://github.com/wingify/vwo-openfeature-provider-java](https://github.com/wingify/vwo-openfeature-provider-java)     |
 | Node     | [https://github.com/wingify/vwo-openfeature-provider-node](https://github.com/wingify/vwo-openfeature-provider-node)     |
+| PHP      | [https://github.com/wingify/vwo-openfeature-provider-php](https://github.com/wingify/vwo-openfeature-provider-php)       |
 | Python   | [https://github.com/wingify/vwo-openfeature-provider-python](https://github.com/wingify/vwo-openfeature-provider-python) |
