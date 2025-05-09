@@ -21,20 +21,24 @@ An **OpenFeature Provider** is a **pluggable integration layer** that connects t
 5. [Python Provider](doc:python-openfeature-provider)
 
 <Cards columns={4}>
-  <Card title="First Card" href="https://readme.com" icon="fa-home" target="_blank">
-    Neque porro quisquam est qui dolorem ipsum quia
+  <Card title="" href="doc:dotnet-openfeature-provider">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" /> Node.js
   </Card>
 
-  <Card title="Second Card" icon="fa-user">
-    *Lorem ipsum dolor sit amet, consectetur adipiscing elit*
+  <Card title="" href="doc:dotnet-openfeature-provider">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Java
   </Card>
 
-  <Card title="Third Card" icon="fa-star">
-    > Ut enim ad minim veniam, quis nostrud ullamco
+  <Card title="" href="doc:dotnet-openfeature-provider">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" /> Python
   </Card>
 
-  <Card title="Fourth Card" icon="fa-question">
-    **Excepteur sint occaecat cupidatat non proident**
+  <Card title="" href="doc:dotnet-openfeature-provider">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET
+  </Card>
+
+  <Card title="" href="doc:dotnet-openfeature-provider">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="24" alt="PHP logo" /> PHP
   </Card>
 </Cards>
 
