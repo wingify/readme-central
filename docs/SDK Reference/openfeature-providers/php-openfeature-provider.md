@@ -14,15 +14,27 @@ next:
 
 An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO Openfeature Provider for PHP helps you integrate feature management and experimentation systems within your PHP-based server applications.
+This VWO OpenFeature Provider for PHP helps you integrate feature management and experimentation systems into your PHP-based server applications.
 
-| Resource             | Link                                                                                                                                |
-| :------------------- | :---------------------------------------------------------------------------------------------------------------------------------- |
-| GitHub repository    | [https://github.com/wingify/vwo-openfeature-provider-php](https://github.com/wingify/vwo-openfeature-provider-php)                  |
-| Published on         | [https://pypi.org/project/vwo-openfeature-provider-php/](https://pypi.org/project/vwo-openfeature-provider-php/)                    |
-| Openfeature PHP docs | [\<https://openfeature.dev/docs/reference/technologies/server/php>](https://openfeature.dev/docs/reference/technologies/server/php) |
+<Cards columns={4}>
+  <Card title="GitHub Repo" icon="fa-code-commit">
+    Check <a href="https://github.com/wingify/vwo-openfeature-provider-php" target="_blank">this</a> out
+  </Card>
 
-> 🚧 Please Note
+  <Card title="Published on Packagist" icon="fa-download">
+    Check <a href="https://packagist.org/packages/vwo/vwo-openfeature-provider-php" target="_blank">this</a> out
+  </Card>
+
+  <Card title="OpenFeature Ecosystem" icon="fa-globe-pointer">
+    Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20php" target="_blank">this</a> out
+  </Card>
+
+  <Card title="OpenFeature Docs" icon="fa-book-open">
+    Check <a href="https://openfeature.dev/docs/reference/technologies/server/php" target="_blank">this</a> out
+  </Card>
+</Cards>
+
+> 🚧 **Note**
 >
 > This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
 
