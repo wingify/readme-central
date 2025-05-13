@@ -16,19 +16,16 @@ An **OpenFeature Provider** is a **pluggable integration layer** that connects t
 
 This VWO Openfeature Provider for .NET helps you integrate feature management and experimentation systems within your .NET-based server applications.
 
-| Resource              | Link                                                                                                                                   |
-| :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
-| GitHub repository     | [https://github.com/wingify/vwo-openfeature-provider-dotnet](https://github.com/wingify/vwo-openfeature-provider-dotnet)               |
-| Published on          | [https://www.nuget.org/packages/VWO.OpenFeature.Provider](https://www.nuget.org/packages/VWO.OpenFeature.Provider)                     |
-| Openfeature .NET docs | [https://openfeature.dev/docs/reference/technologies/server/dotnet](https://openfeature.dev/docs/reference/technologies/server/dotnet) |
+| Resource                | Link                                                                                                                                              |
+| :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
+| GitHub repository       | [https://github.com/wingify/vwo-openfeature-provider-dotnet](https://github.com/wingify/vwo-openfeature-provider-dotnet)                          |
+| Published on            | [https://www.nuget.org/packages/VWO.OpenFeature.Provider](https://www.nuget.org/packages/VWO.OpenFeature.Provider)                                |
+| OpenFeature .NET docs   | [https://openfeature.dev/docs/reference/technologies/server/dotnet](https://openfeature.dev/docs/reference/technologies/server/dotnet)            |
+| openfeature.dev website | [https://openfeature.dev/ecosystem?instant\_search%5Bquery%5D=vwo%20.net](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20.net) |
 
 > 🚧 **Warning**
 >
-> **Warning**
->
-> Please Note
->
-> This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+> **Note:** This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
 
 ## Requirements
 
