@@ -47,7 +47,7 @@ VWOFme.setAttribute(attributes: attributeDict, context: userContext)
 
 Import VWO FME SDK so it can be initialized.
 
-# Initialiaze
+# Initialize
 
 <!-- swift@3-13 -->
 
