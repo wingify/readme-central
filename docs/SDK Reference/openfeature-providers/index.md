@@ -26,25 +26,25 @@ We’re proud to support the OpenFeature community and look forward to continued
 
 ## VWO supports the following OpenFeature providers
 
-\<Cards columns=\{5}>
-&#x20; \<Card title="" href="https\://developers.vwo.com/v2/update/docs/node-openfeature-provider">
-&#x20;   \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24">
-&#x20;   Node.js
-&#x20; \</Card>
+<Cards columns={4}>
+  <Card title="" href="https://developers.vwo.com/v2/update/docs/node-openfeature-provider">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" />
 
-&#x20; \<Card title="" href="https\://developers.vwo.com/v2/update/docs/node-openfeature-provider">
-&#x20;   \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24">
-&#x20;   Node.js
-&#x20; \</Card
+    Node.js
+  </Card>
 
-&#x20; \<Card title="Third Card" icon="fa-star">
-&#x20;   \> Ut enim ad minim veniam, quis nostrud ullamco
-&#x20; \</Card>
+  <Card title="Second Card" icon="fa-user">
+    *Lorem ipsum dolor sit amet, consectetur adipiscing elit*
+  </Card>
 
-&#x20; \<Card title="Fourth Card" icon="fa-question">
-&#x20;   \*\*Excepteur sint occaecat cupidatat non proident\*\*
-&#x20; \</Card>
-\</Cards>
+  <Card title="Third Card" icon="fa-star">
+    > Ut enim ad minim veniam, quis nostrud ullamco
+  </Card>
+
+  <Card title="Fourth Card" icon="fa-question">
+    **Excepteur sint occaecat cupidatat non proident**
+  </Card>
+</Cards>
 
 You can explore our OpenFeature-compliant providers, officially listed in the OpenFeature Ecosystem. These providers enable seamless integration with the VWO Feature Management & Experimentation (FME) product and are designed to support a variety of platforms and deployment needs.
 
