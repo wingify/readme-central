@@ -12,6 +12,10 @@ next:
 ---
 An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
+## Why is it useful?
+
+OpenFeature is an open standard that provides a unified, vendor-agnostic API for feature flag management. It helps decouple application logic from specific feature flag service providers by introducing a consistent interface and extensible hook mechanism, making it easier to evaluate feature flags in a standardized way across platforms and languages. One of the key benefits of using OpenFeature is the ease of switching between feature flag providers without major code rewrites. This portability reduces vendor lock-in and gives teams the flexibility to choose a provider that best suits their evolving needs. By adopting OpenFeature, organizations can improve maintainability, increase agility in experimentation and rollout strategies, and future-proof their feature flag implementations against changing tools or business requirements.
+
 ## VWO FME supports the following OpenFeature providers
 
 <Cards columns={5}>
