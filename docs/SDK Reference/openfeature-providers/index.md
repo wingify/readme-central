@@ -44,7 +44,7 @@ We’re proud to support the OpenFeature community and look forward to continued
   </Card>
 </Cards>
 
-#### Open-source VWO OpenFeature Providers
+### Open-source VWO OpenFeature Providers
 
 | Provider | GitHub Link                                                                                                              |
 | :------- | :----------------------------------------------------------------------------------------------------------------------- |
