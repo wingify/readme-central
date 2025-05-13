@@ -5,13 +5,13 @@ hidden: true
 metadata:
   robots: index
 ---
-By default, VWO iOS SDK—send impression events to VWO servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your VWO Campaign Reports.
+By default, VWO iOS SDK send impression events to VWO servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your VWO Campaign Reports.
 
 However, there are scenarios where it may be beneficial to collect multiple events over a period of time and send them together in a single request. The VWO iOS SDK supports event batching, allowing you to configure how and when impression events are uploaded to VWO servers.
 
 ### Event Batching Configuration
 
-You can enable event batching during SDK initialization by setting the following parameters:
+You can enable event batching during SDK initialization by setting either of the following parameters:
 
 | Parameter                   | Description                                                 | Example |
 | :-------------------------- | :---------------------------------------------------------- | :------ |
@@ -30,6 +30,10 @@ let options = VWOInitOptions(sdkKey: SDK_KEY,
 > 📝 Note:
 >
 > The uploading of events will get triggered based on whichever condition is met first if using both options.
+
+***
+
+<br />
 
 ## Offline Event Batching
 
