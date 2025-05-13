@@ -14,7 +14,27 @@ next:
 
 An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO Openfeature Provider for Java helps you integrate feature management and experimentation systems within your Java based server applications.
+This VWO OpenFeature Provider for Java helps you integrate feature management and experimentation systems within your Java-based server applications.
+
+<Cards columns={4}>
+  <Card title="GitHub Repo" icon="fa-code-commit">
+    Check <a href="https://github.com/wingify/vwo-openfeature-provider-java" target="_blank">this</a> out
+  </Card>
+
+  <Card title="Published on NuGet" icon="fa-download">
+    Check <a href="https://www.nuget.org/packages/VWO.OpenFeature.Provider" target="_blank">this</a> out
+  </Card>
+
+  <Card title="OpenFeature Website" icon="fa-globe-pointer">
+    Check <a href="https://openfeature.dev/docs/reference/technologies/server/dotnet" target="_blank">this</a> out
+  </Card>
+
+  <Card title="OpenFeature Docs" icon="fa-book-open">
+    Check <a href="https://openfeature.dev/docs/reference/technologies/server/java" target="_blank">this</a> out
+  </Card>
+</Cards>
+
+<br />
 
 | Resource              | Link                                                                                                                                  |
 | :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
