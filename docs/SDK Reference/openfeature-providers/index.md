@@ -24,7 +24,7 @@ Click on the cards below to view the OpenFeature provider documentation for your
 
 <Cards columns={5}>
   <Card title="" href="https://developers.vwo.com/v2/docs/dotnet-openfeature-provider">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET <i class="fa-solid fa-anchor margin-left--30" />
   </Card>
 
   <Card title="" href="https://developers.vwo.com/v2/docs/java-openfeature-provider">
