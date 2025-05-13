@@ -21,7 +21,7 @@ This VWO OpenFeature Provider for Python helps you integrate feature management 
     Check <a href="https://github.com/wingify/vwo-openfeature-provider-python" target="_blank">this</a> out
   </Card>
 
-  <Card title="Published on Pypi" icon="fa-download">
+  <Card title="Published on PyPi" icon="fa-download">
     Check <a href="https://pypi.org/project/vwo-openfeature-provider-python/" target="_blank">this</a> out
   </Card>
 
