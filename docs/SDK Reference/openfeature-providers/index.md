@@ -28,13 +28,13 @@ We’re proud to support the OpenFeature community and look forward to continued
 
 <Cards columns={5}>
   <Card title="" href="https://developers.vwo.com/v2/docs/dotnet-openfeature-provider">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/net/net-original.svg" width="24" alt=".NET logo" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" />
 
     .NET
   </Card>
 
   <Card title="" href="https://developers.vwo.com/v2/docs/java-openfeature-provider">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Java logo" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" />
 
     Java
   </Card>
