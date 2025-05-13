@@ -40,7 +40,11 @@ OpenFeature is an open standard that provides a unified, vendor-agnostic API for
   </Card>
 </Cards>
 
-You can explore our OpenFeature-compliant providers, officially listed in the OpenFeature Ecosystem. These providers enable seamless integration with the VWO Feature Management & Experimentation (FME) product and are designed to support a variety of platforms and deployment needs.
+***
+
+You can also explore our OpenFeature-compliant providers, officially listed in the [OpenFeature Ecosystem](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo). These providers enable seamless integration with the VWO Feature Management & Experimentation (FME) product and are designed to support a variety of platforms and deployment needs.
+
+<Image align="center" className="border" border={true} src="https://files.readme.io/8d23f2f4a4e7147db590adb35cc8ec6a6736ec5e837c25d49c6499bdbd48a7f7-Screenshot_2025-05-13_at_6.46.22_PM.png" />
 
 ## Listed on OpenFeature Ecosystem
 
