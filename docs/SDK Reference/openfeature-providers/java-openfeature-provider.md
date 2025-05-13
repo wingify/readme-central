@@ -30,9 +30,9 @@ This VWO OpenFeature Provider for Java helps you integrate feature management an
   </Card>
 </Cards>
 
-> 🚧 **Warning**
+> 🚧 **Note**
 >
-> **Note:** This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+> This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
 
 ## Requirements
 
