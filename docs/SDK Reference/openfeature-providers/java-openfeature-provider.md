@@ -21,12 +21,8 @@ This VWO OpenFeature Provider for Java helps you integrate feature management an
     Check <a href="https://github.com/wingify/vwo-openfeature-provider-java" target="_blank">this</a> out
   </Card>
 
-  <Card title="Published on NuGet" icon="fa-download">
-    Check <a href="https://www.nuget.org/packages/VWO.OpenFeature.Provider" target="_blank">this</a> out
-  </Card>
-
-  <Card title="OpenFeature Website" icon="fa-globe-pointer">
-    Check <a href="https://openfeature.dev/docs/reference/technologies/server/dotnet" target="_blank">this</a> out
+  <Card title="OpenFeature Ecosystem" icon="fa-globe-pointer">
+    Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20java%20server" target="_blank">this</a> out
   </Card>
 
   <Card title="OpenFeature Docs" icon="fa-book-open">
@@ -34,19 +30,9 @@ This VWO OpenFeature Provider for Java helps you integrate feature management an
   </Card>
 </Cards>
 
-<br />
-
-| Resource              | Link                                                                                                                                  |
-| :-------------------- | :------------------------------------------------------------------------------------------------------------------------------------ |
-| GitHub repository     | \<[https://github.com/wingify/vwo-openfeature-provider-java](https://github.com/wingify/vwo-openfeature-provider-java)>               |
-| Published on          |                                                                                                                                       |
-| Openfeature Java docs | \<[https://openfeature.dev/docs/reference/technologies/server/java](https://openfeature.dev/docs/reference/technologies/server/java)> |
-
 > 🚧 **Warning**
 >
-> Please Note
->
-> This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+> **Note:** This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
 
 ## Requirements
 
