@@ -7,3 +7,4 @@
 - fme-ios-logging
 - fme-ios-integrations
 - event-batching
+- cache-setting-expiry
