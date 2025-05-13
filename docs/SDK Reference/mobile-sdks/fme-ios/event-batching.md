@@ -33,9 +33,7 @@ let options = VWOInitOptions(sdkKey: SDK_KEY,
 
 ***
 
-<br />
-
-## Offline Event Batching
+### Offline Event Batching
 
 The VWO iOS SDK is designed to ensure that no impression events are lost, even when your users are offline. If the device loses internet connectivity, the SDK securely stores all impression events locally on the device. Once the device reconnects to the internet, these stored events are automatically uploaded to VWO servers in batches.
 
