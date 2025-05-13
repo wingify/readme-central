@@ -14,7 +14,11 @@ An **OpenFeature Provider** is a **pluggable integration layer** that connects t
 
 ### Listed on OpenFeature Ecosystem
 
-We’re excited to be listed on the [OpenFeature Ecosystem](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo)! This recognition highlights our commitment to supporting the OpenFeature standard and contributing to a more unified feature flag ecosystem.
+We’re excited to be listed on the [OpenFeature Support Page](https://openfeature.dev/support-training)!
+
+<Image align="center" className="border" border={true} src="https://files.readme.io/51268ba1cb944ca1b360c7b9a5234098745d509aacfc54f5fc7245caf8a6f676-Screenshot_2025-05-13_at_6.42.14_PM.png" />
+
+This recognition highlights our commitment to supporting the OpenFeature standard and contributing to a more unified feature flag ecosystem.
 
 As part of our offering, we provide multiple OpenFeature-compliant providers tailored to different use cases and environments. Whether you're looking to integrate feature flags into a backend application or need advanced targeting through our Feature Management & Experimentation(FME) product, we’ve got you covered.
 
