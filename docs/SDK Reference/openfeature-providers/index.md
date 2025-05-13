@@ -26,37 +26,27 @@ We’re proud to support the OpenFeature community and look forward to continued
 
 ## VWO supports the following OpenFeature providers
 
-\<Cards columns=\{5}>\
-\<Card title="" href="[https://developers.vwo.com/v2/update/docs/node-openfeature-provider](https://developers.vwo.com/v2/update/docs/node-openfeature-provider)">
-\<img src="[https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg](https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg)" width="24" alt="Node.js logo" /> Node.js \<span class="fa-arrow-right"
-\</Card>
+\<Cards columns=\{5}> \<Card title="" href="[https://developers.vwo.com/v2/update/docs/node-openfeature-provider](https://developers.vwo.com/v2/update/docs/node-openfeature-provider)"> \<img src="[https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg](https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg)" width="24" alt="Node.js logo" /> Node.js  \</Card>
 
-\<Card title="" href="[https://developers.vwo.com/v2/update/docs/java-openfeature-provider](https://developers.vwo.com/v2/update/docs/java-openfeature-provider)">\
-\<img src="[https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg](https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg)" width="24" alt="Java logo" /> Java
-\</Card>
+\<Card title="" href="[https://developers.vwo.com/v2/update/docs/java-openfeature-provider](https://developers.vwo.com/v2/update/docs/java-openfeature-provider)"> \<img src="[https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg](https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg)" width="24" alt="Java logo" /> Java \</Card>
 
-\<Card title="" href="[https://developers.vwo.com/v2/update/docs/python-openfeature-provider](https://developers.vwo.com/v2/update/docs/python-openfeature-provider)">\
-\<img src="[https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg](https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg)" width="24" alt="Python logo" /> Python
-\</Card>
+\<Card title="" href="[https://developers.vwo.com/v2/update/docs/python-openfeature-provider](https://developers.vwo.com/v2/update/docs/python-openfeature-provider)"> \<img src="[https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg](https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg)" width="24" alt="Python logo" /> Python \</Card>
 
-\<Card title="" href="[https://developers.vwo.com/v2/update/docs/dotnet-openfeature-provider](https://developers.vwo.com/v2/update/docs/dotnet-openfeature-provider)">\
-\<img src="[https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg](https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg)" width="24" alt=".NET logo" /> .NET
-\</Card>
+\<Card title="" href="[https://developers.vwo.com/v2/update/docs/dotnet-openfeature-provider](https://developers.vwo.com/v2/update/docs/dotnet-openfeature-provider)"> \<img src="[https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg](https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg)" width="24" alt=".NET logo" /> .NET \</Card>
 
-\<Card title="" href="[https://developers.vwo.com/v2/update/docs/php-openfeature-provider](https://developers.vwo.com/v2/update/docs/php-openfeature-provider)">\
-\<img src="[https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg](https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg)" width="24" alt="PHP logo" /> PHP
-\</Card>
+\<Card title="" href="[https://developers.vwo.com/v2/update/docs/php-openfeature-provider](https://developers.vwo.com/v2/update/docs/php-openfeature-provider)"> \<img src="[https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg](https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg)" width="24" alt="PHP logo" /> PHP \</Card> \</Cards>
+
+\<Cards columns=\{4}>
+&#x20; \<Card title="" href="https\://developers.vwo.com/v2/update/docs/node-openfeature-provider"> \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" /> Node.js  \</Card>
+
+&#x20; \<Card title="" href="https\://developers.vwo.com/v2/update/docs/java-openfeature-provider"> \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Java \</Card>
+
+&#x20; \<Card title="" href="https\://developers.vwo.com/v2/update/docs/python-openfeature-provider"> \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" /> Python \</Card>
+
+&#x20; \<Card title="" href="https\://developers.vwo.com/v2/update/docs/dotnet-openfeature-provider"> \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET \</Card>
+&#x20; \<Card title="" href="https\://developers.vwo.com/v2/update/docs/php-openfeature-provider"> \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="24" alt="PHP logo" /> PHP \</Card> \</Cards>
+
 \</Cards>
-
-\<Cards columns=\{5}> \<Card title="" href="https\://developers.vwo.com/v2/update/docs/node-openfeature-provider"> \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" /> Node.js  \</Card>
-
-\<Card title="" href="https\://developers.vwo.com/v2/update/docs/java-openfeature-provider"> \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Java \</Card>
-
-\<Card title="" href="https\://developers.vwo.com/v2/update/docs/python-openfeature-provider"> \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" /> Python \</Card>
-
-\<Card title="" href="https\://developers.vwo.com/v2/update/docs/dotnet-openfeature-provider"> \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET \</Card>
-
-\<Card title="" href="https\://developers.vwo.com/v2/update/docs/php-openfeature-provider"> \<img src="https\://raw\.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="24" alt="PHP logo" /> PHP \</Card> \</Cards>
 
 You can explore our OpenFeature-compliant providers, officially listed in the OpenFeature Ecosystem. These providers enable seamless integration with the VWO Feature Management & Experimentation (FME) product and are designed to support a variety of platforms and deployment needs.
 
