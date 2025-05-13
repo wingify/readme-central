@@ -24,23 +24,23 @@ Click on the cards below to view the OpenFeature provider documentation for your
 
 <Cards columns={5}>
   <Card title="" href="https://developers.vwo.com/v2/docs/dotnet-openfeature-provider">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET <i class="fa-solid fa-anchor margin-left--30" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET
   </Card>
 
   <Card title="" href="https://developers.vwo.com/v2/docs/java-openfeature-provider">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Java <i class="fa-solid fa-anchor margin-left--30" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Java
   </Card>
 
   <Card title="" href="https://developers.vwo.com/v2/docs/node-openfeature-provider">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" /> Node.js <i class="fa-solid fa-anchor margin-left--30" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" /> Node.js
   </Card>
 
   <Card title="" href="https://developers.vwo.com/v2/docs/php-openfeature-provider">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="24" alt="PHP logo" /> PHP <i class="fa-solid fa-anchor margin-left--30" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="24" alt="PHP logo" /> PHP
   </Card>
 
   <Card title="" href="https://developers.vwo.com/v2/docs/python-openfeature-provider">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" /> Python <i class="fa-solid fa-anchor margin-left--30" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" />
   </Card>
 </Cards>
 
