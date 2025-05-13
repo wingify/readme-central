@@ -1,7 +1,7 @@
 ---
 title: OpenFeature Providers (COPY)
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
