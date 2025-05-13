@@ -24,7 +24,7 @@ You can enable event batching during SDK initialization by setting either of the
 let options = VWOInitOptions(sdkKey: SDK_KEY,
                              accountId: ACCOUNT_ID,
                              batchMinSize: 10,
-                             batchUploadTimeInterval: 300000) // 5 minutes
+                             batchUploadTimeInterval: 300000) // 5 minutes, please specify at least few minutes.
 ```
 
 > 📝 Note:
