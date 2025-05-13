@@ -12,7 +12,7 @@ next:
 ---
 An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-#### Listed on OpenFeature Ecosystem
+### Listed on OpenFeature Ecosystem
 
 We’re excited to be listed on the [OpenFeature Ecosystem](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo)! This recognition highlights our commitment to supporting the OpenFeature standard and contributing to a more unified feature flag ecosystem.
 
@@ -20,7 +20,7 @@ As part of our offering, we provide multiple OpenFeature-compliant providers tai
 
 We’re proud to support the OpenFeature community and look forward to continued collaboration to make feature flagging more powerful, flexible, and developer-friendly.
 
-#### VWO supports the following OpenFeature providers
+### VWO supports the following OpenFeature providers
 
 <Cards columns={4}>
   <Card title="" href="https://developers.vwo.com/v2/update/docs/node-openfeature-provider">
