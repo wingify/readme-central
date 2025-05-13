@@ -20,6 +20,8 @@ OpenFeature is an open standard that provides a unified, vendor-agnostic API for
 
 ## VWO FME supports the following OpenFeature providers
 
+Click on the cards below to view the OpenFeature provider documentation for your chosen programming language.
+
 <Cards columns={5}>
   <Card title="" href="https://developers.vwo.com/v2/docs/dotnet-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET
