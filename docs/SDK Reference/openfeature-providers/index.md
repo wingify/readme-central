@@ -40,7 +40,7 @@ Click on the cards below to view the OpenFeature provider documentation for your
   </Card>
 
   <Card title="" href="https://developers.vwo.com/v2/docs/python-openfeature-provider">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" /> Python
   </Card>
 </Cards>
 
