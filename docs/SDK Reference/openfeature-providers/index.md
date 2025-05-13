@@ -27,22 +27,34 @@ We’re proud to support the OpenFeature community and look forward to continued
 ## VWO supports the following OpenFeature providers
 
 <Cards columns={4}>
-  <Card title="" href="https://developers.vwo.com/v2/update/docs/node-openfeature-provider">
+  <Card title="" href="https://developers.vwo.com/v2/docs/dotnet-openfeature-provider">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/net/net-original.svg" width="24" alt=".NET logo" />
+
+    .NET
+  </Card>
+
+  <Card title="" href="https://developers.vwo.com/v2/docs/java-openfeature-provider">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Java logo" />
+
+    Java
+  </Card>
+
+  <Card title="" href="https://developers.vwo.com/v2/docs/node-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" />
 
     Node.js
   </Card>
 
-  <Card title="Second Card" icon="fa-user">
-    *Lorem ipsum dolor sit amet, consectetur adipiscing elit*
+  <Card title="" href="https://developers.vwo.com/v2/docs/php-openfeature-provider">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="24" alt="PHP logo" />
+
+    PHP
   </Card>
 
-  <Card title="Third Card" icon="fa-star">
-    > Ut enim ad minim veniam, quis nostrud ullamco
-  </Card>
+  <Card title="" href="https://developers.vwo.com/v2/docs/python-openfeature-provider">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" />
 
-  <Card title="Fourth Card" icon="fa-question">
-    **Excepteur sint occaecat cupidatat non proident**
+    Python
   </Card>
 </Cards>
 
