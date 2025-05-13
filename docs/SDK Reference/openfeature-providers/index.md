@@ -12,18 +12,6 @@ next:
 ---
 An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-## Listed on OpenFeature Ecosystem
-
-We’re excited to be listed on the [OpenFeature Support Page](https://openfeature.dev/support-training)!
-
-<Image align="center" className="border" border={true} src="https://files.readme.io/51268ba1cb944ca1b360c7b9a5234098745d509aacfc54f5fc7245caf8a6f676-Screenshot_2025-05-13_at_6.42.14_PM.png" />
-
-This recognition highlights our commitment to supporting the OpenFeature standard and contributing to a more unified feature flag ecosystem.
-
-As part of our offering, we provide multiple OpenFeature-compliant providers tailored to different use cases and environments. Whether you're looking to integrate feature flags into a backend application or need advanced targeting through our Feature Management & Experimentation(FME) product, we’ve got you covered.
-
-We’re proud to support the OpenFeature community and look forward to continued collaboration to make feature flagging more powerful, flexible, and developer-friendly.
-
 ## VWO supports the following OpenFeature providers
 
 <Cards columns={5}>
@@ -50,7 +38,19 @@ We’re proud to support the OpenFeature community and look forward to continued
 
 You can explore our OpenFeature-compliant providers, officially listed in the OpenFeature Ecosystem. These providers enable seamless integration with the VWO Feature Management & Experimentation (FME) product and are designed to support a variety of platforms and deployment needs.
 
-<Image align="center" className="border" border={true} src="https://files.readme.io/eafcca838064c5f05e13669f2de4b4c19cc0923e4c7273d3026779b4e9902a11-Screenshot_2025-05-13_at_6.46.22_PM.png" />
+<br />
+
+## Listed on OpenFeature Ecosystem
+
+We’re excited to be listed on the [OpenFeature Support Page](https://openfeature.dev/support-training)!
+
+<Image align="center" className="border" border={true} src="https://files.readme.io/51268ba1cb944ca1b360c7b9a5234098745d509aacfc54f5fc7245caf8a6f676-Screenshot_2025-05-13_at_6.42.14_PM.png" />
+
+This recognition highlights our commitment to supporting the OpenFeature standard and contributing to a more unified feature flag ecosystem.
+
+As part of our offering, we provide multiple OpenFeature-compliant providers tailored to different use cases and environments. Whether you're looking to integrate feature flags into a backend application or need advanced targeting through our Feature Management & Experimentation(FME) product, we’ve got you covered.
+
+We’re proud to support the OpenFeature community and look forward to continued collaboration to make feature flagging more powerful, flexible, and developer-friendly.
 
 ## Open-source VWO OpenFeature Providers
 
