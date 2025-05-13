@@ -42,3 +42,4 @@ The VWO iOS SDK is designed to ensure that no impression events are lost, even w
 * Without event batching: Impression events are sent in real-time and reflected instantly in campaign reports.
 * With event batching: Campaign reports are updated only after the batch is sent to VWO servers.
 * Offline support: Events generated offline are stored locally and uploaded automatically when the device reconnects.
+* Offline event batching works in conjunction with online event batching.
