@@ -17,7 +17,7 @@ An **OpenFeature Provider** is a **pluggable integration layer** that connects t
 This VWO Openfeature Provider for .NET helps you integrate feature management and experimentation systems within your .NET-based server applications.
 
 <Cards columns={4}>
-  <Card title="GitHub Repo" href="https://github.com/wingify/vwo-openfeature-provider-dotnet" icon="fa-home" target="_blank">
+  <Card title="GitHub Repo" href="https://github.com/wingify/vwo-openfeature-provider-dotnet" icon="fa-commit" target="_blank">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Check this out
   </Card>
 
