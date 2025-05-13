@@ -14,23 +14,33 @@ next:
 
 An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO Openfeature Provider for Node helps you integrate feature management and experimentation systems within your Node.js based server applications.
+This VWO Openfeature Provider for Node helps you integrate feature management and experimentation systems into your Node.js-based server applications.
 
-| Resource              | Link                                                                                                                                             |
-| :-------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
-| GitHub repository     | [https://github.com/wingify/vwo-openfeature-provider-node](https://github.com/wingify/vwo-openfeature-provider-node)                             |
-| Published on          | [https://www.npmjs.com/package/vwo-openfeature-provider-node](https://www.npmjs.com/package/vwo-openfeature-provider-node)                       |
-| Openfeature Node docs | [https://openfeature.dev/docs/reference/technologies/server/javascript/](https://openfeature.dev/docs/reference/technologies/server/javascript/) |
+<Cards columns={4}>
+  <Card title="GitHub Repo" icon="fa-code-commit">
+    Check <a href="https://github.com/wingify/vwo-openfeature-provider-node" target="_blank">this</a> out
+  </Card>
 
-> 🚧 **Warning**
->
-> Please Note
+  <Card title="Published on NuGet" icon="fa-download">
+    Check <a href="https://www.npmjs.com/package/vwo-openfeature-provider-node" target="_blank">this</a> out
+  </Card>
+
+  <Card title="OpenFeature Ecosystem" icon="fa-globe-pointer">
+    Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20node" target="_blank">this</a> out
+  </Card>
+
+  <Card title="OpenFeature Docs" icon="fa-book-open">
+    Check <a href="https://openfeature.dev/docs/reference/technologies/server/javascript/" target="_blank">this</a> out
+  </Card>
+</Cards>
+
+> 🚧 **Note**
 >
 > This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
 
 ## Requirements
 
-Node.js 10+
+Node.js 12+
 
 ## SDK Installation
 
