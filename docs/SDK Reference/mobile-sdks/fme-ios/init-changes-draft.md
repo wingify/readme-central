@@ -145,3 +145,18 @@ metadata:
     </tr>
   </tbody>
 </Table>
+
+
+
+| **Parameter**                | **Description**                                                                                                                                             | **Required** | **Type** | **Example**                     |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | -------- | ------------------------------- |
+| `accountId`                  | VWO Account ID for authentication.                                                                                                                          | Yes          | Int      | `123456`                        |
+| `sdkKey`                     | SDK key corresponding to the specific environment to initialize the VWO SDK Client. You can get this key from VWO Application.                              | Yes          | String   | `"32-alpha-numeric-sdk-key"`    |
+| `logLevel`                   | The level of logging to be used.                                                                                                                            | No           | Enum     | `.error`                        |
+| `logPrefix`                  | A prefix to be added to log messages.                                                                                                                        | No           | String   | `"VWO"`                         |
+| `pollInterval`               | Time interval for fetching updates from VWO servers (in milliseconds).                                                                                      | No           | Int64    | `60000`                         |
+| `integrations`               | Callback for integrations.                                                                                                                                  | No           | IntegrationCallback | See [Integrations](#integrations) section |
+| `cachedSettingsExpiryTime`   | Expiry time for cached settings in milliseconds.                                                                                                            | No           | Int64    | `3600000`                       |
+| `batchMinSize`               | Minimum size of batch to upload.                                                                                                                            | No           | Int      | `10`                            |
+| `batchUploadTimeInterval`    | Batch upload time interval in milliseconds.                                                                                                                 | No           | Int64    | `300000`                        |
+| `logTransport`               | Custom log transport for handling log messages.                                                                                                             | No           | LogTransport  | See [LogTransport](#logtransport) section |
