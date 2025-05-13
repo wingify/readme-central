@@ -14,7 +14,7 @@ next:
 
 An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO Openfeature Provider for Node helps you integrate feature management and experimentation systems into your Node.js-based server applications.
+This VWO OpenFeature Provider for Node helps you integrate feature management and experimentation systems into your Node.js-based server applications.
 
 <Cards columns={4}>
   <Card title="GitHub Repo" icon="fa-code-commit">
