@@ -22,7 +22,7 @@ We’re proud to support the OpenFeature community and look forward to continued
 
 ### VWO supports the following OpenFeature providers
 
-<Cards columns={4}>
+<Cards columns={5}>
   <Card title="" href="https://developers.vwo.com/v2/update/docs/node-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" /> Node.js
   </Card>
