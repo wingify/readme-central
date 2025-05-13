@@ -18,18 +18,18 @@ This VWO Openfeature Provider for .NET helps you integrate feature management an
 
 <Cards columns={4}>
   <Card title="GitHub Repo" href="https://github.com/wingify/vwo-openfeature-provider-dotnet" icon="fa-home" target="_blank">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Check this out
+  </Card>
+
+  <Card title="Published On" icon="fa-github">
     Check this out
   </Card>
 
-  <Card title="Published On" icon="fa-user">
+  <Card title="OpenFeature Website" icon="fa-website">
     Check this out
   </Card>
 
-  <Card title="OpenFeature Website" icon="fa-star">
-    Check this out
-  </Card>
-
-  <Card title="OpenFeature Docs" icon="fa-question">
+  <Card title="OpenFeature Docs" icon="fa-book">
     Check this out
   </Card>
 </Cards>
