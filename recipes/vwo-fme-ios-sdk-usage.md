@@ -22,7 +22,7 @@ VWOFme.initialize(options: options) { result in
 }
 
 let userContext = VWOUserContext(id: "unique_user_id",
-                                 customVariables: ["key":"value"]) //
+                                 customVariables: ["key":"value"]) // optional
 
 VWOFme.getFlag(featureKey: "feature_key", context: userContext, completion: { featureFlag in
 
@@ -53,7 +53,7 @@ Import VWO FME SDK so it can be initialized.
 
 This code initializes the VWO SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc. can be passed depending upon the requirements.
 
-# Set user context
+# Set User Context
 
 <!-- swift@15-17 -->
 
