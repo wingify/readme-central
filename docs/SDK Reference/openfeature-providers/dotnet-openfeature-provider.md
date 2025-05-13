@@ -18,19 +18,19 @@ This VWO Openfeature Provider for .NET helps you integrate feature management an
 
 <Cards columns={4}>
   <Card title="GitHub Repo" icon="fa-code-commit">
-    Check <a href="https://github.com/wingify/vwo-openfeature-provider-dotnet" target="_blank" /> out
+    Check <a href="https://github.com/wingify/vwo-openfeature-provider-dotnet" target="_blank">this</a> out
   </Card>
 
   <Card title="Published On" icon="fa-download">
-    Check <a href="https://www.nuget.org/packages/VWO.OpenFeature.Provider" target="_blank" /> out
+    Check <a href="https://www.nuget.org/packages/VWO.OpenFeature.Provider" target="_blank">this</a> out
   </Card>
 
   <Card title="OpenFeature Website" icon="fa-globe-pointer">
-    Check <a href="https://openfeature.dev/docs/reference/technologies/server/dotnet" target="_blank" /> out
+    Check <a href="https://openfeature.dev/docs/reference/technologies/server/dotnet" target="_blank">this</a> out
   </Card>
 
   <Card title="OpenFeature Docs" icon="fa-book-open">
-    Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20.net" target="_blank" /> out
+    Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20.net" target="_blank">this</a> out
   </Card>
 </Cards>
 
