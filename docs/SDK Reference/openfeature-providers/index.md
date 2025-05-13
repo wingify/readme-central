@@ -38,8 +38,6 @@ An **OpenFeature Provider** is a **pluggable integration layer** that connects t
 
 You can explore our OpenFeature-compliant providers, officially listed in the OpenFeature Ecosystem. These providers enable seamless integration with the VWO Feature Management & Experimentation (FME) product and are designed to support a variety of platforms and deployment needs.
 
-<br />
-
 ## Listed on OpenFeature Ecosystem
 
 We’re excited to be listed on the [OpenFeature Support Page](https://openfeature.dev/support-training)!
