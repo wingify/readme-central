@@ -46,6 +46,16 @@ You can also explore our OpenFeature-compliant providers, officially listed in t
 
 <Image align="center" className="border" border={true} src="https://files.readme.io/8d23f2f4a4e7147db590adb35cc8ec6a6736ec5e837c25d49c6499bdbd48a7f7-Screenshot_2025-05-13_at_6.46.22_PM.png" />
 
+## Open-source VWO OpenFeature Providers
+
+| Provider | GitHub Link                                                                                                              |
+| :------- | :----------------------------------------------------------------------------------------------------------------------- |
+| .NET     | [https://github.com/wingify/vwo-openfeature-provider-dotnet](https://github.com/wingify/vwo-openfeature-provider-dotnet) |
+| Java     | [https://github.com/wingify/vwo-openfeature-provider-java](https://github.com/wingify/vwo-openfeature-provider-java)     |
+| Node     | [https://github.com/wingify/vwo-openfeature-provider-node](https://github.com/wingify/vwo-openfeature-provider-node)     |
+| PHP      | [https://github.com/wingify/vwo-openfeature-provider-php](https://github.com/wingify/vwo-openfeature-provider-php)       |
+| Python   | [https://github.com/wingify/vwo-openfeature-provider-python](https://github.com/wingify/vwo-openfeature-provider-python) |
+
 ## Listed on OpenFeature Ecosystem
 
 We’re excited to be listed on the [OpenFeature Support Page](https://openfeature.dev/support-training)!
@@ -57,13 +67,3 @@ This recognition highlights our commitment to supporting the OpenFeature standar
 As part of our offering, we provide multiple OpenFeature-compliant providers tailored to different use cases and environments. Whether you're looking to integrate feature flags into a backend application or need advanced targeting through our Feature Management & Experimentation(FME) product, we’ve got you covered.
 
 We’re proud to support the OpenFeature community and look forward to continued collaboration to make feature flagging more powerful, flexible, and developer-friendly.
-
-## Open-source VWO OpenFeature Providers
-
-| Provider | GitHub Link                                                                                                              |
-| :------- | :----------------------------------------------------------------------------------------------------------------------- |
-| .NET     | [https://github.com/wingify/vwo-openfeature-provider-dotnet](https://github.com/wingify/vwo-openfeature-provider-dotnet) |
-| Java     | [https://github.com/wingify/vwo-openfeature-provider-java](https://github.com/wingify/vwo-openfeature-provider-java)     |
-| Node     | [https://github.com/wingify/vwo-openfeature-provider-node](https://github.com/wingify/vwo-openfeature-provider-node)     |
-| PHP      | [https://github.com/wingify/vwo-openfeature-provider-php](https://github.com/wingify/vwo-openfeature-provider-php)       |
-| Python   | [https://github.com/wingify/vwo-openfeature-provider-python](https://github.com/wingify/vwo-openfeature-provider-python) |
