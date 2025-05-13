@@ -14,7 +14,7 @@ next:
 
 An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO Openfeature Provider for .NET helps you integrate feature management and experimentation systems within your .NET-based server applications.
+This VWO OpenFeature Provider for .NET helps you integrate feature management and experimentation systems into your .NET-based server applications.
 
 <Cards columns={4}>
   <Card title="GitHub Repo" icon="fa-code-commit">
@@ -26,11 +26,11 @@ This VWO Openfeature Provider for .NET helps you integrate feature management an
   </Card>
 
   <Card title="OpenFeature Website" icon="fa-globe-pointer">
-    Check <a href="https://openfeature.dev/docs/reference/technologies/server/dotnet" target="_blank">this</a> out
+    Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20.net" target="_blank">this</a> out
   </Card>
 
   <Card title="OpenFeature Docs" icon="fa-book-open">
-    Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20.net" target="_blank">this</a> out
+    Check <a href="https://openfeature.dev/docs/reference/technologies/server/dotnet" target="_blank">this</a> out
   </Card>
 </Cards>
 
