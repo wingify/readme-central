@@ -21,7 +21,7 @@ This VWO Openfeature Provider for .NET helps you integrate feature management an
     Check <a href="https://github.com/wingify/vwo-openfeature-provider-dotnet" target="_blank">this</a> out
   </Card>
 
-  <Card title="Published On" icon="fa-download">
+  <Card title="Published on NuGet" icon="fa-download">
     Check <a href="https://www.nuget.org/packages/VWO.OpenFeature.Provider" target="_blank">this</a> out
   </Card>
 
@@ -33,13 +33,6 @@ This VWO Openfeature Provider for .NET helps you integrate feature management an
     Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20.net" target="_blank">this</a> out
   </Card>
 </Cards>
-
-| Resource                | Link                                                                                                                                              |
-| :---------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------ |
-| GitHub repository       | [https://github.com/wingify/vwo-openfeature-provider-dotnet](https://github.com/wingify/vwo-openfeature-provider-dotnet)                          |
-| Published on            | [https://www.nuget.org/packages/VWO.OpenFeature.Provider](https://www.nuget.org/packages/VWO.OpenFeature.Provider)                                |
-| OpenFeature .NET docs   | [https://openfeature.dev/docs/reference/technologies/server/dotnet](https://openfeature.dev/docs/reference/technologies/server/dotnet)            |
-| openfeature.dev website | [https://openfeature.dev/ecosystem?instant\_search%5Bquery%5D=vwo%20.net](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20.net) |
 
 > 🚧 **Warning**
 >
