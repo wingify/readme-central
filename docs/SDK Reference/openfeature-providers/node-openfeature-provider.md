@@ -21,7 +21,7 @@ This VWO Openfeature Provider for Node helps you integrate feature management an
     Check <a href="https://github.com/wingify/vwo-openfeature-provider-node" target="_blank">this</a> out
   </Card>
 
-  <Card title="Published on NuGet" icon="fa-download">
+  <Card title="Published on NPM" icon="fa-download">
     Check <a href="https://www.npmjs.com/package/vwo-openfeature-provider-node" target="_blank">this</a> out
   </Card>
 
