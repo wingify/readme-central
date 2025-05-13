@@ -40,7 +40,7 @@ This VWO OpenFeature Provider for PHP helps you integrate feature management and
 
 ## Requirements
 
-PHP: 7.4+
+PHP: 7.0+
 
 ## SDK Installation
 
