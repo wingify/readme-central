@@ -164,8 +164,8 @@ metadata:
 
 ### Additional Callbacks
 
-* Integration Callback: Use VWO.registerIntegrationCallback to manage integration events. [Refer documentation](https://developers.vwo.com/v2/docs/fme-react-native-integrations)
-* Log Callback: Use VWO.registerLogCallback to capture and handle log events. [Refer documentation](https://developers.vwo.com/v2/docs/fme-react-native-logging)
+* Integration Callback: Use `VWO.registerIntegrationCallback` to manage integration events. [Refer documentation](https://developers.vwo.com/v2/docs/fme-react-native-integrations)
+* Log Callback: Use `VWO.registerLogCallback` to capture and handle log events. [Refer documentation](https://developers.vwo.com/v2/docs/fme-react-native-logging)
 
 ### Polling Interval Adjustment
 
