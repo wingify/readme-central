@@ -20,11 +20,45 @@ You can enable event batching during SDK initialization by setting either of the
 
 **Example Usage**
 
-```Text Swift
-let options = VWOInitOptions(sdkKey: SDK_KEY,
-                             accountId: ACCOUNT_ID,
-                             batchMinSize: 10,
-                             batchUploadTimeInterval: 300000) // 5 minutes, please specify at least few minutes.
+### Example Usage
+
+```kotlin
+val options = VWOInitOptions()
+options.sdkKey = "YOUR_SDK_KEY"
+options.accountId = YOUR_ACCOUNT_ID
+options.batchMinSize = 10
+options.batchUploadTimeInterval = 300000 // 5 minutes, please specify at least a few minutes
+options.context = applicationContext // Required for batch uploads
+
+VWO.init(options, object : IVwoInitCallback {
+    override fun vwoInitSuccess(vwo: VWO, message: String?) {
+        // VWO initialization succeeded
+    }
+    
+    override fun vwoInitFailed(message: String?) {
+        // VWO initialization failed
+    }
+})
+```
+```java
+VWOInitOptions options = new VWOInitOptions();
+options.setSdkKey("YOUR_SDK_KEY");
+options.setAccountId(YOUR_ACCOUNT_ID);
+options.setBatchMinSize(10);
+options.setBatchUploadTimeInterval(300000L); // 5 minutes, please specify at least a few minutes
+options.setContext(getApplicationContext()); // Required for batch uploads
+
+VWO.init(options, new IVwoInitCallback() {
+    @Override
+    public void vwoInitSuccess(VWO vwo, String message) {
+        // VWO initialization succeeded
+    }
+    
+    @Override
+    public void vwoInitFailed(String message) {
+        // VWO initialization failed
+    }
+});
 ```
 
 > 📝 Note:
