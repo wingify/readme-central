@@ -1,5 +1,5 @@
 ---
-title: Google Analytics
+title: Firebase Analytics
 deprecated: false
 hidden: true
 metadata:
@@ -7,25 +7,26 @@ metadata:
 ---
 # Integration with Google Analytics iOS SDK
 
-This integration enables seamless tracking of VWO feature flag events and custom metrics within Google Analytics for iOS. By connecting VWO with Google Analytics, you can analyze user behavior and feature performance in a unified analytics platform, enhancing your ability to make data-driven decisions.
+This integration enables seamless tracking of VWO feature flag events and custom metrics within Firebase Analytics for iOS. By connecting VWO with Firebase Analytics, you can analyze user behavior and feature performance in a unified analytics platform, enhancing your ability to make data-driven decisions.
 
 ## Prerequisite
 
-* VWO Feature Management and Experimentation iOS SDK installed and configured in your project.
-* Google Analytics for Firebase integrated and set up in your app. [Link](https://github.com/firebase/firebase-ios-sdk)
+* VWO Feature Management and Experimentation (FME) iOS SDK installed and configured in your project.
+* Firebase Analytics integrated and set up in your app..
 * Firebase project configured.
 
-<br />
+***
 
 ## Steps
 
-1. Set up Analytics SDK. [Link](https://firebase.google.com/docs/ios/setup)
-2. Implement VWO SDK with Integration Callback
+1. Set up Analytics SDK.
+   * Follow the setup guide: [Firebase iOS Setup](https://firebase.google.com/docs/ios/setup)
+2. Implement VWO FME SDK with Integration Callback
    * Implement the `IntegrationCallback` protocol in your class to forward VWO events to Google Analytics.
-3. Forward VWO Events to Google Analytics
+3. Forward VWO Events to Firebase Analytics
    * In the `execute` method of the integration callback, map VWO event properties to Google Analytics event parameters and log events accordingly.
 
-**Example Code:**
+### Example Code
 
 ```swift Swift
 import VWO_FME
@@ -40,7 +41,8 @@ class GoogleAnalyticsIntegration: IntegrationCallback {
                 // Handle getFlag API
                 if let featureName = properties["featureName"] as? String,
                    let userId = properties["userId"] as? String {
-                    // Log a custom event for getFlag
+                   
+                     // Log the event to Firebase Analytics
                     Analytics.logEvent("getFlagEvent", parameters: [
                         "featureName": featureName,
                         "userId": userId
@@ -50,7 +52,7 @@ class GoogleAnalyticsIntegration: IntegrationCallback {
             case "track":
                 // Handle track API
                 if let eventName = properties["eventName"] as? String {
-                    // Log the event to Google Analytics
+                    // Log the event to Firebase Analytics
                     Analytics.logEvent(eventName, parameters: nil)
                 }
                 
@@ -71,8 +73,23 @@ VWOFme.initialize(options: options) { result in
     case .success(_):
         print("VWO initialized with Google Analytics integration")
     case .failure(let error):
-        print("VWO initialization failed: \(error.localizedDescription)")
+        print("VWO initialization failed")
     }
 }
-
 ```
+
+***
+
+## How to see the data in Google Analytics
+
+* Log in to your Firebase console.
+* Navigate to the **Events** section to view custom events logged from VWO.
+* Use event parameters to filter and analyze feature flag related user interactions and conversions.
+
+***
+
+## References
+
+[Firebase iOS Setup](https://firebase.google.com/docs/ios/setup)
+
+[Firebase iOS SDK Repo](https://github.com/firebase/firebase-ios-sdk)
