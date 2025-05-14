@@ -34,7 +34,7 @@ import FirebaseAnalytics
 class GoogleAnalyticsIntegration: IntegrationCallback {
     func execute(_ properties: [String: Any]) {
         // Extract event name and parameters from VWO properties
-                if let api = properties["api"] as? String {
+        if let api = properties["api"] as? String {
             switch api {
             case "getFlag":
                 // Handle getFlag API
@@ -58,9 +58,9 @@ class GoogleAnalyticsIntegration: IntegrationCallback {
                 break
             }
         }
-
     }
 }
+
 
 // Initialize VWO SDK with Google Analytics integration
 let integration = GoogleAnalyticsIntegration()
