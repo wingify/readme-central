@@ -1,5 +1,5 @@
 ---
-title: SDKs Performance
+title: Performance and Benchmarking
 deprecated: false
 hidden: true
 metadata:
