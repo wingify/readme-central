@@ -105,7 +105,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        SDK key corresponding to the specific environment to initialize the VWO SDK Client. You can get this key from VWO Application.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **Default Project**.
       </td>
     </tr>
 
@@ -120,7 +120,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Time interval for fetching updates from VWO servers (in milliseconds).
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
       </td>
     </tr>
 
@@ -150,10 +150,23 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Toggle log levels for more insights or for debugging purposes. You can also customize your own transport in order to have better control over log messages.
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-android-logging)
       </td>
     </tr>
+<tr>
+      <td>
+        **integrations**
+        *Optional*
+      </td>
 
+      <td>
+        Object
+      </td>
+
+      <td>
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-android-integrations)
+      </td>
+    </tr>
     <tr>
       <td>
         **cachedSettingsExpiryTime**
@@ -333,4 +346,4 @@ VWO.init(vwoInitOptions, new IVwoInitCallback() {
 });
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-android-integrations) to learn more about Integrations. 
+Please click [here](https://developers.vwo.com/v2/docs/fme-android-integrations) to learn more about Integrations.
