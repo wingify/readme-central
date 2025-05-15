@@ -29,6 +29,8 @@ We have benchmarked our SDKs across various use cases and environments to valida
 6. HTTP Endpoint Interactions
 7. SDK Footprint
 
+<br />
+
 ### Performance Impact on Application
 
 <br />
@@ -77,7 +79,7 @@ The results below represent average and worst-case scenarios for commonly used m
 
 <br />
 
-<Table>
+<Table align={["left","left","left","left"]}>
   <thead>
     <tr>
       <th>
@@ -182,7 +184,7 @@ VWO FME SDKs are designed with a strong emphasis on low resource usage, making t
 
 This section outlines the typical memory footprint and runtime resource behavior of the SDK during different stages of its lifecycle.
 
-### Footprint
+#### Footprint
 
 | Phase                      | Typical Memory Usage | Description                                                                                                                        |
 | -------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
