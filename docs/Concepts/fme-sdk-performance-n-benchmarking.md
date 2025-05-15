@@ -198,6 +198,18 @@ This section outlines the typical memory footprint and runtime resource behavior
 
 ### Network Usage Profile
 
+#### DACDN Settings File
+
+* Endpoint: [https://dev.visualwebsiteoptimizer.com/server-side/v2-settings](https://dev.visualwebsiteoptimizer.com/server-side/v2-settings)
+* Size:  kB (depends on the number of running feature flags an their configurations)
+* Caching: Edge-cached via CDN
+* Fallback behavior: Uses stale settings if fetch fails(in-built for FME client-side SDKs only)
+
+#### Event API
+
+* Endpoint: [https://dev.visualwebsiteoptimizer.com/events/t](https://dev.visualwebsiteoptimizer.com/events/t)
+* Retry Strategy: Exponential backoff, max 3 retries
+
 ### HTTP Endpoint Interactions
 
 ### SDK Footprint
