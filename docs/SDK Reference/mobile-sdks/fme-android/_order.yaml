@@ -1,6 +1,7 @@
 - fme-android-install
 - fme-android-initialization
 - fme-android-context
+- user-context-copy
 - fme-android-flags
 - fme-android-metrics
 - fme-android-attributes
@@ -8,4 +9,3 @@
 - fme-android-integrations
 - init
 - initialization-new
-- user-context-copy
