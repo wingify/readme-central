@@ -1,7 +1,7 @@
 ---
 title: User Context (COPY)
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
@@ -26,32 +26,36 @@ By leveraging these attributes, organizations can deliver **precisely targeted f
 
 ```swift Dart
 // Define the user context object to identify and provide user-specific details
-final vwoContext = VWOContext(
-  'id': userId,
-  'customVariables': {'age': 24, 'location': 'US'},
-};
+final userContext = VWOUserContext(
+    id: userId,
+    customVariables: {
+        "age": 24,
+        "location": "US"
+    }
+);
 
 // The same user context can be used across different APIs. For example -
 
 // Returns a flag object which can be used to get flag's status or variable(s)
-final GetFlag? flag = await vwoClient?.getFlag(
-  flagName: flagName,
-  vwoContext: vwoContext,
+final featureFlag = await vwoClient?.getFlag(
+    featureKey: "feature_key",
+    context: userContext,
 );
 
 // Track a metric conversion for the specified event-name
-final trackingResult = await vwoClient?.trackEvent(
-  eventName: eventName,
-  context: userContext
+await vwoClient?.trackEvent(
+    eventName: eventName,
+    context: userContext,
+    eventProperties: {"cartvalue": 10} // Optional properties if needed
 );
 
 // Send a user attribute to VWO
-final attributeMap = VWOContext(
-  'userType': 'paid'
+final attributes = {
+    "userType": "paid"
 };
-final success = await vwoClient?.setAttribute(
-	attributeMap,
-	context: userContext,
+await vwoClient?.setAttribute(
+    attributes: attributes,
+    context: userContext,
 );
 ```
 
@@ -92,7 +96,7 @@ final success = await vwoClient?.setAttribute(
 
     <tr>
       <td>
-        **customVariables**\
+        **customVariables**
         *Optional*
       </td>
 
