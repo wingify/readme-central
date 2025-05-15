@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-# Integration with Google Analytics iOS SDK
+# Integration with Firebase Analytics iOS SDK
 
 This integration enables seamless tracking of VWO feature flag events and custom metrics within Firebase Analytics for iOS. By connecting VWO with Firebase Analytics, you can analyze user behavior and feature performance in a unified analytics platform, enhancing your ability to make data-driven decisions.
 
@@ -22,9 +22,9 @@ This integration enables seamless tracking of VWO feature flag events and custom
 1. Set up Analytics SDK.
    * Follow the setup guide: [Firebase iOS Setup](https://firebase.google.com/docs/ios/setup)
 2. Implement VWO FME SDK with Integration Callback
-   * Implement the `IntegrationCallback` protocol in your class to forward VWO events to Google Analytics.
+   * Implement the `IntegrationCallback` protocol in your class to forward VWO events to Firebase Analytics.
 3. Forward VWO Events to Firebase Analytics
-   * In the `execute` method of the integration callback, map VWO event properties to Google Analytics event parameters and log events accordingly.
+   * In the `execute` method of the integration callback, map VWO event properties to Firebase Analytics event parameters and log events accordingly.
 
 ### Example Code
 
@@ -32,7 +32,7 @@ This integration enables seamless tracking of VWO feature flag events and custom
 import VWO_FME
 import FirebaseAnalytics
 
-class GoogleAnalyticsIntegration: IntegrationCallback {
+class FirebaseAnalyticsIntegration: IntegrationCallback {
     func execute(_ properties: [String: Any]) {
         // Extract event name and parameters from VWO properties
         if let api = properties["api"] as? String {
@@ -64,14 +64,14 @@ class GoogleAnalyticsIntegration: IntegrationCallback {
 }
 
 
-// Initialize VWO SDK with Google Analytics integration
-let integration = GoogleAnalyticsIntegration()
+// Initialize VWO SDK with Firebase Analytics integration
+let integration = FirebaseAnalyticsIntegration()
 let options = VWOInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, integrations: integration)
 
 VWOFme.initialize(options: options) { result in
     switch result {
     case .success(_):
-        print("VWO initialized with Google Analytics integration")
+        print("VWO initialized with Firebase Analytics integration")
     case .failure(let error):
         print("VWO initialization failed")
     }
@@ -80,7 +80,7 @@ VWOFme.initialize(options: options) { result in
 
 ***
 
-## How to see the data in Google Analytics
+## How to see the data in Firebase Analytics
 
 * Log in to your Firebase console.
 * Navigate to the **Events** section to view custom events logged from VWO.
