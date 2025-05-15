@@ -37,7 +37,7 @@ The returned flag object allows you to:
    `bool isEnabled = flag.isEnabled();`
 2. Retrieve associated feature variables (if configured):\
    `dynamic variable = flag.getVariable("variable_key", "default_value");
-     dynamic allVariables = flag.getVariables();`\
+     dynamic allVariables = flag.getVariables();`
    These variables can define UI elements, feature limits, or configuration settings, enabling personalized experiences without changing the codebase.
 
 ## ***Get Flag*** API
@@ -68,8 +68,8 @@ When this API is triggered:
 // Retrieve the feature flag associated with 'feature_key' for the given user context, 
 // Allowing access to feature status using is_enabled() and associated variables (getVariables/getVariable). 
 final GetFlag? flag = await vwoClient?.getFlag(
-  flagName: flagName,
-  vwoContext: vwoContext,
+  featureKey: "feature_key",
+  context: userContext,
 );
 ```
 
@@ -95,7 +95,7 @@ final GetFlag? flag = await vwoClient?.getFlag(
   <tbody>
     <tr>
       <td>
-        **flagName**
+        **featureKey**
         *Required*
       </td>
 
@@ -110,7 +110,7 @@ final GetFlag? flag = await vwoClient?.getFlag(
 
     <tr>
       <td>
-        **vwoContext**\
+        **context**
         *Required*
       </td>
 
@@ -198,7 +198,7 @@ dynamic variable = flag.getVariable("variable_key", "default_value");
 
     <tr>
       <td>
-        **default\_value**\
+        **default\_value**
         *Required*
       </td>
 
@@ -215,7 +215,7 @@ dynamic variable = flag.getVariable("variable_key", "default_value");
 
 ## ***Get Variables*** API
 
-The *getVariables()* function returns all variables associated with the feature flag as a dictionary. 
+The *getVariables()* function returns all variables associated with the feature flag as a dictionary.
 
 ### Usage
 
