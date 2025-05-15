@@ -1,7 +1,7 @@
 ---
-title: User Context (COPY)
+title: User Context (New)
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
@@ -25,10 +25,10 @@ By leveraging these attributes, organizations can deliver **precisely targeted f
 ## Usage
 
 ```kotlin
-import com.vwo.models.user.VWOContext
+import com.vwo.models.user.VWOUserContext
 
 // Define the user context object to identify and provide user-specific details
-userContext = VWOContext()
+val userContext = VWOUserContext()
 // Mandatory
 userContext.id = "unique_user_id"
 
@@ -53,10 +53,10 @@ val attributeMap = mutableMapOf<String, Any>(
 vwoClient.setAttribute(attributeMap, userContext);
 ```
 ```java
-import com.vwo.models.user.VWOContext
+import com.vwo.models.user.VWOUserContext
 
 // Define the user context object to identify and provide user-specific details
-val userContext = new VWOContext();
+val userContext = new VWOUserContext();
 // Mandatory
 userContext.setId("unique_user_id");
 
@@ -118,7 +118,7 @@ vwoClient.setAttribute(attributeMap, userContext);
 
     <tr>
       <td>
-        **customVariables**\
+        **customVariables**
         *Optional*
       </td>
 
