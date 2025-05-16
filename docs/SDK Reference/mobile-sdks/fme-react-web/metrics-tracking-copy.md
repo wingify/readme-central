@@ -133,8 +133,12 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
   * If validations fail or tracking fails:
     * Logs detailed errors using the internal logger.
     * Gracefully resolves with an empty object {} to avoid app crashes.
+* Side Effects:
+  * Network call made to VWO’s event ingestion endpoint when trackEvent() is called.
+  * Logs internal messages for missing inputs or runtime errors.
 * Graceful Degradation:
-  * If any required condition is missing, the function resolves with an empty object ({}) instead of throwing errors.
+  * The hook does not throw exceptions; it always returns a safe response.
+  * Ensures predictable behavior even when VWO context is misconfigured or unavailable.
 
 > 🚧 Note
 >
