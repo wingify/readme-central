@@ -143,7 +143,7 @@ export default App;
 
 ## Usage with `useGetFlag` Hook
 
-```Text TypeScript
+```typescript TypeScript
 import { IVWOContextModel } from 'vwo-fme-react-sdk';
 
 const userContext: IVWOContextModel = { id: 'unique_user_id' }
