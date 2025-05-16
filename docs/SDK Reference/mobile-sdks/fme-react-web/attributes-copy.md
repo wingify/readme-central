@@ -9,7 +9,7 @@ User attributes are specific characteristics or properties assigned to users tha
 
 For any additional parameters or information about the current user, you can use attributes to pass that data to VWO.
 
-These attributes would typically be any additional user info that you'd like to use in VWO for post-segmentation (filtering, slicing and dicing of reports). 
+These attributes would typically be any additional user info that you'd like to use in VWO for post-segmentation (filtering, slicing and dicing of reports).
 
 For example, you might want to analyze the performance of a test based on the user type to see which user type converted better or worse than the other. For this, you can pass on the "user type" as an attribute to VWO, with the relevant values for each user, ie "free", "paid" or whatever internal parameters you'd like to use for post-segmentation.
 
@@ -42,16 +42,17 @@ When this hook is executed, the application assigns the specified attribute (att
 
 ### Usage
 
-```javascript
-import { useSetAttribute } from "vwo-fme-react-sdk"; // Import the hook
+```typescript
+import { useSetAttribute } from 'vwo-fme-react-sdk';
 
-const YourComponent = () => {
-  // Use the hook to set attributes for the user
-  useSetAttribute({ userType: "premium", subscription: "paid" });
-};
+function YourComponent() {
+  const { setAttribute, isReady } = useSetAttribute();
 
-export default YourComponent;
+  return <button onClick={() => setAttribute({ age: 25, location: 'US' })}>Click Me</button>;
+}
 ```
+
+The `useSetAttribute` hook returns an object containing a `setAttribute` function and an `isReady` boolean. The `setAttribute` allows you to set user attribute, while `isReady` indicates if the hook is ready to be used. This setAttribute function accepts the following parameters:
 
 ### Parameters Definition
 
@@ -89,8 +90,6 @@ export default YourComponent;
     </tr>
   </tbody>
 </Table>
-
-<br />
 
 > 🚧 Note
 >
