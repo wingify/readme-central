@@ -58,7 +58,7 @@ export default App;
 
 > 📘 Note
 >
-> Either `client` or `config` must be provided. If both are provided, client takes precedence and a warning is logged.
+> ⚠️ Either `client` or `config` must be provided. If both are provided, client takes precedence and a warning is logged.
 
 ## Usage (Using Pre-initialized VWO Client)
 
