@@ -32,7 +32,7 @@ if (isReady && vwoClient) {
 * The hook internally accesses the VWO client and readiness state from the React context.
 * If used outside of a `VWOProvider`, it logs an error and returns a default state with no client and `isReady: false`.
 * If the context indicates the client is not ready, it returns a default state signaling the client is still initializing.
-* The hook has `No side effects` (like state updates or async calls) happen inside this hook; it’s purely for safe retrieval of the VWO client from context.
+* The hook has `No side effects` (like state updates or async calls) happen inside this hook, it’s purely for safe retrieval of the VWO client from context.
 
 #### Return Type
 
