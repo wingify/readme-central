@@ -55,8 +55,9 @@ interface VWOClientResult {
 ```typescript
 const { flag, isReady } = useGetFlag('feature_key');
 
-if (isReady && flag.isEnabled()) {
+if (isReady) {
   // Feature flag is enabled — render accordingly
+  // return <div>Loading...</div>
 }
 ```
 
