@@ -89,6 +89,10 @@ const { flag } = useGetFlag('feature_key', userContext);
 * Uses `useCallback` to memoize the flag fetch function.
 * Returns a fallback flag object when not ready or on errors, to ensure safe usage in components.
 
+> 📘 Note
+>
+> This hook does not trigger re-fetching unless dependencies change (`featureKey1`, `userContext`, or client readiness).
+
 #### Return Type
 
 ```typescript
