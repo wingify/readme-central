@@ -74,6 +74,11 @@ const YourComponent = () => {
 export default YourComponent;
 ```
 
+> 📘 When to Use `isReady`
+>
+> 1. When `VWOProvider` and the `useGetFlag` hook are used together on the same page without providing a `fallbackComponent` in `VWOProvider`.
+> 2. When performing pre-segmentation based on user-agent or IP address, to ensure the VWO client and flags are fully available before using flag data.
+
 ### Parameters Definition
 
 <Table align={["left","left","left"]}>
