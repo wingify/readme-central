@@ -124,6 +124,8 @@ export default App;
 
 ## VWO Provider Config Parameter Definitions
 
+To customize the SDK further, additional parameters can be passed to the `VWOProvider` component using `config` parameter. Here’s a table describing each option:
+
 <Table align={["left","left","left"]}>
   <thead>
     <tr>
