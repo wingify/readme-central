@@ -81,7 +81,7 @@ This code initializes the VWO SDK using the init function. The init function tak
 
 The context uniquely identifies users and is crucial for consistent feature rollouts. A typical context is an object with a required id key for user identification. Other user attributes can also be passed for segmentation purposes.
 
-# Get Feature Flag & its Variables
+# Get Feature Flag & Variables
 
 <!-- javascript@21-25 -->
 
