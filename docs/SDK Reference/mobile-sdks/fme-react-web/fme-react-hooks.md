@@ -71,10 +71,10 @@ const { flag } = useGetFlag('feature_key', userContext);
 
 ### Parameters
 
-| Name           | Type                        | Description                                                                               |
-| :------------- | :-------------------------- | :---------------------------------------------------------------------------------------- |
-| **featureKey** | string                      | The key identifying the feature flag to fetch.                                            |
-| **context**    | IVWOContextModel (optional) | User context for flag evaluation. If omitted, defaults to the context from `VWOProvider`. |
+| Name           | Type                        | Description                                                                             |
+| :------------- | :-------------------------- | :-------------------------------------------------------------------------------------- |
+| **featureKey** | string                      | The key identifying the feature flag to fetch.                                          |
+| **context**    | IVWOContextModel (optional) | User context for flag evaluation. If omitted, defaults to the context from VWOProvider. |
 
 <br />
 
