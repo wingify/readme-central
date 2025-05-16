@@ -122,9 +122,11 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
 * On each render:
   * Initializes and returns a stable trackEvent function.
   * Pulls vwoClient, userContext, and isReady from useVWOContext.
-* Side Effects:
-  * Logs meaningful error messages if tracking fails or inputs are missing.
-  * SDK-side network call to VWO event ingestion endpoint.
+* When the trackEvent() function is invoked:
+  * Validates Inputs:
+    * Ensures eventName is a non-empty string.
+    * Checks if userContext exists and contains a valid id.
+    * Verifies that vwoClient is initialized and SDK is ready.
 * Graceful Degradation:
   * If any required condition is missing, the function resolves with an empty object ({}) instead of throwing errors.
 
