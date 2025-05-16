@@ -43,17 +43,20 @@ When this hook is executed:
 ```typescript TypeScript
 import { useTrackEvent } from "vwo-fme-react-sdk";
 
-const ButtonComponent = () => {
+const YourComponent = () => {
   const { trackEvent, isReady } = useTrackEvent();
 
   const handleClick = () => {
     if (isReady) {
-      trackEvent("purchase", { cartValue: 150, currency: "USD" });
+      trackEvent("button_click", { userType: "premium" });
     }
   };
 
-  return <button onClick={handleClick}>Buy Now</button>;
+  return <button onClick={handleClick}>Track Click</button>;
 };
+
+export default YourComponent;
+
 ```
 
 <br />
