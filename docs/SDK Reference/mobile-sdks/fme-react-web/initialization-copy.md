@@ -10,24 +10,31 @@ To integrate VWO Feature Management and Experimentation into your React applicat
 ## Usage
 
 ```javascript
-import { VWOProvider } from 'vwo-fme-react-sdk';
+import React from 'react';
+import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
 
-const vwoConfig = {
-  sdkKey: '32-alpha-numeric-sdk-key',  // Your VWO SDK Key
-  accountId: '123456',  // Your VWO Account ID
+const vwoConfig: IVWOOptions = {
+  sdkKey: '32-alpha-numeric-sdk-key', // Your VWO SDK Key
+  accountId: '123456', // Your VWO Account ID
+  logger: {
+    level: 'debug', // Optional log level for debugging
+  },
 };
 
-const userContext = {
-  id: 'unique_user_id',  // Required: Unique identifier for the user
-  customVariables: {     // Optional
-    age: 25,
-    location: 'US',
-  }
+const userContext: IVWOContextModel = {
+  id: 'unique_user_id', // Required: Unique identifier for the user
+  customVariables: { age: 25, location: 'US' }, // Optional
+  userAgent:
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', // Optional
+  ipAddress: '1.1.1.1', // Optional
 };
 
-// Here passing userContext is optional. You can also pass this in useGetFlag hook.
+// Optional: Provide a fallback UI component that will be displayed while VWOProvider initializes.
+// This is useful for showing a loading state or placeholder content during SDK initialization.
+const fallbackComponent = <div>Initializing VWO...</div>;
+
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={userContext}>
+  <VWOProvider config={vwoConfig} userContext={userContext} fallbackComponent={fallbackComponent}>
     <YourComponent />
   </VWOProvider>
 );
@@ -104,7 +111,7 @@ export default App;
 
     <tr>
       <td>
-        **sdkKey**\
+        **sdkKey**
         *Required*
       </td>
 
@@ -119,7 +126,7 @@ export default App;
 
     <tr>
       <td>
-        **pollInterval**\
+        **pollInterval**
         *Optional*
       </td>
 
@@ -128,13 +135,13 @@ export default App;
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) 
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
       </td>
     </tr>
 
     <tr>
       <td>
-        **logger**\
+        **logger**
         *Optional*
       </td>
 
@@ -149,7 +156,7 @@ export default App;
 
     <tr>
       <td>
-        **storage**\
+        **storage**
         *Optional*
       </td>
 
@@ -158,13 +165,13 @@ export default App;
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-react-storage-service) 
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-react-storage-service)
       </td>
     </tr>
 
     <tr>
       <td>
-        **integrations**\
+        **integrations**
         *Optional*
       </td>
 
@@ -173,7 +180,7 @@ export default App;
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-react-integrations) 
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-react-integrations)
       </td>
     </tr>
   </tbody>
