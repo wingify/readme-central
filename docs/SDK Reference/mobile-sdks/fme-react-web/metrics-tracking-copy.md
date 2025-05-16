@@ -63,6 +63,8 @@ export default YourComponent;
 
 ### Parameters Definition
 
+The useTrackEvent hook returns an object containing a trackEvent function and an isReady boolean. The trackEvent function allows you to track custom events and conversions, while isReady indicates if the hook is ready to be used. The trackEvent function accepts the following parameters:
+
 <Table align={["left","left","left"]}>
   <thead>
     <tr>
@@ -114,6 +116,18 @@ export default YourComponent;
 </Table>
 
 <br />
+
+### Hook Lifecycle & Side Effects
+
+* Validations Handled Internally:
+  * Checks if eventName is present and is a string.
+  * Validates if userContext has a valid id.
+  * Validates if SDK (vwoClient) is initialized and ready.
+* Side Effects:
+  * Logs meaningful error messages if tracking fails or inputs are missing.
+  * SDK-side network call to VWO event ingestion endpoint.
+* Graceful Degradation:
+  * If any required condition is missing, the function resolves with an empty object ({}) instead of throwing errors.
 
 > 🚧 Note
 >
