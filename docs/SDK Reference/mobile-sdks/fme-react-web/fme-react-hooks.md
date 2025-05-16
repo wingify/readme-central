@@ -80,8 +80,8 @@ const { flag, isReady } = useGetFlag('feature_key', userContext);
 
 #### Hook Lifecycle & Side Effects
 
-* On mount and whenever `featureKey`, `context` (deep compared), or readiness changes, the hook:
-  * Validates inputs (`featureKey` and user context).
+* \`On mount and whenever featureKey, context (deep compared), or readiness changes, the hook:
+  * `Validates inputs (`featureKey\` and user context).
   * If valid and the VWO client is ready, asynchronously fetches the feature flag using `vwoClient.getFlag()`.
   * Updates local state with the fetched flag instance.
   * Updates the user context in the global VWO context via `setUserContext`.
