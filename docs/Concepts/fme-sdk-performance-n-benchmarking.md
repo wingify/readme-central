@@ -33,7 +33,9 @@ To ensure accurate and consistent performance evaluation, all benchmarks present
 >
 > Benchmarks are representative of high-performance production environments and help assess SDK behavior under typical backend and service workloads.
 
-1. Performance Impact on Application
+<br />
+
+1. [Performance Impact on Application](#performance-impact-on-application)
 2. Initialization Performance
 3. Method Benchmarks
 4. Memory and Resource Utilization
