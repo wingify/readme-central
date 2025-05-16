@@ -1,7 +1,7 @@
 ---
 title: Attributes (COPY)
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
