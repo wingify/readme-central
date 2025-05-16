@@ -3,6 +3,7 @@
 - fme-react-user-context
 - user-context-copy-1
 - fme-react-feature-flags-variables
+- feature-flags-variables-copy-1
 - feature-flags-variables-copy
 - fme-react-metrics-tracking
 - fme-react-attributes
@@ -10,4 +11,3 @@
 - fme-react-storage-service
 - fme-react-integrations
 - fme-react-hooks
-- feature-flags-variables-copy-1
