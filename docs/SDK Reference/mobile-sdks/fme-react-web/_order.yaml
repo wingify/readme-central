@@ -1,6 +1,7 @@
 - fme-react-install
 - fme-react-initialization
 - initialization-copy
+- fme-react-hooks
 - fme-react-user-context
 - user-context-copy-1
 - fme-react-feature-flags-variables
@@ -12,4 +13,3 @@
 - fme-react-logging
 - fme-react-storage-service
 - fme-react-integrations
-- fme-react-hooks
