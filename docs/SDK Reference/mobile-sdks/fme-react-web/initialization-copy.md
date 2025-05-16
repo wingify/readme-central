@@ -299,9 +299,6 @@ import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
 const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // Your VWO SDK Key
   accountId: '123456', // Your VWO Account ID
-  logger: {
-    level: 'debug', // Optional log level for debugging
-  },
   storage: StorageConnector,
 };
 
