@@ -263,6 +263,8 @@ In the Feature Management and Experimentation (FME) context, many tools require 
 * **Endpoint**: [https://dev.visualwebsiteoptimizer.com/events/t](https://dev.visualwebsiteoptimizer.com/events/t)
 * **Retry Strategy**: Exponential backoff, max 3 retries
 
+<br />
+
 ### Network Efficiency Highlights
 
 * **One-time config fetch**: Only a single network call is made during SDK initialization to retrieve configuration from VWO DACDN.
