@@ -13,15 +13,17 @@ It is essential for enabling feature flag evaluation, A/B testing, and user trac
 
 ## Parameter Types (`IVWOProvider`)
 
-<br />
+| Type               | Prop                  | Required | Description                                                                                |
+| :----------------- | :-------------------- | :------- | :----------------------------------------------------------------------------------------- |
+| `IVWOClient`       | **client**            | No       | Pre-initialized VWO client. If provided, it overrides the `config`.                        |
+| `IVWOOptions`      | **config**            | No       | SDK configuration for initializing the VWO client. Required if the `client` is not passed. |
+| `IVWOContextModel` | **userContext**       | No       | Initial user context to evaluate flags and experiments.                                    |
+| `ReactNode`        | **children**          | Yes      | Child components that require access to the VWO context.                                   |
+| `ReactNode`        | **fallbackComponent** | No       | Component shown while the client is initializing.                                          |
 
-| Prop                  | Type               | Required | Description                                                                                |
-| :-------------------- | :----------------- | :------- | :----------------------------------------------------------------------------------------- |
-| **client**            | `IVWOClient`       | No       | Pre-initialized VWO client. If provided, it overrides the `config`.                        |
-| **config**            | `IVWOOptions`      | No       | SDK configuration for initializing the VWO client. Required if the `client` is not passed. |
-| **userContext**       | `IVWOContextModel` | No       | Initial user context to evaluate flags and experiments.                                    |
-| **children**          | `ReactNode`        | Yes      | Child components that require access to the VWO context.                                   |
-| **fallbackComponent** | `ReactNode`        | No       | Component shown while the client is initializing.                                          |
+> 📘 Note
+>
+> Either `client` or `config` must be provided. If both are provided, client takes precedence and a warning is logged.
 
 ## Usage
 
