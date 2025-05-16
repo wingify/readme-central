@@ -127,6 +127,9 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
     * Ensures eventName is a non-empty string.
     * Checks if userContext exists and contains a valid id.
     * Verifies that vwoClient is initialized and SDK is ready.
+  * If all validations pass:
+    * Sends the event to VWO via vwoClient.trackEvent(), including eventProperties if provided.
+    * Returns a Promise that resolves to \{ \[eventName]: true } on success.
 * Graceful Degradation:
   * If any required condition is missing, the function resolves with an empty object ({}) instead of throwing errors.
 
