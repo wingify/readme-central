@@ -22,7 +22,7 @@ VWO by default logs all ERROR level messages to your console. To gain more contr
 
 **Example 1**: Set log level to control the verbosity of logs
 
-```javascript
+```typescript
 import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
 const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
@@ -45,7 +45,7 @@ export default App;
 
 **Example 2**: Add a custom prefix to log messages for easier identification
 
-```javascript
+```typescript
 import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
 const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
@@ -81,7 +81,7 @@ For example, you could:
 
 The transport object should implement handlers for the log levels you want to customize. Each handler receives the log message as a parameter.
 
-```javascript
+```typescript
 import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
 const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
