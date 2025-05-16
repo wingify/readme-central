@@ -15,14 +15,10 @@ VWO FME SDKs help you integrate with several third-party tools, be it analytics,
 ## Usage
 
 ```javascript
-import { VWOProvider } from 'vwo-fme-react-sdk';
-
-const options = {
+import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
   accountId: '123456', // VWO Account ID
-  logger: {
-    level: 'debug', // Optional: Log level for debugging
-  },
   integrations: {
     callback (properties) {
       console.log('Integrations callback', properties); // list of keys
@@ -30,13 +26,13 @@ const options = {
   }
 };
 
-function App() {
-  return (
-    <VWOProvider config={options}>
-      {/* Your application components */}
-    </VWOProvider>
-  );
-}
+const userContext: IVWOContextModel = {id: 'unique_user_id'};
+
+const App = () => (
+  <VWOProvider config={vwoConfig} userContext=ONTEXT>
+    <YourComponent />
+  </VWOProvider>
+);
 
 export default App;
 ```
@@ -70,7 +66,7 @@ Different destinations have their own formats for integrating with them and usin
 
 ## Which platforms I can integrate with?
 
-Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party tool capable of receiving it via APIs. 
+Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party tool capable of receiving it via APIs.
 
 > 📘 Note
 >
