@@ -21,6 +21,18 @@ We have benchmarked our SDKs across various use cases and environments to valida
 
 ## Metrics
 
+### Benchmarking Environment
+
+To ensure accurate and consistent performance evaluation, all benchmarks presented in this document were conducted on a dedicated server with the following configuration:
+
+* **CPU**: 16-core (x86\_64 architecture)
+* **Memory**: 32 GB RAM
+* **Operating System**: Ubuntu 22.04 LTS
+
+> 📘 Note
+>
+> Benchmarks are representative of high-performance production environments and help assess SDK behavior under typical backend and service workloads.
+
 1. Performance Impact on Application
 2. Initialization Performance
 3. Method Benchmarks
