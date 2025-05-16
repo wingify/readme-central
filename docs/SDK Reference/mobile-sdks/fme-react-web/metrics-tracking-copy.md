@@ -119,7 +119,7 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
 
 ### Hook Lifecycle & Side Effects
 
-* Validations Handled Internally:
+* On each render:
   * Checks if eventName is present and is a string.
   * Validates if userContext has a valid id.
   * Validates if SDK (vwoClient) is initialized and ready.
