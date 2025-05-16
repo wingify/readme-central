@@ -99,7 +99,7 @@ VWO FME SDKs are optimized for fast, non-blocking startup. When the init() metho
 
 <br />
 
-## SDK Methods Benchmarking
+## SDK Methods Benchmarks
 
 To help you understand the performance impact of using the VWO FME SDK in real-world applications, we benchmarked key SDK methods across multiple environments. These benchmarks include execution latency, memory footprint, and whether any external network calls are made.
 
