@@ -12,55 +12,17 @@ Here are the available hooks:
 
 ## useVWOClient
 
-The `useVWOClient` hook provides access to the `VWO FME React SDK` client. You can use this client to do feature flagging, track an event and set an user attribute.
+`useVWOClient` is a custom React hook that provides access to the initialized VWO SDK client instance within components wrapped by `VWOProvider`. It enables interaction with the VWO platform for experiments, feature flags, and tracking.
 
 ### Usage with getFlag
 
 ```javascript
-import React, { useEffect, useState } from 'react';
-import { useVWOClient } from 'vwo-fme-react-sdk';
+const { vwoClient, isReady } = useVWOClient();
 
-const FeatureFlagComponent = () => {
-  const [isFeatureEnabled, setIsFeatureEnabled] = useState(false);
-  const vwoClient = useVWOClient();
-
-  useEffect(() => {
-    const checkFeature = async () => {
-      if (!vwoClient) {
-        console.log('VWO Client not available');
-        return;
-      }
-
-      // Define user context (could be dynamic)
-      const userContext = { id: 'unique_user_id' };
-
-      try {
-        // Fetch the feature flag
-        const feature = await vwoClient.getFlag('feature_key', userContext);
-
-        // Check if the feature is enabled
-        setIsFeatureEnabled(feature.isEnabled());
-      } catch (error) {
-        console.error('Error checking feature flag:', error);
-      }
-    };
-
-    checkFeature();
-  }, [vwoClient]);
-
-  return (
-    <div>
-      {isFeatureEnabled ? (
-        <p>The feature is enabled!</p>
-      ) : (
-        <p>The feature is not enabled.</p>
-      )}
-    </div>
-  );
-};
-
-export default FeatureFlagComponent;
-
+if (isReady && vwoClient) {
+  // Using vwoClient, you can run experiments, track events, and manage feature flags.
+	// For example, call methods like vwoClient.getFlag(), vwoClient.trackEvent(), etc.
+}
 ```
 
 [Learn more about feature flagging](https://developers.vwo.com/v2/docs/fme-javascript-flags#/)
