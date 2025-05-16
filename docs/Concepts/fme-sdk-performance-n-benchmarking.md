@@ -42,6 +42,8 @@ SDK Overhead (During Request Lifecycle)
 | Event Tracking    | \< 5 ms                 | No        | Actual dispatch happens out-of-band                                       |
 | Attribute Updates | \< 2 ms                 | No        | Updates user attributes used for post-segmenting the VWO campaign reports |
 
+<br />
+
 > 📘 Note
 >
 > The SDK does not introduce measurable latency into HTTP servers or rendering flows when used as recommended (initialize once, evaluate per request, batch events).
@@ -68,6 +70,8 @@ VWO FME SDKs are optimized for fast, non-blocking startup. When the init() metho
 
 * **Scenario**: SDK loads with previously cached settings.
 * **Time Taken**: \~15-30ms
+
+<br />
 
 > 📘 Note
 >
@@ -208,6 +212,8 @@ This section outlines the SDK's typical memory footprint and runtime resource be
 | **Post-init (Cold Start)** | \< 2 MB              | Memory used after fetching and loading settings from VWO DACDN. Includes parsing and in-memory caching of rules and configuration. |
 | **Steady State (Idle)**    | \< 0.5 MB            | Memory usage during regular flag evaluations and event tracking, excluding settings refresh. Remains stable with minimal growth.   |
 
+<br />
+
 > ⚠️ Note
 >
 > Memory footprint may vary slightly based on the size of your configuration (number of flags, experiments, etc.) and the programming environment.
@@ -220,17 +226,17 @@ The Network Usage Profile defines how and when the VWO FME SDK communicates with
 
 In the Feature Management and Experimentation (FME) context, many tools require frequent communication with backend servers to fetch flag decisions, send telemetry, or synchronize states. VWO FME SDKs, however, are designed to minimize such overhead through offline, local decision-making and asynchronous, batched network interactions.
 
-### VWO Settings from DaCDN
+### VWO Settings from VWO CDN(DaCDN)
 
-* Endpoint: [https://dev.visualwebsiteoptimizer.com/server-side/v2-settings](https://dev.visualwebsiteoptimizer.com/server-side/v2-settings)
-* Size: Depends on the number of running feature flags and their configurations. For example: 2-3 kB for 10 feature flags and their rule configurations
-* Caching: Edge-cached via CDN
-* Fallback behavior: Uses stale settings if fetch fails(built-in for FME client-side SDKs only)
+* **Endpoint**: [https://dev.visualwebsiteoptimizer.com/server-side/v2-settings](https://dev.visualwebsiteoptimizer.com/server-side/v2-settings)
+* **Size**: Depends on the number of running feature flags and their configurations. For example: 2-3 kB for 10 feature flags and their rule configurations
+* **Caching**: Edge-cached via CDN
+* **Fallback behavior**: Uses stale settings if fetch fails(built-in for FME client-side SDKs only)
 
 ### Tracking Events API
 
-* Endpoint: [https://dev.visualwebsiteoptimizer.com/events/t](https://dev.visualwebsiteoptimizer.com/events/t)
-* Retry Strategy: Exponential backoff, max 3 retries
+* **Endpoint**: [https://dev.visualwebsiteoptimizer.com/events/t](https://dev.visualwebsiteoptimizer.com/events/t)
+* **Retry Strategy**: Exponential backoff, max 3 retries
 
 ### Network Efficiency Highlights
 
@@ -383,6 +389,8 @@ VWO FME SDKs offer a minimal footprint and are engineered for maximum efficiency
 <br />
 
 Understanding the SDK footprint is critical when integrating into environments with constrained resources—such as mobile devices, edge functions, or serverless platforms—where every byte and millisecond counts.
+
+<br />
 
 ### Deployment Suitability
 
