@@ -73,7 +73,7 @@ Import VWO FME SDK so it can be initialized.
 
 <!-- javascript@7-13 -->
 
-This code initializes the VWO SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc. can be passed depending upon the requirements.
+This code initializes the VWO SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc can be passed depending upon the requirements.
 
 # Set User Context
 
