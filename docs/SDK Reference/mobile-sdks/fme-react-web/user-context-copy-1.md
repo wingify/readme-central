@@ -1,7 +1,7 @@
 ---
 title: User Context (COPY)
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
