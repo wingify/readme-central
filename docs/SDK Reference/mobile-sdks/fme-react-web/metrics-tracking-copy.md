@@ -140,6 +140,13 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
   * The hook does not throw exceptions; it always returns a safe response.
   * Ensures predictable behavior even when VWO context is misconfigured or unavailable.
 
+### Return Type
+
+The hook returns an object with the following structure:
+
+* \`trackEvent\` :  Sends the event to VWO and returns a Promise resolving to \{ \[eventName]: boolean }.
+* &#x20;
+
 > 🚧 Note
 >
 > Please note that the *Event* must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application.
