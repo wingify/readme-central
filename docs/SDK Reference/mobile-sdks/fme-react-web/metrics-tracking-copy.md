@@ -9,8 +9,6 @@ Every feature flag that you create can have connected metrics that can be used t
 
 For each feature flag, you need to define at least one "Primary Metric", and you can set up as many secondary metrics as you'd like.
 
-# How It Works:
-
 Metrics in FME are based on "Custom Events" that you can create inside the VWO Application under Data360 product - `Data360 > Events`. All the custom events created in Data360 will be available to be used as metrics in your feature flags.
 
 Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet:
@@ -42,16 +40,23 @@ When this hook is executed:
 
 ### Usage
 
-```javascript JavaScript
-import { useTrackEvent } from "vwo-fme-react-sdk"; // Import the hook
+```typescript TypeScript
+import { useTrackEvent } from "vwo-fme-react-sdk";
 
-const YourComponent = () => {
-  // Track an event when a button is clicked, the second parameter for useTrackEvent is optional.
-  useTrackEvent("button_click", { userType: "premium" });
+const ButtonComponent = () => {
+  const { trackEvent, isReady } = useTrackEvent();
+
+  const handleClick = () => {
+    if (isReady) {
+      trackEvent("purchase", { cartValue: 150, currency: "USD" });
+    }
+  };
+
+  return <button onClick={handleClick}>Buy Now</button>;
 };
-
-export default YourComponent;
 ```
+
+<br />
 
 ### Parameters Definition
 
