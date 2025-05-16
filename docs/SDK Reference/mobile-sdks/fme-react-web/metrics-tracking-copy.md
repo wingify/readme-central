@@ -144,8 +144,8 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
 
 The hook returns an object with the following structure:
 
-* \`trackEvent\` :  Sends the event to VWO and returns a Promise resolving to \{ \[eventName]: boolean }.
-* &#x20;
+* `trackEvent` : Sends the event to VWO and returns a Promise resolving to \{ \[eventName]: boolean }.
+* `isReady` : Boolean indicating whether the VWO SDK and userContext are properly initialized and the application is ready to track events. Should always be checked before calling trackEvent.
 
 > 🚧 Note
 >
