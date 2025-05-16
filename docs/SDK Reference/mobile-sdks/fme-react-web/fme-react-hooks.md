@@ -50,7 +50,7 @@ interface VWOClientResult {
 
 `useGetFlag` is a custom React hook to fetch and manage the state of a specific feature flag from the VWO SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
 
-### Usage
+#### Usage
 
 ```typescript
 const { flag, isReady } = useGetFlag('feature_key');
@@ -69,7 +69,14 @@ const userContext: IVWOContextModel = { id: 'unique_user_id' }
 const { flag } = useGetFlag('feature_key', userContext);
 ```
 
-### Hook Lifecycle & Side Effects
+#### Parameters
+
+| Name           | Type                        | Description                                                                             |
+| :------------- | :-------------------------- | :-------------------------------------------------------------------------------------- |
+| **featureKey** | string                      | The key identifying the feature flag to fetch.                                          |
+| **context**    | IVWOContextModel (optional) | User context for flag evaluation. If omitted, defaults to the context from VWOProvider. |
+
+#### Hook Lifecycle & Side Effects
 
 * On mount and whenever `featureKey`, `context` (deep compared), or readiness changes, the hook:
   * Validates inputs (`featureKey` and user context).
@@ -82,14 +89,7 @@ const { flag } = useGetFlag('feature_key', userContext);
 * Uses `useCallback` to memoize the flag fetch function.
 * Returns a fallback flag object when not ready or on errors, to ensure safe usage in components.
 
-### Parameters
-
-| Name           | Type                        | Description                                                                             |
-| :------------- | :-------------------------- | :-------------------------------------------------------------------------------------- |
-| **featureKey** | string                      | The key identifying the feature flag to fetch.                                          |
-| **context**    | IVWOContextModel (optional) | User context for flag evaluation. If omitted, defaults to the context from VWOProvider. |
-
-### Return Type
+#### Return Type
 
 ```typescript
 interface IFlag {
