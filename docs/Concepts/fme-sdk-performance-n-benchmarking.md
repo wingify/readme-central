@@ -273,18 +273,27 @@ VWO FME SDKs offer a minimal footprint and are engineered for maximum efficiency
         Mostly applicable for client-side SDKs.
 
         \~40 KB  - JavaScript/React(gzipped)
+
         \~250 KB - Android(aar)
+
         \~1.5 MB - iOS
+
         \~75 KB - Flutter(tar)
+
         \~2 KB - React Native(excluding native bindings)
 
         Server-side SDKs size:
 
         \~35 KB - Node.js
+
         \~50 KB - Ruby
+
         \~75 KB - .NET
+
         \~80 kB - Python
+
         \~300 KB - PHP
+
         \~200 KB - Java(jar)
       </td>
     </tr>
