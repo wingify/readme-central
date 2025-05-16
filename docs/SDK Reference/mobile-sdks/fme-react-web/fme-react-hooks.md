@@ -66,7 +66,7 @@ if (isReady && flag.isEnabled()) {
 import { IVWOContextModel } from 'vwo-fme-react-sdk';
 
 const userContext: IVWOContextModel = { id: 'unique_user_id' }
-const { flag } = useGetFlag('feature_key', userContext);
+const { flag, isReady } = useGetFlag('feature_key', userContext);
 ```
 
 #### Parameters
@@ -91,7 +91,8 @@ const { flag } = useGetFlag('feature_key', userContext);
 
 > 📘 Note
 >
-> This hook does not trigger re-fetching unless dependencies change (`featureKey1`, `userContext`, or client readiness).
+> * React components using this hook should check `isReady` before relying on flag data for conditional rendering or logic to avoid acting on incomplete or default flag values.
+> * This hook does not trigger re-fetching unless dependencies change (`featureKey1`, `userContext`, or client readiness).
 
 #### Return Type
 
