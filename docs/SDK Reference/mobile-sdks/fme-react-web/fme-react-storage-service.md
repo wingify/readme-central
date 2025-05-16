@@ -28,9 +28,8 @@ Storage Service is optional while [instantiating](https://developers.vwo.com/v2/
 
 ### Usage
 
-```javascript
-import React from "react";
-import { VWOProvider } from "vwo-fme-react-sdk";
+```typescript
+import { VWOProvider, IVWOOptions, IVWOContextModel, StorageConnector } from 'vwo-fme-react-sdk';
 
 class StorageConnector extends StorageConnector {
   constructor() {
@@ -44,8 +43,6 @@ class StorageConnector extends StorageConnector {
    * @returns {Promise<any>}
    */
   async get(featureKey, userId) {
-    // Browser localStorage/sessionStorage can be used to persist data
-    
     // return await data (based on featureKey and userId)
   }
 
@@ -54,24 +51,24 @@ class StorageConnector extends StorageConnector {
    * @param {object} data
    */
   async set(data) {
-    // Browser localStorage/sessionStorage can be used to persist data
-    
     // Set data corresponding to a featureKey and user ID
     // Use data.featureKey and data.userId to store the above data for a specific feature and a user
   }
 }
 
-const vwoConfig = {
-  sdkKey: '32-alpha-numeric-sdk-key',  // Your VWO SDK Key
-  accountId: '123456',  // Your VWO Account ID
+const vwoConfig: IVWOOptions = {
+  sdkKey: '32-alpha-numeric-sdk-key', // Your VWO SDK Key
+  accountId: '123456', // Your VWO Account ID
   logger: {
-    level: 'debug',  // Optional log level for debugging
+    level: 'debug', // Optional log level for debugging
   },
-  storage: StorageConnector
+  storage: StorageConnector,
 };
 
+const userContext: IVWOContextModel = {id: 'unique_user_id'};
+
 const App = () => (
-  <VWOProvider config={vwoConfig} context={{ id: "unique_user_id" }}>
+  <VWOProvider config={vwoConfig} userContext={userContext}>
     <YourComponent />
   </VWOProvider>
 );
