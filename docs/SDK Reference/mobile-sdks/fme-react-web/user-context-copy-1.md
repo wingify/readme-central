@@ -24,27 +24,34 @@ By leveraging these attributes, organizations can deliver **precisely targeted f
 >
 > VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
 
-## Usage
+## Usage with `VWOProvider`
 
-```javascript JavaScript
-import { VWOProvider } from 'vwo-fme-react-sdk';
+```typescript JavaScript
+import React from 'react';
+import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
 
-const vwoConfig = {
-  sdkKey: '32-alpha-numeric-sdk-key',  // Your VWO SDK Key
-  accountId: '123456',  // Your VWO Account ID
+const vwoConfig: IVWOOptions = {
+  sdkKey: '32-alpha-numeric-sdk-key', // Your VWO SDK Key
+  accountId: '123456', // Your VWO Account ID
+  logger: {
+    level: 'debug', // Optional log level for debugging
+  },
 };
 
-const userContext = {
-  id: 'unique_user_id',  // Required: Unique identifier for the user
-  customVariables: {     // Optional
-    age: 25,
-    location: 'US',
-  }
+const userContext: IVWOContextModel = {
+  id: 'unique_user_id', // Required: Unique identifier for the user
+  customVariables: { age: 25, location: 'US' }, // Optional
+  userAgent:
+    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', // Optional
+  ipAddress: '1.1.1.1', // Optional
 };
 
-// Here passing userContext is optional. You can also pass this in useGetFlag hook.
+// Optional: Provide a fallback UI component that will be displayed while VWOProvider initializes.
+// This is useful for showing a loading state or placeholder content during SDK initialization.
+const fallbackComponent = <div>Initializing VWO...</div>;
+
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={userContext}>
+  <VWOProvider config={vwoConfig} userContext={userContext} fallbackComponent={fallbackComponent}>
     <YourComponent />
   </VWOProvider>
 );
@@ -89,7 +96,7 @@ export default App;
 
     <tr>
       <td>
-        **userAgent**\
+        **userAgent**
         *Optional*
       </td>
 
@@ -98,13 +105,13 @@ export default App;
       </td>
 
       <td>
-        The userAgent object for the current user can be used for targeting & segmentation. 
+        The userAgent object for the current user can be used for targeting & segmentation.
       </td>
     </tr>
 
     <tr>
       <td>
-        **ipAddress**\
+        **ipAddress**
         *Optional*
       </td>
 
@@ -119,7 +126,7 @@ export default App;
 
     <tr>
       <td>
-        **customVariables**\
+        **customVariables**
         *Optional*
       </td>
 
@@ -133,3 +140,5 @@ export default App;
     </tr>
   </tbody>
 </Table>
+
+##
