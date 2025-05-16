@@ -6,10 +6,6 @@ recipe:
   color: '#018FF4'
   icon: 🦉
 ---
-```shell Shell
-
-```
-
 ```kotlin Kotlin
 import com.vwo.VWO
 import com.vwo.VWO.init
@@ -72,44 +68,38 @@ vwoClient?.setAttribute(attributes, context)
 {"success":true}
 ```
 
-# 1. Import
+# Import
 
-<!-- shell@ -->
 <!-- kotlin@1-6 -->
 
 Import VWO FME SDK so it can be initialized.
 
-# 2. Initialize
+# Initialize
 
-<!-- shell@ -->
 <!-- kotlin@8-23 -->
 
 This code initializes the VWO SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc. can be passed depending upon the requirements.
 
-# 3. Set User Context
+# Set User Context
 
-<!-- shell@ -->
 <!-- kotlin@25-29 -->
 
 The context uniquely identifies users and is crucial for consistent feature rollouts. A typical context is an object with a required id key for user identification. Other user attributes can also be passed for segmentation purposes.
 
-# 4. Get Feature Flag and Variable
+# Get Feature Flag and Variable
 
-<!-- shell@ -->
 <!-- kotlin@31-45 -->
 
 This code verifies whether the flag associated with the provided feature-key is enabled and allows access to the corresponding variable(s).
 
-# 5. Track a Custom Event
+# Track a Custom Event
 
-<!-- shell@ -->
 <!-- kotlin@47-49 -->
 
 Tracks a metric conversion for a specified event, requiring a User Context and optional event properties.
 
-# 6. Set User Attributes
+# Set User Attributes
 
-<!-- shell@ -->
 <!-- kotlin@51-55 -->
 
 Sends a user attribute to VWO for filtering campaign reports based on attributes.
