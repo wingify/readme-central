@@ -107,7 +107,7 @@ interface IFlag {
 
 ## useGetFlagVariable
 
-The `useGetFlagVariable` hook allows you to fetch a specific variable associated with a feature flag.
+`useGetFlagVariable` is a generic React hook that retrieves the value of a specific variable from a VWO feature flag. It provides a typed interface to safely access variables with a fallback default.
 
 * **Usage**: Retrieve the value of a specific feature flag variable.
 * **More Info**: [Learn more about useGetFlagVariable](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables#usegetflagvariable-hook)
