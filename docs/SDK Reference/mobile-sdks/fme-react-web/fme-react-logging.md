@@ -23,23 +23,22 @@ VWO by default logs all ERROR level messages to your console. To gain more contr
 **Example 1**: Set log level to control the verbosity of logs
 
 ```javascript
-import { VWOProvider } from 'vwo-fme-react-sdk';
-
-const options = {
+import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
   accountId: '123456', // VWO Account ID
   logger: {
-    level: 'debug'
+    level: 'debug',
   },
 };
 
-function App() {
-  return (
-    <VWOProvider config={options}>
-      {/* Your application components */}
-    </VWOProvider>
-  );
-}
+const userContext: IVWOContextModel = {id: 'unique_user_id'};
+
+const App = () => (
+  <VWOProvider config={vwoConfig} userContext={userContext}>
+    <YourComponent />
+  </VWOProvider>
+);
 
 export default App;
 ```
@@ -47,24 +46,23 @@ export default App;
 **Example 2**: Add a custom prefix to log messages for easier identification
 
 ```javascript
-import { VWOProvider } from 'vwo-fme-react-sdk';
-
-const options = {
+import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
   accountId: '123456', // VWO Account ID
   logger: {
     level: 'debug',
-    prefix: 'CUSTOM LOG PREFIX' // custom logger prefix
+    prefix: 'CUSTOM LOG PREFIX', // custom logger prefix
   },
 };
 
-function App() {
-  return (
-    <VWOProvider config={options}>
-      {/* Your application components */}
-    </VWOProvider>
-  );
-}
+const userContext: IVWOContextModel = {id: 'unique_user_id'};
+
+const App = () => (
+  <VWOProvider config={vwoConfig} userContext={userContext}>
+    <YourComponent />
+  </VWOProvider>
+);
 
 export default App;
 ```
@@ -84,9 +82,8 @@ For example, you could:
 The transport object should implement handlers for the log levels you want to customize. Each handler receives the log message as a parameter.
 
 ```javascript
-import { VWOProvider } from 'vwo-fme-react-sdk';
-
-const options = {
+import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
   accountId: '123456', // VWO Account ID
   logger: {
@@ -101,13 +98,13 @@ const options = {
   },
 };
 
-function App() {
-  return (
-    <VWOProvider config={options}>
-      {/* Your application components */}
-    </VWOProvider>
-  );
-}
+const userContext: IVWOContextModel = {id: 'unique_user_id'};
+
+const App = () => (
+  <VWOProvider config={vwoConfig} userContext={userContext}>
+    <YourComponent />
+  </VWOProvider>
+);
 
 export default App;
 ```
