@@ -14,7 +14,9 @@ Here are the available hooks:
 
 `useVWOClient` is a custom React hook that provides access to the initialized VWO SDK client instance within components wrapped by `VWOProvider`. It enables interaction with the VWO platform for experiments, feature flags, and tracking.
 
-### Usage with getFlag
+### Usage
+
+The hook **does not** accept any parameters. It internally consumes the VWO context provided by `VWOProvider`.
 
 ```javascript
 const { vwoClient, isReady } = useVWOClient();
@@ -25,33 +27,24 @@ if (isReady && vwoClient) {
 }
 ```
 
-[Learn more about feature flagging](https://developers.vwo.com/v2/docs/fme-javascript-flags#/)
+### Hook Lifecycle & Side Effects
 
-Similarly, for `trackEvent` function, please check the example below
+* The hook internally accesses the VWO client and readiness state from the React context.
+* If used outside of a `VWOProvider`, it logs an error and returns a default state with no client and `isReady: false`.
+* If the context indicates the client is not ready, it returns a default state signaling the client is still initializing.
+* The hook has `No side effects` (like state updates or async calls) happen inside this hook; it’s purely for safe retrieval of the VWO client from context.
 
-```javascript
-import { useVWOClient } from 'vwo-fme-react-sdk';
+### Return Type
 
-const vwoClient = useVWOClient();
-
-// Record a metric conversion for the specified event 
-vwoClient.trackEvent('event-name', userContext);
+```typescript
+interface VWOClientResult {
+  vwoClient: IVWOClient | null;
+  isReady: boolean;
+}
 ```
 
-[Learn more about metric conversion](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/)
-
-Similarly, for `setAttribute` function, please check the example below
-
-```javascript
-import { useVWOClient } from 'vwo-fme-react-sdk';
-
-const vwoClient = useVWOClient();
-
-// Record a metric conversion for the specified event 
-vwoClient.setAttribute('attributeKey', 'attributeValue', userContext);
-```
-
-[Learn more about Set Attribute](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/)
+* `vwoClient`: The VWO SDK client instance if initialized; otherwise null.
+* `isReady`: Boolean indicating whether the VWO client is fully initialized and ready for use.
 
 ## useGetFlag
 
