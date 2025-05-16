@@ -84,7 +84,7 @@ const App = () => {
   if (!vwoClient) return fallbackComponent;
 
   return (
-    <VWOProvider client={vwoClient} userContext={userContext}>
+    <VWOProvider client={vwoClient} userContext={ userContext }>
       <YourComponent />
     </VWOProvider>
   );
@@ -254,7 +254,7 @@ const vwoConfig: IVWOOptions = {
 const userContext: IVWOContextModel = { id: 'unique_user_id' };
 
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={userContext}>
+  <VWOProvider config={vwoConfig} userContext={ userContext }>
     <YourComponent />
   </VWOProvider>
 );
