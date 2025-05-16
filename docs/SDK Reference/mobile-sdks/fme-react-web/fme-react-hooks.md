@@ -50,60 +50,8 @@ interface VWOClientResult {
 
 `useGetFlag` is a custom React hook to fetch and manage the state of a specific feature flag from the VWO SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
 
-#### Usage
-
-```typescript
-const { flag, isReady } = useGetFlag('feature_key');
-const isFeatureEnabled = flag.isEnabled();
-```
-
-* Optionally, if you have not provided userContext in `VWOProvider`You can pass a custom user context to evaluate the flag for a specific user:
-
-```typescript
-import { IVWOContextModel } from 'vwo-fme-react-sdk';
-
-const userContext: IVWOContextModel = { id: 'unique_user_id' }
-const { flag, isReady } = useGetFlag('feature_key', userContext);
-```
-
-> 📘 When to Use `isReady`
->
-> 1. When `VWOProvider` and the `useGetFlag` hook are used together on the same page without providing a `fallbackComponent` in `VWOProvider`.
-> 2. When performing pre-segmentation based on user-agent or IP address, to ensure the VWO client and flags are fully initialized before evaluation.
-
-#### Parameters
-
-| Name           | Type                        | Description                                                                             |
-| :------------- | :-------------------------- | :-------------------------------------------------------------------------------------- |
-| **featureKey** | string                      | The key identifying the feature flag to fetch.                                          |
-| **context**    | IVWOContextModel (optional) | User context for flag evaluation. If omitted, defaults to the context from VWOProvider. |
-
-#### Hook Lifecycle & Side Effects
-
-* \`On mount and whenever featureKey, context (deep compared), or readiness changes, the hook:
-  * `Validates inputs (`featureKey\` and user context).
-  * If valid and the VWO client is ready, asynchronously fetches the feature flag using `vwoClient.getFlag()`.
-  * Updates local state with the fetched flag instance.
-  * Updates the user context in the global VWO context via `setUserContext`.
-  * Manages a loading state (`isLoading`) to track readiness.
-* Errors during flag fetch are caught and logged without crashing the app.
-* Uses `useMemo` to memoize user context and avoid unnecessary refetches on stable inputs.
-* Uses `useCallback` to memoize the flag fetch function.
-* Returns a fallback flag object when not ready or on errors, to ensure safe usage in components.
-
-#### Return Type
-
-```typescript
-interface IFlag {
-  flag: Flag;       // flag details and variables
-  isReady: boolean; // Indicates if the flag has been successfully fetched and is ready for use
-}
-```
-
-* `flag`: The VWO feature flag instance or a default fallback flag if not ready or errors occur.
-* `isReady`: Becomes true once the flag data is loaded and available.
-
-[Learn more about useGetFlag](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables)
+* **Usage**: Retrieve a feature flag using VWO client instance.
+* **More Info**: [Learn more about useGetFlag](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables)
 
 ## useGetFlagVariable
 
