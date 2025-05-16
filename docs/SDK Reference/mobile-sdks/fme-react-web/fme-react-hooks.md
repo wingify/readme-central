@@ -69,6 +69,19 @@ const userContext: IVWOContextModel = { id: 'unique_user_id' }
 const { flag } = useGetFlag('feature_key', userContext);
 ```
 
+### Hook Lifecycle & Side Effects
+
+* On mount and whenever `featureKey`, `context` (deep compared), or readiness changes, the hook:
+  * Validates inputs (`featureKey` and user context).
+  * If valid and the VWO client is ready, asynchronously fetches the feature flag using `vwoClient.getFlag()`.
+  * Updates local state with the fetched flag instance.
+  * Updates the user context in the global VWO context via `setUserContext`.
+  * Manages a loading state (`isLoading`) to track readiness.
+* Errors during flag fetch are caught and logged without crashing the app.
+* Uses `useMemo` to memoize user context and avoid unnecessary refetches on stable inputs.
+* Uses `useCallback` to memoize the flag fetch function.
+* Returns a fallback flag object when not ready or on errors, to ensure safe usage in components.
+
 ### Parameters
 
 | Name           | Type                        | Description                                                                             |
@@ -76,7 +89,17 @@ const { flag } = useGetFlag('feature_key', userContext);
 | **featureKey** | string                      | The key identifying the feature flag to fetch.                                          |
 | **context**    | IVWOContextModel (optional) | User context for flag evaluation. If omitted, defaults to the context from VWOProvider. |
 
-<br />
+### Return Type
+
+```typescript
+interface IFlag {
+  flag: Flag;       // flag details and variables
+  isReady: boolean; // Indicates if the flag has been successfully fetched and is ready for use
+}
+```
+
+* `flag`: The VWO feature flag instance or a default fallback flag if not ready or errors occur.
+* `isReady`: Becomes true once the flag data is loaded and available.
 
 ## useGetFlagVariable
 
