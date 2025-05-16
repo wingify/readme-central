@@ -106,6 +106,8 @@ interface IFlag {
 * `flag`: The VWO feature flag instance or a default fallback flag if not ready or errors occur.
 * `isReady`: Becomes true once the flag data is loaded and available.
 
+Learn more about useGetFlag
+
 ## useGetFlagVariable
 
 The `useGetFlagVariable` hook allows you to fetch a specific variable associated with a feature flag.
