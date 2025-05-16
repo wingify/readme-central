@@ -5,16 +5,14 @@ hidden: true
 metadata:
   robots: index
 ---
-# Logging
-
 VWO by default logs all `ERROR` level messages to your device console. To gain more control over VWO's logging behavior, you can use the `logger` parameter in the `init` configuration.
 
 ## Logger Properties
 
-| Parameter    | Type   | Description                                                                            |
-| :----------- | :----- | :------------------------------------------------------------------------------------- |
-| **level**    | String | Level or Type of error. Could be one of the following: DEBUG, INFO, ERROR, TRACE, WARN |
-| **transports** | List/Object | Custom logger implementation(s) for advanced log handling.                        |
+| Parameter      | Type        | Description                                                                            |
+| :------------- | :---------- | :------------------------------------------------------------------------------------- |
+| **level**      | String      | Level or Type of error. Could be one of the following: DEBUG, INFO, ERROR, TRACE, WARN |
+| **transports** | List/Object | Custom logger implementation(s) for advanced log handling.                             |
 
 ## Examples
 
@@ -69,3 +67,10 @@ loggerOptions.put("level", "TRACE");
 loggerOptions.put("transports", logger);
 vwoInitOptions.setLogger(loggerOptions);
 ```
+
+The custom logger implementation allows you to:
+
+* Process log messages according to your application's needs
+* Forward logs to your preferred logging service
+* Filter or transform log messages before they are displayed
+* Integrate with your existing logging infrastructure
