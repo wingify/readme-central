@@ -38,6 +38,16 @@ When this hook is executed:
 * *Personalization Triggers*: Deliver dynamic content based on real-time user actions.
 * *Performance Optimization*: Identify friction points in the user journey to improve the overall experience.
 
+> 📘 Important Note
+>
+> * The event name and properties sent via the trackEvent hook must correspond exactly to the custom events defined in VWO’s Data360 module.
+>
+> If the event is not pre-registered in Data360, the conversion will not be recorded in the VWO dashboard.
+>
+> Event properties should match the key names and data types defined in the event setup to ensure accurate metric tracking and reporting.
+>
+> The trackEvent hook is primarily for conversion and behavioral tracking and should not be used to alter user targeting or feature rollout logic.
+
 ### Usage
 
 ```typescript TypeScript
@@ -141,6 +151,16 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
   * Ensures predictable behavior even when VWO context is misconfigured or unavailable.
 
 ### Return Type
+
+```typescript TypeScript
+interface ITrackEvent {
+  trackEvent: (
+    eventName: string,
+    eventProperties?: Record<string, string | number | boolean>,
+  ) => Promise<Record<string, boolean>>;
+  isReady: boolean;
+}
+```
 
 The hook returns an object with the following structure:
 
