@@ -23,7 +23,7 @@ const { vwoClient, isReady } = useVWOClient();
 
 if (isReady) {
   // Using vwoClient, you can run experiments, track events, and manage feature flags.
-	// For example, call methods like vwoClient.getFlag(), vwoClient.trackEvent(), etc.
+  // For example, call methods like vwoClient.getFlag(), vwoClient.trackEvent(), etc.
 }
 ```
 
