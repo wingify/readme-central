@@ -24,7 +24,7 @@ final vwoClient = await VWO.init(vwoInitOptions);
 // Create VWOUserContext object
 final context = VWOUserContext(
     id: "unique_user_id",
-    customVariables: {"key1": 21, "key2":"value"}
+    customVariables: {"key1": 21, "key2": "value"}
 );
 
 // Get the GetFlag object for the feature key and context
