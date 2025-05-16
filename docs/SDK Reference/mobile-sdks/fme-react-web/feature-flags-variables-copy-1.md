@@ -25,7 +25,7 @@ useGetFlag is a custom React hook to fetch and manage the state of a specific fe
 ```typescript TypeScript
 import React from 'react';
 import { useGetFlag, useGetFlagVariable, useGetFlagVariables } from 'vwo-fme-react-sdk'; // Import hooks
-
+ 
 const YourComponent = () => {
   // Retrieve the flag using the feature key
   const { flag, isReady } = useGetFlag('feature_key');
