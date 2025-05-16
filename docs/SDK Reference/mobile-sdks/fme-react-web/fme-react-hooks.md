@@ -107,7 +107,7 @@ interface IFlag {
 * `flag`: The VWO feature flag instance or a default fallback flag if not ready or errors occur.
 * `isReady`: Becomes true once the flag data is loaded and available.
 
-Learn more about useGetFlag
+[Learn more about useGetFlag](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables)
 
 ## useGetFlagVariable
 
