@@ -27,7 +27,7 @@ To ensure accurate and consistent performance evaluation, all benchmarks present
 
 * **CPU**: 16-core (x86\_64 architecture)
 * **Memory**: 32 GB RAM
-* **Operating System**: Ubuntu 22.04 LTS
+* **Operating System**: Debian GNU/Linux 10 (buster) 10.13
 
 > 📘 Note
 >
