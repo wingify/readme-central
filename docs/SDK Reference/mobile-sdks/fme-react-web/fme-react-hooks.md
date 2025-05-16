@@ -10,7 +10,7 @@ The `VWO FME React SDK` provides a set of hooks to help you seamlessly integrate
 
 Here are the available hooks:
 
-## useVWOClient
+## 1. useVWOClient
 
 `useVWOClient` is a custom React hook that provides access to the initialized VWO SDK client instance within components wrapped by `VWOProvider`. It enables interaction with the VWO platform for experiments, feature flags, and tracking.
 
@@ -46,7 +46,7 @@ interface VWOClientResult {
 * `vwoClient`: The VWO SDK client instance if initialized; otherwise null.
 * `isReady`: Boolean indicating whether the VWO client is fully initialized and ready for use.
 
-## useGetFlag
+## 2. useGetFlag
 
 `useGetFlag` is a custom React hook to fetch and manage the state of a specific feature flag from the VWO SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
 
