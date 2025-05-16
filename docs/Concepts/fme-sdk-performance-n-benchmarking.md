@@ -33,15 +33,19 @@ To ensure accurate and consistent performance evaluation, all benchmarks present
 >
 > Benchmarks are representative of high-performance production environments and help assess SDK behavior under typical backend and service workloads.
 
-<br />
+To help you understand the performance characteristics of the VWO FME SDKs across different environments, we’ve broken down key technical dimensions that are critical for evaluating SDK integration in production systems.
 
-1. [Performance Impact on Application](#performance-impact-on-application)
-2. Initialization Performance
-3. Method Benchmarks
-4. Memory and Resource Utilization
-5. Network Usage Profile
-6. HTTP Endpoint Interactions
-7. SDK Footprint
+In the following sections, you'll find detailed insights on:
+
+1. [Performance Impact on Application](#performance-impact-on-application) - Understand how SDK operations affect your app’s responsiveness and runtime performance.
+2. [Initialization Performance](#initialization-performance)  - Learn about the startup behavior of the SDK and how it handles configuration loading.
+3. [Method Benchmarks](#method-benchmarks)  - Dive into micro-benchmarks for common methods like getFlag, track, and others.
+4. [Memory and Resource Utilization](#memory-and-resource-utilization) - Explore the runtime memory and CPU characteristics under typical workloads.
+5. [Network Usage Profile](#network-usage-profile) - See how the SDK communicates over the network, what calls are made, and how frequently.
+6. [SDK Footprint](#sdk-footprint) - Evaluate the size, CPU usage, and runtime behavior of the SDK in constrained environments.
+7. [Deployment Suitability](#deployment-suitability) - Get recommendations on where and how the SDK can be safely deployed across serverless, mobile, edge, and backend stacks.
+
+These insights will help engineering teams make informed decisions about SDK usage in performance-sensitive applications.
 
 <br />
 
