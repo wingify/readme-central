@@ -13,7 +13,7 @@ This document provides insights into the performance characteristics of VWO FME 
 
 ## Local Evaluation
 
-VWO FME SDKs are designed with local decision-making as a core principle. Once initialized with configuration data fetched from VWO DACDN, all flag evaluations, variable resolutions, and targeting decisions are performed entirely within the SDK, without additional network calls. This approach ensures sub-millisecond response times for decision APIs like getFlag() and getVariable(), making our SDKs highly performant and suitable for latency-sensitive applications across backend services, mobile apps, and client-side environments.
+VWO FME SDKs are designed with local decision-making as a core principle. Once initialized with configuration data fetched from VWO DACDN, all flag evaluations, variable resolutions, and targeting decisions are performed entirely within the SDK, without additional network calls. This approach ensures sub-millisecond response times for decision APIs like `getFlag()` and `getVariable()`, making our SDKs highly performant and suitable for latency-sensitive applications across backend services, mobile apps, and client-side environments.
 
 We have benchmarked our SDKs across various use cases and environments to validate their low-latency and low-overhead nature. You can find below the detailed benchmark metrics, resource usage stats, and operational characteristics that demonstrate their performance at scale.
 
