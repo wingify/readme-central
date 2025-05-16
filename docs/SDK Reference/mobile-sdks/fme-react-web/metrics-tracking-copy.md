@@ -130,6 +130,9 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
   * If all validations pass:
     * Sends the event to VWO via vwoClient.trackEvent(), including eventProperties if provided.
     * Returns a Promise that resolves to \{ \[eventName]: true } on success.
+  * If validations fail or tracking fails:
+    * Logs detailed errors using the internal logger.
+    * Gracefully resolves with an empty object {} to avoid app crashes.
 * Graceful Degradation:
   * If any required condition is missing, the function resolves with an empty object ({}) instead of throwing errors.
 
