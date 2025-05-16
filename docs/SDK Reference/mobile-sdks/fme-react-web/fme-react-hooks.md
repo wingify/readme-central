@@ -48,10 +48,35 @@ interface VWOClientResult {
 
 ## useGetFlag
 
-The `useGetFlag` hook is used to retrieve a feature flag and check its status. It also provides access to associated variables.
+`useGetFlag` is a custom React hook to fetch and manage the state of a specific feature flag from the VWO SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
 
-* **Usage**: Retrieve the flag and check if it is enabled for the current user.
-* **More Info**: [Learn more about useGetFlag](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables#usegetflag-hook)
+### Usage
+
+```typescript
+const { flag, isReady } = useGetFlag('feature_key');
+
+if (isReady && flag.isEnabled()) {
+  // Feature flag is enabled — render accordingly
+}
+```
+
+* Optionally, if you have not provided userContext in `VWOProvider`You can pass a custom user context to evaluate the flag for a specific user:
+
+```typescript
+import { IVWOContextModel } from 'vwo-fme-react-sdk';
+
+const userContext: IVWOContextModel = { id: 'unique_user_id' }
+const { flag } = useGetFlag('feature_key', userContext);
+```
+
+### Parameters
+
+| Name           | Type                        | Description                                                                               |
+| :------------- | :-------------------------- | :---------------------------------------------------------------------------------------- |
+| **featureKey** | string                      | The key identifying the feature flag to fetch.                                            |
+| **context**    | IVWOContextModel (optional) | User context for flag evaluation. If omitted, defaults to the context from `VWOProvider`. |
+
+<br />
 
 ## useGetFlagVariable
 
