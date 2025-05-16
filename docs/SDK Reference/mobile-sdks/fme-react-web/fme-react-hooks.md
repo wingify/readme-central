@@ -54,11 +54,7 @@ interface VWOClientResult {
 
 ```typescript
 const { flag, isReady } = useGetFlag('feature_key');
-
-if (isReady) {
-  // Feature flag is enabled — render accordingly
-  // return <div>Loading...</div>
-}
+const isFeatureEnabled = flag.isEnabled();
 ```
 
 * Optionally, if you have not provided userContext in `VWOProvider`You can pass a custom user context to evaluate the flag for a specific user:
@@ -69,6 +65,11 @@ import { IVWOContextModel } from 'vwo-fme-react-sdk';
 const userContext: IVWOContextModel = { id: 'unique_user_id' }
 const { flag, isReady } = useGetFlag('feature_key', userContext);
 ```
+
+> 📘 When to Use `isReady`
+>
+> 1. When `VWOProvider` and the `useGetFlag` hook are used together on the same page without providing a `fallbackComponent` in `VWOProvider`.
+> 2. When performing pre-segmentation based on user-agent or IP address, to ensure the VWO client and flags are fully initialized before evaluation.
 
 #### Parameters
 
@@ -89,11 +90,6 @@ const { flag, isReady } = useGetFlag('feature_key', userContext);
 * Uses `useMemo` to memoize user context and avoid unnecessary refetches on stable inputs.
 * Uses `useCallback` to memoize the flag fetch function.
 * Returns a fallback flag object when not ready or on errors, to ensure safe usage in components.
-
-> 📘 Note
->
-> * React components using this hook should check `isReady` before relying on flag data for conditional rendering or logic to avoid acting on incomplete or default flag values.
-> * This hook does not trigger re-fetching unless dependencies change (`featureKey1`, `userContext`, or client readiness).
 
 #### Return Type
 
