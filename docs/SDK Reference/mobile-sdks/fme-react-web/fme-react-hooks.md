@@ -21,7 +21,7 @@ The hook **does not** accept any parameters. It internally consumes the VWO cont
 ```javascript
 const { vwoClient, isReady } = useVWOClient();
 
-if (isReady && vwoClient) {
+if (isReady) {
   // Using vwoClient, you can run experiments, track events, and manage feature flags.
 	// For example, call methods like vwoClient.getFlag(), vwoClient.trackEvent(), etc.
 }
