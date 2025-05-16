@@ -7,7 +7,21 @@ metadata:
 ---
 To integrate VWO Feature Management and Experimentation (FME) into your React application, you must wrap your application code with the `VWOProvider` component.
 
-The `VWOProvider`Component is used to initialize the VWO client using the provided configuration. It wraps your React application and provides the VWO client instance to all child components via context. This setup enables you to interact with the VWO platform, including running experiments, tracking events, and enabling/disabling feature flags using the available hooks.
+The `VWOProvider` is a React context provider that initializes the VWO Feature Management and Experimentation (FME) SDK and makes the client instance and user context available to child components through React Context.
+
+It is essential for enabling feature flag evaluation, A/B testing, and user tracking using hooks like `useVWOClient` or `useGetFlag`.
+
+## Parameter Types (`IVWOProvider`)
+
+<br />
+
+| Prop                  | Type               | Required | Description                                                                                |
+| :-------------------- | :----------------- | :------- | :----------------------------------------------------------------------------------------- |
+| **client**            | `IVWOClient`       | No       | Pre-initialized VWO client. If provided, it overrides the `config`.                        |
+| **config**            | `IVWOOptions`      | No       | SDK configuration for initializing the VWO client. Required if the `client` is not passed. |
+| **userContext**       | `IVWOContextModel` | No       | Initial user context to evaluate flags and experiments.                                    |
+| **children**          | `ReactNode`        | Yes      | Child components that require access to VWO context.                                       |
+| **fallbackComponent** | `ReactNode`        | No       | Component shown while the client is initializing.                                          |
 
 ## Usage
 
