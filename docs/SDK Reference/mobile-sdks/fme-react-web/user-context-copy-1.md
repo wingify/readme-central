@@ -26,7 +26,7 @@ By leveraging these attributes, organizations can deliver **precisely targeted f
 
 ## Usage with `VWOProvider`
 
-```typescript JavaScript
+```typescript TypeScript
 import React from 'react';
 import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
 
@@ -141,4 +141,11 @@ export default App;
   </tbody>
 </Table>
 
-##
+## Usage with `useGetFlag` Hook
+
+```Text TypeScript
+import { IVWOContextModel } from 'vwo-fme-react-sdk';
+
+const userContext: IVWOContextModel = { id: 'unique_user_id' }
+const { flag, isReady } = useGetFlag('feature_key', userContext);
+```
