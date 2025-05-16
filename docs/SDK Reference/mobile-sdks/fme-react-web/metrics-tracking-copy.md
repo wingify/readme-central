@@ -40,13 +40,10 @@ When this hook is executed:
 
 > 📘 Important Note
 >
-> * The event name and properties sent via the trackEvent hook must correspond exactly to the custom events defined in VWO’s Data360 module.
->
-> If the event is not pre-registered in Data360, the conversion will not be recorded in the VWO dashboard.
->
-> Event properties should match the key names and data types defined in the event setup to ensure accurate metric tracking and reporting.
->
-> The trackEvent hook is primarily for conversion and behavioral tracking and should not be used to alter user targeting or feature rollout logic.
+> * The event name and properties sent via the  ***trackEvent*** hook must correspond exactly to the custom events defined in VWO’s Data360 module.
+> * If the event is not pre-registered in Data360, the conversion will not be recorded in the VWO dashboard.
+> * Event properties should match the key names and data types defined in the event setup to ensure accurate metric tracking and reporting.
+> * The trackEvent hook is primarily for conversion and behavioral tracking and should not be used to alter user targeting or feature rollout logic.
 
 ### Usage
 
