@@ -27,6 +27,25 @@ if (isReady) {
 }
 ```
 
+#### Hook Lifecycle & Side Effects
+
+* The hook internally accesses the VWO client and readiness state from the React context.
+* If used outside of a `VWOProvider`, it logs an error and returns a default state with no client and `isReady: false`.
+* If the context indicates the client is not ready, it returns a default state signaling the client is still initializing.
+* The hook has `No side effects` (like state updates or async calls) happen inside this hook, it’s purely for safe retrieval of the VWO client from context.
+
+#### Return Type
+
+```typescript
+interface VWOClientResult {
+  vwoClient: IVWOClient | null;
+  isReady: boolean;
+}
+```
+
+* `vwoClient`: The VWO SDK client instance if initialized; otherwise null.
+* `isReady`: Boolean indicating whether the VWO client is fully initialized and ready for use.
+
 Using the above `vwoClient`You can call the different methods available directly without using any hooks.
 
 Check if the feature flag is enabled using `getFlag` method:
@@ -73,25 +92,6 @@ if (!isReady || !vwoClient) return;
 const userContext: IVWOContextModel = { id: 'user_123' };
 vwoClient.setAttribute('event_name', userContext);
 ```
-
-#### Hook Lifecycle & Side Effects
-
-* The hook internally accesses the VWO client and readiness state from the React context.
-* If used outside of a `VWOProvider`, it logs an error and returns a default state with no client and `isReady: false`.
-* If the context indicates the client is not ready, it returns a default state signaling the client is still initializing.
-* The hook has `No side effects` (like state updates or async calls) happen inside this hook, it’s purely for safe retrieval of the VWO client from context.
-
-#### Return Type
-
-```typescript
-interface VWOClientResult {
-  vwoClient: IVWOClient | null;
-  isReady: boolean;
-}
-```
-
-* `vwoClient`: The VWO SDK client instance if initialized; otherwise null.
-* `isReady`: Boolean indicating whether the VWO client is fully initialized and ready for use.
 
 ## useGetFlag
 
