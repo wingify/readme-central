@@ -155,4 +155,4 @@ const userContext: IVWOContextModel = { id: 'unique_user_id' }
 const { flag, isReady } = useGetFlag('feature_key', userContext);
 ```
 
-[Learn more about useGetFlag](https://developers.vwo.com/v2/docs/feature-flags-variables)
+[Learn more about useGetFlag](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables)
