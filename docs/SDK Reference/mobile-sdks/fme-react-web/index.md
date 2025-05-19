@@ -26,19 +26,21 @@ To facilitate a comprehensive understanding and effective implementation of the 
    Learn how to initialize the VWO client within your application, including configuring essential parameters such as accountId, sdkKey, and optional settings like pollInterval, logger, storage, gatewayService, and integrations.
 3. [User Context](doc:fme-react-context)\
    Understand how to define and manage user contexts to enable targeted feature rollouts and personalized user experiences.
-4. [Feature Flags & Variables](doc:fme-react-flags)\
-   Explore how to create, manage, and evaluate feature flags and variables to control feature availability dynamically.
-5. [Metrics Tracking](doc:fme-react-metrics)\
+4. [Hooks](doc:fme-react-hooks)\
+   Learn how to use VWO's React SDK hooks to integrate feature flagging, event tracking, and user attribute management seamlessly into your React applications. Also, we have provided an example of how you can write test cases in your application.
+5. [Feature Flags & Variables](doc:fme-react-flags)\
+   Explore how to dynamically create, manage, and evaluate feature flags and variables to control feature availability.
+6. [Metrics Tracking](doc:fme-react-metrics)\
    Discover methods to track user interactions and measure the impact of feature rollouts and experiments on key performance indicators.
-6. [Attributes](doc:fme-react-attributes)\
+7. [Attributes](doc:fme-react-attributes)\
    Learn how to utilize user attributes for advanced targeting and segmentation in your feature management strategy.
-7. [Logging](doc:fme-react-logging)\
+8. [Logging](doc:fme-react-logging)\
    Configure logging to monitor SDK operations, debug issues, and maintain observability within your application.
-8. [Storage Service](doc:fme-react-storage)\
+9. [Storage Service](doc:fme-react-storage)\
    Implement custom storage solutions to persist user assignments and enhance performance.
-9. [Integrations](doc:fme-react-integrations)\
-   Integrate the SDK with third-party tools and services to extend functionality and streamline workflows.
+10. [Integrations](doc:fme-react-integrations)\
+    Integrate the SDK with third-party tools and services to extend functionality and streamline workflows.
 
-   Each
+    Each
 
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.
