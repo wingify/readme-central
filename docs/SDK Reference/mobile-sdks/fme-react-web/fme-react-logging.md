@@ -23,12 +23,12 @@ VWO by default logs all ERROR level messages to your console. To gain more contr
 **Example 1**: Set log level to control the verbosity of logs
 
 ```typescript
-import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+import { VWOProvider, IVWOOptions, IVWOContextModel, LogLevelEnum } from 'vwo-fme-react-sdk';
 const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
   accountId: '123456', // VWO Account ID
   logger: {
-    level: 'debug',
+    level: LogLevelEnum.DEBUG // INFO, WARN, ERROR
   },
 };
 
@@ -46,12 +46,12 @@ export default App;
 **Example 2**: Add a custom prefix to log messages for easier identification
 
 ```typescript
-import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+import { VWOProvider, IVWOOptions, IVWOContextModel, LogLevelEnum } from 'vwo-fme-react-sdk';
 const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
   accountId: '123456', // VWO Account ID
   logger: {
-    level: 'debug',
+    level: LogLevelEnum.DEBUG // INFO, WARN, ERROR
     prefix: 'CUSTOM LOG PREFIX', // custom logger prefix
   },
 };
@@ -82,14 +82,14 @@ For example, you could:
 The transport object should implement handlers for the log levels you want to customize. Each handler receives the log message as a parameter.
 
 ```typescript
-import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+import { VWOProvider, IVWOOptions, IVWOContextModel, LogLevelEnum } from 'vwo-fme-react-sdk';
 const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
   accountId: '123456', // VWO Account ID
   logger: {
-    level: 'DEBUG',
+    level: LogLevelEnum.DEBUG, // INFO, WARN, ERROR
     transport: {
-      level: 'INFO',
+      level: LogLevelEnum.INFO, // DEBUG, WARN, ERROR
       log: (level, message) => {
         // your custom implementation here
       },
@@ -111,20 +111,20 @@ export default App;
 For multiple `transports` you can use the transports parameter. For example:
 
 ```typescript
-import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+import { VWOProvider, IVWOOptions, IVWOContextModel, LogLevelEnum } from 'vwo-fme-react-sdk';
 const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
   accountId: '123456', // VWO Account ID
   logger: {
     transports: [
       {
-        level: 'INFO',
+        level: LogLevelEnum.INFO, // DEBUG, WARN, ERROR
         log: (level, message) => {
           // your custom implementation here
         },
       },
       {
-        level: 'ERROR',
+        level: LogLevelEnum.ERROR // DEBUG, INFO, WARN
         log: (level, message) => {
           // your custom implementation here
         },
