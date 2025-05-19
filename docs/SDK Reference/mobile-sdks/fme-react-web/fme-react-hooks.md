@@ -81,8 +81,6 @@ The `useSetAttribute` hook provides a simple way to associate these attributes w
 * **Usage**: Assign user attributes to help with segmentation and personalization.
 * **More Info**: [Learn more about useSetAttribute](https://developers.vwo.com/v2/docs/fme-react-attributes#usesetattribute-hook)
 
-<br />
-
 # Testing
 
 When writing tests for React components that use VWO hooks like useGetFlag, you can easily mock the SDK’s hooks to control returned values and simulate different feature flag states.
