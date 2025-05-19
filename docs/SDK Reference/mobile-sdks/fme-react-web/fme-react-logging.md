@@ -108,4 +108,42 @@ const App = () => (
 export default App;
 ```
 
+For multiple `transports` you can use the transports parameter. For example:
+
+```typescript
+import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+const vwoConfig: IVWOOptions = {
+  sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
+  accountId: '123456', // VWO Account ID
+  logger: {
+    transports: [
+      {
+        level: 'INFO',
+        log: (level, message) => {
+          // your custom implementation here
+        },
+      },
+      {
+        level: 'ERROR',
+        log: (level, message) => {
+          // your custom implementation here
+        },
+      },
+    ]
+  },
+};
+
+const userContext: IVWOContextModel = {id: 'unique_user_id'};
+
+const App = () => (
+  <VWOProvider config={vwoConfig} userContext={userContext}>
+    <YourComponent />
+  </VWOProvider>
+);
+
+export default App;
+```
+
+<br />
+
 This "logger" object can be passed as one of the parameters when [initializing *VWOProvider*.](https://dash.readme.com/project/vwo/v2/docs/fme-react-initialization)
