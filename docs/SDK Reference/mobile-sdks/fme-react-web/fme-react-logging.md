@@ -89,11 +89,10 @@ const vwoConfig: IVWOOptions = {
   logger: {
     level: 'DEBUG',
     transport: {
-      debug: (msg) => console.log(`DEBUG: ${msg}`),
-      info: (msg) => console.log(`INFO: ${msg}`),
-      warn: (msg) => console.log(`WARN: ${msg}`),
-      error: (msg) => console.log(`ERROR: ${msg}`),
-      trace: (msg) => console.log(`TRACE: ${msg}`),
+      level: 'INFO',
+      log: (level, message) => {
+        // your custom implementation here
+      },
     },
   },
 };
