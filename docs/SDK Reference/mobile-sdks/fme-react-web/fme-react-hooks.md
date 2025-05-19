@@ -6,7 +6,7 @@ hidden: false
 metadata:
   robots: index
 ---
-The `VWO FME React SDK` provides a set of hooks to help you seamlessly integrate feature flagging, experimentation, and event tracking into your React application. These hooks are designed to provide an easy and flexible way to interact with the VWO SDK.
+The `VWO FME React SDK` provides a set of hooks to help you seamlessly integrate feature flagging, experimentation, and event tracking into your React application. These hooks provide an easy and flexible way to interact with the VWO SDK.
 
 Here are the available hooks:
 
@@ -27,7 +27,7 @@ if (isReady) {
 }
 ```
 
-Using the above `vwoClient`You can call multiple SDK methods directly without using any hooks.
+Using the above `vwoClient`You can call the different methods available directly without using any hooks.
 
 Check if the feature flag is enabled using `getFlag` method:
 
