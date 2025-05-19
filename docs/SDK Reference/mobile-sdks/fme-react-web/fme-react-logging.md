@@ -144,6 +144,4 @@ const App = () => (
 export default App;
 ```
 
-<br />
-
 This "logger" object can be passed as one of the parameters when [initializing *VWOProvider*.](https://dash.readme.com/project/vwo/v2/docs/fme-react-initialization)
