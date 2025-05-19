@@ -93,7 +93,7 @@ Consider the following React component that uses the useGetFlag hook to check wh
 import React from 'react';
 import { useGetFlag } from 'vwo-fme-react-sdk';
 
-function FeatureStatus() {
+function FeatureStatus(): JSX.Element {
   const { flag, isReady } = useGetFlag('your_feature_key');
 
   if (!isReady) {
