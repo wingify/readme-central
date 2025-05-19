@@ -27,6 +27,53 @@ if (isReady) {
 }
 ```
 
+Using the above `vwoClient`You can call multiple SDK methods directly without using any hooks.
+
+Check if the feature flag is enabled using `getFlag` method:
+
+```typescript
+const { vwoClient, isReady } = useVWOClient();
+
+useEffect(() => {
+  if (!isReady) return;
+
+  (async () => {
+    const userContext: IVWOContextModel = { id: 'user_123' };
+    
+    // Retrieve the flag using the feature key and userContext
+    const feature: Flag = await vwoClient.getFlag('feature_key', userContext);
+    // check if the flag is enabled
+    const enabled = feature.isEnabled();
+    // get specific variable value
+    const variableValue = feature.getVariable('variable-key', 'default-value')
+    // get all variables
+    const allVariables = feature.getVariables();
+  })();
+}, [isReady]);
+```
+
+Track an event using `trackEvent` method.
+
+```typescript
+const { vwoClient, isReady } = useVWOClient();
+if (!isReady || !vwoClient) return;
+
+const userContext: IVWOContextModel = { id: 'user_123' };
+vwoClient.trackEvent('event_name', userContext);
+```
+
+> If you want to check the status of `trackEvent` method, then you have to use `await` and store the result.
+
+Set Attributes using `setAttribute` method:
+
+```typescript
+const { vwoClient, isReady } = useVWOClient();
+if (!isReady || !vwoClient) return;
+
+const userContext: IVWOContextModel = { id: 'user_123' };
+vwoClient.setAttribute('event_name', userContext);
+```
+
 #### Hook Lifecycle & Side Effects
 
 * The hook internally accesses the VWO client and readiness state from the React context.
