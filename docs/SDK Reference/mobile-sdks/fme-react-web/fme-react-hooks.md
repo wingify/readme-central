@@ -108,7 +108,7 @@ function FeatureStatus(): JSX.Element {
 }
 ```
 
-Use Jest  to mock useGetFlag and VWOProvider to return controlled values, allowing you to test component behavior under different flag conditions:
+Use Jest  to mock useGetFlag and VWOProvider to return controlled values, allowing you to test component behaviour under different flag conditions:
 
 ```typescript TypeScript
 import { render, screen } from '@testing-library/react';
