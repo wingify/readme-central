@@ -2,7 +2,7 @@
 title: Hooks
 excerpt: Available Hooks in VWO FME React SDK
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
