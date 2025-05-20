@@ -56,7 +56,7 @@ const userContext: IVWOContextModel = {
 const fallbackComponent = <div>Initializing VWO...</div>;
 
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={userContext} fallbackComponent={fallbackComponent}>
+  <VWOProvider config={vwoConfig} userContext={ userContext } fallbackComponent={fallbackComponent}>
     <YourComponent />
   </VWOProvider>
 );
