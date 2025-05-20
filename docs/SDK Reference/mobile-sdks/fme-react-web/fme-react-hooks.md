@@ -187,3 +187,5 @@ test('renders flag enabled and variable value', () => {
 });
 
 ```
+
+You can also refer to the VWO FME React SDK tests [here](https://github.com/wingify/vwo-fme-react-sdk/tree/master/test) .
