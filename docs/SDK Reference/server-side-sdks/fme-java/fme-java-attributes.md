@@ -100,7 +100,7 @@ vwoClient.setAttribute(attributeMap, userContext);
       </td>
 
       <td>
-        A hash of multiple attributes you want to set for a user.
+        A map of multiple attributes you want to set for a user.
       </td>
     </tr>
 
