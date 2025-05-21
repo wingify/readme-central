@@ -67,9 +67,9 @@ flowchart TD
     class G async
 
     %% Define styles
-    classDef initial fill:#E1BEE7,stroke:#333,stroke-width:1px,color:#000
+    classDef initial fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef subsequent fill:#bbf,stroke:#333,stroke-width:1px,color:#000
-    classDef async fill:#bbf2c7,stroke:#333,stroke-width:1px,color:#000
+    classDef async fill:#bbf,stroke:#333,stroke-width:1px,color:#000
 
 ```
 
@@ -125,7 +125,7 @@ flowchart TD
     class B check
 
     %% Define styles
-    classDef start fill:#E1BEE7,stroke:#333,stroke-width:1px,color:#000
+    classDef start fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef check fill:#bbf,stroke:#333,stroke-width:1px,color:#000
 
 ```
