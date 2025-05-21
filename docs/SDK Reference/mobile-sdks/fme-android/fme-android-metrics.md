@@ -12,11 +12,11 @@ next:
 ---
 Every feature flag that you create can have connected metrics that can be used to track strategic KPIs relating to the feature. These metrics can be used to track the performance of control vs variation in the case of testing rules, and can also be used to measure the impact of personalize and rollout campaigns.
 
-For each feature flag, you need to define at least one "Primary Metric", and you can set up as many secondary metrics as you'd like. 
+For each feature flag, you need to define at least one "Primary Metric", and you can set up as many secondary metrics as you'd like.
 
-Metrics in FME are based on "Custom Events" that you can create in VWO > Data360>Events. All the custom events created in Data360 will be available to be used as metrics in your feature flags. 
+Metrics in FME are based on "Custom Events" that you can create in VWO > Data360>Events. All the custom events created in Data360 will be available to be used as metrics in your feature flags.
 
-Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet: 
+Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet:
 
 ## ***Track Event*** API
 
@@ -71,7 +71,7 @@ Map<String, Boolean> trackResponse = vwoClient.trackEvent("vwoevent", userContex
 Map<String, Object> eventProperties = new HashMap<>();
 eventProperties.put("cartvalue", 120);
 eventProperties.put("productCountInCart", 2);
- 
+
 Map<String, Boolean> trackResponse = vwoClient.trackEvent("event-name", userContext, eventProperties);
 ```
 
@@ -136,7 +136,7 @@ Map<String, Boolean> trackResponse = vwoClient.trackEvent("event-name", userCont
       </td>
 
       <td>
-        any properties of this event that you wish to pass to VWO. E.g: for a "purchase" event, some properties could be "cartValue", "currency", "shippingMethod" etc. These must be passed as key-value pairs, and the property name should exactly match what you set while creating the event in VWO > Data360>Events.
+        Any properties of this event that you wish to pass to VWO. E.g: for a "purchase" event, some properties could be "cartValue", "currency", "shippingMethod" etc. These must be passed as key-value pairs, and the property name should exactly match what you set while creating the event in VWO > Data360>Events.
       </td>
     </tr>
   </tbody>
@@ -144,4 +144,4 @@ Map<String, Boolean> trackResponse = vwoClient.trackEvent("event-name", userCont
 
 > 🚧 Note
 >
-> Please note that the *Event* must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application.
+> The *Event* must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application. Please refer [this](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO) KB article to know more on how to create and manage events in VWO application.

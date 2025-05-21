@@ -167,4 +167,4 @@ The hook returns an object with the following structure:
 
 > 🚧 Note
 >
-> Please note that the *Event* must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application.
+> The *Event* must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application. Please refer [this](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO) KB article to know more on how to create and manage events in VWO application.
