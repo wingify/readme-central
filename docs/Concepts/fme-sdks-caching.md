@@ -120,8 +120,13 @@ flowchart TD
     C --> G[Determine Expiration Strategy]
     G --> H[Invalidate & Refresh if Needed]
 
-    style A fill:#E1BEE7,stroke:#333,stroke-width:1px
-    style B fill:#bbf,stroke:#333,stroke-width:1px
+    %% Assign classes
+    class A start
+    class B check
+
+    %% Define styles
+    classDef start fill:#E1BEE7,stroke:#333,stroke-width:1px,color:#000
+    classDef check fill:#bbf,stroke:#333,stroke-width:1px,color:#000
 
 ```
 
