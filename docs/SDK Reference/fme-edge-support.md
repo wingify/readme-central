@@ -45,7 +45,7 @@ The `shouldWaitForTrackingCalls` Parameter is designed to ensure that tracking c
 
 | Parameter                      | Type    | Default | Recommended Value in Edge |
 | :----------------------------- | :------ | :------ | :------------------------ |
-| **shouldWaitForTrackingCalls** | Boolean | False   | True                      |
+| **shouldWaitForTrackingCalls** | Boolean | false   | true                      |
 
 When `shouldWaitForTrackingCalls` is set to true, the SDK will wait for the tracking calls (such as event tracking or feature flag tracking) to finish before returning control to the application. This ensures that all tracking data is sent successfully before continuing execution, which is particularly useful when using edge functions, where immediate resolution of promises might bypass crucial asynchronous actions like data transmission.
 
@@ -86,7 +86,7 @@ main();
 
 ### Code Breakdown
 
-* \*\*init(\{ shouldWaitForTrackingCalls: true })\*\*: Ensures the SDK waits for tracking HTTP calls before returning control.
+* **init(\{ shouldWaitForTrackingCalls: true })**: Ensures the SDK waits for tracking HTTP calls before returning control.
 * **getFlag, trackEvent, and setAttribute**: These return promises that should be awaited in edge runtimes.
 * **Graceful fallback for variables**: Always provide a default value to getVariable() to handle missing configurations.
 
