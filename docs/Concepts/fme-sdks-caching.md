@@ -61,9 +61,15 @@ flowchart TD
     J --> K[Refresh SDK instance]
     I -- No --> L[Do nothing]
 
-    style A fill:#E1BEE7,stroke:#333,stroke-width:1px
-    style D fill:#bbf,stroke:#333,stroke-width:1px
-    style G fill:#bbf2c7,stroke:#333,stroke-width:1px
+    %% Assign classes
+    class A initial
+    class D subsequent
+    class G async
+
+    %% Define styles
+    classDef initial fill:#E1BEE7,stroke:#333,stroke-width:1px,color:#000
+    classDef subsequent fill:#bbf,stroke:#333,stroke-width:1px,color:#000
+    classDef async fill:#bbf2c7,stroke:#333,stroke-width:1px,color:#000
 
 ```
 
