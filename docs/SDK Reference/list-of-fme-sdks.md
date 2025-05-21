@@ -12,7 +12,7 @@ next:
 ---
 Below is the list of all server-side and client-side FME SDKs.
 
-#### Server-side SDKs
+## Server-side SDKs
 
 <Cards columns={4}>
   <Card title="" href="https://developers.vwo.com/v2/docs/fme-node">
@@ -44,7 +44,9 @@ Below is the list of all server-side and client-side FME SDKs.
   </Card>
 </Cards>
 
-#### Client-side SDKs
+<br />
+
+## Client-side SDKs
 
 <Cards columns={4}>
   <Card title="" href="https://developers.vwo.com/v2/docs/fme-android">
