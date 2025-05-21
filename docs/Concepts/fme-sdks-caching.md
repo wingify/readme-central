@@ -204,7 +204,7 @@ The diagram illustrates how VWO SDKs handle settings initialization and caching 
 
 Client SDKs fetch settings from VWO, store them in localStorage, use them immediately, and refresh them asynchronously in the background.
 
-Server SDKs fetch fresh settings from VWO; or use the passed Stored settings, passed while initializing the SDK.
+Server SDKs fetch fresh settings from VWO; or use the passed stored settings, passed while initializing the SDK.
 
 Both approaches ensure quick flag evaluations while keeping the cache updated to reflect changes from the VWO platform.
 
