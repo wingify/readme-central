@@ -121,11 +121,9 @@ flowchart TD
     G --> H[Invalidate & Refresh if Needed]
 
     %% Assign classes
-    class A start
     class B check
 
     %% Define styles
-    classDef start fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef check fill:#bbf,stroke:#333,stroke-width:1px,color:#000
 
 ```
@@ -208,6 +206,15 @@ graph LR
   J --> L[Use Settings]
   K --> L
   G --> L
+  
+  %% Assign classes
+  class C client
+  class D server
+
+  %% Define styles
+  classDef client fill:#bbf,stroke:#333,stroke-width:1px,color:#000
+  classDef server fill:#bbf,stroke:#333,stroke-width:1px,color:#000
+
 ```
 
 The diagram illustrates how VWO SDKs handle settings initialization and caching differently for client-side and server-side environments:
