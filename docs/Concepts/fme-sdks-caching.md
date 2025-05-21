@@ -191,10 +191,10 @@ graph LR
   C --> E[Fetch Settings → Store in localStorage]
   E --> F[Use Cached Settings Immediately]
   F --> G[Async Refresh → Compare → Update]
-  D --> H[Load Stored Settings from Cache]
-  H --> I{If Missing or Expired}
-  I -->|Yes| J[Fetch from VWO → Persist]
-  I -->|No| K[Use Stored Settings]
+  D --> H[Load Stored Settings from Yoour Storage]
+  H --> I{If passed to init method}
+  I -->|Yes| J[Use stored settings to initialize SDK]
+  I -->|No| K[Fetched settings from VWO]
   J --> L[Use Settings]
   K --> L
   G --> L
