@@ -140,8 +140,6 @@ const vwoInstance = init({
 
 <br />
 
-<br />
-
 ## 4. Polling & Webhooks
 
 When using caching with VWO FullStack SDKs, it's essential to ensure that cached settings stay up-to-date with the latest configurations made in the VWO app. While caching improves performance and reduces network calls, it introduces the risk of stale data, especially in dynamic environments where flags, variables, or campaigns are updated frequently.
