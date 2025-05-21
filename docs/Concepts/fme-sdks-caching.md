@@ -63,7 +63,7 @@ flowchart TD
 
     style A fill:#E1BEE7,stroke:#333,stroke-width:1px
     style D fill:#bbf,stroke:#333,stroke-width:1px
-    style G fill:#green,stroke:#333,stroke-width:1px
+    style G fill:#bbf2c7,stroke:#333,stroke-width:1px
 
 ```
 
