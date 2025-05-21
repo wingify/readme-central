@@ -61,7 +61,9 @@ flowchart TD
     J --> K[Refresh SDK instance]
     I -- No --> L[Do nothing]
 
-
+    style A fill:#E1BEE7,stroke:#333,stroke-width:1px
+    style B fill:#bbf,stroke:#333,stroke-width:1px
+    style A fill:#green,stroke:#333,stroke-width:1px
 
 ```
 
