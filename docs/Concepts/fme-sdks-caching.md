@@ -191,7 +191,7 @@ graph LR
   C --> E[Fetch Settings → Store in localStorage]
   E --> F[Use Cached Settings Immediately]
   F --> G[Async Refresh → Compare → Update]
-  D --> H[Load Stored Settings from Yoour Storage]
+  D --> H[Load Stored Settings from Your Storage]
   H --> I{If passed to init method}
   I -->|Yes| J[Use stored settings to initialize SDK]
   I -->|No| K[Fetched settings from VWO]
