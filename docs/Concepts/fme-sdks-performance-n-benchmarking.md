@@ -33,7 +33,7 @@ To ensure accurate and consistent performance evaluation, all benchmarks present
 >
 > Benchmarks are representative of high-performance production environments and help assess SDK behavior under typical backend and service workloads.
 
-To help you understand the performance characteristics of the VWO FME SDKs across different environments, we’ve broken down key technical dimensions that are critical for evaluating SDK integration in production systems.
+To help you understand the performance characteristics of the VWO FME SDKs across different environments, we’ve broken down key critical technical dimensions for evaluating SDK integration in production systems.
 
 In the following sections, you'll find detailed insights on:
 
@@ -82,14 +82,14 @@ VWO FME SDKs are optimized for fast, non-blocking startup. When the init() metho
 **Key Points:**
 
 * **Asynchronous fetch**: The SDK **does not block** the main application thread during initialization. The HTTP request to retrieve settings happens in the background, ensuring your application remains responsive and performant.
-* **Settings are required for evaluation**: The SDK relies on the fetched settings to make decisions using methods like *getFlag()*, *getVariable()*, and *track()*. These methods cannot return accurate results until the settings are fully loaded and parsed.
+* **Settings are required for evaluation**: The SDK relies on the fetched settings to make decisions using methods like *getFlag()*, *getVariable()*, and *trackEvent()*. These methods cannot return accurate results until the settings are fully loaded and parsed.
 
 ### Cold Start
 
 * **Scenario**: First-time SDK load after process start.
 * **Time Taken**: \~70-80ms
 * **Size of Settings File Fetched**: \~2-3 kB for 10 running feature flags(depends on the number of running feature flags and their configuration).
-* **Network Latency to DaCDN**: \~50ms(Check Uptime and Avg response time - [here](https://status.vwo.com/#/components/P4CJ5YG_lN8Fh07rnB3KSd3ZTTgIxok46ugVHX49GB0Hy_bMBS9kv3d9fS6iXhzH))
+* **Network Latency to DaCDN**: \~50ms(Check Uptime and average response time - [here](https://status.vwo.com/#/components/P4CJ5YG_lN8Fh07rnB3KSd3ZTTgIxok46ugVHX49GB0Hy_bMBS9kv3d9fS6iXhzH))
 
 ### Warm Start
 
@@ -115,7 +115,7 @@ The results below represent average and worst-case scenarios for commonly used m
 * **init**\
   While initialization involves a single HTTP request to VWO DACDN, it’s executed asynchronously. Once initialized, no additional settings fetches are made unless a refresh is triggered manually, via polling, or via webhooks.
 * **getFlag / getVariable**\
-  These are local-only operations. They resolve decisions from the SDK’s in-memory settings without any delay or network latency. *getFlag()* triggers an asynchronous tracking call for reporting purposes, but this does not affect evaluation time. Events can be batched and dispatched asynchronously by configuring batching parameters while initializing the SDK, minimizing impact on the request lifecycle further.
+  These are local-only operations. They resolve decisions from the SDK’s in-memory settings without any delay or network latency. *getFlag()* triggers an asynchronous tracking call for reporting purposes, but this does not affect evaluation time. Events can be batched and dispatched asynchronously by configuring batching parameters while initializing the SDK, minimizing further impact on the request lifecycle.
 * **trackEvent**\
   This method records user events like error rates tracking, latency, goal conversions or exposures. It triggers an asynchronous tracking call for reporting purposes, but this does not affect the application. Events can be batched and dispatched asynchronously by configuring batching parameters while initializing the SDK, minimizing impact on the request lifecycle further.
 * **setAttribute**\
@@ -131,7 +131,7 @@ The results below represent average and worst-case scenarios for commonly used m
       </th>
 
       <th>
-        Avg Time (ms)
+        Average Time (ms)
       </th>
 
       <th>
@@ -221,6 +221,10 @@ The results below represent average and worst-case scenarios for commonly used m
     </tr>
   </tbody>
 </Table>
+
+> 📘 Note for PHP
+>
+> PHP is a synchronous language, meaning it waits for tracking calls to complete before returning a response when using functions like *getFlag*. The same behavior applies to *trackEvent* and *setAttribute* APIs. Typically, these tracking calls complete within *100 ms*, depending on the user's geographic location and the proximity to the nearest VWO server node.
 
 <br />
 
