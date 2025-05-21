@@ -98,9 +98,31 @@ For more information, see our reference on Edge Support: [https://developers.vwo
 
 Server‑side environments (Node.js, Python, Java, .NET, Ruby, PHP, and Go) rely on your custom implementation for caching settings. The SDK exposes hooks for loading and storing settings so you can integrate your existing cache/storage:
 
+### 3.1 How It Works
+
 1. **Initialization with Stored Settings:** Pass previously stored JSON settings when initializing the SDK to skip initial fetch.
-2. **On‑Fetch Callback:** SDK returns fresh settings for you to persist in your cache.
+2. **On‑Fetch Callback:** The SDK returns fresh settings for you to persist in your cache.
 3. **Expiration Control:** Decide when to refresh or invalidate based on your use case.
+
+```mermaid
+flowchart TD
+    A[App Starts] --> B[Check for Stored Settings]
+    B -- Found --> C[Initialize SDK with Stored Settings]
+    B -- Not Found --> F[SDK Operational]
+    
+    C --> F[SDK Initialization]
+
+    C --> G[Determine Expiration Strategy]
+    G --> H[Invalidate & Refresh if Needed]
+
+    style A fill:#E1BEE7,stroke:#333,stroke-width:1px
+    style B fill:#bbf,stroke:#333,stroke-width:1px
+
+```
+
+<br />
+
+### 3.2 How can you pass storedSettings while Initializing SDK
 
 ```javascript Node.js
 import { init } from 'vwo-fme-node-sdk';
@@ -116,27 +138,45 @@ const vwoInstance = init({
 });
 ```
 
-> Coming soon: Storage Connector integration to automatically `get` and `set` VWO settings in popular data stores.
+<br />
 
 <br />
 
 ## 4. Polling & Webhooks
 
+When using caching with VWO FullStack SDKs, it's essential to ensure that cached settings stay up-to-date with the latest configurations made in the VWO app. While caching improves performance and reduces network calls, it introduces the risk of stale data, especially in dynamic environments where flags, variables, or campaigns are updated frequently.
+
+To address this, VWO provides two mechanisms: Polling and Webhooks.
+
 ### 4.1 Polling
 
 * **Mechanism:** Periodically (configurable interval) call VWO API to check for changes.
-* **Behavior:** If settings have changed, SDK updates the local cache and refreshes the instance.
+* **Behavior:** If settings have changed, the SDK updates the local settings cache and refreshes the instance.
+* **Trade-offs:** Increases periodic network usage. May not be truly real-time; depends on the polling interval (e.g., every 5 minutes).
+
+```javascript
+const vwoClient = await init({
+  accountId: '123456',
+  sdkKey: '32-alpha-numeric-sdk-key',
+  pollInterval: 60000,
+});
+```
+
+<br />
 
 ### 4.2 Webhooks
 
-* **Mechanism:** VWO pushes change notifications to your endpoint via webhook.
+* **Mechanism:** Webhooks notify your system immediately when there’s a change in your VWO account (like a flag update). You can then trigger a refresh of the cached settings.
 * **Implementation:** On receiving a webhook event, call `updateSettings(newSettings)` on the SDK instance to apply the latest settings immediately.
+* **Trade-offs:** Requires endpoint setup.
 
-```js
-// Express.js example
+```node
+// Node.js express server example
 app.post('/vwo-webhook', async (req, res) => {
   const updatedSettings = req.body.settings;
-  await vwoInstance.updateSettings(updatedSettings);
+  
+  await vwoClient.updateSettings(updatedSettings);
+  
   res.sendStatus(200);
 });
 ```
@@ -161,6 +201,14 @@ graph LR
   K --> L
   G --> L
 ```
+
+The diagram illustrates how VWO SDKs handle settings initialization and caching differently for client-side and server-side environments:
+
+Client SDKs fetch settings from VWO, store them in localStorage, use them immediately, and refresh them asynchronously in the background.
+
+Server SDKs load cached settings from storage. If the cache is missing or expired, they fetch fresh settings from VWO; otherwise, they use the stored ones.
+
+Both approaches ensure quick flag evaluations while keeping the cache updated to reflect changes from the VWO platform.
 
 <br />
 
