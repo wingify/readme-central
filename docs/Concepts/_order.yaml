@@ -1,9 +1,9 @@
 - user-id-management
 - how-user-bucketing-works
 - polling
-- rules-evaluation
 - fme-sdks-performance-n-benchmarking
 - fme-sdks-caching
+- rules-evaluation
 - wip-rd-event-batching
 - wip-rd-salting
 - wip-rd-webhooks
