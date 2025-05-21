@@ -7,15 +7,17 @@ metadata:
 ---
 ## Overview
 
-A robust caching layer can significantly improve response times and reduce load on VWO servers by storing and reusing fetched settings at the edge or within your application’s storage. VWO FME SDKs support a variety of caching strategies—both at your infrastructure edge (e.g., Cloudflare Workers, AWS Lambda\@Edge) and within application-local storage (client‑side mobile and browser SDKs). This document details available options, behavior, and configuration.
+A robust caching layer can significantly improve response times and reduce load on VWO servers by storing and reusing fetched settings at the edge or within your application’s storage. VWO FME SDKs support a variety of caching strategies, both at your infrastructure edge (e.g., Cloudflare Workers, AWS Lambda\@Edge) and within application-local storage (client‑side mobile and browser SDKs). This document details available options, behavior, and configuration.
 
-***
+<br />
 
 ## 1. Edge Caching
 
 ### 1.1 What Is Edge Caching?
 
-Edge caching delegates storage and retrieval of VWO settings to your CDN or edge compute layer. Instead of every request hitting your origin or VWO API, frequently accessed settings are served from the nearest edge node.
+Edge caching is a method of storing content closer to end users by placing cached versions of data or web assets (like images, scripts, or even full web pages) on edge servers, servers located in geographically distributed data centres near users.
+
+With edge caching, you can delegate storage and retrieval of VWO settings to your CDN or edge compute layer. Instead of every request hitting your origin or VWO server, frequently accessed settings are served from the nearest edge node.
 
 ### 1.2 Supported Edge Platforms
 
@@ -32,11 +34,11 @@ Edge caching delegates storage and retrieval of VWO settings to your CDN or edge
 * Lower origin and API load
 * Fine‑grained control over cache invalidation and expiry
 
-***
+<br />
 
 ## 2. Client‑Side SDK Caching
 
-Client‑side SDKs (browser, mobile) provide out‑of‑the‑box caching of VWO settings within the application’s storage (e.g., `localStorage`). You have the option to provide your storage connector for the SDKs to use.
+Client‑side SDKs (browsers and mobile-apps) provide out‑of‑the‑box caching of VWO settings within the application’s storage (e.g., `app-storage` in mobile and `localStorage`for browsers). You have the option to provide your storage connector for the SDKs to use.
 
 ### 2.1 How It Works
 
@@ -45,24 +47,51 @@ Client‑side SDKs (browser, mobile) provide out‑of‑the‑box caching of VWO
 3. **Subsequent Calls:** SDK reads from local cache and uses settings immediately for flag/variable evaluation.
 4. **Asynchronous Refresh:** In the background, SDK fetches current settings from VWO. If a difference is detected, the cache is updated and the SDK instance is refreshed.
 
+```mermaid
+flowchart TD
+    A[Initial Fetch] --> B[Retrieve full settings payload from VWO]
+    B --> C[Store settings in local cache (Web/Mobile storage)]
+
+    D[Subsequent Calls] --> E[Read settings from local cache]
+    E --> F[Evaluate flags/variables]
+
+    G[Asynchronous Refresh] --> H[Fetch current settings from VWO in background]
+    H --> I{Is there a difference?}
+    I -- Yes --> J[Update local cache]
+    J --> K[Refresh SDK instance]
+    I -- No --> L[Do nothing]
+
+    style A fill:#f9f,stroke:#333,stroke-width:1px
+    style D fill:#bbf,stroke:#333,stroke-width:1px
+    style G fill:#bfb,stroke:#333,stroke-width:1px
+
+```
+
+<br />
+
 ### 2.2 Configuration
 
 * **Cache Duration (TTL):** Control how long settings remain valid before background refresh (e.g., 1 hour, 6 hours).
 * **Storage Key:** Customizable key or namespace in application storage.
 * **Refresh Interval:** Optionally set polling interval.
 
-```js
-import { VwoClient } from 'vwo-browser-sdk';
+```javascript
+import { init } from 'vwo-fme-node-sdk';
 
-const vwo = VwoClient.launch({
-  sdkKey: 'YOUR_KEY',
-  cacheTTL: 3600,        // seconds
-  cacheKey: 'vwo-config',
-  pollInterval: 300      // seconds
+const VwoClient = init({
+  sdkKey: 'VWO_SDK_KEY',
+  accountId: 123456,
+  caching: {
+    TTL: 60*60,             // milliseconds
+  	key: 'vwo-cache-storage-key'
+  },
+  pollInterval: 60000       // milliseconds
 });
 ```
 
-***
+For more information, see our reference on Edge Support: [https://developers.vwo.com/v2/docs/fme-edge-support#/](https://developers.vwo.com/v2/docs/fme-edge-support#/)
+
+<br />
 
 ## 3. Server‑Side SDK Caching
 
@@ -72,7 +101,7 @@ Server‑side environments (Node.js, Python, Java, .NET, Ruby, PHP, and Go) rely
 2. **On‑Fetch Callback:** SDK returns fresh settings for you to persist in your cache.
 3. **Expiration Control:** Decide when to refresh or invalidate based on your use case.
 
-```js
+```javascript Node.js
 import { init } from 'vwo-fme-node-sdk';
 
 // Load from your cache store
@@ -88,7 +117,7 @@ const vwoInstance = init({
 
 > Coming soon: Storage Connector integration to automatically `get` and `set` VWO settings in popular data stores.
 
-***
+<br />
 
 ## 4. Polling & Webhooks
 
@@ -111,7 +140,7 @@ app.post('/vwo-webhook', async (req, res) => {
 });
 ```
 
-***
+<br />
 
 ## 5. Flow Diagram
 
@@ -132,11 +161,11 @@ graph LR
   G --> L
 ```
 
+<br />
+
 ## 6. Summary
 
 * **Edge Caching:** Fully controlled by you at CDN/edge.
 * **Client SDKs:** Automatic caching, TTL, async refresh.
 * **Server SDKs:** Customer‑driven caching via initialization and callbacks.
 * **Refresh Strategies:** Polling or Webhooks for near real‑time updates.
-
-For more information, see our reference on Edge Support: [https://developers.vwo.com/v2/docs/fme-edge-support#/](https://developers.vwo.com/v2/docs/fme-edge-support#/)
