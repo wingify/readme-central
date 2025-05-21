@@ -193,14 +193,14 @@ app.post('/vwo-webhook', async (req, res) => {
 
 ```mermaid
 graph LR
-  A[Start / SDK Init] --> B{Client vs Server}
+  A[SDK Init] --> B{Client vs Server}
   B --> C[Client SDK]
   B --> D[Server SDK]
   C --> E[Fetch Settings → Store in localStorage]
   E --> F[Use Cached Settings Immediately]
   F --> G[Async Refresh → Compare → Update]
   D --> H[Load Stored Settings from Your Storage]
-  H --> I{If passed to init method}
+  H --> I{If passed<br/>to init method}
   I -->|Yes| J[Use stored settings to initialize SDK]
   I -->|No| K[Fetched settings from VWO]
   J --> L[Use Settings]
