@@ -50,7 +50,7 @@ Client‑side SDKs (browsers and mobile-apps) provide out‑of‑the‑box cachi
 ```mermaid
 flowchart TD
     A[Initial Fetch] --> B[Retrieve full settings payload from VWO]
-    B --> C[Store settings in local cache (Web/Mobile storage)]
+    B --> C["Store settings in local cache (Web/Mobile storage)"]
 
     D[Subsequent Calls] --> E[Read settings from local cache]
     E --> F[Evaluate flags/variables]
@@ -64,6 +64,7 @@ flowchart TD
     style A fill:#f9f,stroke:#333,stroke-width:1px
     style D fill:#bbf,stroke:#333,stroke-width:1px
     style G fill:#bfb,stroke:#333,stroke-width:1px
+
 
 ```
 
