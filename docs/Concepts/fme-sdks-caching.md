@@ -192,7 +192,7 @@ app.post('/vwo-webhook', async (req, res) => {
 ## 5. Flow Diagram
 
 ```mermaid
-graph TD
+graph LR
   A[Start / SDK Init] --> B{Client vs Server}
   B --> C[Client SDK]
   B --> D[Server SDK]
