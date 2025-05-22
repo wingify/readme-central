@@ -93,6 +93,58 @@ const userContext: IVWOContextModel = { id: 'user_123' };
 vwoClient.setAttribute('event_name', userContext);
 ```
 
+## useVWOContext
+
+The `useVWOContext` hook is used to access the `VWOContext`, which provides shared context values for components that need to interact with the VWO SDK and user targeting information.
+
+The `useVWOContext` hook provides access to `setUserContext`, which lets you dynamically update the user details. Updating the context this way triggers updates in all components consuming the VWO context, enabling real-time evaluation of feature flags based on the latest user data.
+
+It should only be used within components wrapped by `VWOProvider`.
+
+#### Usage
+
+```typescript
+import React from 'react';
+import { useVWOContext } from './VWOProvider';
+
+const UpdateUserContextButton: React.FC = () => {
+  const context = useVWOContext();
+
+  const handleUpdateUser = () => {
+    if (context && context.userContext && context.setUserContext) {
+      // use setUserContext to update userContext 
+      context.setUserContext({
+        id: 'new-user-id',
+        customVariables: {key: 'value'}
+      });
+    }
+  };
+
+  return (
+    <div>
+      <p>Click the button to update the user context:</p>
+      <button onClick={handleUpdateUser}>Set User ID</button>
+    </div>
+  );
+};
+
+export default UpdateUserContextButton;
+```
+
+This hook **does not** accept any parameters.
+
+#### Hook Lifecycle & Side Effects
+
+* On component render, `useContext(VWOContext)` is called to retrieve context values.
+* If the hook is used outside of a provider or the context is undefined, an error is logged and `null` is returned.
+* If used correctly, it provides access to current context values and the updater function.
+* There are **no side effects** inside this hook itself.
+* Updating `userContext` via `setUserContext` may trigger re-renders in components using this hook.
+
+> 📘 Note
+>
+> ⚠️ Using `setUserContext` from the `useVWOContext` hook will cause any component using the `useGetFlag` hook to re-run its effect and likely re-render, since it depends on the `userContext`.
+
 ## useGetFlag
 
 `useGetFlag` is a custom React hook to fetch and manage the state of a specific feature flag from the VWO SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
