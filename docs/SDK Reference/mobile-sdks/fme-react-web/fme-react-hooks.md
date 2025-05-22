@@ -109,7 +109,8 @@ import { useVWOContext } from './VWOProvider';
 
 const UpdateUserContextButton: React.FC = () => {
   const context = useVWOContext();
-
+  // If you want to access the current user context, use - context.userContext
+  
   const handleUpdateUser = () => {
     if (context && context.userContext && context.setUserContext) {
       // use setUserContext to update userContext 
