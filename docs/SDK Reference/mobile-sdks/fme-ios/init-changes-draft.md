@@ -111,7 +111,7 @@ metadata:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Expiry time for cached settings in milliseconds. For more details, please check - [Cache Management](https://developers.vwo.com/v2/update/docs/cache-setting-expiry#/)
+        Expiry time for cached settings in milliseconds. For more details, please check - [Cache Management](https://developers.vwo.com/v2/docs/cache-setting-expiry#/)
       </td>
     </tr>
 
@@ -141,7 +141,7 @@ metadata:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Minimum size of batch to upload. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/update/docs/event-batching#/)
+        Minimum size of batch to upload. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/docs/event-batching#/)
       </td>
     </tr>
 
@@ -156,7 +156,7 @@ metadata:
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Batch upload time interval in milliseconds. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/update/docs/event-batching#/)
+        Batch upload time interval in milliseconds. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/docs/event-batching#/)
       </td>
     </tr>
 
@@ -255,6 +255,8 @@ let options = VWOInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, cachedSetti
 The VWO SDK supports storing impression events while the device is offline, ensuring no data loss. These events are batched and seamlessly synchronized with VWO servers once the device reconnects to the internet. Additionally, online event batching allows synchronization of impression events while the device is online. This feature can be configured by setting either the minimum batch size or the batch upload time interval during SDK initialization.
 
 #### NOTE: The uploading of events will get triggered based on whichever condition is met first if using both options.
+
+See [Event Batching](https://developers.vwo.com/v2/docs/event-batching#/) documentation for additional information.
 
 | **Parameter**             | **Description**                                                                    | **Required** | **Type** | **Example** |
 | ------------------------- | ---------------------------------------------------------------------------------- | ------------ | -------- | ----------- |
