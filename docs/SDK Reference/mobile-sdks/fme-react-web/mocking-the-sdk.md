@@ -1,5 +1,5 @@
 ---
-title: Mocking The SDK
+title: Mocking VWO React SDK Hooks and Provider
 deprecated: false
 hidden: true
 metadata:
