@@ -39,11 +39,9 @@ flowchart TD
     classDef getFlag fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef trackEvent fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef setAttribute fill:#bbf,stroke:#333,stroke-width:1px,color:#000
-    
-    style Y5 stroke:#00C853
 
-    style X2 stroke:#6060a1,stroke-width:2px
-    style Y22 stroke:#6060a1,stroke-width:2px
-    style Z1 stroke:#6060a1,stroke-width:2px
+    style X2 stroke:#7373ff,stroke-width:2px
+    style Y22 stroke:#7373ff,stroke-width:2px
+    style Z1 stroke:#7373ff,stroke-width:2px
 
 ```
