@@ -64,7 +64,7 @@ When this API is executed:
 // Set a custom user attribute in VWO for the specified user context.
 // 'attribute_key' is the name of the attribute (e.g., 'subscription_status').
 // 'attribute_value' is the value to assign to the attribute (e.g., 'premium').
-const attributeMap = {attributeKey, 'attributeValue'};
+const attributeMap = {attributeKey: 'attributeValue'};
 vwoClient.setAttribute(attributeMap, userContext);
 ```
 
