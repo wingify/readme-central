@@ -1,5 +1,5 @@
 ---
-title: SDKs Recipes
+title: Recipes
 excerpt: ''
 deprecated: false
 hidden: false
