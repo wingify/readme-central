@@ -1,10 +1,11 @@
 ---
 title: Update bulk custom widgets
+excerpt: The api is used to bulk update the global widgets.
 api:
   file: api.json
   operationId: get_new-endpoint
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
