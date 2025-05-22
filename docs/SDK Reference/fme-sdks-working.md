@@ -42,8 +42,8 @@ flowchart TD
     
     style Y5 stroke:#00C853
 
-    style X2 stroke:#6060a1;stroke-width: 2px;
-    style Y22 stroke:#6060a1;stroke-width: 2px;
-    style Z1 stroke:#6060a1;stroke-width: 2px;
+    style X2 stroke:#6060a1,stroke-width:2px
+    style Y22 stroke:#6060a1,stroke-width:2px
+    style Z1 stroke:#6060a1,stroke-width:2px
 
 ```
