@@ -39,3 +39,5 @@ Request Format
 ```
 
 > 📘 NOTE:
+>
+> Maximum 10 widgets can be updated.
