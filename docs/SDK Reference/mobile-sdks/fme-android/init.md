@@ -15,10 +15,10 @@ However, there are scenarios where it may be beneficial to collect multiple even
 
 You can enable event batching during SDK initialization by setting either of the following parameters:
 
-| Parameter | Description | Example |
-| :-------- | :---------- | :------ |
-| **batchMinSize** | Minimum number of events to trigger a batch upload. | 10 |
-| **batchUploadTimeInterval** | Time interval (in milliseconds) before a batch is uploaded. | 300000 |
+| Parameter                   | Description                                                 | Example |
+| :-------------------------- | :---------------------------------------------------------- | :------ |
+| **batchMinSize**            | Minimum number of events to trigger a batch upload.         | 10      |
+| **batchUploadTimeInterval** | Time interval (in milliseconds) before a batch is uploaded. | 300000  |
 
 ### Example Usage
 
@@ -78,3 +78,4 @@ For offline event batching to work, you must provide an Android application cont
 * Offline support: Events generated offline are stored locally and uploaded automatically when the device reconnects.
 * Offline event batching works in conjunction with online event batching.
 * Application context is required to enable batch uploads (both online and offline).
+* Data Sync on Initialization: When the SDK initializes, it always syncs any stored data if present.
