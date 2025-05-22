@@ -142,10 +142,10 @@ This hook **does not** accept any parameters.
 * There are **no side effects** inside this hook itself.
 * Updating `userContext` via `setUserContext` may trigger re-renders in components using this hook.
 
-> 📘 Note
+> 📘 ⚠️ Important Considerations for `setUserContext` Usage
 >
-> * ⚠️ Using `setUserContext` from the `useVWOContext` hook will cause any component using the `useGetFlag` hook to re-run its effect and likely re-render, since it depends on the `userContext`.
-> * ⚠️ Updating the `id` using `setUserContext` is treated as switching to a new user. This may result in different variation or flag values for the same feature. Additionally, it will be counted as a **new visitor** in VWO.
+> * Using `setUserContext` from the `useVWOContext` hook will cause any component using the `useGetFlag` hook to re-run its effect and likely re-render, since it depends on the `userContext`.
+> * Updating the `id` using `setUserContext` is treated as switching to a new user. This may result in different variation or flag values for the same feature. Additionally, it will be counted as a **new visitor** in VWO.
 
 ## useGetFlag
 
