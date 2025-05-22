@@ -60,7 +60,7 @@ When this API is executed:
 # Set a custom user attribute in VWO for the specified user context.
 # 'attribute_key' is the name of the attribute (e.g., 'subscription_status').
 # 'attribute_value' is the value to assign to the attribute (e.g., 'premium').
-attribute_map = {'attribute_key', 'attribute_value'}
+attribute_map = {'attribute_key': 'attribute_value'}
 vwo_client.set_attribute(attribute_map, user_context)
 ```
 
