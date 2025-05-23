@@ -164,7 +164,7 @@ flowchart TD
     C1 --> C2("Generate decision result")
     C2 --> C3("Send async tracking call<br/>to VWO backend")
     C2 --> C4("Call storageConnector.set<br/>to store decision")
-    C2 --> C5("Return decision")
+    C2 --> B2
 
     A1 --> A2
 
@@ -173,16 +173,12 @@ flowchart TD
     class A2 api
     class B1 conditional
     class B2 cached
-    class C1,C2,C3 api
     class C4 cached
-    class C5 result
 
     %% Define styles for light and dark themes
     classDef init fill:#e0f7ff,stroke:#333,stroke-width:1px,color:#000
-    classDef api fill:#bbd6ff,stroke:#333,stroke-width:1px,color:#000
     classDef conditional fill:#fff8cc,stroke:#333,stroke-width:1px,color:#000
     classDef cached fill:#caffd2,stroke:#333,stroke-width:1px,color:#000
-    classDef result fill:#e6e6e6,stroke:#333,stroke-width:1px,color:#000
 
 ```
 
