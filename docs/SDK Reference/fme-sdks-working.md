@@ -46,7 +46,7 @@ flowchart TD
     classDef getFlag fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef trackEvent fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef setAttribute fill:#bbf,stroke:#333,stroke-width:1px,color:#000
-    classDef conditional fill:#fff8cc,stroke:#333,stroke-width:1px,color:#000
+    classDef conditional fill:#d0efff,stroke:#333,stroke-width:1px,color:#000
 
     %% style X2 stroke:#7373ff,stroke-width:2px
     %% style Y22 stroke:#7373ff,stroke-width:2px
@@ -175,7 +175,7 @@ flowchart TD
     class C4 cached
 
     %% Define styles for light and dark themes
-    classDef conditional fill:#fff8cc,stroke:#333,stroke-width:1px,color:#000
+    classDef conditional fill:#d0efff,stroke:#333,stroke-width:1px,color:#000
     classDef cached fill:#caffd2,stroke:#333,stroke-width:1px,color:#000
 
 ```
