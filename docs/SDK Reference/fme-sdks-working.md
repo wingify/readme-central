@@ -38,15 +38,17 @@ flowchart TD
     class Y getFlag
     class X trackEvent
     class Z setAttribute
+    class Y1,X1  conditional
 
     %% Define styles
     classDef getFlag fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef trackEvent fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef setAttribute fill:#bbf,stroke:#333,stroke-width:1px,color:#000
+    classDef conditional fill:#fff8cc,stroke:#333,stroke-width:1px,color:#000
 
-    style X2 stroke:#7373ff,stroke-width:2px
-    style Y22 stroke:#7373ff,stroke-width:2px
-    style Z1 stroke:#7373ff,stroke-width:2px
+    %% style X2 stroke:#7373ff,stroke-width:2px
+    %% style Y22 stroke:#7373ff,stroke-width:2px
+    %% style Z1 stroke:#7373ff,stroke-width:2px
 
 ```
 
@@ -156,11 +158,11 @@ To optimize performance and reduce repeated computation, the VWO FME SDK support
 flowchart TD
     A0(["SDK Initialization<br/>(with storageConnector)"]) --> A1("Define connector:<br/>get(key), set(key, value)")
 
-    A2("getFlag(featureKey, userContext)") --> B1("Check storageConnector.get<br/>for existing decision")
+    A2("getFlag(featureKey, userContext)") --> B1{"Check storageConnector.get<br/>for existing decision"}
     
-    B1 -->|Found| B2("Return stored decision")
+    B1 -- Found --> B2("Return stored decision")
     
-    B1 -->|Not Found| C1("Evaluate flag rules<br/>with user context")
+    B1 -- Not Found --> C1("Evaluate flag rules<br/>with user context")
     C1 --> C2("Generate decision result")
     C2 --> C3("Send async tracking call<br/>to VWO backend")
     C2 --> C4("Call storageConnector.set<br/>to store decision")
