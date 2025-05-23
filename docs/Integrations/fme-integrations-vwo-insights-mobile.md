@@ -192,7 +192,24 @@ func vwoScreenCaptureSessionDidUpdate(sessionDetails: [String : Any]) {
 
 ## Sequence Diagram
 
-<Image align="center" src="https://files.readme.io/9934d795f79209e4d2c39261460b85ffe673cf8fdb50040514cba8af13f280ad-Screenshot_2025-04-03_at_1.21.19_PM.png" />
+```mermaid
+sequenceDiagram
+    participant App as Application / AppDelegate Class
+    participant VWO as VWO Insights Mobile SDK
+    participant FME as VWO FME SDK
+
+    App->>VWO: VWOInsights.linkFME(sessionCallback, USER_ID)
+    App->>VWO: VWO.configure(accountId, sdkKey, userId, callback)
+    VWO-->>App: IVwoSessionCallback()
+    App->>FME: FMEConfig.setSessionData(sessionMap)
+    VWO-->>App: vwoInitSuccess()
+    App->>VWO: VWOInsights.startSessionRecording()
+    App->>FME: initVWOFME()
+    FME-->>App: FME SDK initialised successfully
+
+```
+
+<br />
 
 # Summary
 
