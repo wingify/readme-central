@@ -31,14 +31,15 @@ flowchart TD
     X1 -- No --> X3("Return")
 
     %% setAttribute Flow
-    Z --> Z1("Send attrubtes event<br/>to VWO asynchronously")
-    Z1 ..-> Z2("Segment VWO reports<br/>based on these attributes")
+    Z --> Z1("Send attributes event<br/>to VWO asynchronously")
+    Z1 --> Z2("Segment VWO reports<br/>based on these attributes")
+    Z2(["Reported based on attributes"]) 
 
     %% Assign classes
     class Y getFlag
     class X trackEvent
     class Z setAttribute
-    class Y1  conditional
+    class Y1 conditional
     class X1 conditional
 
     %% Define styles
@@ -115,7 +116,7 @@ flowchart TD
     A1 --> A2
 
     subgraph Batching Trigger
-        B1("Timer Reached<br/>OR<br/>Queue Size Met?")
+        B1{"Timer Reached<br/>OR<br/>Queue Size Met?"}
         A4 --> B1
         B1 -- Yes --> B2("Batch Events from Queue")
         B2 --> B3("Send Batched Events<br/>to VWO Server")
@@ -125,17 +126,13 @@ flowchart TD
     end
     
     %% Assign classes
-    class A0 init
     class A2 apis
     class B2 batch
-    class B3 flushcallback
     class B1 ifbatch
 
     %% Define styles
-    classDef init fill:#dff,stroke:#333,stroke-width:1px,color:#000
     classDef apis fill:#bbf,stroke:#333,color:#000
     classDef batch fill:#bfb,stroke:#333,color:#000
-    classDef flushcallback fill:#bfb,stroke:#333,color:#000
     classDef ifbatch fill:#ffe,stroke:#333,color:#000
 
 ```
@@ -172,14 +169,12 @@ flowchart TD
     A1 --> A2
 
     %% Assign classes to nodes
-    class A0 init
     class A2 api
     class B1 conditional
     class B2 cached
     class C4 cached
 
     %% Define styles for light and dark themes
-    classDef init fill:#e0f7ff,stroke:#333,stroke-width:1px,color:#000
     classDef conditional fill:#fff8cc,stroke:#333,stroke-width:1px,color:#000
     classDef cached fill:#caffd2,stroke:#333,stroke-width:1px,color:#000
 
