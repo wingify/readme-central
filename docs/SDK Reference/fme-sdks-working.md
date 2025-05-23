@@ -124,14 +124,16 @@ flowchart TD
     %% Assign classes
     class A0 init
     class A2 apis
+    class B2 batch
+    class B3 flushcallback
+    class B1 ifbatch
 
     %% Define styles
     classDef init fill:#dff,stroke:#333,stroke-width:1px,color:#000
     classDef apis fill:#bbf,stroke:#333,color:#000
-
-    style B2 fill:#bfb,stroke:#333
-    style B3 fill:#bfb,stroke:#333
-    style B1 fill:#ffe,stroke:#333
+    classDef batch fill:#bfb,stroke:#333,color:#000
+    classDef flushcallback fill:#bfb,stroke:#333,color:#000
+    classDef ifbatch fill:#ffe,stroke:#333,color:#000
 
 ```
 
@@ -166,14 +168,21 @@ flowchart TD
 
     A1 --> A2
 
-    style A0 fill:#dff,stroke:#333
-    style A2 fill:#bbf,stroke:#333
-    style B1 fill:#ffe,stroke:#333
-    style B2 fill:#bfb,stroke:#333
-    style C1 fill:#bbf,stroke:#333
-    style C2 fill:#bbf,stroke:#333
-    style C3 fill:#bbf,stroke:#333
-    style C4 fill:#bfb,stroke:#333
+    %% Assign classes to nodes
+    class A0 init
+    class A2 api
+    class B1 conditional
+    class B2 cached
+    class C1,C2,C3 api
+    class C4 cached
+    class C5 result
+
+    %% Define styles for light and dark themes
+    classDef init fill:#e0f7ff,stroke:#333,stroke-width:1px,color:#000
+    classDef api fill:#bbd6ff,stroke:#333,stroke-width:1px,color:#000
+    classDef conditional fill:#fff8cc,stroke:#333,stroke-width:1px,color:#000
+    classDef cached fill:#caffd2,stroke:#333,stroke-width:1px,color:#000
+    classDef result fill:#e6e6e6,stroke:#333,stroke-width:1px,color:#000
 
 ```
 
