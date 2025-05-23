@@ -1,5 +1,5 @@
 ---
-title: Mocking SDK Hooks and Provider
+title: Testing SDK Hooks and Provider
 deprecated: false
 hidden: false
 metadata:
