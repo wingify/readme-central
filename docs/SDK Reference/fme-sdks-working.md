@@ -38,7 +38,8 @@ flowchart TD
     class Y getFlag
     class X trackEvent
     class Z setAttribute
-    class Y1,X1  conditional
+    class Y1  conditional
+    class X1 conditional
 
     %% Define styles
     classDef getFlag fill:#bbf,stroke:#333,stroke-width:1px,color:#000
