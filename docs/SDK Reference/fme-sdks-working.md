@@ -134,13 +134,13 @@ flowchart TD
 
 <br />
 
-## Caching in SDKs
+## How caching works in SDKs
 
 > Please refer the [Caching Layer](doc:fme-sdks-caching) document to understand more on caching.
 
 <br />
 
-### How Storage Connector for server-side SDKs work
+## How Storage Connector works for server-side SDKs
 
 To optimize performance and reduce repeated computation, the VWO FME SDK supports **custom storage integration** via a pluggable ***Storage Connector***. This allows the SDK to **persist and retrieve flag evaluation results**, reducing the need to re-evaluate feature flags for the same user context repeatedly. The diagram below illustrates how the SDK uses this connector during the *getFlag* call. If a decision is already available in storage, it's returned immediately. Otherwise, the SDK evaluates the feature flag, sends the tracking event asynchronously, and stores the decision for future use.
 
