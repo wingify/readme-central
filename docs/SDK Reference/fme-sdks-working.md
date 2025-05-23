@@ -158,7 +158,7 @@ flowchart TD
 
     A2("getFlag(featureKey, userContext)") --> B1{"Check storageConnector.get<br/>for existing decision"}
     
-    B1 -- Found --> B2("Return stored decision")
+    B1 -- Found --> B2("Return decision")
     
     B1 -- Not Found --> C1("Evaluate flag rules<br/>with user context")
     C1 --> C2("Generate decision result")
