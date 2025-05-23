@@ -120,9 +120,15 @@ flowchart TD
         B4 --> B5("Clear Sent Events from Queue")
         B1 -- No --> C1("Wait Until Next Trigger")
     end
+    
+    %% Assign classes
+    class A0 init
+    class A2 apis
 
-    style A0 fill:#dff,stroke:#333,stroke-width:1px
-    style A2 fill:#bbf,stroke:#333
+    %% Define styles
+    classDef init fill:#dff,stroke:#333,stroke-width:1px,color:#000
+    classDef apis fill:#bbf,stroke:#333,color:#000
+
     style B2 fill:#bfb,stroke:#333
     style B3 fill:#bfb,stroke:#333
     style B1 fill:#ffe,stroke:#333
