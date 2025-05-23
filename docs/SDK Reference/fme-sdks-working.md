@@ -133,7 +133,7 @@ flowchart TD
     %% Define styles
     classDef apis fill:#bbf,stroke:#333,color:#000
     classDef batch fill:#bfb,stroke:#333,color:#000
-    classDef ifbatch fill:#ffe,stroke:#333,color:#000
+    classDef ifbatch fill:#d0efff,stroke:#333,color:#000
 
 ```
 
