@@ -142,15 +142,9 @@ flowchart TD
 
 <br />
 
-## How caching works in SDKs
-
-> Please refer the [Caching Layer](doc:fme-sdks-caching) document to understand more on caching.
-
-<br />
-
 ## How Storage Connector works for server-side SDKs
 
-To optimize performance and reduce repeated computation, the VWO FME SDK supports **custom storage integration** via a pluggable ***Storage Connector***. This allows the SDK to **persist and retrieve flag evaluation results**, reducing the need to re-evaluate feature flags for the same user context repeatedly. The diagram below illustrates how the SDK uses this connector during the *getFlag* call. If a decision is already available in storage, it's returned immediately. Otherwise, the SDK evaluates the feature flag, sends the tracking event asynchronously, and stores the decision for future use.
+The VWO FME SDK supports **custom storage integration** via a pluggable \_**Storage Connector**\_to optimise performance and reduce repeated computation. This allows the SDK to **persist and retrieve flag evaluation results**, reducing the need to re-evaluate feature flags for the same user context repeatedly. The diagram below illustrates how the SDK uses this connector during the *getFlag* call. If a decision is already available in storage, it's returned immediately. Otherwise, the SDK evaluates the feature flag, sends the tracking event asynchronously, and stores the decision for future use.
 
 ```mermaid
 flowchart TD
@@ -192,3 +186,9 @@ When a *storageConnector* is provided during SDK initialization, the SDK uses it
 This approach improves performance, reduces compute and I/O overhead, and supports **pluggable caching/storage layers** (e.g., memory, Redis, file system).
 
 > Please refer to Storage section of server-side SDKs. Foe example: [Storage Service](doc:fme-node-storage) in Node.js.
+
+<br />
+
+## How caching works in SDKs
+
+> Please refer the [Caching Layer](doc:fme-sdks-caching) document to understand more on caching.
