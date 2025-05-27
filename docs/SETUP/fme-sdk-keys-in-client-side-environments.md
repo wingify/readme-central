@@ -18,6 +18,8 @@ This document outlines best practices for safely using VWO SDK Keys on the clien
 >
 > The SDK Key is read-only and only used to fetch your FME feature flag configurations, so its exposure doesn't pose a direct security risk. However, VWO strongly advises against storing any personally identifiable information (PII) in your flag configurations.
 
+<br />
+
 ## What Happens If an SDK Key is Exposed?
 
 SDK keys are often embedded in the frontend code when using VWO FME in the browser or with mobile clients. While this is supported, consider the security implications:
@@ -78,8 +80,6 @@ function App() {
 }
 ```
 
-<br />
-
 ### 2. Avoid Hardcoding the SDK Key in Source Code
 
 Use environment variables and inject them securely at build time via your CI/CD pipeline.
@@ -113,13 +113,9 @@ function App() {
 }
 ```
 
-<br />
-
 ### 3. Use Secure Connections (HTTPS)
 
 Ensure your app only communicates over HTTPS to prevent man-in-the-middle attacks that could intercept SDK Key traffic.
-
-<br />
 
 ### 4. Don’t Expose Internal User Identifiers
 
