@@ -15,7 +15,3 @@ Get started with the resources below:
    Understand how to implement feature flags to control feature visibility and reduce deployment risk.
 3. [Set Up Rules in FME](doc:set-up-rules-in-fme)\
    Configure targeting and rollout rules to personalize feature delivery based on user attributes and business logic.
-
-<br />
-
-1.
