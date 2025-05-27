@@ -24,7 +24,7 @@ To integrate the VWO Feature Management and Experimentation SDK into your Go pro
 
 Run the following command in your project directory:
 
-```go
+```shell
 go get github.com/wingify/vwo-fme-go-sdk
 ```
 
@@ -41,4 +41,6 @@ import vwo "github.com/wingify/vwo-fme-go-sdk"
 
 Now, you're ready to initialize and use the SDK in your Go application.
 
-Please note that the Go SDK requires the use of a Gateway Service. Make sure to set up the Gateway Service before initializing the SDK. For more information, see our [Gateway Service documentation](https://developers.vwo.com/v2/docs/gateway-service).
+> 📘 Note
+>
+> The Go SDK requires the use of VWO Gateway Service. Make sure to set up the Gateway Service before initializing the SDK. For more information, see our [Gateway Service documentation](https://developers.vwo.com/v2/docs/gateway-service).
