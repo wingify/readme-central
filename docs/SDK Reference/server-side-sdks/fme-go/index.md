@@ -1,5 +1,5 @@
 ---
-title: GO
+title: Golang(thin client)
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The VWO FME Go SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within Go applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
+The VWO FME Go SDK(thin client) empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within Go applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
 
 ### Source Code Repository
 
