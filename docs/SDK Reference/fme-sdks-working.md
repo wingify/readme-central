@@ -82,21 +82,21 @@ All tracking is handled **asynchronously**, ensuring no performance bottlenecks.
 
 ### 4. User Attribute Management
 
-To enable user segmentation and deeper insights, the SDK includes a *setAttribute*() method. This lets developers send custom user attributes (like location, device type, or plan) to VWO. These are used to:
+The SDK includes a *setAttribute*() method to enable user segmentation and deeper insights. This lets developers send custom user attributes (like location, device type, or plan) to VWO. These are used to:
 
 * **Segment experiment reports**
 * **Target users more precisely** in feature rollouts and experiments
 
 Again, this data is sent in the background, maintaining a lightweight client footprint.
 
-### Asynchronous Communication & Decoupled Design
+> **Asynchronous Communication & Decoupled Design**
 
-Across all core functions — flag checks, event tracking, and attribute setting- the SDK communicates with VWO asynchronously except PHP SDK due to the synchronous behavior of PHP language.. This design ensures that:
+Across all core functions — flag checks, event tracking, and attribute setting- the SDK communicates with VWO asynchronously except PHP SDK due to the synchronous behavior of the PHP language.. This design ensures that:
 
 * App performance is not affected
 * Network activity is minimized and batched
 
-> Please refer [Server-side SDKs](doc:server-side-sdks) or [Client-side SDKs](doc:mobile-sdks) reference guides to know
+> Please refer [Server-side SDKs](doc:server-side-sdks) or [Client-side SDKs](doc:mobile-sdks) reference guides to know more.
 
 <br />
 
