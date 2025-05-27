@@ -1,5 +1,5 @@
 ---
-title: Architecure and Flow
+title: Architecture and Flow
 deprecated: false
 hidden: false
 metadata:
