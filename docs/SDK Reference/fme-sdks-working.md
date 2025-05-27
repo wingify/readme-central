@@ -60,6 +60,8 @@ flowchart TD
 
 The SDK starts with an initialization phase, where configuration options like API keys, user context providers, and polling strategies are set. This establishes the SDK’s runtime environment, allowing it to consistently evaluate flags and track user activity.
 
+<br />
+
 ### 2. Feature Evaluation and Experimentation
 
 The core of the SDK is feature flag evaluation via the *getFlag*() method. When this is called:
@@ -71,6 +73,8 @@ The core of the SDK is feature flag evaluation via the *getFlag*() method. When 
 
 This mechanism supports **controlled rollouts, A/B testing, and personalized** experiences.
 
+<br />
+
 ### 3. Behavioral and Conversion Event Tracking
 
 The SDK also allows applications to report custom events using the *trackEvent*() method. These events are only reported to VWO if they’re relevant to ongoing experiments. This ensures:
@@ -80,6 +84,8 @@ The SDK also allows applications to report custom events using the *trackEvent*(
 
 All tracking is handled **asynchronously**, ensuring no performance bottlenecks.
 
+<br />
+
 ### 4. User Attribute Management
 
 The SDK includes a *setAttribute*() method to enable user segmentation and deeper insights. This lets developers send custom user attributes (like location, device type, or plan) to VWO. These are used to:
@@ -88,6 +94,8 @@ The SDK includes a *setAttribute*() method to enable user segmentation and deepe
 * **Target users more precisely** in feature rollouts and experiments
 
 Again, this data is sent in the background, maintaining a lightweight client footprint.
+
+<br />
 
 > **Asynchronous Communication & Decoupled Design**
 
