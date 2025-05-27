@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-## High Level SDK Architecture
+## High-Level SDK Architecture
 
 The diagram below represents the core workflow of the VWO Feature Management and Experimentation SDK, designed to enable dynamic feature delivery, experimentation, and behavioral analytics within an application. The flow is centered around initialization, flag evaluation, event tracking, and user attribute handling, emphasising asynchronous communication with the VWO backend.
 
@@ -56,7 +56,7 @@ flowchart TD
 
 <br />
 
-### 1. Initialization as the Foundation
+### 1. Initialization(as the Foundation)
 
 The SDK starts with an initialization phase, where configuration options like API keys, user context providers, and polling strategies are set. This establishes the SDK’s runtime environment, allowing it to consistently evaluate flags and track user activity.
 
@@ -104,7 +104,7 @@ Across all core functions — flag checks, event tracking, and attribute setting
 * App performance is not affected
 * Network activity is minimized and batched
 
-> Please refer [Server-side SDKs](doc:server-side-sdks) or [Client-side SDKs](doc:mobile-sdks) reference guides to know more.
+> Please refer to the [Server-side SDKs](doc:server-side-sdks) or [Client-side SDKs](doc:mobile-sdks) reference guides to know more.
 
 <br />
 
@@ -193,10 +193,16 @@ When a *storageConnector* is provided during SDK initialization, the SDK uses it
 
 This approach improves performance, reduces compute and I/O overhead, and supports **pluggable caching/storage layers** (e.g., memory, Redis, file system).
 
-> Please refer to Storage section of server-side SDKs. Foe example: [Storage Service](doc:fme-node-storage) in Node.js.
+> Please refer to *Storage* section of server-side SDKs. Foe example: [Storage Service](doc:fme-node-storage) in Node.js.
 
 <br />
 
 ## How caching works in SDKs
 
-> Please refer the [Caching Layer](doc:fme-sdks-caching) document to understand more on caching.
+> Please refer to the detailed [Caching Layer](doc:fme-sdks-caching) document to know more.
+
+<br />
+
+## Integrating VWO Gateway Service
+
+> Please refer th the detailed [Gateway Service](doc:gateway-service) document to know more.
