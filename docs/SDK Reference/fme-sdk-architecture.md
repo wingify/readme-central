@@ -33,7 +33,7 @@ flowchart TD
     %% setAttribute Flow
     Z --> Z1("Send attributes event<br/>to VWO asynchronously")
     Z1 --> Z2("Segment VWO reports<br/>based on these attributes")
-    Z2(["Reported based on attributes"]) 
+    Z2(["Segmet VWO Reports based on attributes"]) 
 
     %% Assign classes
     class Y getFlag
