@@ -1,13 +1,13 @@
 ---
 title: Architecure and Flow
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
 ## High-Level SDK Architecture
 
-The diagram below represents the core workflow of the VWO Feature Management and Experimentation SDK, designed to enable dynamic feature delivery, experimentation, and behavioral analytics within an application. The flow is centered around initialization, flag evaluation, event tracking, and user attribute handling, emphasising asynchronous communication with the VWO backend.
+The diagram below represents the core workflow of the VWO Feature Management and Experimentation SDK, designed to enable dynamic feature delivery, experimentation, and behavioral analytics within an application. The flow is centred around initialization, flag evaluation, event tracking, and user attribute handling, emphasising asynchronous communication with the VWO backend.
 
 ```mermaid
 flowchart TD
