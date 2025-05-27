@@ -1,7 +1,7 @@
 ---
 title: SDK Keys in Client-Side Environments
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
