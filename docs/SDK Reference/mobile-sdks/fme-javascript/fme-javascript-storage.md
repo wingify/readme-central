@@ -40,6 +40,19 @@ In browser-based environments, the VWO FullStack JavaScript SDK automatically ut
 
 For more advanced use cases, the SDK provides a clientStorage configuration option during initialization. This allows you to override the default storage mechanism with a custom implementation.
 
+```mermaid
+flowchart TD
+    A[SDK Initialization] --> B[clientStorage option passed]
+    B --> C{isDisabled == true?}
+    C -- Yes --> D[Skip all storage; SDK operates statelessly]
+    C -- No --> E{provider defined?}
+    E -- Yes --> F[Use custom provider e.g. sessionStorage]
+    E -- No --> G[Use default: localStorage]
+    F & G --> H[Store data under specified key; default is vwo_fme_data]
+```
+
+<br />
+
 ### Usage
 
 ```javascript
@@ -58,7 +71,7 @@ const vwoClient = await init({
 });
 ```
 
-### Explanation of `clientStorage` Parameters
+#### Explanation of `clientStorage` Parameters
 
 <Table align={["left","left","left","left"]}>
   <thead>
@@ -143,18 +156,6 @@ const vwoClient = await init({
   </tbody>
 </Table>
 
-```mermaid
-flowchart TD
-    A[SDK Initialization] --> B[clientStorage block parsed]
-    B --> C{isDisabled == true?}
-    C -- Yes --> D[Skip all storage; SDK operates statelessly]
-    C -- No --> E{provider defined?}
-    E -- Yes --> F[Use custom provider (e.g., sessionStorage)]
-    E -- No --> G[Use default: localStorage]
-    F & G --> H[Store data under specified key (default: 'vwo_fme_data')]
-
-```
-
 > 📘 Important Notes
 >
 > * **Browser Environment Only:** The `clientStorage` option works exclusively in browser environments where `localStorage` and `sessionStorage` APIs are available.
@@ -162,7 +163,7 @@ flowchart TD
 
 <br />
 
-## How to Implement a StorageConnector
+## How to Implement a Custom Storage Connector
 
 In browser environments, if you prefer not to rely on VWO's default web-based APIs for decision resolution, you can still implement a custom storage connector. This gives you more control over how feature flag decisions are cached and reused, though it may introduce slight performance trade-offs depending on your implementation.
 
