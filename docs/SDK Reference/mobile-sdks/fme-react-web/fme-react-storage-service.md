@@ -24,37 +24,14 @@ The storage mechanism ensures that once a decision is made for a user, it remain
 
 ## How to Implement a Storage Service
 
-Storage Service is optional while [instantiating](https://developers.vwo.com/v2/docs/fme-python-initialization) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing it.
+In browser environments, the SDK automatically uses `localStorage` to persist user data. This means any data related to the SDK is saved in the browser’s `local storage`By default, allowing it to persist across page reloads and browser sessions.
+
+However, you can customize this behavior using the `clientStorage` option during SDK initialization. This option provides more control over how and where the SDK stores its data on the client side.
 
 ### Usage
 
 ```typescript
 import { VWOProvider, IVWOOptions, IVWOContextModel, StorageConnector } from 'vwo-fme-react-sdk';
-
-class StorageConnector extends StorageConnector {
-  constructor() {
-    super();
-  }
-
-  /**
-   * Get data from storage
-   * @param {string} featureKey
-   * @param {string} userId
-   * @returns {Promise<any>}
-   */
-  async get(featureKey, userId) {
-    // return await data (based on featureKey and userId)
-  }
-
-  /**
-   * Set data in storage
-   * @param {object} data
-   */
-  async set(data) {
-    // Set data corresponding to a featureKey and user ID
-    // Use data.featureKey and data.userId to store the above data for a specific feature and a user
-  }
-}
 
 const vwoConfig: IVWOOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // Your VWO SDK Key
@@ -62,7 +39,11 @@ const vwoConfig: IVWOOptions = {
   logger: {
     level: 'debug', // Optional log level for debugging
   },
-  storage: StorageConnector,
+  clientStorage: {
+    key: 'vwo_data', // Custom key used to store SDK data, default is 'vwo_fme_data'
+    provider: sessionStorage, // Storage mechanism to use: can be sessionStorage or localStorage (default)
+    isDisabled: false, // If true, disables client-side storage altogether
+  }
 };
 
 const userContext: IVWOContextModel = {id: 'unique_user_id'};
@@ -76,9 +57,15 @@ const App = () => (
 export default App;
 ```
 
-Storage Service should expose two methods: *get* and *set*. These methods are used by VWO whenever there is a need to read or write from the storage service.
+### Explanation of `clientStorage` Parameters
 
-| Method Name | Params             | Description                                                 | Returns                                                                                    |
-| :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
-| get         | featureKey, userId | Retrieve stored data corresponding to featureKey and userId | Returns a matching user-feature data mapping corresponding to featureKey and userId passed |
-| set         | data               | Store user-feature data mapping                             | null                                                                                       |
+| Parameter      | Description                                                                                                                                                                                                                                            | Required | Type    | Default Value  |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- | :------ | :------------- |
+| **key**        | Specifies the key under which SDK data will be stored in browser storage. This allows you to customize the storage entry name to avoid conflicts or better organize stored data.                                                                       | No       | String  | `vwo_fme_data` |
+| **provider**   | Determines the browser storage mechanism to use. It can be either `localStorage` or `sessionStorage`. `localStorage` persists data even after the browser is closed, while `sessionStorage` persists data only during the current browser tab session. | No       | Object  | `localStorage` |
+| **isDisabled** | When set to `true`, completely disables client-side storage. This is useful if you want to avoid any data persistence in the browser for privacy or other reasons.                                                                                     | No       | Boolean | `false`        |
+
+> 📘 Important Notes
+>
+> * **Browser Environment Only:** The `clientStorage` option works exclusively in browser environments where `localStorage` and `sessionStorage` APIs are available.
+> * **Node.js Environments:** For server-side or Node.js environments, use the `storage` option for implementing custom storage logic, as `localStorage` and `sessionStorage` are not available there. To know more, click [here](https://developers.vwo.com/v2/docs/fme-node-storage#/).
