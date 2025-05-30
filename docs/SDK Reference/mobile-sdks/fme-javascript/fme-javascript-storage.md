@@ -12,7 +12,7 @@ next:
 ---
 ## In-Built Storage
 
-In browser-based environments, the VWO FullStack JavaScript SDK automatically utilizes the browser’s localStorage API to persist user-related data. This ensures a seamless user experience by maintaining state across page reloads and browser sessions.
+In browser-based environments, the VWO FME JavaScript SDK automatically utilizes the browser’s localStorage API to persist user-related data. This ensures a seamless user experience by maintaining state across page reloads and browser sessions.
 
 ### Key Benefits of Custom Storage:
 
