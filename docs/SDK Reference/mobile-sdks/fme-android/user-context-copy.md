@@ -47,7 +47,7 @@ vwoClient.getFlag("feature-key", userContext, object : IVwoListener {
     }
 
     override fun onFailure(message: String) {
-        Log.d("FME-App", "getFlag $message")
+				// Log the message
     }
 })
 
