@@ -41,10 +41,18 @@ userContext.customVariables = mutableMapOf(
 // The same user context can be used across different APIs. For example -
 
 // Returns a flag object which can be used to get flag's status or variable(s)
-flag = vwo.getFlag("feature-key", userContext)
+vwoClient.getFlag("feature-key", userContext, object : IVwoListener {
+    override fun onSuccess(data: Any) {
+        val featureFlag = data as? GetFlag
+    }
+
+    override fun onFailure(message: String) {
+        Log.d("FME-App", "getFlag $message")
+    }
+})
 
 // Track a metric conversion for the specified event-name
-val trackResponse = vwo?.trackEvent("event_name", userContext)
+val trackResponse = vwoClient?.trackEvent("event_name", userContext)
 
 // Send a user attribute to VWO
 val attributeMap = mutableMapOf<String, Any>(
