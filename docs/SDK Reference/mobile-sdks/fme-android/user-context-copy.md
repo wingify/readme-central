@@ -77,7 +77,15 @@ userContext.setCustomVariables(customVariables);
 // The same user context can be used across different APIs. For example -
 
 // Returns a flag object which can be used to get flag's status or variable(s)
-flag = vwoInstance.getFlag("feature-key", userContext);
+vwoClient.getFlag("feature-key", userContext, new IVwoListener() {
+    public void onSuccess(Object data) {
+        featureFlag = (GetFlag) data;
+    }
+
+    public void onFailure(@NonNull String message) {
+        Log.d(TAG, "getFlag " + message);
+    }
+});
 
 // Track a metric conversion for the specified event-name
 Map<String, Boolean> trackResponse = vwoClient.trackEvent("vwoevent", userContext);
