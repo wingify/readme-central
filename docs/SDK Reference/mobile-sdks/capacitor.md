@@ -1,5 +1,5 @@
 ---
-title: Capacitor
+title: FME-Capacitor
 excerpt: >-
   This guide provides step-by-step instructions to integrate the FME JavaScript
   SDK into a Capacitor-based mobile application.
