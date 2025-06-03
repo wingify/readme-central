@@ -65,22 +65,23 @@ No additional steps are required for Android. The native code is linked automati
 
 ### Step 5: Verify Expo Architecture Compatibility
 
-The VWO FME React Native SDK **does not support** the new React Native architecture.
+The VWO FME React Native SDK is compatible with both old and new React Native architectures in Expo.
 
-* If you use a newer Expo SDK version with the new architecture enabled, disable the new architecture.
-* Alternatively, use an Expo SDK version that supports the old architecture.
+* You can use the SDK with Expo SDK versions that have the new architecture enabled.
+* To verify if the new architecture is enabled in an Expo project, you should check the app.json file where you can set the newArchEnabled option to true.
+* Alternatively, use an Expo SDK version that supports the old architecture if running into issues in Expo SDK.
 
 ***
 
 ## Summary checklist
 
-| Step                     | Command                                 | Notes                                           |
-| :----------------------- | :-------------------------------------- | :---------------------------------------------- |
-| Generate native folders  | `npx expo prebuild`                     | Required for native SDK integration             |
-| Add SDK package          | `yarn add vwo-fme-react-native-sdk`     | Adds SDK to your project dependencies           |
-| Install iOS pods         | `cd ios && pod install`                 | Required for iOS native linking                 |
-| Android setup            | No extra steps                          | Android linking is automatic                    |
-| Verify Expo architecture | Use old architecture or disable the new | SDK is not compatible with the new architecture |
+| Step                     | Command                             | Notes                                 |
+| :----------------------- | :---------------------------------- | :------------------------------------ |
+| Generate native folders  | `npx expo prebuild`                 | Required for native SDK integration   |
+| Add SDK package          | `yarn add vwo-fme-react-native-sdk` | Adds SDK to your project dependencies |
+| Install iOS pods         | `cd ios && pod install`             | Required for iOS native linking       |
+| Android setup            | No extra steps                      | Android linking is automatic          |
+| Verify Expo architecture | Check app.json file to verify       | Supports both old and new             |
 
 ## References
 
