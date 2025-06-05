@@ -43,7 +43,7 @@ class FirebaseAnalyticsIntegration: IntegrationCallback {
                    let userId = properties["userId"] as? String {
                    
                      // Log the event to Firebase Analytics
-                    Analytics.logEvent("getFlagEvent", parameters: [
+                    Analytics.logEvent("vwo_fme_flag_evaluation", parameters: [
                         "featureName": featureName,
                         "userId": userId
                     ])
@@ -53,7 +53,7 @@ class FirebaseAnalyticsIntegration: IntegrationCallback {
                 // Handle track API
                 if let eventName = properties["eventName"] as? String {
                     // Log the event to Firebase Analytics
-                    Analytics.logEvent(eventName, parameters: nil)
+                    Analytics.logEvent("vwo_fme_track_event", parameters: ["name": eventName])
                 }
                 
             default:
@@ -77,6 +77,10 @@ VWOFme.initialize(options: options) { result in
     }
 }
 ```
+
+### Screenshot
+
+<Image align="center" src="https://files.readme.io/dcd4b3529ed8af388602433c2b7cbfa0d7984e8716070d4503e607efdca17737-dashboard_events.png" />
 
 ***
 
