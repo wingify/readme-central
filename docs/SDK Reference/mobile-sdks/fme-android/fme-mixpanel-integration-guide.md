@@ -1,5 +1,5 @@
 ---
-title: FME-Mixpanel integration guide
+title: Integration with Mixpanel
 deprecated: false
 hidden: true
 metadata:
