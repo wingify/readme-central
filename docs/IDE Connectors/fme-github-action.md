@@ -95,19 +95,3 @@ Explanation:
 * Feature flags are specified in the `flagsWithVariables` input as JSON, where each key represents a feature flag and its associated variable values.
 * The `sdkInitOptions` input allows for optional SDK configuration (such as enabling debug-level logging).
 * The VWO SDK credentials (`VWO_SDK_KEY` and `VWO_ACCOUNT_ID`) are passed securely using GitHub secrets.
-
-## Use Cases
-
-Here are some common use cases for integrating the VWO FME GitHub Action into your CI/CD pipeline:
-
-**1. A/B Testing During Builds**
-
-You can use feature flags to control which variant of a feature is enabled during the build process, allowing you to test multiple versions of features in real-time.
-
-**2. Dynamically Enabling or Disabling Features**
-
-With feature flags, you can toggle features on or off dynamically, reducing the need for code changes. This is useful when experimenting with different features in production or staging environments.
-
-**3. CI/CD Workflow Control**
-
-During a CI/CD pipeline, you can evaluate feature flags to determine if specific features should be included in the build, ensuring a clean and dynamic deployment.
