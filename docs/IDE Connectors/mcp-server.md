@@ -40,7 +40,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
   "mcpServers": {
     "vwo-mcp-server": {
       "command": "npx",
-      "args": ["-y", "vwo-fme-mcp-server"],
+      "args": ["-y", "vwo-fme-mcp"],
       "env": {
         "VWO_ACCOUNT_ID": "YOUR_ACCOUNT_ID",
         "VWO_API_KEY": "YOUR_API_URL"
@@ -63,7 +63,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
   "servers": {
     "vwo-mcp-server": {
       "command": "npx",
-      "args": ["-y", "vwo-fme-mcp-server"],
+      "args": ["-y", "vwo-fme-mcp"],
       "env": {
         "VWO_ACCOUNT_ID": "YOUR_ACCOUNT_ID",
         "VWO_API_KEY": "YOUR_API_URL"
@@ -86,7 +86,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
   "mcpServers": {
     "vwo-mcp-server": {
       "command": "npx",
-      "args": ["-y", "vwo-fme-mcp-server"],
+      "args": ["-y", "vwo-fme-mcp"],
       "env": {
         "VWO_ACCOUNT_ID": "YOUR_ACCOUNT_ID",
         "VWO_API_KEY": "YOUR_API_URL"
@@ -99,3 +99,49 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 4. Save the file and restart Claude Desktop. A hammer icon will appear in the chat window once the server is active.
 
 For other clients, refer to their documentation on how to configure custom MCP servers. The configuration pattern remains similar.
+
+## Available tools
+
+Here's what you can do with our feature flag management tools:
+
+### System
+
+1. **Bootstrap VWO** - Retrieve cursor rules and configuration settings to seamlessly manage feature flags within your project. This enables smooth integration with your SDK and leverages VWO's feature management capabilities.
+
+> Note: Bootstrap VWO  is currently supported only in the Cursor IDE.
+
+### Feature Flags
+
+1. **Create Feature Flag** - Launch a new feature flag into your account with custom settings, metrics, and variables.
+
+2. **Delete Feature Flag** - Safely remove any feature flag from your account when it's no longer needed.
+
+3. **Get Feature Flag** - Dive into the details of any feature flag to see its current configuration and status.
+
+4. **List Feature Flags** - Get a bird's-eye view of all your feature flags in one place.
+
+5. **Update Feature Flag** - Fine-tune your feature flags by modifying their properties, metrics, and variations.
+
+6. **Toggle Feature Flag** - Instantly enable or disable feature flags in different environments with a single click.
+
+### Feature Flag Rules
+
+1. **List Feature Flag Rules** - View all rules associated with your feature flags.
+
+2. **Create Rollout and Personalize Rule** - Set up rules for gradual rollout or personalization of your features.
+
+3. **Create Testing and MVT Rule** - Configure rules for A/B testing or multivariate testing.
+
+4. **Get Feature Flag Rule** - Examine the details of a specific feature flag rule.
+
+5. **Toggle Feature Flag Rule** - Enable or disable specific rules for your feature flags.
+
+6. **Delete Feature Flag Rule** - Remove unwanted rules from your feature flags.
+
+### Projects and Environments
+
+1. **List Projects and Environments** - See all your projects and their associated environments.
+
+### Metrics
+
+1. **Get Metrics** - Access metrics for your feature flags and experiments.
