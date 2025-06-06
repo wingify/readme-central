@@ -14,7 +14,7 @@ This documentation provides a comprehensive guide to understand how to set up an
 
 ## Inputs
 
-The following input fields need to be provided when using the VWO FME GitHub Action.
+The following input fields need to be provided when using the `VWO FME GitHub Action`.
 
 | Input Name             | Description                                                                                                                                                                                               | Required |
 | :--------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
