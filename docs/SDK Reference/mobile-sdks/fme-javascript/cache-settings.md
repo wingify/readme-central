@@ -27,12 +27,19 @@ const vwoClient = await init({
   accountId: '123456',
   sdkKey: '32-alpha-numeric-sdk-key',
   clientStorage: {
-    key: 'vwo_data', // The storage key used for caching settings, defaults to 'vwo_fme_data'
+    key: 'vwo_data',  // Custom key used to store SDK data, default is 'vwo_fme_data'
     provider: sessionStorage, // The storage provider to use, defaults to localStorage
     isDisabled: false, // Enable or disable client-side storage, defaults to false
     alwaysUseCachedSettings: true, // Use cached settings regardless of TTL, defaults to false
     ttl: 3600000, // Custom TTL value in milliseconds (1 hour), defaults to 2 hours
   },
+  
+   // Custom key used to store SDK data, default is 'vwo_fme_data'
+    key: 'vwo_data',
+    // Storage mechanism to use: can be sessionStorage or localStorage (default)
+    provider: sessionStorage,
+    // If true, disables client-side in-built storage altogether. Though can connect Storage Connector still
+    isDisabled: false,
 });
 
 ```
