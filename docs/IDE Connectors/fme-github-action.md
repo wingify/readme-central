@@ -93,5 +93,5 @@ Explanation:
 * The workflow is triggered on a `push` event to the `main` branch.
 * The `Evaluate Feature Flags` step uses the `VWO FME GitHub Action` to evaluate the feature flags for a user with the specified context (`userContext`).
 * Feature flags are specified in the `flagsWithVariables` input as JSON, where each key represents a feature flag and its associated variable values.
-* The `sdkInitOptions` input allows for optional SDK configuration (such as enabling debug-level logging).
+* The `sdkInitOptions` input allows for optional SDK configuration.
 * The VWO SDK credentials (`VWO_SDK_KEY` and `VWO_ACCOUNT_ID`) are passed securely using GitHub secrets.
