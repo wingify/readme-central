@@ -27,6 +27,8 @@ Key components of **GitHub Actions**:
 
 The **VWO FME GitHub Action** enables you to evaluate feature flags in your CI/CD pipelines using the **VWO platform** (Visual Website Optimizer). It allows you to dynamically enable or disable features or retrieve feature flag values during the build process. By leveraging feature flags, you can make more flexible, robust, and dynamic applications, eliminating hardcoded values from the codebase.
 
+`Github Repo`: [https://github.com/wingify/vwo-fme-github-action](https://github.com/wingify/vwo-fme-github-action)
+
 This documentation provides a comprehensive guide to understand how to set up and use the VWO FME GitHub Action in your repository.
 
 ## Inputs
