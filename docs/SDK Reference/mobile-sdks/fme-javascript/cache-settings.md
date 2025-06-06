@@ -19,3 +19,21 @@ We’ve introduced enhanced storage configuration options to give more flexibili
 3. **Background Refresh**
    * When valid cached settings are returned and the TTL has not expired, the SDK will use the cached settings immediately. While doing so, it will asynchronously refresh the settings in the background. This helps in ensuring the settings are up to date without introducing delays in loading or performance bottlenecks.
    <br />
+
+<br />
+
+```javascript
+const vwoClient = await init({
+  accountId: '123456',
+  sdkKey: '32-alpha-numeric-sdk-key',
+  
+  clientStorage: {
+    // Custom key used to store SDK data, default is 'vwo_fme_data'
+    key: 'vwo_data',
+    // Storage mechanism to use: can be sessionStorage or localStorage (default)
+    provider: sessionStorage,
+    // If true, disables client-side in-built storage altogether. Though can connect Storage Connector still
+    isDisabled: false,
+  },
+});
+```
