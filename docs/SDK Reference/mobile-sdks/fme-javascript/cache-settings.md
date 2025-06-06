@@ -20,7 +20,7 @@ We’ve introduced enhanced storage configuration options to give more flexibili
    * When valid cached settings are returned and the TTL has not expired, the SDK will use the cached settings immediately. While doing so, it will asynchronously refresh the settings in the background. This helps in ensuring the settings are up to date without introducing delays in loading or performance bottlenecks.
    <br />
 
-<br />
+## Usage
 
 ```javascript
 const vwoClient = await init({
