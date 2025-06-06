@@ -6,7 +6,24 @@ hidden: false
 metadata:
   robots: index
 ---
-## Introduction
+## Overview of CI/CD and GitHub Actions
+
+`CI/CD (Continuous Integration and Continuous Delivery/Deployment)` is a set of practices in software development aimed at automating and streamlining the process of integrating, testing, and deploying code. Continuous Integration involves automatically integrating and testing code changes frequently to detect issues early, while Continuous Delivery ensures that the code is always in a deployable state, ready for manual release. Continuous Deployment takes this a step further by automatically deploying every change to production once it passes testing. Together, CI/CD improves software quality, speeds up development cycles, and reduces the risk of errors in production by ensuring that code is continuously tested and delivered in a seamless, automated workflow.
+
+`GitHub Actions` is a feature provided by GitHub to help automate workflows, including Continuous Integration (CI) and Continuous Delivery (CD) pipelines, directly within the GitHub ecosystem. It allows developers to define and run workflows that automate tasks like testing, building, and deploying their applications.
+
+Key components of **GitHub Actions**:
+
+1. **Workflows**:\
+   A GitHub Actions workflow is a YAML file (located in the .github/workflows/ directory of your repository) that defines the steps and jobs to be run. A workflow can be triggered by specific events, like pushing code to a branch, creating a pull request, or on a schedule.
+2. **Actions**:\
+   Actions are individual tasks that can be run as part of a workflow. GitHub provides a marketplace for reusable actions created by the community. You can use pre-made actions or write custom actions for specific tasks (e.g., testing, deployment).
+3. **Jobs**:\
+   Jobs define a set of steps that are executed on the same runner (an environment where your code is built, tested, and deployed). Jobs can run sequentially or in parallel, depending on your configuration.
+4. **Events**:\
+   An event is a specific activity in a repository that triggers a workflow run. For example, an activity can originate from GitHub when someone creates a pull request, opens an issue, or pushes a commit to a repository
+
+## Introduction to VWO FME Github Action
 
 The **VWO FME GitHub Action** enables you to evaluate feature flags in your CI/CD pipelines using the **VWO platform** (Visual Website Optimizer). It allows you to dynamically enable or disable features or retrieve feature flag values during the build process. By leveraging feature flags, you can make more flexible, robust, and dynamic applications, eliminating hardcoded values from the codebase.
 
