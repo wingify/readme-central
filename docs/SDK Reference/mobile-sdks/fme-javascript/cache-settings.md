@@ -28,6 +28,8 @@ We’ve introduced enhanced storage configuration options to give more flexibili
 * **Flexible Caching:** It allows for a balance between always using fresh settings and reducing the reliance on server fetches, giving you more control over your caching strategy.
 * **Non-Blocking Updates:** The background refresh feature ensures that the user experiences no delay in getting the settings, while the SDK silently keeps them updated in the background.
 
+<br />
+
 ### Usage
 
 ```javascript
