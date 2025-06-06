@@ -18,7 +18,15 @@ We’ve introduced enhanced storage configuration options to give more flexibili
    * By default, this option is disabled. If disabled, the SDK will check the TTL and refresh settings as per the specified interval.
 3. **Background Refresh**
    * When valid cached settings are returned and the TTL has not expired, the SDK will use the cached settings immediately. While doing so, it will asynchronously refresh the settings in the background. This helps in ensuring the settings are up to date without introducing delays in loading or performance bottlenecks.
-   <br />
+
+<br />
+
+## Benefits
+
+* Improved Performance: By customizing the TTL and cache usage, you can optimize how often settings are fetched from the server, reducing unnecessary network requests and improving load times.
+* Better Control: You can fine-tune how settings are stored and refreshed, ensuring that your application behaves exactly as needed depending on the environment and the use case.
+* Flexible Caching: This update allows for a balance between always using fresh settings and reducing the reliance on server fetches, giving you more control over your caching strategy.
+* Non-Blocking Updates: The background refresh feature ensures that the user experiences no delay in getting the settings, while the SDK silently keeps them updated in the background.
 
 ### Usage
 
