@@ -2,7 +2,7 @@
 title: FME Github Action
 excerpt: VWO FME GitHub Action Documentation
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
