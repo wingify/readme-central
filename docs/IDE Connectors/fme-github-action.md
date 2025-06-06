@@ -8,14 +8,14 @@ metadata:
 ---
 ## Overview of CI/CD and GitHub Actions
 
-`CI/CD (Continuous Integration and Continuous Delivery/Deployment)` is a set of practices in software development aimed at automating and streamlining the process of integrating, testing, and deploying code. Continuous Integration involves automatically integrating and testing code changes frequently to detect issues early, while Continuous Delivery ensures that the code is always in a deployable state, ready for manual release. Continuous Deployment takes this a step further by automatically deploying every change to production once it passes testing. Together, CI/CD improves software quality, speeds up development cycles, and reduces the risk of errors in production by ensuring that code is continuously tested and delivered in a seamless, automated workflow.
+**CI/CD (Continuous Integration and Continuous Delivery/Deployment)** is a set of practices in software development aimed at automating and streamlining the process of integrating, testing, and deploying code. Continuous Integration involves automatically integrating and testing code changes frequently to detect issues early, while Continuous Delivery ensures that the code is always in a deployable state, ready for manual release. Continuous Deployment takes this a step further by automatically deploying every change to production once it passes testing. Together, CI/CD improves software quality, speeds up development cycles, and reduces the risk of errors in production by ensuring that code is continuously tested and delivered in a seamless, automated workflow.
 
-`GitHub Actions` is a feature provided by GitHub to help automate workflows, including Continuous Integration (CI) and Continuous Delivery (CD) pipelines, directly within the GitHub ecosystem. It allows developers to define and run workflows that automate tasks like testing, building, and deploying their applications.
+**GitHub Actions** is a powerful automation feature within the GitHub platform that enables the creation and execution of workflows for tasks such as Continuous Integration (CI) and Continuous Delivery (CD). It allows developers to define custom workflows to automate processes like testing, building, and deploying applications directly within the GitHub environment.
 
 Key components of **GitHub Actions**:
 
 1. **Workflows**:\
-   A GitHub Actions workflow is a YAML file (located in the .github/workflows/ directory of your repository) that defines the steps and jobs to be run. A workflow can be triggered by specific events, like pushing code to a branch, creating a pull request, or on a schedule.
+   A GitHub Actions workflow is a YAML file (located in the `.github/workflows/` directory of your repository) that defines the steps and jobs to be run. A workflow can be triggered by specific events, like pushing code to a branch, creating a pull request, or on a schedule.
 2. **Actions**:\
    Actions are individual tasks that can be run as part of a workflow. GitHub provides a marketplace for reusable actions created by the community. You can use pre-made actions or write custom actions for specific tasks (e.g., testing, deployment).
 3. **Jobs**:\
@@ -27,7 +27,9 @@ Key components of **GitHub Actions**:
 
 The **VWO FME GitHub Action** enables you to evaluate feature flags in your CI/CD pipelines using the **VWO platform** (Visual Website Optimizer). It allows you to dynamically enable or disable features or retrieve feature flag values during the build process. By leveraging feature flags, you can make more flexible, robust, and dynamic applications, eliminating hardcoded values from the codebase.
 
-`Github Repo`: [https://github.com/wingify/vwo-fme-github-action](https://github.com/wingify/vwo-fme-github-action)
+> 📘 GitHub Repo
+>
+> You can find the source code of the repo [here](https://github.com/wingify/vwo-fme-github-action) .
 
 This documentation provides a comprehensive guide to understand how to set up and use the VWO FME GitHub Action in your repository.
 
