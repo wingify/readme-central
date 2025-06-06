@@ -1,6 +1,5 @@
 ---
-title: FME Github Action
-excerpt: VWO FME GitHub Action Documentation
+title: Github Action
 deprecated: false
 hidden: true
 metadata:
