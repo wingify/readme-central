@@ -56,6 +56,8 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 4. Save the configuration and confirm that the server status turns green, indicating it's active.
 
+<Image align="center" src="https://files.readme.io/fd50ad28e6e4494fbc565d2e686ba68f4ecfe37a75bf50ff5216e4222bc6d50a-VWO_Cursor_MCP.gif" />
+
 ### VS Code
 
 1. Open the **User Settings (JSON)** in VS Code.
@@ -77,6 +79,8 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 ```
 
 3. Save the settings and ensure the MCP server is ready for use within VS Code.
+
+<Image align="center" src="https://files.readme.io/5c3cb7d11b16f452688eafb5daf4aea6a48a61529f1ee9c9c64e5e3963e2731c-VWO_VS_Code_MCP.gif" />
 
 ### Claude Desktop
 
@@ -100,6 +104,8 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 ```
 
 4. Save the file and restart Claude Desktop. Once the server is active, a hammer icon will appear in the chat window.
+
+<Image align="center" border={false} src="https://files.readme.io/7580d2d3a8d74c2d3007179f39af4c8322f17025fb5b769e721654a4b0063ad7-VWO_Claude_MCP.gif" />
 
 For other clients, refer to their documentation on configuring custom MCP servers. The configuration pattern remains similar.
 
