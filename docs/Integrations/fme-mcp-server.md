@@ -1,14 +1,13 @@
 ---
 title: MCP Server
-excerpt: VWO Feature Management MCP Server Documentation
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
 ## Introduction
 
-The `VWO MCP Server` is your gateway to managing feature flags effortlessly in your development environment. This tool connects the VWO feature management system directly with your favorite AI-powered IDEs, making it easier than ever to control and optimize feature releases without leaving your coding flow.
+The `VWO MCP Server` serves as a seamless bridge between your development environment and VWO’s Feature Management & Experimentation. It enables effortless feature flag management by integrating directly with AI-powered IDEs, allowing you to control and optimize feature releases without disrupting your coding workflow.
 
 ### Key Features
 
@@ -18,12 +17,16 @@ The `VWO MCP Server` is your gateway to managing feature flags effortlessly in y
 
 This is ideal for developers who want to manage feature flags efficiently within their IDEs.
 
+<br />
+
 ## Required Configuration
 
 To connect the MCP server to the VWO feature management system, you must configure two essential environment variables:
 
-* **VWO\_ACCOUNT\_ID**: Your VWO account ID.
-* **VWO\_API\_KEY**: The API key (Developer Token) used for authentication.
+* **VWO\_ACCOUNT\_ID**: VWO Account ID.
+* **VWO\_API\_KEY**: The API key (Developer Token) for authenticating with VWO REST APIs.
+
+<br />
 
 ## Setup Instructions
 
@@ -33,17 +36,17 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 1. Open **Cursor Settings** and navigate to the **MCP** section.
 2. Click on **Add new global MCP server**.
-3. Add the following configuration, ensuring that you replace the placeholder values with your actual credentials:
+3. Add the following configuration in `mcp.json`, ensuring that you replace the placeholder values with your actual credentials:
 
 ```json
 {
   "mcpServers": {
     "vwo-mcp-server": {
       "command": "npx",
-      "args": ["-y", "vwo-fme-mcp"],
+      "args": ["-y", "vwo-fme-mcp@latest"],
       "env": {
-        "VWO_ACCOUNT_ID": "YOUR_ACCOUNT_ID",
-        "VWO_API_KEY": "YOUR_API_URL"
+        "VWO_ACCOUNT_ID": "VWO_ACCOUNT_ID",
+        "VWO_API_KEY": "VWO_API_KEY"
       }
     }
   }
@@ -63,10 +66,10 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
   "servers": {
     "vwo-mcp-server": {
       "command": "npx",
-      "args": ["-y", "vwo-fme-mcp"],
+      "args": ["-y", "vwo-fme-mcp@latest"],
       "env": {
-        "VWO_ACCOUNT_ID": "YOUR_ACCOUNT_ID",
-        "VWO_API_KEY": "YOUR_API_URL"
+        "VWO_ACCOUNT_ID": "VWO_ACCOUNT_ID",
+        "VWO_API_KEY": "VWO_API_KEY"
       }
     }
   }
@@ -86,19 +89,21 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
   "mcpServers": {
     "vwo-mcp-server": {
       "command": "npx",
-      "args": ["-y", "vwo-fme-mcp"],
+      "args": ["-y", "vwo-fme-mcp@latest"],
       "env": {
-        "VWO_ACCOUNT_ID": "YOUR_ACCOUNT_ID",
-        "VWO_API_KEY": "YOUR_API_URL"
+        "VWO_ACCOUNT_ID": "VWO_ACCOUNT_ID",
+        "VWO_API_KEY": "VWO_API_KEY"
       }
     }
   }
 }
 ```
 
-4. Save the file and restart Claude Desktop. A hammer icon will appear in the chat window once the server is active.
+4. Save the file and restart Claude Desktop. Once the server is active, a hammer icon will appear in the chat window.
 
-For other clients, refer to their documentation on how to configure custom MCP servers. The configuration pattern remains similar.
+For other clients, refer to their documentation on configuring custom MCP servers. The configuration pattern remains similar.
+
+<br />
 
 ## Available tools
 
