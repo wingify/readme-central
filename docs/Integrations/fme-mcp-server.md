@@ -80,7 +80,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 3. Save the settings and ensure the MCP server is ready for use within VS Code.
 
-<Image align="center" className="border" border={true} width="800px" src="https://files.readme.io/5c3cb7d11b16f452688eafb5daf4aea6a48a61529f1ee9c9c64e5e3963e2731c-VWO_VS_Code_MCP.gif" />
+<Image align="center" className="border" border={true} width="800px" src="https://files.readme.io/003a71728f234588e27243adeca55023c02b79399c9fd3dd3a0338ec724149a3-VWO_VS_Code_MCP.gif" />
 
 ### Claude Desktop
 
