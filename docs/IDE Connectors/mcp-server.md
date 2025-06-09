@@ -2,7 +2,7 @@
 title: MCP Server
 excerpt: VWO Feature Management MCP Server Documentation
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
