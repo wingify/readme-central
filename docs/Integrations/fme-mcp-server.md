@@ -105,9 +105,13 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 4. Save the file and restart Claude Desktop. Once the server is active, a hammer icon will appear in the chat window.
 
-<Image align="center" border={true} src="https://files.readme.io/7580d2d3a8d74c2d3007179f39af4c8322f17025fb5b769e721654a4b0063ad7-VWO_Claude_MCP.gif" width="800px" />
+<Image align="center" className="border" border={true} width="800px" src="https://files.readme.io/7580d2d3a8d74c2d3007179f39af4c8322f17025fb5b769e721654a4b0063ad7-VWO_Claude_MCP.gif" />
 
-For other clients, refer to their documentation on configuring custom MCP servers. The configuration pattern remains similar.
+<br />
+
+> 📘 Looking for other AI Clients
+>
+> For other clients, refer to their documentation on configuring custom MCP servers. The configuration pattern remains similar.
 
 <br />
 
