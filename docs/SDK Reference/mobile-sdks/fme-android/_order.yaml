@@ -3,6 +3,7 @@
 - fme-android-context
 - user-context-copy
 - fme-android-flags
+- feature-flags-variables-copy
 - fme-android-metrics
 - fme-android-attributes
 - fme-android-logging
@@ -16,4 +17,3 @@
 - impact-analysis
 - integration-with-segment
 - installing-the-sdk-new
-- feature-flags-variables-copy
