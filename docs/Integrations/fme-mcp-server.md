@@ -56,7 +56,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 4. Save the configuration and confirm that the server status turns green, indicating it's active.
 
-<Image align="center" className="border" border={true} width="800px" src="https://files.readme.io/fd50ad28e6e4494fbc565d2e686ba68f4ecfe37a75bf50ff5216e4222bc6d50a-VWO_Cursor_MCP.gif" />
+<Image align="center" className="border" border={true} src="https://files.readme.io/f09224a225717497a6d53fbf3adfe3b0be59a2712c28688322471616371499f3-VWO_Cursor_MCP_1.gif" />
 
 ### VS Code
 
@@ -80,7 +80,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 3. Save the settings and ensure the MCP server is ready for use within VS Code.
 
-<Image align="center" className="border" border={true} width="800px" src="https://files.readme.io/003a71728f234588e27243adeca55023c02b79399c9fd3dd3a0338ec724149a3-VWO_VS_Code_MCP.gif" />
+<Image align="center" className="border" border={true} src="https://files.readme.io/351699fdc6e3c335f4b87f32eeaf204faca01600eda6fafc5291ab1464353da7-VWO_VS_Code_MCP.gif" />
 
 ### Claude Desktop
 
@@ -105,15 +105,13 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 4. Save the file and restart Claude Desktop. Once the server is active, a hammer icon will appear in the chat window.
 
-<Image align="center" className="border" border={true} width="800px" src="https://files.readme.io/7580d2d3a8d74c2d3007179f39af4c8322f17025fb5b769e721654a4b0063ad7-VWO_Claude_MCP.gif" />
+<Image align="center" className="border" border={true} src="https://files.readme.io/5f8166e22cf8760d4ffde73bca3e88a89d6f81720668864062a9e77bbb0d11bc-VWO_Claude_MCP.gif" />
 
 <br />
 
-> 📘 Looking for other AI Clients
+> **Looking for other AI Clients**
 >
 > For other clients, refer to their documentation on configuring custom MCP servers. The configuration pattern remains similar.
-
-<br />
 
 ## Available tools
 
@@ -121,13 +119,13 @@ Here's what you can do with our feature flag management tools:
 
 ### System
 
-1. **Bootstrap VWO** - Retrieve cursor rules and configuration settings to seamlessly manage feature flags within your project. This enables smooth integration with your SDK and leverages VWO's feature management capabilities.
+1. **Bootstrap VWO** - Retrieve cursor rules and configuration settings to manage feature flags within your project seamlessly. This enables smooth integration with your SDK and leverages VWO's feature management capabilities.
 
-> Note: Bootstrap VWO  is currently supported only in the Cursor IDE.
+> Note: *Bootstrap VWO* tool is currently supported only in the Cursor IDE as it downloads the Cursor Rules based on the project's langugae.
 
 ### Feature Flags
 
-1. **Create Feature Flag** - Launch a new feature flag into your account with custom settings, metrics, and variables.
+1. **Create Feature Flag** - Launch a new feature flag with custom settings, metrics, and variables in your account.
 
 2. **Delete Feature Flag** - Safely remove any feature flag from your account when it's no longer needed.
 
@@ -160,3 +158,34 @@ Here's what you can do with our feature flag management tools:
 ### Metrics
 
 1. **Get Metrics** - Access metrics for your feature flags and experiments.
+
+<br />
+
+## How it works
+
+* Starts with a natural language command or **prompt** from a developer or AI agent.
+* MCP Plugin acts as the **orchestrator**: detecting context, managing IDE rules, interacting with VWO APIs, and generating SDK code.
+* Flags are created/updated in the VWO dashboard, and integration code is directly injected into the user’s codebase.
+
+<br />
+
+```mermaid
+graph TD
+    A[Developer or AI Agent in IDE] --> B{Feature intent detected}
+    B -->|Yes, use VWO SDK| C[MCP Plugin]
+    
+    C --> D[Detect project context: language and structure]
+    D --> E[Generate IDE rules for Cursor]
+
+    C --> F[Call VWO API to create or update flag]
+    F --> G[VWO FME Dashboard]
+
+    C --> H[Generate SDK code: getFlag and getVariable]
+    H --> I[Insert integration code into codebase]
+
+    style A fill:#f9f,stroke:#333,stroke-width:1px
+    style C fill:#ff9,stroke:#333,stroke-width:1px
+    style G fill:#bbf,stroke:#333,stroke-width:1px
+    style I fill:#cfc,stroke:#333,stroke-width:1px
+
+```
