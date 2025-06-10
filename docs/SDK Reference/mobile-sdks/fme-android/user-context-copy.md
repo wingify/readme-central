@@ -83,7 +83,7 @@ vwoClient.getFlag("feature-key", userContext, new IVwoListener() {
     }
 
     public void onFailure(@NonNull String message) {
-        Log.d(TAG, "getFlag " + message);
+        // Log the message
     }
 });
 
