@@ -1,5 +1,5 @@
 ---
-title: Feature Flags & Variables (COPY)
+title: Feature Flags & Variables (New)
 deprecated: false
 hidden: true
 metadata:
@@ -29,10 +29,10 @@ This allows dynamic control over feature availability, enabling targeted rollout
 The returned flag object allows you to:
 
 1. Check if the feature is enabled for the user:\
-   `val isFlagEnabled = flag?.isEnabled`
+   `val isFlagEnabled = flag?.isEnabled()`
 2. Retrieve associated feature variables (if configured):\
-   `val variableValue = flag?.getVariable('variable_key', 'default-value')
-     val allVariables = flag?.getVariables()`\
+   `val variableValue = flag?.getVariable('variable_key', 'default-value') as String
+     val allVariables = flag?.getVariables()`
    These variables can define UI elements, feature limits, or configuration settings, enabling personalized experiences without changing the codebase.
 
 ## ***Get Flag*** API
@@ -62,12 +62,28 @@ When this API is triggered:
 ```kotlin Kotlin
 // Retrieve the feature flag associated with 'feature_key' for the given user context, 
 // Allowing access to feature status using is_enabled() and associated variables (getVariables/getVariable). 
-flag = vwo.getFlag("feature-key", userContext)
+vwoClient.getFlag("feature-key", userContext, object : IVwoListener {
+    override fun onSuccess(data: Any) {
+        val featureFlag = data as? GetFlag
+    }
+
+    override fun onFailure(message: String) {
+				// Log the message
+    }
+})
 ```
 ```java
 // Retrieve the feature flag associated with 'feature_key' for the given user context, 
 // Allowing access to feature status using isEnabled() and associated variables (getVariables/getVariable).
-flag = vwoInstance.getFlag("feature-key", userContext);
+vwoClient.getFlag("feature-key", userContext, new IVwoListener() {
+    public void onSuccess(Object data) {
+        featureFlag = (GetFlag) data;
+    }
+
+    public void onFailure(@NonNull String message) {
+				// Log the message
+    }
+});
 ```
 
 ### Parameters Definition
@@ -107,7 +123,7 @@ flag = vwoInstance.getFlag("feature-key", userContext);
 
     <tr>
       <td>
-        **userContext**\
+        **userContext**
         *Required*
       </td>
 
@@ -117,6 +133,20 @@ flag = vwoInstance.getFlag("feature-key", userContext);
 
       <td>
         Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-node-context).
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **listener** *Required*
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        Callback object to receive status update about the operation.
       </td>
     </tr>
   </tbody>
@@ -138,7 +168,7 @@ If the current user satisfies the conditions for any rollout, testing, or person
 
 ```kotlin Kotlin
 // To check if the flag is enabled or disabled, use is_enabled method
-val isFlagEnabled = flag?.isEnabled
+val isFlagEnabled = flag?.isEnabled()
 ```
 ```java
 // To check if the flag is enabled or disabled, use is_enabled method
@@ -203,7 +233,7 @@ String variable1 = (String) featureFlag.getVariable("variable_key", "default-val
 
     <tr>
       <td>
-        **defaultValue**\
+        **defaultValue**
         *Required*
       </td>
 
@@ -220,7 +250,7 @@ String variable1 = (String) featureFlag.getVariable("variable_key", "default-val
 
 ## ***Get Variables*** API
 
-The *getVariables()* function returns all variables associated with the feature flag as a dictionary. 
+The *getVariables()* function returns all variables associated with the feature flag as a dictionary.
 
 ### Usage
 
