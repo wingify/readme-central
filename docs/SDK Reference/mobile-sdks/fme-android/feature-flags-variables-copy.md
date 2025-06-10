@@ -29,10 +29,10 @@ This allows dynamic control over feature availability, enabling targeted rollout
 The returned flag object allows you to:
 
 1. Check if the feature is enabled for the user:\
-   `val isFlagEnabled = flag?.isEnabled()`
+   `val isFlagEnabled = featureFlag?.isEnabled()`
 2. Retrieve associated feature variables (if configured):\
-   `val variableValue = flag?.getVariable('variable_key', 'default-value') as String
-     val allVariables = flag?.getVariables()`
+   `val variableValue = featureFlag?.getVariable('variable_key', 'default-value') as String
+     val allVariables = featureFlag?.getVariables()`
    These variables can define UI elements, feature limits, or configuration settings, enabling personalized experiences without changing the codebase.
 
 ## ***Get Flag*** API
@@ -168,7 +168,7 @@ If the current user satisfies the conditions for any rollout, testing, or person
 
 ```kotlin Kotlin
 // To check if the flag is enabled or disabled, use is_enabled method
-val isFlagEnabled = flag?.isEnabled()
+val isFlagEnabled = featureFlag?.isEnabled()
 ```
 ```java
 // To check if the flag is enabled or disabled, use is_enabled method
@@ -189,7 +189,7 @@ The *getVariable()* function retrieves the value of a specific variable associat
 
 ```kotlin
 // Get value of the flag's variable
-val variableValue = flag?.getVariable('variableKey', 'defaultValue')
+val variableValue = featureFlag?.getVariable('variableKey', 'defaultValue')
 ```
 ```java
 // Get value of the flag's variable
@@ -256,7 +256,7 @@ The *getVariables()* function returns all variables associated with the feature 
 
 ```kotlin
 // Get value of all the variables of the flag
-val allVariables = flag?.getVariables()
+val allVariables = featureFlag?.getVariables()
 ```
 ```java
 // Get value of all the variables of the flag
