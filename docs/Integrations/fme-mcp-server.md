@@ -163,7 +163,7 @@ Here's what you can do with our feature flag management tools:
 
 ## How it works
 
-* Starts with a natural language command or **prompt** from a developer or AI agent.
+* Starts with a natural language **prompt** from a developer or AI agent.
 * MCP Plugin acts as the **orchestrator**: detecting context, managing IDE rules, interacting with VWO APIs, and generating SDK code.
 * Flags are created/updated in the VWO dashboard, and integration code is directly injected into the user’s codebase.
 
