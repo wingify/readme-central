@@ -1,5 +1,5 @@
 ---
-title: Settings Cache
+title: Cache Settings
 deprecated: false
 hidden: false
 metadata:
@@ -24,13 +24,15 @@ Caching of settings in the VWO FME Flutter SDK refers to the ability to store an
 The `cachedSettingsExpiryTime` parameter controls how long the cached settings remain valid before the SDK fetches fresh configuration from the VWO server.
 
 ### Type and Default Value:
-- **Type**: `int` (milliseconds)
-- **Default Value**: `0` (caching disabled)
+
+* **Type**: `int` (milliseconds)
+* **Default Value**: `0` (caching disabled)
 
 ### Behavior:
-- When set to `0` (default): The SDK fetches fresh settings from the server on every initialization
-- When set to a positive value: The SDK uses cached settings until the specified time expires
-- When offline and cache expires: The SDK continues using expired cached settings to maintain functionality
+
+* When set to `0` (default): The SDK fetches fresh settings from the server on every initialization
+* When set to a positive value: The SDK uses cached settings until the specified time expires
+* When offline and cache expires: The SDK continues using expired cached settings to maintain functionality
 
 ## How Caching Works
 
@@ -46,7 +48,7 @@ To utilize the `cachedSettingsExpiryTime` parameter, you need to initialize the 
 
 ### Example Usage
 
-```dart
+```dart Dart
 import 'package:vwo_fme_flutter_sdk/vwo.dart';
 import 'package:vwo_fme_flutter_sdk/vwo/models/vwo_init_options.dart';
 
