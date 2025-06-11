@@ -4,6 +4,7 @@
 - fme-mcp-server
 - fme-github-action
 - fme-integration-mixpanel
+- mixpanel
 - fme-integration-segment
 - fme-integration-firebase-analytics
 - fme-integrations-ide-connectors
