@@ -5,5 +5,5 @@
 - fme-github-action
 - fme-integration-mixpanel
 - fme-integration-segment
-- google-analytics
+- fme-integration-firebase-analytics
 - fme-integrations-ide-connectors
