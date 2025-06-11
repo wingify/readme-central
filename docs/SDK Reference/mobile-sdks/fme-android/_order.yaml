@@ -4,10 +4,10 @@
 - fme-android-flags
 - fme-android-metrics
 - fme-android-attributes
-- fme-android-integrations
 - fme-android-event-batching
 - fme-android-logging
 - fme-android-storage
+- fme-android-integrations
 - settings-cache
 - fme-mixpanel-integration-guide
 - impact-analysis
