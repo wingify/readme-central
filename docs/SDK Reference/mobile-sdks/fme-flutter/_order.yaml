@@ -6,7 +6,7 @@
 - fme-flutter-attributes
 - fme-flutter-logging
 - fme-flutter-integrations
-- event-batching-1
+- fme-flutter-event-batching
 - user-context-new
 - initialization-new-1
 - settings-cache-1
