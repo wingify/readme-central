@@ -1,5 +1,5 @@
 ---
-title: Mixpanel
+title: Mixpanel(iOS)
 deprecated: false
 hidden: true
 metadata:
