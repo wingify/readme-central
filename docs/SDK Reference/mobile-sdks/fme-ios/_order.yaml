@@ -9,6 +9,6 @@
 - fme-ios-integrations
 - fme-ios-event-batching
 - fme-ios-impact-analysis
-- cache-setting-expiry
+- fme-ios-cache-setting
 - init-changes-draft
 - user-context-draft
