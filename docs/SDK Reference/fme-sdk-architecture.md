@@ -54,11 +54,13 @@ flowchart TD
 
 ```
 
-<br />
+> 🚧 Note
+>
+> The *trackEvent* and *setAttribute* APIs must be called only after the *getFlag* API has been executed for the user. Failing to do so may result in conversions and attributes not being captured correctly in reports, as the user would not be properly tracked.
 
 ### 1. Initialization(as the Foundation)
 
-The SDK starts with an initialization phase, where configuration options like API keys, user context providers, and polling strategies are set. This establishes the SDK’s runtime environment, allowing it to consistently evaluate flags and track user activity.
+The SDK starts with an initialization phase, setting up configuration options like API keys, user context providers, and polling strategies. This establishes the SDK’s runtime environment, allowing it to evaluate flags and track user activity consistently.
 
 <br />
 
