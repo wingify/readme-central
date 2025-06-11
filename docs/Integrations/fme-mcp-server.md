@@ -184,13 +184,12 @@ graph TD
     H --> I[Insert integration code into codebase]
     
     %% Assign classes
-    class A agent
+
     class C project
     class G dashboard
     class I code
 
     %% Define styles
-    classDef agent fill:#f9f,stroke:#333,stroke-width:1px,color:#000
     classDef project fill:#ff9,stroke:#333,stroke-width:1px,color:#000
     classDef dashboard fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef code fill:#cfc,stroke:#333,stroke-width:1px,color:#000
