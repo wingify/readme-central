@@ -1,7 +1,7 @@
 ---
 title: Settings Cache
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -67,4 +67,4 @@ final vwoClient = await VWO.init(vwoInitOptions);
 * If the device is offline and cached settings have expired, the SDK will still use the expired cached settings to ensure functionality.
 * Setting `cachedSettingsExpiryTime` to `0` (the default value) disables caching, and the SDK will always fetch fresh settings from the server.
 * Cached settings are stored within the application's private storage area and persist between app launches.
-* The SDK uses platform-specific storage mechanisms (SharedPreferences for Android and UserDefaults for iOS) to handle caching internally. 
+* The SDK uses platform-specific storage mechanisms (SharedPreferences for Android and UserDefaults for iOS) to handle caching internally.
