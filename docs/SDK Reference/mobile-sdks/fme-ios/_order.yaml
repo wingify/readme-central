@@ -1,3 +1,4 @@
+- fme-ios-install
 - fme-ios-initialization
 - fme-ios-context
 - fme-ios-flags
@@ -13,4 +14,3 @@
 - mixpanel
 - user-context-draft
 - impact-analysis-1
-- fme-ios-install
