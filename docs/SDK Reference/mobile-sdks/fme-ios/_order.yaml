@@ -5,11 +5,11 @@
 - fme-ios-metrics
 - fme-ios-attributes
 - fme-ios-logging
+- storage
 - fme-ios-integrations
 - fme-ios-event-batching
 - cache-setting-expiry
 - init-changes-draft
-- storage
 - google-analytics
 - mixpanel
 - user-context-draft
