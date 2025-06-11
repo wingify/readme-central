@@ -1,5 +1,5 @@
 ---
-title: Setting Cache
+title: Cache Settings
 deprecated: false
 hidden: true
 metadata:
@@ -15,7 +15,7 @@ To utilize the `cachedSettingsExpiryTime` parameter, you need to initialize the 
 
 **Example usage**
 
-```Text Swift
+```swift Swift
 let options = VWOInitOptions(sdkKey: SDK_KEY, 
                              accountId: ACCOUNT_ID, 
                              cachedSettingsExpiryTime: 600000) // in milliseconds
