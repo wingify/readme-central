@@ -39,6 +39,4 @@ To facilitate a comprehensive understanding and effective implementation of the 
 9. [Integrations](doc:fme-ios-integrations)\
    Integrate the SDK with third-party tools and services to extend functionality and streamline workflows.
 
-   Each
-
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.
