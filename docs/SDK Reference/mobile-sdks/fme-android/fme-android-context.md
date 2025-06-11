@@ -1,5 +1,5 @@
 ---
-title: User Context (New)
+title: User Context
 deprecated: false
 hidden: false
 metadata:
