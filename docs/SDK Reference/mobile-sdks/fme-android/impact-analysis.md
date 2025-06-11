@@ -1,7 +1,7 @@
 ---
 title: Impact Analysis
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
