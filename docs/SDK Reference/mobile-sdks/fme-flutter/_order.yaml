@@ -4,9 +4,9 @@
 - fme-flutter-flags
 - fme-flutter-metrics
 - fme-flutter-attributes
+- fme-flutter-logging
 - fme-flutter-integrations
 - event-batching-1
 - user-context-new
 - initialization-new-1
-- fme-flutter-logging
 - settings-cache-1
