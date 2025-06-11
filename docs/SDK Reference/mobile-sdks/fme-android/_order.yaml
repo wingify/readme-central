@@ -7,8 +7,8 @@
 - fme-android-integrations
 - fme-android-event-batching
 - fme-android-logging
+- fme-android-storage
 - settings-cache
 - fme-mixpanel-integration-guide
-- fme-android-storage
 - impact-analysis
 - integration-with-segment
