@@ -1,5 +1,5 @@
 ---
-title: Cache Management
+title: Setting Cache
 deprecated: false
 hidden: true
 metadata:
