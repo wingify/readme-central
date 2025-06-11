@@ -1,7 +1,7 @@
 ---
-title: Settings Cache
+title: Cache Settings
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -64,4 +64,4 @@ VWO.init(options, object : IVwoInitCallback {
         // VWO initialization failed
     }
 })
-``` 
+```
