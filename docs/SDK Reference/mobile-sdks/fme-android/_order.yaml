@@ -5,7 +5,7 @@
 - fme-android-metrics
 - fme-android-attributes
 - fme-android-integrations
-- init
+- fme-android-event-batching
 - initialization-new
 - fme-android-logging
 - settings-cache
