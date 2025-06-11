@@ -64,7 +64,7 @@ When this API is triggered:
 
 ### Usage
 
-```swift Dart
+```javascript Dart
 // Retrieve the feature flag associated with 'feature_key' for the given user context, 
 // Allowing access to feature status using is_enabled() and associated variables (getVariables/getVariable). 
 final GetFlag? flag = await vwoClient?.getFlag(
