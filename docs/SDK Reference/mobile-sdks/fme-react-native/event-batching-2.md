@@ -1,7 +1,7 @@
 ---
 title: Event Batching
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -20,9 +20,15 @@ You can enable event batching during SDK initialization by setting either of the
 
 **Example Usage**
 
-```Text Javascript
-const options: VWOInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, batchMinSize: 10, batchUploadTimeInterval: 300000 }; // 5 minutes
-vwoClient = await init(options);
+```javascript
+const options: VWOInitOptions = {
+  sdkKey: SDK_KEY,
+  accountId: ACCOUNT_ID,
+  batchMinSize: 10,
+  batchUploadTimeInterval: 300000 // 5 minutes
+};
+
+const vwoClient = await init(options);
 ```
 
 > 📝 Note:
