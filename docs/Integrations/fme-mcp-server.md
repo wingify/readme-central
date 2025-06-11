@@ -195,3 +195,13 @@ graph TD
     classDef code fill:#cfc,stroke:#333,stroke-width:1px,color:#000
 
 ```
+
+## Source Code
+
+We've open-sourced our MCP Server, you can explore the source code on our GitHub repository.
+
+<Cards columns={4}>
+  <Card title="VWO MCP Server" href="https://github.com/wingify/vwo-fme-mcp" icon="fa-link" target="_blank">
+    GitHub Link
+  </Card>
+</Cards>
