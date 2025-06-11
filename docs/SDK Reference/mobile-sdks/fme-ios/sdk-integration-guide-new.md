@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-You can integrate the FME SDK into your application using either CocoaPods or Swift Package Manager (SPM).
+You can integrate the FME iOS SDK into your application using either **CocoaPods** or **Swift Package Manager** (SPM).
 
 ## CocoaPods
 
@@ -35,10 +35,10 @@ pod install
 
 The SDK is compatible with the following Apple platforms and minimum OS versions:
 
-* iOS 12.0 and later
-* watchOS 7.0 and later
-* tvOS 12.0 and later
-* macOS 10.14 and later
+* **iOS**: 12.0 and later
+* **watchOS**: 7.0 and later
+* **tvOS**: 12.0 and later
+* **macOS**: 10.14 and later
 
 <br />
 
