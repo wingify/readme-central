@@ -1,11 +1,10 @@
 ---
 title: Storage
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
-
 # Storage in VWO FME Android SDK
 
 The VWO FME Android SDK operates in a stateless mode by default, meaning each `getFlag` call triggers a fresh evaluation of the flag against the current user context.
@@ -33,7 +32,6 @@ The SDK uses Android's `SharedPreferences` API for built-in storage, which provi
 
 ### Example Usage with Built-in Storage
 
-Kotlin:
 ```kotlin
 val options = VWOInitOptions()
 options.sdkKey = "YOUR_SDK_KEY"
@@ -50,8 +48,6 @@ VWO.init(options, object : IVwoInitCallback {
     }
 })
 ```
-
-Java:
 ```java
 VWOInitOptions options = new VWOInitOptions();
 options.setSdkKey("YOUR_SDK_KEY");
@@ -79,14 +75,13 @@ You can implement your own storage mechanism by creating a class that extends th
 
 The storage connector should implement two main methods:
 
-| Method | Parameters | Description | Returns |
-|--------|------------|-------------|---------|
-| `get` | `featureKey: String?`, `userId: String?` | Retrieves stored data for a specific feature and user | The stored data or null if not found |
-| `set` | `data: Map<String, Any>` | Stores data for a specific feature and user | void |
+| Method | Parameters                               | Description                                           | Returns                              |
+| ------ | ---------------------------------------- | ----------------------------------------------------- | ------------------------------------ |
+| `get`  | `featureKey: String?`, `userId: String?` | Retrieves stored data for a specific feature and user | The stored data or null if not found |
+| `set`  | `data: Map<String, Any>`                 | Stores data for a specific feature and user           | void                                 |
 
 ### Example Custom Storage Implementation
 
-Kotlin:
 ```kotlin
 class CustomStorageConnector : Connector() {
     /**
@@ -126,8 +121,6 @@ VWO.init(options, object : IVwoInitCallback {
     }
 })
 ```
-
-Java:
 ```java
 public class CustomStorageConnector extends Connector {
     /**
@@ -180,4 +173,4 @@ VWO.init(options, new IVwoInitCallback() {
 * The SDK automatically manages storage operations for built-in storage
 * Custom storage implementations should be thread-safe
 * Consider implementing proper error handling in custom storage implementations
-* Storage operations should be fast to avoid impacting app performance 
+* Storage operations should be fast to avoid impacting app performance
