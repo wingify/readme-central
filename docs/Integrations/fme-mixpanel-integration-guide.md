@@ -1,5 +1,5 @@
 ---
-title: Integration with Mixpanel
+title: Mixpanel
 deprecated: false
 hidden: true
 metadata:
