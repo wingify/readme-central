@@ -1,7 +1,7 @@
 ---
-title: Logging (New)
+title: Logging
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
