@@ -38,5 +38,11 @@ To facilitate a comprehensive understanding and effective implementation of the 
    Implement custom storage solutions to persist user assignments and enhance performance.
 9. [Integrations](doc:fme-android-integrations)\
    Integrate the SDK with third-party tools and services to extend functionality and streamline workflows.
+10. [Event batching](doc:fme-android-event-batching)\
+    Improve performance and reduce network calls by sending events in batches.
+11. [Cache Settings](doc:fme-android-cache-settings)\
+    Enhance speed and reduce API usage with configurable(TTL) caching of settings.
+12. [Impact Analysis](doc:fme-android-impact-analysis)\
+    Understand how VWO FME affects your app footprint.
 
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.
