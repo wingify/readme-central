@@ -6,7 +6,7 @@
 - fme-ios-attributes
 - fme-ios-logging
 - fme-ios-integrations
-- event-batching
+- fme-ios-event-batching
 - cache-setting-expiry
 - init-changes-draft
 - storage
