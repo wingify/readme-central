@@ -1,7 +1,7 @@
 ---
-title: Initialization (New)
+title: Initialization
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
