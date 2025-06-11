@@ -1,7 +1,7 @@
 ---
 title: Event Batching
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -20,7 +20,7 @@ You can enable event batching during SDK initialization by setting either of the
 
 **Example Usage**
 
-```Text Swift
+```Text
 let options = VWOInitOptions(sdkKey: SDK_KEY,
                              accountId: ACCOUNT_ID,
                              batchMinSize: 10,
