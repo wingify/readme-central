@@ -1,5 +1,5 @@
 ---
-title: Integration with Segment
+title: Segment
 deprecated: false
 hidden: true
 metadata:
