@@ -1,7 +1,7 @@
 - fme-android-install
 - fme-android-initialization
 - fme-android-context
-- feature-flags-variables-copy
+- fme-android-flags
 - fme-android-metrics
 - fme-android-attributes
 - fme-android-logging
