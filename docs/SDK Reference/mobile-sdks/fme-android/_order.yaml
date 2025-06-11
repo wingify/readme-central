@@ -5,7 +5,7 @@
 - fme-android-attributes
 - fme-android-integrations
 - fme-android-event-batching
-- initialization-new
+- fme-android-initialization
 - fme-android-logging
 - settings-cache
 - fme-mixpanel-integration-guide
