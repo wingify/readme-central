@@ -1,7 +1,7 @@
 ---
-title: Feature Flags & Variables (New)
+title: Feature Flags & Variables
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
