@@ -113,7 +113,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 <br />
 
-> **Looking for other AI Clients**
+> 📘 Looking for other AI Clients?
 >
 > For other clients, refer to their documentation on configuring custom MCP servers. The configuration pattern remains similar.
 
