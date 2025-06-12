@@ -153,7 +153,8 @@ This client object allows you to run experiments, track events, and enable/disab
         An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-android-logging)
       </td>
     </tr>
-<tr>
+
+    <tr>
       <td>
         **integrations**
         *Optional*
@@ -167,6 +168,7 @@ This client object allows you to run experiments, track events, and enable/disab
         A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-android-integrations)
       </td>
     </tr>
+
     <tr>
       <td>
         **cachedSettingsExpiryTime**
@@ -344,6 +346,65 @@ VWO.init(vwoInitOptions, new IVwoInitCallback() {
         // VWO SDK failed to initialize
     }
 });
+```
+### Cached Settings Expiry Time
+
+The `cachedSettingsExpiryTime` parameter allows you to specify how long the cached settings should be considered valid before fetching new settings from the VWO server. This helps in managing the freshness of the configuration data.
+
+Example usage:
+
+```kotlin
+// Initialize VWOInitOptions with a custom cached settings expiry time
+val vwoInitOptions = VWOInitOptions()
+vwoInitOptions.sdkKey = SDK_KEY
+vwoInitOptions.accountId = ACCOUNT_ID
+vwoInitOptions.cachedSettingsExpiryTime = 600000
+
+// Create VWO instance with the vwoInitOptions
+init(vwoInitOptions, object : IVwoInitCallback {
+    override fun vwoInitSuccess(vwoClient: VWO, message: String) {
+        this@MyActivity.vwoClient = vwoClient
+    }
+
+    override fun vwoInitFailed(message: String) {
+        //Initialization failed
+    }
+})
+```
+
+### Event Batching Configuration
+
+The VWO SDK supports storing impression events while the device is offline, ensuring no data loss. These events are batched and seamlessly synchronized with VWO servers once the device reconnects to the internet. Additionally, online event batching allows synchronization of impression events while the device is online. This feature can be configured by setting either the minimum batch size or the batch upload time interval during SDK initialization.
+
+#### NOTE: The uploading of events will get triggered based on whichever condition is met first if using both options.
+
+See [Event Batching](https://developers.vwo.com/v2/docs/event-batching#/) documentation for additional information.
+
+| **Parameter**             | **Description**                                                                    | **Required** | **Type** | **Example** |
+| ------------------------- | ---------------------------------------------------------------------------------- | ------------ | -------- | ----------- |
+| `batchMinSize`            | Minimum size of the batch to upload.                                               | No           | Integer  | `10`        |
+| `batchUploadTimeInterval` | Batch upload time interval in milliseconds. Please specify at least a few minutes. | No           | Integer  | `300000`    |
+
+Example usage:
+
+```kotlin
+// Initialize VWOInitOptions with batch configuration
+val vwoInitOptions = VWOInitOptions()
+vwoInitOptions.sdkKey = SDK_KEY
+vwoInitOptions.accountId = ACCOUNT_ID
+vwoInitOptions.batchMinSize = 10
+vwoInitOptions.batchUploadTimeInterval = 300000
+
+// Create VWO instance with the vwoInitOptions
+init(vwoInitOptions, object : IVwoInitCallback {
+    override fun vwoInitSuccess(vwoClient: VWO, message: String) {
+        this@MyActivity.vwoClient = vwoClient
+    }
+
+    override fun vwoInitFailed(message: String) {
+        //Initialization failed
+    }
+})
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-android-integrations) to learn more about Integrations.
