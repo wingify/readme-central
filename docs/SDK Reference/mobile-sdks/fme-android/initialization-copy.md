@@ -347,11 +347,14 @@ VWO.init(vwoInitOptions, new IVwoInitCallback() {
     }
 });
 ```
+
+Please click [here](https://developers.vwo.com/v2/docs/fme-android-integrations) to learn more about Integrations.
+
 ### Cached Settings Expiry Time
 
 The `cachedSettingsExpiryTime` parameter allows you to specify how long the cached settings should be considered valid before fetching new settings from the VWO server. This helps in managing the freshness of the configuration data.
 
-Example usage:
+Usage:
 
 ```kotlin
 // Initialize VWOInitOptions with a custom cached settings expiry time
@@ -372,6 +375,27 @@ init(vwoInitOptions, object : IVwoInitCallback {
 })
 ```
 
+```java
+// Initialize VWOInitOptions with a custom cached settings expiry time
+VWOInitOptions vwoInitOptions = new VWOInitOptions();
+vwoInitOptions.setSdkKey(SDK_KEY);
+vwoInitOptions.setAccountId(ACCOUNT_ID);
+vwoInitOptions.setCachedSettingsExpiryTime(600000);
+
+// Create VWO instance with the vwoInitOptions
+init(vwoInitOptions, new IVwoInitCallback() {
+    @Override
+    public void vwoInitSuccess(@NonNull VWO vwoClient, @NonNull String message) {
+        MyActivity.this.vwoClient = vwoClient;
+    }
+
+    @Override
+    public void vwoInitFailed(@NonNull String message) {
+        //Initialization failed
+    }
+});
+```
+
 ### Event Batching Configuration
 
 The VWO SDK supports storing impression events while the device is offline, ensuring no data loss. These events are batched and seamlessly synchronized with VWO servers once the device reconnects to the internet. Additionally, online event batching allows synchronization of impression events while the device is online. This feature can be configured by setting either the minimum batch size or the batch upload time interval during SDK initialization.
@@ -385,7 +409,7 @@ See [Event Batching](https://developers.vwo.com/v2/docs/event-batching#/) docume
 | `batchMinSize`            | Minimum size of the batch to upload.                                               | No           | Integer  | `10`        |
 | `batchUploadTimeInterval` | Batch upload time interval in milliseconds. Please specify at least a few minutes. | No           | Integer  | `300000`    |
 
-Example usage:
+Usage:
 
 ```kotlin
 // Initialize VWOInitOptions with batch configuration
@@ -407,4 +431,24 @@ init(vwoInitOptions, object : IVwoInitCallback {
 })
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-android-integrations) to learn more about Integrations.
+```java
+// Initialize VWOInitOptions with batch configuration
+VWOInitOptions vwoInitOptions = new VWOInitOptions();
+vwoInitOptions.setSdkKey(SDK_KEY);
+vwoInitOptions.setAccountId(ACCOUNT_ID);
+vwoInitOptions.setBatchMinSize(10);
+vwoInitOptions.setBatchUploadTimeInterval(300000);
+
+// Create VWO instance with the vwoInitOptions
+init(vwoInitOptions, new IVwoInitCallback() {
+    @Override
+    public void vwoInitSuccess(@NonNull VWO vwoClient, @NonNull String message) {
+        MyActivity.this.vwoClient = vwoClient;
+    }
+
+    @Override
+    public void vwoInitFailed(@NonNull String message) {
+        //Initialization failed
+    }
+});
+```
