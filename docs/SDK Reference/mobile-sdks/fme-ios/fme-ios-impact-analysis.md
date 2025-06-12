@@ -5,6 +5,10 @@ hidden: false
 metadata:
   robots: index
 ---
+This document provides a comprehensive analysis of the VWO FME iOS SDK's impact on application performance, resource utilization, and network consumption. The metrics presented below are based on extensive testing and real-world implementation scenarios.
+
+## Executive Summary
+
 The VWO FME iOS SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust feature management and experimentation capabilities.
 
 ## Asynchronous Initialization
@@ -14,8 +18,6 @@ The SDK initializes asynchronously
 * Initialization happens in the background using GCD (Grand Central Dispatch).
 * Minimal impact on app launch time as initialization is off the main thread.
 * Uses completion handler to notify success or failure of initialization.
-
-<br />
 
 ## Network Operations & API Architecture
 
