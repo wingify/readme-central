@@ -196,15 +196,7 @@ graph TD
 
 ```
 
-## Source Code
-
-We've open-sourced our MCP Server, you can explore the source code on our GitHub repository.
-
-<Cards columns={3}>
-  <Card title="VWO MCP Server" href="https://github.com/wingify/vwo-fme-mcp" icon="fa-link" target="_blank">
-    GitHub Link
-  </Card>
-</Cards>
+<br />
 
 <Accordion title="Source Code" icon="fa-info-circle">
   You can browse the source code on Wingify's GitHub repository, Here's the [link](https://github.com/wingify/vwo-fme-mcp)
