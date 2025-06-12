@@ -1,7 +1,7 @@
 ---
-title: Storage (New)
+title: Storage
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -27,7 +27,7 @@ To enable proper storage functionality in the VWO Flutter SDK, you do not need t
 
 #### Example
 
-```dart
+```javascript Dart
 import 'package:vwo_fme_flutter_sdk/vwo.dart';
 import 'package:vwo_fme_flutter_sdk/vwo/models/vwo_init_options.dart';
 
