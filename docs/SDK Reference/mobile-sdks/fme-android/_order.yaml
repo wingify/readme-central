@@ -1,5 +1,6 @@
 - fme-android-install
 - fme-android-initialization
+- initialization-copy
 - fme-android-context
 - fme-android-flags
 - fme-android-metrics
@@ -10,4 +11,3 @@
 - fme-android-event-batching
 - fme-android-cache-settings
 - fme-android-impact-analysis
-- initialization-copy
