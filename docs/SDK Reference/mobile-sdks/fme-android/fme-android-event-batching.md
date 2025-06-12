@@ -5,9 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-# Event Batching
-
-By default, VWO Android SDK sends impression events to VWO servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your VWO Campaign Reports.
+By default, VWO FME Android SDK sends impression events to VWO servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your VWO Campaign Reports.
 
 However, there are scenarios where it may be beneficial to collect multiple events over a period of time and send them together in a single request. The VWO Android SDK supports event batching, allowing you to configure how and when impression events are uploaded to VWO servers.
 
@@ -19,6 +17,8 @@ You can enable event batching during SDK initialization by setting either of the
 | :-------------------------- | :---------------------------------------------------------- | :------ |
 | **batchMinSize**            | Minimum number of events to trigger a batch upload.         | 10      |
 | **batchUploadTimeInterval** | Time interval (in milliseconds) before a batch is uploaded. | 300000  |
+
+<br />
 
 ### Example Usage
 
