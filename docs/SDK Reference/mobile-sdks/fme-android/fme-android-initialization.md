@@ -374,7 +374,7 @@ init(vwoInitOptions, object : IVwoInitCallback {
     }
 })
 ```
-```Text Java
+```java
 // Initialize VWOInitOptions with a custom cached settings expiry time
 VWOInitOptions vwoInitOptions = new VWOInitOptions();
 vwoInitOptions.setSdkKey(SDK_KEY);
@@ -429,7 +429,7 @@ init(vwoInitOptions, object : IVwoInitCallback {
     }
 })
 ```
-```Text Java
+```java
 // Initialize VWOInitOptions with batch configuration
 VWOInitOptions vwoInitOptions = new VWOInitOptions();
 vwoInitOptions.setSdkKey(SDK_KEY);
