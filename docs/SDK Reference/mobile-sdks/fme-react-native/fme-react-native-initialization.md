@@ -72,7 +72,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Number
+        number
       </td>
 
       <td>
@@ -82,12 +82,12 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **sdkKey**\
+        **sdkKey**
         *Required*
       </td>
 
       <td>
-        String
+        string
       </td>
 
       <td>
@@ -97,120 +97,152 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **pollInterval**\
+        **logLevel**
         *Optional*
       </td>
 
       <td>
-        Number
+        enum
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) 
+        The level of logging to be used. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-react-native-logging)
       </td>
     </tr>
 
     <tr>
       <td>
-        **logger**\
+        **logPrefix**
         *Optional*
       </td>
 
       <td>
-        Object
+        string
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-react-native-logging)
+        A prefix to be added to log messages. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-react-native-logging)
       </td>
     </tr>
 
     <tr>
       <td>
-        **integrations**\
+        **integrations**
         *Optional*
       </td>
 
       <td>
-        Object
+        boolean
       </td>
 
       <td>
         A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-react-native-integrations)
       </td>
     </tr>
+
+    <tr>
+      <td>
+        **cachedSettingsExpiryTime**
+        *Optional*
+      </td>
+
+      <td>
+        number
+      </td>
+
+      <td>
+        Expiry time for cached settings in milliseconds. For more details, please check - [Cache Management](https://developers.vwo.com/v2/update/docs/cache-setting-expiry#/)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **pollInterval**
+        *Optional*
+      </td>
+
+      <td>
+        number
+      </td>
+
+      <td>
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **batchMinSize**
+        *Optional*
+      </td>
+
+      <td>
+        number
+      </td>
+
+      <td>
+        Minimum size of batch to upload. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/update/docs/event-batching#/)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **batchUploadTimeInterval**
+        *Optional*
+      </td>
+
+      <td>
+        number
+      </td>
+
+      <td>
+        Batch upload time interval in milliseconds. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/update/docs/event-batching#/)
+      </td>
+    </tr>
   </tbody>
 </Table>
 
-### Poll Interval (Keeping VWO client up-to-date)
+### Additional Callbacks
 
-When you initialize the *vwoClient* on your mobile, it pulls the latest configurations you've done in the VWO application.\
-If/when you make any changes to the feature flags or rules within VWO after the *vwoClient* has been initialized on your mobile, there needs to be some way to update your *vwoClient* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+* Integration Callback: Use `VWO.registerIntegrationCallback` to manage integration events. [Refer documentation](https://developers.vwo.com/v2/docs/fme-react-native-integrations)
+* Log Callback: Use `VWO.registerLogCallback` to capture and handle log events. [Refer documentation](https://developers.vwo.com/v2/docs/fme-react-native-logging)
 
-The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
+### Polling Interval Adjustment
 
-```javascript
-// Init options with poll_interval
-useEffect(() => {
+The `pollInterval` is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
-    const initializeSDK = async () => {
-      const options: VWOInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, pollInterval: 60000};
-      try {
-        vwoClient = await init(options);
-        console.log('VWO init success');
-      } catch (error) {
-        console.error('Error initialising', error);
-      }
-    };
-    
-    initializeSDK();
-}, []);
-```
-
-### Logger
-
-VWO by default logs all ERROR level messages to your device console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
-
-```node
-// Init options with logger
-useEffect(() => {
-
-    const initializeSDK = async () => {
-      const options: VWOInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, logLevel: LogLevel.debug};
-      try {
-        vwoClient = await init(options);
-        console.log('VWO init success');
-      } catch (error) {
-        console.error('Error initialising', error);
-      }
-    };
-    
-    initializeSDK();
-}, []);
-```
-
-Please click [here](https://developers.vwo.com/v2/docs/fme-react-native-logging) for more advanced logger options.
-
-### Integrations
-
-VWO FME SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
+Example usage:
 
 ```javascript
-// define the integration callback
-const handleIntegrationCallback = (properties: {[key: string]: any}) => {
-	console.log('Integration callback received:', properties);
-};
-
-// register the integration callback
-VWO.registerIntegrationCallback(handleIntegrationCallback);
-
-// declare integrations in the initialization options and initialize SDK
-const options: VWOInitOptions = {
-	sdkKey: SDK_KEY,
-	accountId: ACCOUNT_ID,
-	integrations: true
-};
-await init(options);
+const options: VWOInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, pollInterval: 600000 }; // 10 minutes
+vwoClient = await init(options);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-react-native-integrations) to learn more about Integrations,.
+### Cached Settings Expiry Time
+
+The `cachedSettingsExpiryTime` parameter allows you to specify how long the cached settings should be considered valid before fetching new settings from the VWO server. This helps in managing the freshness of the configuration data.
+
+Example usage:
+
+```javascript
+const options: VWOInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, cachedSettingsExpiryTime: 600000 }; // 10 minutes
+vwoClient = await init(options);
+```
+
+### Event Batching Configuration
+
+The VWO SDK supports storing impression events while the device is offline, ensuring no data loss. These events are batched and seamlessly synchronized with VWO servers once the device reconnects to the internet. Additionally, online event batching allows synchronization of impression events while the device is online. This feature can be configured by setting either the minimum batch size or the batch upload time interval during SDK initialization.
+
+#### NOTE: The batching will trigger based on whichever condition is met first if using both options.
+
+| **Parameter**             | **Description**                                                                    | **Required** | **Type** | **Example** |
+| ------------------------- | ---------------------------------------------------------------------------------- | ------------ | -------- | ----------- |
+| `batchMinSize`            | Minimum size of the batch to upload.                                               | No           | number   | `10`        |
+| `batchUploadTimeInterval` | Batch upload time interval in milliseconds. Please specify at least a few minutes. | No           | number   | `300000`    |
+
+Example usage:
+
+```javascript
+const options: VWOInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, batchMinSize: 10, batchUploadTimeInterval: 300000 }; // 5 minutes
+vwoClient = await init(options);
+```
