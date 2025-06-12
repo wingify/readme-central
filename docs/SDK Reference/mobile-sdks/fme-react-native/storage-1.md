@@ -18,7 +18,9 @@ The primary purpose of using storage in mobile SDKs is to enhance performance an
 | **Fast-access caching of feature flag decisions**                                        | UserDefaults              | SharedPreferences             |
 | **Persistent storage of offline event tracking data and when event batching configured** | Core Data                 | SQLite                        |
 
-> **Note:** Although the underlying storage technologies differ between platforms, their functionality is consistent. Both platforms use fast-access key-value stores for caching feature flag decisions and robust databases for persisting offline event data until it can be synced.
+> 📘 Note
+>
+> Although the underlying storage technologies differ between platforms, their functionality is consistent. Both platforms use fast-access key-value stores for caching feature flag decisions and robust databases for persisting offline event data until it can be synced.
 
 ***
 
