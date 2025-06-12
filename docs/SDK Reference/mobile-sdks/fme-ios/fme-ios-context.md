@@ -34,7 +34,7 @@ By leveraging these attributes, organizations can deliver **precisely targeted f
 let userId = "unique_user_id"
 let customVariables: [String : Any] = ["age": 25, "location": "US"]
 
-let userContext = VWOContext(id: userId, customVariables: customVariables)
+let userContext = VWOUserContext(id: userId, customVariables: customVariables)
 
 // The same user context can be used across different APIs. For example -
 
@@ -92,7 +92,7 @@ VWOFme.setAttribute(
 
     <tr>
       <td>
-        **customVariables**\
+        **customVariables**
         *Optional*
       </td>
 
