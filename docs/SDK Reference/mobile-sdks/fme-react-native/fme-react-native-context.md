@@ -36,7 +36,7 @@ const userId = "unique_user_id"
 // Optional - if rules have pre-segmentation applied
 const customVariables = {age: 25, location: "US"}
 
-const userContext: VWOContext = { id: userId, customVariables: customVariables};
+const userContext: VWOUserContext = { id: userId, customVariables: customVariables};
 
 // The same user context can be used across different APIs. For example -
 
@@ -88,7 +88,7 @@ vwoClient.setAttribute(attributeMap, userContext);
 
     <tr>
       <td>
-        **customVariables**\
+        **customVariables**
         *Optional*
       </td>
 
