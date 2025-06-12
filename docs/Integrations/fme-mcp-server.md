@@ -58,6 +58,8 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 <Image align="center" className="border" border={true} src="https://files.readme.io/f09224a225717497a6d53fbf3adfe3b0be59a2712c28688322471616371499f3-VWO_Cursor_MCP_1.gif" />
 
+***
+
 ### VS Code
 
 1. Open the **User Settings (JSON)** in VS Code.
@@ -81,6 +83,8 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 3. Save the settings and ensure the MCP server is ready for use within VS Code.
 
 <Image align="center" className="border" border={true} src="https://files.readme.io/351699fdc6e3c335f4b87f32eeaf204faca01600eda6fafc5291ab1464353da7-VWO_VS_Code_MCP.gif" />
+
+***
 
 ### Claude Desktop
 
@@ -164,8 +168,6 @@ Here's what you can do with our feature flag management tools:
 <Accordion title="Source Code" icon="fa-info-circle">
   You can browse the source code on Wingify's GitHub repository, Here's the [link](https://github.com/wingify/vwo-fme-mcp)
 </Accordion>
-
-<br />
 
 ## How it works
 
