@@ -177,7 +177,7 @@ Here's what you can do with our feature flag management tools:
 
 ```mermaid
 graph TD
-    A[Developer or AI Agent in IDE] --> B{Feature intent detected}
+    A[Developer/AI Agent in IDE] --> B{Feature intent detected}
     B -->|Yes, use VWO SDK| C[MCP Plugin]
     
     C --> D[Detect project context: language and structure]
