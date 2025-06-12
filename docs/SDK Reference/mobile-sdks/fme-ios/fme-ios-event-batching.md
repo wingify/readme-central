@@ -18,9 +18,9 @@ You can enable event batching during SDK initialization by setting either of the
 | **batchMinSize**            | Minimum number of events to trigger a batch upload.         | 10      |
 | **batchUploadTimeInterval** | Time interval (in milliseconds) before a batch is uploaded. | 300000  |
 
-**Example Usage**
+### Example Usage
 
-```Text
+```swift
 let options = VWOInitOptions(sdkKey: SDK_KEY,
                              accountId: ACCOUNT_ID,
                              batchMinSize: 10,
