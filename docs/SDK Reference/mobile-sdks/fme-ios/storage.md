@@ -11,6 +11,8 @@ Mobile SDKs for feature management and experimentation are designed to operate e
 
 The primary purpose of using storage in mobile SDKs is to enhance performance and ensure a consistent user experience. By caching feature flag decisions locally, mobile applications can quickly access necessary data without repeatedly querying the server.
 
+By combining UserDefaults for quick-access caching and Core Data for complex data persistence, the SDK ensures efficient, reliable feature flag management and a seamless user experience.
+
 ### Key Benefits
 
 * Persisting feature flag decisions ensures that users have a consistent experience, even if they close and reopen the app.
