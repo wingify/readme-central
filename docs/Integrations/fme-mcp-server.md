@@ -161,6 +161,12 @@ Here's what you can do with our feature flag management tools:
 
 <br />
 
+<Accordion title="Source Code" icon="fa-info-circle">
+  You can browse the source code on Wingify's GitHub repository, Here's the [link](https://github.com/wingify/vwo-fme-mcp)
+</Accordion>
+
+<br />
+
 ## How it works
 
 * Starts with a natural language **prompt** from a developer or AI agent.
@@ -195,9 +201,3 @@ graph TD
     classDef code fill:#cfc,stroke:#333,stroke-width:1px,color:#000
 
 ```
-
-<br />
-
-<Accordion title="Source Code" icon="fa-info-circle">
-  You can browse the source code on Wingify's GitHub repository, Here's the [link](https://github.com/wingify/vwo-fme-mcp)
-</Accordion>
