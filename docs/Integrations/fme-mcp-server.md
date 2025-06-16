@@ -26,6 +26,8 @@ To connect the MCP server to the VWO feature management system, you must configu
 * **VWO\_ACCOUNT\_ID**: VWO Account ID.
 * **VWO\_API\_KEY**: The API key (Developer Token) for authenticating with VWO REST APIs.
 
+> To create your API token, please refer to the article <Anchor label="How to Access VWO API" target="_blank" href="https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API">How to Access VWO API</Anchor> and navigate to the `Generate API Tokens` section for step-by-step instructions.
+
 <br />
 
 ## Setup Instructions
