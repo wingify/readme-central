@@ -12,45 +12,46 @@ We’ve introduced enhanced storage configuration options to give more flexibili
 ```mermaid
 flowchart TD
     A0(["VWO FME SDK"]) --> A("Initialize using<br/>configurable options")
-    A --> B("Set Custom TTL (Time To Live)")
-    A --> C("Set alwaysUseCachedSettings Option")
-    A --> D("Background Refresh")
+    A --> B("Set Optional Parameters<br/>TTL & alwaysUseCachedSettings")
+    A --> C("Background Refresh (Core Functionality)")
 
     %% Settings Caching Flow
-    B --> B1{"Is TTL Specified?"}
-    B1 -- Yes --> B2("Use Custom TTL")
-    B1 -- No --> B3("Use Default TTL (2 hours)")
-    B2 --> B4("Cache Settings in localStorage")
+    B --> B1{"Is TTL Valid?"}
+    B1 -- Yes --> B2("Return Cached Settings")
+    B1 -- No --> B3("Fetch Fresh Data from Server")
+
+    B2 --> B4("Trigger Background Refresh<br/>Update TTL Timestamp")
     B3 --> B4
-    B4 --> B5("Return Cached Data")
+    B4 --> B5("Store Updated Settings")
+    B5 --> B6("Return Fresh Data or Updated Cached Settings")
 
     %% alwaysUseCachedSettings Flow
-    C --> C1{"Is alwaysUseCachedSettings Enabled?"}
-    C1 -- Yes --> C2("Always Use Cached Settings")
-    C1 -- No --> C3("Check TTL and Refresh as Needed")
-    C2 --> B5
-    C3 --> B5
+    B --> C1{"Is alwaysUseCachedSettings Enabled?"}
+    C1 -- Yes --> C2("Always Use Cached Settings for Background Refresh")
+    C1 -- No --> C3("Follow TTL Logic for Caching")
 
-    %% Background Refresh Flow
-    D --> D1{"Is Valid Cached Data Available?"}
-    D1 -- Yes --> D2("Use Cached Data Immediately")
-    D1 -- No --> D3("Fetch Fresh Data from Server")
-    D2 --> D4("Trigger Background Refresh")
-    D3 --> D4
-    D4 --> D5("Update Cache with Fresh Data")
+    C2 --> B6
+    C3 --> B6
+
+    %% Background Refresh Core Logic
+    C --> C1{"Is TTL Valid?"}
+    C1 -- Yes --> C2("Use Cached Data")
+    C1 -- No --> C3("Fetch New Settings from Server")
+    C2 --> D("Trigger Background Refresh<br/>Update TTL")
+    C3 --> D
+    D --> E("Store Fresh Settings")
 
     %% Assign Classes
-    class B getTTL
-    class C alwaysUseCachedSettings
-    class D backgroundRefresh
+    class B ttlSettings
+    class C backgroundRefresh
     class B1 conditional
     class C1 conditional
-    class D1 conditional
+    class D refresh
 
     %% Define Styles
-    classDef getTTL fill:#bbf,stroke:#333,stroke-width:1px,color:#000
-    classDef alwaysUseCachedSettings fill:#bbf,stroke:#333,stroke-width:1px,color:#000
+    classDef ttlSettings fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef backgroundRefresh fill:#bbf,stroke:#333,stroke-width:1px,color:#000
+    classDef refresh fill:#d0efff,stroke:#333,stroke-width:1px,color:#000
     classDef conditional fill:#d0efff,stroke:#333,stroke-width:1px,color:#000
 
 ```
