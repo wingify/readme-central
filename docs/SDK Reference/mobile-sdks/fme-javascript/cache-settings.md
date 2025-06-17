@@ -72,7 +72,7 @@ flowchart TD
 3. **Background Refresh**
    * When valid cached settings are returned and the TTL has not expired, the SDK will use the cached settings immediately. While doing so, it will asynchronously refresh the settings in the background. This helps in ensuring the settings are up to date without introducing delays in loading or performance bottlenecks.
 
-<br />
+### Explanation of Parameters
 
 <Table align={["left","left","left","left"]}>
   <thead>
