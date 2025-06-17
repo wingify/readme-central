@@ -28,7 +28,7 @@ To integrate VWO FME SDK into your Php application, you must first install the S
 
 To integrate the FME SDK into your PHP application through [composer](https://getcomposer.org/), run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
 
-```shell
+```
 composer install vwo/vwo-fme-php-sdk
 ```
 
