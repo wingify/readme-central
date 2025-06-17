@@ -39,8 +39,16 @@ import vwo "github.com/wingify/vwo-fme-go-sdk"
 
 <br />
 
-Now, you're ready to initialize and use the SDK in your Go application.
+You're ready to initialize and use the SDK in your Go application.
 
 > 📘 Note
 >
 > The Go SDK requires the use of VWO Gateway Service. Make sure to set up the Gateway Service before initializing the SDK. For more information, see our [Gateway Service documentation](https://developers.vwo.com/v2/docs/gateway-service).
+
+## Source Code
+
+| Language | Repository                                                                             |
+| :------- | :------------------------------------------------------------------------------------- |
+| Go       | [https://github.com/wingify/vwo-fme-go-sdk](https://github.com/wingify/vwo-fme-go-sdk) |
+
+The FME SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.
