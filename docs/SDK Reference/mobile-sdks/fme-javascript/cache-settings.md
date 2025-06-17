@@ -21,6 +21,89 @@ We’ve introduced enhanced storage configuration options to give more flexibili
 
 <br />
 
+<Table align={["left","left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
+
+      <th>
+        Description
+      </th>
+
+      <th>
+        Use case
+      </th>
+
+      <th>
+        Default
+        Value
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **ttl**(Integer)
+        (*Optional*)
+      </td>
+
+      <td>
+        Specifies the key under which SDK data will be stored in browser storage. This allows you to customize the storage entry name to avoid conflicts or better organize stored data.
+      </td>
+
+      <td>
+        Useful for avoiding key collisions or aligning with your app's naming conventions.
+      </td>
+
+      <td>
+        `vwo_fme_data`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **provider**(Object)
+        (*Optional*)
+      </td>
+
+      <td>
+        Determines the browser storage mechanism to use. It can be either `localStorage` or `sessionStorage`. `localStorage` persists data even after the browser is closed, while `sessionStorage` persists data only during the current browser tab session.
+      </td>
+
+      <td>
+        * Use localStorage for persistent storage across sessions (default).
+        * Use sessionStorage if you want data to reset on every new browser session (e.g., enhanced privacy or compliance needs).
+      </td>
+
+      <td>
+        `localStorage`
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **isDisabled**(Boolean)\
+        (*Optional*)
+      </td>
+
+      <td>
+        When set to `true`, completely disables client-side storage. This is useful if you want to avoid any data persistence in the browser for privacy or other reasons.
+      </td>
+
+      <td>
+        Ideal for ephemeral or stateless environments, or when you need full control over state management externally.
+      </td>
+
+      <td>
+        `false`
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
 ## Benefits
 
 * **Improved Performance:** By customizing the TTL and cache usage, you can optimize how often settings are fetched from the server, reducing unnecessary network requests and improving load times.
