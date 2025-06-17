@@ -33,7 +33,7 @@ We’ve introduced enhanced storage configuration options to give more flexibili
       </th>
 
       <th>
-        Use case
+        Use Case
       </th>
 
       <th>
@@ -51,54 +51,34 @@ We’ve introduced enhanced storage configuration options to give more flexibili
       </td>
 
       <td>
-        Specifies the key under which SDK data will be stored in browser storage. This allows you to customize the storage entry name to avoid conflicts or better organize stored data.
+        Time-to-live for cached settings in milliseconds. Determines how long the cached settings are considered valid before expiring.
       </td>
 
       <td>
-        Useful for avoiding key collisions or aligning with your app's naming conventions.
+        Use when you want to control how frequently settings are refreshed from the server
       </td>
 
       <td>
-        `vwo_fme_data`
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **provider**(Object)
-        (*Optional*)
-      </td>
-
-      <td>
-        Determines the browser storage mechanism to use. It can be either `localStorage` or `sessionStorage`. `localStorage` persists data even after the browser is closed, while `sessionStorage` persists data only during the current browser tab session.
-      </td>
-
-      <td>
-        * Use localStorage for persistent storage across sessions (default).
-        * Use sessionStorage if you want data to reset on every new browser session (e.g., enhanced privacy or compliance needs).
-      </td>
-
-      <td>
-        `localStorage`
+        7200000 ms               (2 hours)
       </td>
     </tr>
 
     <tr>
       <td>
-        **isDisabled**(Boolean)\
+        **alwaysUseCachedSettings**(Boolean)
         (*Optional*)
       </td>
 
       <td>
-        When set to `true`, completely disables client-side storage. This is useful if you want to avoid any data persistence in the browser for privacy or other reasons.
+        If set to true, always uses cached settings from storage, ignoring TTL and server fetch.
       </td>
 
       <td>
-        Ideal for ephemeral or stateless environments, or when you need full control over state management externally.
+        Use when you want to force the SDK to always use local cached settings, even if expired.
       </td>
 
       <td>
-        `false`
+        false
       </td>
     </tr>
   </tbody>
