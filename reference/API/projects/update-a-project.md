@@ -142,4 +142,4 @@ Request Payload Schema Format
 >
 > * Always pass the complete current state of the`name`, `languages` and `environments` lists.
 > * Omitting an environment or language will remove it permanently.
-> * `isEnabled` only affects whether an environment is considered the *default* one and does not impact its presence in the system.
+> * `isEnabled` only affects whether an environment is considered the *default* one which linking a project in a campaign, and does not impact its presence in the system.
