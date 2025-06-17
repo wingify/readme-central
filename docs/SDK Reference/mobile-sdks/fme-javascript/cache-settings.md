@@ -7,6 +7,56 @@ metadata:
 ---
 We’ve introduced enhanced storage configuration options to give more flexibility in managing how settings are cached and refreshed in browser environments. These new configurations allow for more granular control over the storage mechanism, improving performance and enabling better control over cache duration.
 
+<br />
+
+```mermaid
+flowchart TD
+    A0(["VWO FME SDK"]) --> A("Initialize using<br/>configurable options")
+    A --> B("Set Custom TTL (Time To Live)")
+    A --> C("Set alwaysUseCachedSettings Option")
+    A --> D("Background Refresh")
+
+    %% Settings Caching Flow
+    B --> B1{"Is TTL Specified?"}
+    B1 -- Yes --> B2("Use Custom TTL")
+    B1 -- No --> B3("Use Default TTL (2 hours)")
+    B2 --> B4("Cache Settings in localStorage")
+    B3 --> B4
+    B4 --> B5("Return Cached Data")
+
+    %% alwaysUseCachedSettings Flow
+    C --> C1{"Is alwaysUseCachedSettings Enabled?"}
+    C1 -- Yes --> C2("Always Use Cached Settings")
+    C1 -- No --> C3("Check TTL and Refresh as Needed")
+    C2 --> B5
+    C3 --> B5
+
+    %% Background Refresh Flow
+    D --> D1{"Is Valid Cached Data Available?"}
+    D1 -- Yes --> D2("Use Cached Data Immediately")
+    D1 -- No --> D3("Fetch Fresh Data from Server")
+    D2 --> D4("Trigger Background Refresh")
+    D3 --> D4
+    D4 --> D5("Update Cache with Fresh Data")
+
+    %% Assign Classes
+    class B getTTL
+    class C alwaysUseCachedSettings
+    class D backgroundRefresh
+    class B1 conditional
+    class C1 conditional
+    class D1 conditional
+
+    %% Define Styles
+    classDef getTTL fill:#bbf,stroke:#333,stroke-width:1px,color:#000
+    classDef alwaysUseCachedSettings fill:#bbf,stroke:#333,stroke-width:1px,color:#000
+    classDef backgroundRefresh fill:#bbf,stroke:#333,stroke-width:1px,color:#000
+    classDef conditional fill:#d0efff,stroke:#333,stroke-width:1px,color:#000
+
+```
+
+<br />
+
 ### Key Features:
 
 1. **Custom ttl (Time To Live) Option**
