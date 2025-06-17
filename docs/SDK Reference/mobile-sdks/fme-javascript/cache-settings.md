@@ -57,7 +57,8 @@ These enhanced options allow developers to fine-tune storage behavior by specify
   <tbody>
     <tr>
       <td>
-        **ttl**(Integer)
+        **ttl**
+        Type: Integer
         (*Optional*)
       </td>
 
@@ -76,7 +77,8 @@ These enhanced options allow developers to fine-tune storage behavior by specify
 
     <tr>
       <td>
-        **alwaysUseCachedSettings**(Boolean)
+        **alwaysUseCachedSettings**
+        Type: Boolean
         (*Optional*)
       </td>
 
