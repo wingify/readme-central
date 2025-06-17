@@ -14,33 +14,36 @@ flowchart TD
     A0(["VWO FME SDK"]) --> A("Initialize using<br/>configurable options")
     A --> B("Set Custom TTL (Time To Live)")
     A --> C("Set alwaysUseCachedSettings Option")
-    A --> D("Background Refresh")
+    A --> D("Background Refresh (Core)")
 
     %% Settings Caching Flow
-    B --> B1{"Is TTL Specified?"}
-    B1 -- Yes --> B2("Use Custom TTL")
-    B1 -- No --> B3("Use Default TTL (2 hours)")
-    B2 --> B4("Cache Settings in localStorage")
+    B --> B1{"Is TTL Valid?"}
+    B1 -- Yes --> B2("Return Cached Settings")
+    B1 -- No --> B3("Fetch Fresh Data from Server")
+    
+    B2 --> B4("Trigger Background Refresh<br/>Update TTL Timestamp")
     B3 --> B4
-    B4 --> B5("Return Cached Data")
+    B4 --> B5("Store Updated Settings in localStorage")
+    B5 --> B6("Return Fresh or Updated Data")
 
     %% alwaysUseCachedSettings Flow
     C --> C1{"Is alwaysUseCachedSettings Enabled?"}
-    C1 -- Yes --> C2("Always Use Cached Settings")
-    C1 -- No --> C3("Check TTL and Refresh as Needed")
-    C2 --> B5
-    C3 --> B5
+    C1 -- Yes --> C2("Always Use Cached Settings (Follow TTL Logic)")
+    C1 -- No --> C3("Follow TTL Logic for Caching and Refresh")
 
-    %% Background Refresh Flow
-    D --> D1{"Is Valid Cached Data Available?"}
+    C2 --> B6
+    C3 --> B6
+
+    %% Background Refresh Core Logic
+    D --> D1{"Is TTL Valid?"}
     D1 -- Yes --> D2("Use Cached Data Immediately")
-    D1 -- No --> D3("Fetch Fresh Data from Server")
-    D2 --> D4("Trigger Background Refresh")
+    D1 -- No --> D3("Fetch New Settings from Server")
+    D2 --> D4("Trigger Background Refresh<br/>Update TTL")
     D3 --> D4
-    D4 --> D5("Update Cache with Fresh Data")
+    D4 --> D5("Store Fresh Settings in localStorage")
 
     %% Assign Classes
-    class B getTTL
+    class B ttlSettings
     class C alwaysUseCachedSettings
     class D backgroundRefresh
     class B1 conditional
@@ -48,7 +51,7 @@ flowchart TD
     class D1 conditional
 
     %% Define Styles
-    classDef getTTL fill:#bbf,stroke:#333,stroke-width:1px,color:#000
+    classDef ttlSettings fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef alwaysUseCachedSettings fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef backgroundRefresh fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef conditional fill:#d0efff,stroke:#333,stroke-width:1px,color:#000
