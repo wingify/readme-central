@@ -21,7 +21,7 @@ This VWO OpenFeature Provider for Java helps you integrate feature management an
     Check <a href="https://github.com/wingify/vwo-openfeature-provider-java" target="_blank">this</a> out
   </Card>
 
-  <Card title="Published on Maven" icon="fa-code-commit">
+  <Card title="Published on Maven" icon="fa-download">
     Check <a href="https://mvnrepository.com/artifact/com.vwo.sdk/vwo-openfeature-provider-java" target="_blank">this</a> out
   </Card>
 
