@@ -1,5 +1,5 @@
 ---
-title: Update a project
+title: Update a Project
 excerpt: ''
 api:
   file: api.json
