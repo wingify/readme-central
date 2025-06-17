@@ -35,10 +35,10 @@ flowchart TD
     C3 --> B6
 
     %% Background Refresh Core Logic
-    D --> D1{"Is TTL Valid?"}
+    D --> D1{"Is Valid Cached Data Available?"}
     D1 -- Yes --> D2("Use Cached Data Immediately")
     D1 -- No --> D3("Fetch New Settings from Server")
-    D2 --> D4("Trigger Background Refresh<br/>Update TTL")
+    D2 --> D4("Trigger Background Refresh<br/>Update Cache Asynchronously")
     D3 --> D4
     D4 --> D5("Store Fresh Settings in localStorage")
 
