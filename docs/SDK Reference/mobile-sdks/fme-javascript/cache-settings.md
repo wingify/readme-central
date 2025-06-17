@@ -121,6 +121,8 @@ const vwoClient = await init({
 
 ## Flow
 
+The diagram outlines how the **VWO FME JavaScript SDK** manages settings using configurable caching options:
+
 ```mermaid
 flowchart TD
 
@@ -177,3 +179,15 @@ flowchart TD
     classDef backgroundRefresh fill:#bbf,stroke:#333,stroke-width:1px,color:#000
     classDef conditional fill:#d0efff,stroke:#333,stroke-width:1px,color:#000
 ```
+
+1. **Initialization** – The SDK is initialized with options like:
+   1. **Custom TTL**: Defines how long cached settings are valid.
+   2. `alwaysUseCachedSettings`: Forces the SDK to always use cached data.
+   3. **Background Refresh**: Allows settings to be refreshed asynchronously.
+2. **TTL Logic** – Checks if cached data is still valid:
+   1. If valid: Use cached data and refresh in the background.
+   2. If expired: Fetch fresh data and update the cache.
+3. `alwaysUseCachedSettings` **Logic** – Bypasses TTL:
+   1. If enabled: Always use cached data.
+   2. If not: Fallback to TTL logic.
+4. **Background Refresh** – Ensures the app uses available cached data immediately while updating it in the background for freshness.
