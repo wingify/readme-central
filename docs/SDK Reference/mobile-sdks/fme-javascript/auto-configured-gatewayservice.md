@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-In traditional VWO implementations, when a gateway service is set up, the SDK communicates with the gateway to evaluate user segments (such as Location, Operating System, Browser, UserAgent, attributes) before fetching data from the backend. This multi-step process involves additional network requests, which could introduce latency, especially in client-side environments where performance is critical.
+In traditional VWO implementations, when using a gateway service, the SDK communicates with the gateway to evaluate different user segments like Location, Operating System, Browser, UserAgent, and attributes. This adds an extra layer of communication, resulting in multiple network requests and potential delays, especially in client-side environments where speed is crucial.
 
 ### Key Features:
 
