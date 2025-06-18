@@ -5,7 +5,7 @@
 - fme-ios-metrics
 - fme-ios-attributes
 - fme-ios-logging
-- storage
+- fme-ios-storage
 - fme-ios-integrations
 - fme-ios-event-batching
 - fme-ios-cache-setting
