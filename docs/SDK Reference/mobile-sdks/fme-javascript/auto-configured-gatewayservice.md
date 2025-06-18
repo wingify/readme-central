@@ -14,4 +14,5 @@ In traditional VWO implementations, when using a gateway service, the SDK commun
 
 ### How It Works:
 
-For a typical client-side SDK implementation, the SDK would first query the gateway service for segmentation (location, OS, etc.) and then fetch the settings. Client-side SDKs are typically used to deliver fast responses (such as personalized content or A/B test variations) directly to the user's browser. Adding an intermediate gateway service only delays this process. With direct communication to DACDN, if no gateway is configured, DACDN will perform the evaluation and segmentation in real-time, streamlining the entire process and speeding up data retrieval.
+1. **Client-Side SDK**: Instead of waiting for the gateway service to evaluate a user's location, OS, or other factors, the SDK now automatically uses predefined segmentation. You only need to configure the flags once and the SDK will use the available targeting options (like location and user agent) without passing any additional data.
+2. **Unlike Server-Side**: In server-side implementations, you must configure a Gateway Service to evaluate and segment the user. With this new functionality, you can simply configure the flags and start utilizing the segments right away, speeding up the process without needing the extra configuration layer.
