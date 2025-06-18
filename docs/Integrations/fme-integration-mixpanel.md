@@ -5,8 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-Here's the rewritten README with platform-agnostic language while keeping the code snippets the same:
-
 ## Overview
 
 The VWO Feature Management and Experimentation (FME) SDK is a powerful tool that enables dynamic feature flag management and experimentation in your applications. It allows developers to:
