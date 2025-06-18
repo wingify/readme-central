@@ -127,59 +127,28 @@ The diagram outlines how the **VWO FME JavaScript SDK** manages settings using c
 
 ```mermaid
 flowchart TD
+    A[Initialization] --> B[Set Options: TTL, alwaysUseCachedSettings]
+    B --> C{alwaysUseCachedSettings == true?}
 
-    %% ENTRY POINT
-    A0(["VWO FME SDK"]) --> A("Initialize using<br/>configurable options")
-    A --> B("Set Custom TTL (Time To Live)")
-    A --> C("Set alwaysUseCachedSettings Option")
-    A --> D("Background Refresh (Core)")
+    %% If alwaysUseCachedSettings is true
+    C -->|Yes| D[Use Cached Settings]
+    D --> E[Fetch Fresh Settings in Background]
+    E --> F[Update Cache with New TTL]
+    
+    %% If alwaysUseCachedSettings is false
+    C -->|No| G{Is TTL Valid?}
 
-    %% TTL Settings Logic (Reusable)
-    subgraph TTL_Logic ["TTL-Based Settings Logic"]
-        B1{"Is TTL Valid?"}
-        B1 -- Yes --> B2("Return Cached Settings")
-        B1 -- No --> B3("Fetch Fresh Data from Server")
-        B2 --> B4("Trigger Background Refresh<br/>Update TTL Timestamp")
-        B3 --> B4
-        B4 --> B5("Store Updated Settings in localStorage")
-        B5 --> B6("Return Fresh or Updated Data")
-    end
+    G -->|Yes| D[Use Cached Settings]
+    
+    G -->|No| K[Fetch Fresh Settings Immediately]
+    K --> L[Store in Cache with New TTL]
+    L --> M[Use New Settings]
 
-    %% alwaysUseCachedSettings Logic
-    subgraph alwaysUseCachedSettings_Logic ["Cached Settings Mode"]
-        C1{"Is alwaysUseCachedSettings Enabled?"}
-        C1 -- Yes --> C2("Use Cached Settings Always")
-        C1 -- No --> C3("Use TTL Logic")
-        C2 --> B2
-        C3 --> B1
-    end
+    classDef init fill:#ff9,stroke:#333,stroke-width:1px;
+    class B init;
 
-    %% Background Refresh Logic
-    subgraph Background_Refresh_Core ["Background Refresh"]
-        D1{"Is Valid Cached Data Available?"}
-        D1 -- Yes --> D2("Use Cached Data Immediately")
-        D1 -- No --> D3("Fetch New Settings from Server")
-        D2 --> D4("Background Refresh<br/>(Async Cache Update)")
-        D3 --> D4
-        D4 --> D5("Store Fresh Settings in localStorage")
-    end
-
-    %% Main Flow to Subgraphs
-    B --> B1
-    C --> C1
-    D --> D1
-
-    %% Assign Classes
-    class B ttlSettings
-    class C alwaysUseCachedSettings
-    class D backgroundRefresh
-    class B1,C1,D1 conditional
-
-    %% Define Styles
-    classDef ttlSettings fill:#bbf,stroke:#333,stroke-width:1px,color:#000
-    classDef alwaysUseCachedSettings fill:#bbf,stroke:#333,stroke-width:1px,color:#000
-    classDef backgroundRefresh fill:#bbf,stroke:#333,stroke-width:1px,color:#000
-    classDef conditional fill:#d0efff,stroke:#333,stroke-width:1px,color:#000
+    classDef logic fill:#bbf,stroke:#333,stroke-width:1px;
+    class C,D,E,F,G,H,I,J,K,L,M logic;
 ```
 
 1. **Initialization** – The SDK is initialized with options like:
