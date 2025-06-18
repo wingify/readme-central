@@ -144,11 +144,12 @@ flowchart TD
     K --> L[Store in Cache with New TTL]
     L --> M[Use New Settings]
 
-    classDef init fill:#ff9,stroke:#333,stroke-width:1px;
+    classDef init fill:#ff9,stroke:#333,stroke-width:1px,color:#000;
     class B init;
 
-    classDef logic fill:#bbf,stroke:#333,stroke-width:1px;
+    classDef logic fill:#bbf,stroke:#333,stroke-width:1px,color:#000;
     class C,D,E,F,G,H,I,J,K,L,M logic;
+
 ```
 
 1. **Initialization** – The SDK is initialized with options like:
