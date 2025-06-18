@@ -5,7 +5,7 @@
 - fme-react-native-metrics
 - fme-react-native-attributes
 - fme-react-native-logging
-- storage-1
+- fme-react-native-storage
 - fme-react-native-integrations
 - fme-react-native-event-batching
 - fme-react-native-cache-settings
