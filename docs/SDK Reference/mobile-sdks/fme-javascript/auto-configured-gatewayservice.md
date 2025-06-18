@@ -9,8 +9,8 @@ In traditional VWO implementations, when using a gateway service, the SDK commun
 
 ### Key Features:
 
-1. **Out-of-the-box Targeting:** The JavaScript SDK now includes built-in targeting options, such as location and user agent (UA), without needing additional configuration. This means you don't have to manually set up complex segmentation rules.
-2. **Faster Performance** : By eliminating the intermediate gateway service, the SDK fetches data from DACDN directly, reducing network latency and improving page load times, making it ideal for client-side use cases where speed and responsiveness are crucial.
+1. **Out-of-the-box Targeting** : The JavaScript SDK now includes built-in targeting options, such as location and user agent (UA), without needing additional configuration. This means you don't have to manually set up complex segmentation rules.
+2. **Faster Performance** : In the past, the SDK had to contact a gateway service to evaluate user segments before fetching data. With the new setup, the SDK communicates directly with VWO's DACDN (Delivery and Content Distribution Network), which handles segmentation and evaluation in real time. This significantly reduces delays and improves performance.
 
 ### UseCase
 
