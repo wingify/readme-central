@@ -91,6 +91,6 @@ We've chosen a simple yet practical application to demonstrate FME capabilities 
 * [TV OS App](https://github.com/wingify/vwo-fme-examples/tree/master/tvos-swift)
 
   A sleek TVOS application showcasing VWO Feature Management and Experimentation (FME) integration, enabling dynamic feature flags to customize UI elements and user interactions on Apple TV.
-* [Android TV](https://github.com/wingify/vwo-fme-examples/tree/master/androidTvApp)
+* [Android TV](https://github.com/wingify/vwo-fme-examples/tree/master/android-tv-app)
 
   A demonstration Android TV application showcasing VWO Feature Management and Experimentation (FME) SDK integration for customizable UI elements and user interaction tracking. Browse through stunning travel destinations and plan your next adventure!
