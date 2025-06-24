@@ -1,7 +1,7 @@
 - user-id-management
 - how-user-bucketing-works
 - polling
-- auto-configured-gatewayservice
+- fme-segment-evaluation-client-vs-server-side
 - rules-evaluation
 - wip-rd-event-batching
 - wip-rd-salting
