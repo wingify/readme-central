@@ -21,7 +21,7 @@ Depending on whether you use client-side or server-side SDKs, the evaluation wor
 
 ```mermaid
 flowchart TD
-    A[User's Browser / Mobile App] --> B[SDK Requires Complex Segmentation Evaluation]
+    A[Browser/Mobile App/Server App] --> B[SDK Requires Complex Segmentation Evaluation]
     B --> C[Client-side SDK]
     B --> C2[Server-side SDK]
 
