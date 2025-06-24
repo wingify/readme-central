@@ -1,6 +1,7 @@
 - user-id-management
 - how-user-bucketing-works
 - polling
+- auto-configured-gatewayservice
 - rules-evaluation
 - wip-rd-event-batching
 - wip-rd-salting
