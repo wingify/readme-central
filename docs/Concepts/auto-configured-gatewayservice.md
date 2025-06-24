@@ -1,54 +1,103 @@
 ---
-title: Auto-configured GatewayService
+title: Segment Evaluation in Client-Side vs Server-Side SDKs
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
-In traditional VWO implementations, when using a gateway service, the SDK communicates with the gateway to evaluate different user segments like Location, UserAgent, and attributes. This adds an extra layer of communication, resulting in multiple network requests and potential delays, especially in client-side environments where speed is crucial.
+This guide details how VWO's Feature Management & Experimentation (FME) SDKs handle segmentation, particularly based on **Location**, **User Agent (UA)**, and **User Attributes** — differently for **client-side** and **server-side** implementations.
 
-### Key Features:
+## Overview
 
-1. **Out-of-the-box Targeting** : The JavaScript SDK now includes built-in targeting options, such as location and user agent (UA), without needing additional configuration. This means you don't have to manually set up complex segmentation rules.
-2. **Faster Performance** : In the past, the SDK had to contact a gateway service to evaluate Location and UA based. With the new setup, the client side SDK's communicates directly with VWO's DACDN (Delivery and Content Distribution Network), which handles segmentation and evaluation in real time. This significantly reduces delays and improves performance.
+Segmentation is a critical part of delivering personalized experiences. VWO supports advanced segmentation based on:
 
-### How It Works:
+* 🌍 Location (derived via IP)
+* 🧭 User Agent (device/browser type)
+* 🧑‍💼 User Attributes (e.g., logged-in state, subscription plan)
 
-1. **Client-Side SDK**: Instead of waiting for the gateway service to evaluate a user's location, OS, or other factors, the SDK now automatically uses predefined segmentation. You only need to configure the flags once and the SDK will use the available targeting options (like location and user agent) without passing any additional data.
-2. **Unlike Server-Side**: In server-side implementations, you must configure a Gateway Service to evaluate Location and User agent based segmentation. In contrast, the client-side SDK automatically handles this without needing additional configuration, offering faster, real-time responses for personalised content or A/B tests.
+Depending on whether you use client-side or server-side SDKs, the evaluation workflow varies. Here's a visual representation:
 
-<br />
+## Client-side vs Server-side Complex Segment Evaluation
 
 ```mermaid
 flowchart TD
-    A[User's Browser] --> B[Predefined Segmentation: Location, UserAgent]
-    B --> C{Is it Client-Side SDK?}
-    
-    %% If Client-Side SDK
-    C -->|Yes| D[Direct Communication with DACDN]
-    D --> E[Evaluate Segmentation: Location, UserAgent]
-    E --> F[Fetch Data: Personalization, A/B Tests]
+    A[User's Browser / Mobile App] --> B[SDK Requires Complex Segmentation Evaluation]
+    B --> C[Client-side SDK]
+    B --> C2[Server-side SDK]
 
-    %% If Server-Side SDK
-    C -->|No| G[Setup Gateway Service for Location, UserAgent Segmentation]
-    G --> H[Evaluate Segmentation: Location, UserAgent]
-    H --> I[Fetch Data: Personalization, A/B Tests]
+    %% Client-Side SDK Branch
+    C --> D[Communicates with VWO CDN]
+    D --> E[DaCDN auto-evaluates IP, UA]
+    E --> F[Segments Evaluated at Edge]
+    F --> G[Fetch Personalized Data or Experiments]
 
-    %% Assign Classes
-    class B predefinedSegmentation;
-    class C checkSDK;
-    class D directDACDN;
-    class G gatewayService;
-    class E fetchData;
-    class F fetchData;
-    class H fetchData;
-    class I fetchData;
+    %% Server-Side SDK Branch
+    C2 --> H[Requires VWO Gateway Setup]
+    H --> I[Your Server Extracts IP/UA]
+    I --> J[Forwards Context to Gateway]
+    J --> K[Gateway Evaluates Segmentation]
+    K --> L[Returns Segment Info to SDK]
+    L --> M[Fetch Personalized Data or Experiments]
 
-    %% Define Styles
-    classDef predefinedSegmentation fill:#bbf,stroke:#333,stroke-width:1px,color:#000;
-    classDef checkSDK fill:#d0efff,stroke:#333,stroke-width:1px,color:#000;
-    classDef directDACDN fill:#cfe2f3,stroke:#333,stroke-width:1px,color:#000;
-    classDef gatewayService fill:#f4cccc,stroke:#333,stroke-width:1px,color:#000;
-    classDef fetchData fill:#f9f9f9,stroke:#333,stroke-width:1px,color:#000;
+    %% Styling
+    class B,D,E,F,G,H,I,J,K,L,M step;
+    class C decision;
+    class C2 decision;
+
+    classDef step fill:#eef,stroke:#333,stroke-width:1px,color:#000;
+    classDef decision fill:#cfe2f3,stroke:#333,stroke-width:1px,color:#000;
 
 ```
+
+<br />
+
+## Client-Side SDKs: Automatic Segmentation via DaCDN
+
+### How it Works
+
+VWO’s client-side SDKs leverage the **VWO DaCDN**, an intelligent CDN layer, **to automatically evaluate segments** using the request's IP and User-Agent. These values are implicitly available to DaCDN because it is invoked directly from the user's browser/device.
+
+> ⚙️ Note
+>
+> No extra code is needed to pass IP or UA from your application.
+
+### Benefits
+
+* Zero configuration required
+* Automatic targeting on geo/location and device/browser
+* Fast, edge-based evaluation
+* No backend setup required
+
+### Ideal Use Cases
+
+* A/B testing or personalization for web/mobile users
+* Segmentation based on country/region/device/browser
+* Experiments running at scale with minimal infrastructure overhead
+
+<br />
+
+## Server-Side SDKs: Requires Gateway Service
+
+In server environments (e.g., Node.js, Python, Java, Ruby, PHP, .NET, and Go), IP and UA are **not available by default** to the SDK. These attributes live in your server's request context.
+
+To support complex segments like Location and User Agent, you must:
+
+1. Set up [Gateway Service](doc:gateway-service) .
+2. Forward IP/UA headers to the Gateway via SDK APIs.
+3. Let Gateway handle segment evaluation.
+
+### Why This Difference?
+
+Server-side SDKs run in a backend context without automatic access to:
+
+* Client IP addresses (due to proxies/load balancers)
+* User agent strings (only available in incoming HTTP requests)
+
+### Ideal For
+
+* Teams needing complete control over request flows.
+* Advanced integrations where client context is manually passed.
+
+> 📘 Note
+>
+> For fast and frictionless implementation of advanced segment targeting (location, user-agent, and more), we strongly recommend using Client-Side SDKs wherever feasible. If you're using server-side SDKs, ensure VWO Gateway is correctly set up for similar capabilities.
