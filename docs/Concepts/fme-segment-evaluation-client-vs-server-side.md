@@ -21,7 +21,7 @@ Depending on whether you use client-side or server-side SDKs, the evaluation wor
 
 ```mermaid
 flowchart TD
-    A[Browser/Mobile App/Server App] --> B[SDK Requires Complex Segmentation Evaluation]
+    A[User's Browser / Mobile App] --> B[SDK Requires Complex Segmentation Evaluation]
     B --> C[Client-side SDK]
     B --> C2[Server-side SDK]
 
@@ -29,7 +29,7 @@ flowchart TD
     C --> D[Communicates with VWO CDN]
     D --> E[DaCDN auto-evaluates IP, UA]
     E --> F[Segments Evaluated at Edge]
-    F --> G[Fetch Personalized Data or Experiments]
+    F --> G[Evaluate Feature Flag]
 
     %% Server-Side SDK Branch
     C2 --> H[Requires VWO Gateway Setup]
@@ -37,7 +37,7 @@ flowchart TD
     I --> J[Forwards Context to Gateway]
     J --> K[Gateway Evaluates Segmentation]
     K --> L[Returns Segment Info to SDK]
-    L --> M[Fetch Personalized Data or Experiments]
+    L --> M[Evaluate Feature Flag]
 
     %% Styling
     class B,D,E,F,G,H,I,J,K,L,M step;
