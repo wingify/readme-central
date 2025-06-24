@@ -82,7 +82,7 @@ In server environments (e.g., Node.js, Python, Java, Ruby, PHP, .NET, and Go), I
 
 To support complex segments like Location and User Agent, you must:
 
-1. Set up [Gateway Service](doc:gateway-service) .
+1. Set up [Gateway Service](doc:gateway-service).
 2. Forward IP/UA headers to the Gateway via SDK APIs.
 3. Let Gateway handle segment evaluation.
 
