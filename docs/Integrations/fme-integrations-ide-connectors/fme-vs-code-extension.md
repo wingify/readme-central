@@ -20,7 +20,7 @@ The **VWO Feature Management extension** for Visual Studio Code offers a seamles
 * **Quick Flag Actions**: Insert code snippets for initializing the VWO SDK, retrieving a feature flag, and accessing variables associated with flags, tailored to different programming languages supported by VWO.
 * **Contextual Menu Commands**: Right-click on feature flags in the explorer to access quick actions, including toggling the flag and managing rules and variations.
 * **Feature Flag Variables**: View and manage variables associated with feature flags. Insert variables into your code directly from the command palette, saving time and reducing context switching.
-* **Search Feature Flags**: Quickly search for feature flags by name or rule, making it easier to locate and manage flags in large projects.
+* **Search Feature Flags**: Quickly search for feature flags by name or rule, making locating and managing flags in large projects easier.
 
 ## Usage
 
@@ -74,23 +74,17 @@ After installing the extension, navigate to the **Configuration** section within
 2. **VWO API Access Token**: Enter your API access token. You can generate this from the VWO dashboard.
 3. **Fetch Environments**: Retrieve environments linked to your account to view environment-specific flags.
 
-Once configured, you can start exploring and managing feature flags for the selected environment.
+Once configured, you can explore and manage feature flags for the selected environment.
 
 ## Requirements
 
 This extension requires:
 
 * A valid VWO account and API access token.
-* Visual Studio Code version 1.54.0 or higher.
+* Visual Studio Code version `1.54.0` or higher.
 
 ## Resources
 
 | Resource          | Link                                                                                                                                                                     |
 | :---------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | VS Code Extension | [https://marketplace.visualstudio.com/items?itemName=Wingify.vwo-feature-management](https://marketplace.visualstudio.com/items?itemName=Wingify.vwo-feature-management) |
-
-## License
-
-Apache License, Version 2.0
-
-Copyright 2024-2025 Wingify Software Pvt. Ltd.
