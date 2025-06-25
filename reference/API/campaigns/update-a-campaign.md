@@ -34,7 +34,28 @@ PATCH /accounts/40505/campaigns/15
 Update a campaign
 
 > 🚧 **Warning**
-> 
+>
 > Note:
-> 
+>
 > The "globalCode" section allows you to add Pre/Post-Campaign JS/CSS snippets within the editor. This globalCode block is optional and can be omitted if not needed.
+
+### For FullStack campaigns
+
+You can update the projects as follows:
+
+```json
+{
+     "campaigns": {
+          "projects": [{
+               "id": 66,
+               "environments": [{
+                         "id": 1
+                    },
+                    {
+                         "id": 2
+                    }
+               ]
+          }]
+     }
+}
+```
