@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-The VWO Feature Management and Experimentation (FME) SDK is a powerful tool that enables dynamic feature flag management and experimentation in your applications. It allows developers to:
+The VWO Feature Management and Experimentation (FME) SDK is a powerful tool that enables dynamic feature flag management and experimentation. It allows developers to:
 
 * Implement user ID-based feature flag evaluation
 * Track user interactions and events
@@ -23,37 +23,37 @@ The VWO Feature Management and Experimentation (FME) SDK is a powerful tool that
 
 ## Prerequisites
 
+#### Mixpanel Account Setup
+
+* Create a Mixpanel account at mixpanel.com if you don't already have one
+* Create a new project in your Mixpanel dashboard
+* Obtain your Mixpanel project token from the project settings
+* Add your Mixpanel project token to your application's constants or local.properties file:
+
+```properties
+MIXPANEL_PROJECT_TOKEN=your_mixpanel_project_token
+```
+
 #### VWO FME SDK Installation and Configuration
 
 * Ensure you have the VWO Feature Management and Experimentation product enabled for your VWO account
 * The VWO FME SDK should be properly installed in your project
-* Set your VWO account ID and SDK key in your application's configuration:
+* Set your VWO account ID and SDK key in your application's constants or local.properties file:
 
 ```properties
 FME_ACCOUNT_ID=your_account_id
 FME_SDK_KEY=your_sdk_key
 ```
 
-#### Mixpanel Account Setup
+## Integration Steps
 
-* Create a Mixpanel account at mixpanel.com if you don't already have one
-* Create a new project in your Mixpanel dashboard
-* Obtain your Mixpanel project token from the project settings
-* Add your Mixpanel project token to your application's configuration:
+Integrating the VWO FME SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
 
-```properties
-MIXPANEL_PROJECT_TOKEN=your_mixpanel_project_token
-```
+While example below shows an implementation with the Android SDK, please note that any VWO FME SDK can be used.
 
-#### Development Environment
+#### 1. Add Required Dependencies
 
-IDE: Latest stable version recommended\
-Minimum SDK Requirements: Check platform-specific requirements
-Target SDK: Latest SDK version recommended
-
-#### Required Dependencies
-
-Add the following dependencies to your project's build configuration:
+Add the following dependencies to your app's build.gradle file:
 
 ```groovy
 dependencies {
@@ -65,19 +65,15 @@ dependencies {
 }
 ```
 
-#### Permissions
+#### 2. Add Permissions
 
-Ensure your app has the following permissions in the manifest file:
+Ensure your app has the following permissions in the AndroidManifest.xml file:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-## Integration Steps
-
-Integrating the VWO FME SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FME SDK.
-
-#### 1. Create a dedicated class for Mixpanel Integration:
+#### 3. Create a dedicated class for Mixpanel Integration:
 
 Implement a class (e.g., `MixpanelIntegration`) to handle the initialization of the Mixpanel SDK and provide methods for tracking events and flag evaluations.
 
@@ -114,7 +110,7 @@ class MixpanelIntegration private constructor(context: Context, projectToken: St
 }
 ```
 
-#### 2. Initialize Mixpanel and set up the `IntegrationCallback`:
+#### 4. Initialize Mixpanel and set up the `IntegrationCallback`:
 
 Initialize your `MixpanelIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FME SDK. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Mixpanel instance.
 
@@ -170,7 +166,7 @@ The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` 
 }
 ```
 
-Ensure you have added your Mixpanel project token to your configuration as specified in the Prerequisites.
+Ensure you have added your Mixpanel project token to your constants or `local.properties` file as specified in the Prerequisites.
 
 This setup ensures that every time a feature flag is evaluated or an event is tracked by the VWO SDK, the relevant data is automatically sent to your configured Mixpanel project.
 
@@ -183,26 +179,26 @@ This setup ensures that every time a feature flag is evaluated or an event is tr
 After integrating Mixpanel with your app, you can view the tracked data in the following ways:
 
 1. Access Mixpanel Dashboard:
-   * Log in to your Mixpanel account at [https://mixpanel.com](https://mixpanel.com)
-   * Navigate to your project dashboard
+  * Log in to your Mixpanel account at [https://mixpanel.com](https://mixpanel.com)
+  * Navigate to your project dashboard
 
 2. View Feature Flag Evaluations:
-   * Look for events named `vwo_fme_flag_evaluation`
-   * These events contain data about feature flag and User ID
+  * Look for events named `vwo_fme_flag_evaluation`
+  * These events contain data about feature flag and User ID
 
 3. Track Custom Events
-   * Find events named `vwo_fme_track_event`
-   * These events include details about the event.
+  * Find events named `vwo_fme_track_event`
+  * These events include details about the event.
 
 4. Analyze Data
-   * Use Mixpanel's analytics tools to:
-     * Create custom reports
-     * View user flows
-     * Track conversion rates
-     * Monitor feature flag performance
+  * Use Mixpanel's analytics tools to:
+    * Create custom reports
+    * View user flows
+    * Track conversion rates
+    * Monitor feature flag performance
 
 ## GitHub Reference
 
 The complete source code for this example is available on GitHub: [https://github.com/wingify/vwo-fme-examples](https://github.com/wingify/vwo-fme-examples)
 
-This repository includes sample projects demonstrating how to utilize the VWO SDK and the Mixpanel SDK together. Developers can find implementation details and code snippets to understand and replicate the integration in their own applications. Examining the code in this repository will provide a comprehensive understanding of how to track VWO experiment data within Mixpanel for detailed analytics and user behavior analysis. The examples showcase how to initialize both SDKs and send experiment assignment and goal completion events to Mixpanel, enabling businesses to measure the impact of their A/B tests effectively.
+This is an example of an implementation using the Android SDK. While this demonstrates the approach, that you can utilize any of the VWO FME SDKs for your project.
