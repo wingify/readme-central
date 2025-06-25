@@ -7,7 +7,7 @@ metadata:
 ---
 ## Introduction
 
-The `VWO MCP Server` serves as a seamless bridge between your development environment and VWO’s Feature Management & Experimentation. It enables effortless feature flag management by integrating directly with AI-powered IDEs, allowing you to control and optimize feature releases without disrupting your coding workflow.
+The **VWO FME MCP Server** serves as a seamless bridge between your development environment and VWO’s Feature Management & Experimentation. It enables effortless feature flag management by integrating directly with AI-powered IDEs, allowing you to control and optimize feature releases without disrupting your coding workflow.
 
 ### Key Features
 
@@ -118,6 +118,8 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 > 📘 Looking for other AI Clients?
 >
 > For other clients, refer to their documentation on configuring custom MCP servers. The configuration pattern remains similar.
+
+<br />
 
 ## Available tools
 
