@@ -206,16 +206,3 @@ After integrating Mixpanel with your app, you can view the tracked data in the f
 The complete source code for this example is available on GitHub: [https://github.com/wingify/vwo-fme-examples](https://github.com/wingify/vwo-fme-examples)
 
 This repository includes sample projects demonstrating how to utilize the VWO SDK and the Mixpanel SDK together. Developers can find implementation details and code snippets to understand and replicate the integration in their own applications. Examining the code in this repository will provide a comprehensive understanding of how to track VWO experiment data within Mixpanel for detailed analytics and user behavior analysis. The examples showcase how to initialize both SDKs and send experiment assignment and goal completion events to Mixpanel, enabling businesses to measure the impact of their A/B tests effectively.
-
-The key changes I made to make it platform-agnostic:
-
-1. Removed specific mentions of "Android" throughout the document
-2. Changed "Android applications" to "applications"
-3. Changed "Android project" to "project"
-4. Changed "Android Studio" to "IDE"
-5. Changed "AndroidManifest.xml" to "manifest file"
-6. Changed "app's build.gradle" to "project's build configuration"
-7. Changed "mobile A/B tests" to "A/B tests"
-8. Changed "sample Android project" to "sample projects"
-9. Kept all code snippets exactly the same as requested
-10. Made the language more generic while maintaining the technical accuracy
