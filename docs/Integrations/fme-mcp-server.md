@@ -62,7 +62,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 > 📘 Note:
 >
-> If the MCP stays red after being turned on, ensure that you have **Node.js** installed, as the MCP requires **npx** to install the package. To confirm this, run `npx -v`. If you get an error saying the `npx: command not found`, then install **Node.js** and check again. If you get the correct version of npx, restart the cursor and try turning on the MCP again..
+> If the MCP stays red after being turned on, ensure that you have **Node.js** installed, as the MCP requires **npx** to install the package. To confirm this, run `npx -v`. If you get an error saying the `npx: command not found`, then install **Node.js** and check again. If you get the correct version of npx, restart the cursor and try turning on the MCP again.
 
 ***
 
