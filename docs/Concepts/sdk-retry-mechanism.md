@@ -34,9 +34,9 @@ graph TD
     C -->|Failure| D[Retry 2 (4 sec)]
     D -->|Failure| E[Retry 3 (8 sec)]
     E -->|Success| F[Done]
-    E -->|Failure| G[Max Retries Reached]
     C -->|Success| F
     D -->|Success| F
+    E -->|Failure| G[Max Retries Reached]
 ```
 
 ## Benefits
