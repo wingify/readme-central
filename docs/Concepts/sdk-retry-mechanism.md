@@ -25,6 +25,31 @@ The SDK has been enhanced with an **exponential backoff retry mechanism** for fa
    3. **Third Retry**: If the request fails once more, the SDK will wait for **8 seconds** before the final retry attempt.
 4. **Max Retries Reached**: If all retry attempts fail, the request will be abandoned, and the failure will be logged.
 
+<br />
+
+```mermaid
+sequenceDiagram
+    participant SDK
+    participant Server
+
+    SDK->>Server: Send tracking request
+    alt Request fails
+        SDK->>SDK: Wait for 2 seconds
+        SDK->>Server: Retry request
+        alt Request fails again
+            SDK->>SDK: Wait for 4 seconds
+            SDK->>Server: Retry request
+            alt Request fails again
+                SDK->>SDK: Wait for 8 seconds
+                SDK->>Server: Retry request
+                alt Request fails again
+                    SDK->>SDK: Log failure and stop retries
+                end
+            end
+        end
+    end
+```
+
 ## Benefits
 
 * **Improved Reliability**: The retry mechanism automatically handles temporary failures, ensuring higher success rates for tracking requests.
