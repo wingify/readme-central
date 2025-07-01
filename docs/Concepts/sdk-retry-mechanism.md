@@ -32,18 +32,18 @@ sequenceDiagram
     participant SDK
     participant Server
 
-    SDK->>Server: Send tracking request
+    SDK->>Server: Send request
     alt Request fails
-        SDK->>SDK: Wait for 2 seconds
-        SDK->>Server: Retry request
-        alt Request fails again
-            SDK->>SDK: Wait for 4 seconds
-            SDK->>Server: Retry request
-            alt Request fails again
-                SDK->>SDK: Wait for 8 seconds
-                SDK->>Server: Retry request
-                alt Request fails again
-                    SDK->>SDK: Log failure and stop retries
+        SDK->>SDK: Wait 2 seconds
+        SDK->>Server: Retry 1
+        alt Retry 1 fails
+            SDK->>SDK: Wait 4 seconds
+            SDK->>Server: Retry 2
+            alt Retry 2 fails
+                SDK->>SDK: Wait 8 seconds
+                SDK->>Server: Retry 3
+                alt Retry 3 fails
+                    SDK->>SDK: Log failure, stop retries
                 end
             end
         end
