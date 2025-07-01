@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-The SDK has been enhanced with an **exponential backoff retry mechanism** for failed network requests. This mechanism is designed to improve the reliability of tracking calls by automatically retrying failed requests. The retries occur with increasing delays, thereby reducing the system's burden and preventing overload during temporary failures.
+The SDK now includes an automatic retry feature for failed network requests. If a tracking call fails, it will be retried with increasing delays. This helps make the system more reliable by reducing the chance of overload during temporary issues.
 
 ## Key Features:
 
