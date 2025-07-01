@@ -30,16 +30,17 @@ The SDK includes an automatic retry feature for failed network requests. If a tr
 ```mermaid
 flowchart LR
     A[Start] --> B[Request]
-    B --> C{Failure?}
-    C -->|Yes| D[Retry 1 (2 sec)]
-    D --> E{Failure?}
-    E -->|Yes| F[Retry 2 (4 sec)]
-    F --> G{Failure?}
-    G -->|Yes| H[Retry 3 (8 sec)]
-    C -->|No| I[Done]
-    E -->|No| I[Done]
-    G -->|No| I[Done]
-    H -->|No| I[Done]
+    B --> C[Failure]
+    C --> D[Retry 1 (2 sec)]
+    D --> E[Failure]
+    E --> F[Retry 2 (4 sec)]
+    F --> G[Failure]
+    G --> H[Retry 3 (8 sec)]
+    D --> I[Success]
+    F --> I[Success]
+    G --> I[Success]
+    C --> I[Success]
+    I --> J[Done]
 ```
 
 ## Benefits
