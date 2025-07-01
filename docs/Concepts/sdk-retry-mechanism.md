@@ -28,7 +28,7 @@ The SDK includes an automatic retry feature for failed network requests. If a tr
 <br />
 
 ```mermaid
-graph TD
+flowchart TD
     A[Start] --> B[Request]
     B --> C{Failed?}
     C -->|Yes| D[Retry (2s)]
