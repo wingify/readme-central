@@ -29,15 +29,26 @@ The SDK includes an automatic retry feature for failed network requests. If a tr
 
 ```mermaid
 graph TD
-  A[Start] --> B[Try operation]
-  B --> C{Is operation successful?}
+  A[Start] --> B[Make tracking call]
+  B --> C{Is tracking call successful?}
   C -->|Yes| D[Success]
   C -->|No| E[Retry operation]
-  E --> F{Is retry count exceeded?}
-  F -->|Yes| G[Fail after retries]
-  F -->|No| B
-  D --> H[End]
-  G --> H
+  E --> F{Retry count = 1?}
+  F -->|Yes| G[Delay 2 seconds]
+  G --> H[Make tracking call again]
+  F -->|No| I{Retry count = 2?}
+  I -->|Yes| J[Delay 4 seconds]
+  J --> K[Make tracking call again]
+  I -->|No| L{Retry count = 3?}
+  L -->|Yes| M[Delay 8 seconds]
+  M --> N[Make tracking call again]
+  L -->|No| E
+  N --> O{Is tracking call successful?}
+  O -->|Yes| P[Success]
+  O -->|No| Q[Fail after retries]
+  D --> R[End]
+  P --> R
+  Q --> R
 ```
 
 ## Benefits
