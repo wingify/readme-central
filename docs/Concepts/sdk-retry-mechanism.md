@@ -28,26 +28,20 @@ The SDK includes an automatic retry feature for failed network requests. If a tr
 <br />
 
 ```mermaid
-sequenceDiagram
-    participant SDK
-    participant Server
-
-    SDK->>Server: Send tracking request
-    alt Request fails
-        SDK->>SDK: Wait for 2 seconds
-        SDK->>Server: Retry request
-        alt Request fails again
-            SDK->>SDK: Wait for 4 seconds
-            SDK->>Server: Retry request
-            alt Request fails again
-                SDK->>SDK: Wait for 8 seconds
-                SDK->>Server: Retry request
-                alt Request fails again
-                    SDK->>SDK: Log failure and stop retries
-                end
-            end
-        end
-    end
+flowchart TD
+    A[Send Request] --> B{Failed?}
+    B -- Yes --> C[Wait 2 seconds]
+    C --> D[Retry 1]
+    D --> B
+    B -- Yes --> E[Wait 4 seconds]
+    E --> F[Retry 2]
+    F --> B
+    B -- Yes --> G[Wait 8 seconds]
+    G --> H[Retry 3]
+    H --> B
+    B -- No --> I[Success]
+    B -- Yes --> J[Log Failure]
+    J --> K[Stop]
 ```
 
 ## Benefits
