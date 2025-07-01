@@ -36,11 +36,10 @@ flowchart LR
     E --> F[Retry 2 (4 sec)]
     F --> G[Failure]
     G --> H[Retry 3 (8 sec)]
-    D --> I[Success]
-    F --> I[Success]
-    G --> I[Success]
-    C --> I[Success]
-    I --> J[Done]
+    D --> I[Done]
+    F --> I[Done]
+    G --> I[Done]
+    C --> I[Done]
 ```
 
 ## Benefits
