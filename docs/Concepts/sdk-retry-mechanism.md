@@ -7,23 +7,34 @@ metadata:
 ---
 ## Overview
 
-The SDK includes an automatic retry feature for failed network requests. If a tracking call fails, it will be retried with increasing delays. This helps make the system more reliable by reducing the chance of overload during temporary issues.
+The SDK includes an automatic retry mechanism to handle transient failures during network communication, specifically for tracking calls. When a tracking request fails due to network instability or timeout, the SDK initiates a retry sequence using exponential backoff. This design improves system reliability while preventing server overload during temporary issues.
 
 ## Key Features:
 
-* **Exponential Backoff**: Failed tracking calls are retried with progressively increasing delays between each attempt.
-* **Maximum Retries**: The system will retry a failed request up to **3 times**.
-* **Initial Delay**: The retry delay starts at **2 seconds**, with subsequent delays doubling each time (**4 seconds** and **8 seconds**).
+* **Exponential Backoff:**\
+  Retry intervals increase exponentially (2s → 4s → 8s), minimizing repeated pressure on network resources.
+* **Maximum Retries:**\
+  A failed request is retried up to 3 times.
+* **Initial Delay:**\
+  The first retry is initiated after a 2-second delay.
 
-## How It Works
+## Retry Workflow
 
-1. **Initial Request**: When a tracking call is made, the SDK will attempt to send the request.
-2. **Failure Detection**: If the tracking call fails (due to a network issue, timeout, etc.), the SDK will initiate the retry process.
-3. **Retry Attempts**:
-   1. **First Retry**: If the request fails, the SDK will wait for **2 seconds** before retrying.
-   2. **Second Retry**: If the request fails again, the SDK will wait for **4 seconds** before retrying.
-   3. **Third Retry**: If the request fails once more, the SDK will wait for **8 seconds** before the final retry attempt.
-4. **Max Retries Reached**: If all retry attempts fail, the request will be abandoned, and the failure will be logged.
+The retry process follows these steps:
+
+1. **Initial Request:**\
+   The SDK attempts to send the tracking request.
+2. **Failure Detection:**\
+   If the request fails due to issues such as network errors or timeouts, the retry mechanism is triggered.
+3. **Retry Attempts:**
+
+   | Attempt | Delay Before Retry |
+   | ------- | ------------------ |
+   | 1st     | 2 seconds          |
+   | 2nd     | 4 seconds          |
+   | 3rd     | 8 seconds          |
+4. **Max Retries Reached:**\
+   After the third failed retry, the SDK ceases further attempts and logs the failure for further diagnosis.
 
 <br />
 
@@ -38,8 +49,29 @@ graph TD
     A -->|Success| E[Done]
 ```
 
+## Retry Configuration Parameters
+
+| Parameter       | Description                                  | Default |
+| --------------- | -------------------------------------------- | ------- |
+| `maxRetries`    | Maximum number of retry attempts             | 3       |
+| `initialDelay`  | Time in seconds before the first retry       | 2 sec   |
+| `backoffFactor` | Multiplier for exponential backoff per retry | 2       |
+
 ## Benefits
 
-* **Improved Reliability**: The retry mechanism automatically handles temporary failures, ensuring higher success rates for tracking requests.
-* **Reduced Load on Servers**: By spacing out retry attempts, the load on both the client and server is minimized.
-* **Automatic Recovery**: The SDK intelligently retries requests without requiring manual intervention.
+* **Improved Reliability:**\
+  Automatically recovers from temporary network issues without requiring developer intervention.
+* **Reduced Server Load:**\
+  Retry delays reduce the chance of overwhelming servers during outages or slowdowns.
+* **Automatic Recovery:**\
+  Maintains high data integrity by ensuring tracking events are retried intelligently and gracefully.
+
+## Implementation Notes
+
+* The retry mechanism is implemented at the network layer of the SDK.
+* All retry events and final failures are logged for observability.
+* The SDK avoids retrying non-idempotent or malformed requests.
+
+> **Note**The SDK's built-in retry mechanism is a robust and efficient solution for handling intermittent network failures. It ensures that tracking events are reliably delivered without requiring additional logic from the developer.
+>
+> **⚠️ Important**: This retry mechanism does not apply to the PHP SDK, due to PHP's synchronous and request-bound execution model. Introducing asynchronous retry logic can lead to performance degradation and side effects in PHP-based environments. It is recommended to implement retries at the infrastructure level (e.g., queueing or background workers) if needed.
