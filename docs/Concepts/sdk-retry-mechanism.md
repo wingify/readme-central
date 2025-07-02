@@ -25,6 +25,39 @@ The SDK includes an automatic retry feature for failed network requests. If a tr
    3. **Third Retry**: If the request fails once more, the SDK will wait for **8 seconds** before the final retry attempt.
 4. **Max Retries Reached**: If all retry attempts fail, the request will be abandoned, and the failure will be logged.
 
+<br />
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Server
+    
+    Client->>Server: Tracking call (attempt 1)
+    alt First attempt fails
+        Server-->>Client: Error response
+        Client->>Server: Retry tracking call (attempt 2)
+        Note right of Client: 2 seconds delay
+        Client->>Server: Tracking call (attempt 2)
+        alt Second attempt fails
+            Server-->>Client: Error response
+            Client->>Server: Retry tracking call (attempt 3)
+            Note right of Client: 4 seconds delay
+            Client->>Server: Tracking call (attempt 3)
+            alt Third attempt fails
+                Server-->>Client: Error response
+                Client->>Server: Retry tracking call (attempt 4)
+                Note right of Client: 8 seconds delay
+            else Third attempt success
+                Server-->>Client: Success response
+            end
+        else Second attempt success
+            Server-->>Client: Success response
+        end
+    else First attempt success
+        Server-->>Client: Success response
+    end
+```
+
 ## Benefits
 
 * **Improved Reliability**: The retry mechanism automatically handles temporary failures, ensuring higher success rates for tracking requests.
