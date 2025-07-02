@@ -51,11 +51,28 @@ graph TD
 
 ## Retry Configuration Parameters
 
-| Parameter       | Description                                  | Default |
-| --------------- | -------------------------------------------- | ------- |
-| `maxRetries`    | Maximum number of retry attempts             | 3       |
-| `initialDelay`  | Time in seconds before the first retry       | 2 sec   |
-| `backoffFactor` | Multiplier for exponential backoff per retry | 2       |
+This table outlines the configurable parameters for the retry mechanism. It defines how many times a retry should be attempted (`maxRetries`), the initial wait time before the first retry (`initialDelay`), and how the delay increases exponentially with each retry (`backoffFactor`). The `shouldRetry` flag enables or disables the retry logic entirely. These settings help control retry behavior in case of transient failures or network issues.
+
+| **Parameter**   | **Type**             | **Description**                              | **Default** |
+| --------------- | -------------------- | -------------------------------------------- | ----------- |
+| `shouldRetry`   | `boolean`            | Whether the retry logic should be applied    | true        |
+| `maxRetries`    | `number`             | Maximum number of retry attempts             | 3           |
+| `initialDelay`  | `number`(in seconds) | Time in seconds before the first retry       | 2           |
+| `backoffFactor` | `number`             | Multiplier for exponential backoff per retry | 2           |
+
+This table shows the retry delays for different combinations of `initialDelay` (1–3 sec) and `backoffFactor` (2–4), with a fixed `maxRetries` of 3. Each row calculates the delay before each retry using exponential backoff.
+
+| **initialDelay** | **backoffFactor** | **Retry #1** | **Retry #2** | **Retry #3** |
+| ---------------- | ----------------- | ------------ | ------------ | ------------ |
+| 1 sec            | 2                 | 1 sec        | 2 sec        | 4 sec        |
+| 1 sec            | 3                 | 1 sec        | 3 sec        | 9 sec        |
+| 1 sec            | 4                 | 1 sec        | 4 sec        | 16 sec       |
+| 2 sec            | 2                 | 2 sec        | 4 sec        | 8 sec        |
+| 2 sec            | 3                 | 2 sec        | 6 sec        | 18 sec       |
+| 2 sec            | 4                 | 2 sec        | 8 sec        | 32 sec       |
+| 3 sec            | 2                 | 3 sec        | 6 sec        | 12 sec       |
+| 3 sec            | 3                 | 3 sec        | 9 sec        | 27 sec       |
+| 3 sec            | 4                 | 3 sec        | 12 sec       | 48 sec       |
 
 ## Benefits
 
