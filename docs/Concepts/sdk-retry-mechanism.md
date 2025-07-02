@@ -28,34 +28,14 @@ The SDK includes an automatic retry feature for failed network requests. If a tr
 <br />
 
 ```mermaid
-sequenceDiagram
-    participant Client
-    participant Server
-    
-    Client->>Server: Tracking call (attempt 1)
-    alt First attempt fails
-        Server-->>Client: Error response
-        Client->>Server: Retry tracking call (attempt 2)
-        Note right of Client: 2 seconds delay
-        Client->>Server: Tracking call (attempt 2)
-        alt Second attempt fails
-            Server-->>Client: Error response
-            Client->>Server: Retry tracking call (attempt 3)
-            Note right of Client: 4 seconds delay
-            Client->>Server: Tracking call (attempt 3)
-            alt Third attempt fails
-                Server-->>Client: Error response
-                Client->>Server: Retry tracking call (attempt 4)
-                Note right of Client: 8 seconds delay
-            else Third attempt success
-                Server-->>Client: Success response
-            end
-        else Second attempt success
-            Server-->>Client: Success response
-        end
-    else First attempt success
-        Server-->>Client: Success response
-    end
+graph TD
+    A[Tracking call] -->|Fail| B[Retry after 2s]
+    B -->|Fail| C[Retry after 4s]
+    C -->|Fail| D[Retry after 8s]
+    D -->|Success| E[Done]
+    C -->|Success| E[Done]
+    B -->|Success| E[Done]
+    A -->|Success| E[Done]
 ```
 
 ## Benefits
