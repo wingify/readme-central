@@ -2,8 +2,8 @@
 - how-user-bucketing-works
 - polling
 - fme-segment-evaluation-client-vs-server-side
+- fme-sdk-retry-mechanism
 - rules-evaluation
 - wip-rd-event-batching
 - wip-rd-salting
 - wip-rd-webhooks
-- fme-sdk-retry-mechanism
