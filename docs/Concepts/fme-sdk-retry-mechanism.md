@@ -51,6 +51,8 @@ graph TD
 
 ## Retry Configuration Parameters
 
+> 📘 Retry configuration parameters are currently only available for the vwo-fme-node-sdk.
+
 This table outlines the configurable parameters for the retry mechanism. It defines how many times a retry should be attempted (`maxRetries`), the initial wait time before the first retry (`initialDelay`), and how the delay increases exponentially with each retry (`backoffFactor`). The `shouldRetry` flag enables or disables the retry logic entirely. These settings help control retry behavior in case of transient failures or network issues.
 
 | **Parameter**   | **Type**             | **Description**                              | **Default** |
