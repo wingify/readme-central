@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-The SDK includes an automatic retry mechanism to handle transient failures during network communication, specifically for tracking calls. When a tracking request fails due to network instability or timeout, the SDK initiates a retry sequence using exponential backoff. This design improves system reliability while preventing server overload during temporary issues.
+The SDK includes an automatic retry mechanism to handle transient network communication failures, specifically for tracking calls. When a tracking request fails due to network instability or timeout, the SDK initiates a retry sequence using exponential backoff. This design improves system reliability while preventing server overload during temporary issues.
 
 ## Key Features:
 
@@ -36,7 +36,7 @@ The retry process follows these steps:
 4. **Max Retries Reached:**\
    After the third failed retry, the SDK ceases further attempts and logs the failure for further diagnosis.
 
-<br />
+> The following diagram illustrates the retry flow with exponential backoff. It visually represents how the SDK handles failures and retry attempts over time.
 
 ```mermaid
 graph TD
