@@ -9,7 +9,7 @@ metadata:
 
 Mixpanel is an analytics tool that helps businesses understand how users interact with their websites and apps. It tracks specific actions, showing what features are popular and where users face issues. This insight helps to make informed decisions for product improvement.
 
-Integrating FME, with Mixpanel offers significant benefits. FME sends feature flag and events data to Mixpanel. It shows how different feature versions impact user behavior. This enables clear comparisons, helping to choose the best options to enhance your applications.
+Integrating FME, with Mixpanel offers significant benefits. FME sends feature flag and event data to Mixpanel. It shows how different feature versions impact user behavior. This enables clear comparisons, helping to choose the best options to enhance your applications.
 
 ## Prerequisites
 
