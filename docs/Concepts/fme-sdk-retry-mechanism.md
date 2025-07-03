@@ -1,7 +1,7 @@
 ---
 title: SDK Retry Mechanism
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
