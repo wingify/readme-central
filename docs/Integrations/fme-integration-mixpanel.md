@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-Mixpanel is a product analytics platform that helps businesses understand user behavior by tracking events and user interactions within their applications. It provides real-time insights into how users engage with features, allowing teams to make data-driven decisions about product development. The platform offers funnel analysis, cohort tracking to optimize user experience and drive growth. Mixpanel integrates easily with applications through SDKs, enabling developers to track custom events and user properties for comprehensive behavioral analytics.
+Mixpanel is a product analytics platform that helps businesses understand user behavior by tracking events and user interactions within their applications. It provides real-time insights into how users engage with features, allowing teams to make data-driven decisions about product development. The platform offers funnel analysis, cohort tracking to optimize user experience and drive growth. Mixpanel enables developers to track custom events and user properties for comprehensive behavioral analytics.
 
 ## Benefits of using the Integration
 
