@@ -9,7 +9,7 @@ metadata:
 
 Mixpanel is an analytics tool that helps businesses understand how users interact with their websites and apps. It tracks specific actions, showing what features are popular and where users face issues. This insight helps to make informed decisions for product improvement.
 
-Integrating FME, with Mixpanel offers significant benefits. FME sends A/B testing data to Mixpanel. It shows how different feature versions impact user behavior. This enables clear comparisons, helping to choose the best options to enhance your applications.
+Integrating FME, with Mixpanel offers significant benefits. FME sends feature flag data to Mixpanel. It shows how different feature versions impact user behavior. This enables clear comparisons, helping to choose the best options to enhance your applications.
 
 ## Prerequisites
 
@@ -137,7 +137,6 @@ The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` 
 
 * For flag evaluations (i.e. `getFlag`):
 
-
 ```json
 {
     "featureName": "yourFlagName",
@@ -190,10 +189,10 @@ After integrating Mixpanel with your app, you can view the tracked data in the f
    * These events include details about the event.
 
 4. Analyze Data: Use Mixpanel's analytics tools to:
-     * Create custom reports
-     * View user flows
-     * Track conversion rates
-     * Monitor feature flag performance
+   * Create custom reports
+   * View user flows
+   * Track conversion rates
+   * Monitor feature flag performance
 
 ## GitHub Reference
 
