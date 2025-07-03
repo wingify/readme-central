@@ -198,4 +198,4 @@ After integrating Mixpanel with your app, you can view the tracked data in the f
 
 The complete source code for this example is available on GitHub: [https://github.com/wingify/vwo-fme-examples/tree/master/android](https://github.com/wingify/vwo-fme-examples/tree/master/android)
 
-This is an example of an implementation using the Android SDK. While this demonstrates the approach, that you can utilize any of the VWO FME SDKs for your project.
+This is an example of an implementation using the Android SDK. While this demonstrates the approach, you can utilize any of the VWO FME SDKs for your project.
