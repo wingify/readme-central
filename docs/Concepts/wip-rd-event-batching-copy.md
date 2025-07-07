@@ -74,8 +74,8 @@ const vwoClient = await init({
   <tbody>
     <tr>
       <td>
-        **featureKey**
-        *Required*
+        **requestTimeInterval**
+        *Optional*
       </td>
 
       <td>
