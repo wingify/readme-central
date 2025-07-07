@@ -83,7 +83,7 @@ const vwoClient = await init({
       </td>
 
       <td>
-        Unique identifier for the particular feature flag that you're implementing. You will see this while creating a feature flag, and you can also find it under 'Settings' for the Feature Flag after creating it.
+        Time interval (in seconds) after which events are flushed to the server
       </td>
     </tr>
 
