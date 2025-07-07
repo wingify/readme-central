@@ -9,8 +9,6 @@ metadata:
 
 VWO FME Node SDK introduces a powerful mechanism to manage event batching for tracking visitors and conversions. Event Batching optimizes the way data is sent to VWO servers, allowing multiple events to be queued and dispatched together in a single network request. This leads to better performance and more efficient tracking, especially when handling a high volume of events.
 
-<br />
-
 ## What is Event Batching?
 
 Event Batching enables the SDK to collect events over a period of time, place them in a queue, and send them to the VWO servers in one batch. For example, if there are 4,000 events, the SDK will queue these events and dispatch them in a single network request, significantly reducing the overhead caused by sending individual requests for each event.
