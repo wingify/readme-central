@@ -24,6 +24,11 @@ Event Batching enables the SDK to collect events over a period of time, place th
 
 To enable Event Batching, you need to configure batchEventData during the SDK initialization. This allows you to specify the parameters for how events should be batched and dispatched to VWO servers.
 
+### Configuration Options:
+
+* Events per Request (eventsPerRequest)\
+  This option specifies the maximum number of events that will be batched together in a single network request. Events accumulate in the queue until this number is reached.
+
 <br />
 
 <Table align={["left","left","left"]}>
