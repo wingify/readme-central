@@ -115,7 +115,7 @@ vwoClient.flushEvents();
 
     <tr>
       <td>
-        **flushCallback**     *Optional*
+        **flushCallback** *Optional*
       </td>
 
       <td>
