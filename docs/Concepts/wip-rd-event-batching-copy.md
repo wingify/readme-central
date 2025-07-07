@@ -152,7 +152,7 @@ vwoClient.flushEvents();
 
 ### Advantages of Event Batching:
 
-1. Efficiency: Reduces the number of network requests by grouping events together, minimizing overhead.
-2. Flexibility: Customize batch size or time interval to suit your application’s needs.
-3. Optimized Data Transmission: Common event properties are only sent once per batch, reducing overall data transfer.
-4. Manual Event Flushing: The ability to flush events manually ensures no data is lost and reports are updated in real-time.
+1. **Efficiency:** Reduces the number of network requests by grouping events together, minimizing overhead.
+2. **Flexibility:** Customize batch size or time interval to suit your application’s needs.
+3. **Optimized Data Transmission:** Common event properties are only sent once per batch, reducing overall data transfer.
+4. **Manual Event Flushing:** The ability to flush events manually ensures no data is lost and reports are updated in real-time.
