@@ -19,3 +19,7 @@ Event Batching enables the SDK to collect events over a period of time, place th
   * Event Batching tracks multiple events for a single user session, sending them together in a single request.
   * Events are queued and dispatched when a threshold is met in terms of the number of events or the time interval.
   * Batch processing helps optimise network usage and server load.
+
+## Configuring Event Batching
+
+To enable Event Batching, you need to configure batchEventData during the SDK initialization. This allows you to specify the parameters for how events should be batched and dispatched to VWO servers.
