@@ -5,4 +5,4 @@ hidden: true
 metadata:
   robots: index
 ---
-## Configuring Event Batching in VWO FullStack Node SDK (FME)
+## Configuring Event Batching in VWO FME Node SDK
