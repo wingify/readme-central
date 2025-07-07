@@ -26,8 +26,24 @@ To enable Event Batching, you need to configure batchEventData during the SDK in
 
 ### Configuration Options:
 
-* **Events per Request (eventsPerRequest) :**\
-  This option specifies the maximum number of events that will be batched together in a single network request. Events accumulate in the queue until this number is reached.
+1. **Events per Request (eventsPerRequest) :**\
+   This option specifies the maximum number of events that will be batched together in a single network request. Events accumulate in the queue until this number is reached.
+2. **Request Time Interval (requestTimeInterval):**\
+   This option sets the time interval (in seconds) after which the events in the queue are dispatched to the VWO server. The timer begins when the first event is added to the queue.
+
+```javascript
+const vwoClient = await init({
+  accountId: '123456',
+  sdkKey: '32-alpha-numeric-sdk-key',
+  batchEventData: {
+    eventsPerRequest: 1000, // Set the number of events per request
+		requestTimeInterval: 300, // Flush events every 5 minutes
+  },
+});
+
+```
+
+<br />
 
 <br />
 
