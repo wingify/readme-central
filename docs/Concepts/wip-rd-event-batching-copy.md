@@ -43,14 +43,16 @@ const vwoClient = await init({
 
 ```
 
-<br />
-
 > 🚧 Note
 >
 > * The maximum number of events that can be queued is 5000.
 > * The default time interval is 600 seconds (10 minutes), in case of invalid time interval is passed.
 
-<br />
+> 📘 Important Note
+>
+> **Event Timing:** The timer starts when the first event is added to the queue. If the time interval expires before the event count reaches the eventsPerRequest threshold, the events are dispatched anyway.
+>
+> **Manual Flushing:** You can trigger the dispatch of events before the batch limit or time interval is reached by manually calling the flushEvents() method.
 
 <Table align={["left","left","left"]}>
   <thead>
