@@ -1,5 +1,5 @@
 ---
-title: '[WIP - RD] Event Batching  (COPY)'
+title: Event Batching
 deprecated: false
 hidden: true
 metadata:
