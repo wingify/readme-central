@@ -26,7 +26,7 @@ To enable Event Batching, you need to configure batchEventData during the SDK in
 
 ### Configuration Options:
 
-* Events per Request (eventsPerRequest)\
+* **Events per Request (eventsPerRequest) :**\
   This option specifies the maximum number of events that will be batched together in a single network request. Events accumulate in the queue until this number is reached.
 
 <br />
