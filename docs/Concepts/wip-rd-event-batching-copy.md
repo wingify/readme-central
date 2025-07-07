@@ -30,6 +30,10 @@ To enable Event Batching, you need to configure batchEventData during the SDK in
    This option specifies the maximum number of events that will be batched together in a single network request. Events accumulate in the queue until this number is reached.
 2. **Request Time Interval (requestTimeInterval):**\
    This option sets the time interval (in seconds) after which the events in the queue are dispatched to the VWO server. The timer begins when the first event is added to the queue.
+3. **Flush Callback (flushCallback):**\
+   This option allows you to specify a callback function that will be executed after events are flushed to the VWO servers. The callback receives two parameters:
+   1. error: If an error occurs during the flush.
+   2. events: The events that were successfully flushed.
 
 ```javascript
 const vwoClient = await init({
@@ -37,9 +41,18 @@ const vwoClient = await init({
   sdkKey: '32-alpha-numeric-sdk-key',
   batchEventData: {
     eventsPerRequest: 1000, // Set the number of events per request
-		requestTimeInterval: 300, // Flush events every 5 minutes
+    requestTimeInterval: 300, // Flush events every 5 minutes
+    flushCallback: (error, events) => {
+      if (error) {
+        console.log('Error flushing events:', error);
+      } else {
+        console.log('Events flushed successfully:', events);
+      }
+    },
   },
 });
+
+vwoClient.flushEvents();
 
 ```
 
@@ -74,12 +87,27 @@ const vwoClient = await init({
   <tbody>
     <tr>
       <td>
+        **eventsPerRequest**
+        *Optional*
+      </td>
+
+      <td>
+        Number
+      </td>
+
+      <td>
+        Maximum number of events to batch together before sending to the server
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         **requestTimeInterval**
         *Optional*
       </td>
 
       <td>
-        String
+        Number
       </td>
 
       <td>
@@ -89,17 +117,42 @@ const vwoClient = await init({
 
     <tr>
       <td>
-        **UserContext**
+        **flushCallback**
         *Optional*
       </td>
 
       <td>
-        IVWOContextModel
+        Function
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-react-user-context).
+        Callback function to be executed after events are flushed. Receives error and events parameters.
       </td>
     </tr>
   </tbody>
 </Table>
+
+## Flushing Events Manually (Flush Events API)
+
+In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the flushEvents() method, which manually triggers the event dispatch.
+
+```javascript
+const vwoClient = await init({
+  accountId: '123456',
+  sdkKey: '32-alpha-numeric-sdk-key',
+  batchEventData: {
+    eventsPerRequest: 1000, // Set the number of events per request
+    requestTimeInterval: 300, // Flush events every 5 minutes
+  },
+});
+
+vwoClient.flushEvents();
+
+```
+
+### Advantages of Event Batching:
+
+1. Efficiency: Reduces the number of network requests by grouping events together, minimizing overhead.
+2. Flexibility: Customize batch size or time interval to suit your application’s needs.
+3. Optimized Data Transmission: Common event properties are only sent once per batch, reducing overall data transfer.
+4. Manual Event Flushing: The ability to flush events manually ensures no data is lost and reports are updated in real-time.
