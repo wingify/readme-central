@@ -23,3 +23,55 @@ Event Batching enables the SDK to collect events over a period of time, place th
 ## Configuring Event Batching
 
 To enable Event Batching, you need to configure batchEventData during the SDK initialization. This allows you to specify the parameters for how events should be batched and dispatched to VWO servers.
+
+<br />
+
+<Table align={["left","left","left"]}>
+  <thead>
+    <tr>
+      <th>
+        Parameter
+      </th>
+
+      <th>
+        Type
+      </th>
+
+      <th>
+        Description
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        **featureKey**
+        *Required*
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        Unique identifier for the particular feature flag that you're implementing. You will see this while creating a feature flag, and you can also find it under 'Settings' for the Feature Flag after creating it.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **UserContext**
+        *Optional*
+      </td>
+
+      <td>
+        IVWOContextModel
+      </td>
+
+      <td>
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-react-user-context).
+      </td>
+    </tr>
+  </tbody>
+</Table>
