@@ -1,5 +1,5 @@
 ---
-title: Event Batching (Node sdk)
+title: Event Batching
 deprecated: false
 hidden: true
 metadata:
@@ -150,7 +150,7 @@ vwoClient.flushEvents();
 
 ```
 
-### Advantages of Event Batching:
+## Advantages of Event Batching:
 
 1. **Efficiency:** Reduces the number of network requests by grouping events together, minimizing overhead.
 2. **Flexibility:** Customize batch size or time interval to suit your application’s needs.
