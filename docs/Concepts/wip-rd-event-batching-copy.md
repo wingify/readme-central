@@ -163,8 +163,8 @@ flowchart TD
 
     %% Automatic Flushing triggers
     C --> D1{"Flush Condition?"}
-    D1 -->|"Reaches eventsPerRequest"| E1["Send Batched Events"]
-    D1 -->|"After requestTimeInterval"| E2["Flush Send Batched Events"]
+    D1 -->|"Reaches eventsPerRequest"| E1["Send Batched Events if eventsPerRequest events added to queue"]
+    D1 -->|"After requestTimeInterval"| E2["Send Batched Events if requestTimeInterval is reached"]
 
     %% Manual Flush
     C -.->|"User calls flushEvents"| E3["Manually Flush/Send Batched Events"]
