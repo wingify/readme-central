@@ -163,8 +163,8 @@ flowchart TD
 
     %% Automatic Flushing triggers
     C --> D1{"Flush Condition?"}
-    D1 -->|"Reaches eventsPerRequest"| E1["Send Batched Events if eventsPerRequest events reached in the queue "]
-    D1 -->|"After requestTimeInterval"| E2["Send Batched Events if requestTimeInterval is reached "]
+    D1 -->|"Reaches eventsPerRequest"| E1["Send Batched Events if eventsPerRequest events reached in the queue"]
+    D1 -->|"After requestTimeInterval"| E2["Send Batched Events if requestTimeInterval is reached"]
 
     %% Manual Flush
     C -.->|"User calls flushEvents"| E3["Manually Flush/Send Batched Events"]
@@ -174,15 +174,13 @@ flowchart TD
     E2 --> X
     E3 --> X
 
-    %% Node styles for universal readability
-    style A fill:#f8f9fa,stroke:#1a237e,stroke-width:2px,color:#222
-    style B fill:#f8f9fa,stroke:#1a237e,stroke-width:1.5px,color:#222
-    style C fill:#f8f9fa,stroke:#1a237e,stroke-width:1.5px,color:#222
-    style D1 fill:#e3e6ea,stroke:#3949ab,stroke-width:2px,color:#222
-    style E1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#222
-    style E2 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#222
-    style E3 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#222
-    style X fill:#fff,stroke:#43a047,stroke-width:2px,color:#222
+    %% Assign classes
+    class A,B,C,D1,E1,E2,E3 step;
+    class X callback;
+
+    %% Define styles for universal readability
+    classDef step fill:#eef,stroke:#333,stroke-width:1.5px,color:#111;
+    classDef callback fill:#fff,stroke:#43a047,stroke-width:2px,color:#111;
 
     %% Use a dark gray for arrows for visibility on both themes
     linkStyle default stroke:#333,stroke-width:2px
