@@ -169,9 +169,10 @@ flowchart TD
     %% Manual Flush
     C -.->|"User calls flushEvents"| E3["Manually Flush/Send Batched Events"]
 
-    E1 --> F1{"Flush Success/Error"}
-    F1 -->|"Success"| G["flushCallback(error, events)"]
-    F1 -->|"Error"| H["Handle Error"]
+    %% All flushes trigger callback
+    E1 --> X["flushCallback(error, events)"]
+    E2 --> X
+    E3 --> X
 
     %% Notes
     style A fill:#ffffff,stroke:#2d5fa4,stroke-width:2px,color:#222
@@ -181,7 +182,8 @@ flowchart TD
     style E1 fill:#e6f9ed,stroke:#28a745,stroke-width:2px,color:#222
     style E2 fill:#e6f9ed,stroke:#28a745,stroke-width:2px,color:#222
     style E3 fill:#e6f9ed,stroke:#28a745,stroke-width:2px,color:#222
-    style F1 fill:#ffeaea,stroke:#dc3545,stroke-width:1px,color:#222
-    style G fill:#ffffff,stroke:#28a745,stroke-width:2px,color:#222
-    style H fill:#fffbe6,stroke:#dc3545,stroke-width:2px,color:#222
+    style X fill:#ffffff,stroke:#28a745,stroke-width:2px,color:#222
+
+    %% Make all arrows white
+    linkStyle default stroke:#fff,stroke-width:2px
 ```
