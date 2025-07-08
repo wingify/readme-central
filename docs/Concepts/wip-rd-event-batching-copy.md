@@ -178,10 +178,7 @@ flowchart TD
     class A,B,C,D1,E1,E2,E3 step;
     class X callback;
 
-    %% Define styles for universal readability
-    classDef step fill:#eef,stroke:#333,stroke-width:1.5px,color:#111;
-    classDef callback fill:#fff,stroke:#43a047,stroke-width:2px,color:#111;
+		%% Define styles
+    classDef check fill:#bbf,stroke:#333,stroke-width:1px,color:#000
 
-    %% Use a dark gray for arrows for visibility on both themes
-    linkStyle default stroke:#333,stroke-width:2px
 ```
