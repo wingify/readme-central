@@ -167,7 +167,7 @@ flowchart TD
     D1 -->|"After requestTimeInterval"| E2["Send Batched Events if requestTimeInterval is reached"]
 
     %% Manual Flush
-    C -.->|"User calls flushEvents"| E3["Manually Flush/Send Batched Events"]
+    C -.->|"User calls flushEvents"| E3["Manually Flush Events"]
 
     %% All flushes trigger callback
     E1 --> X["flushCallback(error, events)"]
