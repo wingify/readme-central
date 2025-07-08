@@ -157,23 +157,22 @@ vwoClient.flushEvents();
 <br />
 
 ```mermaid
+---
+config:
+  layout: fixed
+  look: neo
+  theme: mc
+---
 flowchart TD
-    A[SDK Initialization with batchEventData] --> B[Event Occurs]
-    B --> C[Add to Local Batch Queue]
-
-    %% Automatic Flushing triggers
-    C --> D1{Flush Condition?}
-    D1 -->|Reaches eventsPerRequest| E1[Send Batched Events]
-    D1 -->|After requestTimeInterval| E2[Send Batched Events]
-
-    %% Manual Flush
-    C -.->|User calls flushEvents| E3[Manually Flush/Send Batched Events]
-
-    E1 --> F1{Flush Success/Error}
-    F1 -->|Success| G[flushCallback error events]
-    F1 -->|Error| H[Handle Error]
-
-    %% Notes
+    A["SDK Initialization with batchEventData"] --> B["Event Occurs"]
+    B --> C["Add to Local Batch Queue"]
+    C --> D1{"Flush Condition?"}
+    D1 -- Reaches eventsPerRequest --> E1["Send Batched Events"]
+    D1 -- After requestTimeInterval --> E2["Flush Send Batched Events"]
+    C -. User calls flushEvents .-> E3["Manually Flush/Send Batched Events"]
+    E1 --> F1{"Flush Success/Error"}
+    F1 -- Success --> G["flushCallback error events"]
+    F1 -- Error --> H["Handle Error"]
     style A fill:#f5f5f5,stroke:#5D80AA,stroke-width:2px
     style B fill:#f0f8ff,stroke:#5D80AA,stroke-width:1px
     style C fill:#e6f2ff,stroke:#0086c3,stroke-width:1px
