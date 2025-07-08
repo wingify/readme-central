@@ -158,31 +158,31 @@ vwoClient.flushEvents();
 
 ```mermaid
 flowchart TD
-    A[SDK Initialization with batchEventData] --> B[Event Occurs]
-    B --> C[Add to Local Batch Queue]
+    A["SDK Initialization with batchEventData"] --> B["Event Occurs"]
+    B --> C["Add to Local Batch Queue"]
 
     %% Automatic Flushing triggers
-    C --> D1{Flush Condition?}
-    D1 -->|Reaches eventsPerRequest| E1[Send Batched Events]
-    D1 -->|After requestTimeInterval| E2[Flush Send Batched Events]
+    C --> D1{"Flush Condition?"}
+    D1 -->|"Reaches eventsPerRequest"| E1["Send Batched Events"]
+    D1 -->|"After requestTimeInterval"| E2["Flush Send Batched Events"]
 
     %% Manual Flush
-    C -.->|User calls flushEvents| E3[Manually Flush/Send Batched Events]
+    C -.->|"User calls flushEvents"| E3["Manually Flush/Send Batched Events"]
 
-    E1 --> F1{Flush Success/Error}
-    F1 -->|Success| G[flushCallback error events]
-    F1 -->|Error| H[Handle Error]
+    E1 --> F1{"Flush Success/Error"}
+    F1 -->|"Success"| G["flushCallback(error, events)"]
+    F1 -->|"Error"| H["Handle Error"]
 
     %% Notes
-    style A fill:#f5f5f5,stroke:#5D80AA,stroke-width:2px
-    style B fill:#f0f8ff,stroke:#5D80AA,stroke-width:1px
-    style C fill:#e6f2ff,stroke:#0086c3,stroke-width:1px
-    style D1 fill:#fff3cd,stroke:#ffb600,stroke-width:1px
-    style E1 fill:#d1e7dd,stroke:#198754,stroke-width:2px
-    style E2 fill:#d1e7dd,stroke:#198754,stroke-width:2px
-    style E3 fill:#d1e7dd,stroke:#198754,stroke-width:2px
-    style F1 fill:#f8d7da,stroke:#dc3545,stroke-width:1px
-    style G fill:#fff,stroke:#198754,stroke-width:2px
-    style H fill:#fff3cd,stroke:#dc3545,stroke-width:2px
-
+    style A fill:#ffffff,stroke:#2d5fa4,stroke-width:2px,color:#222
+    style B fill:#eaf6ff,stroke:#2d5fa4,stroke-width:1px,color:#222
+    style C fill:#dbefff,stroke:#2d5fa4,stroke-width:1px,color:#222
+    style D1 fill:#fffbe6,stroke:#f7b500,stroke-width:2px,color:#222
+    style E1 fill:#e6f9ed,stroke:#28a745,stroke-width:2px,color:#222
+    style E2 fill:#e6f9ed,stroke:#28a745,stroke-width:2px,color:#222
+    style E3 fill:#e6f9ed,stroke:#28a745,stroke-width:2px,color:#222
+    style F1 fill:#ffeaea,stroke:#dc3545,stroke-width:1px,color:#222
+    style G fill:#ffffff,stroke:#28a745,stroke-width:2px,color:#222
+    style H fill:#fffbe6,stroke:#dc3545,stroke-width:2px,color:#222
+    linkStyle 0,1,2,3,4,5,6,7 stroke:#222,stroke-width:1px
 ```
