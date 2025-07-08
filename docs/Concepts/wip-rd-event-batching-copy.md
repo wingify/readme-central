@@ -163,27 +163,27 @@ flowchart TD
 
     %% Automatic Flushing triggers
     C --> D1{"Flush Condition?"}
-    D1 -->|"Reaches eventsPerRequest"| E1["Send Batched Events if eventsPerRequest events added to queue"]
-    D1 -->|"After requestTimeInterval"| E2["Send Batched Events if requestTimeInterval is reached"]
+    D1 -->|"Reaches eventsPerRequest"| E1["Send Batched Events"]
+    D1 -->|"After requestTimeInterval"| E2["Flush Send Batched Events"]
 
     %% Manual Flush
-    C -.->|"User calls flushEvents"| E3["Manually Flush Events"]
+    C -.->|"User calls flushEvents"| E3["Manually Flush/Send Batched Events"]
 
     %% All flushes trigger callback
     E1 --> X["flushCallback(error, events)"]
     E2 --> X
     E3 --> X
 
-    %% Notes
-    style A fill:#ffffff,stroke:#2d5fa4,stroke-width:2px,color:#222
-    style B fill:#eaf6ff,stroke:#2d5fa4,stroke-width:1px,color:#222
-    style C fill:#dbefff,stroke:#2d5fa4,stroke-width:1px,color:#222
-    style D1 fill:#fffbe6,stroke:#f7b500,stroke-width:2px,color:#222
-    style E1 fill:#e6f9ed,stroke:#28a745,stroke-width:2px,color:#222
-    style E2 fill:#e6f9ed,stroke:#28a745,stroke-width:2px,color:#222
-    style E3 fill:#e6f9ed,stroke:#28a745,stroke-width:2px,color:#222
-    style X fill:#ffffff,stroke:#28a745,stroke-width:2px,color:#222
+    %% Node styles for universal readability
+    style A fill:#f8f9fa,stroke:#1a237e,stroke-width:2px,color:#222
+    style B fill:#f8f9fa,stroke:#1a237e,stroke-width:1.5px,color:#222
+    style C fill:#f8f9fa,stroke:#1a237e,stroke-width:1.5px,color:#222
+    style D1 fill:#e3e6ea,stroke:#3949ab,stroke-width:2px,color:#222
+    style E1 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#222
+    style E2 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#222
+    style E3 fill:#e3f2fd,stroke:#1565c0,stroke-width:2px,color:#222
+    style X fill:#fff,stroke:#43a047,stroke-width:2px,color:#222
 
-    %% Make all arrows white
-    linkStyle default stroke:#fff,stroke-width:2px
+    %% Use a dark gray for arrows for visibility on both themes
+    linkStyle default stroke:#333,stroke-width:2px
 ```
