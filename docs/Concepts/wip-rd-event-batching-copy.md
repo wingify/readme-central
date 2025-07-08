@@ -184,5 +184,4 @@ flowchart TD
     style F1 fill:#ffeaea,stroke:#dc3545,stroke-width:1px,color:#222
     style G fill:#ffffff,stroke:#28a745,stroke-width:2px,color:#222
     style H fill:#fffbe6,stroke:#dc3545,stroke-width:2px,color:#222
-    linkStyle 0,1,2,3,4,5,6,7 stroke:#222,stroke-width:1px
 ```
