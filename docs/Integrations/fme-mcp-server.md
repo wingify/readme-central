@@ -119,6 +119,18 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 <br />
 
+<br />
+
+> You can add the VWO FME Server by simply clicking the button below. Make sure to update the VWO\_ACCOUNT\_ID and VWO\_API\_KEY environment variables before you start using it.
+
+<HTMLBlock>{`
+<a href="https://cursor.com/install-mcp?name=vwo-fme-mcp&config=eyJjb21tYW5kIjoibnB4IC15IHZ3by1mbWUtbWNwQGxhdGVzdCIsImVudiI6eyJWV09fQUNDT1VOVF9JRCI6IlZXT19BQ0NPVU5UX0lEIiwiVldPX0FQSV9LRVkiOiJWV09fQVBJX0tFWSJ9fQ=" target="_blank">
+  <img src="https://cursor.com/deeplink/mcp-install-dark.svg" alt="Add vwo-fme-mcp MCP server to Cursor" width="170" height="40" />
+</a>
+`}</HTMLBlock>
+
+<br />
+
 > 📘 Looking for other AI Clients?
 >
 > For other clients, refer to their documentation on configuring custom MCP servers. The configuration pattern remains similar.
