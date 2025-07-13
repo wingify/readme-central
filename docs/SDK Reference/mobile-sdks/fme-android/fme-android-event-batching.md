@@ -1,5 +1,5 @@
 ---
-title: Event batching
+title: Event Batching
 deprecated: false
 hidden: false
 metadata:
