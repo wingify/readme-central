@@ -7,3 +7,4 @@
 - fme-ruby-logging
 - fme-ruby-storage
 - fme-ruby-integrations
+- fme-ruby-event-batching

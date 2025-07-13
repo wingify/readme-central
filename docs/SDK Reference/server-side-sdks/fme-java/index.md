@@ -38,5 +38,7 @@ To facilitate a comprehensive understanding and effective implementation of the 
    Implement custom storage solutions to persist user assignments and enhance performance.
 9. [Integrations](doc:fme-java-integrations)\
    Integrate the SDK with third-party tools and services to extend functionality and streamline workflows.
+10. [Event batching](doc:fme-java-event-batching)\
+    Improve performance and reduce network calls by sending events in batches.
 
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.
