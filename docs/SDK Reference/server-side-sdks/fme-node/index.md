@@ -38,6 +38,8 @@ To facilitate a comprehensive understanding and effective implementation of the 
    Implement custom storage solutions to persist user assignments and enhance performance.
 9. [Integrations](doc:fme-node-integrations)\
    Integrate the SDK with third-party tools and services to extend functionality and streamline workflows.
+10. [Event batching](doc:fme-node-event-batching)\
+    Improve performance and reduce network calls by sending events in batches.
 
 <br />
 
