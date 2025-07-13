@@ -23,7 +23,7 @@ Many ad blockers prevent requests to certain URLs associated with ads or trackin
 **Request Flow**
 
 1. **SDK→ Proxy:** The SDK sends requests to your proxy server (specified in proxyUrl)
-2. \*\*Proxy → VWO:\*\*Your server forwards the request to VWO's servers
+2. **Proxy → VWO:** Your server forwards the request to VWO's servers
 3. **VWO → Proxy:** VWO processes the request and returns a response
 4. **Proxy → SDK:** Your server forwards VWO's response back to the SDK
 
