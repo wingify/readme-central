@@ -7,4 +7,5 @@
 - fme-dotnet-logging
 - fme-dotnet-storage
 - fme-dotnet-integrations
+- fme-dotnet-event-batching1
 - fme-dotnet-event-batching
