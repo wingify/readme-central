@@ -4,7 +4,6 @@
 - fme-segment-evaluation-client-vs-server-side
 - fme-sdk-retry-mechanism
 - rules-evaluation
-- wip-rd-event-batching
 - wip-rd-event-batching-copy
 - wip-rd-salting
 - wip-rd-webhooks
