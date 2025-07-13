@@ -27,6 +27,30 @@ Many ad blockers prevent requests to certain URLs associated with ads or trackin
 3. **VWO → Proxy:** VWO processes the request and returns a response
 4. **Proxy → SDK:** Your server forwards VWO's response back to the SDK
 
+<br />
+
+<br />
+
+```mermaid
+flowchart LR 
+ A --- B[fa:fa-spinner B] 
+ B --> C[fa:fa-check C] 
+ B --> D[fa:fa-ban D]graph TD
+    A[Browser SDK] --> B{Proxy URL Set?}
+    B -->|Yes| C[Rewrite URL with Proxy]
+    B -->|No| D[Direct to VWO Servers]
+    
+    C --> E[Request via Proxy Server]
+    D --> F[Direct Request to VWO]
+    
+    E --> G[Proxy Forwards to VWO]
+    F --> H[VWO Processes Request]
+    
+    G --> H
+    H --> I[VWO Response]
+    I --> J[SDK Processes Response]
+```
+
 ## Custom Infrastructure
 
 * Own Your Data Flow: Route requests through your existing infrastructure.
