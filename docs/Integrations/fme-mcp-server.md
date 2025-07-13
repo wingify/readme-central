@@ -58,7 +58,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 4. Save the configuration and confirm that the server status turns green, indicating it's active.
 
-<Image align="center" className="border" border={true} src="https://files.readme.io/f09224a225717497a6d53fbf3adfe3b0be59a2712c28688322471616371499f3-VWO_Cursor_MCP_1.gif" />
+<Image align="center" border={true} caption="VWO FME MCP Server Setup in Cursor" src="https://files.readme.io/2e318235298fb03b366a67dde23975d50a403f6329000980b364ad7df59497f8-fme-_mcp_cusror_setup.gif" />
 
 > 📘 Note:
 >
@@ -88,7 +88,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 3. Save the settings and ensure the MCP server is ready for use within VS Code.
 
-<Image align="center" className="border" border={true} src="https://files.readme.io/351699fdc6e3c335f4b87f32eeaf204faca01600eda6fafc5291ab1464353da7-VWO_VS_Code_MCP.gif" />
+<Image align="center" border={true} caption="VWO FME MCP Server Setup in VS Code" src="https://files.readme.io/351699fdc6e3c335f4b87f32eeaf204faca01600eda6fafc5291ab1464353da7-VWO_VS_Code_MCP.gif" />
 
 ***
 
@@ -115,7 +115,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 4. Save the file and restart Claude Desktop. Once the server is active, a hammer icon will appear in the chat window.
 
-<Image align="center" className="border" border={true} src="https://files.readme.io/5f8166e22cf8760d4ffde73bca3e88a89d6f81720668864062a9e77bbb0d11bc-VWO_Claude_MCP.gif" />
+<Image align="center" border={true} caption="VWO FME MCP Server Setup in Claude" src="https://files.readme.io/5f8166e22cf8760d4ffde73bca3e88a89d6f81720668864062a9e77bbb0d11bc-VWO_Claude_MCP.gif" />
 
 <br />
 
