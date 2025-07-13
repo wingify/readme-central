@@ -16,6 +16,8 @@ This batching approach offers several advantages:
 
 Developers can configure batching behavior to match their application’s performance characteristics and tracking needs. Whether you’re using the SDK on a web, mobile, or server-side environment, event batching ensures scalable and robust data collection.
 
+<br />
+
 ## What is Event Batching?
 
 Event Batching is a core mechanism across all VWO FME SDKs that enhances performance and scalability by aggregating multiple tracking events—such as visitors, conversions, and attribute updates—before sending them to the VWO servers.
@@ -30,6 +32,8 @@ Rather than sending each event as an individual network request, the SDK collect
 * **Configurable Behaviour**: Developers can adjust batching thresholds to suit their application's scale, responsiveness requirements, and network conditions.
 
 This approach ensures reliable and efficient data transmission, especially in high-traffic environments where event volumes are significant.
+
+<br />
 
 ## Configuring Event Batching
 
@@ -139,7 +143,9 @@ This configuration allows you to define when and how events—such as visitor tr
 
 By customizing these options, developers gain fine-grained control over how event data flows to VWO, ensuring optimal performance, reliability, and observability across different platforms.
 
-### Example usage
+<br />
+
+## Example usage
 
 ```javascript
 const vwoClient = await init({
@@ -173,6 +179,8 @@ vwoClient.flushEvents();
 >
 > **Manual Flushing:** You can trigger the dispatch of events before the batch limit or time interval is reached by manually calling the flushEvents() method.
 
+<br />
+
 ## Flushing Events Manually (Flush Events API)
 
 In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the flushEvents() method, which manually triggers the event dispatch.
@@ -190,6 +198,8 @@ const vwoClient = await init({
 vwoClient.flushEvents();
 
 ```
+
+<br />
 
 ## Event Batching Lifecycle in VWO FME SDKs
 
