@@ -64,6 +64,18 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 >
 > If the MCP stays red after being turned on, ensure that you have **Node.js** installed, as the MCP requires **npx** to install the package. To confirm this, run `npx -v`. If you get an error saying the `npx: command not found`, then install **Node.js** and check again. If you get the correct version of npx, restart the cursor and try turning on the MCP again.
 
+<br />
+
+> You can add the VWO FME Server by simply clicking the button below. Make sure to update the VWO\_ACCOUNT\_ID and VWO\_API\_KEY environment variables before you start using it.
+
+<br />
+
+<HTMLBlock>{`
+<a href="https://cursor.com/install-mcp?name=vwo-fme-mcp&config=eyJjb21tYW5kIjoibnB4IC15IHZ3by1mbWUtbWNwQGxhdGVzdCIsImVudiI6eyJWV09fQUNDT1VOVF9JRCI6IlZXT19BQ0NPVU5UX0lEIiwiVldPX0FQSV9LRVkiOiJWV09fQVBJX0tFWSJ9fQ=" target="_blank">
+  <img src="https://cursor.com/deeplink/mcp-install-dark.svg" alt="Add vwo-fme-mcp MCP server to Cursor" width="170" height="40" />
+</a>
+`}</HTMLBlock>
+
 ***
 
 ### VS Code
@@ -116,18 +128,6 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 4. Save the file and restart Claude Desktop. Once the server is active, a hammer icon will appear in the chat window.
 
 <Image align="center" border={true} caption="VWO FME MCP Server Setup in Claude" src="https://files.readme.io/5f8166e22cf8760d4ffde73bca3e88a89d6f81720668864062a9e77bbb0d11bc-VWO_Claude_MCP.gif" />
-
-<br />
-
-<br />
-
-> You can add the VWO FME Server by simply clicking the button below. Make sure to update the VWO\_ACCOUNT\_ID and VWO\_API\_KEY environment variables before you start using it.
-
-<HTMLBlock>{`
-<a href="https://cursor.com/install-mcp?name=vwo-fme-mcp&config=eyJjb21tYW5kIjoibnB4IC15IHZ3by1mbWUtbWNwQGxhdGVzdCIsImVudiI6eyJWV09fQUNDT1VOVF9JRCI6IlZXT19BQ0NPVU5UX0lEIiwiVldPX0FQSV9LRVkiOiJWV09fQVBJX0tFWSJ9fQ=" target="_blank">
-  <img src="https://cursor.com/deeplink/mcp-install-dark.svg" alt="Add vwo-fme-mcp MCP server to Cursor" width="170" height="40" />
-</a>
-`}</HTMLBlock>
 
 <br />
 
