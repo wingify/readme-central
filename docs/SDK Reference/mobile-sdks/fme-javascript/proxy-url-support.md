@@ -45,10 +45,6 @@ flowchart TD
     I --> J["SDK Processes Response"]
     C -. Bypasses Ad Blockers .-> E
 
-     E:::highlight
-     C:::highlight
-     G:::highlight
-    classDef highlight fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
 
 
 
