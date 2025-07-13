@@ -46,6 +46,14 @@ graph TD
     G --> H
     H --> I[VWO Response]
     I --> J[SDK Processes Response]
+    
+    style C fill:#e1f5fe
+    style E fill:#e1f5fe
+    style G fill:#e1f5fe
+    
+    C -.->|"Bypasses Ad Blockers"| C
+    E -.->|"Ad Blocker Safe"| E
+    G -.->|"Unblocked Route"| G
 ```
 
 ## Custom Infrastructure
