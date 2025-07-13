@@ -32,28 +32,26 @@ Many ad blockers prevent requests to certain URLs associated with ads or trackin
 <br />
 
 ```mermaid
-graph TD
-    A[Browser SDK] --> B{Proxy URL Set?}
-    B -->|Yes| C[Rewrite URL with Proxy]
-    B -->|No| D[Direct to VWO Servers]
-    
-    C --> E[Request via Proxy Server]
-    D --> F[Direct Request to VWO]
-    
-    E --> G[Proxy Forwards to VWO]
-    F --> H[VWO Processes Request]
-    
-    G --> H
-    H --> I[VWO Response]
-    I --> J[SDK Processes Response]
-    
-    style C fill:#e1f5fe
-    style E fill:#e1f5fe
-    style G fill:#e1f5fe
-    
-    C -.->|"Bypasses Ad Blockers"| C
-    E -.->|"Ad Blocker Safe"| E
-    G -.->|"Unblocked Route"| G
+flowchart TD
+    A["Browser SDK"] --> B{"Proxy URL Set?"}
+    B -- Yes --> C["Rewrite URL with Proxy"]
+    B -- No --> D["Direct to VWO Servers"]
+    C --> E["Request via Proxy Server"]
+    E --> G["Proxy Forwards to VWO"]
+    D --> F["Direct Request to VWO"]
+    G --> H["VWO Processes Request"]
+    F --> H
+    H --> I["VWO Response"]
+    I --> J["SDK Processes Response"]
+    C -. Bypasses Ad Blockers .-> E
+
+     E:::highlight
+     C:::highlight
+     G:::highlight
+    classDef highlight fill:#e1f5fe,stroke:#0288d1,stroke-width:2px
+
+
+
 ```
 
 ## Custom Infrastructure
