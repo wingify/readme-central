@@ -32,10 +32,7 @@ Many ad blockers prevent requests to certain URLs associated with ads or trackin
 <br />
 
 ```mermaid
-flowchart LR 
- A --- B[fa:fa-spinner B] 
- B --> C[fa:fa-check C] 
- B --> D[fa:fa-ban D]graph TD
+graph TD
     A[Browser SDK] --> B{Proxy URL Set?}
     B -->|Yes| C[Rewrite URL with Proxy]
     B -->|No| D[Direct to VWO Servers]
