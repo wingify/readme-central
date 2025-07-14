@@ -1,7 +1,7 @@
 ---
 title: Event Batching
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -173,10 +173,7 @@ FlushInterface flushCallback = new FlushInterface() {
  batchEventData.setFlushCallback(flushCallback);
 
  // create VWO instance with the vwoInitOptions
- VWO vwoInstance = VWO.init(vwoInitOptions);
-
-// Call the following method only if you need to manually flush the events; otherwise, it can be ignored.
-vwoInstance.flushEvents();
+ VWO vwoClient = VWO.init(vwoInitOptions);
 ```
 
 > 🚧 Note
@@ -197,26 +194,7 @@ vwoInstance.flushEvents();
 In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the flushEvents() method, which manually triggers the event dispatch.
 
 ```javascript
- import com.vwo.VWO;
- import com.vwo.models.user.VWOContext;
- import com.vwo.models.user.GetFlag;
- import com.vwo.models.user.VWOInitOptions;
-
- // Initialize VWO SDK
- VWOInitOptions vwoInitOptions = new VWOInitOptions();
-
- // Set SDK Key and Account ID
- vwoInitOptions.setSdkKey("sdk-key");
- vwoInitOptions.setAccountId(123);
- BatchEventData batchEventData = new BatchEventData();
- batchEventData.setEventsPerRequest(100);   // Send up to 100 events per request
- batchEventData.setRequestTimeInterval(60); // Flush events every 60 seconds
-
- // create VWO instance with the vwoInitOptions
- VWO vwoInstance = VWO.init(vwoInitOptions);
-
- vwoInstance.flushEvents();
-
+vwoClient.flushEvents();
 ```
 
 <br />
