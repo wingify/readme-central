@@ -125,14 +125,22 @@ const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
-app.use('/vwo-proxy', createProxyMiddleware({
+
+// Parse JSON and URL-encoded bodies
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Proxy all requests to VWO dev environment
+app.use('/', createProxyMiddleware({
   target: 'https://dev.visualwebsiteoptimizer.com',
   changeOrigin: true,
-  pathRewrite: { '^/vwo-proxy': '' },
+  onError: (err, req, res) => {
+    res.status(500).json({ error: 'Proxy error', details: err.message });
+  },
 }));
 
-app.listen(3000, () => {
-  console.log('Proxy server running on http://localhost:3000');
+app.listen(3300, () => {
+  console.log('Proxy server running on http://localhost:3300');
 });
 ```
 
