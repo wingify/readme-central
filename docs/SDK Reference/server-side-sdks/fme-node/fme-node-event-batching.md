@@ -148,6 +148,8 @@ By customizing these options, developers gain fine-grained control over how even
 ## Example usage
 
 ```javascript
+import { init } from 'vwo-fme-node-sdk';
+
 const vwoClient = await init({
   accountId: '123456',
   sdkKey: '32-alpha-numeric-sdk-key',
@@ -163,9 +165,6 @@ const vwoClient = await init({
     },
   },
 });
-
-// Call the following method only if you need to manually flush the events; otherwise, it can be ignored.
-vwoClient.flushEvents();
 ```
 
 > 🚧 Note
@@ -186,17 +185,8 @@ vwoClient.flushEvents();
 In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the flushEvents() method, which manually triggers the event dispatch.
 
 ```javascript
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  batchEventData: {
-    eventsPerRequest: 1000, // Set the number of events per request
-    requestTimeInterval: 300, // Flush events every 5 minutes
-  },
-});
-
-vwoClient.flushEvents();
-
+// Call the following method only if you need to manually flush the events; otherwise, it can be ignored.
+await vwoClient.flushEvents();
 ```
 
 <br />
