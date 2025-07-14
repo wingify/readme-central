@@ -147,25 +147,27 @@ By customizing these options, developers gain fine-grained control over how even
 
 ## Example usage
 
-```javascript
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  batchEventData: {
-    eventsPerRequest: 1000, // Set the number of events per request
-    requestTimeInterval: 300, // Flush events every 5 minutes
-    flushCallback: (error, events) => {
-      if (error) {
-        console.log('Error flushing events:', error);
-      } else {
-        console.log('Events flushed successfully:', events);
-      }
-    },
-  },
-});
+```ruby
+require 'vwo'
 
-// Call the following method only if you need to manually flush the events; otherwise, it can be ignored.
-vwoClient.flushEvents();
+# flushCallBack method
+def call(error, data)
+    # custom implementation here
+end
+
+# Initialize VWO client
+vwo_client = VWO.init({
+    sdk_key: '32-alpha-numeric-sdk-key',
+    account_id: '123456',
+    batch_event_data: {
+        events_per_request: 50, # Optional: 50 events per request (default is 100)
+        request_time_interval: 60 # Optional: send events every 60 seconds (default is 600 seconds)
+        flush_callback: method(:call) # Optional: callback to execute after flush
+    },
+})
+
+# Call the following method only if you need to manually flush the events; otherwise, it can be ignored.
+vwo_client.flush_events()
 ```
 
 > 🚧 Note
