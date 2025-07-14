@@ -147,25 +147,23 @@ By customizing these options, developers gain fine-grained control over how even
 
 ## Example usage
 
-```javascript
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  batchEventData: {
-    eventsPerRequest: 1000, // Set the number of events per request
-    requestTimeInterval: 300, // Flush events every 5 minutes
-    flushCallback: (error, events) => {
-      if (error) {
-        console.log('Error flushing events:', error);
-      } else {
-        console.log('Events flushed successfully:', events);
-      }
-    },
-  },
-});
+```python
+from vwo import init
 
-// Call the following method only if you need to manually flush the events; otherwise, it can be ignored.
-vwoClient.flushEvents();
+def event_flush_callback(error, payload):
+    # your implementation here
+
+options = {
+    'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
+    'account_id': '123456', # VWO Account ID
+    'batch_event_data': {
+        'events_per_request': 60,  # Send up to 100 events per request
+        'request_time_interval': 100, # Flush events every 60 seconds
+        'flush_callback': event_flush_callback
+    }
+}
+
+vwo_client = init(options)
 ```
 
 > 🚧 Note
