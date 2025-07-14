@@ -74,7 +74,7 @@ vwoClient = init({
   accountId: "VWO_ACCOUNT_ID",
   sdkKey: "VWO_SDK_KEY",
 
-  proxyUrl: "https://proxy.yourdomain.com/vwo-proxy",
+  proxyUrl: "https://proxy.yourdomain.com",
   // other configuration options
 });
 ```
@@ -153,7 +153,7 @@ server {
   listen 443 ssl;
   server_name proxy.yourdomain.com;
 
-  location /vwo-proxy/ {
+  location / {
     proxy_pass https://dev.visualwebsiteoptimizer.com/;
     proxy_set_header Host dev.visualwebsiteoptimizer.com;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
