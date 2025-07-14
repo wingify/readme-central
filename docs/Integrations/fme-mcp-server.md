@@ -66,7 +66,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 <br />
 
-> You can add the VWO FME Server by simply clicking the button below. Make sure to update the VWO\_ACCOUNT\_ID and VWO\_API\_KEY environment variables before you start using it.
+> You can add the VWO FME MCP Server by simply clicking the button below. Make sure to update the VWO\_ACCOUNT\_ID and VWO\_API\_KEY environment variables before you start using it.
 
 <br />
 
