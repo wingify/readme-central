@@ -5,29 +5,35 @@ hidden: false
 metadata:
   robots: index
 ---
-## Overview
+The VWO JavaScript SDK now includes support for **custom proxy URLs**, enabling you to route all SDK network traffic through your own proxy server. This feature provides enhanced control over request routing, offering significant benefits in environments where direct network access to VWO endpoints may be restricted or blocked.
 
-VWO's JavaScript SDK now supports custom proxy URLs, allowing you to route all network requests through your own proxy server. This powerful feature is particularly useful for bypassing ad-blockers and ensuring reliable delivery of feature flags and experimentation data.
+### Why Use a Custom Proxy URL?
 
-## What is the Issue that may occur
+In modern web environments, many users utilize browser-based **ad-blockers** and privacy tools that restrict access to known ad-serving or tracking domains. Since the VWO JavaScript SDK communicates with VWO services via the default domain (`dev.visualwebsiteoptimizer.com`), requests to this endpoint may be **intercepted or blocked**.
 
-Many ad blockers prevent requests to certain URLs associated with ads or tracking services. If a user has an ad blocker enabled and the default dev.visualwebsiteoptimizer.com URL is blocked, the JavaScript SDK may fail to load resources or send data as expected. This can cause functionality issues in your application, including:
+When this occurs, it can lead to partial or complete SDK failure, resulting in:
 
-* Feature flags not loading - Users may not receive the correct feature states
-* Experiments not tracking - A/B test data collection may be interrupted
-* Settings fetch failures - SDK initialization may fail completely
-* Inconsistent user experience - Different users may see different behaviors based on their ad blocker settings
+* **Feature flag loading failures** – Targeted feature variations may not be served correctly to end users.
+* Experiment tracking disruptions – Data collection for A/B tests and multivariate experiments may be incomplete or missing.
+* **Settings fetch issues** – SDK initialization can fail if configuration settings cannot be retrieved.
+* **Inconsistent user experience** – Variability in ad blocker configurations can cause different users to experience different application behavior, leading to reliability concerns.
 
-## How the Logic Functions
-
-**Request Flow**
-
-1. **SDK→ Proxy:** The SDK sends requests to your proxy server (specified in proxyUrl)
-2. **Proxy → VWO:** Your server forwards the request to VWO's servers
-3. **VWO → Proxy:** VWO processes the request and returns a response
-4. **Proxy → SDK:** Your server forwards VWO's response back to the SDK
+To address these issues, VWO provides the ability to configure a **proxy URL**, allowing organizations to **self-host a relay** for SDK traffic. This enables better control over network access, enhanced observability, and improved compatibility with restrictive user environments.
 
 <br />
+
+## How It Works: Request Routing Logic
+
+The request flow when using a custom proxy is as follows:
+
+1. **SDK → Proxy Server**\
+   The VWO SDK sends all API and data collection requests to the proxy server, using the `proxyUrl` specified during SDK initialization.
+2. **Proxy Server → VWO Backend**\
+   Your proxy server receives the SDK request and forwards it to the appropriate VWO endpoint.
+3. **VWO Backend → Proxy Server**\
+   VWO processes the incoming request, generates a response (e.g., flag configuration, experiment data), and sends it back to your proxy.
+4. **Proxy Server → SDK**\
+   Your proxy server relays the response from VWO back to the SDK, completing the round trip.
 
 <br />
 
@@ -50,8 +56,27 @@ flowchart TD
 
 ```
 
-## Custom Infrastructure
+<br />
 
-* Own Your Data Flow: Route requests through your existing infrastructure.
-* Enhanced Security: Apply your own security policies and monitoring.
-* Better Control: Customize request handling and logging.
+## Benefits of Using a Proxy
+
+* **Bypass ad-blockers**: Since the proxy URL is under your control (e.g., proxy.yourdomain.com), it is less likely to be blacklisted.
+* **Improved reliability**: Ensures SDK functionality even in restricted network environments.
+* **Custom logging and analytics**: Enables logging, monitoring, or transformation of SDK requests for internal analytics or debugging.
+* **Security and compliance**: Offers an opportunity to inspect or validate outbound and inbound traffic to meet organizational policies.
+
+<br />
+
+## Configuration Example
+
+```javascript
+vwoClient = init({
+  accountId: "VWO_ACCOUNT_ID",
+  sdkKey: "VWO_SDK_KEY",
+
+  proxyUrl: "https://proxy.yourdomain.com/vwo-proxy",
+  // other configuration options
+});
+```
+
+> Ensure your proxy server is properly configured to forward requests to `dev.visualwebsiteoptimizer.com`, handle request/response headers appropriately, and support both GET and POST methods used by the SDK.
