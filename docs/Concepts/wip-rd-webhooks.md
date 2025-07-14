@@ -1,5 +1,5 @@
 ---
-title: '[WIP - RD] Webhooks'
+title: Configuring Webhooks
 deprecated: false
 hidden: true
 metadata:
