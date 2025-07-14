@@ -47,6 +47,26 @@ VWO FME SDKs fetch configuration settings (features, campaigns, variations) from
 
 <br />
 
+## Enabling Webhooks in VWO
+
+1. Log in to your VWO account.
+2. Navigate to `Configurations` → `Website and Apps` from the left-hand panel.
+3. Select the `Default Project` associated with your FME setup.
+4. Click on the `Configurations` tab.
+5. Under the **Environment(s)** section, enable the Webhook option for the specific environment(s) you want to subscribe to for configuration change events.
+6. In the `Wehook URL` field, provide the endpoint URL where you want to receive webhook notifications.
+7. Click SAVE to apply your changes.
+
+<br />
+
+<Image align="center" border={true} caption="Configuring FME Webhooks in VWO" src="https://files.readme.io/c44a29c6f6a6396ceb2690d81878d377f2a1bef0f31d2d3f7688c78ed65f0b33-Screenshot_2025-07-15_at_2.26.38_AM.png" />
+
+<br />
+
+> Once saved, VWO will start sending HTTP POST requests to your configured URL whenever relevant configuration changes occur in the selected environment(s).
+
+<br />
+
 ## Securing Webhooks with API Key-Based Authentication
 
 When setting up a webhook in the VWO app, it’s essential to ensure that your endpoint only accepts requests from trusted sources, i.e., from VWO itself. To facilitate this, VWO supports **API key-based authentication** using a secret key.
@@ -109,3 +129,18 @@ Whenever a settings change occurs (e.g., feature flag modified, campaign updated
 <br />
 
 ## Usage
+
+```
+```
+
+<br />
+
+## Webhook Retries
+
+If the webhook endpoint is unavailable or returns a non-2xx HTTP response, VWO will automatically retry the request for up to 1 hour, with retry attempts made every 1 to 2 seconds. This ensures resilience in the event of temporary network issues or server downtime.
+
+<br />
+
+## Testing Webhooks
+
+To test your webhook integration, you can use tools like [RequestBin](https://requestbin.com/) or [Webhook.site](webhook.site). These tools allow you to inspect incoming POST requests, review payloads, and validate headers before integrating with your production endpoint.
