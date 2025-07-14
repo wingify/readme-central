@@ -190,21 +190,21 @@ vwoInstance.flushEvents();
 In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the flushEvents() method, which manually triggers the event dispatch.
 
 ```csharp
-		using VWOFmeSdk.Models;
-    using VWOFmeSdk.Interfaces.Batching;
+using VWOFmeSdk.Models;
+using VWOFmeSdk.Interfaces.Batching;
 
-    var batchEventData = new BatchEventData
-    {
-        EventsPerRequest = 100,      // Send up to 100 events per
-        RequestTimeInterval = 60,   // Flush events every 60 seconds
-    };
+var batchEventData = new BatchEventData
+{
+    EventsPerRequest = 100,      // Send up to 100 events per
+    RequestTimeInterval = 60,   // Flush events every 60 seconds
+};
 
-    var vwoInitOptions = new VWOInitOptions
-    {
+var vwoInitOptions = new VWOInitOptions
+{
         SdkKey = "your_sdk_key",
         AccountId = YOUR_ACCOUNT_ID,
         BatchEventData = batchEventData
-    };
+};
 
     var vwoInstance = VWO.Init(vwoInitOptions);
 		
