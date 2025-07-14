@@ -80,3 +80,83 @@ vwoClient = init({
 ```
 
 > Ensure your proxy server is properly configured to forward requests to `dev.visualwebsiteoptimizer.com`, handle request/response headers appropriately, and support both GET and POST methods used by the SDK.
+
+<br />
+
+## Performance and Latency Considerations
+
+Using a proxy introduces an additional network hop between the SDK and VWO servers. While this offers flexibility and control, it can affect performance if not optimized properly.
+
+**Key considerations:**
+
+* **Minimize Latency**: Host your proxy server geographically close to your end users or leverage edge locations via a CDN.
+* **Connection Reuse**: Enable `keep-alive` connections to reduce TCP handshake overhead.
+* **Caching**: Use caching headers for SDK configuration responses (when appropriate) to reduce redundant API calls.
+* **Compression**: Enable gzip or Brotli compression on your proxy server to reduce response size and speed up transfers.
+* **Timeouts**: Configure reasonable timeouts to prevent long request queues or blocked SDK functionality.
+
+> Tip: Monitor response times at both the proxy and SDK levels to detect bottlenecks.
+
+<br />
+
+## Security Considerations
+
+Proxying SDK traffic gives you more control, but also introduces potential risks. Proper security practices help prevent misuse or data leaks.
+
+**Recommendations:**
+
+* **Use HTTPS**: Always serve your proxy over HTTPS to ensure encrypted data transmission.
+* **Restrict Origins**: Limit access to your proxy to specific domains or IP addresses to prevent abuse.
+* **Input Validation**: Sanitize and validate incoming requests to avoid injection or spoofing attacks.
+* **Rate Limiting**: Implement rate limiting to protect your proxy from DDoS or high-traffic abuse.
+* **Authorization (*Optional*)**: For internal or sensitive use cases, add token-based or header-based authentication.
+* **Audit Logs**: Log incoming and outgoing proxy traffic (with PII masked) for observability and compliance.
+
+<br />
+
+## Sample Proxy Implementations
+
+Below are basic proxy implementations in popular platforms to help you get started:
+
+### Node.js (Express)
+
+```javascript
+const express = require('express');
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
+const app = express();
+app.use('/vwo-proxy', createProxyMiddleware({
+  target: 'https://dev.visualwebsiteoptimizer.com',
+  changeOrigin: true,
+  pathRewrite: { '^/vwo-proxy': '' },
+}));
+
+app.listen(3000, () => {
+  console.log('Proxy server running on http://localhost:3000');
+});
+```
+
+<br />
+
+### NGINX Config Snippet
+
+```shell nginx
+server {
+  listen 443 ssl;
+  server_name proxy.yourdomain.com;
+
+  location /vwo-proxy/ {
+    proxy_pass https://dev.visualwebsiteoptimizer.com/;
+    proxy_set_header Host dev.visualwebsiteoptimizer.com;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
+}
+```
+
+> Make sure SSL certificates and CORS headers are correctly configured.
+
+<br />
+
+### Serverless (AWS Lambda + API Gateway)
+
+For lightweight, scalable deployments, you can set up a proxy using AWS Lambda with API Gateway acting as the HTTP interface. This is useful for pay-as-you-go usage with minimal infrastructure overhead.
