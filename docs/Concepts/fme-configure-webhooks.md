@@ -130,7 +130,174 @@ Whenever a settings change occurs (e.g., feature flag modified, campaign updated
 
 ## Usage
 
+```javascript Node.js
+// Assuming Express server
+
+const express = require('express');
+const app = express();
+// require VWO SDK
+const { init } = require('vwo-fme-node-sdk');
+
+let vwoClient = await init({
+  accountId: 'VWO_ACCOUNT_ID',
+  sdkKey: 'VWO_SDK_KEY'
+});
+
+const webhookAuthKey = 'SECRET_WEBHOOK_KEY_GENERATED_IN_VWO_APP';
+
+// Endpoint to subscribe to changes made in VWO FullStack running campaigns
+app.post('/vwo-webhook', async (req, res) => {
+  console.log('WEBHOOK TRIGGERED', req.body, 'Webhook Auth Key:', req.headers['x-vwo-auth']);
+
+  if (webhookAuthKey && req.headers['x-vwo-auth']) {
+    if (req.headers['x-vwo-auth'] !== webhookAuthKey) {
+      console.error('VWO webhook authentication failed. Please check.');
+
+      return;
+    } else {
+      console.log('VWO webhook authenticated successfully.');
+    }
+  } else {
+    console.log('Skipping Webhook Authentication as webhookAuthKey is not provided');
+  }
+  
+  // You may want to fetch the updated settings so that SDK can use the same
+  vwoClient.updateSettings(settings)
+    
+  res.end(JSON.stringify({
+      status: 'success',
+      message: 'Webhook received and Settings-file updated successfully'
+  });
+});
+
+app.listen(4000, () => {});
 ```
+```python
+# Assuming Flask server
+
+# require VWO SDK
+import vwo
+from flask import Flask, request, abort, make_response
+
+@app.route('/vwo-webhook', methods=['POST'])
+def webhook():
+    print('WEBHOOK TRIGGERED, {body}, Webhook Auth Key: {webhook_auth_key}'
+          .format(
+             body=request.json,
+             webhook_auth_key=request.headers.get('x-vwo-auth')
+          )
+    )
+
+    WEBHOOK_AUTH_KEY = AccountDetails.get('webhook_auth_key')
+    
+    if WEBHOOK_AUTH_KEY and request.headers.get('x-vwo-auth'):
+        if WEBHOOK_AUTH_KEY != request.headers.get('x-vwo-auth'):
+            print('VWO Webhook authentication failed')
+            abort(401)
+        else:
+            print('VWO Webhook authentication successful')
+    else:
+        print('Skipping authentication as missing webhook authentication key')
+
+    if vwo_client:
+        vwo_client.update_settings(settings)
+    return make_response({'status': 'success', 'message': 'settings updated successfully'}, 200)
+```
+```java
+// Endpoint to subscribe to changes made in VWO FullStack running 
+@PostMapping("/vwo-webhook")
+@ResponseStatus(HttpStatus.OK)
+public void webhook(
+  @RequestHeader("x-vwo-auth") String secretKey,
+  @RequestBody String body
+) {
+  String webhookAuthKey = "SECRET_WEBHOOK_KEY_GENERATED_IN_VWO_APP";
+  
+  if (webhookAuthKey != null && secretKey != null) {
+    if (secretKey.equals(webhookAuthKey)) {
+      System.out.println("VWO webhook authenticated successfully.");
+    } else {
+      System.out.println("VWO webhook authentication failed. Please check.");
+      return;
+    }
+  } else {
+    System.out.println("Skipping Webhook Authentication as webhookAuthKey is not provided.");
+  }
+   
+  if (vwoClientInstance != null) {
+    vwoClientInstance.getAndUpdateSettingsFile(accountId, sdkKey);
+    System.out.println(vwoClientInstance.getSettingFileString());
+  }
+}
+```
+```csharp
+// Endpoint to subscribe to changes made in VWO FullStack running 
+[Route("/webhook")]
+[HttpPost]
+public async Task<string> webhook()
+{
+    CustomLogger logger = new CustomLogger();
+
+    string PayLoad;
+
+    logger.WriteLog(LogLevel.DEBUG, "Post request from vwo app");
+
+    using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
+    {
+        PayLoad = await reader.ReadToEndAsync();
+    }
+    
+    logger.WriteLog(LogLevel.DEBUG, "VWO webhook payload: " + PayLoad);
+    
+    if (string.IsNullOrEmpty(Defaults.WebhookSecretKey) == false)
+    {
+        logger.WriteLog(LogLevel.DEBUG, "WebhookSecretKey exists . VWO webhook authentication Checking.");
+
+        if (Request.Headers["x-vwo-auth"].ToString() != Defaults.WebhookSecretKey)
+        {
+            logger.WriteLog(LogLevel.DEBUG, "VWO webhook authentication failed. Please check.");
+            return "VWO webhook authentication failed. Please check.";
+        }
+
+        if (VWOClient != null)
+        {
+            logger.WriteLog(LogLevel.DEBUG, "Authentication passed and GetAndUpdateSettingsFile function is called");
+            await SettingsProvider.GetAndUpdateSettingsFile(VWOConfig.SDK.AccountId, VWOConfig.SDK.SdkKey);
+            logger.WriteLog(LogLevel.DEBUG, "Setting file has been updated");
+        }
+    }
+    else
+    {
+        if (VWOClient != null)
+        {
+            logger.WriteLog(LogLevel.DEBUG, "GetAndUpdateSettingsFile function called");
+            await SettingsProvider.GetAndUpdateSettingsFile(VWOConfig.SDK.AccountId, VWOConfig.SDK.SdkKey);
+            logger.WriteLog(LogLevel.DEBUG, "Setting file has been updated");
+        }
+    }
+
+    return "";
+}
+```
+```ruby
+# Assuming Sinatra server
+require 'vwo'
+
+post '/webhook' do
+  content_type :json
+  if config['webhook_auth_key'] and request.env['HTTP_X_VWO_AUTH']
+    if config['webhook_auth_key'] != request.env['HTTP_X_VWO_AUTH']
+      puts('webhook api authentication failed')
+      return {'status': 'failed', 'message': 'webhook api authentication failed'}.to_json
+    else
+      puts('Webhook api authentication successful')
+    end
+  else
+    puts('Skipping authentication as missing webhook authentication key')
+  end
+  vwo_client.update_settings
+  return {'status': 'success', 'message': 'settings updated successfully'}.to_json
+end
 ```
 
 <br />
