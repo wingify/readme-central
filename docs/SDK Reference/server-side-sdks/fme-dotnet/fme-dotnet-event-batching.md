@@ -148,26 +148,28 @@ By customizing these options, developers gain fine-grained control over how even
 ## Example usage
 
 ```csharp
-		using VWOFmeSdk.Models;
-    using VWOFmeSdk.Interfaces.Batching;
-    IFlushInterface flushCallback = new FlushCallbackImpl();
+using VWOFmeSdk.Models;
+using VWOFmeSdk.Interfaces.Batching;
+IFlushInterface flushCallback = new FlushCallbackImpl();
 
-    var batchEventData = new BatchEventData
-    {
-        EventsPerRequest = 100,      // Send up to 100 events per
-        RequestTimeInterval = 60,   // Flush events every 60 seconds
-        FlushCallback = flushCallback,
-    };
+var batchEventData = new BatchEventData
+{
+   EventsPerRequest = 100,      // Send up to 100 events per
+   RequestTimeInterval = 60,   // Flush events every 60 seconds
+   FlushCallback = flushCallback,
+};
 
-    var vwoInitOptions = new VWOInitOptions
-    {
-        SdkKey = "your_sdk_key",
-        AccountId = YOUR_ACCOUNT_ID,
-        BatchEventData = batchEventData
-    };
+var vwoInitOptions = new VWOInitOptions
+{
+	 SdkKey = "your_sdk_key",
+   AccountId = YOUR_ACCOUNT_ID,
+   BatchEventData = batchEventData
+};
 
-    var vwoInstance = VWO.Init(vwoInitOptions);
+var vwoInstance = VWO.Init(vwoInitOptions);
 
+// Call the following method only if you need to manually flush the events; otherwise, it can be ignore
+vwoInstance.flushEvents();
 ```
 
 > 🚧 Note
