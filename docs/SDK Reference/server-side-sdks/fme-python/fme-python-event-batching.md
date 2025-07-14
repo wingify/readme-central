@@ -157,8 +157,8 @@ options = {
     'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
     'account_id': '123456', # VWO Account ID
     'batch_event_data': {
-        'events_per_request': 60,  # Send up to 100 events per request
-        'request_time_interval': 100, # Flush events every 60 seconds
+        'events_per_request': 100,  # Send up to 100 events per request
+        'request_time_interval': 60, # Flush events every 60 seconds
         'flush_callback': event_flush_callback
     }
 }
@@ -184,17 +184,20 @@ vwo_client = init(options)
 In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the flushEvents() method, which manually triggers the event dispatch.
 
 ```javascript
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  batchEventData: {
-    eventsPerRequest: 1000, // Set the number of events per request
-    requestTimeInterval: 300, // Flush events every 5 minutes
-  },
-});
+from vwo import init
 
-vwoClient.flushEvents();
+options = {
+    'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
+    'account_id': '123456', # VWO Account ID
+    'batch_event_data': {
+        'events_per_request': 100,  # Send up to 100 events per request
+        'request_time_interval': 60, # Flush events every 60 seconds
+    }
+}
 
+vwo_client = init(options)
+
+vwo_client.flush_events()
 ```
 
 <br />
