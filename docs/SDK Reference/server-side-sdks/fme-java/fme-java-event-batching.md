@@ -148,24 +148,35 @@ By customizing these options, developers gain fine-grained control over how even
 ## Example usage
 
 ```javascript
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  batchEventData: {
-    eventsPerRequest: 1000, // Set the number of events per request
-    requestTimeInterval: 300, // Flush events every 5 minutes
-    flushCallback: (error, events) => {
-      if (error) {
-        console.log('Error flushing events:', error);
-      } else {
-        console.log('Events flushed successfully:', events);
-      }
-    },
-  },
-});
+ import com.vwo.VWO;
+ import com.vwo.models.user.VWOContext;
+ import com.vwo.models.user.GetFlag;
+ import com.vwo.models.user.VWOInitOptions;
+
+FlushInterface flushCallback = new FlushInterface() {
+  @Override
+  public void onFlush(String error, String events) {
+      System.out.println("Flush callback executed");
+      // custom implementation here
+  }
+};
+
+ // Initialize VWO SDK
+ VWOInitOptions vwoInitOptions = new VWOInitOptions();
+
+ // Set SDK Key and Account ID
+ vwoInitOptions.setSdkKey("sdk-key");
+ vwoInitOptions.setAccountId(123);
+ BatchEventData batchEventData = new BatchEventData();
+ batchEventData.setEventsPerRequest(100);   // Send up to 100 events per request
+ batchEventData.setRequestTimeInterval(60); // Flush events every 60 seconds
+ batchEventData.setFlushCallback(flushCallback);
+
+ // create VWO instance with the vwoInitOptions
+ VWO vwoInstance = VWO.init(vwoInitOptions);
 
 // Call the following method only if you need to manually flush the events; otherwise, it can be ignored.
-vwoClient.flushEvents();
+vwoInstance.flushEvents();
 ```
 
 > 🚧 Note
@@ -186,16 +197,25 @@ vwoClient.flushEvents();
 In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the flushEvents() method, which manually triggers the event dispatch.
 
 ```javascript
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  batchEventData: {
-    eventsPerRequest: 1000, // Set the number of events per request
-    requestTimeInterval: 300, // Flush events every 5 minutes
-  },
-});
+ import com.vwo.VWO;
+ import com.vwo.models.user.VWOContext;
+ import com.vwo.models.user.GetFlag;
+ import com.vwo.models.user.VWOInitOptions;
 
-vwoClient.flushEvents();
+ // Initialize VWO SDK
+ VWOInitOptions vwoInitOptions = new VWOInitOptions();
+
+ // Set SDK Key and Account ID
+ vwoInitOptions.setSdkKey("sdk-key");
+ vwoInitOptions.setAccountId(123);
+ BatchEventData batchEventData = new BatchEventData();
+ batchEventData.setEventsPerRequest(100);   // Send up to 100 events per request
+ batchEventData.setRequestTimeInterval(60); // Flush events every 60 seconds
+
+ // create VWO instance with the vwoInitOptions
+ VWO vwoInstance = VWO.init(vwoInitOptions);
+
+ vwoInstance.flushEvents();
 
 ```
 
