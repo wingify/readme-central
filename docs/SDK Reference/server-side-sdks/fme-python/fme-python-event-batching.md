@@ -175,13 +175,13 @@ vwo_client = init(options)
 >
 > **Event Timing:** The timer starts when the first event is added to the queue. If the time interval expires before the event count reaches the *events\_per\_request* threshold, the events are dispatched anyway.
 >
-> **Manual Flushing:** You can trigger the dispatch of events before the batch limit or time interval is reached by manually calling the flushEvents() method.
+> **Manual Flushing:** You can trigger the dispatch of events before the batch limit or time interval is reached by manually calling the flush\_events() method.
 
 <br />
 
 ## Flushing Events Manually (Flush Events API)
 
-In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the flushEvents() method, which manually triggers the event dispatch.
+In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the *flush\_events()* method, which manually triggers the event dispatch.
 
 ```python
 # Call the following method only if you need to manually flush the events; otherwise, it can be ignored.
@@ -205,7 +205,7 @@ flowchart TD
     D1 -->|"After request_time_interval"| E2["Send Batched Events if request_time_interval is reached"]
 
     %% Manual Flush
-    C -.->|"Manually call flushEvents"| E3["Manually Flush Batched Events"]
+    C -.->|"Manually call flush_events"| E3["Manually Flush Batched Events"]
 
     %% All flushes trigger callback
     E1 --> X["flush_callback(error, events)"]
@@ -253,7 +253,7 @@ The SDK checks if it's time to flush the queued events:
 
 > ➤ Manual Flush Option
 
-Developers can trigger a flush programmatically using a method like `flushEvents()` (name may vary by SDK). This is useful in scenarios such as:
+Developers can trigger a flush programmatically using a method like `flush_events()` (name may vary by SDK). This is useful in scenarios such as:
 
 * App shutdown or page unload
 * Test/QA scripts
