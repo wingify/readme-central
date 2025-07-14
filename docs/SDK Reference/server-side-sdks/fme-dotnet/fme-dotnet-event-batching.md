@@ -201,14 +201,14 @@ var batchEventData = new BatchEventData
 
 var vwoInitOptions = new VWOInitOptions
 {
-        SdkKey = "your_sdk_key",
-        AccountId = YOUR_ACCOUNT_ID,
-        BatchEventData = batchEventData
+    SdkKey = "your_sdk_key",
+    AccountId = YOUR_ACCOUNT_ID,
+    BatchEventData = batchEventData
 };
 
-    var vwoInstance = VWO.Init(vwoInitOptions);
+var vwoInstance = VWO.Init(vwoInitOptions);
 		
-		vwoInstance.flushEvents();
+vwoInstance.flushEvents();
 
 ```
 
