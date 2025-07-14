@@ -147,25 +147,27 @@ By customizing these options, developers gain fine-grained control over how even
 
 ## Example usage
 
-```javascript
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  batchEventData: {
-    eventsPerRequest: 1000, // Set the number of events per request
-    requestTimeInterval: 300, // Flush events every 5 minutes
-    flushCallback: (error, events) => {
-      if (error) {
-        console.log('Error flushing events:', error);
-      } else {
-        console.log('Events flushed successfully:', events);
-      }
-    },
-  },
-});
+```csharp
+		using VWOFmeSdk.Models;
+    using VWOFmeSdk.Interfaces.Batching;
+    IFlushInterface flushCallback = new FlushCallbackImpl();
 
-// Call the following method only if you need to manually flush the events; otherwise, it can be ignored.
-vwoClient.flushEvents();
+    var batchEventData = new BatchEventData
+    {
+        EventsPerRequest = 100,      // Send up to 100 events per
+        RequestTimeInterval = 60,   // Flush events every 60 seconds
+        FlushCallback = flushCallback,
+    };
+
+    var vwoInitOptions = new VWOInitOptions
+    {
+        SdkKey = "your_sdk_key",
+        AccountId = YOUR_ACCOUNT_ID,
+        BatchEventData = batchEventData
+    };
+
+    var vwoInstance = VWO.Init(vwoInitOptions);
+
 ```
 
 > 🚧 Note
@@ -185,17 +187,26 @@ vwoClient.flushEvents();
 
 In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the flushEvents() method, which manually triggers the event dispatch.
 
-```javascript
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  batchEventData: {
-    eventsPerRequest: 1000, // Set the number of events per request
-    requestTimeInterval: 300, // Flush events every 5 minutes
-  },
-});
+```csharp
+		using VWOFmeSdk.Models;
+    using VWOFmeSdk.Interfaces.Batching;
 
-vwoClient.flushEvents();
+    var batchEventData = new BatchEventData
+    {
+        EventsPerRequest = 100,      // Send up to 100 events per
+        RequestTimeInterval = 60,   // Flush events every 60 seconds
+    };
+
+    var vwoInitOptions = new VWOInitOptions
+    {
+        SdkKey = "your_sdk_key",
+        AccountId = YOUR_ACCOUNT_ID,
+        BatchEventData = batchEventData
+    };
+
+    var vwoInstance = VWO.Init(vwoInitOptions);
+		
+		vwoInstance.flushEvents();
 
 ```
 
