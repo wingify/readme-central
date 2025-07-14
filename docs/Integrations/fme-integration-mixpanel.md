@@ -11,9 +11,11 @@ Mixpanel is an analytics tool that helps businesses understand how users interac
 
 Integrating FME, with Mixpanel offers significant benefits. FME sends feature flag and event data to Mixpanel. This allows you to see which feature flag variations users are exposed to directly within your Mixpanel reports. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
 
+<br />
+
 ## Prerequisites
 
-#### Mixpanel Account Setup
+### Mixpanel Account Setup
 
 * Create a Mixpanel account at [https://mixpanel.com](https://mixpanel.com) if you don't already have one
 * Create a new project in your Mixpanel dashboard
@@ -24,7 +26,7 @@ Integrating FME, with Mixpanel offers significant benefits. FME sends feature fl
 MIXPANEL_PROJECT_TOKEN=your_mixpanel_project_token
 ```
 
-#### VWO FME SDK Installation and Configuration
+### VWO FME SDK Installation and Configuration
 
 * Ensure you have the VWO Feature Management and Experimentation product enabled for your VWO account
 * The VWO FME SDK should be properly installed in your project
@@ -35,13 +37,15 @@ FME_ACCOUNT_ID=your_account_id // Replace with your actual VWO account ID
 FME_SDK_KEY=your_sdk_key // Replace with your actual VWO sdk key
 ```
 
+<br />
+
 ## Integration Steps
 
 Integrating the VWO FME SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
 
 The example below shows an implementation with the Android SDK. Please note that any VWO FME SDK can be used.
 
-#### 1. Add Required Dependencies
+### 1. Add Required Dependencies
 
 Add the following dependencies to your app's build.gradle file:
 
@@ -55,7 +59,7 @@ dependencies {
 }
 ```
 
-#### 2. Add Permissions
+### 2. Add Permissions
 
 Ensure your app has the following permissions in the AndroidManifest.xml file:
 
@@ -63,7 +67,7 @@ Ensure your app has the following permissions in the AndroidManifest.xml file:
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
-#### 3. Create a dedicated class for Mixpanel Integration:
+### 3. Create a dedicated class for Mixpanel Integration:
 
 Implement a class (e.g., `MixpanelIntegration`) to handle the initialization of the Mixpanel SDK and provide methods for tracking events and flag evaluations.
 
@@ -100,7 +104,7 @@ class MixpanelIntegration private constructor(context: Context, projectToken: St
 }
 ```
 
-#### 4. Initialize Mixpanel and set up the `IntegrationCallback`:
+### 4. Initialize Mixpanel and set up the `IntegrationCallback`:
 
 Initialize your `MixpanelIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FME SDK. `IntegrationCallback` is a mechanism that automatically forwards FME SDK events (like flag evaluations) to desired analytics platform for real-time tracking and analysis. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Mixpanel instance.
 
@@ -131,11 +135,11 @@ VWO.init(initOptions, object : IVwoInitCallback {
 })
 ```
 
-#### Integration Data
+### Integration Data
 
 The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` containing details about the VWO SDK action:
 
-* For flag evaluations (i.e. `getFlag`):
+* **For flag evaluations** (i.e. `getFlag`):
 
 ```json
 {
@@ -152,7 +156,7 @@ The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` 
 }
 ```
 
-* For event tracking (`trackEvent`):
+* **For event tracking** (`trackEvent`):
 
 ```json
 {
@@ -161,38 +165,44 @@ The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` 
 }
 ```
 
+<br />
+
 Ensure you have added your Mixpanel project token to your constants or `local.properties` file as specified in the Prerequisites.
 
 This setup ensures that every time a feature flag is evaluated or an event is tracked by the VWO SDK, the relevant data is automatically sent to your configured Mixpanel project.
 
-#### Screenshot
+### Sample Screenshot
 
 <Image align="center" src="https://files.readme.io/526d3490d1e374ec65fed2fc8a720a8ea22c4485ab46c9b237420b7022f2310a-mixPanelSS.png" />
+
+<br />
 
 ## How to see the data in the analytics tool
 
 After integrating Mixpanel with your app, you can view the tracked data in the following ways:
 
-1. Access Mixpanel Dashboard:
+1. **Access Mixpanel Dashboard:**
 
    * Log in to your Mixpanel account at [https://mixpanel.com](https://mixpanel.com)
    * Navigate to your project dashboard
 
-2. View Feature Flag Evaluations:
+2. **View Feature Flag Evaluations:**
 
    * Look for events named `vwo_fme_flag_evaluation`
    * These events contain data about feature flag and User ID
 
-3. Track Custom Events:
+3. **Track Custom Events:**
 
    * Find events named `vwo_fme_track_event`
    * These events include details about the event.
 
-4. Analyze Data: Use Mixpanel's analytics tools to:
+4. **Analyze Data**: Use Mixpanel's analytics tools to:
    * Create custom reports
    * View user flows
    * Track conversion rates
    * Monitor feature flag performance
+
+<br />
 
 ## GitHub Reference
 
