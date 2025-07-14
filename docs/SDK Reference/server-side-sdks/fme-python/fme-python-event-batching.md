@@ -164,6 +164,9 @@ options = {
 }
 
 vwo_client = init(options)
+
+#Call the following method only if you need to manually flush the events; otherwise, it can be ignored.
+vwo_client.flush_events()
 ```
 
 > 🚧 Note
