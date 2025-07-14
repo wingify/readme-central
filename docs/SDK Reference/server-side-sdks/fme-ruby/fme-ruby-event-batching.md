@@ -187,18 +187,20 @@ vwo_client.flush_events()
 
 In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the flushEvents() method, which manually triggers the event dispatch.
 
-```javascript
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  batchEventData: {
-    eventsPerRequest: 1000, // Set the number of events per request
-    requestTimeInterval: 300, // Flush events every 5 minutes
-  },
-});
+```ruby
+require 'vwo'
 
-vwoClient.flushEvents();
+# Initialize VWO client
+vwo_client = VWO.init({
+    sdk_key: '32-alpha-numeric-sdk-key',
+    account_id: '123456',
+    batch_event_data: {
+        events_per_request: 50, # Optional: 50 events per request (default is 100)
+        request_time_interval: 60 # Optional: send events every 60 seconds (default is 600 seconds)
+    },
+})
 
+vwo_client.flush_events()
 ```
 
 <br />
