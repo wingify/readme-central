@@ -115,12 +115,12 @@ Whenever a settings change occurs (e.g., feature flag modified, campaign updated
 
 <br />
 
-| Field          | Description                                                                                                               |
-| -------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `timestamp`    | UNIX timestamp (in seconds) indicating exactly when the change occurred. Useful for logging and event ordering.           |
-| `event`        | Describes the type of event. Currently, this is always `"settings_changed"` for VWO SDK-related updates.                  |
-| `action`       | A more specific indicator of what changed — for example, `campaign_settings_changed`, `feature_flag_updated`, etc.        |
-| `triggered_by` | Source of the event trigger, usually `"vwo"`; this may help in filtering internal vs external triggers in future support. |
+| Field           | Description                                                                                                               |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `timestamp`     | UNIX timestamp (in seconds) indicating exactly when the change occurred. Useful for logging and event ordering.           |
+| `event`         | Describes the type of event. Currently, this is always `"settings_changed"` for VWO SDK-related updates.                  |
+| `action`        | A more specific indicator of what changed, for example, `campaign_settings_changed`, `feature_flag_updated`, etc.         |
+| \`triggered\_by | Source of the event trigger, usually `"vwo"`; this may help in filtering internal vs external triggers in future support. |
 
 <br />
 
