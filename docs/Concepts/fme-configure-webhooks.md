@@ -162,11 +162,11 @@ app.post('/vwo-webhook', async (req, res) => {
   }
   
   // You may want to fetch the updated settings so that SDK can use the same
-  vwoClient.updateSettings(settings)
+  await vwoClient.updateSettings();
     
   res.end(JSON.stringify({
       status: 'success',
-      message: 'Webhook received and Settings-file updated successfully'
+      message: 'Webhook received and Settings updated successfully'
   });
 });
 
@@ -200,7 +200,7 @@ def webhook():
         print('Skipping authentication as missing webhook authentication key')
 
     if vwo_client:
-        vwo_client.update_settings(settings)
+        vwo_client.update_settings()
     return make_response({'status': 'success', 'message': 'settings updated successfully'}, 200)
 ```
 ```java
@@ -224,32 +224,31 @@ public void webhook(
     System.out.println("Skipping Webhook Authentication as webhookAuthKey is not provided.");
   }
    
-  if (vwoClientInstance != null) {
-    vwoClientInstance.getAndUpdateSettingsFile(accountId, sdkKey);
+  if (vwoClient != null) {
+    vwoClient.updateSettings();
     System.out.println(vwoClientInstance.getSettingFileString());
   }
 }
 ```
 ```csharp
-// Endpoint to subscribe to changes made in VWO FullStack running 
 [Route("/webhook")]
 [HttpPost]
 public async Task<string> webhook()
 {
     CustomLogger logger = new CustomLogger();
-
-    string PayLoad;
-
     logger.WriteLog(LogLevel.DEBUG, "Post request from vwo app");
 
+    string PayLoad;
     using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
     {
         PayLoad = await reader.ReadToEndAsync();
     }
-    
+
     logger.WriteLog(LogLevel.DEBUG, "VWO webhook payload: " + PayLoad);
-    
-    if (string.IsNullOrEmpty(Defaults.WebhookSecretKey) == false)
+
+    bool isAuthenticated = true;
+
+    if (!string.IsNullOrEmpty(Defaults.WebhookSecretKey))
     {
         logger.WriteLog(LogLevel.DEBUG, "WebhookSecretKey exists . VWO webhook authentication Checking.");
 
@@ -258,26 +257,23 @@ public async Task<string> webhook()
             logger.WriteLog(LogLevel.DEBUG, "VWO webhook authentication failed. Please check.");
             return "VWO webhook authentication failed. Please check.";
         }
-
-        if (VWOClient != null)
-        {
-            logger.WriteLog(LogLevel.DEBUG, "Authentication passed and GetAndUpdateSettingsFile function is called");
-            await SettingsProvider.GetAndUpdateSettingsFile(VWOConfig.SDK.AccountId, VWOConfig.SDK.SdkKey);
-            logger.WriteLog(LogLevel.DEBUG, "Setting file has been updated");
-        }
     }
-    else
+
+    if (VWOClient != null)
     {
-        if (VWOClient != null)
-        {
-            logger.WriteLog(LogLevel.DEBUG, "GetAndUpdateSettingsFile function called");
-            await SettingsProvider.GetAndUpdateSettingsFile(VWOConfig.SDK.AccountId, VWOConfig.SDK.SdkKey);
-            logger.WriteLog(LogLevel.DEBUG, "Setting file has been updated");
-        }
+        logger.WriteLog(LogLevel.DEBUG, 
+            string.IsNullOrEmpty(Defaults.WebhookSecretKey)
+                ? "UpdateSettings function called"
+                : "Authentication passed and UpdateSettings function is called");
+
+        await VWOClient.UpdateSettings();
+
+        logger.WriteLog(LogLevel.DEBUG, "Setting has been updated");
     }
 
     return "";
 }
+
 ```
 ```ruby
 # Assuming Sinatra server
