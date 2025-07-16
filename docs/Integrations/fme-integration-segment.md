@@ -15,7 +15,7 @@ Integrating FME with Segment offers significant benefits. FME sends feature flag
 
 ### Segment Account Setup
 
-* Create a Segment account at [https://segment.com](https://segment.com) if you don't already have one
+* Create a Segment account at <Anchor label="https://segment.com" target="_blank" href="https://segment.com">[https://segment.com](https://segment.com)</Anchor> if you don't already have one
 * Create a new workspace and source in your Segment dashboard
 * Create a Source in Segment and select "Kotlin (Android)" as your source type
 * Obtain your Segment write key from the source settings
