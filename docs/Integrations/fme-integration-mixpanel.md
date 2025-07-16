@@ -17,7 +17,7 @@ Integrating FME, with Mixpanel offers significant benefits. FME sends feature fl
 
 ### Mixpanel Account Setup
 
-* Create a Mixpanel account at [https://mixpanel.com](https://mixpanel.com) if you don't already have one
+* Create a Mixpanel account at <Anchor label="mixpanel.com" target="_blank" href="https://mixpanel.com">mixpanel.com</Anchor> if you don't already have one
 * Create a new project in your Mixpanel dashboard
 * Obtain your Mixpanel project token from the project settings
 * Add your Mixpanel project token to your application's constants or local.properties file:
@@ -43,11 +43,13 @@ FME_SDK_KEY=your_sdk_key // Replace with your actual VWO sdk key
 
 Integrating the VWO FME SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
 
-The example below shows an implementation with the Android SDK. Please note that any VWO FME SDK can be used.
+> 📘 Note
+>
+> The example below shows an implementation with the `Android` SDK. Please note that any VWO FME SDK can be used.
 
 ### 1. Add Required Dependencies
 
-Add the following dependencies to your app's build.gradle file:
+Add the following dependencies to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
@@ -61,7 +63,7 @@ dependencies {
 
 ### 2. Add Permissions
 
-Ensure your app has the following permissions in the AndroidManifest.xml file:
+Ensure your app has the following permissions in the `AndroidManifest.xml` file:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -206,6 +208,6 @@ After integrating Mixpanel with your app, you can view the tracked data in the f
 
 ## GitHub Reference
 
-The complete source code for this example is available on GitHub: [https://github.com/wingify/vwo-fme-examples/tree/master/android](https://github.com/wingify/vwo-fme-examples/tree/master/android)
+The complete source code for this example is available on GitHub: [https://github.com/wingify/vwo-fme-examples/tree/master/android](https://github.com/wingify/vwo-fme-examples/tree/master/android).
 
 This is an example of an implementation using the Android SDK. While this demonstrates the approach, you can utilize any of the VWO FME SDKs for your project.
