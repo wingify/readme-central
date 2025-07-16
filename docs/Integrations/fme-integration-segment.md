@@ -208,7 +208,7 @@ After integrating Segment with your app, you can view the tracked data in the fo
 
 1. **Access Segment Dashboard:**
 
-   * Log in to your Segment account at [https://segment.com](https://segment.com)
+   * Log in to your Segment account at <Anchor label="segment.com" target="_blank" href="https://segment.com">segment.com</Anchor>
    * Navigate to your workspace and select your Android source
 
 2. **View Feature Flag Evaluations:**
