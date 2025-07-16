@@ -79,7 +79,7 @@ When leveraging consistent bucketing behavior across multiple rules (e.g., by us
 To enable consistent bucketing across multiple rules, you can explicitly define a **salt value**. This configuration is available under the **Advanced Settings** section of the following rule types:
 
 * **A/B Testing Rules**
-* Personalization Rules
+* **Personalization Rules**
 * **Multivariate Testing (MVT) Rules**
 
 By specifying the same salt value across multiple rules, you ensure that the bucketing seed (`salt_userId`) remains consistent for a given user, enabling deterministic variation assignment across those rules.
