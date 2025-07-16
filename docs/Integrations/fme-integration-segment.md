@@ -15,7 +15,7 @@ Integrating FME with Segment offers significant benefits. FME sends feature flag
 
 ### Segment Account Setup
 
-* Create a Segment account at <Anchor label="[https://segment.com](https://segment.com)" target="_blank" href="https://segment.com" /> if you don't already have one
+* Create a Segment account at <Anchor label="segment.com" target="_blank" href="https://segment.com">segment.com</Anchor> if you don't already have one
 * Create a new workspace and source in your Segment dashboard
 * Create a Source in Segment and select "Kotlin (Android)" as your source type
 * Obtain your Segment write key from the source settings
@@ -46,7 +46,7 @@ Integrating the VWO FME SDK with analytics platforms like Segment allows you to 
 
 ### 1. Add Required Dependencies
 
-Add the following dependencies to your app's build.gradle file:
+Add the following dependencies to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
@@ -60,7 +60,7 @@ dependencies {
 
 ### 2. Add Permissions
 
-Ensure your app has the following permissions in the AndroidManifest.xml file:
+Ensure your app has the following permissions in the `AndroidManifest.xml` file:
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET" />
@@ -117,7 +117,7 @@ class SegmentIntegration private constructor(context: Context, writeKey: String)
 
 ### 4. Initialize Segment and set up the `IntegrationCallback`:
 
-Initialize your `SegmentIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FME SDK. `IntegrationCallback` is a mechanism that automatically forwards FME SDK events (like flag evaluations) to desired analytics platform for real-time tracking and analysis. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Segment instance.
+Initialize your `SegmentIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FME SDK. `IntegrationCallback` is a mechanism that automatically forwards FME SDK events (like flag evaluations) to the desired analytics platform for real-time tracking and analysis. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Segment instance.
 
 ```kotlin
 // Example Integration Callback Setup
@@ -230,6 +230,6 @@ After integrating Segment with your app, you can view the tracked data in the fo
 
 ## GitHub Reference
 
-The complete source code for this example is available on GitHub: [https://github.com/wingify/vwo-fme-examples/tree/master/android](https://github.com/wingify/vwo-fme-examples/tree/master/android)
+The complete source code for this example is available on GitHub: [https://github.com/wingify/vwo-fme-examples/tree/master/android](https://github.com/wingify/vwo-fme-examples/tree/master/android).
 
 This is an example of an implementation using the Android SDK. While this demonstrates the approach, you can utilize any of the VWO FME SDKs for your project.
