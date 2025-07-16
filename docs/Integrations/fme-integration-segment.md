@@ -188,14 +188,15 @@ The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` 
 Ensure you have added your Segment write key to your constants or `local.properties` file as specified in the Prerequisites.
 
 This setup ensures that every time a feature flag is evaluated or an event is tracked by the VWO SDK, the relevant data is automatically sent to your configured Segment source and then routed to all your connected destinations such as:
-- Analytics tools (Google Analytics, Mixpanel, Amplitude)
-- Data warehouses (Snowflake, BigQuery, Redshift)
-- Marketing platforms (HubSpot, Salesforce)
-- Customer engagement tools (Intercom, Zendesk)
+
+* Analytics tools (Google Analytics, Mixpanel, Amplitude)
+* Data warehouses (Snowflake, BigQuery, Redshift)
+* Marketing platforms (HubSpot, Salesforce)
+* Customer engagement tools (Intercom, Zendesk)
 
 ### Sample Screenshot
 
-![Events in Segment](eventsInSegment.png)
+<Image align="center" alt="Events in Segment" src="https://files.readme.io/6ba5bd04f25eda988ff7976045e1f48ba449d3b40a223f75a3a0560904b07b84-eventsInSegment.png" />
 
 <br />
 
