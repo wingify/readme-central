@@ -15,7 +15,7 @@ Integrating FME with Segment offers significant benefits. FME sends feature flag
 
 ### Segment Account Setup
 
-* Create a Segment account at <Anchor label="https://segment.com" target="_blank" href="https://segment.com">[https://segment.com](https://segment.com)</Anchor> if you don't already have one
+* Create a Segment account at <Anchor label="[https://segment.com](https://segment.com)" target="_blank" href="https://segment.com" /> if you don't already have one
 * Create a new workspace and source in your Segment dashboard
 * Create a Source in Segment and select "Kotlin (Android)" as your source type
 * Obtain your Segment write key from the source settings
@@ -40,7 +40,9 @@ FME_SDK_KEY=your_sdk_key // Replace with your actual VWO sdk key
 
 Integrating the VWO FME SDK with analytics platforms like Segment allows you to automatically send feature flag evaluation and event tracking data to your entire analytics stack. This integration enables automatic data collection and distribution to all your connected analytics tools.
 
-The example below shows an implementation with the Android SDK. Please note that any VWO FME SDK can be used.
+> 📘 Note
+>
+> The example below shows an implementation with the `Android` SDK. Please note that any VWO FME SDK can be used.
 
 ### 1. Add Required Dependencies
 
