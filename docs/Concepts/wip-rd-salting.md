@@ -39,4 +39,4 @@ Now, for the same example as above, if the salt is set to `xyz`, for both rules 
 
 Salt value can be set inside the Advanced Settings section of a testing or a personalize rule
 
-\<insert image>
+<Image align="center" src="https://files.readme.io/5250eebd216b815e7ba33680b03a45c93fb76a14f2760713a26e66abcd33581a-Screenshot_2025-07-16_at_16.10.21.png" />
