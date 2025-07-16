@@ -230,6 +230,6 @@ After integrating Segment with your app, you can view the tracked data in the fo
 
 ## GitHub Reference
 
-The complete source code for this example is available on GitHub: [https://github.com/wingify/vwo-fme-examples/tree/master/android](https://github.com/wingify/vwo-fme-examples/tree/master/android).
+The complete source code for this example is available on <Anchor label="GitHub" target="_blank" href="https://github.com/wingify/vwo-fme-examples/tree/master/android">GitHub</Anchor>   .
 
 This is an example of an implementation using the Android SDK. While this demonstrates the approach, you can utilize any of the VWO FME SDKs for your project.
