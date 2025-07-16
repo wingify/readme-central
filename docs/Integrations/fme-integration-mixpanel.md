@@ -185,7 +185,7 @@ After integrating Mixpanel with your app, you can view the tracked data in the f
 
 1. **Access Mixpanel Dashboard:**
 
-   * Log in to your Mixpanel account at [https://mixpanel.com](https://mixpanel.com)
+   * Log in to your Mixpanel account at <Anchor label="mixpanel.com" target="_blank" href="https://mixpanel.com">mixpanel.com</Anchor>
    * Navigate to your project dashboard
 
 2. **View Feature Flag Evaluations:**
