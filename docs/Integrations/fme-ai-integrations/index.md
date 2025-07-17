@@ -1,5 +1,5 @@
 ---
-title: 'AI '
+title: AI
 deprecated: false
 hidden: false
 metadata:
