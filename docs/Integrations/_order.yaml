@@ -2,8 +2,8 @@
 - fme-integrations-data-export
 - fme-analytics-integrations
 - fme-push-vwo-data-integrations
+- fme-integration-firebase-analytics
 - fme-ai-integrations
 - fme-github-action
 - mixpanel
-- fme-integration-firebase-analytics
 - fme-integrations-ide-connectors
