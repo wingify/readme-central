@@ -40,5 +40,9 @@ To facilitate a comprehensive understanding and effective implementation of the 
    Implement custom storage solutions to persist user assignments and enhance performance.
 10. [Integrations](doc:fme-react-integrations)\
     Integrate the SDK with third-party tools and services to extend functionality and streamline workflows.
+11. [Proxy URL / Prevent Ad-blockers](doc:fme-react-proxy-url)\
+    Avoid ad-blockers and ensure secure, efficient retrieval of flag configurations using a custom proxy endpoint.
+12. [Testing SDK Hooks and Provider](doc:fme-react-tests-using-mock)\
+    Learn how to run front-end VWO tests in React using mock data for efficient experimentation.
 
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.
