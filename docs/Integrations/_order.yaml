@@ -1,6 +1,7 @@
 - fme-integrations
 - fme-integrations-data-export
 - fme-analytics-integrations
+- ai
 - fme-mcp-server
 - fme-github-action
 - fme-integration-mixpanel
@@ -8,4 +9,3 @@
 - mixpanel
 - fme-integration-firebase-analytics
 - fme-integrations-ide-connectors
-- ai
