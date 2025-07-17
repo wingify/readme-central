@@ -40,5 +40,7 @@ To facilitate a comprehensive understanding and effective implementation of the 
    Integrate the SDK with third-party tools and services to extend functionality and streamline workflows.
 10. [Cache Settings](doc:fme-javascript-cache-settings)\
     Enhance speed and reduce API usage with configurable(TTL) caching of settings.
+11. [Proxy URL / Prevent Ad-blockers](doc:fme-javascript-proxy-url)\
+    Avoid ad-blockers and ensure secure, efficient retrieval of flag configurations using a custom proxy endpoint.
 
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.
