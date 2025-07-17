@@ -2,7 +2,6 @@
 - fme-integrations-data-export
 - fme-analytics-integrations
 - ai
-- fme-mcp-server
 - fme-github-action
 - fme-integration-mixpanel
 - fme-integration-segment
