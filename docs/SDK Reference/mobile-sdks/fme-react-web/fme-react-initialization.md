@@ -33,9 +33,6 @@ const vwoConfig: IVWOOptions = {
 const userContext: IVWOContextModel = {
   id: 'unique_user_id', // Required: Unique identifier for the user
   customVariables: { age: 25, location: 'US' }, // Optional
-  userAgent:
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36', // Optional
-  ipAddress: '1.1.1.1', // Optional
 };
 
 // Optional: Provide a fallback UI component that will be displayed while VWOProvider initializes.
@@ -83,9 +80,7 @@ const vwoConfig: IVWOOptions = {
 
 const userContext: IVWOContextModel = {
   id: 'unique_user_id',
-  customVariables: { age: 25, location: 'US' },
-  userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
-  ipAddress: '1.1.1.1',
+  customVariables: { age: 25, location: 'US' }
 };
 
 const fallbackComponent = <div>Initializing VWO...</div>;
