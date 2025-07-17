@@ -1,5 +1,5 @@
 ---
-title: Proxy URL Support (COPY)
+title: Proxy URL Support
 deprecated: false
 hidden: false
 metadata:
@@ -70,13 +70,31 @@ flowchart TD
 ## Configuration Example
 
 ```javascript
-vwoClient = init({
-  accountId: "VWO_ACCOUNT_ID",
-  sdkKey: "VWO_SDK_KEY",
+import React from 'react';
+import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+
+const vwoConfig: IVWOOptions = {
+  sdkKey: '32-alpha-numeric-sdk-key', // Your VWO SDK Key
+  accountId: '123456', // Your VWO Account ID
 
   proxyUrl: "https://proxy.yourdomain.com",
-  // other configuration options
-});
+};
+
+const userContext: IVWOContextModel = {
+  id: 'unique_user_id', // Required: Unique identifier for the user
+};
+
+// Optional: Provide a fallback UI component that will be displayed while VWOProvider initializes.
+// This is useful for showing a loading state or placeholder content during SDK initialization.
+const fallbackComponent = <div>Initializing VWO...</div>;
+
+const App = () => (
+  <VWOProvider config={vwoConfig} userContext={ userContext } fallbackComponent={fallbackComponent}>
+    <YourComponent />
+  </VWOProvider>
+);
+
+export default App;
 ```
 
 > Ensure your proxy server is properly configured to forward requests to `dev.visualwebsiteoptimizer.com`, handle request/response headers appropriately, and support both GET and POST methods used by the SDK.
