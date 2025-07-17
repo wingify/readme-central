@@ -1,5 +1,6 @@
 - fme-integrations
 - fme-integrations-data-export
+- fme-analytics-integrations
 - fme-integrations-vwo-insights-mobile
 - fme-mcp-server
 - fme-github-action
@@ -8,4 +9,3 @@
 - mixpanel
 - fme-integration-firebase-analytics
 - fme-integrations-ide-connectors
-- fme-analytics-integrations
