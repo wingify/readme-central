@@ -1,5 +1,5 @@
 ---
-title: Proxy URL
+title: Proxy URL / Prevent Ad-blockers
 deprecated: false
 hidden: false
 metadata:
