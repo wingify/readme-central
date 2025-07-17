@@ -1,5 +1,5 @@
 ---
-title: IDE Connectors
+title: 'Developer Tools / IDE '
 deprecated: false
 hidden: false
 metadata:
