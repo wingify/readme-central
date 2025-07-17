@@ -1,5 +1,5 @@
 ---
-title: Proxy URL Support
+title: Proxy URL
 deprecated: false
 hidden: false
 metadata:
