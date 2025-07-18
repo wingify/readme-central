@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-Firebase Analytics is a free, comprehensive analytics solution that provides detailed insights into app usage and user engagement. It offers automatic event tracking, unlimited reporting, audience segmentation, and seamless integration with other Firebase services, making it a powerful tool for understanding your app's performance and user behavior.
+Firebase Analytics is a free, comprehensive analytics solution that provides detailed insights into app usage and user engagement. It offers automatic event tracking, reporting, audience segmentation, and seamless integration with other Firebase services, making it a powerful tool for understanding your app's performance and user behavior.
 
 Integrating FME with Firebase Analytics offers significant benefits. FME sends feature flag and event data to Firebase Analytics, allowing you to see which feature flag variations users are exposed to directly within your Firebase dashboard. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
 
