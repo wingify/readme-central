@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-VWO offers a native integration with Slack for Notifications.
+VWO offers a native integration with Slack for Notifications for FME.
 
 This integration enables VWO to send all important alerts and notifications about your VWO account directly to Slack. This includes notifications for any changes made to campaigns/rules as well as notifications when a winner is declared. VWO also sends notifications if there are any changes made in user roles/permissions.
 
