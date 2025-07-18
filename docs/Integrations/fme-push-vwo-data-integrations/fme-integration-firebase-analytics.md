@@ -11,15 +11,17 @@ Firebase Analytics is a free, comprehensive analytics solution that provides det
 
 Integrating FME with Firebase Analytics offers significant benefits. FME sends feature flag and event data to Firebase Analytics, allowing you to see which feature flag variations users are exposed to directly within your Firebase dashboard. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
 
+<br />
+
 ## Prerequisites
 
 ### Firebase Analytics Setup
 
-* Create a Firebase project at [https://console.firebase.google.com](https://console.firebase.google.com) if you don't already have one
+* Create a Firebase project at <Anchor label="console.firebase.google.com" target="_blank" href="https://console.firebase.google.com">console.firebase.google.com</Anchor> if you don't already have one
 * Add your iOS app to the Firebase project
 * Download the `GoogleService-Info.plist` configuration file
 * Add the configuration file to your Xcode project
-* Follow the detailed setup instructions mentioned at [Firebase iOS Setup Guide](https://firebase.google.com/docs/ios/setup)
+* Follow the detailed setup instructions mentioned at <Anchor label="Firebase iOS Setup Guide" target="_blank" href="https://firebase.google.com/docs/ios/setup">Firebase iOS Setup Guide</Anchor>
 
 ### VWO FME SDK Installation and Configuration
 
@@ -31,6 +33,8 @@ Integrating FME with Firebase Analytics offers significant benefits. FME sends f
 let FME_ACCOUNT_ID = "your_account_id" // Replace with your actual VWO account ID
 let FME_SDK_KEY = "your_sdk_key" // Replace with your actual VWO sdk key
 ```
+
+<br />
 
 ## Integration Steps
 
@@ -91,7 +95,9 @@ class FirebaseAnalyticsIntegration: IntegrationCallback {
 
 ### 3. Initialize Firebase Analytics and set up the `IntegrationCallback`:
 
-Initialize your `FirebaseAnalyticsIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FME SDK. `IntegrationCallback` is a mechanism that automatically forwards FME SDK events (like flag evaluations) to desired analytics platform for real-time tracking and analysis.
+Initialize your `FirebaseAnalyticsIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FME SDK. `IntegrationCallback` is a mechanism that automatically forwards FME SDK events (like flag evaluations) to the desired analytics platform for real-time tracking and analysis.
+
+<br />
 
 ```swift
 // Example Integration Callback Setup
@@ -148,20 +154,22 @@ This setup ensures that every time a feature flag is evaluated or an event is tr
 
 <Image align="center" src="https://files.readme.io/dcd4b3529ed8af388602433c2b7cbfa0d7984e8716070d4503e607efdca17737-dashboard_events.png" />
 
+<br />
+
 ## How to see the data in Firebase Analytics
 
 After integrating Firebase Analytics with your app, you can view the tracked data in the following ways:
 
 1. **Access Firebase Console:**
 
-   * Log in to [Firebase Console](https://console.firebase.google.com)
+   * Log in to <Anchor label="Firebase Console" target="_blank" href="https://console.firebase.google.com">Firebase Console</Anchor>
    * Select your project
-   * Navigate to Analytics section
+   * Navigate to the Analytics section
 
 2. **View Feature Flag Evaluations:**
 
    * Look for events named `vwo_fme_flag_evaluation`
-   * These events contain data about feature flag and User ID
+   * These events contain data about the feature flag and the User ID
 
 3. **Track Custom Events:**
 
@@ -175,8 +183,4 @@ After integrating Firebase Analytics with your app, you can view the tracked dat
    * Export data to BigQuery for advanced analysis
    * Set up automated insights and anomaly detection
 
-## GitHub Reference
-
-The complete source code for this example is available on [GitHub](https://github.com/wingify/vwo-fme-examples/tree/master/ios).
-
-This is an example of an implementation using the iOS SDK. While this demonstrates the approach, you can utilize any of the VWO FME SDKs for your project.
+> This is an example of an implementation using the iOS SDK. While this demonstrates the approach, you can utilize any of the VWO FME SDKs for your project.
