@@ -1,5 +1,5 @@
 ---
-title: React/Next.js(web)
+title: React(web)
 excerpt: ''
 deprecated: false
 hidden: false
