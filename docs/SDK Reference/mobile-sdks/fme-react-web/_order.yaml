@@ -7,7 +7,7 @@
 - fme-react-metrics
 - fme-react-attributes
 - fme-react-logging
-- fme-react-storage-service
+- fme-react-storage
 - fme-react-integrations
 - fme-react-proxy-url
 - fme-react-tests-using-mock
