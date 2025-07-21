@@ -111,7 +111,7 @@ We've chosen a simple yet practical application to demonstrate FME capabilities 
 
 You can explore the official example apps for the VWO FME product on GitHub, available for various programming languages and frameworks.
 
-<Cards columns={2}>
+<Cards columns={1}>
   <Card title="Browse GitHub Repo" href="https://github.com/wingify/vwo-fme-examples/" icon="fa-code-commit" target="_blank">
     FME Example Apps
   </Card>
