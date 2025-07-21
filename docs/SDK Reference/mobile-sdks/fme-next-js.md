@@ -212,11 +212,9 @@ Integrating VWO FME React with a Next.js app involves considerations for both se
 
 ## Reference Example App
 
-Wingify provides a full-featured example app with VWO SDK integrated into a Next.js app:
+VWO provides a full-featured example app with VWO FME React SDK integrated into a Next.js app. It includes flag usage, metrics, attributes, and best practices for SSR-safe rendering and environment setup.
 
-<Anchor label="VWO FME Next.js Example App" target="_blank" href="https://github.com/wingify/vwo-fme-examples/tree/master/nextjs">VWO FME Next.js Example App</Anchor>
-
-> Includes flag usage, metrics, attributes, and best practices for SSR-safe rendering and environment setup.
+> <Anchor label="VWO FME Next.js Example App" target="_blank" href="https://github.com/wingify/vwo-fme-examples/tree/master/nextjs">VWO FME Next.js Example App</Anchor>
 
 <br />
 
