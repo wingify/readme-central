@@ -202,7 +202,7 @@ The VWO React SDK handles logging, storage, and integrations through built-in me
 
 Integrating VWO FME React with a Next.js app involves considerations for both server-rendered and client-side experiences. Here are some key best practices to follow:
 
-* \*\*Use Dynamic Imports for Client-Only Hooks\*\*: VWO React hooks like useFeatureVariable, useVariation, etc., are designed to run in the browser. To avoid hydration mismatches, wrap VWO-dependent components using dynamic(() => import('...'), \{ ssr: false }).
+* **Use Dynamic Imports for Client-Only Hooks**: VWO React hooks like useFeatureVariable, useVariation, etc., are designed to run in the browser. To avoid hydration mismatches, wrap VWO-dependent components using dynamic(() => import('...'), \{ ssr: false }).
 * **Initialize SDK Early**: Place the VWO SDK initialization inside a custom \_app.tsx or via a context provider, and ensure it's ready before rendering any components that depend on it.
 * **Hydration-Safe Feature Checks**: Wrap hooks in useEffect or use conditional rendering to ensure feature flag data doesn’t mismatch between server and client during hydration.
 * \*\*Custom AppContext \*\*(if needed): For advanced use cases, you can extend Next.js’s AppContext to pass session or user data that may be required by VWO for variation targeting.
@@ -215,6 +215,8 @@ Integrating VWO FME React with a Next.js app involves considerations for both se
 Wingify provides a full-featured example app with VWO SDK integrated into a Next.js app:
 
 <Anchor label="VWO FME Next.js Example App" target="_blank" href="https://github.com/wingify/vwo-fme-examples/tree/master/nextjs">VWO FME Next.js Example App</Anchor>
+
+<br />
 
 > Includes flag usage, metrics, attributes, and best practices for SSR-safe rendering and environment setup.
 
