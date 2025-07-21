@@ -53,7 +53,7 @@ import { useSetAttribute } from 'vwo-fme-react-sdk';
 function YourComponent() {
   const { setAttribute, isReady } = useSetAttribute();
 
-  return <button onClick={() => setAttribute({ age: 25, location: 'US' })}>Click Me</button>;
+  return <button onClick={() => setAttribute({ planId: 2, plan: 'premium' })}>Click Me</button>;
 }
 ```
 
