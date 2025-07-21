@@ -77,7 +77,7 @@ You can provide a user ID and custom targeting variables. You can also update th
 function MyApp({ Component, pageProps }: AppProps) {
   const user = {
     id: 'user-123',
-    customVariables: { plan: 'premium', region: 'EU' },
+    customVariables: { plan: 'premium', planId: 3 },
   };
 
   return (
@@ -156,7 +156,7 @@ import { useSetAttribute } from 'vwo-fme-react-sdk';
 function YourComponent() {
   const { setAttribute, isReady } = useSetAttribute();
 
-  return <button onClick={() => setAttribute({ age: 25, location: 'US' })}>Click Me</button>;
+  return <button onClick={() => setAttribute({ planId: 2, plan: 'premium' })}>Click Me</button>;
 }
 ```
 
