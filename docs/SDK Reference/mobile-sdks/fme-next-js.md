@@ -200,6 +200,14 @@ The VWO React SDK handles logging, storage, and integrations through built-in me
 | User ID Persistence   | Ensure consistent user ID across sessions.                              |
 | Initial Flash         | Use `fallbackComponent` in `VWOProvider` to handle flag loading states. |
 
+Integrating VWO FME React with a Next.js app involves considerations for both server-rendered and client-side experiences. Here are some key best practices to follow:
+
+* \*\*Use Dynamic Imports for Client-Only Hooks\*\*: VWO React hooks like useFeatureVariable, useVariation, etc., are designed to run in the browser. To avoid hydration mismatches, wrap VWO-dependent components using dynamic(() => import('...'), \{ ssr: false }).
+* **Initialize SDK Early**: Place the VWO SDK initialization inside a custom \_app.tsx or via a context provider, and ensure it's ready before rendering any components that depend on it.
+* **Hydration-Safe Feature Checks**: Wrap hooks in useEffect or use conditional rendering to ensure feature flag data doesn’t mismatch between server and client during hydration.
+* \*\*Custom AppContext \*\*(if needed): For advanced use cases, you can extend Next.js’s AppContext to pass session or user data that may be required by VWO for variation targeting.
+* **Avoid SSR for Variation-Dependent UI**: Since variations are determined on the client side (based on user context and segmentation), rendering variation-specific UI on the server can cause mismatches. Always defer variation logic to the client.
+
 <br />
 
 ## Reference Example App
