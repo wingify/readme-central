@@ -1,5 +1,5 @@
 ---
-title: Next.js(client-side)
+title: Next.js(web)
 deprecated: false
 hidden: false
 metadata:
