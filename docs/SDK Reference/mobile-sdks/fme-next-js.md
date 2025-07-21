@@ -166,6 +166,14 @@ These attributes are used in flag conditions or audience targeting rules in the 
 
 <br />
 
+## Other Hooks
+
+In addition to the primary hooks provided by the VWO SDK, there are several other useful React hooks designed to support different feature management and experimentation use cases. These include utilities for tracking goals, managing feature variables, and responding to variation changes dynamically. Each hook is optimized for seamless integration with React components and lifecycle methods.
+
+> For a complete list and usage details, visit the official [VWO React Hooks](https://developers.vwo.com/v2/docs/fme-react-hooks#/) documentation.
+
+<br />
+
 ## Logging, Storage, and Integrations
 
 The VWO React SDK handles logging, storage, and integrations through built-in mechanisms configurable via SDK options.
