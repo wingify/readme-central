@@ -105,7 +105,13 @@ We've chosen a simple yet practical application to demonstrate FME capabilities 
 
   This example app demonstrates how VWO FullStack Feature Management & Experimentation (FME) can be integrated into Capacitor-based projects. It showcases the use of the VWO JavaScript SDK to implement feature flags and A/B testing seamlessly within a hybrid mobile app environment.
 
-<Cards columns={4}>
+<br />
+
+## Sample Code
+
+You can explore the official example apps for the VWO FME product on GitHub, available for various programming languages and frameworks.
+
+<Cards columns={2}>
   <Card title="Browse GitHub Repo" href="https://github.com/wingify/vwo-fme-examples/" icon="fa-code-commit" target="_blank">
     FME Example Apps
   </Card>
