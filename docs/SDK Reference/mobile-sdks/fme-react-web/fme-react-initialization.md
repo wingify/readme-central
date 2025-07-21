@@ -32,7 +32,7 @@ const vwoConfig: IVWOOptions = {
 
 const userContext: IVWOContextModel = {
   id: 'unique_user_id', // Required: Unique identifier for the user
-  customVariables: { age: 25, location: 'US' }, // Optional
+  customVariables: { planId: 2, plan: 'premium' }, // Optional
 };
 
 // Optional: Provide a fallback UI component that will be displayed while VWOProvider initializes.
@@ -80,7 +80,7 @@ const vwoConfig: IVWOOptions = {
 
 const userContext: IVWOContextModel = {
   id: 'unique_user_id',
-  customVariables: { age: 25, location: 'US' }
+  customVariables: { planId: 2, plan: 'premium' }
 };
 
 const fallbackComponent = <div>Initializing VWO...</div>;
