@@ -3,7 +3,7 @@
 - fme-react-context
 - fme-react-hooks
 - user-context-copy-1
-- fme-react-feature-flags-variables
+- fme-react-flags
 - fme-react-metrics-tracking
 - fme-react-attributes
 - fme-react-logging
