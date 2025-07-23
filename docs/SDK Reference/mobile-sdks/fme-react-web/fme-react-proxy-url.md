@@ -69,7 +69,7 @@ flowchart TD
 
 ## Configuration Example
 
-```javascript
+```javascript TypeScript
 import React from 'react';
 import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
 
