@@ -11,8 +11,8 @@ These enhanced options allow developers to fine-tune storage behavior by specify
 
 ## Key Features:
 
-1. **Custom ttl (Time To Live) Option**
-   * The ttl setting allows to specify how long the settings should remain valid in the storage. If not specified, the default TTL is set to 2 hours. This helps in controlling the frequency with which settings are refreshed from the server.\
+1. **Custom TTL (Time To Live) Option**
+   * The TTL setting allows specifying how long the settings should remain valid in the storage. If not specified, the default TTL is set to 2 hours. This helps in controlling the frequency with which settings are refreshed from the server.\
      Note - The TTL value is specified in milliseconds.
    * This is especially useful when you want to limit the frequency of network requests and instead rely on cached settings for performance.
 2. **`alwaysUseCachedSettings`Option**
