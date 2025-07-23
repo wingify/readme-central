@@ -1,5 +1,5 @@
 ---
-title: Cache Settings (COPY)
+title: Cache Settings
 deprecated: false
 hidden: false
 metadata:
@@ -11,8 +11,8 @@ These enhanced options allow developers to fine-tune storage behavior by specify
 
 ## Key Features:
 
-1. **Custom ttl (Time To Live) Option**
-   * The ttl setting allows to specify how long the settings should remain valid in the storage. If not specified, the default TTL is set to 2 hours. This helps in controlling the frequency with which settings are refreshed from the server.\
+1. **Custom TTL (Time To Live) Option**
+   * The TTL setting allows specifying how long the settings should remain valid in the storage. If not specified, the default TTL is set to 2 hours. This helps in controlling the frequency with which settings are refreshed from the server.\
      Note - The TTL value is specified in milliseconds.
    * This is especially useful when you want to limit the frequency of network requests and instead rely on cached settings for performance.
 2. **`alwaysUseCachedSettings`Option**
@@ -101,21 +101,30 @@ These enhanced options allow developers to fine-tune storage behavior by specify
 
 ## Usage
 
-```javascript
-const vwoClient = await init({
+```javascript TypeScript
+const vwoConfig = {
   accountId: '123456',
   sdkKey: '32-alpha-numeric-sdk-key',
+  
   clientStorage: {
     // Custom key used to store SDK data, default is 'vwo_fme_data'
     key: 'vwo_data',
-    
+
     // Use cached settings regardless of TTL, defaults to false
     alwaysUseCachedSettings: true,
-    
+
     // Custom TTL value in milliseconds (1 hour), defaults to 2 hours
     ttl: 3600000
-  },
-});
+  }
+};
+
+const App = () => (
+  <VWOProvider config={vwoConfig} userContext={ userContext } fallbackComponent={fallbackComponent}>
+    <YourComponent />
+  </VWOProvider>
+);
+
+export default App;
 
 ```
 
@@ -123,7 +132,7 @@ const vwoClient = await init({
 
 ## Flow
 
-The diagram outlines how the **VWO FME JavaScript SDK** manages settings using configurable caching options:
+The diagram outlines how the **VWO FME React SDK** manages settings using configurable caching options:
 
 ```mermaid
 flowchart TD
