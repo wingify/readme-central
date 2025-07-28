@@ -39,14 +39,6 @@ When this API is executed:
 * VWO stores this attribute information and uses it to influence feature flag decisions, experiment variations, and targeting rules.
 * This data is then factored into real-time decision-making, allowing VWO to determine which features, content, or experiments are relevant to the user.
 
-### Why It’s Valuable:
-
-* *Audience Segmentation*: Create dynamic user segments based on attributes like location, membership status, or behavior.
-* *Personalized Experiences*: Tailor content and features to individual user preferences, enhancing user engagement.
-* *Targeted Feature Rollouts*: Roll out new features gradually to specific user groups, minimizing risk.
-* *Advanced Experimentation*: Analyze A/B test results across different user segments for deeper insights.
-* *Behavioral Targeting*: Trigger specific experiences based on real-time changes in user attributes.
-
 > 📘 Important Note
 >
 > The attributes set using the ***setAttribute*** API differ from the **User Context attributes**

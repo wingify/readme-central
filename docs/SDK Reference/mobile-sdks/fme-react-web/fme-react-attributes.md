@@ -29,11 +29,6 @@ This hook allows you to assign attributes' key-value pairs to a user. By doing s
 
 When this hook is executed, the application assigns the specified attribute (attribute\_key and attribute\_value) to the user defined in the userContext.
 
-### Why It’s Valuable:
-
-* *Audience Segmentation*: Create dynamic user segments based on attributes like location, membership status, or behavior.
-* *Advanced Experimentation*: Analyze A/B test results across different user segments for deeper insights.
-
 > 📘 Important Note
 >
 > The attributes set using the ***setAttribute*** API differ from the **User Context attributes**

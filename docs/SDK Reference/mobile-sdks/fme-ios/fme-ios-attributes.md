@@ -14,7 +14,7 @@ User attributes are specific characteristics or properties assigned to users tha
 
 For any additional parameters or information about the current user, you can use attributes to pass that data to VWO.
 
-These attributes would typically be any additional user info that you'd like to use in VWO for post-segmentation (filtering, slicing and dicing of reports). 
+These attributes would typically be any additional user info that you'd like to use in VWO for post-segmentation (filtering, slicing and dicing of reports).
 
 For example, you might want to analyze the performance of a test based on the user type to see which user type converted better or worse than the other. For this, you can pass on the "user type" as an attribute to VWO, with the relevant values for each user, ie "free", "paid" or whatever internal parameters you'd like to use for post-segmentation.
 
@@ -35,14 +35,6 @@ When this API is executed:
 * VWO stores this attribute information and uses it to influence feature flag decisions, experiment variations, and targeting rules.
 * This data is then factored into real-time decision-making, allowing VWO to determine which features, content, or experiments are relevant to the user.
 
-### Why It’s Valuable:
-
-* *Audience Segmentation*: Create dynamic user segments based on attributes like location, membership status, or behavior.
-* *Personalized Experiences*: Tailor content and features to individual user preferences, enhancing user engagement.
-* *Targeted Feature Rollouts*: Roll out new features gradually to specific user groups, minimizing risk.
-* *Advanced Experimentation*: Analyze A/B test results across different user segments for deeper insights.
-* *Behavioral Targeting*: Trigger specific experiences based on real-time changes in user attributes.
-
 > 📘 Important Note
 >
 > The attributes set using the ***setAttribute*** API differ from the **User Context attributes**
@@ -59,7 +51,7 @@ When this API is executed:
 ```swift
 // Set a custom user attribute in VWO for the specified user context.
 // 'attribute_key' is the name of the attribute (e.g., 'subscription_status').
-// 'attribute_value' is the value to assign to the attribute (e.g., 'premium').  
+// 'attribute_value' is the value to assign to the attribute (e.g., 'premium').
 let attributeMap: [String : Any] = ["subscription_status": "premium"]
 
 VWOFme.setAttribute(
