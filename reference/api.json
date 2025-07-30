@@ -7941,18 +7941,6 @@
         }
       }
     },
-    "/new-endpoint": {
-      "get": {
-        "description": "",
-        "operationId": "get_new-endpoint",
-        "responses": {
-          "200": {
-            "description": ""
-          }
-        },
-        "parameters": []
-      }
-    },
     "/accounts/{account_id}/attribute-list/{id}": {
       "patch": {
         "description": "",
@@ -8032,6 +8020,35 @@
               "type": "string",
               "default": "text/plain"
             }
+          }
+        ]
+      }
+    },
+    "//accounts/{account_id}/attribute-list/{id}": {
+      "get": {
+        "description": "",
+        "operationId": "get_new-endpoint",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
           }
         ]
       }
