@@ -7937,17 +7937,7 @@
               "default": "application/json"
             }
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {},
-                "type": "object"
-              }
-            }
-          }
-        }
+        ]
       }
     }
   },
