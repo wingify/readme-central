@@ -7845,21 +7845,63 @@
         },
         "parameters": [
           {
-            "in": "path",
             "name": "account_id",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
-          },
-          {
-            "name": "data",
-            "in": "header",
-            "required": false,
-            "description": "",
+            "in": "path",
+            "required": true,
+            "description": "Your VWO account ID",
             "schema": {
               "type": "string",
               "default": ""
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": true,
+            "description": "Your API token (see auth guide)",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "description": "Name of the list attribute",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "description": "Short description for the attribute",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Content type must be text/plain",
+            "schema": {
+              "type": "string",
+              "default": "text/plain"
+            }
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "required": true,
+            "description": "API response type",
+            "schema": {
+              "type": "string",
+              "default": "application/json"
             }
           }
         ]
