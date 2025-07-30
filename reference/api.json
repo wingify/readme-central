@@ -7840,7 +7840,40 @@
         "operationId": "post_accounts{account_id}attribute-list",
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "New Example": {
+                    "summary": "New Example",
+                    "value": ""
+                  },
+                  "New Example 1": {
+                    "summary": "New Example 1",
+                    "value": {
+                      "_data": {
+                        "id": 880,
+                        "name": "Sample Attributes List",
+                        "fileName": 1705490596,
+                        "description": "This is a sample attributes list",
+                        "filePath": "65a7b8a4cf3ff",
+                        "createdBy": "test12",
+                        "createdOn": 1705490596,
+                        "updatedOn": 1705490596,
+                        "source": "Api",
+                        "entityId": null,
+                        "status": "Synced",
+                        "accountInfo": {
+                          "id": 8000398,
+                          "name": "testdemo",
+                          "isMainAccount": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "parameters": [
@@ -7904,22 +7937,7 @@
               "default": "application/json"
             }
           }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "data": {
-                    "type": "string",
-                    "default": "value1 \\n value2"
-                  }
-                },
-                "type": "object"
-              }
-            }
-          }
-        }
+        ]
       }
     }
   },
