@@ -7942,7 +7942,7 @@
       }
     },
     "/accounts/{account_id}/attribute-list/{id}": {
-      "patch": {
+      "post": {
         "description": "",
         "operationId": "get_new-endpoint",
         "responses": {
