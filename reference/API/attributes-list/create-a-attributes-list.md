@@ -20,6 +20,23 @@ These list attributes can later be used for audience targeting in VWO campaigns.
 * Max attribute name length: **25 characters**
 * Max attribute description length: **50 characters**
 
-### Important Note
+> 📘 **Note:**
+>
+> * The request body must contain **one value per line**, with a maximum body size of **15 MB**.
+> * Updates via this API are processed immediately on the backend. However, list-based matching in campaigns is refreshed **once daily** at the time the list was originally created.\
+>   *For example: If a list was created at 3 PM, any new values added later will only be matched starting 3 PM the next day.*
+>
+> ⚠️ **Do not include Personally Identifiable Information (PII)** such as email addresses, phone numbers, or full names in the list.
+>
+> Instead, use a hashed value or an anonymized identifier that:
+>
+> * Can be accessed from the browser (e.g., via cookies or local storage) for **client-side targeting**
+> * Is available in your server logic (e.g., user ID or hashed email) for **server-side targeting**
+>
+> Using a consistent, non-PII identifier ensures safe and reliable matching across client and backend integrations.
 
-When you push data via the API, it will be updated on our side. However, the list used to match records is refreshed daily, and the updated data will become available at the same time the list was originally created. For example, if your list was created at 3 PM, any data added later will only be available for matching after 3 PM the following day.
+```Text Request Body
+user_1
+user_2
+user_3
+```
