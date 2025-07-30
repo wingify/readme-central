@@ -7848,8 +7848,8 @@
                     "summary": "New Example",
                     "value": ""
                   },
-                  "New Example 1": {
-                    "summary": "New Example 1",
+                  "response": {
+                    "summary": "response",
                     "value": {
                       "_data": {
                         "id": 880,
@@ -7937,7 +7937,17 @@
               "default": "application/json"
             }
           }
-        ]
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {},
+                "type": "object"
+              }
+            }
+          }
+        }
       }
     }
   },
