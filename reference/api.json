@@ -7947,6 +7947,18 @@
               }
             }
           }
+        },
+        "x-readme": {
+          "code-samples": [
+            {
+              "code": "curl --location 'https://app.vwo.com/api/v2/accounts/{account_id}/attribute-list?name=myList&description=testList' \\\n--header 'accept: application/json' \\\n--header 'token: {authenticationToken}' \\\n--header 'Content-Type: text/plain' \\\n--data 'user_1\nuser_2\nuser_3'",
+              "language": "shell",
+              "name": ""
+            }
+          ],
+          "samples-languages": [
+            "shell"
+          ]
         }
       }
     }
