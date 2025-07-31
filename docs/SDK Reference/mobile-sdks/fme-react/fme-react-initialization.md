@@ -138,18 +138,11 @@ const App = () => (
 export default App;
 ```
 
-## Using `vwo-fme-node-sdk` Directly in React (Without `VWOProvider`)
+## Using `vwo-fme-react-sdk` Directly in React (Without `VWOProvider`)
 
-If you prefer not to use the `VWOProvider` in your React project and instead want to directly initialize and use the `vwo-fme-node-sdk` methods, you can follow the steps below:
+If you prefer not to use the `VWOProvider` in your React project and instead want to directly initialize and use the `vwo-fme-react-sdk` methods, you can implement the code using the example below:
 
-1. **Install the SDK**\
-   Ensure you have the `vwo-fme-node-sdk` installed in your project:
-   ```shell
-   npm install vwo-fme-node-sdk
-   ```
-2. **Direct SDK Initialization in React**\
-   You can directly initialize the VWO SDK inside your React components or custom hooks. Below is an example of how you can do this:
-   ```javascript
+1. ```javascript
    import React, { useEffect, useState } from 'react';
    import { init } from 'vwo-fme-node-sdk';
 
