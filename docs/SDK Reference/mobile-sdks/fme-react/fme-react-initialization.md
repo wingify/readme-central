@@ -151,10 +151,10 @@ If you prefer not to use the `VWOProvider` in your React project and instead wan
    You can directly initialize the VWO SDK inside your React components or custom hooks. Below is an example of how you can do this:
    ```javascript
    import React, { useEffect, useState } from 'react';
-   const { init } = require('vwo-fme-node-sdk');
+   import { init } from 'vwo-fme-node-sdk';
 
    const MyComponent = () => {
-     const [featureStatus, setFeatureStatus] = useState(null);
+     const [isFeatureEnabled, setIsFeatureEnabled] = useState<Boolean>(false);
 
      useEffect(() => {
        // Initialize the VWO client using vwo-fme-node-sdk
@@ -171,13 +171,13 @@ If you prefer not to use the `VWOProvider` in your React project and instead wan
          const feature = await vwoClient.getFlag('feature_key', userContext);
 
          if (feature.isEnabled()) {
-           setFeatureStatus('Feature is enabled!');
+           setIsFeatureEnabled(true);
            
            // You can also fetch the feature variables
            const value = feature.getVariable('feature_variable', 'default_value');
            console.log('Feature variable:', value);
          } else {
-           setFeatureStatus('Feature is not enabled.');
+           setIsFeatureEnabled(false).
          }
 
          // Track custom events
@@ -189,7 +189,7 @@ If you prefer not to use the `VWOProvider` in your React project and instead wan
 
      return (
        <div>
-         <h1>Feature Status: {featureStatus}</h1>
+         <h1>Feature Status: {isFeatureEnabled ? 'Enabled' : 'Disabled'}</h1>
        </div>
      );
    };
