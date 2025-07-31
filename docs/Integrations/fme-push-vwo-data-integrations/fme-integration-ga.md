@@ -1,0 +1,151 @@
+---
+title: Google Analytics
+deprecated: false
+hidden: false
+metadata:
+  robots: index
+---
+## Overview
+
+The VWO Feature Management and Experimentation (FME) SDK is a powerful tool that enables dynamic feature flag management and experimentation in your Node applications. It allows developers to:
+
+* Implement user ID-based feature flag evaluation
+* Track user interactions and events
+* Manage user attributes for targeted experiences
+
+<br />
+
+## Benefits of using the Integration
+
+* While feature flags provide the ability to control features dynamically, analytics integration adds the crucial layer of measurement and insight.
+* **Data-Driven Decisions**: Move beyond simple feature toggling to making decisions based on actual user behavior and engagement metrics.
+* **Complete Feedback Loop**: Create a closed loop between feature deployment and performance measurement, enabling continuous improvement.
+* **Unified Data View**: Consolidate feature flag data with other analytics in a single platform, providing a holistic view of your application's performance.
+* **Real-Time Monitoring**: Track the immediate impact of feature flag changes on user behavior and application performance.
+
+<br />
+
+## Prerequisites
+
+### VWO FME SDK Installation and Configuration
+
+* Ensure you have the VWO Feature Management and Experimentation product enabled for your VWO account.
+* The VWO FME SDK should be properly installed in your Node.js project.
+* Set your VWO account ID and SDK key in your application's constants in `.env` file:
+  ```
+  VWO_ACCOUNT_ID=vwo_account_id
+  VWO_SDK_KEY=vwo_sdk_key
+  VWO_FLAG_KEY=flag_key
+  VWO_FLAG_VARIABLE_1_KEY=flag_variable1
+  VWO_FLAG_VARIABLE_2_KEY=flag_variable2
+  VWO_EVENT_NAME=event_name
+  VWO_LOG_LEVEL= DEBUG # DEBUG, INFO, WARN, ERROR
+  ```
+
+### GA4 Account Setup
+
+* Create a GA4 account at analytics.google.com if you don't already have one
+* Create a new project in your GA4 dashboard
+* Obtain your GA4 ***api\_secret*** and ***measurement\_id*** from the project settings,
+  * *api\_secret* can be ound under `Admin > Data Streams > Choose your stream > Measurement Protocol > Create` .
+  * *Measurement\_id* can be found under `Admin > Data Streams > Choose your stream > Measurement ID`.
+* Configure ***api\_secret*** and ***measurement\_id*** in the following curl.
+  ```curl
+  curl --location 'https://www.google-analytics.com/mp/collect?api_secret=apiSecret&measurement_id=measurementId' \
+  --header 'Content-Type: application/json' \
+  --data '{
+      "client_id": "REPLACE_WITH_ACTUAL_CLIENT_ID",
+      "events": [
+          {
+              "name": "jsonEvent",
+              "params": {
+                  "campaign_id": "properties.campaignId",
+                  "variation_id": "properties.variationId",
+                  "campaign_name": "properties.campaignName",
+                  "variation_name": "properties.variationName"
+              }
+          }
+      ]
+  }'
+
+  ```
+
+<Callout icon="📘" theme="info">
+  Refer to this google [doc](\[https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference]\(https://developers.google.com/analytics/devguides/collection/protocol/ga4/reference\)) to get more information.
+</Callout>
+
+### Required Dependencies
+
+Add the following dependencies to your app:
+
+```shell
+# via npm
+npm install vwo-fme-node-sdk --save
+
+# via yarn
+yarn add vwo-fme-node-sdk
+```
+
+<br />
+
+## Integration Steps
+
+Integrating the VWO FME SDK with analytics platforms like GA4 allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FME SDK.
+
+* Clone the VWO FME Examples from [GitHub](https://github.com/wingify/vwo-fme-examples)
+  ```shell
+  git clone https://github.com/wingify/vwo-fme-examples.git
+  ```
+* Change directory to `node`
+  ```
+  cd vwo-fme-examples/node
+  ```
+* Open the project in an IDE and open the file `vwoHelper.ts` . It's located inside`src > utils`
+* Inside the `vwoHelper.ts` file, you will find the `initVwoClient` method. Within this method, there is a constant named `sdkConfig`. Within sdkConfig, there is an integration object that requires the GA4 API to be invoked through the integration callback to send events to GA4.
+
+<Image align="center" className="border" border={true} width="800px" src="https://files.readme.io/d5f79b66eb0120ccd613fc3833e61d4362d998510d0a70b58efa42b4acd78634-vwo_fme_integrations_ga.png" />
+
+### Integration Data
+
+The `IntegrationCallback` receives a `properties: Record<string, unknown>` containing details about the VWO SDK action:
+
+* For flag evaluations (i.e.  `getFlag`):
+  ```json
+  {
+    featureName: "flag_name",
+    featureId: 5,
+    featureKey: "flag_key",
+    userId: "user_id",
+    ...
+  }
+  ```
+* For event tracking (`trackEvent`):
+  ```json
+  {
+    eventName: "yourEventName",
+    api: "track"
+  }
+  ```
+
+<br />
+
+## How to see the data in the analytics tool
+
+To see real-time events flowing into your Google Analytics 4 (GA4) property, follow these steps:
+
+* **Log in to Google Analytics**:\
+  Go to the [Google Analytics website](https://analytics.google.com/)  and log in with your Google account that has access to the GA4 property.
+* **Select Your GA4 Property**:\
+  Once logged in, ensure you have selected the correct GA4 property from the dropdown menu at the top left of the interface (usually next to the Analytics logo). It will typically show the property name and ID.
+* **Navigate to Realtime Report**:
+  * In the left-hand navigation menu, look for the `Reports` section.
+  * Under `Reports`, click on `Realtime`.
+* Observe Realtime Data:
+  * The Realtime report will load, displaying activity on your website or app as it happens.
+  * You'll see various cards showing:
+    * **Users in last 30 minutes**: A large number indicating current active users.
+    * **Users by Source, Medium, or Campaign**: Where your current users are coming from.
+    * **Users by Audience**: Which user segments are active.
+    * **Views by Page title and Screen name**: Which pages or screens are being viewed.
+    * **Event Count by Event Name**: This is the most crucial section for viewing real-time events. It lists all events that have been triggered in the last 30 minutes, along with their count.
+    * **Conversions by Event name**: Any events marked as conversions will appear here.
