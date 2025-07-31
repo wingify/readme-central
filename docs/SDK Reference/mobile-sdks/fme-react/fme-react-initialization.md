@@ -196,6 +196,7 @@ If you prefer not to use the `VWOProvider` in your React project and instead wan
 
    export default MyComponent;
    ```
+   For more information on these methods, refer to this <Anchor label="document" target="_blank" href="https://developers.vwo.com/v2/docs/fme-javascript-initialization#/">document</Anchor>.
 
 ## VWO Provider Config Parameter Definitions
 
