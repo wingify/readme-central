@@ -16,6 +16,8 @@ The `VWOProvider` is a React context provider that initializes the VWO Feature M
 
 It is essential for enabling feature flag evaluation, A/B testing, and user tracking using hooks like `useVWOClient` or `useGetFlag`.
 
+<br />
+
 ## Usage
 
 ```typescript
@@ -48,6 +50,8 @@ const App = () => (
 export default App;
 ```
 
+<br />
+
 ## Parameter Types (`IVWOProvider`)
 
 | Type               | Prop                  | Required | Description                                                                                |
@@ -61,6 +65,8 @@ export default App;
 > 📘 Note
 >
 > ⚠️ Either `client` or `config` must be provided. If both are provided, client takes precedence and a warning is logged.
+
+<br />
 
 ## Usage (Using Pre-initialized VWO Client)
 
@@ -109,6 +115,8 @@ const App = () => {
 export default App;
 ```
 
+<br />
+
 ## Basic Implementation without User Context
 
 If you don't have user details available while initialising the `VWOProvide`r, you can pass it later in the `useGetFlag` hook.
@@ -138,58 +146,61 @@ const App = () => (
 export default App;
 ```
 
-## Using `vwo-fme-react-sdk` Directly in React (Without `VWOProvider`)
+<br />
 
-If you prefer not to use the `VWOProvider` in your React project and instead want to directly initialize and use the `vwo-fme-react-sdk` methods, you can implement the code using the example below:
+## Using React SDK using`VWOProvider`
 
-1. ```javascript
-   import React, { useEffect, useState } from 'react';
-   import { init } from 'vwo-fme-react-sdk';
+If you would rather avoid using the `VWOProvider` component in your React application, you still have the option to work directly with the methods provided by the VWO FME React SDK. This approach gives you more control over the SDK’s initialization and usage, as you can manually handle its setup and function calls within your components or hooks. You can achieve this by implementing the SDK as shown in the following example:
 
-   const MyComponent = () => {
-     const [isFeatureEnabled, setIsFeatureEnabled] = useState<Boolean>(false);
+```javascript JavaScript
+import React, { useEffect, useState } from 'react';
+import { init } from 'vwo-fme-react-sdk';
 
-     useEffect(() => {
-       // Initialize the VWO client using vwo-fme-node-sdk
-       const initializeVWO = async () => {
-         const vwoClient = await init({
-           accountId: '123456', // Replace with your actual account ID
-           sdkKey: '32-alpha-numeric-sdk-key', // Replace with your actual SDK key
-         });
+const MyComponent = () => {
+  const [isFeatureEnabled, setIsFeatureEnabled] = useState<Boolean>(false);
 
-         // Set up user context
-         const userContext = { id: 'unique_user_id' };
+  useEffect(() => {
+    // Initialize the VWO client using vwo-fme-node-sdk
+    const initializeVWO = async () => {
+      const vwoClient = await init({
+        accountId: '123456', // Replace with your actual account ID
+        sdkKey: '32-alpha-numeric-sdk-key', // Replace with your actual SDK key
+      });
 
-         // Check if a feature is enabled for the user
-         const feature = await vwoClient.getFlag('feature_key', userContext);
+      // Set up user context
+      const userContext = { id: 'unique_user_id' };
 
-         if (feature.isEnabled()) {
-           setIsFeatureEnabled(true);
-           
-           // You can also fetch the feature variables
-           const value = feature.getVariable('feature_variable', 'default_value');
-           console.log('Feature variable:', value);
-         } else {
-           setIsFeatureEnabled(false).
-         }
+      // Check if a feature is enabled for the user
+      const feature = await vwoClient.getFlag('feature_key', userContext);
 
-         // Track custom events
-         vwoClient.trackEvent('custom_event_name', userContext);
-       };
+      if (feature.isEnabled()) {
+        setIsFeatureEnabled(true);
+        
+        // You can also fetch the feature variables
+        const value = feature.getVariable('feature_variable', 'default_value');
+        console.log('Feature variable:', value);
+      } else {
+        setIsFeatureEnabled(false).
+      }
 
-       initializeVWO();
-     }, []);
+      // Track custom events
+      vwoClient.trackEvent('custom_event_name', userContext);
+    };
 
-     return (
-       <div>
-         <h1>Feature Status: {isFeatureEnabled ? 'Enabled' : 'Disabled'}</h1>
-       </div>
-     );
-   };
+    initializeVWO();
+  }, []);
 
-   export default MyComponent;
-   ```
-   For more information on these methods, refer to this <Anchor label="document" target="_blank" href="https://developers.vwo.com/v2/docs/fme-javascript-initialization#/">document</Anchor>.
+  return (
+    <div>
+      <h1>Feature Status: {isFeatureEnabled ? 'Enabled' : 'Disabled'}</h1>
+    </div>
+  );
+};
+
+export default MyComponent;
+```
+
+<br />
 
 ## VWO Provider Config Parameter Definitions
 
