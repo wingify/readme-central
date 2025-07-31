@@ -138,6 +138,65 @@ const App = () => (
 export default App;
 ```
 
+## Using `vwo-fme-node-sdk` Directly in React (Without `VWOProvider`)
+
+If you prefer not to use the `VWOProvider` in your React project and instead want to directly initialize and use the `vwo-fme-node-sdk` methods, you can follow the steps below:
+
+1. **Install the SDK**\
+   Ensure you have the `vwo-fme-node-sdk` installed in your project:
+   ```shell
+   npm install vwo-fme-node-sdk
+   ```
+2. **Direct SDK Initialization in React**\
+   You can directly initialize the VWO SDK inside your React components or custom hooks. Below is an example of how you can do this:
+   ```javascript
+   import React, { useEffect, useState } from 'react';
+   const { init } = require('vwo-fme-node-sdk');
+
+   const MyComponent = () => {
+     const [featureStatus, setFeatureStatus] = useState(null);
+
+     useEffect(() => {
+       // Initialize the VWO client using vwo-fme-node-sdk
+       const initializeVWO = async () => {
+         const vwoClient = await init({
+           accountId: '123456', // Replace with your actual account ID
+           sdkKey: '32-alpha-numeric-sdk-key', // Replace with your actual SDK key
+         });
+
+         // Set up user context
+         const userContext = { id: 'unique_user_id' };
+
+         // Check if a feature is enabled for the user
+         const feature = await vwoClient.getFlag('feature_key', userContext);
+
+         if (feature.isEnabled()) {
+           setFeatureStatus('Feature is enabled!');
+           
+           // You can also fetch the feature variables
+           const value = feature.getVariable('feature_variable', 'default_value');
+           console.log('Feature variable:', value);
+         } else {
+           setFeatureStatus('Feature is not enabled.');
+         }
+
+         // Track custom events
+         vwoClient.trackEvent('custom_event_name', userContext);
+       };
+
+       initializeVWO();
+     }, []);
+
+     return (
+       <div>
+         <h1>Feature Status: {featureStatus}</h1>
+       </div>
+     );
+   };
+
+   export default MyComponent;
+   ```
+
 ## VWO Provider Config Parameter Definitions
 
 To customize the SDK further, additional parameters can be passed to the `VWOProvider` component using `config` parameter. Here’s a table describing each option:
