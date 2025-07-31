@@ -1,5 +1,6 @@
 - fme-react-install
 - fme-react-initialization
+- initialization-without-vwoprovider
 - fme-react-context
 - fme-react-hooks
 - user-context-copy-1
@@ -12,4 +13,3 @@
 - fme-react-cache-settings
 - fme-react-proxy-url
 - fme-react-tests-using-mock
-- initialization-without-vwoprovider
