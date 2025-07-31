@@ -144,7 +144,7 @@ If you prefer not to use the `VWOProvider` in your React project and instead wan
 
 1. ```javascript
    import React, { useEffect, useState } from 'react';
-   import { init } from 'vwo-fme-node-sdk';
+   import { init } from 'vwo-fme-react-sdk';
 
    const MyComponent = () => {
      const [isFeatureEnabled, setIsFeatureEnabled] = useState<Boolean>(false);
