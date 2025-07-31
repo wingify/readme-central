@@ -148,9 +148,13 @@ export default App;
 
 <br />
 
-## Using React SDK using`VWOProvider`
+## Using the React SDK Without the `VWOProvider`
 
-If you would rather avoid using the `VWOProvider` component in your React application, you still have the option to work directly with the methods provided by the VWO FME React SDK. This approach gives you more control over the SDK’s initialization and usage, as you can manually handle its setup and function calls within your components or hooks. You can achieve this by implementing the SDK as shown in the following example:
+In some cases, you might prefer not to wrap your application with the `VWOProvider` component. For example, you may want finer control over when and how the SDK is initialized, or you might need to integrate it into an existing setup where using a provider is not feasible.
+
+VWO FME React SDK allows you to bypass the provider and directly work with its methods. This gives you the flexibility to manually initialize the SDK and manage feature flag evaluations, user targeting, and other SDK operations programmatically.
+
+You can implement this approach using the example below:
 
 ```javascript JavaScript
 import React, { useEffect, useState } from 'react';
