@@ -46,7 +46,7 @@ interface VWOClientResult {
 * `vwoClient`: The VWO SDK client instance if initialized; otherwise null.
 * `isReady`: Boolean indicating whether the VWO client is fully initialized and ready for use.
 
-Using the above `vwoClient`You can call the different methods available directly without using any hooks.
+#### Using the above `vwoClient`You can call the different methods available directly without using any hooks.
 
 Check if the feature flag is enabled using `getFlag` method:
 
