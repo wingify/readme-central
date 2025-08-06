@@ -14,6 +14,7 @@ The **VWO FME MCP Server** serves as a seamless bridge between your development 
 * **AI Assistant Integration**: Compatible with tools such as `Cursor`, `VS Code`, and `Claude`.
 * **Feature Flag Management**: Enables the creation, reading, updating, and deletion of feature flags.
 * **Environment Control**: Offers flexibility to enable or disable features in different environments.
+* **Cursor Rule Setup**: Bootstrapping simplifies the configuration of Cursor rules to deliver contextual results and integrate with the SDK
 
 This is ideal for developers who want to manage feature flags efficiently within their IDEs.
 
@@ -141,37 +142,38 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 Here's what you can do with our feature flag management tools:
 
-### System
+### IDE Configuration with VWO
 
-1. **Bootstrap VWO** - Retrieve cursor rules and configuration settings to manage feature flags within your project seamlessly. This enables smooth integration with your SDK and leverages VWO's feature management capabilities.
+1. **Add VWO Rules** - Retrieve IDE rules and configuration settings to seamlessly manage feature flags within your project. This enables smooth integration with your SDK and leverages VWO's feature management capabilities.
 
-> Note: *Bootstrap VWO* tool is currently supported only in the Cursor IDE as it downloads the Cursor Rules based on the project's langugae.
+> Note: Supports both Cursor IDE and VS Code. The tool automatically detects your IDE or you can specify it manually. Needs to be called once after setting up VWO FME MCP.
+
+* **Cursor IDE**: Creates rules in `.cursor/rules/vwo-feature-flag-rule.mdc`
+* **VS Code**: Creates instructions in `.github/instructions/vwo-fme.instructions.md`
 
 ### Feature Flags
 
-1. **Create Feature Flag** - Launch a new feature flag with custom settings, metrics, and variables in your account.
-
-2. **Delete Feature Flag** - Safely remove any feature flag from your account when it's no longer needed.
-
-3. **Get Feature Flag** - Dive into the details of any feature flag to see its current configuration and status.
-
-4. **List Feature Flags** - Get a bird's-eye view of all your feature flags in one place.
-
-5. **Update Feature Flag** - Fine-tune your feature flags by modifying their properties, metrics, and variations.
-
-6. **Toggle Feature Flag** - Instantly enable or disable feature flags in different environments with a single click.
+1. **Create Feature Flag With Defaults** - Create a complete feature flag with variables, variations, associated metric, rules, and automatic enablement. This tool handles the entire setup process.
+2. **Create Feature Flag** - Create a new feature flag into your VWO account with mandatory requirements like variables, variations and metrics.
+3. **Delete Feature Flag** - Safely remove any feature flag from your account when it's no longer needed.
+4. **Get Feature Flag** - Dive into the details of any feature flag to see its current configuration and status.
+5. **List Feature Flags** - Get a bird's-eye view of all your feature flags in one place.
+6. **Update Feature Flag** - Fine-tune your feature flags by modifying their properties, metrics, and variations.
+7. **Toggle Feature Flag** - Instantly enable or disable feature flags in different environments with a single click.
+8. **Find Stale Feature Flags** - Identify unused or stale feature flags in your codebase by scanning your source code and comparing against active feature flags. This helps maintain clean code by finding feature flags that are no longer referenced in your project.
+9. **Integrate SDK** - Get comprehensive SDK integration documentation and code examples for seamless feature flag implementation in your project. This tool provides language-specific integration guides without requiring Cursor rule files.
 
 ### Feature Flag Rules
 
 1. **List Feature Flag Rules** - View all rules associated with your feature flags.
 
-2. **Create Rollout and Personalize Rule** - Set up rules for gradual rollout or personalization of your features.
+2. **Create Feature Flag Rules** - Set up rules for gradual rollout, A/B testing, personalization or multivariate testing of your features.
 
-3. **Create Testing and MVT Rule** - Configure rules for A/B testing or multivariate testing.
+3. **Get Feature Flag Rule** - Examine the details of a specific feature flag rule.
 
-4. **Get Feature Flag Rule** - Examine the details of a specific feature flag rule.
+4. **Toggle Feature Flag Rule** - Enable or disable specific rules for your feature flags.
 
-5. **Toggle Feature Flag Rule** - Enable or disable specific rules for your feature flags.
+5. **Update Feature Flag Rules** - Modify existing feature flag rules to change their configuration or targeting.
 
 6. **Delete Feature Flag Rule** - Remove unwanted rules from your feature flags.
 
