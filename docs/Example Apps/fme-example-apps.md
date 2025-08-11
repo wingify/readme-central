@@ -49,6 +49,7 @@ Select your preferred technology stack to explore the implementation:
   * [React-Native](https://github.com/wingify/vwo-fme-examples/tree/master/react-native)
   * [React-Web](https://github.com/wingify/vwo-fme-examples/tree/master/react-web)
   * [Ionic](https://github.com/wingify/vwo-fme-examples/tree/master/ionic)
+  * [Cordova](https://github.com/wingify/vwo-fme-examples/tree/master/cordova)
 
 <br />
 
