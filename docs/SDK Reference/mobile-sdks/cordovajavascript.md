@@ -1,11 +1,11 @@
 ---
 title: Cordova(Javascript)
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
-This guide provides step-by-step instructions to integrate the FME JavaScript SDK into a Cordova-based mobile application.
+This guide provides step-by-step instructions to integrate the VWO FME JavaScript SDK into a Cordova-based mobile application.
 
 ### What is Cordova?
 
@@ -13,7 +13,7 @@ This guide provides step-by-step instructions to integrate the FME JavaScript SD
 
 <br />
 
-### Compatibility with FME JavaScript SDK
+### Compatibility with VWO FME JavaScript SDK
 
 The FME JavaScript SDK integrates seamlessly with Cordova applications through CDN loading and local fallback mechanisms. Since Cordova runs web applications in native containers, the FME JavaScript SDK can be loaded directly via script tags and used throughout your Cordova app.
 
@@ -35,11 +35,17 @@ For detailed instructions, refer to the [Cordova Getting Started Guide](https://
 
 <br />
 
-### 2. Add FME JavaScript SDK via CDN
+### 2. Add VWO FME JavaScript SDK via CDN
 
-You can add the FME JavaScript SDK in your `www/index.html` within the `<head>` section by downloading it locally, hosting it on your server, or using CDNs like jsDelivr. If a local copy is used, downloaded version of the SDK should to be updated if the version is changed. 
+You can add the FME JavaScript SDK to your `www/index.html` within the `<head>` section by:
 
-For reference, we're using jsDelivr CDN and local copy as backup:
+1. downloading it locally.
+2. hosting it on your server.
+3. using CDNs like jsDelivr.
+
+> **Note**: If a local copy is used, the downloaded version of the SDK should be updated if the version is changed.
+
+For reference, we're using `jsDelivr` CDN and local copy as backup:
 
 ```html
 <head>
@@ -201,7 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <br />
 
-### 6. Use FME SDK
+### 6. Use VWO FME JavaScript SDK
 
 Call the FME functions from your application logic:
 
@@ -233,11 +239,13 @@ function displayResponse(content, background) {
 
 <br />
 
+<Callout icon="💡" theme="default">
+  ### The VWO Feature Management and Experimentation (FME) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
 
-> 💡 The VWO Feature Management and Experimentation (FME) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
->  - [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature configuration
->  - [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send user events for analysis
->  - [setAttribute()](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/) properties assigned that help define who users are or how they interact with an application
+  * [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
+  * [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
+  * [setAttribute()](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/) to send user attributes to VWO
+</Callout>
 
 <br />
 
@@ -300,8 +308,8 @@ cordova build
    cordova run browser
    ```
 
-## GitHub Reference
-
-The complete source code for Cordova example is available on [GitHub](https://github.com/wingify/vwo-fme-examples/tree/master/cordova).
-
 <br />
+
+## Code Reference
+
+The complete source code for the Cordova example is available on [GitHub](https://github.com/wingify/vwo-fme-examples/tree/master/cordova).
