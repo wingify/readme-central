@@ -220,7 +220,7 @@ const vwoClient = await init({
 });
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/gateway-service)  to learn more about gateway service.
+Please click [here](https://developers.vwo.com/v2/docs/gateway-service)  to learn more about the VWO Gateway service.
 
 ### Integrations
 
@@ -244,19 +244,19 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-node-integrations) to
 ### Initialization with Explicit Settings
 
 The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.\
-Please refer to <Anchor label="this" target="_blank" href="https://developers.vwo.com/v2/docs/explicit-settings-configuration#/">this</Anchor> document for more information on retrieving settings.
+Please refer to <Anchor label="this" target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```javascript
 const localSettings = {
-    "version": 1,
     "accountId": 123456,
-    "sdkKey": "abcdef",
+    "sdkKey": '32-alpha-numeric-sdk-key',
     "features": {
         // features json here
     },
     "campaigns": {
         // campaigns json here
-    }
+    },
+    "version": 1,
 };
 
 const vwoClient = await init({
