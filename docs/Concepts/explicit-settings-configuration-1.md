@@ -1,0 +1,53 @@
+---
+title: Explicit Settings Configuration
+deprecated: false
+hidden: false
+metadata:
+  robots: index
+---
+This page describes how to retrieve settings from the server and pass them to the SDKs. By following these steps, you can optimize your SDK initialization by reducing the time spent fetching settings on each request.
+
+## Fetching Settings from the Server
+
+The settings required for SDK initialization can be retrieved from the server via a special endpoint. To get the settings, you will make a GET request to the following URL:
+
+```shell
+curl "https://dev.visualwebsiteoptimizer.com/server-side/v2-settings?i=${sdkKey}&r=0.342411122&a=${accountId}"
+```
+
+Where:
+
+* `{sdkKey}`: Your unique SDK key.
+* `{accountId}`: Your account ID.
+* `{randomValue}`: A random value used to prevent caching. You can generate a random value using `Math.random()` (or any other suitable method in your environment).
+
+#### Example Response:
+
+The server will return the settings in JSON format. Example:
+
+```json
+{
+    "version": 1,
+    "accountId": 123456,
+    "sdkKey": "abcdef",
+    "features": {
+        // features json here
+    },
+    "campaigns": {
+        // campaigns json here
+    }
+}
+```
+
+### Passing the Settings to the SDK Initialization
+
+Once you have fetched the settings, you can directly pass them to your SDK's `init` method. This allows you to bypass the automatic settings fetching process, significantly improving initialization time.
+
+### Benefits of Passing Settings Explicitly
+
+* **Faster Initialization**: By passing pre-fetched settings, the SDK doesn't need to fetch them automatically, reducing initialization time.
+* **Customization**: You can pre-load the settings or customize them before passing them to the SDK.
+
+<Callout icon="📘" theme="info">
+  **Handling Expired or Stale Settings**: If the settings fetched from the server are time-sensitive, make sure to implement logic to refresh them periodically.
+</Callout>
