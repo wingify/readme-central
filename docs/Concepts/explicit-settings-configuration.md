@@ -1,5 +1,5 @@
 ---
-title: Explicit Settings Configuration
+title: Explicit SDK Settings Configuration
 deprecated: false
 hidden: false
 metadata:
