@@ -9,17 +9,21 @@ This page describes how to retrieve settings from the server and pass them to th
 
 ## Fetching Settings from the Server
 
-The settings required for SDK initialization can be retrieved from the server via a special endpoint. To get the settings, you will make a GET request to the following URL:
+The settings required for SDK initialization can be retrieved from the server via a special endpoint. To get the settings, you can make a GET request to the following URL:
 
-```shell
-curl "https://dev.visualwebsiteoptimizer.com/server-side/v2-settings?i=${sdkKey}&r=0.342411122&a=${accountId}"
+```text
+https://dev.visualwebsiteoptimizer.com/server-side/v2-settings?i={sdkKey}&a={accountId}&r={randomValue}
 ```
 
 Where:
 
-* `{sdkKey}`: Your unique SDK key.
-* `{accountId}`: Your account ID.
-* `{randomValue}`: A random value used to prevent caching. You can generate a random value using `Math.random()` (or any other suitable method in your environment).
+* `{sdkKey}`:  VWO SDK key.
+* `{accountId}`: VWO Account ID.
+* `{randomValue}`: A random value used to prevent caching. You can generate a random value using `Math.random()` (or any other suitable method in your environment). For eg: `0.342411122`
+
+<Callout icon="📘" theme="info">
+  The URL provided above is the official VWO endpoint for retrieving the settings of your active feature flags.
+</Callout>
 
 #### Example Response:
 
