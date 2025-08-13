@@ -7,4 +7,4 @@
 - fme-segment-evaluation-client-vs-server-side
 - rules-evaluation
 - fme-using-variables-without-requiring-variation-name
-- explicit-settings-configuration
+- fme-explicit-sdk-fetch-settings
