@@ -67,7 +67,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **sdkKey**\
+        **sdkKey**
         *Required*
       </td>
 
@@ -82,7 +82,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **pollInterval**\
+        **pollInterval**
         *Optional*
       </td>
 
@@ -91,13 +91,13 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) 
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
       </td>
     </tr>
 
     <tr>
       <td>
-        **logger**\
+        **logger**
         *Optional*
       </td>
 
@@ -112,7 +112,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **storage**\
+        **storage**
         *Optional*
       </td>
 
@@ -121,13 +121,13 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-node-storage) 
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-node-storage)
       </td>
     </tr>
 
     <tr>
       <td>
-        **gatewayService**\
+        **gatewayService**
         *Optional*
       </td>
 
@@ -136,13 +136,13 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        If using the [FME Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers. 
+        If using the [FME Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
     <tr>
       <td>
-        **integrations**\
+        **integrations**
         *Optional*
       </td>
 
@@ -240,3 +240,28 @@ const vwoClient = await vwo.init({
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-node-integrations) to learn more about Integrations,.
+
+### Initialization with Explicit Settings
+
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.\
+Please refer to <Anchor label="this" target="_blank" href="https://developers.vwo.com/v2/docs/explicit-settings-configuration#/">this</Anchor> document for more information on retrieving settings.
+
+```javascript
+const localSettings = {
+    "version": 1,
+    "accountId": 123456,
+    "sdkKey": "abcdef",
+    "features": {
+        // features json here
+    },
+    "campaigns": {
+        // campaigns json here
+    }
+};
+
+const vwoClient = await init({
+  accountId: '123456',
+  sdkKey: '32-alpha-numeric-sdk-key',
+  settings: localSettings // Pass the settings object here
+});
+```
