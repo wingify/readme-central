@@ -1,21 +1,21 @@
 ---
-title: Ionic(Node)
+title: Ionic(JavaScript)
 deprecated: false
 hidden: true
 metadata:
   robots: index
 ---
-This guide provides step-by-step instructions to integrate the FME Node SDK into a Ionic-based mobile application.
+This guide provides step-by-step instructions for integrating the VWO FME JavaScript SDK into an Ionic-based mobile application.
 
 ### What is Ionic?
 
-[Ionic](https://ionicframework.com/) is an open-source UI toolkit for building cross-platform mobile applications using web technologies like HTML, CSS, and Javascript. It provides a library of pre-built components and tools for creating native-like mobile apps that can run on iOS, Android, and the web. Ionic is built on top of Angular, React, or Vue.js frameworks.
+[Ionic](https://ionicframework.com/) is an open-source UI toolkit for building cross-platform mobile applications using web technologies like HTML, CSS, and JavaScript. It provides a library of pre-built components and tools for creating native-like mobile apps that can run on iOS, Android, and the web. Ionic is built on top of Angular, React, or Vue.js frameworks.
 
 <br />
 
-### Compatibility with FME Node SDK
+### Compatibility with VWO FME JavaScript SDK
 
-The FME Node  SDK integrates seamlessly with Ionic applications through npm package installation. Since Ionic uses web technologies and can leverage Capacitor for native functionality, the FME Node SDK can be directly imported and used within Ionic services and components.
+The VWO FME JavaScript SDK integrates seamlessly with Ionic applications through the installation of an npm package. Since Ionic uses web technologies and can leverage Capacitor for native functionality, the VWO FME JavaScript SDK can be directly imported and used within Ionic services and components.
 
 <br />
 
@@ -35,9 +35,9 @@ For detailed instructions, refer to the [Ionic Getting Started Guide](https://io
 
 <br />
 
-### 2. Install FME node SDK
+### 2. Install FME JavaScript SDK
 
-Add the FME node SDK to your project using npm:
+Add the VWO FME JavaScript SDK to your project using npm:
 
 ```shell
 npm install vwo-fme-node-sdk
@@ -64,7 +64,7 @@ export const environment = {
 <br />
 
 <Callout icon="💡" theme="default">
-  ### We highly recommend using environment variables for your SDK key and account ID. This practice helps to keep your credentials secure and out of your codebase.
+  **Recommendation**: We highly recommend using environment variables for your SDK key and account ID. This practice helps to keep your credentials secure and out of your codebase.
 </Callout>
 
 ### 4. Create VWO Service
@@ -172,9 +172,9 @@ export class HomePage implements OnInit {
 <Callout icon="💡" theme="default">
   ### The VWO Feature Management and Experimentation (FME) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
 
-  * [getFlag()](https://developers.vwo.com/v2/docs/fme-node-flags#/) to retrieve feature configuration
-  * [trackEvent()](https://developers.vwo.com/v2/docs/fme-node-metrics#/) to send user events for analysis
-  * [setAttribute()](https://developers.vwo.com/v2/docs/fme-node-attributes#/) properties assigned that help define who users are or how they interact with an application
+  * [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
+  * [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
+  * [setAttribute()](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/) to send user attributes to VWO
 </Callout>
 
 <br />
@@ -225,6 +225,6 @@ ionic serve
 
 <br />
 
-## GitHub Reference
+## Code Reference
 
-The complete source code for Ionic example is available on [GitHub](https://github.com/wingify/vwo-fme-examples/tree/master/ionic).
+> The complete source code for the Ionic example is available on [GitHub](https://github.com/wingify/vwo-fme-examples/tree/master/ionic).
