@@ -52,6 +52,6 @@ Once you have fetched the settings, you can directly pass them to your SDK's `in
 * **Faster Initialization**: By passing pre-fetched settings, the SDK doesn't need to fetch them automatically, reducing initialization time.
 * **Customization**: You can pre-load the settings or customize them before passing them to the SDK.
 
-<Callout icon="📘" theme="info">
+<Callout icon="🚧">
   **Handling Expired or Stale Settings**: If the settings fetched from the server are time-sensitive, make sure to implement logic to refresh them periodically.
 </Callout>
