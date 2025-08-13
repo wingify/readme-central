@@ -31,15 +31,15 @@ The server will return the settings in JSON format. Example:
 
 ```json
 {
-    "version": 1,
-    "accountId": 123456,
-    "sdkKey": "abcdef",
-    "features": {
-        // features json here
+    "accountId": "123456",                  // VWO Account ID
+    "sdkKey": "32-chars-alphanumeric-key",  // VWO SDK Key
+    "features": {                           // features configurations here 
+        // ...
     },
-    "campaigns": {
-        // campaigns json here
-    }
+    "campaigns": {                          // campaigns configuration here
+       // ...
+    },
+    "version": 1
 }
 ```
 
@@ -52,6 +52,6 @@ Once you have fetched the settings, you can directly pass them to your SDK's `in
 * **Faster Initialization**: By passing pre-fetched settings, the SDK doesn't need to fetch them automatically, reducing initialization time.
 * **Customization**: You can pre-load the settings or customize them before passing them to the SDK.
 
-<Callout icon="🚧">
+<Callout icon="🚧" theme="warn">
   **Handling Expired or Stale Settings**: If the settings fetched from the server are time-sensitive, make sure to implement logic to refresh them periodically.
 </Callout>
