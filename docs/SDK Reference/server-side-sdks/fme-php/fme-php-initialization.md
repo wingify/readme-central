@@ -66,7 +66,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **sdkKey**\
+        **sdkKey**
         *Required*
       </td>
 
@@ -81,7 +81,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **logger**\
+        **logger**
         *Optional*
       </td>
 
@@ -96,7 +96,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **storage**\
+        **storage**
         *Optional*
       </td>
 
@@ -105,13 +105,13 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-php-storage) 
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-php-storage)
       </td>
     </tr>
 
     <tr>
       <td>
-        **gatewayService**\
+        **gatewayService**
         *Optional*
       </td>
 
@@ -120,13 +120,13 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        If using the [FME Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers. 
+        If using the [FME Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
     <tr>
       <td>
-        **integrations**\
+        **integrations**
         *Optional*
       </td>
 
@@ -208,3 +208,29 @@ $vwoClient = VWO::init([
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-python-integrations) to learn more about Integrations,.
+
+### Initialization with Explicit Settings
+
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.\
+Please refer to <Anchor label="this" target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
+
+```php
+$settingsStringified = '{
+    "accountId": 123456,
+    "sdkKey": "32-alpha-numeric-sdk-key",
+    "features": {
+    },
+    "campaigns": {
+    },
+    "version": 1,
+}';
+
+
+$settings = json_decode($settingsStringified, true);
+
+$vwoClient = VWO::init([
+  'sdkKey' => '32-alpha-numeric-sdk-key',
+  'accountId' => '123456',
+  'integrations' => $settings
+]);
+```
