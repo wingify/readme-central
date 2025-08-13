@@ -7,21 +7,7 @@ metadata:
 ---
 ## Overview
 
-The VWO Feature Management and Experimentation (FME) SDK is a powerful tool that enables dynamic feature flag management and experimentation in your Node applications. It allows developers to:
-
-* Implement user ID-based feature flag evaluation
-* Track user interactions and events
-* Manage user attributes for targeted experiences
-
-<br />
-
-## Benefits of using the Integration
-
-* While feature flags provide the ability to control features dynamically, analytics integration adds the crucial layer of measurement and insight.
-* **Data-Driven Decisions**: Move beyond simple feature toggling to making decisions based on actual user behavior and engagement metrics.
-* **Complete Feedback Loop**: Create a closed loop between feature deployment and performance measurement, enabling continuous improvement.
-* **Unified Data View**: Consolidate feature flag data with other analytics in a single platform, providing a holistic view of your application's performance.
-* **Real-Time Monitoring**: Track the immediate impact of feature flag changes on user behavior and application performance.
+**Integrating VWO Feature Experimentation with GA4** offers powerful benefits. VWO Feature Experimentation sends feature flag and event data directly to GA4, allowing you to see which feature flag variations users encounter during their sessions. This enables you to correlate user behaviour and performance metrics with specific experiments and feature rollouts. As a result, you can better understand how new features impact key KPIs like retention, engagement, and conversion:
 
 <br />
 
@@ -140,12 +126,14 @@ To see real-time events flowing into your Google Analytics 4 (GA4) property, fol
 * **Navigate to Realtime Report**:
   * In the left-hand navigation menu, look for the `Reports` section.
   * Under `Reports`, click on `Realtime`.
-* Observe Realtime Data:
-  * The Realtime report will load, displaying activity on your website or app as it happens.
-  * You'll see various cards showing:
-    * **Users in last 30 minutes**: A large number indicating current active users.
-    * **Users by Source, Medium, or Campaign**: Where your current users are coming from.
-    * **Users by Audience**: Which user segments are active.
-    * **Views by Page title and Screen name**: Which pages or screens are being viewed.
-    * **Event Count by Event Name**: This is the most crucial section for viewing real-time events. It lists all events that have been triggered in the last 30 minutes, along with their count.
-    * **Conversions by Event name**: Any events marked as conversions will appear here.
+* **Observe Realtime Data**:\
+  To view real-time data in Google Analytics 4 (GA4), scroll to the bottom of the left-hand menu, click Reports, then select  Realtime Overview. This gives you a live snapshot of user activity on your website or app.
+
+  **Key Highlights:**
+  1. **Active Users** in the last 30 minutes and 5 minutes
+  2. **User Locations** displayed on a world map
+  3. **Top Pages & Screens** currently being viewed
+  4. **Live Events** like page views, form starts, and impressions
+  5. **Audience Segments** such as returning users or cart abandoners
+
+<Image align="center" border={true} caption="GA Reports" src="https://files.readme.io/7b01f1bb32468850377ce8794c86d3a7819980bca02845445d9d24a56605fc52-image2.png" />
