@@ -14,7 +14,7 @@ In modern web environments, many users utilize browser-based **ad-blockers** and
 When this occurs, it can lead to partial or complete SDK failure, resulting in:
 
 * **Feature flag loading failures** – Targeted feature variations may not be served correctly to end users.
-* Experiment tracking disruptions – Data collection for A/B tests and multivariate experiments may be incomplete or missing.
+* **Experiment tracking disruptions** – Data collection for A/B tests and multivariate experiments may be incomplete or missing.
 * **Settings fetch issues** – SDK initialization can fail if configuration settings cannot be retrieved.
 * **Inconsistent user experience** – Variability in ad blocker configurations can cause different users to experience different application behavior, leading to reliability concerns.
 
