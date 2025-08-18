@@ -62,9 +62,13 @@ flowchart TD
 * **Custom logging and analytics**: Enables logging, monitoring, or transformation of SDK requests for internal analytics or debugging.
 * **Security and compliance**: Offers an opportunity to inspect or validate outbound and inbound traffic to meet organizational policies.
 
+<br />
+
 ## Configuration Example
 
-Recommended way of passing the `proxyUrl`
+Recommended way of passing the `proxyUrl`:
+
+### While fetching setting-file
 
 ```javascript
 const options = { proxyUrl: 'https://proxy.yourdomain.com' };
@@ -76,6 +80,8 @@ const settingsFile = await vwoSdk.getSettingsFile(
   options
 );
 ```
+
+### While launching the SDK
 
 Another way of passing the `proxyUrl` is when you are not calling `getSettingsFile` and are using locally stored settings, you can pass the `proxyUrl` directly in the `launch` method.
 
