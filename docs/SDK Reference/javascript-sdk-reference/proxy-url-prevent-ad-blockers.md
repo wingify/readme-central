@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-The VWO JavaScript SDK now includes support for **custom proxy URL**, enabling you to route all SDK network traffic through your proxy server. This feature provides enhanced control over request routing, offering significant benefits in environments where direct network access to VWO endpoints may be restricted or blocked.
+The VWO JavaScript SDK supports setting up a **custom proxy URL**, enabling you to route all SDK network traffic through your proxy server. This feature provides enhanced control over request routing, offering significant benefits in environments where direct network access to VWO endpoints may be restricted or blocked.
 
 ### Why Use a Custom Proxy URL?
 
@@ -13,11 +13,13 @@ In modern web environments, many users utilize browser-based **ad-blockers** and
 
 When this occurs, it can lead to partial or complete SDK failure, resulting in:
 
-* Experiment tracking disruptions – Data collection for A/B tests and multivariate experiments may be incomplete or missing.
+* **Experiment tracking disruptions** – Data collection for A/B tests and multivariate experiments may be incomplete or missing.
 * **Settings fetch issues** – SDK initialization can fail if configuration settings cannot be retrieved.
 * **Inconsistent user experience** – Variability in ad blocker configurations can cause different users to experience different application behavior, leading to reliability concerns.
 
 To address these issues, VWO provides the ability to configure a **proxy URL**, allowing organizations to **self-host a relay** for SDK traffic. This enables better control over network access, enhanced observability, and improved compatibility with restrictive user environments.
+
+<br />
 
 ## How It Works: Request Routing Logic
 
@@ -51,6 +53,8 @@ flowchart TD
 
 ```
 
+<br />
+
 ## Benefits of Using a Proxy
 
 * **Bypass ad-blockers**: Since the proxy URL is under your control (e.g., proxy.yourdomain.com), it is less likely to be blacklisted.
@@ -63,19 +67,28 @@ flowchart TD
 Recommended way of passing the `proxyUrl`
 
 ```javascript
-const settingsFile = await vwoSdk.getSettingsFile(accountId, sdkKey, null, { proxyUrl: 'https://proxy.yourdomain.com' });
+const options = { proxyUrl: 'https://proxy.yourdomain.com' };
+
+const settingsFile = await vwoSdk.getSettingsFile(
+  accountId,
+  sdkKey,
+  null, 
+  options
+);
 ```
 
 Another way of passing the `proxyUrl` is when you are not calling `getSettingsFile` and are using locally stored settings, you can pass the `proxyUrl` directly in the `launch` method.
 
 ```javascript
 const clientInstance = vwoSdk.launch({
-  settingsFile: localSettings,       // local json parsed settings
+  settingsFile,                             // settings file
   proxyUrl: 'https://proxy.yourdomain.com', // your custome proxy url here
 });
 ```
 
 > Ensure your proxy server is properly configured to forward requests to `dev.visualwebsiteoptimizer.com`, handle request/response headers appropriately, and support both GET and POST methods used by the SDK.
+
+<br />
 
 ## Performance and Latency Considerations
 
@@ -91,6 +104,8 @@ Using a proxy introduces an additional network hop between the SDK and VWO serve
 
 > Tip: Monitor response times at both the proxy and SDK levels to detect bottlenecks.
 
+<br />
+
 ## Security Considerations
 
 Proxying SDK traffic gives you more control, but also introduces potential risks. Proper security practices help prevent misuse or data leaks.
@@ -103,6 +118,8 @@ Proxying SDK traffic gives you more control, but also introduces potential risks
 * **Rate Limiting**: Implement rate limiting to protect your proxy from DDoS or high-traffic abuse.
 * **Authorization (*Optional*)**: For internal or sensitive use cases, add token-based or header-based authentication.
 * **Audit Logs**: Log incoming and outgoing proxy traffic (with PII masked) for observability and compliance.
+
+<br />
 
 ## Sample Proxy Implementations
 
