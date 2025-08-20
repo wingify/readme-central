@@ -231,7 +231,7 @@ curl --location 'localhost:8000/server-side/getFlag' \
 --header 'Content-Type: application/json' \
 --data '{
     "featureKey": "your_feature_key",
-    "userId": "user_id",
+    "id": "user_id",
     "ipAddress": "visitor_ip_address",
     "userAgent": "visitor_user_agent",
     "customVariables": {
@@ -271,7 +271,7 @@ curl --location 'localhost:8000/server-side/trackEvent' \
 --header 'Content-Type: application/json' \
 --data '{
     "eventName": "event_name",
-    "userId": "user_id",
+    "id": "user_id",
     "eventProperties": {
         "event_property_key": "event_property_value"
     }
@@ -300,7 +300,7 @@ Note: `eventName` and `userId` are required parameters.
 curl --location 'localhost:8000/server-side/setAttribute' \
 --header 'Content-Type: application/json' \
 --data '{
-    "userId": "user_id",
+    "id": "user_id",
     "attributeKey": "attribute_key",
     "attributeValue": "attribute_value"
 }'
