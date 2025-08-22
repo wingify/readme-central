@@ -1,7 +1,7 @@
 ---
-title: Impact Analysis (COPY)
+title: Impact Analysis (New)
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
