@@ -71,7 +71,7 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 * **Location Intelligence**: Approximate geographical data for targeting
 * **User Agent Analysis**: Device and browser fingerprinting for segmentation
 * **Custom Variables**: Integration with client-defined segmentation criteria
-* **Attribute List**: A customizable set of user or device attributes that enable more granular targeting and evaluation of feature flags
+* **Attribute List**: A customizable set of user or device attributes that enable more granular targeting and evaluation of feature flags[dev-docs-fme-android-impact new.md](../../../docs/backup/fme%20sdk/dev%20docs/dev-docs-fme-android-impact%20new.md)
 
 **Impact on Evaluation**:
 
@@ -84,10 +84,10 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 
 | Build Configuration | Size Increase |
 | ------------------- | :-----------: |
-| Standard Build      |    \~2.0 MB   |
-| ProGuard Enabled    |    \~1.8 MB   |
+| Standard Build      |    ~400 KB    |
+| ProGuard Enabled    |    ~250 KB    |
 
-*Note: The size measurements reflect the SDK's complete package, including all its dependencies and resources. However, the net impact on an application's overall size will generally be less, as some of these dependencies may already be present within the application's existing build.*
+_Note: The size measurements reflect the SDK's complete package, including all its dependencies and resources. However, the net impact on an application's overall size will generally be less, as some of these dependencies may already be present within the application's existing build._
 
 ## Method Count Analysis
 
@@ -97,13 +97,9 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 | ----------------------- | :----------: |
 | com.vwo (Core SDK)      |      402     |
 | com.github.eprst:murmur |      38      |
-| com.fasterxml.jackson   |    11,759    |
 | com.google.code.gson    |     1,239    |
-| com.google.guava        |    16,499    |
 | androidx.work           |     1,694    |
 | androidx.core           |     7,122    |
-
-*Measurements taken using DexCount plugin v4.0.0*
 
 ## Performance Benchmarks
 
@@ -117,7 +113,7 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 | TrackEvent     |     9     |    9    |    10   |
 | SetAttribute   |     10    |    11   |    12   |
 
-*All measurements represent average response times across multiple test scenarios*
+_All measurements represent average response times across multiple test scenarios_
 
 ### Memory Utilization
 
@@ -129,7 +125,7 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 | TrackEvent     |         30        |
 | SetAttribute   |         30        |
 
-*Memory measurements include heap allocation and object creation overhead*
+_Memory measurements include heap allocation and object creation overhead_
 
 ### Network Data Consumption
 
@@ -140,7 +136,7 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 | TrackEvent     |       0.5       |
 | SetAttribute   |       0.5       |
 
-*Data consumption measured for typical operation scenarios*
+_Data consumption measured for typical operation scenarios_
 
 ## Technical Specifications
 
@@ -159,4 +155,4 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 
 ***
 
-*This performance analysis is based on VWO Android SDK version 1.6.0. Performance characteristics may vary based on device specifications, network conditions, and implementation patterns.*
+_This performance analysis is based on VWO Android SDK version 1.6.2. Performance characteristics may vary based on device specifications, network conditions, and implementation patterns._
