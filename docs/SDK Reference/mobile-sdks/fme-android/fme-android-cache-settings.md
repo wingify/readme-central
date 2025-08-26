@@ -7,7 +7,7 @@ metadata:
 ---
 ## What is Caching of Settings?
 
-Caching of settings in the VWO FME Android SDK refers to the ability to store and reuse configuration data locally on the device instead of fetching it from the VWO server every time. This includes feature flags, campaign configurations, and other settings that determine how your application behaves.
+Caching of settings in the VWO FE Android SDK refers to the ability to store and reuse configuration data locally on the device instead of fetching it from the VWO server every time. This includes feature flags, campaign configurations, and other settings that determine how your application behaves.
 
 ### Benefits of Caching Settings:
 
@@ -59,7 +59,7 @@ VWO.init(options, object : IVwoInitCallback {
     override fun vwoInitSuccess(vwo: VWO, message: String?) {
         // VWO initialization succeeded
     }
-    
+
     override fun vwoInitFailed(message: String?) {
         // VWO initialization failed
     }

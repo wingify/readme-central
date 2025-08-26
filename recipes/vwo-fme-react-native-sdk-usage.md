@@ -1,5 +1,5 @@
 ---
-title: VWO FME React Native SDK Usage
+title: VWO FE React Native SDK Usage
 description: Recipe Description
 hidden: true
 recipe:
@@ -14,7 +14,7 @@ const options: VWOInitOptions = { sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
                                  	accountId: 123456 }; // VWO Account ID
 const vwoClient = await init(options);
 
-const userContext: VWOUserContext = { id: 'unique_user_id', customVariables: {} }; 
+const userContext: VWOUserContext = { id: 'unique_user_id', customVariables: {} };
 
 const flagResult: GetFlagResult = await vwoClient.getFlag('feature_key', userContext);
 const isEnabled = flagResult.isEnabled();
@@ -35,7 +35,7 @@ vwoClient.setAttribute( attributeMap, userContext);
 
 <!-- javascript@1-2 -->
 
-Import VWO FME SDK so it can be initialized.
+Import VWO FE SDK so it can be initialized.
 
 
 

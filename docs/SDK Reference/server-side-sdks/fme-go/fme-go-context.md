@@ -14,7 +14,7 @@ next:
       slug: fme-go-flags
       title: Feature Flags
 ---
-The user context is a crucial component in VWO's Feature Management and Experimentation SDK. It provides information about the current user, which is used for targeting and segmentation.
+The user context is a crucial component in VWO's Feature Experimentation SDK. It provides information about the current user, which is used for targeting and segmentation.
 
 ## Usage
 
@@ -36,7 +36,7 @@ if err != nil {
     // Handle error
 }
 
- 
+
 ```
 
 <br />
@@ -85,7 +85,7 @@ if err != nil {
       </td>
 
       <td>
-        The userAgent object for the current user, can be used for targeting & segmentation. 
+        The userAgent object for the current user, can be used for targeting & segmentation.
       </td>
     </tr>
 

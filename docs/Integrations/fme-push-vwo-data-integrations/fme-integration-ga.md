@@ -13,10 +13,10 @@ metadata:
 
 ## Prerequisites
 
-### VWO FME SDK Installation and Configuration
+### VWO FE SDK Installation and Configuration
 
-* Ensure you have the VWO Feature Management and Experimentation product enabled for your VWO account.
-* The VWO FME SDK should be properly installed in your Node.js project.
+* Ensure you have the VWO Feature Experimentation product enabled for your VWO account.
+* The VWO FE SDK should be properly installed in your Node.js project.
 * Set your VWO account ID and SDK key in your application's constants in `.env` file:
   ```
   VWO_ACCOUNT_ID=vwo_account_id
@@ -76,9 +76,9 @@ yarn add vwo-fme-node-sdk
 
 ## Integration Steps
 
-Integrating the VWO FME SDK with analytics platforms like GA4 allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FME SDK.
+Integrating the VWO FE SDK with analytics platforms like GA4 allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FE SDK.
 
-* Clone the VWO FME Examples from [GitHub](https://github.com/wingify/vwo-fme-examples)
+* Clone the VWO FE Examples from [GitHub](https://github.com/wingify/vwo-fme-examples)
   ```shell
   git clone https://github.com/wingify/vwo-fme-examples.git
   ```

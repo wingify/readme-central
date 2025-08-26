@@ -14,7 +14,7 @@ next:
       slug: fme-go-variables
       title: Variables
 ---
-Feature flags are at the core of VWO's Feature Management and Experimentation capabilities. They allow you to control feature rollouts and conduct experiments.
+Feature flags are at the core of VWO's Feature Experimentation capabilities. They allow you to control feature rollouts and conduct experiments.
 
 ## GetFlag()
 

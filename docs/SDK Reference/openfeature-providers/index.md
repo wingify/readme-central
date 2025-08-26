@@ -18,7 +18,7 @@ OpenFeature is an open standard that provides a unified, vendor-agnostic API for
 
 <br />
 
-## VWO FME supports the following OpenFeature providers
+## VWO FE supports the following OpenFeature providers
 
 Click on the cards below to view the OpenFeature provider documentation for your chosen programming language.
 
@@ -46,7 +46,7 @@ Click on the cards below to view the OpenFeature provider documentation for your
 
 ***
 
-You can also explore our OpenFeature-compliant providers, officially listed in the [OpenFeature Ecosystem](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo). These providers enable seamless integration with the VWO Feature Management & Experimentation (FME) product and are designed to support a variety of platforms and deployment needs.
+You can also explore our OpenFeature-compliant providers, officially listed in the [OpenFeature Ecosystem](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo). These providers enable seamless integration with the VWO Feature Experimentation (FE) product and are designed to support a variety of platforms and deployment needs.
 
 <Image align="center" className="border" border={true} src="https://files.readme.io/8d23f2f4a4e7147db590adb35cc8ec6a6736ec5e837c25d49c6499bdbd48a7f7-Screenshot_2025-05-13_at_6.46.22_PM.png" />
 
@@ -76,6 +76,6 @@ We’re excited to be listed on the [OpenFeature Support Page](https://openfeatu
 
 This recognition highlights our commitment to supporting the OpenFeature standard and contributing to a more unified feature flag ecosystem.
 
-As part of our offering, we provide multiple OpenFeature-compliant providers tailored to different use cases and environments. Whether you're looking to integrate feature flags into a backend application or need advanced targeting through our Feature Management & Experimentation(FME) product, we’ve got you covered.
+As part of our offering, we provide multiple OpenFeature-compliant providers tailored to different use cases and environments. Whether you're looking to integrate feature flags into a backend application or need advanced targeting through our Feature Experimentation(FE) product, we’ve got you covered.
 
 We’re proud to support the OpenFeature community and look forward to continued collaboration to make feature flagging more powerful, flexible, and developer-friendly.

@@ -1,7 +1,7 @@
 ---
 title: Capacitor(JavaScript)
 excerpt: >-
-  This guide provides step-by-step instructions to integrate the FME JavaScript
+  This guide provides step-by-step instructions to integrate the FE JavaScript
   SDK into a Capacitor-based mobile application.
 deprecated: false
 hidden: false
@@ -14,9 +14,9 @@ metadata:
 
 <br />
 
-### Compatibility with FME JavaScript SDK
+### Compatibility with FE JavaScript SDK
 
-The FME JavaScript SDK is designed to work seamlessly within web environments. Since Capacitor wraps web applications in a native container, the FME JavaScript SDK can be integrated directly into the web portion of your Capacitor app. This integration allows you to leverage FME’s features without needing native SDKs.
+The FE JavaScript SDK is designed to work seamlessly within web environments. Since Capacitor wraps web applications in a native container, the FE JavaScript SDK can be integrated directly into the web portion of your Capacitor app. This integration allows you to leverage FE’s features without needing native SDKs.
 
 <br />
 
@@ -34,9 +34,9 @@ Follow the prompts to set up your app. For detailed instructions, refer to the [
 
 <br />
 
-### 2. Add FME JavaScript SDK
+### 2. Add FE JavaScript SDK
 
-Include the FME JavaScript SDK in your index.html file, typically located in your project's public or www directory. Insert the SDK script tag within the \<head> section:
+Include the FE JavaScript SDK in your index.html file, typically located in your project's public or www directory. Insert the SDK script tag within the \<head> section:
 
 ```javascript
 <head>
@@ -49,7 +49,7 @@ Replace the `src` attribute with the actual URL if you want to use the downloade
 
 <br />
 
-### 3. Initialize FME SDK
+### 3. Initialize FE SDK
 
 After embedding the SDK, initialize it in your main JavaScript file or within a script tag in your HTML:
 
@@ -64,13 +64,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 ```
 
-Replace `VWO_ACCOUNT_ID` and `VWO_SDK_KEY` with your actual FME account ID. Refer to the [FME JavaScript documentation](https://developers.vwo.com/v2/docs/fme-javascript) for additional configuration options.
+Replace `VWO_ACCOUNT_ID` and `VWO_SDK_KEY` with your actual FE account ID. Refer to the [FE JavaScript documentation](https://developers.vwo.com/v2/docs/fme-javascript) for additional configuration options.
 
 <br />
 
 ### 4. Build and Sync Your Project
 
-After setting up your project and integrating the FME SDK, build your project and sync it with the native platforms:
+After setting up your project and integrating the FE SDK, build your project and sync it with the native platforms:
 
 ```shell
 npm run build

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The **VWO FME Tech Debt Client** is a tool that analyzes your VWO flags usage and provides recommendations based on the source code in your project. This application is configurable using command-line arguments.
+The **VWO FE Tech Debt Client** is a tool that analyzes your VWO flags usage and provides recommendations based on the source code in your project. This application is configurable using command-line arguments.
 
 ## Features
 
@@ -28,7 +28,7 @@ The **VWO FME Tech Debt Client** is a tool that analyzes your VWO flags usage an
 
 1. Clone the repository
    ```shell
-   git clone <https://github.com/wingify/vwo-fme-tech-debt-client.git>  
+   git clone <https://github.com/wingify/vwo-fme-tech-debt-client.git>
    cd vwo-fme-tech-debt-client
    ```
 2. Build the binary

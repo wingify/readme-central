@@ -1,5 +1,5 @@
 ---
-title: Get FME Projects and Environments
+title: Get FE Projects and Environments
 excerpt: ''
 api:
   file: fme-apis.json
@@ -13,7 +13,7 @@ metadata:
 next:
   description: ''
 ---
-### Request URI for getting all FME Projects and Environment
+### Request URI for getting all FE Projects and Environment
 
 ```
 GET /accounts/123456/projects

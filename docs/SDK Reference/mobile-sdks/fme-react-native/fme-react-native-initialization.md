@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To create a VWO Client instance, you need to initialize the VWO FME React Native SDK. This client instance serves as the core interface for conducting feature management and experimentation(A/B and personalization) within your application.
+To create a VWO Client instance, you need to initialize the VWO FE React Native SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
 
 ## Usage
 
@@ -37,7 +37,7 @@ useEffect(() => {
         console.error('Error initialising', error);
       }
     };
-    
+
     initializeSDK();
 }, []);
 ```

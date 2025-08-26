@@ -16,7 +16,7 @@ next:
 ---
 ## Java SDK Installation
 
-To integrate VWO FME SDK into your Java application, you must first install the SDK through a java package manager. VWO FME Python SDK can be installed using [maven](https://mvnrepository.com/artifact).
+To integrate VWO FE SDK into your Java application, you must first install the SDK through a java package manager. VWO FE Python SDK can be installed using [maven](https://mvnrepository.com/artifact).
 
 ```java
 <dependency>

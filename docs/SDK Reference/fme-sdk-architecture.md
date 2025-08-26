@@ -7,11 +7,11 @@ metadata:
 ---
 ## High-Level SDK Architecture
 
-The diagram below represents the core workflow of the VWO Feature Management and Experimentation SDK, designed to enable dynamic feature delivery, experimentation, and behavioral analytics within an application. The flow is centred around initialization, flag evaluation, event tracking, and user attribute handling, emphasising asynchronous communication with the VWO backend.
+The diagram below represents the core workflow of the VWO Feature Experimentation SDK, designed to enable dynamic feature delivery, experimentation, and behavioral analytics within an application. The flow is centred around initialization, flag evaluation, event tracking, and user attribute handling, emphasising asynchronous communication with the VWO backend.
 
 ```mermaid
 flowchart TD
-    A0(["VWO FME SDK"]) --> A("Initialize using<br/>configurable options")
+    A0(["VWO FE SDK"]) --> A("Initialize using<br/>configurable options")
     A --> Y("getFlag(featureKey, userContext)")
     A --> X("trackEvent(eventName, userContext, eventProperties)")
     A --> Z("setAttribute(attributes, userContext)")
@@ -33,7 +33,7 @@ flowchart TD
     %% setAttribute Flow
     Z --> Z1("Send attributes event<br/>to VWO asynchronously")
     Z1 --> Z2("Segment VWO reports<br/>based on these attributes")
-    Z2(["Segmet VWO Reports based on attributes"]) 
+    Z2(["Segmet VWO Reports based on attributes"])
 
     %% Assign classes
     class Y getFlag
@@ -117,7 +117,7 @@ The following diagram illustrates how the event batching mechanism works interna
 ```mermaid
 flowchart TD
     A0(["SDK Initialization<br/>(with batching options)"]) --> A1("Setup Event Queue<br/>+ Batching Config<br/>(size, interval)")
-    
+
     subgraph Event API Calls
         A2("getFlag / trackEvent / setAttribute") --> A3("Create Impression Event")
         A3 --> A4("Push Event to Queue")
@@ -134,7 +134,7 @@ flowchart TD
         B4 --> B5("Clear Sent Events from Queue")
         B1 -- No --> C1("Wait Until Next Trigger")
     end
-    
+
     %% Assign classes
     class A2 apis
     class B2 batch
@@ -147,23 +147,23 @@ flowchart TD
 
 ```
 
-* To improve performance and reduce network overhead, the VWO FME SDK supports **event batching**. When batching options are provided during initialization (such as the maximum number of events to batch and the flush interval), the SDK no longer sends tracking or impression events immediately. Instead, events generated from calls like *getFlag*, *trackEvent*, or *setAttribute* are **pushed into an internal queue**.
+* To improve performance and reduce network overhead, the VWO FE SDK supports **event batching**. When batching options are provided during initialization (such as the maximum number of events to batch and the flush interval), the SDK no longer sends tracking or impression events immediately. Instead, events generated from calls like *getFlag*, *trackEvent*, or *setAttribute* are **pushed into an internal queue**.
 * The SDK monitors this queue and flushes events under two conditions: either when the **number of queued events reaches** the defined threshold, or when the **configured time interval elapses**. Once triggered, all queued events are **batched together into a single payload** and sent asynchronously to the VWO backend, significantly reducing the number of network calls and improving efficiency, especially in high-interaction environments.
 
 <br />
 
 ## How Storage Connector works for server-side SDKs
 
-The VWO FME SDK supports **custom storage integration** via a pluggable \_**Storage Connector**\_to optimise performance and reduce repeated computation. This allows the SDK to **persist and retrieve flag evaluation results**, reducing the need to re-evaluate feature flags for the same user context repeatedly. The diagram below illustrates how the SDK uses this connector during the *getFlag* call. If a decision is already available in storage, it's returned immediately. Otherwise, the SDK evaluates the feature flag, sends the tracking event asynchronously, and stores the decision for future use.
+The VWO FE SDK supports **custom storage integration** via a pluggable \_**Storage Connector**\_to optimise performance and reduce repeated computation. This allows the SDK to **persist and retrieve flag evaluation results**, reducing the need to re-evaluate feature flags for the same user context repeatedly. The diagram below illustrates how the SDK uses this connector during the *getFlag* call. If a decision is already available in storage, it's returned immediately. Otherwise, the SDK evaluates the feature flag, sends the tracking event asynchronously, and stores the decision for future use.
 
 ```mermaid
 flowchart TD
     A0(["SDK Initialization<br/>(with storageConnector)"]) --> A1("Define connector:<br/>get(key), set(key, value)")
 
     A2("getFlag(featureKey, userContext)") --> B1{"Check storageConnector.get<br/>for existing decision"}
-    
+
     B1 -- Found --> B2("Return decision")
-    
+
     B1 -- Not Found --> C1("Evaluate flag rules<br/>with user context")
     C1 --> C2("Generate decision result")
     C2 --> C3("Send async tracking call<br/>to VWO backend")

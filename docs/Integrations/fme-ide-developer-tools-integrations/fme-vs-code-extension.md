@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The **VWO Feature Management extension** for Visual Studio Code offers a seamless experience for managing VWO feature flags directly from your code editor. With this extension, you can view, toggle, and manage your feature flags without switching between your editor and the VWO dashboard. Boost your productivity and streamline feature flag management by integrating it right into your development workflow.
+The **VWO Feature Experimentation extension** for Visual Studio Code offers a seamless experience for managing VWO feature flags directly from your code editor. With this extension, you can view, toggle, and manage your feature flags without switching between your editor and the VWO dashboard. Boost your productivity and streamline feature flag management by integrating it right into your development workflow.
 
 ## Features
 
@@ -36,7 +36,7 @@ Before using the extension, you need to set up your VWO API credentials:
 
 ### Open VWO Feature Manager
 
-Use the `VWO: Open Feature Manager` command to open the main interface of the VWO Feature Management extension. Here, you can configure your account and access all available feature flags.
+Use the `VWO: Open Feature Manager` command to open the main interface of the VWO Feature experimentation extension. Here, you can configure your account and access all available feature flags.
 
 ### Toggle Feature Flag
 

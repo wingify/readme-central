@@ -9,7 +9,7 @@ metadata:
 
 Mixpanel is an analytics tool that helps businesses understand how users interact with their websites and apps. It tracks specific actions, showing what features are popular and where users face issues. This insight helps to make informed decisions for product improvement.
 
-Integrating FME, with Mixpanel offers significant benefits. FME sends feature flag and event data to Mixpanel. This allows you to see which feature flag variations users are exposed to directly within your Mixpanel reports. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
+Integrating FE, with Mixpanel offers significant benefits. FE sends feature flag and event data to Mixpanel. This allows you to see which feature flag variations users are exposed to directly within your Mixpanel reports. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
 
 <br />
 
@@ -26,10 +26,10 @@ Integrating FME, with Mixpanel offers significant benefits. FME sends feature fl
 MIXPANEL_PROJECT_TOKEN=your_mixpanel_project_token
 ```
 
-### VWO FME SDK Installation and Configuration
+### VWO FE SDK Installation and Configuration
 
-* Ensure you have the VWO Feature Management and Experimentation product enabled for your VWO account
-* The VWO FME SDK should be properly installed in your project
+* Ensure you have the VWO Feature Experimentation product enabled for your VWO account
+* The VWO FE SDK should be properly installed in your project
 * Set your VWO account ID and SDK key in your application's constants or local.properties file:
 
 ```properties
@@ -41,11 +41,11 @@ FME_SDK_KEY=your_sdk_key // Replace with your actual VWO sdk key
 
 ## Integration Steps
 
-Integrating the VWO FME SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
+Integrating the VWO FE SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
 
 > 📘 Note
 >
-> The example below shows an implementation with the `Android` SDK. Please note that any VWO FME SDK can be used.
+> The example below shows an implementation with the `Android` SDK. Please note that any VWO FE SDK can be used.
 
 ### 1. Add Required Dependencies
 
@@ -53,9 +53,9 @@ Add the following dependencies to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    // VWO FME SDK dependency
+    // VWO FE SDK dependency
     implementation 'com.vwo.sdk:vwo-fme-android-sdk:<latest version>' // Replace with the latest version
-    
+
     // Mixpanel SDK dependency
     implementation 'com.mixpanel.android:mixpanel-android:7.+'
 }
@@ -108,7 +108,7 @@ class MixpanelIntegration private constructor(context: Context, projectToken: St
 
 ### 4. Initialize Mixpanel and set up the `IntegrationCallback`:
 
-Initialize your `MixpanelIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FME SDK. `IntegrationCallback` is a mechanism that automatically forwards FME SDK events (like flag evaluations) to desired analytics platform for real-time tracking and analysis. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Mixpanel instance.
+Initialize your `MixpanelIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FE SDK. `IntegrationCallback` is a mechanism that automatically forwards FE SDK events (like flag evaluations) to desired analytics platform for real-time tracking and analysis. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Mixpanel instance.
 
 ```kotlin
 // Example Integration Callback Setup
@@ -210,4 +210,4 @@ After integrating Mixpanel with your app, you can view the tracked data in the f
 
 The complete source code for this example is available on [GitHub](https://github.com/wingify/vwo-fme-examples/tree/master/android).
 
-This is an example of an implementation using the Android SDK. While this demonstrates the approach, you can utilize any of the VWO FME SDKs for your project.
+This is an example of an implementation using the Android SDK. While this demonstrates the approach, you can utilize any of the VWO FE SDKs for your project.

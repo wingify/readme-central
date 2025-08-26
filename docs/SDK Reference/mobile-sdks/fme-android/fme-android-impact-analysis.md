@@ -9,7 +9,7 @@ This document provides a comprehensive analysis of the VWO Android SDK's impact 
 
 ## Executive Summary
 
-The VWO Android SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust feature management and experimentation capabilities.
+The VWO Android SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust Feature Experimentation capabilities.
 
 ## Application Launch Performance
 

@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-To integrate VWO Feature Management and Experimentation (FME) into your React application, you must wrap your application code with the `VWOProvider` component.
+To integrate VWO Feature Experimentation (FE) into your React application, you must wrap your application code with the `VWOProvider` component.
 
-The `VWOProvider` is a React context provider that initializes the VWO Feature Management and Experimentation (FME) SDK and makes the client instance and user context available to child components through React Context.
+The `VWOProvider` is a React context provider that initializes the VWO Feature Experimentation (FE) SDK and makes the client instance and user context available to child components through React Context.
 
 It is essential for enabling feature flag evaluation, A/B testing, and user tracking using hooks like `useVWOClient` or `useGetFlag`.
 
@@ -152,7 +152,7 @@ export default App;
 
 In some cases, you might prefer not to wrap your application with the `VWOProvider` component. For example, you may want finer control over when and how the SDK is initialized, or you might need to integrate it into an existing setup where using a provider is not feasible.
 
-VWO FME React SDK allows you to bypass the provider and directly work with its methods. This gives you the flexibility to manually initialize the SDK and manage feature flag evaluations, user targeting, and other SDK operations programmatically.
+VWO FE React SDK allows you to bypass the provider and directly work with its methods. This gives you the flexibility to manually initialize the SDK and manage feature flag evaluations, user targeting, and other SDK operations programmatically.
 
 You can implement this approach using the example below:
 
@@ -179,7 +179,7 @@ const MyComponent = () => {
 
       if (feature.isEnabled()) {
         setIsFeatureEnabled(true);
-        
+
         // You can also fetch the feature variables
         const value = feature.getVariable('feature_variable', 'default_value');
         console.log('Feature variable:', value);
@@ -401,7 +401,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-react-storage)  to le
 
 ### Integrations
 
-VWO FME SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
+VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
 
 ```typescript
 import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';

@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-# Storage in VWO FME Android SDK
+# Storage in VWO FE Android SDK
 
-The VWO FME Android SDK operates in a stateless mode by default, meaning each `getFlag` call triggers a fresh evaluation of the flag against the current user context.
+The VWO FE Android SDK operates in a stateless mode by default, meaning each `getFlag` call triggers a fresh evaluation of the flag against the current user context.
 
 To optimize performance and maintain consistency, the SDK provides both built-in storage and the ability to implement custom storage through a storage connector. This allows you to persist feature flag decisions in your preferred storage system.
 
@@ -42,7 +42,7 @@ VWO.init(options, object : IVwoInitCallback {
     override fun vwoInitSuccess(vwo: VWO, message: String?) {
         // VWO initialization succeeded
     }
-    
+
     override fun vwoInitFailed(message: String?) {
         // VWO initialization failed
     }
@@ -59,7 +59,7 @@ VWO.init(options, new IVwoInitCallback() {
     public void vwoInitSuccess(VWO vwo, String message) {
         // VWO initialization succeeded
     }
-    
+
     @Override
     public void vwoInitFailed(String message) {
         // VWO initialization failed
@@ -115,7 +115,7 @@ VWO.init(options, object : IVwoInitCallback {
     override fun vwoInitSuccess(vwo: VWO, message: String?) {
         // VWO initialization succeeded
     }
-    
+
     override fun vwoInitFailed(message: String?) {
         // VWO initialization failed
     }
@@ -157,7 +157,7 @@ VWO.init(options, new IVwoInitCallback() {
     public void vwoInitSuccess(VWO vwo, String message) {
         // VWO initialization succeeded
     }
-    
+
     @Override
     public void vwoInitFailed(String message) {
         // VWO initialization failed

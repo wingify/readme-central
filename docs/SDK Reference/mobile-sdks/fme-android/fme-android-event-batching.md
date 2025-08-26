@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-By default, VWO FME Android SDK sends impression events to VWO servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your VWO Campaign Reports.
+By default, VWO FE Android SDK sends impression events to VWO servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your VWO Campaign Reports.
 
 However, there are scenarios where it may be beneficial to collect multiple events over a period of time and send them together in a single request. The VWO Android SDK supports event batching, allowing you to configure how and when impression events are uploaded to VWO servers.
 
@@ -34,7 +34,7 @@ VWO.init(options, object : IVwoInitCallback {
     override fun vwoInitSuccess(vwo: VWO, message: String?) {
         // VWO initialization succeeded
     }
-    
+
     override fun vwoInitFailed(message: String?) {
         // VWO initialization failed
     }
@@ -53,7 +53,7 @@ VWO.init(options, new IVwoInitCallback() {
     public void vwoInitSuccess(VWO vwo, String message) {
         // VWO initialization succeeded
     }
-    
+
     @Override
     public void vwoInitFailed(String message) {
         // VWO initialization failed

@@ -16,7 +16,7 @@ next:
 ---
 A **feature flag** is a tool that allows teams to control the visibility and behavior of features without deploying new code. It enables **dynamic feature rollouts**, targeted testing, and quick rollbacks if needed.
 
-Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FME. To implement a feature flag, first use the getFlag() method to retrieve the flag configuration. The *getFlag()* method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like *isEnabled()* for checking the feature's status and *getVariable()* for retrieving any associated variable(s).
+Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FE. To implement a feature flag, first use the getFlag() method to retrieve the flag configuration. The *getFlag()* method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like *isEnabled()* for checking the feature's status and *getVariable()* for retrieving any associated variable(s).
 
 **Key Benefits:**
 
@@ -69,7 +69,7 @@ When this API is triggered:
 ### Usage
 
 ```java
-// Retrieve the feature flag associated with 'feature_key' for the given user context, 
+// Retrieve the feature flag associated with 'feature_key' for the given user context,
 // Allowing access to feature status using is_enabled() and associated variables (getVariables/getVariable).
 GetFlag getFlag = vwoInstance.getFlag("feature_key", context);
 ```
@@ -141,7 +141,7 @@ If the current user satisfies the conditions for any rollout, testing, or person
 ### Usage
 
 ```java
-// check if flag is enabled, returns true or false  
+// check if flag is enabled, returns true or false
 Boolean isFlagEnabled = flag.isEnabled();
 ```
 
@@ -216,7 +216,7 @@ String variableValue = (String) getFlag.getVariable("feature_variable", "default
 
 ## ***Get Variables*** API
 
-The *getVariables()* function returns all variables associated with the feature flag as a dictionary. 
+The *getVariables()* function returns all variables associated with the feature flag as a dictionary.
 
 ### Usage
 

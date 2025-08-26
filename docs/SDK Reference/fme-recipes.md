@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-<TutorialTile emoji="🦉" slug="vwo-fme-sdk-usage" title="VWO FME SDK Usage" />
+<TutorialTile emoji="🦉" slug="vwo-fme-sdk-usage" title="VWO FE SDK Usage" />
 
-VWO FME SDKs Recipes provide a streamlined approach to integrating and using the VWO Feature Management & Experimentation (FME) SDKs across multiple programming languages. Whether you're working with Node.js, Python, Java, or any other supported language, this guide helps you quickly set up, initialize, and start running feature rollouts, A/B tests, and experiments.
+VWO FE SDKs Recipes provide a streamlined approach to integrating and using the VWO Feature Experimentation (FE) SDKs across multiple programming languages. Whether you're working with Node.js, Python, Java, or any other supported language, this guide helps you quickly set up, initialize, and start running feature rollouts, A/B tests, and experiments.
 
 **What You'll Find in This Guide**
 

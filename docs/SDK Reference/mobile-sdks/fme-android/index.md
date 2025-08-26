@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The VWO FME Android SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within Android applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
+The VWO FE Android SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within Android applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
 
 ### Source Code Repository
 
@@ -43,6 +43,6 @@ To facilitate a comprehensive understanding and effective implementation of the 
 11. [Cache Settings](doc:fme-android-cache-settings)\
     Enhance speed and reduce API usage with configurable(TTL) caching of settings.
 12. [Impact Analysis](doc:fme-android-impact-analysis)\
-    Understand how VWO FME affects your app footprint.
+    Understand how VWO FE affects your app footprint.
 
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.

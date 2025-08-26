@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide details how VWO's Feature Management & Experimentation (FME) SDKs handle segmentation, particularly based on **Location**, **User Agent (UA)**, and **User Attributes** — differently for **client-side** and **server-side** implementations.
+This guide details how VWO's Feature Experimentation (FE) SDKs handle segmentation, particularly based on **Location**, **User Agent (UA)**, and **User Attributes** — differently for **client-side** and **server-side** implementations.
 
 ## Overview
 

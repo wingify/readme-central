@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-To create a VWO Client instance, you need to initialize the VWO FME Flutter SDK. This client instance serves as the core interface for conducting feature management and experimentation(A/B and personalization) within your application.
+To create a VWO Client instance, you need to initialize the VWO FE Flutter SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
 
 ## Usage
 
@@ -26,7 +26,7 @@ final vwoInitOptions = VWOInitOptions(
 final vwoClient = await VWO.init(vwoInitOptions);
 ```
 
-The `init()` method is called with the `sdkKey` and `accountId`. It initializes and returns a VWO Client Object `vwoClient`, which can be used to perform feature management and experimentation tasks. This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` method is called with the `sdkKey` and `accountId`. It initializes and returns a VWO Client Object `vwoClient`, which can be used to perform Feature Experimentation tasks. This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -69,7 +69,7 @@ class DartLogger implements LogTransport {
   @override
   void log(String level, String? message) {
     if (message == null) return;
-    print("FME-Flutter: [$level] $message");
+    print("FE-Flutter: [$level] $message");
   }
 }
 
@@ -94,7 +94,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-flutter-logging) for 
 
 ### Integrations
 
-VWO FME SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
+VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
 
 ```dart
 final vwoInitOptions = VWOInitOptions(

@@ -14,7 +14,7 @@ next:
       slug: fme-go-initialization
       title: Initialization
 ---
-To integrate the VWO Feature Management and Experimentation SDK into your Go project, you can use Go modules to install it directly from GitHub.
+To integrate the VWO Feature Experimentation SDK into your Go project, you can use Go modules to install it directly from GitHub.
 
 ## Requirements
 
@@ -28,7 +28,7 @@ Run the following command in your project directory:
 go get github.com/wingify/vwo-fme-go-sdk
 ```
 
-This command will download and install the VWO FME SDK and its dependencies in your project.\
+This command will download and install the VWO FE SDK and its dependencies in your project.\
 Import the SDK
 
 After installation, you can import the SDK in your Go files:
@@ -51,4 +51,4 @@ You're ready to initialize and use the SDK in your Go application.
 | :------- | :------------------------------------------------------------------------------------- |
 | Go       | [https://github.com/wingify/vwo-fme-go-sdk](https://github.com/wingify/vwo-fme-go-sdk) |
 
-The FME SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.
+The FE SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.

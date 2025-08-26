@@ -22,19 +22,19 @@ Key components of **GitHub Actions**:
 4. **Events**:\
    An event is a specific activity in a repository that triggers a workflow run. For example, an activity can originate from GitHub when someone creates a pull request, opens an issue, or pushes a commit to a repository
 
-## Introduction to VWO FME Github Action
+## Introduction to VWO FE Github Action
 
-The **VWO FME GitHub Action** enables you to evaluate feature flags in your CI/CD pipelines using the **VWO platform**. It allows you to dynamically enable or disable features or retrieve feature flag values during the build process. By leveraging feature flags, you can make more flexible, robust, and dynamic applications, eliminating hardcoded values from the codebase.
+The **VWO FE GitHub Action** enables you to evaluate feature flags in your CI/CD pipelines using the **VWO platform**. It allows you to dynamically enable or disable features or retrieve feature flag values during the build process. By leveraging feature flags, you can make more flexible, robust, and dynamic applications, eliminating hardcoded values from the codebase.
 
 > 📘 GitHub Repo
 >
 > You can find the source code of the repo [here](https://github.com/wingify/vwo-fme-github-action) .
 
-This documentation provides a comprehensive guide to understand how to set up and use the VWO FME GitHub Action in your repository.
+This documentation provides a comprehensive guide to understand how to set up and use the VWO FE GitHub Action in your repository.
 
 ## Inputs
 
-The following input fields need to be provided when using the `VWO FME GitHub Action`.
+The following input fields need to be provided when using the `VWO FE GitHub Action`.
 
 | Input Name             | Description                                                                                                                                                                                               | Required |
 | :--------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
@@ -66,7 +66,7 @@ You should store the `VWO_SDK_KEY` and `VWO_ACCOUNT_ID` securely in your GitHub 
 
 ## Usage Example
 
-Below is an example of how to use the VWO FME GitHub Action in a GitHub Actions workflow:
+Below is an example of how to use the VWO FE GitHub Action in a GitHub Actions workflow:
 
 ```yaml
 name: Feature Flag Management
@@ -111,7 +111,7 @@ jobs:
 Explanation:
 
 * The workflow is triggered on a `push` event to the `main` branch.
-* The `Evaluate Feature Flags` step uses the `VWO FME GitHub Action` to evaluate the feature flags for a user with the specified context (`userContext`).
+* The `Evaluate Feature Flags` step uses the `VWO FE GitHub Action` to evaluate the feature flags for a user with the specified context (`userContext`).
 * Feature flags are specified in the `flagsWithVariables` input as JSON, where each key represents a feature flag and its associated variable values.
 * The `sdkInitOptions` input allows for optional SDK configuration.
 * The VWO SDK credentials (`VWO_SDK_KEY` and `VWO_ACCOUNT_ID`) are passed securely using GitHub secrets.

@@ -1,12 +1,12 @@
 ---
 title: Hooks
-excerpt: Available Hooks in VWO FME React SDK
+excerpt: Available Hooks in VWO FE React SDK
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-The `VWO FME React SDK` provides a set of hooks to help you seamlessly integrate feature flagging, experimentation, and event tracking into your React application. These hooks provide an easy and flexible way to interact with the VWO SDK.
+The `VWO FE React SDK` provides a set of hooks to help you seamlessly integrate feature flagging, experimentation, and event tracking into your React application. These hooks provide an easy and flexible way to interact with the VWO SDK.
 
 Here are the available hooks:
 
@@ -58,7 +58,7 @@ useEffect(() => {
 
   (async () => {
     const userContext: IVWOContextModel = { id: 'user_123' };
-    
+
     // Retrieve the flag using the feature key and userContext
     const feature: Flag = await vwoClient.getFlag('feature_key', userContext);
     // check if the flag is enabled
@@ -110,10 +110,10 @@ import { useVWOContext } from './VWOProvider';
 const UpdateUserContextButton: React.FC = () => {
   const context = useVWOContext();
   // If you want to access the current user context, use - context.userContext
-  
+
   const handleUpdateUser = () => {
     if (context && context.userContext && context.setUserContext) {
-      // use setUserContext to update userContext 
+      // use setUserContext to update userContext
       context.setUserContext({
         id: 'new-user-id',
         customVariables: {key: 'value'}

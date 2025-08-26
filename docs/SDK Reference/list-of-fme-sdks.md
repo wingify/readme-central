@@ -1,5 +1,5 @@
 ---
-title: List of FME SDKs
+title: List of FE SDKs
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Below is the list of all server-side and client-side FME SDKs.
+Below is the list of all server-side and client-side FE SDKs.
 
 ## Server-side SDKs
 

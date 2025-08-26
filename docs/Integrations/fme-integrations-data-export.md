@@ -12,7 +12,7 @@ next:
 ---
 Data warehouses are an integral part of modern organizations used for reporting and data analysis. Warehouses allow for Business Intelligence (BI) by providing an understanding of users’ behavior and allow making insightful decisions by connecting the dots by creating dashboards, reports, graphs, etc.
 
-We have made it possible to enrich the BI with the VWO Feature management and Experimentation data, allowing you to visualize VWO Testing campaigns with in-house dashboards and reports.
+We have made it possible to enrich the BI with the VWO Feature Experimentation data, allowing you to visualize VWO Testing campaigns with in-house dashboards and reports.
 
 VWO has released the capability to set up a permanent export pipeline to the two most popular Storage services, Google Cloud Storage (GCS) & Amazon S3, which connect seamlessly with popular Data Warehouses.
 

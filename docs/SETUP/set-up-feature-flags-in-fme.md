@@ -1,5 +1,5 @@
 ---
-title: Set Up Feature Flags in FME
+title: Set Up Feature Flags in FE
 deprecated: false
 hidden: false
 metadata:
@@ -13,4 +13,4 @@ This guide covers the essentials of feature flags, including their benefits and 
 
 > 📘 Read more on
 >
-> [Set Up Feature Flags in FME](https://help.vwo.com/hc/en-us/articles/46345906086297-Set-Up-Feature-Flags-in-FME)
+> [Set Up Feature Flags in FE](https://help.vwo.com/hc/en-us/articles/46345906086297-Set-Up-Feature-Flags-in-FE)

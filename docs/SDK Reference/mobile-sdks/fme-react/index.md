@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The VWO FME React SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within React applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
+The VWO FE React SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within React applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
 
 ### Source Code Repository
 
@@ -33,7 +33,7 @@ To facilitate a comprehensive understanding and effective implementation of the 
 6. [Metrics Tracking](doc:fme-react-metrics)\
    Discover methods to track user interactions and measure the impact of feature rollouts and experiments on key performance indicators.
 7. [Attributes](doc:fme-react-attributes)\
-   Learn how to utilize user attributes for advanced targeting and segmentation in your feature management strategy.
+   Learn how to utilize user attributes for advanced targeting and segmentation in your feature experimntation strategy.
 8. [Logging](doc:fme-react-logging)\
    Configure logging to monitor SDK operations, debug issues, and maintain observability within your application.
 9. [Storage Service](doc:fme-react-storage)\

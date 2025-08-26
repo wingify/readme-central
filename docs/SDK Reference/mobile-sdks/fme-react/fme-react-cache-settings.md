@@ -105,7 +105,7 @@ These enhanced options allow developers to fine-tune storage behavior by specify
 const vwoConfig = {
   accountId: '123456',
   sdkKey: '32-alpha-numeric-sdk-key',
-  
+
   clientStorage: {
     // Custom key used to store SDK data, default is 'vwo_fme_data'
     key: 'vwo_data',
@@ -132,7 +132,7 @@ export default App;
 
 ## Flow
 
-The diagram outlines how the **VWO FME React SDK** manages settings using configurable caching options:
+The diagram outlines how the **VWO FE React SDK** manages settings using configurable caching options:
 
 ```mermaid
 flowchart TD
@@ -143,12 +143,12 @@ flowchart TD
     C -->|Yes| D[Use Cached Settings]
     D --> E[Fetch Fresh Settings in Background]
     E --> F[Update Cache with New TTL]
-    
+
     %% If alwaysUseCachedSettings is false
     C -->|No| G{Is TTL Valid?}
 
     G -->|Yes| D[Use Cached Settings]
-    
+
     G -->|No| K[Fetch Fresh Settings Immediately]
     K --> L[Store in Cache with New TTL]
     L --> M[Use New Settings]

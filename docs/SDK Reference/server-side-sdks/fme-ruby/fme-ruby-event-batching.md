@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-All VWO FME SDKs implement an advanced event batching mechanism to efficiently handle tracking for visitor events, conversion goals, and custom attributes. Instead of sending each event individually, the SDK collects them in memory and dispatches them in bulk within a single network request.
+All VWO FE SDKs implement an advanced event batching mechanism to efficiently handle tracking for visitor events, conversion goals, and custom attributes. Instead of sending each event individually, the SDK collects them in memory and dispatches them in bulk within a single network request.
 
 This batching approach offers several advantages:
 
@@ -20,7 +20,7 @@ Developers can configure batching behavior to match their application’s perfor
 
 ## What is Event Batching?
 
-Event Batching is a core mechanism across all VWO FME SDKs that enhances performance and scalability by aggregating multiple tracking events—such as visitors, conversions, and attribute updates—before sending them to the VWO servers.
+Event Batching is a core mechanism across all VWO FE SDKs that enhances performance and scalability by aggregating multiple tracking events—such as visitors, conversions, and attribute updates—before sending them to the VWO servers.
 
 Rather than sending each event as an individual network request, the SDK collects events over a period of time, queues them in memory, and dispatches them together in a single batched request. For example, if an application generates 4,000 events in quick succession, the SDK groups these into one or more batches based on configurable thresholds, significantly reducing the number of outbound network calls.
 
@@ -37,7 +37,7 @@ This approach ensures reliable and efficient data transmission, especially in hi
 
 ## Configuring Event Batching
 
-VWO FME SDKs offer flexible configuration options to control how event batching behaves across different environments. During SDK initialization, developers can enable and fine-tune event batching via a configuration object (commonly named `batch_event_data` or equivalent, depending on the SDK language.
+VWO FE SDKs offer flexible configuration options to control how event batching behaves across different environments. During SDK initialization, developers can enable and fine-tune event batching via a configuration object (commonly named `batch_event_data` or equivalent, depending on the SDK language.
 
 This configuration allows you to define when and how events—such as visitor tracking, conversions, and custom attributes—should be grouped and dispatched to the VWO servers.
 
@@ -194,9 +194,9 @@ vwo_client.flush_events()
 
 <br />
 
-## Event Batching Lifecycle in VWO FME SDKs
+## Event Batching Lifecycle in VWO FE SDKs
 
-The VWO FME SDKs provide a structured mechanism for batching events before sending them to the VWO server. The flow below outlines how events are processed, queued, and flushed—either automatically or manually, based on configuration parameters defined during SDK initialization.
+The VWO FE SDKs provide a structured mechanism for batching events before sending them to the VWO server. The flow below outlines how events are processed, queued, and flushed—either automatically or manually, based on configuration parameters defined during SDK initialization.
 
 ```mermaid
 flowchart TD

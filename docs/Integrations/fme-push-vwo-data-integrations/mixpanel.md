@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-The VWO Feature Management and Experimentation (FME) SDK is a powerful tool that enables dynamic feature flag management and experimentation in your iOS applications. It allows developers to:
+The VWO Feature Experimentation (FE) SDK is a powerful tool that enables dynamic feature flag management and experimentation in your iOS applications. It allows developers to:
 
 * Implement user ID-based feature flag evaluation
 * Track user interactions and events
@@ -23,10 +23,10 @@ The VWO Feature Management and Experimentation (FME) SDK is a powerful tool that
 
 ## Prerequisites
 
-#### VWO FME SDK Installation and Configuration
+#### VWO FE SDK Installation and Configuration
 
-* Ensure you have the VWO Feature Management and Experimentation product enabled for your VWO account
-* The VWO FME SDK should be properly installed in your iOS project
+* Ensure you have the VWO Feature Experimentation product enabled for your VWO account
+* The VWO FE SDK should be properly installed in your iOS project
 
 #### Mixpanel Account Setup
 
@@ -37,9 +37,9 @@ The VWO Feature Management and Experimentation (FME) SDK is a powerful tool that
 
 ## Integration Steps
 
-Integrating the VWO FME SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FME SDK.
+Integrating the VWO FE SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FE SDK.
 
-Initialize your `MixpanelIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FME SDK. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Mixpanel instance.
+Initialize your `MixpanelIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FE SDK. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Mixpanel instance.
 
 ```swift
 import VWO_FME
@@ -61,14 +61,14 @@ class MixpanelIntegration: IntegrationCallback {
                         ...
                     ])
                 }
-                
+
             case "track":
                 // Handle track API
                 if let eventName = properties["eventName"] as? String {
                     // Log the event to Mixpanel
                     Mixpanel.mainInstance().track(event: "vwo_fme_track_event", properties:		                               ["eventName":eventName])
                 }
-                
+
             default:
                 break
             }

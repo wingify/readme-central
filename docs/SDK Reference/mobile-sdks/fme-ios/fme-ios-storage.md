@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-Mobile SDKs for feature management and experimentation are designed to operate efficiently on iOS devices. Unlike server-side SDKs, mobile SDKs utilize built-in storage to manage feature flags and experimentation data.
+Mobile SDKs for Feature Experimentation are designed to operate efficiently on iOS devices. Unlike server-side SDKs, mobile SDKs utilize built-in storage to manage feature flags and experimentation data.
 
 ## Purpose of of Storage
 

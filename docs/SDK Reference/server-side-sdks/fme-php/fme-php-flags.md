@@ -16,7 +16,7 @@ next:
 ---
 A **feature flag** is a tool that allows teams to control the visibility and behavior of features without deploying new code. It enables **dynamic feature rollouts**, targeted testing, and quick rollbacks if needed.
 
-Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FME. To implement a feature flag, first use the getFlag() method to retrieve the flag configuration. The *getFlag()* method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like *isEnabled()* for checking the feature's status and *getVariable()* for retrieving any associated variable(s).
+Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FE. To implement a feature flag, first use the getFlag() method to retrieve the flag configuration. The *getFlag()* method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like *isEnabled()* for checking the feature's status and *getVariable()* for retrieving any associated variable(s).
 
 **Key Benefits:**
 
@@ -46,7 +46,7 @@ The returned flag object allows you to:
 
 ## ***Get Flag*** API
 
-This API connects the application to VWO’s feature management system to determine:
+This API connects the application to VWO’s feature experimentation system to determine:
 
 * Whether a feature should be active for a specific user.
 * What configuration or variation of the feature should be presented to that user.
@@ -69,7 +69,7 @@ When this API is triggered:
 ## Usage
 
 ```php
-// Retrieve the feature flag associated with 'feature_key' for the given user context, 
+// Retrieve the feature flag associated with 'feature_key' for the given user context,
 // Allowing access to feature status using is_enabled() and associated variables (getVariables/getVariable).
 $flag = $vwoClient->getFlag(‘feature_key’, $userContext);
 ```
@@ -139,7 +139,7 @@ This is evaluated based on the rules and targeting conditions configured with yo
 If the current user satisfies the conditions for any rollout, testing, or personalize rule connected to a specific feature flag, *isEnabled()* will return 'true'; otherwise, it will return 'false'.
 
 ```php
-// To check if the flag is enabled or disabled, use is_enabled method 
+// To check if the flag is enabled or disabled, use is_enabled method
 $isFlagEnabled = $flag->isEnabled();
 ```
 
@@ -212,7 +212,7 @@ $variableValue = $flag->getVariable('variable_key', 'default_value');
 
 ## ***Get Variables*** API
 
-The *getVariables()* function returns all variables associated with the feature flag as a dictionary. 
+The *getVariables()* function returns all variables associated with the feature flag as a dictionary.
 
 ### Usage
 

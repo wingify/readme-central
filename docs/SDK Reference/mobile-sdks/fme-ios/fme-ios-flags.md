@@ -12,7 +12,7 @@ next:
 ---
 A **feature flag** is a tool that allows teams to control the visibility and behavior of features without deploying new code. It enables **dynamic feature rollouts**, targeted testing, and quick rollbacks if needed.
 
-Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FME. To implement a feature flag, first use the getFlag() method to retrieve the flag configuration. The *getFlag()* method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like *isEnabled()* for checking the feature's status and *getVariable()* for retrieving any associated variable(s).
+Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FE. To implement a feature flag, first use the getFlag() method to retrieve the flag configuration. The *getFlag()* method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like *isEnabled()* for checking the feature's status and *getVariable()* for retrieving any associated variable(s).
 
 **Key Benefits:**
 
@@ -42,7 +42,7 @@ The returned flag object allows you to:
 
 ## ***Get Flag*** API
 
-This API connects the application to VWO’s feature management system to determine:
+This API connects the application to VWO’s feature experimentation system to determine:
 
 * Whether a feature should be active for a specific user.
 * What configuration or variation of the feature should be presented to that user.
@@ -65,11 +65,11 @@ When this API is triggered:
 ### Usage
 
 ```swift Swift
-// Retrieve the feature flag associated with 'feature_key' for the given user context, 
-// Allowing access to feature status using is_enabled() and associated variables (getVariables/getVariable). 
+// Retrieve the feature flag associated with 'feature_key' for the given user context,
+// Allowing access to feature status using is_enabled() and associated variables (getVariables/getVariable).
 VWOFme.getFlag(featureKey: "feature_key", context: userContext, completion: { flag in
-      let isFlagEnabled = flag.isEnabled() 
-      let variable = flag.getVariable(key: "variable_key", defaultValue: "default-value")      
+      let isFlagEnabled = flag.isEnabled()
+      let variable = flag.getVariable(key: "variable_key", defaultValue: "default-value")
 })
 ```
 
@@ -141,7 +141,7 @@ If the current user satisfies the conditions for any rollout, testing, or person
 
 ```swift Swift
 // To check if the flag is enabled or disabled, use is_enabled method
-let isFlagEnabled = flag.isEnabled() 
+let isFlagEnabled = flag.isEnabled()
 ```
 
 ### Returns
@@ -158,7 +158,7 @@ The *getVariable()* function retrieves the value of a specific variable associat
 
 ```swift
 // Get value of the flag's variable
-let variable = flag.getVariable(key: "variable_key", defaultValue: "default-value") 
+let variable = flag.getVariable(key: "variable_key", defaultValue: "default-value")
 ```
 
 ### Parameters Definition
@@ -215,7 +215,7 @@ let variable = flag.getVariable(key: "variable_key", defaultValue: "default-valu
 
 ## ***Get Variables*** API
 
-The *getVariables()* function returns all variables associated with the feature flag as a dictionary. 
+The *getVariables()* function returns all variables associated with the feature flag as a dictionary.
 
 ### Usage
 

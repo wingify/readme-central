@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To create a VWO Client instance, you need to initialize the VWO FME Python SDK. This client instance serves as the core interface for conducting feature management and experimentation(A/B and personalization) within your application.
+To create a VWO Client instance, you need to initialize the VWO FE Python SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
 
 ## Usage
 
@@ -122,7 +122,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-net-storage) 
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-net-storage)
       </td>
     </tr>
 
@@ -137,7 +137,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        If using the [FME Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers. 
+        If using the [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -210,7 +210,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-net-storage)  to lear
 
 ### Gateway Service
 
-The VWO FME Gateway Service enhances Feature Management and Experimentation (FME) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```csharp
 var vwoInitOptions = new VWOInitOptions
@@ -226,7 +226,7 @@ Please click [here]()  to learn more about gateway service.
 
 ### Integrations
 
-VWO FME SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
+VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
 
 ```csharp
 // Integration callback implementation

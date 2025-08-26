@@ -12,7 +12,7 @@ next:
 ---
 ## Flutter SDK Installation
 
-To integrate FME SDK into your Flutter application, you can do this via cocoapods. Simply add the following line to your Podfile
+To integrate FE SDK into your Flutter application, you can do this via cocoapods. Simply add the following line to your Podfile
 
 ```Text Shell
 # get the sdk
@@ -36,4 +36,4 @@ cd ios && pod install
 | :------- | :----------------------------------------------------------------------------------------------- |
 | Flutter  | [https://github.com/wingify/vwo-fme-flutter-sdk](https://github.com/wingify/vwo-fme-flutter-sdk) |
 
-The FME SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.
+The FE SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-VWO FME SDKs help you integrate with several third-party tools, be it analytics, monitoring, customer data platforms, messaging, etc., by implementing a very basic and generic callback capable of receiving VWO-specific properties that can then be pushed to any third-party tool.
+VWO FE SDKs help you integrate with several third-party tools, be it analytics, monitoring, customer data platforms, messaging, etc., by implementing a very basic and generic callback capable of receiving VWO-specific properties that can then be pushed to any third-party tool.
 
 ## Usage
 
@@ -23,7 +23,7 @@ vwoInitOptions.accountId = ACCOUNT_ID
 
 val integrations = object : IntegrationCallback {
     override fun execute(properties: Map<String, Any>) {
-        // your function definition 
+        // your function definition
     }
 }
 vwoInitOptions.integrations = integrations
@@ -33,7 +33,7 @@ VWO.init(vwoInitOptions, object : IVwoInitCallback {
     override fun vwoInitSuccess(vwo: VWO, message: String) {
         // VWO SDK initialized
     }
- 
+
     override fun vwoInitFailed(message: String) {
         // VWO SDK failed to initialize
     }
@@ -43,7 +43,7 @@ VWO.init(vwoInitOptions, object : IVwoInitCallback {
 IntegrationCallback integrations = new IntegrationCallback() {
             @Override
             public void execute(Map<String, Object> properties) {
-                // your function definition 
+                // your function definition
             }
         };
 
@@ -56,9 +56,9 @@ vwoInitOptions.setIntegrations(integrations);
 VWO.init(vwoInitOptions, new IVwoInitCallback() {
     @Override
     public void vwoInitSuccess(@NonNull VWO vwo, @NonNull String message) {
-        // VWO SDK Initialized  
+        // VWO SDK Initialized
     }
- 
+
     @Override
     public void vwoInitFailed(@NonNull String message) {
         // VWO SDK failed to initialize
@@ -93,7 +93,7 @@ Different destinations have their own formats for integrating with them and usin
 
 ## Which platforms I can integrate with?
 
-Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party tool capable of receiving it via APIs. 
+Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party tool capable of receiving it via APIs.
 
 > 📘 Note
 >

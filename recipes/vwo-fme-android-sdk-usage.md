@@ -1,5 +1,5 @@
 ---
-title: VWO FME Android SDK Usage
+title: VWO FE Android SDK Usage
 description: Recipe Description
 hidden: true
 recipe:
@@ -72,7 +72,7 @@ vwoClient?.setAttribute(attributes, context)
 
 <!-- kotlin@1-6 -->
 
-Import VWO FME SDK so it can be initialized.
+Import VWO FE SDK so it can be initialized.
 
 # Initialize
 

@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-A robust caching layer can significantly improve response times and reduce load on VWO servers by storing and reusing fetched settings at the edge or within your application’s storage. VWO FME SDKs support a variety of caching strategies, both at your infrastructure edge (e.g., Cloudflare Workers, AWS Lambda\@Edge) and within application-local storage (client‑side mobile and browser SDKs). This document details available options, behavior, and configuration.
+A robust caching layer can significantly improve response times and reduce load on VWO servers by storing and reusing fetched settings at the edge or within your application’s storage. VWO FE SDKs support a variety of caching strategies, both at your infrastructure edge (e.g., Cloudflare Workers, AWS Lambda\@Edge) and within application-local storage (client‑side mobile and browser SDKs). This document details available options, behavior, and configuration.
 
 <br />
 
@@ -114,7 +114,7 @@ flowchart TD
     A[App Starts] --> B[Check for Stored Settings]
     B -- Found --> C[Initialize SDK with Stored Settings]
     B -- Not Found --> F[SDK Operational]
-    
+
     C --> F[SDK Initialization]
 
     C --> G[Determine Expiration Strategy]
@@ -150,7 +150,7 @@ const vwoInstance = init({
 
 ## 4. Polling & Webhooks
 
-When using caching with VWO FME SDKs, it's essential to ensure that cached settings stay up-to-date with the latest configurations made in the VWO app. While caching improves performance and reduces network calls, it introduces the risk of stale data, especially in dynamic environments where flags, variables, or campaigns are updated frequently.
+When using caching with VWO FE SDKs, it's essential to ensure that cached settings stay up-to-date with the latest configurations made in the VWO app. While caching improves performance and reduces network calls, it introduces the risk of stale data, especially in dynamic environments where flags, variables, or campaigns are updated frequently.
 
 To address this, VWO provides two mechanisms: Polling and Webhooks.
 
@@ -180,9 +180,9 @@ const vwoClient = await init({
 // Node.js express server example
 app.post('/vwo-webhook', async (req, res) => {
   const updatedSettings = req.body.settings;
-  
+
   await vwoClient.updateSettings(updatedSettings);
-  
+
   res.sendStatus(200);
 });
 ```
@@ -206,7 +206,7 @@ graph LR
   J --> L[Use Settings]
   K --> L
   G --> L
-  
+
   %% Assign classes
   class C client
   class D server

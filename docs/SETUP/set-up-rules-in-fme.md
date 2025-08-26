@@ -1,5 +1,5 @@
 ---
-title: Set Up Rules in FME
+title: Set Up Rules in FE
 deprecated: false
 hidden: false
 metadata:
@@ -22,4 +22,4 @@ Rules let you specify who sees what, so you can include or exclude anyone from y
 
 > 📘 Read more on
 >
-> [Set Up Rules in FME](https://help.vwo.com/hc/en-us/articles/46347563022233-Set-Up-Rules-in-FME)
+> [Set Up Rules in FE](https://help.vwo.com/hc/en-us/articles/46347563022233-Set-Up-Rules-in-FE)

@@ -1,5 +1,5 @@
 ---
-title: VWO FME iOS SDK Usage
+title: VWO FE iOS SDK Usage
 description: Recipe Description
 hidden: true
 recipe:
@@ -45,7 +45,7 @@ VWOFme.setAttribute(attributes: attributeDict, context: userContext)
 
 <!-- swift@1 -->
 
-Import VWO FME SDK so it can be initialized.
+Import VWO FE SDK so it can be initialized.
 
 # Initialize
 

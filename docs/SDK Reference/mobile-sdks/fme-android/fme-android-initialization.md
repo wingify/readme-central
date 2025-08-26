@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-To create a VWO Client instance, you need to initialize the VWO FME Android SDK. This client instance serves as the core interface for conducting feature management and experimentation(A/B and personalization) within your application.
+To create a VWO Client instance, you need to initialize the VWO FE Android SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
 
 ## Usage
 
@@ -25,7 +25,7 @@ VWO.init(vwoInitOptions, object : IVwoInitCallback {
     override fun vwoInitSuccess(vwo: VWO, message: String) {
         // VWO SDK initialized
     }
- 
+
     override fun vwoInitFailed(message: String) {
         // VWO SDK failed to initialize
     }
@@ -46,9 +46,9 @@ vwoInitOptions.setAccountId(ACCOUNT_ID);
 VWO.init(vwoInitOptions, new IVwoInitCallback() {
     @Override
     public void vwoInitSuccess(@NonNull VWO vwo, @NonNull String message) {
-        // VWO SDK Initialized  
+        // VWO SDK Initialized
     }
- 
+
     @Override
     public void vwoInitFailed(@NonNull String message) {
         // VWO SDK failed to initialize
@@ -249,7 +249,7 @@ VWO.init(vwoInitOptions, object : IVwoInitCallback {
     override fun vwoInitSuccess(vwo: VWO, message: String) {
         // VWO SDK initialized
     }
- 
+
     override fun vwoInitFailed(message: String) {
         // VWO SDK failed to initialize
     }
@@ -265,9 +265,9 @@ vwoInitOptions.setPollInterval(POLL_INTERVAL); // in milliseconds
 VWO.init(vwoInitOptions, new IVwoInitCallback() {
     @Override
     public void vwoInitSuccess(@NonNull VWO vwo, @NonNull String message) {
-        // VWO SDK Initialized  
+        // VWO SDK Initialized
     }
- 
+
     @Override
     public void vwoInitFailed(@NonNull String message) {
         // VWO SDK failed to initialize
@@ -295,7 +295,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-android-logging) for 
 
 ### Integrations
 
-VWO FME SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
+VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
 
 ```kotlin
 val vwoInitOptions = VWOInitOptions()
@@ -305,7 +305,7 @@ vwoInitOptions.accountId = ACCOUNT_ID
 
 val integrations = object : IntegrationCallback {
     override fun execute(properties: Map<String, Any>) {
-        // your function definition 
+        // your function definition
     }
 }
 vwoInitOptions.integrations = integrations
@@ -315,7 +315,7 @@ VWO.init(vwoInitOptions, object : IVwoInitCallback {
     override fun vwoInitSuccess(vwo: VWO, message: String) {
         // VWO SDK initialized
     }
- 
+
     override fun vwoInitFailed(message: String) {
         // VWO SDK failed to initialize
     }
@@ -325,7 +325,7 @@ VWO.init(vwoInitOptions, object : IVwoInitCallback {
 IntegrationCallback integrations = new IntegrationCallback() {
             @Override
             public void execute(Map<String, Object> properties) {
-                // your function definition 
+                // your function definition
             }
         };
 
@@ -338,9 +338,9 @@ vwoInitOptions.setIntegrations(integrations);
 VWO.init(vwoInitOptions, new IVwoInitCallback() {
     @Override
     public void vwoInitSuccess(@NonNull VWO vwo, @NonNull String message) {
-        // VWO SDK Initialized  
+        // VWO SDK Initialized
     }
- 
+
     @Override
     public void vwoInitFailed(@NonNull String message) {
         // VWO SDK failed to initialize

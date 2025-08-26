@@ -9,7 +9,7 @@ metadata:
 next:
   description: ''
 ---
-The VWO Feature Management and Experimentation (FME) SDK enables feature flagging, experimentation, and event tracking for modern applications. JavaScript is fully supported on edge platforms, making the **VWO FME JavaScript SDK**, a VWO FME Node SDK port, fully compatible with the following edge environments.
+The VWO Feature Experimentation (FE) SDK enables feature flagging, experimentation, and event tracking for modern applications. JavaScript is fully supported on edge platforms, making the **VWO FE JavaScript SDK**, a VWO FE Node SDK port, fully compatible with the following edge environments.
 
 * Cloudflare Workers
 * Vercel Edge Functions
@@ -19,11 +19,11 @@ The VWO Feature Management and Experimentation (FME) SDK enables feature flaggin
 * Fastly Compute\@Edge
 * and other similar edge environments
 
-Edge runtimes are optimized for low latency, geographically distributed execution, and ephemeral function lifecycles. These characteristics require special handling of asynchronous operations such as HTTP requests for event tracking and telemetry. This guide outlines the required parameters and settings to run the VWO FME Javascript SDK effectively in edge computing environments.
+Edge runtimes are optimized for low latency, geographically distributed execution, and ephemeral function lifecycles. These characteristics require special handling of asynchronous operations such as HTTP requests for event tracking and telemetry. This guide outlines the required parameters and settings to run the VWO FE Javascript SDK effectively in edge computing environments.
 
-> For further details on the VWO FME JavaScript SDK, including specific configuration examples and advanced usage, refer to the [VWO JavaScript SDK Documentation](https://developers.vwo.com/v2/docs/fme-javascript).
+> For further details on the VWO FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [VWO JavaScript SDK Documentation](https://developers.vwo.com/v2/docs/fme-javascript).
 
-For further details on the VWO FME JavaScript SDK, including specific configuration examples and advanced usage, refer to the [VWO JavaScript SDK Documentation](https://developers.vwo.com/v2/docs/fme-javascript).
+For further details on the VWO FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [VWO JavaScript SDK Documentation](https://developers.vwo.com/v2/docs/fme-javascript).
 
 ## Why Edge Environments Need Special Handling
 
@@ -106,4 +106,4 @@ main();
 | Provide the user ID in context                | Enables targeting and consistent evaluations            |
 | Use a proper bundler if targeting the browser | Ensures compatibility with edge environments            |
 
-By following this guide, you can confidently deploy the VWO FME JavaScript SDK to distributed, edge platforms while preserving the integrity of your feature flagging and experimentation data.
+By following this guide, you can confidently deploy the VWO FE JavaScript SDK to distributed, edge platforms while preserving the integrity of your feature flagging and experimentation data.

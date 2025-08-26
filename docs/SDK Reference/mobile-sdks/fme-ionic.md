@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide provides step-by-step instructions for integrating the VWO FME JavaScript SDK into an Ionic-based mobile application.
+This guide provides step-by-step instructions for integrating the VWO FE JavaScript SDK into an Ionic-based mobile application.
 
 ### What is Ionic?
 
@@ -13,9 +13,9 @@ This guide provides step-by-step instructions for integrating the VWO FME JavaSc
 
 <br />
 
-### Compatibility with VWO FME JavaScript SDK
+### Compatibility with VWO FE JavaScript SDK
 
-The VWO FME JavaScript SDK integrates seamlessly with Ionic applications through the installation of an npm package. Since Ionic uses web technologies and can leverage Capacitor for native functionality, the VWO FME JavaScript SDK can be directly imported and used within Ionic services and components.
+The VWO FE JavaScript SDK integrates seamlessly with Ionic applications through the installation of an npm package. Since Ionic uses web technologies and can leverage Capacitor for native functionality, the VWO FE JavaScript SDK can be directly imported and used within Ionic services and components.
 
 <br />
 
@@ -35,9 +35,9 @@ For detailed instructions, refer to the [Ionic Getting Started Guide](https://io
 
 <br />
 
-### 2. Install FME JavaScript SDK
+### 2. Install FE JavaScript SDK
 
-Add the VWO FME JavaScript SDK to your project using npm:
+Add the VWO FE JavaScript SDK to your project using npm:
 
 ```shell
 npm install vwo-fme-node-sdk
@@ -69,7 +69,7 @@ export const environment = {
 
 ### 4. Create VWO Service
 
-Create a service to handle FME SDK initialization and operations:
+Create a service to handle FE SDK initialization and operations:
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -83,7 +83,7 @@ import { environment } from '../environments/environment';
 export class VwoService {
   private vwoClient: any = null;
   private isInitializedSubject = new BehaviorSubject<boolean>(false);
-  
+
   public isInitialized$ = this.isInitializedSubject.asObservable();
 
   constructor() {
@@ -130,7 +130,7 @@ export class VwoService {
 
 <br />
 
-### 5. Use FME in Components
+### 5. Use FE in Components
 
 Import and use the VWO service in your Ionic components:
 
@@ -158,7 +158,7 @@ export class HomePage implements OnInit {
   async checkFeatureFlag(userId: string) {
     const context = { id: userId };
     const flagResult = await this.vwoService.getFlag(environment.vwo.flagKey, context);
-    
+
     if (flagResult && flagResult.isEnabled()) {
       const modelName = flagResult.getVariable(environment.vwo.variables.modelName, 'Default');
       // Use the feature flag result
@@ -170,7 +170,7 @@ export class HomePage implements OnInit {
 <br />
 
 <Callout icon="💡" theme="default">
-  ### The VWO Feature Management and Experimentation (FME) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
+  ### The VWO Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
 
   * [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
   * [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting

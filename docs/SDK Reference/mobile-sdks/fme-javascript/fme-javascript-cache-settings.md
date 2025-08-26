@@ -108,10 +108,10 @@ const vwoClient = await init({
   clientStorage: {
     // Custom key used to store SDK data, default is 'vwo_fme_data'
     key: 'vwo_data',
-    
+
     // Use cached settings regardless of TTL, defaults to false
     alwaysUseCachedSettings: true,
-    
+
     // Custom TTL value in milliseconds (1 hour), defaults to 2 hours
     ttl: 3600000
   },
@@ -123,7 +123,7 @@ const vwoClient = await init({
 
 ## Flow
 
-The diagram outlines how the **VWO FME JavaScript SDK** manages settings using configurable caching options:
+The diagram outlines how the **VWO FE JavaScript SDK** manages settings using configurable caching options:
 
 ```mermaid
 flowchart TD
@@ -134,12 +134,12 @@ flowchart TD
     C -->|Yes| D[Use Cached Settings]
     D --> E[Fetch Fresh Settings in Background]
     E --> F[Update Cache with New TTL]
-    
+
     %% If alwaysUseCachedSettings is false
     C -->|No| G{Is TTL Valid?}
 
     G -->|Yes| D[Use Cached Settings]
-    
+
     G -->|No| K[Fetch Fresh Settings Immediately]
     K --> L[Store in Cache with New TTL]
     L --> M[Use New Settings]

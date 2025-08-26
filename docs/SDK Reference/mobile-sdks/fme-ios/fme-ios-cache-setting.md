@@ -7,7 +7,7 @@ metadata:
 ---
 ## What is Caching of Settings?
 
-Caching of settings in the VWO FME iOS SDK refers to the ability to store and reuse configuration data locally on the device instead of fetching it from the VWO server every time. This includes feature flags, campaign configurations, and other settings that determine how your application behaves.
+Caching of settings in the VWO FE iOS SDK refers to the ability to store and reuse configuration data locally on the device instead of fetching it from the VWO server every time. This includes feature flags, campaign configurations, and other settings that determine how your application behaves.
 
 ### Benefits of Caching Settings:
 
@@ -54,8 +54,8 @@ To utilize the `cachedSettingsExpiryTime` parameter, you need to initialize the 
 **Example usage**
 
 ```swift Swift
-let options = VWOInitOptions(sdkKey: SDK_KEY, 
-                             accountId: ACCOUNT_ID, 
+let options = VWOInitOptions(sdkKey: SDK_KEY,
+                             accountId: ACCOUNT_ID,
                              cachedSettingsExpiryTime: 600000) // in milliseconds
 
 ```

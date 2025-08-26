@@ -12,7 +12,7 @@ next:
 ---
 A **feature flag** is a tool that allows teams to control the visibility and behavior of features without deploying new code. It enables **dynamic feature rollouts**, targeted testing, and quick rollbacks if needed.
 
-Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FME. To implement a feature flag, first use the get*flag() method to retrieve the flag configuration. The\_get\_flag()* method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like *is\_enabled()* for checking the feature's status and *get\_variable()* for retrieving any associated variable(s).
+Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FE. To implement a feature flag, first use the get*flag() method to retrieve the flag configuration. The\_get\_flag()* method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like *is\_enabled()* for checking the feature's status and *get\_variable()* for retrieving any associated variable(s).
 
 **Key Benefits:**
 
@@ -44,7 +44,7 @@ The returned flag object allows you to:
 
 ## ***Get Flag*** API
 
-This API connects the application to VWO’s feature management system to determine:
+This API connects the application to VWO’s feature experimentation system to determine:
 
 * Whether a feature should be active for a specific user.
 * What configuration or variation of the feature should be presented to that user.
@@ -67,7 +67,7 @@ When this API is triggered:
 ### Usage
 
 ```python Python
-# Retrieve the feature flag associated with 'feature_key' for the given user context, 
+# Retrieve the feature flag associated with 'feature_key' for the given user context,
 # Allowing access to feature status using is_enabled() and associated variables (getVariables/getVariable).
 flag = vwo_client.get_flag('feature_key', user_context)
 ```
@@ -214,7 +214,7 @@ variable_value = flag.get_variable('variable_key', 'default_value')
 
 ## ***Get Variables*** API
 
-The *get\_variables()* function returns all variables associated with the feature flag as a dictionary. 
+The *get\_variables()* function returns all variables associated with the feature flag as a dictionary.
 
 ### Usage
 

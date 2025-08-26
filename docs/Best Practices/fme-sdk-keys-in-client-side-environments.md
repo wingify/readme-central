@@ -5,24 +5,24 @@ hidden: false
 metadata:
   robots: index
 ---
-VWO’s FME SDKs allow you to run experiments and feature rollouts in any environment — web, mobile, or backend. However, when using VWO in client-side environments (e.g., browsers or mobile apps), you're required to expose your Account ID and SDK Key, which may raise security concerns.
+VWO’s FE SDKs allow you to run experiments and feature rollouts in any environment — web, mobile, or backend. However, when using VWO in client-side environments (e.g., browsers or mobile apps), you're required to expose your Account ID and SDK Key, which may raise security concerns.
 
 This document outlines best practices for safely using VWO SDK Keys on the client-side and when you should consider using a server-side or proxy-based model instead.
 
 ## What is a VWO SDK Key?
 
-* A **VWO SDK Key** is used to initialize the FME SDK and authenticate with VWO servers to fetch feature flags and experiment configurations.
+* A **VWO SDK Key** is used to initialize the FE SDK and authenticate with VWO servers to fetch feature flags and experiment configurations.
 * It is **not a secret**, but it should be treated with care. Anyone with access to it can fetch variation assignments and feature flags, although they **cannot modify experiments** or access your VWO account settings.
 
 > 📘 Note
 >
-> The SDK Key is read-only and only used to fetch your FME feature flag configurations, so its exposure doesn't pose a direct security risk. However, VWO strongly advises against storing any personally identifiable information (PII) in your flag configurations.
+> The SDK Key is read-only and only used to fetch your FE feature flag configurations, so its exposure doesn't pose a direct security risk. However, VWO strongly advises against storing any personally identifiable information (PII) in your flag configurations.
 
 <br />
 
 ## What Happens If an SDK Key is Exposed?
 
-SDK keys are often embedded in the frontend code when using VWO FME in the browser or with mobile clients. While this is supported, consider the security implications:
+SDK keys are often embedded in the frontend code when using VWO FE in the browser or with mobile clients. While this is supported, consider the security implications:
 
 | Risk                           | Impact                                                                |
 | ------------------------------ | --------------------------------------------------------------------- |
@@ -36,7 +36,7 @@ SDK keys are often embedded in the frontend code when using VWO FME in the brows
 
 ### 1. Use Environment-Specific SDK Keys
 
-When working with VWO FME, it's important to isolate environments to reduce risk and maintain control over your feature flag configurations. VWO provides you with default multiple environments (such as `development`, `staging`, and `production`) within your project, each with its own unique SDK Key.
+When working with VWO FE, it's important to isolate environments to reduce risk and maintain control over your feature flag configurations. VWO provides you with default multiple environments (such as `development`, `staging`, and `production`) within your project, each with its own unique SDK Key.
 
 #### 💡 Best Practice for Client-Side Usage
 

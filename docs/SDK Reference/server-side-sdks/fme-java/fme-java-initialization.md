@@ -14,7 +14,7 @@ next:
       slug: fme-java-context
       title: User Context
 ---
-To create a VWO Client instance, you need to initialize the VWO FME Java SDK. This client instance serves as the core interface for conducting feature management and experimentation(A/B and personalization) within your application.
+To create a VWO Client instance, you need to initialize the VWO FE Java SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
 
 ## Usage
 
@@ -115,7 +115,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) 
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
       </td>
     </tr>
 
@@ -153,7 +153,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-java-storage) 
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-java-storage)
       </td>
     </tr>
 
@@ -165,10 +165,10 @@ This client object allows you to run experiments, track events, and enable/disab
 
       <td>
         ```
-        vwoInitOptions.setGatewayService(new HashMap<String, Object>() {  
-                    {  
-                        put("url", "<https://your.host.com:port")>;  
-                    }  
+        vwoInitOptions.setGatewayService(new HashMap<String, Object>() {
+                    {
+                        put("url", "<https://your.host.com:port")>;
+                    }
                 });
         ```
       </td>
@@ -178,7 +178,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        If using the [FME Gateway Service](https://developers.vwo.com/v2/docs/gateway-service) , this object will specify the location and port of where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service) , this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -251,7 +251,7 @@ Please click [storage](https://developers.vwo.com/v2/docs/fme-java-storage)  to 
 
 ### Gateway Service
 
-The VWO FME Gateway Service enhances Feature Management and Experimentation (FME) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```java
 VWOInitOptions vwoInitOptions = new VWOInitOptions();
@@ -268,13 +268,13 @@ Please click [GatewayService](https://developers.vwo.com/v2/docs/gateway-service
 
 ### Integrations
 
-VWO FME SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
+VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
 
 ```java
 IntegrationCallback integrations = new IntegrationCallback() {
     @Override
     public void execute(Map<String, Object> properties) {
-        // your function definition 
+        // your function definition
     }
 };
 

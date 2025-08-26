@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide provides step-by-step instructions to integrate the VWO FME JavaScript SDK into a Cordova-based mobile application.
+This guide provides step-by-step instructions to integrate the VWO FE JavaScript SDK into a Cordova-based mobile application.
 
 ### What is Cordova?
 
@@ -13,9 +13,9 @@ This guide provides step-by-step instructions to integrate the VWO FME JavaScrip
 
 <br />
 
-### Compatibility with VWO FME JavaScript SDK
+### Compatibility with VWO FE JavaScript SDK
 
-The FME JavaScript SDK integrates seamlessly with Cordova applications through CDN loading and local fallback mechanisms. Since Cordova runs web applications in native containers, the FME JavaScript SDK can be loaded directly via script tags and used throughout your Cordova app.
+The FE JavaScript SDK integrates seamlessly with Cordova applications through CDN loading and local fallback mechanisms. Since Cordova runs web applications in native containers, the FE JavaScript SDK can be loaded directly via script tags and used throughout your Cordova app.
 
 <br />
 
@@ -35,9 +35,9 @@ For detailed instructions, refer to the [Cordova Getting Started Guide](https://
 
 <br />
 
-### 2. Add VWO FME JavaScript SDK via CDN
+### 2. Add VWO FE JavaScript SDK via CDN
 
-You can add the FME JavaScript SDK to your `www/index.html` within the `<head>` section by:
+You can add the FE JavaScript SDK to your `www/index.html` within the `<head>` section by:
 
 1. downloading it locally.
 2. hosting it on your server.
@@ -50,7 +50,7 @@ For reference, we're using `jsDelivr` CDN and local copy as backup:
 ```html
 <head>
   <!-- Other head elements -->
-  <script 
+  <script
     src="https://cdn.jsdelivr.net/npm/vwo-fme-node-sdk@1/dist/client/vwo-fme-javascript-sdk.min.js"
     onload="console.log('VWO SDK script loaded successfully from CDN')"
     onerror="console.error('Failed to load VWO SDK from CDN, trying local fallback'); loadVwoSdkFallback();">
@@ -112,10 +112,10 @@ async function initVwo() {
         if (typeof vwoSdk === 'undefined') {
             throw new Error('VWO SDK not loaded. Please check your internet connection and try again.');
         }
-        
+
         // Get configuration from config.js
         const config = window.FME_CONFIG;
-        
+
         if (!config || !config.FME_SDK_KEY || !config.FME_ACCOUNT_ID) {
             throw new Error('Missing required VWO configuration.');
         }
@@ -133,11 +133,11 @@ async function initVwo() {
             },
             pollInterval: 120000, // 2 minutes
         });
-        
+
         window.vwoClient = vwoClient;
         return true;
     } catch (error) {
-        console.error('Failed to initialize VWO FME SDK:', error);
+        console.error('Failed to initialize VWO FE SDK:', error);
         return false;
     }
 }
@@ -158,12 +158,12 @@ async function getVwoFlagAndTrack(userId, query) {
         // Get the flag
         const flag = await window.vwoClient.getFlag(config.FLAG_NAME, userContext);
         const isEnabled = flag.isEnabled();
-        
+
         // Get variables
         const modelName = flag.getVariable(config.VARIABLE_1_KEY, '');
-        const queryAnswer = flag.getVariable(config.VARIABLE_2_KEY, { 
-            background: '#ffffff', 
-            content: 'Default response content' 
+        const queryAnswer = flag.getVariable(config.VARIABLE_2_KEY, {
+            background: '#ffffff',
+            content: 'Default response content'
         });
 
         // Track event
@@ -207,15 +207,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <br />
 
-### 6. Use VWO FME JavaScript SDK
+### 6. Use VWO FE JavaScript SDK
 
-Call the FME functions from your application logic:
+Call the FE functions from your application logic:
 
 ```javascript
 async function handleUserInteraction(userId, query) {
     try {
         const result = await getVwoFlagAndTrack(userId, query);
-        
+
         if (result.isEnabled) {
             // Use feature flag variables
             displayResponse(result.content, result.background);
@@ -240,7 +240,7 @@ function displayResponse(content, background) {
 <br />
 
 <Callout icon="💡" theme="default">
-  ### The VWO Feature Management and Experimentation (FME) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
+  ### The VWO Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
 
   * [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
   * [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting

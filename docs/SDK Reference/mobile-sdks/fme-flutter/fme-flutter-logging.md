@@ -46,7 +46,7 @@ class DartLogger implements LogTransport {
   @override
   void log(String level, String? message) {
     if (message == null) return;
-    print("FME-Flutter: [$level] $message");
+    print("FE-Flutter: [$level] $message");
   }
 }
 

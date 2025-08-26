@@ -1,6 +1,6 @@
 ---
 title: Getting Started With Your API
-excerpt: This page will help you get started with FME APIs.
+excerpt: This page will help you get started with FE APIs.
 deprecated: false
 hidden: true
 metadata:

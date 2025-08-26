@@ -14,11 +14,11 @@ next:
       slug: fme-go-context
       title: User Context
 ---
-Before you can use the  FME Go SDK, you need to initialize it with your account settings.
+Before you can use the  FE Go SDK, you need to initialize it with your account settings.
 
 ## Basic Usage
 
-Here's how to initialize the FME Go SDK:
+Here's how to initialize the FE Go SDK:
 
 ```go
 import vwo "github.com/wingify/vwo-fme-go-sdk"
@@ -100,7 +100,7 @@ func main() {
       </td>
 
       <td>
-        URL of your [Gateway Service](https://developers.vwo.com/v2/docs/gateway-service). 
+        URL of your [Gateway Service](https://developers.vwo.com/v2/docs/gateway-service).
       </td>
     </tr>
   </tbody>

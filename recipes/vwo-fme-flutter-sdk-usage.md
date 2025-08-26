@@ -1,5 +1,5 @@
 ---
-title: VWO FME Flutter SDK Usage
+title: VWO FE Flutter SDK Usage
 description: Recipe Description
 hidden: true
 recipe:
@@ -67,7 +67,7 @@ await vwoClient?.setAttribute(
 
 <!-- javascript@1-5 -->
 
-Import VWO FME SDK so it can be initialized.
+Import VWO FE SDK so it can be initialized.
 
 # Initialize
 

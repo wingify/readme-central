@@ -12,7 +12,7 @@ next:
 ---
 ## In-Built Storage
 
-In browser-based environments, the VWO FME JavaScript SDK automatically utilizes the browser’s localStorage API to persist user-related data. This ensures a seamless user experience by maintaining state across page reloads and browser sessions.
+In browser-based environments, the VWO FE JavaScript SDK automatically utilizes the browser’s localStorage API to persist user-related data. This ensures a seamless user experience by maintaining state across page reloads and browser sessions.
 
 ### Key Benefits of Custom Storage:
 
@@ -59,7 +59,7 @@ flowchart TD
 const vwoClient = await init({
   accountId: '123456',
   sdkKey: '32-alpha-numeric-sdk-key',
-  
+
   clientStorage: {
     // Custom key used to store SDK data, default is 'vwo_fme_data'
     key: 'vwo_data',

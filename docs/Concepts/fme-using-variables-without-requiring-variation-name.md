@@ -14,7 +14,7 @@ When a user gets bucketed into a variation inside a testing rule, one way of det
 
 ## Variables instead of Variations
 
-With FME, we have removed this need. You do not need to know which variation a user was bucketed into, to decide the flow.
+With FE, we have removed this need. You do not need to know which variation a user was bucketed into, to decide the flow.
 
 <br />
 

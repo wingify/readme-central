@@ -37,9 +37,9 @@ This makes webhooks ideal for event-driven integrations, allowing you to respond
 
 <Image align="center" border={true} caption="How Webhooks Work" src="https://files.readme.io/9bb354009aee72f1ad4b48b74871181e589b37b9c2877313902a249400775721-webhooks.png" />
 
-## Role of Webhooks in VWO FME SDKs
+## Role of Webhooks in VWO FE SDKs
 
-VWO FME SDKs fetch configuration settings (features, campaigns, variations) from the VWO servers. By default, they periodically poll for updates. Webhooks allow a more efficient and scalable solution by enabling:
+VWO FE SDKs fetch configuration settings (features, campaigns, variations) from the VWO servers. By default, they periodically poll for updates. Webhooks allow a more efficient and scalable solution by enabling:
 
 * **Real-time config sync**: No delay between a change on the dashboard and its reflection in the SDK.
 * **Hot-reloading support**: SDK settings are updated in-memory using the webhook payload.
@@ -51,7 +51,7 @@ VWO FME SDKs fetch configuration settings (features, campaigns, variations) from
 
 1. Log in to your VWO account.
 2. Navigate to `Configurations` → `Website and Apps` from the left-hand panel.
-3. Select the `Default Project` associated with your FME setup.
+3. Select the `Default Project` associated with your FE setup.
 4. Click on the `Configurations` tab.
 5. Under the **Environment(s)** section, enable the Webhook option for the specific environment(s) you want to subscribe to for configuration change events.
 6. In the `Wehook URL` field, provide the endpoint URL where you want to receive webhook notifications.
@@ -59,7 +59,7 @@ VWO FME SDKs fetch configuration settings (features, campaigns, variations) from
 
 <br />
 
-<Image align="center" border={true} caption="Configuring FME Webhooks in VWO" src="https://files.readme.io/c44a29c6f6a6396ceb2690d81878d377f2a1bef0f31d2d3f7688c78ed65f0b33-Screenshot_2025-07-15_at_2.26.38_AM.png" />
+<Image align="center" border={true} caption="Configuring FE Webhooks in VWO" src="https://files.readme.io/c44a29c6f6a6396ceb2690d81878d377f2a1bef0f31d2d3f7688c78ed65f0b33-Screenshot_2025-07-15_at_2.26.38_AM.png" />
 
 <br />
 
@@ -105,7 +105,7 @@ Whenever a settings change occurs (e.g., feature flag modified, campaign updated
 ### Payload Fields Explained:
 
 ```json
-{  
+{
   "timestamp": 1606482285,
   "event": "settings_changed",
   "action": "campaign_settings_changed",
@@ -160,10 +160,10 @@ app.post('/vwo-webhook', async (req, res) => {
   } else {
     console.log('Skipping Webhook Authentication as webhookAuthKey is not provided');
   }
-  
+
   // You may want to fetch the updated settings so that SDK can use the same
   await vwoClient.updateSettings();
-    
+
   res.end(JSON.stringify({
       status: 'success',
       message: 'Webhook received and Settings updated successfully'
@@ -189,7 +189,7 @@ def webhook():
     )
 
     WEBHOOK_AUTH_KEY = AccountDetails.get('webhook_auth_key')
-    
+
     if WEBHOOK_AUTH_KEY and request.headers.get('x-vwo-auth'):
         if WEBHOOK_AUTH_KEY != request.headers.get('x-vwo-auth'):
             print('VWO Webhook authentication failed')
@@ -204,7 +204,7 @@ def webhook():
     return make_response({'status': 'success', 'message': 'settings updated successfully'}, 200)
 ```
 ```java
-// Endpoint to subscribe to changes made in VWO FullStack running 
+// Endpoint to subscribe to changes made in VWO FullStack running
 @PostMapping("/vwo-webhook")
 @ResponseStatus(HttpStatus.OK)
 public void webhook(
@@ -212,7 +212,7 @@ public void webhook(
   @RequestBody String body
 ) {
   String webhookAuthKey = "SECRET_WEBHOOK_KEY_GENERATED_IN_VWO_APP";
-  
+
   if (webhookAuthKey != null && secretKey != null) {
     if (secretKey.equals(webhookAuthKey)) {
       System.out.println("VWO webhook authenticated successfully.");
@@ -223,7 +223,7 @@ public void webhook(
   } else {
     System.out.println("Skipping Webhook Authentication as webhookAuthKey is not provided.");
   }
-   
+
   if (vwoClient != null) {
     vwoClient.updateSettings();
     System.out.println(vwoClientInstance.getSettingFileString());
@@ -261,7 +261,7 @@ public async Task<string> webhook()
 
     if (VWOClient != null)
     {
-        logger.WriteLog(LogLevel.DEBUG, 
+        logger.WriteLog(LogLevel.DEBUG,
             string.IsNullOrEmpty(Defaults.WebhookSecretKey)
                 ? "UpdateSettings function called"
                 : "Authentication passed and UpdateSettings function is called");

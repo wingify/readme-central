@@ -14,7 +14,7 @@ Every feature flag that you create can have connected metrics that can be used t
 
 For each feature flag, you need to define at least one "Primary Metric", and you can set up as many secondary metrics as you'd like.
 
-Metrics in FME are based on "Custom Events" that you can create inside the VWO Application under Data360 product - `Data360 > Events`. All the custom events created in Data360 will be available to be used as metrics in your feature flags.
+Metrics in FE are based on "Custom Events" that you can create inside the VWO Application under Data360 product - `Data360 > Events`. All the custom events created in Data360 will be available to be used as metrics in your feature flags.
 
 Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet:
 

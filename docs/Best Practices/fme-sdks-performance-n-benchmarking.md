@@ -7,13 +7,13 @@ metadata:
 ---
 ## Overview
 
-This document provides insights into the performance characteristics of VWO FME SDKs across environments such as backend and client-side(mobile and browser) applications. It includes benchmarking data, impact on system resources, and network usage during various SDK operations.
+This document provides insights into the performance characteristics of VWO FE SDKs across environments such as backend and client-side(mobile and browser) applications. It includes benchmarking data, impact on system resources, and network usage during various SDK operations.
 
 <br />
 
 ## Local Evaluation
 
-VWO FME SDKs are designed with local decision-making as a core principle. Once initialized with configuration data fetched from VWO DACDN, all flag evaluations, variable resolutions, and targeting decisions are performed entirely within the SDK, without additional network calls. This approach ensures sub-millisecond response times for decision APIs like `getFlag()` and `getVariable()`, making our SDKs highly performant and suitable for latency-sensitive applications across backend services, mobile apps, and client-side environments.
+VWO FE SDKs are designed with local decision-making as a core principle. Once initialized with configuration data fetched from VWO DACDN, all flag evaluations, variable resolutions, and targeting decisions are performed entirely within the SDK, without additional network calls. This approach ensures sub-millisecond response times for decision APIs like `getFlag()` and `getVariable()`, making our SDKs highly performant and suitable for latency-sensitive applications across backend services, mobile apps, and client-side environments.
 
 We have benchmarked our SDKs across various use cases and environments to validate their low-latency and low-overhead nature. You can find below the detailed benchmark metrics, resource usage stats, and operational characteristics that demonstrate their performance at scale.
 
@@ -33,7 +33,7 @@ To ensure accurate and consistent performance evaluation, all benchmarks present
 >
 > Benchmarks are representative of high-performance production environments and help assess SDK behavior under typical backend and service workloads.
 
-To help you understand the performance characteristics of the VWO FME SDKs across different environments, we’ve broken down key critical technical dimensions for evaluating SDK integration in production systems.
+To help you understand the performance characteristics of the VWO FE SDKs across different environments, we’ve broken down key critical technical dimensions for evaluating SDK integration in production systems.
 
 In the following sections, you'll find detailed insights on:
 
@@ -77,7 +77,7 @@ SDK Overhead (During Request Lifecycle)
 
 ## Initialization Time
 
-VWO FME SDKs are optimized for fast, non-blocking startup. When the init() method is called, the SDK asynchronously fetches the configuration settings from VWO DACDN, a globally distributed CDN. These settings contain all required data for flag evaluations, experiment configurations, targeting rules, and variable definitions.
+VWO FE SDKs are optimized for fast, non-blocking startup. When the init() method is called, the SDK asynchronously fetches the configuration settings from VWO DACDN, a globally distributed CDN. These settings contain all required data for flag evaluations, experiment configurations, targeting rules, and variable definitions.
 
 **Key Points:**
 
@@ -108,7 +108,7 @@ VWO FME SDKs are optimized for fast, non-blocking startup. When the init() metho
 
 ## SDK Methods Benchmarks
 
-To help you understand the performance impact of using the VWO FME SDK in real-world applications, we benchmarked key SDK methods across multiple environments. These benchmarks include execution latency, memory footprint, and whether any external network calls are made.
+To help you understand the performance impact of using the VWO FE SDK in real-world applications, we benchmarked key SDK methods across multiple environments. These benchmarks include execution latency, memory footprint, and whether any external network calls are made.
 
 The results below represent average and worst-case scenarios for commonly used methods such as *init()*, *getFlag()*, *trackEvent()*, *setAttribute*, and others.
 
@@ -230,7 +230,7 @@ The results below represent average and worst-case scenarios for commonly used m
 
 ## Memory and Resource Utilization
 
-VWO FME SDKs are designed with a strong emphasis on low resource usage, making them suitable for both server-side and client-side applications where memory, CPU, and garbage collection overhead must be minimal.
+VWO FE SDKs are designed with a strong emphasis on low resource usage, making them suitable for both server-side and client-side applications where memory, CPU, and garbage collection overhead must be minimal.
 
 This section outlines the SDK's typical memory footprint and runtime resource behavior during different stages of its lifecycle.
 
@@ -251,16 +251,16 @@ This section outlines the SDK's typical memory footprint and runtime resource be
 
 ## Network Usage Profile
 
-The Network Usage Profile defines how and when the VWO FME SDK communicates with external servers over the network. Understanding this helps developers assess the SDK’s impact on bandwidth, latency, and reliability, especially in environments like serverless functions, mobile apps, or edge infrastructure where network calls are sensitive and often limited.
+The Network Usage Profile defines how and when the VWO FE SDK communicates with external servers over the network. Understanding this helps developers assess the SDK’s impact on bandwidth, latency, and reliability, especially in environments like serverless functions, mobile apps, or edge infrastructure where network calls are sensitive and often limited.
 
-In the Feature Management and Experimentation (FME) context, many tools require frequent communication with backend servers to fetch flag decisions, send telemetry, or synchronize states. VWO FME SDKs, however, are designed to minimize such overhead through offline, local decision-making and asynchronous, batched network interactions.
+In the Feature Experimentation (FE) context, many tools require frequent communication with backend servers to fetch flag decisions, send telemetry, or synchronize states. VWO FE SDKs, however, are designed to minimize such overhead through offline, local decision-making and asynchronous, batched network interactions.
 
 ### VWO Settings from VWO CDN(DaCDN)
 
 * **Endpoint**: [https://dev.visualwebsiteoptimizer.com/server-side/v2-settings](https://dev.visualwebsiteoptimizer.com/server-side/v2-settings)
 * **Size**: Depends on the number of running feature flags and their configurations. For example: 2-3 kB for 10 feature flags and their rule configurations
 * **Caching**: Edge-cached via CDN
-* **Fallback behavior**: Uses stale settings if fetch fails(built-in for FME client-side SDKs only)
+* **Fallback behavior**: Uses stale settings if fetch fails(built-in for FE client-side SDKs only)
 
 ### Tracking Events API
 
@@ -273,7 +273,7 @@ In the Feature Management and Experimentation (FME) context, many tools require 
 
 * **One-time config fetch**: Only a single network call is made during SDK initialization to retrieve configuration from VWO DACDN.
 * **Async-only traffic**: All runtime network operations (e.g., tracking) are performed asynchronously, ensuring zero impact on application latency or main thread execution.
-* **No polling by default**: VWO FME SDKs do not poll the server for updates unless explicitly configured to do so.
+* **No polling by default**: VWO FE SDKs do not poll the server for updates unless explicitly configured to do so.
 * **Batched requests**: Tracking user, metric events, and setting user attributes events are queued and dispatched in batches to optimize throughput and reduce network chatter. You need to pass event batching configuration while initializing the SDK to enable batching of events.
 * **Webhook support for updates**: VWO supports webhooks that can notify your system when settings are updated. This allows applications to refresh SDK settings on-demand rather than relying on polling or scheduled fetches, ensuring timely updates with minimal network overhead.
 
@@ -285,7 +285,7 @@ In the Feature Management and Experimentation (FME) context, many tools require 
 
 ## SDK Footprint
 
-VWO FME SDKs offer a minimal footprint and are engineered for maximum efficiency. Whether you're deploying on high-scale infrastructure or embedded platforms, the SDK will not introduce meaningful bloat or performance drag. This makes it a safe and scalable choice for modern product experimentation and feature flagging.
+VWO FE SDKs offer a minimal footprint and are engineered for maximum efficiency. Whether you're deploying on high-scale infrastructure or embedded platforms, the SDK will not introduce meaningful bloat or performance drag. This makes it a safe and scalable choice for modern product experimentation and feature flagging.
 
 <Table>
   <thead>

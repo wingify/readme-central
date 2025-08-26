@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-VWO offers a native integration with Contenful for FME.
+VWO offers a native integration with Contenful for FE.
 
 This integration allows you to manage content variations using feature flags and ensure the right content is displayed to relevant user segments. This automates the synchronization of these variations between Contentful and VWO, streamlining the A/B testing process, minimizing manual setup, and making content experimentation more efficient and effective.
 

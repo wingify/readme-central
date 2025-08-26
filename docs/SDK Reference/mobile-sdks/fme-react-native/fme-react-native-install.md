@@ -12,7 +12,7 @@ next:
 ---
 ## React Native SDK Installation
 
-To integrate the FME SDK into your React application, you can do this via cocoapods. Simply add the following line to your Podfile
+To integrate the FE SDK into your React application, you can do this via cocoapods. Simply add the following line to your Podfile
 
 ```shell Bash
 # get the sdk
@@ -39,4 +39,4 @@ cd ios && pod install
 | :----------- | :--------------------------------------------------------------------------------------------------------- |
 | React Native | [https://github.com/wingify/vwo-fme-react-native-sdk](https://github.com/wingify/vwo-fme-react-native-sdk) |
 
-The FME SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.
+The FE SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.

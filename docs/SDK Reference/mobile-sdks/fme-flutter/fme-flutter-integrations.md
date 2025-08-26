@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-VWO FME SDKs help you integrate with several third-party tools, be it analytics, monitoring, customer data platforms, messaging, etc., by implementing a very basic and generic callback capable of receiving VWO-specific properties that can then be pushed to any third-party tool.
+VWO FE SDKs help you integrate with several third-party tools, be it analytics, monitoring, customer data platforms, messaging, etc., by implementing a very basic and generic callback capable of receiving VWO-specific properties that can then be pushed to any third-party tool.
 
 ## Usage
 
@@ -55,7 +55,7 @@ Different destinations have their own formats for integrating with them and usin
 
 ## Which platforms I can integrate with?
 
-Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party tool capable of receiving it via APIs. 
+Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party tool capable of receiving it via APIs.
 
 > 📘 Note
 >

@@ -1,5 +1,5 @@
 ---
-title: VWO FME SDK Usage
+title: VWO FE SDK Usage
 description: Recipe Description
 hidden: true
 recipe:
@@ -232,7 +232,7 @@ vwo_client.set_attribute({ attribute_key: 'attribute_value' }, user_context)
 <!-- csharp@1-2 -->
 <!-- ruby@1 -->
 
-Import the VWO FME SDK so that it can be initialized
+Import the VWO FE SDK so that it can be initialized
 
 # Initialize
 

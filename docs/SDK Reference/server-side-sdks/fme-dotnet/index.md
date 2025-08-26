@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The VWO FME .NET SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within .NET applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
+The VWO FE .NET SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within .NET applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
 
 ### Source Code Repository
 
@@ -31,7 +31,7 @@ To facilitate a comprehensive understanding and effective implementation of the 
 5. [Metrics Tracking](doc:fme-dotnet-metrics)\
    Discover methods to track user interactions and measure the impact of feature rollouts and experiments on key performance indicators.
 6. [Attributes](doc:fme-dotnet-attributes)\
-   Learn how to utilize user attributes for advanced targeting and segmentation in your feature management strategy.
+   Learn how to utilize user attributes for advanced targeting and segmentation in your feature experimntation strategy.
 7. [Logging](doc:fme-dotnet-logging)\
    Configure logging to monitor SDK operations, debug issues, and maintain observability within your application.
 8. [Storage Service](doc:fme-dotnet-storage)\

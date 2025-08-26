@@ -9,7 +9,7 @@ metadata:
 
 Firebase Analytics is a free, comprehensive analytics solution that provides detailed insights into app usage and user engagement. It offers automatic event tracking, reporting, audience segmentation, and seamless integration with other Firebase services, making it a powerful tool for understanding your app's performance and user behavior.
 
-Integrating FME with Firebase Analytics offers significant benefits. FME sends feature flag and event data to Firebase Analytics, allowing you to see which feature flag variations users are exposed to directly within your Firebase dashboard. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
+Integrating FE with Firebase Analytics offers significant benefits. FE sends feature flag and event data to Firebase Analytics, allowing you to see which feature flag variations users are exposed to directly within your Firebase dashboard. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
 
 <br />
 
@@ -23,10 +23,10 @@ Integrating FME with Firebase Analytics offers significant benefits. FME sends f
 * Add the configuration file to your Xcode project
 * Follow the detailed setup instructions mentioned at <Anchor label="Firebase iOS Setup Guide" target="_blank" href="https://firebase.google.com/docs/ios/setup">Firebase iOS Setup Guide</Anchor>
 
-### VWO FME SDK Installation and Configuration
+### VWO FE SDK Installation and Configuration
 
-* Ensure you have the VWO Feature Management and Experimentation product enabled for your VWO account
-* The VWO FME SDK should be properly installed in your project
+* Ensure you have the VWO Feature Experimentation product enabled for your VWO account
+* The VWO FE SDK should be properly installed in your project
 * Set your VWO account ID and SDK key in your application's configuration:
 
 ```swift
@@ -42,7 +42,7 @@ Firebase Analytics SDK integration enables automatic collection of feature flag 
 
 > 📘 Note
 >
-> The example below shows an implementation with the `iOS` SDK. Please note that any VWO FME SDK can be used.
+> The example below shows an implementation with the `iOS` SDK. Please note that any VWO FE SDK can be used.
 
 ### 1. Add Required Dependencies
 
@@ -50,7 +50,7 @@ Add the following to your Podfile:
 
 ```ruby
 pod 'Firebase/Analytics'
-pod 'VWO-FME-iOS'
+pod 'VWO-FE-iOS'
 ```
 
 ### 2. Create Firebase Analytics Integration Class
@@ -70,21 +70,21 @@ class FirebaseAnalyticsIntegration: IntegrationCallback {
                 // Handle getFlag API
                 if let featureName = properties["featureName"] as? String,
                    let userId = properties["userId"] as? String {
-                   
+
                      // Log the event to Firebase Analytics
                     Analytics.logEvent("vwo_fme_flag_evaluation", parameters: [
                         "featureName": featureName,
                         "userId": userId
                     ])
                 }
-                
+
             case "track":
                 // Handle track API
                 if let eventName = properties["eventName"] as? String {
                     // Log the event to Firebase Analytics
                     Analytics.logEvent("vwo_fme_track_event", parameters: ["name": eventName])
                 }
-                
+
             default:
                 break
             }
@@ -95,7 +95,7 @@ class FirebaseAnalyticsIntegration: IntegrationCallback {
 
 ### 3. Initialize Firebase Analytics and set up the `IntegrationCallback`:
 
-Initialize your `FirebaseAnalyticsIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FME SDK. `IntegrationCallback` is a mechanism that automatically forwards FME SDK events (like flag evaluations) to the desired analytics platform for real-time tracking and analysis.
+Initialize your `FirebaseAnalyticsIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FE SDK. `IntegrationCallback` is a mechanism that automatically forwards FE SDK events (like flag evaluations) to the desired analytics platform for real-time tracking and analysis.
 
 <br />
 
@@ -109,9 +109,9 @@ let options = VWOInitOptions(sdkKey: FME_SDK_KEY, // Replace with your actual VW
 VWOFme.initialize(options: options) { result in
     switch result {
     case .success:
-        print("VWO-FME initialized successfully")
+        print("VWO-FE initialized successfully")
     case .failure(let error):
-        print("VWO-FME initialization failed: \(error)")
+        print("VWO-FE initialization failed: \(error)")
     }
 }
 ```
@@ -183,4 +183,4 @@ After integrating Firebase Analytics with your app, you can view the tracked dat
    * Export data to BigQuery for advanced analysis
    * Set up automated insights and anomaly detection
 
-> This is an example of an implementation using the iOS SDK. While this demonstrates the approach, you can utilize any of the VWO FME SDKs for your project.
+> This is an example of an implementation using the iOS SDK. While this demonstrates the approach, you can utilize any of the VWO FE SDKs for your project.
