@@ -14,7 +14,7 @@ To create a VWO Client instance, you need to initialize the VWO FE Node SDK. Thi
 
 ## Usage
 
-```node Node.js
+```javascript JavaScript
 const { init } = require('vwo-fme-node-sdk');
 
 const vwoClient = await init({
@@ -23,7 +23,7 @@ const vwoClient = await init({
 });
 ```
 
-The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature\
+The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
@@ -49,7 +49,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **accountId**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -63,8 +63,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **sdkKey**\
-        *Required*
+        **sdkKey**
+        _Required_
       </td>
 
       <td>
@@ -72,14 +72,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
       </td>
     </tr>
 
     <tr>
       <td>
-        **pollInterval**\
-        *Optional*
+        **pollInterval**
+        _Optional_
       </td>
 
       <td>
@@ -87,14 +87,18 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -
+
+        [Polling](https://developers.vwo.com/v2/docs/polling)
+
+
       </td>
     </tr>
 
     <tr>
       <td>
-        **logger**\
-        *Optional*
+        **logger**
+        _Optional_
       </td>
 
       <td>
@@ -102,14 +106,18 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-javascript-logging)
+        An optional logger object that defines the logging behavior. For more details, please check - 
+
+        [Logger](https://developers.vwo.com/v2/docs/fme-javascript-logging)
+
+
       </td>
     </tr>
 
     <tr>
       <td>
-        **storage**\
-        *Optional*
+        **storage**
+        _Optional_
       </td>
 
       <td>
@@ -117,14 +125,18 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-javascript-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - 
+
+        [Storage Service](https://developers.vwo.com/v2/docs/fme-javascript-storage)
+
+
       </td>
     </tr>
 
     <tr>
       <td>
-        **gatewayService**\
-        *Optional*
+        **gatewayService**
+        _Optional_
       </td>
 
       <td>
@@ -132,14 +144,18 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
+        If using the 
+
+        [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service)
+
+        , this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
     <tr>
       <td>
-        **integrations**\
-        *Optional*
+        **integrations**
+        _Optional_
       </td>
 
       <td>
@@ -147,7 +163,11 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-javascript-integrations)
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - 
+
+        [Integrations](https://developers.vwo.com/v2/docs/fme-javascript-integrations)
+
+
       </td>
     </tr>
   </tbody>
@@ -155,12 +175,12 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the *vwoClient* on your browser, it pulls the latest configurations you've done in the VWO application.\
-If/when you make any changes to the feature flags or rules within VWO after the *vwoClient* has been initialized on your browser, there needs to be some way to update your *vwoClient* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwoClient_ on your browser, it pulls the latest configurations you've done in the VWO application.
+If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized on your browser, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
-```node
+```javascript
 // Init options with poll_interval
 const vwoClient = await init({
   accountId: '123456',
@@ -173,7 +193,7 @@ const vwoClient = await init({
 
 VWO by default logs all ERROR level messages to your console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
 
-```node
+```javascript
 // Init options with logger
 const vwoClient1 = await init({
   accountId: '123456',
@@ -188,9 +208,9 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-javascript-logging) f
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each *getFlag* call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _getFlag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
-```node
+```javascript
 // Init options with storage
 const vwoClient = await init({
   accountId: '123456',
@@ -203,9 +223,9 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-javascript-storage)  
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
 
-```node
+```javascript
 // Init options with gateway_service
 const vwoClient = await init({
   accountId: '123456',
@@ -222,7 +242,7 @@ Please click [here](https://developers.vwo.com/v2/docs/gateway-service)  to lear
 
 VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
 
-```node
+```javascript
 // Init options with integrations
 const vwoClient = await vwo.init({
     sdkKey: 'bfce67fb74a7a59264045347f650dd2c', //replace with the SDK key for your environment
@@ -236,3 +256,30 @@ const vwoClient = await vwo.init({
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-javascript-integrations) to learn more about Integrations,.
+
+### Initialization with Explicit Settings
+
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.
+Please refer to [this](https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/) document for more information on retrieving settings.
+
+```javascript
+const localSettings = {
+    "accountId": 123456,
+    "sdkKey": '32-alpha-numeric-sdk-key',
+    "features": {
+        // features json here
+    },
+    "campaigns": {
+        // campaigns json here
+    },
+    "version": 1,
+};
+
+const vwoClient = await init({
+  accountId: '123456',
+  sdkKey: '32-alpha-numeric-sdk-key',
+  settings: localSettings // Pass the settings object here
+});
+```
+
+<br />
