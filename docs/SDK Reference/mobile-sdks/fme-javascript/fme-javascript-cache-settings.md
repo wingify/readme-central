@@ -12,7 +12,7 @@ These enhanced options allow developers to fine-tune storage behavior by specify
 ## Key Features:
 
 1. **Custom TTL (Time To Live) Option**
-   * The TTL setting allows specifying how long the settings should remain valid in the storage. If not specified, the default TTL is set to 2 hours. This helps in controlling the frequency with which settings are refreshed from the server.\
+   * The TTL setting allows specifying how long the settings should remain valid in the storage. If not specified, the default TTL is set to 2 hours. This helps in controlling the frequency with which settings are refreshed from the server.
      Note - The TTL value is specified in milliseconds.
    * This is especially useful when you want to limit the frequency of network requests and instead rely on cached settings for performance.
 2. **`alwaysUseCachedSettings`Option**
@@ -59,7 +59,7 @@ These enhanced options allow developers to fine-tune storage behavior by specify
       <td>
         **ttl**
         Type: Integer
-        (*Optional*)
+        (_Optional_)
       </td>
 
       <td>
@@ -79,7 +79,7 @@ These enhanced options allow developers to fine-tune storage behavior by specify
       <td>
         **alwaysUseCachedSettings**
         Type: Boolean
-        (*Optional*)
+        (_Optional_)
       </td>
 
       <td>
@@ -119,7 +119,10 @@ const vwoClient = await init({
 
 ```
 
-<br />
+<Callout icon="❗️">
+  When running the SDK for multiple environments (e.g., staging, production) of the same or different accounts, ensure that the **_clientStorage.key_** value is unique per environment.
+  Using the same key across environments may cause conflicts or data overwrites in local storage.
+</Callout>
 
 ## Flow
 
