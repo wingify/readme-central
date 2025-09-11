@@ -57,6 +57,27 @@ These enhanced options allow developers to fine-tune storage behavior by specify
   <tbody>
     <tr>
       <td>
+        **key**
+        Type: String
+        (_Optional_)
+      </td>
+
+      <td>
+        Unique key used to store SDK data in browser storage. 
+      </td>
+
+      <td>
+        * If only one SDK instance is running, this can be omitted (defaults to _vwo_fme_data_).
+        * If multiple SDK instances are running (for different environments of the same account or across different accounts), a custom key must be provided.
+      </td>
+
+      <td>
+        vwo_fme_data
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         **ttl**
         Type: Integer
         (_Optional_)
@@ -107,7 +128,7 @@ const vwoClient = await init({
   sdkKey: '32-alpha-numeric-sdk-key',
   clientStorage: {
     // Custom key used to store SDK data, default is 'vwo_fme_data'
-    key: 'vwo_data',
+    key: 'vwo_data_{unique_identifier}', // vwo_data_{envkey}
 
     // Use cached settings regardless of TTL, defaults to false
     alwaysUseCachedSettings: true,
@@ -119,7 +140,7 @@ const vwoClient = await init({
 
 ```
 
-<Callout icon="❗️">
+<Callout icon="❗️" theme="error">
   When running the SDK for multiple environments (e.g., staging, production) of the same or different accounts, ensure that the **_clientStorage.key_** value is unique per environment.
   Using the same key across environments may cause conflicts or data overwrites in local storage.
 </Callout>
