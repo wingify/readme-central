@@ -46,7 +46,7 @@ The returned flag object allows you to:
 
 ## ***Get Flag*** API
 
-This API connects the application to VWO’s feature management system to determine:
+This API connects the application to VWO’s feature experimentation system to determine:
 
 * Whether a feature should be active for a specific user.
 * What configuration or variation of the feature should be presented to that user.
