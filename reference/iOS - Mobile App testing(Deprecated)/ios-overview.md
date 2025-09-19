@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-> 🚧 VWO has a new mobile solution known as  [FME (Feature Management & Experimentation)](https://developers.vwo.com/v2/docs/).
+> 🚧 VWO has a new mobile solution known as  [Feature Experimentation](https://developers.vwo.com/v2/docs/).
 
 **⚠️ The VWO Mobile App Testing project is no longer actively developed. ⚠️**
 
@@ -18,12 +18,12 @@ next:
 
 **❌ No new features, enhancements, or non-critical updates will be added.**
 
-### Switch to *VWO Feature Management & Experimentation(FME)* – The Better Alternative! 🚀
+### Switch to *VWO Feature Experimentation* – The Better Alternative! 🚀
 
-VWO’s FME product empowers teams to seamlessly test, release, optimize, and roll back features across their entire tech stack while minimizing risk and maximizing business impact.
+VWO’s Feature Experimentation empowers teams to seamlessly test, release, optimize, and roll back features across their entire tech stack while minimizing risk and maximizing business impact.
 
-* Check out FME developer documentation [here](https://developers.vwo.com/v2/docs/fme-overview).
-* Check [this](https://developers.vwo.com/v2/docs/sdks-release-info) for the list of all FME-supported SDKs.
+* Check out Feature Experimentation developer documentation [here](https://developers.vwo.com/v2/docs/fme-overview).
+* Check [this](https://developers.vwo.com/v2/docs/sdks-release-info) for the list of all FE-supported SDKs.
 
 **💡 Need Help?**\
 For migration assistance or any questions, contact us at [support@vwo.com](support@vwo.com).

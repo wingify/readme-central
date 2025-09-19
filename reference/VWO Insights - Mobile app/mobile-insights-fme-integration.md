@@ -12,7 +12,7 @@ next:
 ---
 # Introduction
 
-This guide outlines the integration process for the **[VWO Insights Mobile SDK](https://developers.vwo.com/reference/mobile-insights-introduction) and [VWO Feature Management and Experimentation(FME) SDK](https://developers.vwo.com/v2/docs/fme-overview)** to ensure seamless session data synchronization.
+This guide outlines the integration process for the **[VWO Insights Mobile SDK](https://developers.vwo.com/reference/mobile-insights-introduction) and [VWO Feature Experimentation SDK](https://developers.vwo.com/v2/docs/fme-overview)** to ensure seamless session data synchronization.
 
 With this integration, customers can **link session data** between VWO Insights Mobile SDK and VWO FME SDK, enabling **post-segmentation of session data** based on various attributes. This empowers them to analyze user behavior more effectively, identify friction points, and optimize user experiences with precise insights.
 
@@ -71,26 +71,26 @@ VWO.linkFme(sessionCallback: self, userId: "")
 class VWOApplication : Application() {
     override fun onCreate() {
         super.onCreate()
-        
+
         initVWOInsights()
     }
 
     private fun initVWOInsights() {
         val config = ClientConfiguration(ACCOUNT_ID, SDK_KEY, null)
-        
+
         /* Below two lines are extra code needed to link both the SDKs.*/
 
         // SessionCallback to revalidate sessions
-        val sessionCallback = getSessionCallback()    
+        val sessionCallback = getSessionCallback()
         // USER_ID is mandatory to link between both the SDKs
-        VWOInsights.linkFME(sessionCallback, USER_ID) 
+        VWOInsights.linkFME(sessionCallback, USER_ID)
 
         // Initialize VWO Insights Mobile SDK
         VWOInsights.init(this, object : IVwoInitCallback {
             override fun vwoInitSuccess(message: String) {
 							  // VWO Mobile Insights SDK initializated successfully
                 VWOInsights.startSessionRecording()
-                
+
                 // Init VWO FME SDK
                 initVWOFME()
             }
@@ -116,15 +116,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, VWOSessionCallback {
     func initMiSDK() {
 				// SessionCallback to revalidate sessions and userId is mandatory
         VWO.linkFme(sessionCallback: self, userId: "")
-        
+
         VWO.configure(accountId: "", sdkKey: "", userId: "", completion: { result in
             switch result {
             case .success(_):
                 // VWO Mobile Insights SDK initializated successfully
                 VWO.startSessionRecording()
-              
-                // Init VWO FME SDK 
-                self.initVWOFME()											
+
+                // Init VWO FME SDK
+                self.initVWOFME()
             case .failure(_):
                 print("VWO Insights initialization failed")
             }
@@ -148,7 +148,7 @@ private fun initVWOFME() {
         }
 
         override fun vwoInitFailed(message: String) {
-            Log.i("VWOSession", "SessionId Uuid FME Init failed: $message")
+            Log.i("VWOSession", "SessionId Uuid FE Init failed: $message")
         }
     })
 }
@@ -156,7 +156,7 @@ private fun initVWOFME() {
 ```swift
 private fun initVWOFME() {
     val vwoInitOptions = VWOInitOptions()
-  
+
     vwoInitOptions.sdkKey = FME_SDK_KEY
     vwoInitOptions.accountId = VWO_ACCOUNT_ID
     vwoInitOptions.context = this@VWOApplication.applicationContext
@@ -167,7 +167,7 @@ private fun initVWOFME() {
         }
 
         override fun vwoInitFailed(message: String) {
-            Log.i("VWOSession", "SessionId Uuid FME Init failed: $message")
+            Log.i("VWOSession", "SessionId Uuid FE Init failed: $message")
         }
     })
 }

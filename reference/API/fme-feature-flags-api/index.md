@@ -1,5 +1,5 @@
 ---
-title: Feature Flags(FME)
+title: Feature Flags(FE)
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Feature Management and Experimentation (FME) REST APIs provide developers with the ability to programmatically manage feature flags. Using these APIs, you can perform the full set of CRUD (Create, Read, Update, Delete) operations on feature flag resources. Specifically, you can:
+The Feature Experimentation REST APIs provide developers with the ability to programmatically manage feature flags. Using these APIs, you can perform the full set of CRUD (Create, Read, Update, Delete) operations on feature flag resources. Specifically, you can:
 
 * Create a new feature flag with predefined configurations
 * Retrieve detailed information about a specific feature flag
@@ -22,4 +22,4 @@ This level of access enables automation and integration of feature flag manageme
 
 > 📘 Please Note
 >
-> **These APIs are applicable only to the[Feature Management and Experimentation](https://developers.vwo.com/v2/docs/fme-overview)(FME) Product.** Ensure your project is configured accordingly before making API requests.
+> **These APIs are applicable only to the[Feature Experimentation](https://developers.vwo.com/v2/docs/fme-overview) Product.** Ensure your project is configured accordingly before making API requests.

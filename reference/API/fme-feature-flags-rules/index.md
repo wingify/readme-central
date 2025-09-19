@@ -1,5 +1,5 @@
 ---
-title: Feature Flag Rules(FME)
+title: Feature Flag Rules(FE)
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Feature Management and Experimentation (FME) REST APIs also enable developers to manage feature flag rules programmatically. Feature flag rules define how and when a feature is delivered to users—based on conditions such as audience segmentation, rollout percentages, or experiment variations.
+The Feature Experimentation REST APIs also enable developers to manage feature flag rules programmatically. Feature flag rules define how and when a feature is delivered to users—based on conditions such as audience segmentation, rollout percentages, or experiment variations.
 
 Using the APIs, you can:
 
@@ -24,4 +24,4 @@ This API access provides fine-grained control over how features are rolled out a
 
 > 📘 Please Note
 >
-> **These APIs are applicable only to the[Feature Management and Experimentation](https://developers.vwo.com/v2/docs/fme-overview)(FME) Product.** Ensure your project is configured accordingly before making API requests.
+> **These APIs are applicable only to the[Feature Experimentation](https://developers.vwo.com/v2/docs/fme-overview) Product.** Ensure your project is configured accordingly before making API requests.

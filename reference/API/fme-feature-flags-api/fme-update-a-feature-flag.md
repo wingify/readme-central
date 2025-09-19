@@ -46,7 +46,7 @@ PATCH /accounts/123456/features/1
             "dataType": "json",
             "defaultValue": {
                 "name": "VWO",
-                "product": "FME"
+                "product": "FE"
             }
         }
     ],
