@@ -14,8 +14,6 @@ metadata:
 
 GET` https://app.vwo.com/api/v2/accounts/{account_id}/insights-metrics/{metric_report_id}`
 
-Retrieve comprehensive details for a specific metric report, including its historical data, status, and associated metadata.
-
 ### Path Parameters
 
 | Parameter          | Type      | Description                              |
