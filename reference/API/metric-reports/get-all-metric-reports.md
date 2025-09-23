@@ -37,7 +37,12 @@ This API request retrieves insights metrics for a specific account. It supports 
 | status    | string  | Filter metrics based on their status (e.g., running, completed) (optional) |
 | meta      | boolean | Include metadata in the response (optional)                                |
 
- 
+### Headers
+
+| Header   | Type     | Description                   |
+| :------- | :------- | :---------------------------- |
+| `accept` | `string` | `application/json`            |
+| `TOKEN`  | `string` | Your API authentication token |
 
 ### Sample Request
 
