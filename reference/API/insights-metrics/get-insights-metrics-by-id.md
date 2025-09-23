@@ -21,22 +21,22 @@ GET /api/v2/accounts/{account_id}/insights-metrics
 
 ### Authentication
 
-- **Header:** `TOKEN`
-- **Value:** API Key for accessing the account
+* **Header:** `TOKEN`
+* **Value:** API Key for accessing the account
 
 ### Parameters
 
-- **limit** (integer): Maximum number of metrics to return. Example: `25`
-- **offset** (integer): Starting point within the list. Example: `0`
-- **order** (string): Order of results, either `asc` or `desc`. Example: `asc`
-- **status** (string): Filter metrics by status (e.g., `running`). Example: `running`
-- **startTime** (integer): Start time for fetching metrics, in epoch seconds. Example: `1755030400`
-- **endTime** (integer): End time for fetching metrics, in epoch seconds. Example: `1758014340`
+* **limit** (integer): Maximum number of metrics to return. Example: `25`
+* **offset** (integer): Starting point within the list. Example: `0`
+* **order** (string): Order of results, either `asc` or `desc`. Example: `asc`
+* **status** (string): Filter metrics by status (e.g., `running`). Example: `running`
+* **startTime** (integer): Start time for fetching metrics, in epoch seconds. Example: `1755030400`
+* **endTime** (integer): End time for fetching metrics, in epoch seconds. Example: `1758014340`
 
 ### Headers
 
-- `accept`: `application/json, text/plain, */*`
-- `TOKEN`: Your access token
+* `accept`: `application/json, text/plain, */*`
+* `TOKEN`: Your access token
 
 ### Example cURL Request
 
@@ -57,5 +57,5 @@ A successful response will return a list of insights metrics, including detailed
 
 ### Related Links
 
-- [How to Access VWO API](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API?utm_source=openai)
-- [VWO API Documentation](https://developers.vwo.com/reference/get-page-overview-details?utm_source=openai)
+* [How to Access VWO API](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API?utm_source=openai)
+* [VWO API Documentation](https://developers.vwo.com/reference/get-page-overview-details?utm_source=openai)
