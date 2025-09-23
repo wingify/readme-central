@@ -13,10 +13,6 @@ metadata:
 ---
 ## Insights Metrics API Request
 
-### Summary
-
-<br />
-
 ### API Endpoint
 
 * **Summary**: Get all insights metrics for an account.
