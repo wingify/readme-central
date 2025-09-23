@@ -16,7 +16,7 @@ metadata:
 
 * **Summary**: Get insights metrics by id for an account.
 * **Method**: `GET`
-* **URL**:`https://app.vwo.com/api/v2/accounts/{account_id}/insightsmetrics/{metrics_report_id}`
+* **URL**:`https://app.vwo.com/api/v2/accounts/{account_id}/insights-metrics/{metrics_report_id}`
 
 ### Path Parameters
 
