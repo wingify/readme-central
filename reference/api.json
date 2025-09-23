@@ -8115,7 +8115,6 @@
                               {
                                 "id": 1,
                                 "name": "new Report",
-                                "isPrimary": true,
                                 "type": "custom-conversion",
                                 "description": "",
                                 "createdAt": 1758607258,
