@@ -19,7 +19,7 @@ This API request retrieves insights metrics for a specific account. It supports 
 
 * **Summary**: Get all insights metrics for an account.
 * **Method**: `GET`
-* **URL**: `https://vwotestapp20.vwo.com/api/v2/accounts/{account_id}/insights-metrics`
+* **URL**: `https://app.vwo.com/api/v2/accounts/{account_id}/insights-metrics`
 
 ### Path Parameters
 
