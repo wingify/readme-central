@@ -8098,8 +8098,6 @@
                             "status": "RUNNING",
                             "createdOn": 1758607258,
                             "modifiedOn": 1758607258,
-                            "codeToken": "eyJhY2NvdW50X2lkIjoyMDAwMTc3MywiZXhwZX9",
-                            "shareToken": "eyJhY22giOiIxNzM5YTQxN2NiYTdmODhiN2JkNDZmZGI0MTZlZDczNiIsInNjb3BlIjoiIiwiZnJuIjpmYWxzZX0=",
                             "isDeleted": false,
                             "createdBy": {
                               "name": "VWO Support",
