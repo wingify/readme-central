@@ -8280,13 +8280,6 @@
               "type": "number"
             },
             "required": true
-          },
-          {
-            "in": "query",
-            "name": "",
-            "schema": {
-              "type": "string"
-            }
           }
         ]
       }
