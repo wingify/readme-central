@@ -12,7 +12,11 @@ metadata:
 ---
 # Get details of a specific Metric Report
 
-GET` https://app.vwo.com/api/v2/accounts/{account_id}/insights-metrics/{metric_report_id}`
+### API Endpoint
+
+* **Summary**: Get insights metrics by id for an account.
+* **Method**: `GET`
+* **URL**:`https://app.vwo.com/api/v2/accounts/{account_id}/insightsmetrics/{metrics_report_id}`
 
 ### Path Parameters
 
