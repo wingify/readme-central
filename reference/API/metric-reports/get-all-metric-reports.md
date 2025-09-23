@@ -9,8 +9,6 @@ metadata:
 ---
 ## Insights Metrics API Request
 
-This document provides details on constructing a cURL request to retrieve insights metrics using the VWO API.
-
 ### Summary
 
 This API request retrieves insights metrics for a specific account. It supports pagination and ordering, with additional options to filter by status and include metadata.
