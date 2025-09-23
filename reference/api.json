@@ -8052,6 +8052,27 @@
           }
         ]
       }
+    },
+    "/accounts/{account_id}/insights-metrics": {
+      "get": {
+        "description": "",
+        "operationId": "get_accounts{account_id}insights-metrics",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ]
+      }
     }
   },
   "x-readme": {
