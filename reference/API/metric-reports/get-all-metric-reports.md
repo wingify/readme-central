@@ -351,5 +351,3 @@ curl --location 'https://vwotestapp20.vwo.com/api/v2/accounts/20001773/insights-
 ### Notes
 
 Ensure to replace `Your-API-Token` and `Your-Cookie-Data` with valid values before executing the request.
-
-This format uses markdown tables for path and query parameters to provide clear and structured information.
