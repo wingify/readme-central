@@ -8059,13 +8059,72 @@
         "operationId": "get_accounts{account_id}insights-metrics",
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "property1": {
+                      "type": "string",
+                      "description": ""
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "parameters": [
           {
             "in": "path",
             "name": "account_id",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "string",
+              "default": "25"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "header",
+            "name": "accept",
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            },
+            "required": true
+          },
+          {
+            "in": "header",
+            "name": "TOKEN",
             "schema": {
               "type": "string"
             },
