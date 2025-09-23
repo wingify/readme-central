@@ -23,15 +23,19 @@ This API request retrieves insights metrics for a specific account. It supports 
 
 ### Path Parameters
 
-- `account_id` (integer, required): ID of the VWO account
+| Parameter  | Type    | Description                 |
+|------------|---------|-----------------------------|
+| account_id | integer | ID of the VWO account (required) |
 
 ### Query Parameters
 
-- **limit**: (Optional) Number of records to retrieve. Default is 100.
-- **offset**: (Optional) The starting point in the list to retrieve data from.
-- **order**: (Optional) The order of the records. Possible values are `asc` or `desc`.
-- **status**: (Optional) Filter metrics based on their status (e.g., running, completed).
-- **meta**: (Optional) Include metadata in the response.
+| Parameter | Type    | Description                              |
+|-----------|---------|------------------------------------------|
+| limit     | integer | Number of records to retrieve (optional, default is 100) |
+| offset    | integer | The starting point in the list to retrieve data from (optional) |
+| order     | string  | The order of the records, possible values are `asc` or `desc` (optional) |
+| status    | string  | Filter metrics based on their status (e.g., running, completed) (optional) |
+| meta      | boolean | Include metadata in the response (optional) |
 
 ### Sample Request
 
@@ -61,3 +65,5 @@ curl --location 'https://vwotestapp20.vwo.com/api/v2/accounts/20001773/insights-
 ### Notes
 
 Ensure to replace `Your-API-Token` and `Your-Cookie-Data` with valid values before executing the request.
+
+This format uses markdown tables for path and query parameters to provide clear and structured information.
