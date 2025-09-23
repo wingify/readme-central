@@ -37,6 +37,8 @@ This API request retrieves insights metrics for a specific account. It supports 
 | status    | string  | Filter metrics based on their status (e.g., running, completed) (optional) |
 | meta      | boolean | Include metadata in the response (optional)                                |
 
+ 
+
 ### Sample Request
 
 ```bash
