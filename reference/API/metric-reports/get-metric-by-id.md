@@ -173,3 +173,7 @@ echo $response;
     ]
 }
 ```
+
+### Notes
+
+Ensure to replace `Your-API-Token`  with valid values before executing the request.
