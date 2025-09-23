@@ -11,7 +11,7 @@ link:
 metadata:
   robots: index
 ---
-## Insights Metrics API Request
+## Get  Insights Metrics  API Request
 
 ### API Endpoint
 
