@@ -12,7 +12,7 @@ metadata:
 ---
 # Get details of a specific Metric Report
 
-<Accordion title="GET" icon="angle-down">
+GET` https://vwotestapp20.vwo.com/api/v2/accounts/{account_id}/insights-metrics/{metric_id}`
 
 Retrieve comprehensive details for a specific metric report, including its historical data, status, and associated metadata.
 
@@ -63,86 +63,28 @@ print(response.text)
 
 ```json
 {
-    "_data": {
-        "id": 24,
-        "name": "click metrics Report",
-        "status": "RUNNING",
-        "createdOn": 1758607246,
-        "modifiedOn": 1758607246,
-        "codeToken": "eyJhY2NvdW50X2lkIjoyMDAwMTc3MywiZXhwZXJpbWVudF9pZCI6MjQsImNyZWF0ZWRfb24iOjE3NTg2MDcyNDYsInR5cGUiOiJ0cmFja2luZ0NvZGUiLCJ2ZXJzaW9uIjoxLCJoYXNoIjoiYWZkYjgzMTY4YmU2ZTkwYmZkOWI1ZDJjODdmZWVhYTkiLCJzY29wZSI6IiIsImZybiI6ZmFsc2V9",
-        "shareToken": "eyJhY2NvdW50X2lkIjoyMDAwMTc3MywiZXhwZXJpbWVudF9pZCI6MjQsImNyZWF0ZWRfb24iOjE3NTg2MDcyNDYsInR5cGUiOiJjYW1wYWlnbiIsInZlcnNpb24iOjEsImhhc2giOiIzNTFjM2Y0ZDQwZDg2YzQxYTZiZjUzYTJlODMyMTlmNSIsInNjb3BlIjoiIiwiZnJuIjpmYWxzZX0=",
-        "isGlobalSegmentEnabled": false,
-        "isPostSegmentationEnabled": false,
-        "isCodeShareView": false,
-        "isDeleted": false,
-        "createdBy": {
-            "name": "VWO Support",
-            "imageUrl": "/assets/images/vwo-support.svg"
-        },
-        "startedOn": "2025-09-23 06:00:47",
-        "globalSegment": "",
-        "dataIntervalRange": {
-            "intervalSize": 86400,
-            "startTime": 1758585600,
-            "endTime": 1758671999,
-            "limitingStartTime": 1758585600,
-            "limitingEndTime": 1758671999
-        },
-        "goals": [
-            {
-                "id": 1,
-                "name": "click metrics Report",
-                "type": "custom-conversion",
-                "urls": [
-                    {
-                        "type": "pattern",
-                        "value": "*"
-                    }
-                ],
-                "excludedUrls": [],
-                "metricReportId": 24
-            }
-        ],
-        "metricData": {
-            "conversionRate": 100,
-            "visitorCount": 27,
-            "conversionCount": 27,
-            "totalRevenue": 0,
-            "totalSumSquaredRevenue": null,
-            "totalConversion": 0,
-            "totalSessions": 0,
-            "totalConversionRate": 0
-        },
-        "funnels": [],
-        "variationGoalData": [
-            {
-                "aggregated": {
-                    "customVariables": [],
-                    "totalRevenue": 0,
-                    "conversionCount": 27,
-                    "totalSumSquaredRevenue": 0,
-                    "totalConversion": 0,
-                    "totalSessions": 0,
-                    "conversionRate": 0,
-                    "visitorCount": 0,
-                    "totalConversionRate": 0
-                },
-                "intervalWise": [
-                    {
-                        "totalRevenue": 0,
-                        "conversionCount": 27,
-                        "totalConversion": 0,
-                        "totalSessions": 0,
-                        "conversionRate": 0,
-                        "visitorCount": 0,
-                        "totalConversionRate": 0,
-                        "interval": 1758585600
-                    }
-                ]
-            }
-        ]
+  "_data": {
+    "metricId": 16,
+    "name": "Conversion Rate",
+    "description": "Overall conversion rate for the specified period",
+    "value": 0.05,
+    "unit": "percent",
+    "dataPoints": [
+      {
+        "timestamp": 1755030400,
+        "value": 0.045
+      },
+      {
+        "timestamp": 1755030400,
+        "value": 0.052
+      }
+    ],
+    "campaignId": null,
+    "status": "running",
+    "metaData": {
+      "totalVisitors": 10000,
+      "totalConversions": 500
     }
+  }
 }
 ```
-
-</Accordion>
