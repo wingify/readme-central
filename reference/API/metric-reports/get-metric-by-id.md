@@ -18,10 +18,10 @@ Retrieve comprehensive details for a specific metric report, including its histo
 
 ### Path Parameters
 
-| Parameter          | Type      | Description                                      |
-| :----------------- | :-------- | :----------------------------------------------- |
-| `account_id`       | `int`     | the id of the vwo app account (e.g., `20001753`) |
-| `metric_report_id` | `integer` | The ID of the metric report (e.g., `16`)         |
+| Parameter          | Type      | Description                              |
+| :----------------- | :-------- | :--------------------------------------- |
+| `account_id`       | `int`     | ID of the VWO account (required)         |
+| `metric_report_id` | `integer` | The ID of the metric report (e.g., `16`) |
 
 ### Query Parameters
 
