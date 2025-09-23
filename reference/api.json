@@ -8089,7 +8089,82 @@
                 "examples": {
                   "New Example": {
                     "summary": "New Example",
-                    "value": "{\n    \"_data\": {\n        \"partialCollection\": [\n            {\n                \"id\": 27,\n                \"name\": \"new Report\",\n                \"status\": \"RUNNING\",\n                \"createdOn\": 1758607258,\n                \"modifiedOn\": 1758607258,\n                \"codeToken\": \"eyJhY2NvdW50X2lkIjoyMDAwMTc3MywiZXhwZX9\",\n                \"shareToken\": \"eyJhY22giOiIxNzM5YTQxN2NiYTdmODhiN2JkNDZmZGI0MTZlZDczNiIsInNjb3BlIjoiIiwiZnJuIjpmYWxzZX0=\",\n                \"isDeleted\": false,\n                \"createdBy\": {\n                    \"name\": \"VWO Support\",\n                    \"imageUrl\": \"/assets/images/vwo-support.svg\"\n                },\n                \"startedOn\": \"2025-09-23 06:00:58\",\n                \"dataIntervalRange\": {\n                    \"intervalSize\": 86400,\n                    \"startTime\": 1758585600,\n                    \"endTime\": 1758671999,\n                    \"limitingStartTime\": 1758585600,\n                    \"limitingEndTime\": 1758671999\n                },\n                \"goals\": [\n                    {\n                        \"id\": 1,\n                        \"name\": \"new Report\",\n                        \"isPrimary\": true,\n                        \"type\": \"custom-conversion\",\n                        \"description\": \"\",\n                        \"createdAt\": 1758607258,\n                        \"metricId\": 1274,\n                        \"isArchived\": false,\n                        \"attributionTime\": \"\",\n                        \"calcLogic\": {\n                            \"logic\": \"triggered\"\n                        },\n                        \"events\": [\n                            {\n                                \"props\": [\n                                    {\n                                        \"id\": \"112-Property\",\n                                        \"include\": [\n                                            {\n                                                \"queryElementType\": \"partialQuery\",\n                                                \"id\": \"90-VwoPageGroup\",\n                                                \"operator\": 11,\n                                                \"rOperandValue\": \"https://bla.com\",\n                                                \"configurations\": {\n                                                    \"ignoreOnlyQueryParams\": true,\n                                                    \"ignoreOnlyHashFrag\": true,\n                                                    \"caseInsensitive\": true\n                                                }\n                                            }\n                                        ],\n                                        \"exclude\": [],\n                                        \"apiName\": \"event.targetUrl\"\n                                    }\n                                ],\n                                \"id\": \"58-Event\",\n                                \"eventDefinitionType\": \"STANDARD\",\n                                \"apiName\": \"vwo_dom_click\",\n                                \"name\": \"Click\",\n                                \"isComputed\": false,\n                                \"queryElementType\": \"partialQuery\"\n                            }\n                        ]\n                    }\n                ]\n            },\n            ... // Other entries follow a similar structure\n        ],\n        \"totalCount\": \"5\",\n        \"offset\": \"\"\n    }\n}"
+                    "value": {
+                      "_data": {
+                        "partialCollection": [
+                          {
+                            "id": 27,
+                            "name": "new Report",
+                            "status": "RUNNING",
+                            "createdOn": 1758607258,
+                            "modifiedOn": 1758607258,
+                            "codeToken": "eyJhY2NvdW50X2lkIjoyMDAwMTc3MywiZXhwZX9",
+                            "shareToken": "eyJhY22giOiIxNzM5YTQxN2NiYTdmODhiN2JkNDZmZGI0MTZlZDczNiIsInNjb3BlIjoiIiwiZnJuIjpmYWxzZX0=",
+                            "isDeleted": false,
+                            "createdBy": {
+                              "name": "VWO Support",
+                              "imageUrl": "/assets/images/vwo-support.svg"
+                            },
+                            "startedOn": "2025-09-23 06:00:58",
+                            "dataIntervalRange": {
+                              "intervalSize": 86400,
+                              "startTime": 1758585600,
+                              "endTime": 1758671999,
+                              "limitingStartTime": 1758585600,
+                              "limitingEndTime": 1758671999
+                            },
+                            "goals": [
+                              {
+                                "id": 1,
+                                "name": "new Report",
+                                "isPrimary": true,
+                                "type": "custom-conversion",
+                                "description": "",
+                                "createdAt": 1758607258,
+                                "metricId": 1274,
+                                "isArchived": false,
+                                "attributionTime": "",
+                                "calcLogic": {
+                                  "logic": "triggered"
+                                },
+                                "events": [
+                                  {
+                                    "props": [
+                                      {
+                                        "id": "112-Property",
+                                        "include": [
+                                          {
+                                            "queryElementType": "partialQuery",
+                                            "id": "90-VwoPageGroup",
+                                            "operator": 11,
+                                            "rOperandValue": "https://bla.com",
+                                            "configurations": {
+                                              "ignoreOnlyQueryParams": true,
+                                              "ignoreOnlyHashFrag": true,
+                                              "caseInsensitive": true
+                                            }
+                                          }
+                                        ],
+                                        "exclude": [],
+                                        "apiName": "event.targetUrl"
+                                      }
+                                    ],
+                                    "id": "58-Event",
+                                    "eventDefinitionType": "STANDARD",
+                                    "apiName": "vwo_dom_click",
+                                    "name": "Click",
+                                    "isComputed": false,
+                                    "queryElementType": "partialQuery"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "totalCount": "5",
+                        "offset": ""
+                      }
+                    }
                   }
                 }
               }
