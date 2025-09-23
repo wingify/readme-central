@@ -8237,8 +8237,6 @@
                         "status": "RUNNING",
                         "createdOn": 1758607250,
                         "modifiedOn": 1758607250,
-                        "codeToken": "eyJhY2NvdW50X2lkIjoyMDAwMTc3MywiZXhwZXJpbWVudF9pZCI6MjUsImNyZWF0ZWRfb24iOjE3NTg2MDcyNTAsInR5cGUiOiJ0cmFja2luZ0NvZGUiLCJ2ZXJzaW9uIjoxLCJoYXNoIjoiM2E4YTY5NmI1NzQ4ZmI5MzVmNDY0OGYwNzIyZDE5NjAiLCJzY29wZSI6IiIsImZybiI6ZmFsc2V9",
-                        "shareToken": "eyJhY2NvdW50X2lkIjoyMDAwMTc3MywiZXhwZXJpbWVudF9pZCI6MjUsImNyZWF0ZWRfb24iOjE3NTg2MDcyNTAsInR5cGUiOiJjYW1wYWlnbiIsInZlcnNpb24iOjEsImhhc2giOiIzMjNiYTY2YmJmYjVkOThlOGYzYzY1NDViMWYyOGQyMyIsInNjb3BlIjoiIiwiZnJuIjpmYWxzZX0=",
                         "isDeleted": false,
                         "createdBy": {
                           "name": "VWO Support",
