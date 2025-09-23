@@ -8133,23 +8133,6 @@
             "schema": {
               "type": "string"
             }
-          },
-          {
-            "in": "header",
-            "name": "accept",
-            "schema": {
-              "type": "string",
-              "default": "application/json"
-            },
-            "required": true
-          },
-          {
-            "in": "header",
-            "name": "TOKEN",
-            "schema": {
-              "type": "string"
-            },
-            "required": true
           }
         ]
       }
