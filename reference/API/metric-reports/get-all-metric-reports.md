@@ -11,7 +11,29 @@ metadata:
 
 This document provides details on constructing a cURL request to retrieve insights metrics using the VWO API.
 
-### cURL Command
+### Summary
+
+This API request retrieves insights metrics for a specific account. It supports pagination and ordering, with additional options to filter by status and include metadata.
+
+### API Endpoint
+
+- **Summary**: Get all insights metrics for an account.
+- **Method**: `GET`
+- **URL**: `https://vwotestapp20.vwo.com/api/v2/accounts/{account_id}/insights-metrics`
+
+### Path Parameters
+
+- `account_id` (integer, required): ID of the VWO account
+
+### Query Parameters
+
+- **limit**: (Optional) Number of records to retrieve. Default is 100.
+- **offset**: (Optional) The starting point in the list to retrieve data from.
+- **order**: (Optional) The order of the records. Possible values are `asc` or `desc`.
+- **status**: (Optional) Filter metrics based on their status (e.g., running, completed).
+- **meta**: (Optional) Include metadata in the response.
+
+### Sample Request
 
 ```bash
 curl --location 'https://vwotestapp20.vwo.com/api/v2/accounts/20001773/insights-metrics?limit=100&offset=0&order=asc&status=running&meta=true' \
@@ -20,23 +42,22 @@ curl --location 'https://vwotestapp20.vwo.com/api/v2/accounts/20001773/insights-
 --header 'Cookie: Your-Cookie-Data' 
 ```
 
-### API Endpoint
+### Sample Response
 
-- **URL**: `https://vwotestapp20.vwo.com/api/v2/accounts/20001773/insights-metrics`
-- **Method**: `GET`
-- **Query Parameters**:
-  - **limit**: 100
-  - **offset**: 0
-  - **order**: asc
-  - **status**: running
-  - **meta**: true
+```json
+{
+  "status": "success",
+  "data": [
+    {
+      "metric_id": 1,
+      "name": "Example Metric",
+      "status": "running",
+      "data": {}
+    }
+  ]
+}
+```
 
-### Headers
+### Notes
 
-- **Accept**: `application/json, text/plain, */*`
-- **TOKEN**: `Your-API-Token`
-- **Cookie**: Contains multiple `GCP_IAP_XSRF_NONCE` tokens and `XSRF-TOKEN`
-
-### Description
-
-This API request retrieves insights metrics for a specific account. The request supports pagination and ordering, with additional options to filter by status and include metadata. Ensure to replace `Your-API-Token` and `Your-Cookie-Data` with valid values before executing the request.
+Ensure to replace `Your-API-Token` and `Your-Cookie-Data` with valid values before executing the request.
