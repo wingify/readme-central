@@ -10,32 +10,81 @@ link:
 metadata:
   robots: index
 ---
-<Accordion title="GET `https://vwotestapp20.vwo.com/api/v2/accounts/{account_id}/insights-metrics/{metric_id}`" icon="fa-chevron-down">
-  Retrieve comprehensive details for a specific metric report, including its historical data, status, and associated metadata.
+# Get details of a specific Metric Report
 
-  ### Path Parameters
+GET` https://app.vwo.com/api/v2/accounts/{account_id}/insights-metrics/{metric_id}`
 
-  | Parameter    | Type      | Description                                                                                         |
-  | :----------- | :-------- | :-------------------------------------------------------------------------------------------------- |
-  | `account_id` | `string`  | Use 'current' keyword to refer to the Main Workspace or the Integer Workspace Id (e.g., `20001753`) |
-  | `metric_id`  | `integer` | The ID of the metric report (e.g., `16`)                                                            |
+Retrieve comprehensive details for a specific metric report, including its historical data, status, and associated metadata.
 
-  ### Query Parameters
+### Path Parameters
 
-  | Parameter   | Type      | Description                                                    | Default   |
-  | :---------- | :-------- | :------------------------------------------------------------- | :-------- |
-  | `limit`     | `integer` | Limit the number of data points to be returned.                | `100`     |
-  | `offset`    | `integer` | Offset where data points should be fetched from.               | `0`       |
-  | `order`     | `string`  | Order of data points (e.g., `asc`, `desc`).                    | `asc`     |
-  | `status`    | `string`  | Filter by report status (e.g., `running`, `completed`).        | `running` |
-  | `meta`      | `boolean` | Include metadata in the response.                              | `true`    |
-  | `startTime` | `integer` | UTC timestamp in epoch seconds for filtering data points from. |           |
-  | `endTime`   | `integer` | UTC timestamp in epoch seconds for filtering data points to.   |           |
+| Parameter    | Type      | Description                                                                                         |
+| :----------- | :-------- | :-------------------------------------------------------------------------------------------------- |
+| `account_id` | `string`  | Use 'current' keyword to refer to the Main Workspace or the Integer Workspace Id (e.g., `20001753`) |
+| `metric_id`  | `integer` | The ID of the metric report (e.g., `16`)                                                            |
 
-  ### Headers
+### Query Parameters
 
-  | Header   | Type     | Description                   |
-  | :------- | :------- | :---------------------------- |
-  | `accept` | `string` | `application/json`            |
-  | `TOKEN`  | `string` | Your API authentication token |
-</Accordion>
+| Parameter   | Type      | Description                                                    | Default   |
+| :---------- | :-------- | :------------------------------------------------------------- | :-------- |
+| `limit`     | `integer` | Limit the number of data points to be returned.                | `100`     |
+| `offset`    | `integer` | Offset where data points should be fetched from.               | `0`       |
+| `order`     | `string`  | Order of data points (e.g., `asc`, `desc`).                    | `asc`     |
+| `status`    | `string`  | Filter by report status (e.g., `running`, `completed`).        | `running` |
+| `meta`      | `boolean` | Include metadata in the response.                              | `true`    |
+| `startTime` | `integer` | UTC timestamp in epoch seconds for filtering data points from. |           |
+| `endTime`   | `integer` | UTC timestamp in epoch seconds for filtering data points to.   |           |
+
+### Headers
+
+| Header   | Type     | Description                   |
+| :------- | :------- | :---------------------------- |
+| `accept` | `string` | `application/json`            |
+| `TOKEN`  | `string` | Your API authentication token |
+
+### Sample Request
+
+```python
+import requests
+
+url = "https://vwotestapp20.vwo.com/api/v2/accounts/20001753/insights-metrics/16?limit=100&offset=0&order=asc&status=running&meta=true&startTime=1755030400&endTime=1758014340"
+
+headers = {
+    'accept': "application/json, text/plain, */*",
+    'TOKEN': "YOUR_API_TOKEN",
+}
+
+response = requests.request("GET", url, headers=headers)
+
+print(response.text)
+```
+
+### Sample Response (200 OK)
+
+```json
+{
+  "_data": {
+    "metricId": 16,
+    "name": "Conversion Rate",
+    "description": "Overall conversion rate for the specified period",
+    "value": 0.05,
+    "unit": "percent",
+    "dataPoints": [
+      {
+        "timestamp": 1755030400,
+        "value": 0.045
+      },
+      {
+        "timestamp": 1755030400,
+        "value": 0.052
+      }
+    ],
+    "campaignId": null,
+    "status": "running",
+    "metaData": {
+      "totalVisitors": 10000,
+      "totalConversions": 500
+    }
+  }
+}
+```
