@@ -20,7 +20,7 @@ Retrieve comprehensive details for a specific metric report, including its histo
 
 | Parameter          | Type      | Description                                                                                         |
 | :----------------- | :-------- | :-------------------------------------------------------------------------------------------------- |
-| `account_id`       | `string`  | Use 'current' keyword to refer to the Main Workspace or the Integer Workspace Id (e.g., `20001753`) |
+| `account_id`       | `int`     | Use 'current' keyword to refer to the Main Workspace or the Integer Workspace Id (e.g., `20001753`) |
 | `metric_report_id` | `integer` | The ID of the metric report (e.g., `16`)                                                            |
 
 ### Query Parameters
