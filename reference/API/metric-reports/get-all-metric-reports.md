@@ -1,5 +1,9 @@
 ---
 title: Get all metric reports
+excerpt: >-
+  This API request retrieves insights metrics for a specific account. It
+  supports pagination and ordering, with additional options to filter by status
+  and include metadata.
 deprecated: false
 hidden: true
 link:
@@ -11,7 +15,7 @@ metadata:
 
 ### Summary
 
-This API request retrieves insights metrics for a specific account. It supports pagination and ordering, with additional options to filter by status and include metadata.
+<br />
 
 ### API Endpoint
 
