@@ -45,7 +45,7 @@ metadata:
 ### Sample Request
 
 ```bash
-curl --location 'https://vwotestapp20.vwo.com/api/v2/accounts/20001773/insights-metrics?limit=25&offset=0&order=asc&status=running&meta=true' \
+curl --location 'https://app.vwo.com/api/v2/accounts/20001773/insights-metrics?limit=25&offset=0&order=asc&status=running&startTime=1755030400&endTime=1758014340' \
 --header 'accept: application/json, text/plain, */*' \
 --header 'TOKEN: Your-API-Token' \
 --header 'Cookie: Your-Cookie-Data' 
@@ -349,4 +349,4 @@ curl --location 'https://vwotestapp20.vwo.com/api/v2/accounts/20001773/insights-
 
 ### Notes
 
-Ensure to replace `Your-API-Token` and `Your-Cookie-Data` with valid values before executing the request.
+Ensure to replace `Your-API-Token`  with valid values before executing the request.
