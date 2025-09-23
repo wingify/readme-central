@@ -8,7 +8,7 @@ api:
   file: api.json
   operationId: get_accounts{account_id}insights-metrics
 deprecated: false
-hidden: true
+hidden: false
 link:
   new_tab: false
 metadata:
