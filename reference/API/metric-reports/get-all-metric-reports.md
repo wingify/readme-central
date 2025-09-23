@@ -29,10 +29,11 @@ metadata:
 
 | Parameter | Type    | Description                                                                |
 | --------- | ------- | -------------------------------------------------------------------------- |
-| limit     | integer | Number of records to retrieve (max limit is 25)                            |
+| limit     | integer | Number of records to retrieve (max limit is 25) (optional)                 |
 | offset    | integer | The starting point in the list to retrieve data from (optional)            |
 | order     | string  | The order of the records, possible values are `asc` or `desc` (optional)   |
 | status    | string  | Filter metrics based on their status (e.g., running, completed) (optional) |
+| ids       | array   | an array of campaign ids e.g [123, 456] (optional)                         |
 
 ### Headers
 
