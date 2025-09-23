@@ -1,5 +1,8 @@
 ---
 title: get insights metrics by id
+api:
+  file: api.json
+  operationId: get_new-endpoint
 deprecated: false
 hidden: true
 link:
