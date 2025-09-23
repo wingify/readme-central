@@ -158,6 +158,4 @@ curl --location 'https://app.vwo.com/api/v2/accounts/20001773/insights-metrics/1
 }
 ```
 
-### Notes
-
-Ensure to replace `Your-API-Token`  with valid values before executing the request.
+<br />
