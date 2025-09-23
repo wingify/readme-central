@@ -40,18 +40,29 @@ Retrieve comprehensive details for a specific metric report, including its histo
 ### Sample Request
 
 ```php
-import requests
+<?php
 
-url = "https://vwotestapp20.vwo.com/api/v2/accounts/20001753/insights-metrics/16?limit=100&offset=0&order=asc&status=running&meta=true&startTime=1755030400&endTime=1758014340"
+$curl = curl_init();
 
-headers = {
-    'accept': "application/json, text/plain, */*",
-    'TOKEN': "YOUR_API_TOKEN",
-}
+$url = "https://vwotestapp20.vwo.com/api/v2/accounts/20001753/insights-metrics/16?limit=100&offset=0&order=asc&status=running&meta=true&startTime=1755030400&endTime=1758014340";
 
-response = requests.request("GET", url, headers=headers)
+$headers = [
+    'accept: application/json, text/plain, */*',
+    'TOKEN: YOUR_API_TOKEN',
+];
 
-print(response.text)
+curl_setopt_array($curl, [
+    CURLOPT_URL => $url,
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_HTTPHEADER => $headers,
+]);
+
+$response = curl_exec($curl);
+
+curl_close($curl);
+
+echo $response;
+?>
 ```
 
 ### Sample Response (200 OK)
