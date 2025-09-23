@@ -8065,9 +8065,24 @@
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "property1": {
-                      "type": "string",
-                      "description": ""
+                    "_data": {
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "partialCollection": {
+                          "type": "array",
+                          "items": {
+                            "properties": {},
+                            "type": "object"
+                          }
+                        },
+                        "totalCount": {
+                          "type": "number"
+                        },
+                        "offset": {
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 },
@@ -8094,7 +8109,7 @@
             "in": "query",
             "name": "limit",
             "schema": {
-              "type": "string",
+              "type": "number",
               "default": "25"
             }
           },
@@ -8102,7 +8117,7 @@
             "in": "query",
             "name": "offset",
             "schema": {
-              "type": "string"
+              "type": "number"
             }
           },
           {
