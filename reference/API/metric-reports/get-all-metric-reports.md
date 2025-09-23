@@ -17,30 +17,30 @@ This API request retrieves insights metrics for a specific account. It supports 
 
 ### API Endpoint
 
-- **Summary**: Get all insights metrics for an account.
-- **Method**: `GET`
-- **URL**: `https://vwotestapp20.vwo.com/api/v2/accounts/{account_id}/insights-metrics`
+* **Summary**: Get all insights metrics for an account.
+* **Method**: `GET`
+* **URL**: `https://vwotestapp20.vwo.com/api/v2/accounts/{account_id}/insights-metrics`
 
 ### Path Parameters
 
-| Parameter  | Type    | Description                 |
-|------------|---------|-----------------------------|
+| Parameter  | Type    | Description                      |
+| ---------- | ------- | -------------------------------- |
 | account_id | integer | ID of the VWO account (required) |
 
 ### Query Parameters
 
-| Parameter | Type    | Description                              |
-|-----------|---------|------------------------------------------|
-| limit     | integer | Number of records to retrieve (optional, default is 100) |
-| offset    | integer | The starting point in the list to retrieve data from (optional) |
-| order     | string  | The order of the records, possible values are `asc` or `desc` (optional) |
+| Parameter | Type    | Description                                                                |
+| --------- | ------- | -------------------------------------------------------------------------- |
+| limit     | integer | Number of records to retrieve (optional, default is 100)                   |
+| offset    | integer | The starting point in the list to retrieve data from (optional)            |
+| order     | string  | The order of the records, possible values are `asc` or `desc` (optional)   |
 | status    | string  | Filter metrics based on their status (e.g., running, completed) (optional) |
-| meta      | boolean | Include metadata in the response (optional) |
+| meta      | boolean | Include metadata in the response (optional)                                |
 
 ### Sample Request
 
 ```bash
-curl --location 'https://vwotestapp20.vwo.com/api/v2/accounts/20001773/insights-metrics?limit=100&offset=0&order=asc&status=running&meta=true' \
+curl --location 'https://vwotestapp20.vwo.com/api/v2/accounts/20001773/insights-metrics?limit=25&offset=0&order=asc&status=running&meta=true' \
 --header 'accept: application/json, text/plain, */*' \
 --header 'TOKEN: Your-API-Token' \
 --header 'Cookie: Your-Cookie-Data' 
