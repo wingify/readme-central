@@ -7,15 +7,16 @@ link:
 metadata:
   robots: index
 ---
-### Insights Metrics API
+### Insights Metrics API Document
 
-This document provides information on the `Insights Metrics` API call for retrieving insights metrics from a specific account.
+This guide covers the usage of the `Insights Metrics` API, allowing users to retrieve insights metrics for an account.
 
 #### Endpoint
 
 ```
 GET /api/v2/accounts/{account_id}/insights-metrics
 ```
+
 **Base URL:** `https://vwotestapp20.vwo.com`
 
 ### Authentication
@@ -25,12 +26,12 @@ GET /api/v2/accounts/{account_id}/insights-metrics
 
 ### Parameters
 
-- **limit** (integer): Defines the maximum number of metrics to return. Example: `25`
-- **offset** (integer): Indicates the starting point within the list. Example: `0`
+- **limit** (integer): Maximum number of metrics to return. Example: `25`
+- **offset** (integer): Starting point within the list. Example: `0`
 - **order** (string): Order of results, either `asc` or `desc`. Example: `asc`
 - **status** (string): Filter metrics by status (e.g., `running`). Example: `running`
-- **startTime** (integer): The start time for fetching metrics, in epoch seconds. Example: `1755030400`
-- **endTime** (integer): The end time for fetching metrics, in epoch seconds. Example: `1758014340`
+- **startTime** (integer): Start time for fetching metrics, in epoch seconds. Example: `1755030400`
+- **endTime** (integer): End time for fetching metrics, in epoch seconds. Example: `1758014340`
 
 ### Headers
 
@@ -50,6 +51,11 @@ curl --location 'https://vwotestapp20.vwo.com/api/v2/accounts/20001773/insights-
 
 This API call retrieves insights metrics from the specified account based on parameters such as limit, offset, order, status, and time range.
 
-#### Response
+### Response
 
-A successful response will return a list of insight metrics, including detailed performance and engagement statistics.
+A successful response will return a list of insights metrics, including detailed performance and engagement statistics.
+
+### Related Links
+
+- [How to Access VWO API](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API?utm_source=openai)
+- [VWO API Documentation](https://developers.vwo.com/reference/get-page-overview-details?utm_source=openai)
