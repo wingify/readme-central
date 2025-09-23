@@ -44,7 +44,8 @@ Retrieve comprehensive details for a specific metric report, including its histo
 
 $curl = curl_init();
 
-$url = "https://vwotestapp20.vwo.com/api/v2/accounts/20001753/insights-metrics/16?limit=100&offset=0&order=asc&status=running&meta=true&startTime=1755030400&endTime=1758014340";
+$url = "https://app.vwo.com/api/v2/accounts/20001753/insights-metrics/16?
+startTime=1755030400&endTime=1758014340";
 
 $headers = [
     'accept: application/json, text/plain, */*',
