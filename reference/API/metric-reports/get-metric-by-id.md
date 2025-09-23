@@ -1,7 +1,7 @@
 ---
 title: Get Metric By Id
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
