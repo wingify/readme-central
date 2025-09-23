@@ -42,30 +42,10 @@ metadata:
 ### Sample Request
 
 ```php
-<?php
-
-$curl = curl_init();
-
-$url = "https://app.vwo.com/api/v2/accounts/20001753/insights-metrics/16?
-startTime=1755030400&endTime=1758014340";
-
-$headers = [
-    'accept: application/json, text/plain, */*',
-    'TOKEN: YOUR_API_TOKEN',
-];
-
-curl_setopt_array($curl, [
-    CURLOPT_URL => $url,
-    CURLOPT_RETURNTRANSFER => true,
-    CURLOPT_HTTPHEADER => $headers,
-]);
-
-$response = curl_exec($curl);
-
-curl_close($curl);
-
-echo $response;
-?>
+curl --location 'https://app.vwo.com/api/v2/accounts/20001773/insights-metrics/123?startTime=1755030400&endTime=1758014340' \
+--header 'accept: application/json, text/plain, */*' \
+--header 'TOKEN: Your-API-Token' \
+--header 'Cookie: Your-Cookie-Data' 
 ```
 
 ### Sample Response (200 OK)
