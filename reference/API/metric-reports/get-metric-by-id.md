@@ -1,5 +1,5 @@
 ---
-title: Get Metric By Id
+title: Get specific Metric Report
 deprecated: false
 hidden: true
 metadata:
