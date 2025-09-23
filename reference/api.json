@@ -8229,109 +8229,81 @@
                   "New Example": {
                     "summary": "New Example",
                     "value": {
-                      "id": 25,
-                      "name": "page-visit-metrics Report",
-                      "platform": "website",
-                      "type": "insights-metric",
-                      "status": "RUNNING",
-                      "createdOn": 1758607250,
-                      "modifiedOn": 1758607250,
-                      "codeToken": "eyJhY2NvdW50X2lkIjoyMiM2E4YTY5NmI1NzQ4ZmI5MzVmNDY0OGYwNzIyZDE5NjAiLCJzY29wZSI6IiIsImZybiI6ZmFsc2V9",
-                      "shareToken": "eyJhY2NvdW50X2lkIjoyMDAwMTcYjVkOThlOGYzYzY1NDViMWYyOGQyMyIsInNjb3BlIjoiIiwiZnJuIjpmYWxzZX0=",
-                      "isGlobalSegmentEnabled": false,
-                      "isPostSegmentationEnabled": false,
-                      "isCodeShareView": false,
-                      "isDeleted": false,
-                      "createdBy": {
-                        "name": "test",
-                        "imageUrl": "/assets/images/test.svg"
-                      },
-                      "startedOn": "2025-09-23 06:00:51",
-                      "globalSegment": null,
-                      "dataIntervalRange": {
-                        "intervalSize": 86400,
-                        "startTime": 1758585600,
-                        "endTime": 1758671999,
-                        "limitingStartTime": 1758585600,
-                        "limitingEndTime": 1758671999
-                      },
-                      "maxMindVersion": 2,
-                      "goals": [
-                        {
-                          "id": 1,
-                          "isPrimary": true,
-                          "name": "Insights-Metrics Report",
-                          "type": "custom-conversion",
-                          "code": null,
-                          "urls": [
-                            {
-                              "type": "pattern",
-                              "value": "*"
-                            }
-                          ],
-                          "pUrls": [],
-                          "pExcludedUrls": [],
-                          "excludedUrls": [],
-                          "description": null,
-                          "createdAt": 1758607250,
-                          "metricId": 1276,
-                          "isArchived": false,
-                          "attributionTime": null,
-                          "calcLogic": {
-                            "logic": "triggered"
-                          },
-                          "events": [
-                            {
-                              "props": [],
-                              "id": "201-Event",
-                              "eventDefinitionType": "STANDARD",
-                              "apiName": "vwo_pageView",
-                              "name": "Insights-Metrics",
-                              "isComputed": false,
-                              "queryElementType": "partialQuery"
-                            }
-                          ],
-                          "metricReportId": 25
-                        }
-                      ],
-                      "metricData": {
-                        "conversionRate": 100,
-                        "visitorCount": 33,
-                        "conversionCount": 33,
-                        "totalRevenue": 0,
-                        "totalSumSquaredRevenue": null,
-                        "totalConversion": 0,
-                        "totalSessions": 0,
-                        "totalConversionRate": 0
-                      },
-                      "funnels": [],
-                      "variationGoalData": [
-                        {
-                          "aggregated": {
-                            "customVariables": [],
-                            "totalRevenue": 0,
-                            "conversionCount": 33,
-                            "totalSumSquaredRevenue": 0,
-                            "totalConversion": 0,
-                            "totalSessions": 0,
-                            "conversionRate": 0,
-                            "visitorCount": 0,
-                            "totalConversionRate": 0
-                          },
-                          "intervalWise": [
-                            {
+                      "_data": {
+                        "id": 25,
+                        "name": "page-visit-metrics Report",
+                        "platform": "website",
+                        "type": "insights-metric",
+                        "status": "RUNNING",
+                        "createdOn": 1758607250,
+                        "modifiedOn": 1758607250,
+                        "codeToken": "eyJhY2NvdW50X2lkIjoyMDAwMTc3MywiZXhwZXJpbWVudF9pZCI6MjUsImNyZWF0ZWRfb24iOjE3NTg2MDcyNTAsInR5cGUiOiJ0cmFja2luZ0NvZGUiLCJ2ZXJzaW9uIjoxLCJoYXNoIjoiM2E4YTY5NmI1NzQ4ZmI5MzVmNDY0OGYwNzIyZDE5NjAiLCJzY29wZSI6IiIsImZybiI6ZmFsc2V9",
+                        "shareToken": "eyJhY2NvdW50X2lkIjoyMDAwMTc3MywiZXhwZXJpbWVudF9pZCI6MjUsImNyZWF0ZWRfb24iOjE3NTg2MDcyNTAsInR5cGUiOiJjYW1wYWlnbiIsInZlcnNpb24iOjEsImhhc2giOiIzMjNiYTY2YmJmYjVkOThlOGYzYzY1NDViMWYyOGQyMyIsInNjb3BlIjoiIiwiZnJuIjpmYWxzZX0=",
+                        "isDeleted": false,
+                        "createdBy": {
+                          "name": "VWO Support",
+                          "imageUrl": "/assets/images/vwo-support.svg"
+                        },
+                        "startedOn": "2025-09-23 06:00:51",
+                        "dataIntervalRange": {
+                          "intervalSize": 86400,
+                          "startTime": 1758585600,
+                          "endTime": 1758585601,
+                          "limitingStartTime": 1758585600,
+                          "limitingEndTime": 1758671999
+                        },
+                        "goals": [
+                          {
+                            "id": 1,
+                            "name": "page-visit-metrics Report",
+                            "isPrimary": true,
+                            "type": "custom-conversion",
+                            "description": "",
+                            "createdAt": 1758607250,
+                            "metricId": 1276,
+                            "isArchived": false,
+                            "attributionTime": "",
+                            "calcLogic": {
+                              "logic": "triggered"
+                            },
+                            "events": [
+                              {
+                                "props": [],
+                                "id": "201-Event",
+                                "eventDefinitionType": "STANDARD",
+                                "apiName": "vwo_pageView",
+                                "name": "Page visit",
+                                "isComputed": false,
+                                "queryElementType": "partialQuery"
+                              }
+                            ]
+                          }
+                        ],
+                        "metricData": {
+                          "conversionRate": 0,
+                          "visitorCount": 0,
+                          "conversionCount": 0,
+                          "totalRevenue": 0,
+                          "totalSumSquaredRevenue": "",
+                          "totalConversion": 0,
+                          "totalSessions": 0,
+                          "totalConversionRate": 0
+                        },
+                        "variationGoalData": [
+                          {
+                            "aggregated": {
                               "totalRevenue": 0,
-                              "conversionCount": 33,
+                              "conversionCount": 0,
                               "totalConversion": 0,
                               "totalSessions": 0,
                               "conversionRate": 0,
                               "visitorCount": 0,
-                              "totalConversionRate": 0,
-                              "interval": 1758585600
-                            }
-                          ]
-                        }
-                      ]
+                              "totalConversionRate": 0
+                            },
+                            "intervalWise": null
+                          }
+                        ]
+                      }
                     }
                   }
                 }
