@@ -12,28 +12,23 @@ metadata:
 ---
 # Get details of a specific Metric Report
 
-GET` https://app.vwo.com/api/v2/accounts/{account_id}/insights-metrics/{metric_id}`
+GET` https://app.vwo.com/api/v2/accounts/{account_id}/insights-metrics/{metric_report_id}`
 
 Retrieve comprehensive details for a specific metric report, including its historical data, status, and associated metadata.
 
 ### Path Parameters
 
-| Parameter    | Type      | Description                                                                                         |
-| :----------- | :-------- | :-------------------------------------------------------------------------------------------------- |
-| `account_id` | `string`  | Use 'current' keyword to refer to the Main Workspace or the Integer Workspace Id (e.g., `20001753`) |
-| `metric_id`  | `integer` | The ID of the metric report (e.g., `16`)                                                            |
+| Parameter          | Type      | Description                                                                                         |
+| :----------------- | :-------- | :-------------------------------------------------------------------------------------------------- |
+| `account_id`       | `string`  | Use 'current' keyword to refer to the Main Workspace or the Integer Workspace Id (e.g., `20001753`) |
+| `metric_report_id` | `integer` | The ID of the metric report (e.g., `16`)                                                            |
 
 ### Query Parameters
 
-| Parameter   | Type      | Description                                                    | Default   |
-| :---------- | :-------- | :------------------------------------------------------------- | :-------- |
-| `limit`     | `integer` | Limit the number of data points to be returned.                | `100`     |
-| `offset`    | `integer` | Offset where data points should be fetched from.               | `0`       |
-| `order`     | `string`  | Order of data points (e.g., `asc`, `desc`).                    | `asc`     |
-| `status`    | `string`  | Filter by report status (e.g., `running`, `completed`).        | `running` |
-| `meta`      | `boolean` | Include metadata in the response.                              | `true`    |
-| `startTime` | `integer` | UTC timestamp in epoch seconds for filtering data points from. |           |
-| `endTime`   | `integer` | UTC timestamp in epoch seconds for filtering data points to.   |           |
+| Parameter   | Type      | Description                                                    |
+| :---------- | :-------- | :------------------------------------------------------------- |
+| `startTime` | `integer` | UTC timestamp in epoch seconds for filtering data points from. |
+| `endTime`   | `integer` | UTC timestamp in epoch seconds for filtering data points to.   |
 
 ### Headers
 
@@ -44,7 +39,7 @@ Retrieve comprehensive details for a specific metric report, including its histo
 
 ### Sample Request
 
-```python
+```php
 import requests
 
 url = "https://vwotestapp20.vwo.com/api/v2/accounts/20001753/insights-metrics/16?limit=100&offset=0&order=asc&status=running&meta=true&startTime=1755030400&endTime=1758014340"
@@ -63,28 +58,108 @@ print(response.text)
 
 ```json
 {
-  "_data": {
-    "metricId": 16,
-    "name": "Conversion Rate",
-    "description": "Overall conversion rate for the specified period",
-    "value": 0.05,
-    "unit": "percent",
-    "dataPoints": [
-      {
-        "timestamp": 1755030400,
-        "value": 0.045
-      },
-      {
-        "timestamp": 1755030400,
-        "value": 0.052
-      }
+    "id": 25,
+    "name": "page-visit-metrics Report",
+    "platform": "website",
+    "type": "insights-metric",
+    "status": "RUNNING",
+    "createdOn": 1758607250,
+    "modifiedOn": 1758607250,
+    "codeToken": "eyJhY2NvdW50X2lkIjoyMiM2E4YTY5NmI1NzQ4ZmI5MzVmNDY0OGYwNzIyZDE5NjAiLCJzY29wZSI6IiIsImZybiI6ZmFsc2V9",
+    "shareToken": "eyJhY2NvdW50X2lkIjoyMDAwMTcYjVkOThlOGYzYzY1NDViMWYyOGQyMyIsInNjb3BlIjoiIiwiZnJuIjpmYWxzZX0=",
+    "isGlobalSegmentEnabled": false,
+    "isPostSegmentationEnabled": false,
+    "isCodeShareView": false,
+    "isDeleted": false,
+    "createdBy": {
+        "name": "test",
+        "imageUrl": "/assets/images/test.svg"
+    },
+    "startedOn": "2025-09-23 06:00:51",
+    "globalSegment": null,
+    "dataIntervalRange": {
+        "intervalSize": 86400,
+        "startTime": 1758585600,
+        "endTime": 1758671999,
+        "limitingStartTime": 1758585600,
+        "limitingEndTime": 1758671999
+    },
+    "maxMindVersion": 2,
+    "goals": [
+        {
+            "id": 1,
+            "isPrimary": true,
+            "name": "Insights-Metrics Report",
+            "type": "custom-conversion",
+            "code": null,
+            "urls": [
+                {
+                    "type": "pattern",
+                    "value": "*"
+                }
+            ],
+            "pUrls": [],
+            "pExcludedUrls": [],
+            "excludedUrls": [],
+            "description": null,
+            "createdAt": 1758607250,
+            "metricId": 1276,
+            "isArchived": false,
+            "attributionTime": null,
+            "calcLogic": {
+                "logic": "triggered"
+            },
+            "events": [
+                {
+                    "props": [],
+                    "id": "201-Event",
+                    "eventDefinitionType": "STANDARD",
+                    "apiName": "vwo_pageView",
+                    "name": "Insights-Metrics",
+                    "isComputed": false,
+                    "queryElementType": "partialQuery"
+                }
+            ],
+            "metricReportId": 25
+        }
     ],
-    "campaignId": null,
-    "status": "running",
-    "metaData": {
-      "totalVisitors": 10000,
-      "totalConversions": 500
-    }
-  }
+    "metricData": {
+        "conversionRate": 100,
+        "visitorCount": 33,
+        "conversionCount": 33,
+        "totalRevenue": 0,
+        "totalSumSquaredRevenue": null,
+        "totalConversion": 0,
+        "totalSessions": 0,
+        "totalConversionRate": 0
+    },
+    "funnels": [],
+    "variationGoalData": [
+        {
+            "aggregated": {
+                "customVariables": [],
+                "totalRevenue": 0,
+                "conversionCount": 33,
+                "totalSumSquaredRevenue": 0,
+                "totalConversion": 0,
+                "totalSessions": 0,
+                "conversionRate": 0,
+                "visitorCount": 0,
+                "totalConversionRate": 0
+            },
+            "intervalWise": [
+                {
+                    "totalRevenue": 0,
+                    "conversionCount": 33,
+                    "totalConversion": 0,
+                    "totalSessions": 0,
+                    "conversionRate": 0,
+                    "visitorCount": 0,
+                    "totalConversionRate": 0,
+                    "interval": 1758585600
+                }
+            ]
+        }
+    ]
 }
 ```
