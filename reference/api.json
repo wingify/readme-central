@@ -8212,7 +8212,7 @@
         ]
       }
     },
-    "/accounts/{account_id}/insights-metrics/{metrics_report_id}": {
+    "/accounts/{account_id}/insights-metrics/{report_id}": {
       "get": {
         "description": "",
         "operationId": "get_accounts{account_id}insights-metrics{metrics_report_id}",
@@ -8322,9 +8322,9 @@
           },
           {
             "in": "path",
-            "name": "metrics_report_id",
+            "name": "report_id",
             "schema": {
-              "type": "number"
+              "type": "string"
             },
             "required": true
           }
