@@ -8227,75 +8227,69 @@
                     "summary": "New Example",
                     "value": {
                       "_data": {
-                        "id": 25,
-                        "name": "page-visit-metrics Report",
+                        "id": 30,
+                        "name": "Revenue Report",
                         "platform": "website",
                         "type": "insights-metric",
                         "status": "RUNNING",
-                        "createdOn": 1758607250,
-                        "modifiedOn": 1758607250,
+                        "createdOn": 1758697912,
+                        "modifiedOn": 1758697912,
                         "isDeleted": false,
                         "createdBy": {
                           "name": "VWO Support",
                           "imageUrl": "/assets/images/vwo-support.svg"
                         },
-                        "startedOn": "2025-09-23 06:00:51",
+                        "startedOn": "2025-09-24 07:11:54",
                         "dataIntervalRange": {
                           "intervalSize": 86400,
-                          "startTime": 1758585600,
-                          "endTime": 1758585601,
-                          "limitingStartTime": 1758585600,
-                          "limitingEndTime": 1758671999
+                          "startTime": 1758672000,
+                          "endTime": 1758758399,
+                          "limitingStartTime": 1758672000,
+                          "limitingEndTime": 1758758399
                         },
                         "goals": [
                           {
                             "id": 1,
-                            "name": "page-visit-metrics Report",
-                            "isPrimary": true,
-                            "type": "custom-conversion",
+                            "name": "Revenue Report",
+                            "type": "revenue",
                             "description": "",
-                            "createdAt": 1758607250,
-                            "metricId": 1276,
+                            "createdAt": 1758697912,
+                            "metricId": 1290,
                             "isArchived": false,
                             "attributionTime": "",
                             "calcLogic": {
-                              "logic": "triggered"
+                              "logic": "function",
+                              "function": "sum",
+                              "property": 101764,
+                              "unit": "revenue",
+                              "apiName": "price"
                             },
                             "events": [
                               {
                                 "props": [],
-                                "id": "201-Event",
-                                "eventDefinitionType": "STANDARD",
-                                "apiName": "vwo_pageView",
-                                "name": "Page visit",
+                                "id": "100327-Event",
+                                "eventDefinitionType": "CUSTOM",
+                                "apiName": "revenue",
+                                "name": "revenue",
                                 "isComputed": false,
                                 "queryElementType": "partialQuery"
                               }
                             ]
                           }
                         ],
-                        "metricData": {
-                          "conversionRate": 0,
-                          "visitorCount": 0,
-                          "conversionCount": 0,
-                          "totalRevenue": 0,
-                          "totalSumSquaredRevenue": "",
-                          "totalConversion": 0,
-                          "totalSessions": 0,
-                          "totalConversionRate": 0
-                        },
-                        "variationGoalData": [
+                        "visitorData": [
                           {
                             "aggregated": {
-                              "totalRevenue": 0,
-                              "conversionCount": 0,
-                              "totalConversion": 0,
-                              "totalSessions": 0,
-                              "conversionRate": 0,
-                              "visitorCount": 0,
-                              "totalConversionRate": 0
+                              "totalRevenue": 450,
+                              "conversionCount": 1
                             },
-                            "intervalWise": null
+                            "intervalWise": [
+                              {
+                                "totalRevenue": 450,
+                                "conversionCount": 1,
+                                "interval": 1758672000
+                              }
+                            ]
                           }
                         ]
                       }
