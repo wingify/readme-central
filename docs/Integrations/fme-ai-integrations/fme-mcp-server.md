@@ -24,8 +24,8 @@ This is ideal for developers who want to manage feature flags efficiently within
 
 To connect the MCP server to the VWO feature experimentation system, you must configure two essential environment variables:
 
-* **VWO\_ACCOUNT\_ID**: VWO Account ID.
-* **VWO\_API\_KEY**: The API key (Developer Token) for authenticating with VWO REST APIs.
+* **VWO_ACCOUNT_ID**: VWO Account ID.
+* **VWO_API_KEY**: The API key (Developer Token) for authenticating with VWO REST APIs.
 
 > To create your developer token, please refer to the article <Anchor label="How to Access VWO API" target="_blank" href="https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API">How to Access VWO API</Anchor> and navigate to the `Generate API Tokens` section for step-by-step instructions.
 
@@ -67,12 +67,12 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 <br />
 
-> You can add the VWO FE MCP Server by simply clicking the button below. Make sure to update the VWO\_ACCOUNT\_ID and VWO\_API\_KEY environment variables before you start using it.
+> You can add the VWO FE MCP Server by simply clicking the button below. Make sure to update the VWO_ACCOUNT_ID and VWO_API_KEY environment variables before you start using it.
 
 <br />
 
 <HTMLBlock>{`
-<a href="https://cursor.com/install-mcp?name=vwo-fme-mcp&config=eyJjb21tYW5kIjoibnB4IC15IHZ3by1mbWUtbWNwQGxhdGVzdCIsImVudiI6eyJWV09fQUNDT1VOVF9JRCI6IlZXT19BQ0NPVU5UX0lEIiwiVldPX0FQSV9LRVkiOiJWV09fQVBJX0tFWSJ9fQ=" target="_blank">
+<a href="cursor://anysphere.cursor-deeplink/mcp/install?name=VWO-fme-mcp&config=eyJlbnYiOnsiVldPX0FDQ09VTlRfSUQiOiJWV09fQUNDT1VOVF9JRCIsIlZXT19BUElfS0VZIjoiVldPX0FQSV9LRVkifSwiY29tbWFuZCI6Im5weCAteSB2d28tZm1lLW1jcEBsYXRlc3QifQ%3D%3D" target="_blank">
   <img src="https://cursor.com/deeplink/mcp-install-dark.svg" alt="Add vwo-fme-mcp MCP server to Cursor" width="170" height="40" />
 </a>
 `}</HTMLBlock>
