@@ -5,8 +5,6 @@ hidden: false
 metadata:
   robots: index
 ---
-<br />
-
 ## Using Swift Package Manager (SPM)
 
 > **Note: - SDK supports SwiftUI VWO-Insights v0.5.1 and above**
