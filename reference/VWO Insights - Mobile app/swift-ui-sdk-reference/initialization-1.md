@@ -27,7 +27,7 @@ func application(
 
     VWO.configure(
         accountId: "<YOUR_ACCOUNT_ID>",
-        appId: "<YOUR_APP_ID>",
+        sdkKey: "<YOUR_SDK_KEY>",
         isSwiftUI: true, // Set to true if your app supports SwiftUI
         userId: "<USER_ID>" // Optional: Pass a unique identifier if available
     ) { result in
