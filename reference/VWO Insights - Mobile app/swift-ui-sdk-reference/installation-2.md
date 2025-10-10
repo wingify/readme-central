@@ -11,7 +11,7 @@ metadata:
 
 <br />
 
-**Step 1** - If the integration is being made with SPM (Swift Package Manager), please integrate VWO with the following:
+If the integration is being made with SPM (Swift Package Manager), please integrate VWO with the following:
 
 URL: [https://github.com/wingify/ios-mobile-insights-artifacts.git](https://github.com/wingify/ios-mobile-insights-artifacts.git)
 
@@ -27,7 +27,7 @@ URL: [https://github.com/wingify/ios-mobile-insights-artifacts.git](https://gith
 
 <br />
 
-**Step 1** - You can use CocoaPods to install the VWO Insights IOS SDK by adding the below pods to your Pod file.
+You can use CocoaPods to install the VWO Insights IOS SDK by adding the below pods to your Pod file.
 
 ```shell
 pod 'VWO-Insights'
