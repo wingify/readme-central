@@ -17,7 +17,7 @@ URL: [https://github.com/wingify/ios-mobile-insights-artifacts.git](https://gith
 
 <br />
 
-<Image align="center" border={false} src="https://files.readme.io/586b6d118f0c30fed32cb5345a377951ea9f21ebffbb17ac061911bf8bbf7a8b-swiftUI.png" />
+<Image align="center" border={false} src="https://files.readme.io/377afa9f03723c956e4aeaa572420065806dbc2dda43028fd174af8e9fc18aab-Screenshot_2025-10-10_at_7.59.19_PM.png" />
 
 <br />
 
