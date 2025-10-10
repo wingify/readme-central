@@ -1,11 +1,12 @@
 ---
 title: Hide Views
-excerpt: VWO Manual Hide for SwiftUI
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
+Manual Hide for SwiftUI
+
 > **Note:** Ensure your deployment target is **iOS 13.0** or later.
 
 <br />
@@ -21,7 +22,7 @@ You can manually hide specific views from being recorded using **VWO Manual Hide
 
 * Apply the .VWOhideView() modifier directly on the SwiftUI view.
 
-        OR
+  OR
 
 * Call the method VWO.hideView(view: view) programmatically.
 
