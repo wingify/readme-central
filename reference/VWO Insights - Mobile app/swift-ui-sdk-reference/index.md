@@ -1,7 +1,7 @@
 ---
 title: SWIFT UI SDK Reference
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
