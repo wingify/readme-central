@@ -15,6 +15,8 @@ metadata:
 
 URL: [https://github.com/wingify/ios-mobile-insights-artifacts.git](https://github.com/wingify/ios-mobile-insights-artifacts.git)
 
+<br />
+
 <Image align="center" border={false} src="https://files.readme.io/586b6d118f0c30fed32cb5345a377951ea9f21ebffbb17ac061911bf8bbf7a8b-swiftUI.png" />
 
 <br />
