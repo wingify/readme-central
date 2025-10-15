@@ -96,8 +96,8 @@ Paste the following script into your GTM Custom HTML field:
 
 **🧾 Event Tag Code**
 
-<Callout icon="🚧">
-  Make sure to replace `<ACCOUNT_ID>` and `<EVENT_NAME>` with your actual values in the bel code.
+<Callout icon="🚧" theme="warn">
+  Make sure to replace `<ACCOUNT_ID>` and `<EVENT_NAME>` with your actual values in the below code.
 </Callout>
 
 <br />
