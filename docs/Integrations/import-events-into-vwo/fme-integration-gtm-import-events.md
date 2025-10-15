@@ -26,7 +26,9 @@ Install the official VWO Feature Experimentation SDK in your backend:
 npm install vwo-fme-node-sdk
 ```
 
-### *Step 2 — Generate a VWO UUID in Your Backend
+<br />
+
+### Step 2 — Generate a VWO UUID in Your Backend
 
 Use the SDK’s _getUUID()_ method to convert your user’s ID into a **VWO-compatible UUID**. This ensures a consistent identifier across all tracking events.
 
@@ -80,22 +82,21 @@ fetch('/api/user-data')
 * **Conditions**: Specify rules (e.g., _Click Text contains "Buy Now"_).
 * **Variables**: Add `VWO UUID` as a GTM variable (from `window.VWO_UUID`).
 
-<br />
-
 This ensures that the same user UUID is passed to VWO during every event.
 
 ### Step 5 — Create an Event Tag in GTM
 
-<br />
-In Google Tag Manager, create a **Custom HTML Tag**.
-This tag will trigger a VWO event when an action (e.g., a button click) occurs.
-<br />
-Paste the following script into your GTM Custom HTML field:
-<br />
-**🧾 Event Tag Code**
-<br />
+In Google Tag Manager, create a **Custom HTML Tag**. This tag will trigger a VWO event when an action (e.g., a button click) occurs.
 
-_(Make sure to replace `<ACCOUNT_ID>` and `<EVENT_NAME>` with your actual values.)_
+Paste the following script into your GTM Custom HTML field:
+
+**🧾 Event Tag Code**
+
+<Callout icon="🚧">
+  Make sure to replace `<ACCOUNT_ID>` and `<EVENT_NAME>` with your actual values in the bel code.
+</Callout>
+
+<br />
 
 ```javascript
 <script>
@@ -166,33 +167,33 @@ _(Make sure to replace `<ACCOUNT_ID>` and `<EVENT_NAME>` with your actual values
 
 1. **Backend (Node.js)**
 
-  ```javascript
-  import { getUUID } from 'vwo-fme-node-sdk';
+```javascript
+import { getUUID } from 'vwo-fme-node-sdk';
 
-  app.get('/api/user-data', (req, res) => {
-    const userId = req.user.id;
-    const accountId = 'sample_account_id';
-    const vwoUuid = getUUID(userId, accountId);
+app.get('/api/user-data', (req, res) => {
+  const userId = req.user.id;
+  const accountId = 'sample_account_id';
+  const vwoUuid = getUUID(userId, accountId);
 
-    res.json({
-      user: {
-        id: userId,
-        vwo_uuid: vwoUuid
-      }
-    });
+  res.json({
+    user: {
+      id: userId,
+      vwo_uuid: vwoUuid
+    }
   });
-  ```
+});
+```
 
 2. **Frontend (JavaScript)**
 
-  ```javascript
-  fetch('/api/user-data')
-    .then(res => res.json())
-    .then(data => {
-      window.VWO_UUID = data.user.vwo_uuid;
-      // GTM tag can now use this UUID for VWO tracking
-    });
-  ```
+```javascript
+fetch('/api/user-data')
+  .then(res => res.json())
+  .then(data => {
+    window.VWO_UUID = data.user.vwo_uuid;
+    // GTM tag can now use this UUID for VWO tracking
+  });
+```
 
 3. **GTM Trigger**
-  Use the same code to trigger custom HTML using events as mentioned in Step 5
+   Use the same code to trigger custom HTML using events as mentioned in Step 5
