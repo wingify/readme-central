@@ -18,49 +18,52 @@ By following this flow, you can:
 
 <br />
 
-1. **Step 1 — Install the VWO SDK**
-   Install the official VWO Feature Experimentation SDK in your backend:
-   ```shell
-   npm install vwo-fme-node-sdk
-   ```
-2. **Step 2 — Generate a VWO UUID in Your Backend** 
-   Use the SDK’s _getUUID()_ method to convert your user’s ID into a **VWO-compatible UUID**.
-    This ensures a consistent identifier across all tracking events.
-   ```javascript
-   import { getUUID } from 'vwo-fme-node-sdk';
-   const userId = 'sample_user_id';
-   const accountId = 'sample_account_id';
+### Step 1 — Install the VWO SDK
 
+Install the official VWO Feature Experimentation SDK in your backend:
 
-
-   const vwoUuid = getUUID(userId, accountId);
-   console.log(vwoUuid); // e.g., "A1B2C3D4E5F6..."
-
-   ```
+```shell
+npm install vwo-fme-node-sdk
+```
 
 <br />
 
- **Next**: Pass this UUID to your frontend via an API response.
+### Step 2 — Generate a VWO UUID in Your Backend
 
-3. **Step 3 — Pass the UUID to the Frontend (via API Response)**
-   Either pass the generated UUID as a response from a new API endpoint, or as part of an existing API endpoint
-   ```javascript
-   {
-     "user": {
-       "id": "sample_user_id",
-       "vwo_uuid": "A1B2C3D4E5F6..."
-     }
-   }
-   ```
+Use the SDK’s _getUUID()_ method to convert your user’s ID into a **VWO-compatible UUID**.
+This ensures a consistent identifier across all tracking events.
 
-<br />
+```javascript
+import { getUUID } from 'vwo-fme-node-sdk';
+const userId = 'sample_user_id';
+const accountId = 'sample_account_id';
+
+
+
+const vwoUuid = getUUID(userId, accountId);
+console.log(vwoUuid); // e.g., "A1B2C3D4E5F6..."
+
+```
+
+**Next**: Pass this UUID to your frontend via an API response.
+
+### Step 3 — Pass the UUID to the Frontend (via API Response)
+
+Either pass the generated UUID as a response from a new API endpoint, or as part of an existing API endpoint
+
+```javascript
+{
+  "user": {
+    "id": "sample_user_id",
+    "vwo_uuid": "A1B2C3D4E5F6..."
+  }
+}
+```
 
 <Callout icon="📘" theme="info">
   1. Your frontend application can fetch this data and store it globally for GTM to use.
   2. Receive the _VWO_UUID_ from backend and set the _VWO_UUID_
 </Callout>
-
-<br />
 
 ```javascript
 fetch('/api/user-data')
@@ -73,87 +76,91 @@ fetch('/api/user-data')
 
 <br />
 
-4. **Step 4:  Trigger Setup in GTM**
-   * **Trigger Type**: Choose your event trigger (e.g., _Click – All Elements or Form Submission_).
-   * **Conditions**: Specify rules (e.g., _Click Text contains "Buy Now"_).
-   * **Variables**: Add `VWO UUID` as a GTM variable (from `window.VWO_UUID`).
-     <br />
-     This ensures that the same user UUID is passed to VWO during every event.
-5. **Step 5 — Create an Event Tag in GTM**
-   <br />
-   In Google Tag Manager, create a **Custom HTML Tag**.
-    This tag will trigger a VWO event when an action (e.g., a button click) occurs.
-   <br />
-   Paste the following script into your GTM Custom HTML field:
-   <br />
-   **🧾 Event Tag Code**
-   <br />
-   _(Make sure to replace `<ACCOUNT_ID>` and `<EVENT_NAME>` with your actual values.)_
+### Step 4:  Trigger Setup in GTM
 
-   ```javascript
-   <script>
-   (function() {
-       // ------------------------
-       // CONFIGURE THESE VALUES
-       // ------------------------
-       var VWO_ACCOUNT_ID = "<ACCOUNT_ID>";   // replace with your VWO account ID
-       var EVENT_NAME = "<EVENT_NAME>";       // replace with your custom event name
-       var PAGE_TITLE = document.title;
-       var PAGE_URL = window.location.href;
-       var REFERRED_URL = document.referrer || "";
-       var VWO_UUID = {{VWO UUID}}; // replace if needed
+* **Trigger Type**: Choose your event trigger (e.g., _Click – All Elements or Form Submission_).
+* **Conditions**: Specify rules (e.g., _Click Text contains "Buy Now"_).
+* **Variables**: Add `VWO UUID` as a GTM variable (from `window.VWO_UUID`).
 
-       // Generate timestamps
-       var timestampMs = new Date().getTime();
-       var timestampSec = Math.floor(timestampMs / 1000);
+This ensures that the same user UUID is passed to VWO during every event.
 
-       // Construct payload
-       var payload = {
-           d: {
-               msgId: VWO_UUID + "-" + timestampMs,
-               visId: VWO_UUID,
-               event: {
-                   name: EVENT_NAME,
-                   time: timestampMs,
-                   props: {
-                       page: {
-                           title: PAGE_TITLE,
-                           url: PAGE_URL,
-                           referredUrl: REFERRED_URL
-                       },
-                       isCustomEvent: true,
-                       vwoMeta: {
-                           source: "client"
-                       }
-                   }
-               },
-               sessionId: timestampSec
-           }
-       };
+### Step 5 — Create an Event Tag in GTM
 
-       // Send POST request
-       var endpoint = "https://dev.visualwebsiteoptimizer.com/events/t?en=" 
-         + encodeURIComponent(EVENT_NAME) 
-         + "&a=" + encodeURIComponent(VWO_ACCOUNT_ID);
+In Google Tag Manager, create a **Custom HTML Tag**. This tag will trigger a VWO event when an action (e.g., a button click) occurs.
 
-       var xhr = new XMLHttpRequest();
-       xhr.open("POST", endpoint, true);
-       xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-       xhr.onreadystatechange = function() {
-           if (xhr.readyState === 4) {
-               if (xhr.status >= 200 && xhr.status < 300) {
-                   console.log("✅ VWO custom event triggered successfully: " + EVENT_NAME);
-               } else {
-                   console.error("❌ Error triggering VWO event", xhr.responseText);
-               }
-           }
-       };
-       xhr.send(JSON.stringify(payload));
-   })();
-   </script>
+Paste the following script into your GTM Custom HTML field:
 
-   ```
-   <br />
+**🧾 Event Tag Code**
+
+<Callout icon="🚧">
+  (Make sure to replace `<ACCOUNT_ID>` and `<EVENT_NAME>` with your actual values.)
+</Callout>
+
+```javascript
+<script>
+(function() {
+    // ------------------------
+    // CONFIGURE THESE VALUES
+    // ------------------------
+    var VWO_ACCOUNT_ID = "<ACCOUNT_ID>";   // replace with your VWO account ID
+    var EVENT_NAME = "<EVENT_NAME>";       // replace with your custom event name
+    var PAGE_TITLE = document.title;
+    var PAGE_URL = window.location.href;
+    var REFERRED_URL = document.referrer || "";
+    var VWO_UUID = {{VWO UUID}}; // replace if needed
+
+    // Generate timestamps
+    var timestampMs = new Date().getTime();
+    var timestampSec = Math.floor(timestampMs / 1000);
+
+    // Construct payload
+    var payload = {
+        d: {
+            msgId: VWO_UUID + "-" + timestampMs,
+            visId: VWO_UUID,
+            event: {
+                name: EVENT_NAME,
+                time: timestampMs,
+                props: {
+                    page: {
+                        title: PAGE_TITLE,
+                        url: PAGE_URL,
+                        referredUrl: REFERRED_URL
+                    },
+                    isCustomEvent: true,
+                    vwoMeta: {
+                        source: "client"
+                    }
+                }
+            },
+            sessionId: timestampSec
+        }
+    };
+
+    // Send POST request
+    var endpoint = "https://dev.visualwebsiteoptimizer.com/events/t?en=" 
+      + encodeURIComponent(EVENT_NAME) 
+      + "&a=" + encodeURIComponent(VWO_ACCOUNT_ID);
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", endpoint, true);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status >= 200 && xhr.status < 300) {
+                console.log("✅ VWO custom event triggered successfully: " + EVENT_NAME);
+            } else {
+                console.error("❌ Error triggering VWO event", xhr.responseText);
+            }
+        }
+    };
+    xhr.send(JSON.stringify(payload));
+})();
+</script>
+
+```
+
+<br />
 
 ## Example Usage of the Integration
 
