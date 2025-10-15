@@ -1,6 +1,7 @@
 - fme-integrations
 - fme-integrations-data-export
 - fme-push-vwo-data-integrations
+- import-events-into-vwo
 - fme-analytics-integrations
 - fme-ci-cd-integrations
 - fme-ai-integrations
@@ -9,4 +10,3 @@
 - fme-cms-integrations
 - fme-integration-gtm
 - fme-integration-importing-events
-- import-events-into-vwo
