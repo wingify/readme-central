@@ -204,4 +204,4 @@ fetch('/api/user-data')
 ```
 
 3. **GTM Trigger**
-   Use the same code to trigger custom HTML using events as mentioned in [Step 5](https://developers.vwo.com/v2/docs/fme-integration-gtm-import-events#/step-5--create-an-event-tag-in-gtm) 
+   Use the same code to trigger custom HTML using events as mentioned in Step 5.
