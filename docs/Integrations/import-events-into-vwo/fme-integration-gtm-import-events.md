@@ -169,9 +169,11 @@ Paste the following script into your GTM Custom HTML field:
 
 ## Example Usage of the Integration
 
-1. **Backend (Node.js)**
+1. **Backend**
 
-```javascript
+Generates a unique VWO UUID for each user by calling getUUID(userId, accountId) from the VWO FME SDK (any supported SDK can be used — see [list of all SDKs](https://developers.vwo.com/v2/docs/list-of-fme-sdks#/)). Below is the sample code for Node.js application.
+
+```javascript Node.js
 import { getUUID } from 'vwo-fme-node-sdk';
 
 app.get('/api/user-data', (req, res) => {
@@ -190,6 +192,8 @@ app.get('/api/user-data', (req, res) => {
 
 2. **Frontend (JavaScript)**
 
+Fetches the user data from the backend, stores the vwo_uuid in `window.VWO_UUID`, making it available for VWO or GTM tracking.
+
 ```javascript
 fetch('/api/user-data')
   .then(res => res.json())
@@ -200,4 +204,4 @@ fetch('/api/user-data')
 ```
 
 3. **GTM Trigger**
-   Use the same code to trigger custom HTML using events as mentioned in Step 5
+   Use the same code to trigger custom HTML using events as mentioned in [Step 5](https://developers.vwo.com/v2/docs/fme-integration-gtm-import-events#/step-5--create-an-event-tag-in-gtm) 
