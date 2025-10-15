@@ -47,6 +47,7 @@ console.log(vwoUuid); // e.g., "A1B2C3D4E5F6..."
 
 **Next**: Pass this UUID to your frontend via an API response.
 
+
 ### Step 3 — Pass the UUID to the Frontend (via API Response)
 
 Either pass the generated UUID as a response from a new API endpoint, or as part of an existing API endpoint
