@@ -19,6 +19,14 @@ This category includes integrations that send VWO experiment and feature flag da
 
 [Read more about Sending VWO Data Integration](doc:fme-push-vwo-data-integrations)
 
+### Importing events into VWO
+
+VWO FE allows you to import external events and user data from various sources to enrich your experimentation analysis. By bringing in conversion events, user attributes, and behavioral data from platforms like Google Tag Manager or custom APIs, you can create more comprehensive experiment reports and better understand user journeys across your entire digital ecosystem.
+
+These integrations help you leverage existing data infrastructure while maintaining a single source of truth for experimentation insights, enabling more accurate attribution and deeper analysis of feature impact.
+
+[Read more about Importing Events into VWO](doc:import-events-into-vwo)
+
 ### Analytics & Experimentation Integration
 
 Connect VWO FE with analytics platforms to correlate user behavior data with experiments and feature rollouts. With integrations like VWO Insights Mobile, you can capture session-level insights such as heatmaps and recordings, adding qualitative depth to your quantitative experiments.
