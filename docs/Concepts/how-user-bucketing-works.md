@@ -10,46 +10,109 @@ metadata:
 next:
   description: ''
 ---
-### **Campaign Eligibility and Bucketing Process**
+At a high level, bucketing in VWO means once a user is identified, determining if they are eligible for a campaign, then assigning them deterministically to one of the campaign’s variations based on traffic allocation. Once assigned, the same variation should be returned for that user across sessions (and platforms) as long as the setup remains unchanged.
 
-The SDK evaluates every user to determine their eligibility for participating in a campaign. Once a user is deemed eligible, the bucketing system assigns them a variation based on the traffic distribution settings configured in the VWO application.  
+### Step 1: Identifying the User
 
-**Bucketing** refers to assigning users to different variations within a campaign. This assignment is based on the provided User ID. As long as the User ID remains consistent, the SDK ensures that the user is assigned the same variation across different platforms.  
+Before any bucketing logic can run, the SDK requires a consistent User ID (or equivalent identifier) to operate on.
 
-### **How Does Traffic Distribution Ensure Deterministic Bucketing?**
+* This is usually the user’s unique identifier in your system (for example, `user-12345`).
+* It must remain constant across sessions and platforms for proper consistent bucketing.
+* If you use varying IDs (e.g., session IDs, anonymous IDs that change frequently), you risk inconsistent variation assignments.
+* Recommendation: use a stable, logged-in user ID or a persistent device/visitor ID if anonymous.
 
-The bucketing system operates by allocating a specific range to each variation based on the campaign’s traffic distribution settings. The minimum possible bucket value is **1**, while the maximum is **10,000**. These values are fixed to support the arithmetic logic used in the bucketing process.  
+<br />
 
-For example, consider a campaign with two variations—*Control* and *Variation-1*—with a traffic distribution of 40% and 60%, respectively. The allocated bucket ranges will be:  
+### Step 2: Campaign Eligibility
+
+Once a user is identified, the SDK checks whether they are eligible for the campaign. This involves two major sub-steps:
+
+#### 2.1 Percent-Traffic Setting
+
+* Each campaign has a _percentage of traffic_ setting (0 %–100 %) that defines what fraction of the audience will enter the experiment/flag.
+* The SDK computes a normalized hash value (derived from the user ID) mapped to a 0–100 scale.
+* If the `normalized value ≤ the campaign’s traffic percentage`, user enters the campaign. Otherwise, they are excluded.
+* Example: If campaign traffic is set to 40 % and the user’s normalized value is 23, the user is eligible (23 ≤ 40).
+  developers.vwo.com
+* If their normalized value were, say, 45, they would be excluded.
+
+#### 2.2 Variation Bucket Allocation Only for Eligible Users
+
+If the user is deemed eligible (via the percent-traffic check), the next step is to map them into a variation via the bucket allocation logic (see Step 3).
+If excluded, the SDK will treat them as “not in the campaign” — typically showing default/control behavior.
+
+<br />
+
+### Step 3: Bucketing / Variation Assignment
+
+Once a user is eligible, the SDK must map the user to a variation in a deterministic way. The mechanism used by VWO is outlined as follows:
+
+#### 3.1 Hashing + Normalisation
+
+* A hashing algorithm (specifically MurmurHash) is applied to the User ID to generate a hash value.
+  developers.vwo.com
+* This hash value is then normalized to fit within the bucket range domain (1 through 10,000).
+  * Why `1–10,000`? Using a large integer range allows fine-grained traffic splits and stable arithmetic logic.
+* Example: Suppose the normalized integer is `6,278`.
+
+#### 3.2 Bucket Range Definition Based on Traffic Distribution
+
+* For each variation in the campaign, the UI/configuration defines a traffic distribution (for example, Control 40 %, Variation-1 60 %).
+* These percentages map to bucket-ranges within 1–10,000.
+  * Control → buckets 1-4,000
+  * Variation-1 → buckets 4,001-10,000
+* The SDK checks which range the user’s normalized value falls into.
 
 | **Variation Name** | **Bucket Range** |
 | ------------------ | ---------------- |
 | Control            | 1 - 4,000        |
 | Variation-1        | 4,001 - 10,000   |
 
-A third-party hashing algorithm, [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash), generates a hash value corresponding to the User ID. This hash value is then normalized and mapped to the appropriate bucket range.  
+#### 3.3 Assigning Variation
 
-### **Determining Campaign Eligibility**
+* Continuing the example: user normalized value is 6,278 → which falls into 4,001–10,000 → assign Variation-1.
+* This assignment is deterministic as long as the User ID and campaign settings remain unchanged.
 
-To determine whether a user qualifies for a campaign, the system considers the campaign’s percent traffic setting, which ranges from **0% to 100%**. The user’s hash value is normalized to generate an integer between **0 and 100**, which is then compared against the campaign’s percent traffic value.  
+<br />
 
-* If the normalized hash value is **less than or equal to** the campaign’s percent traffic, the user is included in the campaign.  
-* Otherwise, the user is excluded.  
+### Step 4: Ensuring Consistency (Sticky Bucketing)
 
-#### **Example:**
+It is critical that once users are assigned a variation, they continue to see that variation (especially for multi-session/multi-platform experiences). Inconsistent variation assignments can invalidate experiment results and frustrate users.
 
-If a campaign’s percent traffic is set to **40%** and a user generates a normalized hash value of **23**, the user qualifies for the campaign since **23 ≤ 40**.  
+#### 4.1 What Causes Re-Bucketing?
 
-### **Assigning Users to Variations**
+Re-bucketing (users getting different variation assignments) can occur if any of the following change:
 
-Once a user is deemed eligible, they are assigned a variation based on the pre-defined bucket ranges. Since the bucket range is always between **1 and 10,000**, the normalized hash value corresponding to the User ID is mapped to an integer within this range. The system then assigns the user to the variation that contains this value.  
+* The campaign’s variation list is modified (e.g., adding/removing a variation).
+* The traffic distribution splits are altered (for example, switching from 40/60 to 30/70).
 
-#### **Example:**
+#### 4.2 How to Prevent/Reinforce Sticky Bucketing
 
-A campaign has two variations, *Control* (40%) and *Variation-1* (60%). A user lands on the webpage, and their hash value is generated. After normalization, the value is **6,278**. Since **6,278** falls within the range **4,001–10,000**, the user is assigned to **Variation-1**.
+* Use a storage service or caching layer to persist the mapping of “User ID → variation” as soon as the variation is assigned.
+* On subsequent SDK calls, first check the local store: if the mapping exists, return the stored variation immediately, bypassing hash+bucket logic.
+* This approach ensures consistency even when campaign settings are modified mid-run (though best practice is to avoid changing settings once the campaign is live).
 
-## Ensuring Consistent User Bucketing
+<Callout icon="📘" theme="info">
+  **Note**: VWO SDKs support implementing this storage layer; ensure your integration includes this to avoid unwanted variation flips.
+</Callout>
 
-As mentioned earlier, the SDKs maintain consistent variation assignments only if the campaign settings remain unchanged after the campaign has started. Any modifications, such as adding new variations or altering traffic distribution, will result in the re-bucketing of existing users.  
+<br />
 
-To fully prevent variation reassignments, implement **sticky bucketing** using the **Storage Service**. This approach leverages a caching layer to persist User ID-to-variation assignments, ensuring consistency even if campaign settings change.
+### Flow Diagram
+
+Visualizes the entire bucketing flow from user identification to variation return, highlighting decision points such as sticky storage lookup, eligibility check, and persistence.
+
+```mermaid
+flowchart TD
+A[Start: Request with UserID] --> B{Check Sticky Storage}
+B -- found --> C[Return stored variation]
+B -- not found --> D[Compute hash -- campaignID::UserID]
+D --> E[Normalize to bucketValue -- 1..N]
+E --> F{bucketValue <= trafficThreshold?}
+F -- no --> G[Exclude user => Default behavior]
+F -- yes --> H[Map bucketValue to variation ranges]
+H --> I[Assign variation]
+I --> J[Persist mapping userID -> variation]
+J --> K[Emit exposure event]
+K --> L[Return variation]
+```
