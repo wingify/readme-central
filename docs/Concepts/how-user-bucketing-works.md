@@ -104,12 +104,12 @@ Visualizes the entire bucketing flow from user identification to variation retur
 
 ```mermaid
 flowchart TD
-A[Start: Request with UserID] --> B{Check Sticky Storage}
+A[Start: Request with UserID] --> B{Check Persistent Storage Service}
 B -- found --> C[Return stored variation]
-B -- not found --> D[Compute hash -- campaignID::UserID]
-D --> E[Normalize to bucketValue -- 1..N]
+B -- not found --> D[Compute hash -- campaign-salt::UserID]
+D --> E[Normalize to bucketValue 1..N]
 E --> F{bucketValue <= trafficThreshold?}
-F -- no --> G[Exclude user => Default behavior]
+F -- no --> G[Exclude user]
 F -- yes --> H[Map bucketValue to variation ranges]
 H --> I[Assign variation]
 I --> J[Persist mapping userID -> variation]
