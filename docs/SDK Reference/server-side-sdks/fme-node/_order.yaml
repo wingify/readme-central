@@ -5,7 +5,6 @@
 - fme-node-metrics
 - fme-node-attributes
 - fme-node-logging
-- copy-of-logging
 - fme-node-storage
 - fme-node-integrations
 - fme-node-event-batching
