@@ -2,7 +2,7 @@
 title: Installing the SDK
 excerpt: ''
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
