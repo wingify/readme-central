@@ -1,7 +1,7 @@
 ---
 title: User Context
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 next:
