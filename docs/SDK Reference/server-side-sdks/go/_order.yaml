@@ -7,4 +7,4 @@
 - fme-go-logging
 - fme-go-storage
 - fme-go-integrations
-- copy-of-event-batching
+- fme-go-event-batching
