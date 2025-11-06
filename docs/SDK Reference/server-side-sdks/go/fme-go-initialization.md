@@ -178,7 +178,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Configuration for network request retry behavior and exponential backoff strategy.
+        Configuration for network request retry behavior and exponential backoff strategy. For more details, please check - Retry Config
       </td>
     </tr>
   </tbody>
@@ -301,3 +301,24 @@ options := map[string]interface{}{
 
 vwoInstance, err := vwo.Init(options)
 ```
+
+### Retry Config
+
+The `retryConfig` parameter allows you to customize the retry behavior for network requests. This is particularly useful for applications that need to handle network failures gracefully with exponential backoff strategies.
+
+```go
+options := map[string]interface{}{
+    "sdkKey":    "32-alpha-numeric-sdk-key",
+    "accountId": "123456",
+    "retryConfig": map[string]interface{}{
+        "shouldRetry":       true,  // Enable retries
+        "maxRetries":        5,     // Retry up to 5 times
+        "initialDelay":      3,     // Wait 3 seconds before first retry
+        "backoffMultiplier": 2,     // Double the delay for each subsequent retry
+    },
+}
+
+vwoInstance, err := vwo.Init(options)
+```
+
+Please click [here](https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism) to learn more about retry configuration.
