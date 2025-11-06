@@ -1,7 +1,7 @@
 ---
-title: Copy of Initialization
+title: Initialization
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 next:
