@@ -10,9 +10,9 @@ next:
       title: Feature Flags
       type: basic
 ---
-The **user context** serves as a unique identifier for individual users and plays a critical role in ensuring **consistent feature rollouts** across sessions and devices. Typically represented as a **object**, the user context includes an *id* key that uniquely identifies the user.
+The **user context** serves as a unique identifier for individual users and plays a critical role in ensuring **consistent feature rollouts** across sessions and devices. Typically represented as a **object**, the user context includes an _id_ key that uniquely identifies the user.
 
-In addition to the user ID, the context can incorporate various ***attributes*** to support advanced targeting and segmentation strategies. These may include:
+In addition to the user ID, the context can incorporate various _**attributes**_ to support advanced targeting and segmentation strategies. These may include:
 
 * **custom-variables**: User-specific data points for personalized experiences.
 * **user-agent**: Information about the user's device, browser, or operating system.
@@ -22,37 +22,60 @@ By leveraging these attributes, organizations can deliver **precisely targeted f
 
 > 📘 Important Note
 >
-> The **user context attributes** differ from the attributes set using the ***setAttribute*** API.
+> The **user context attributes** differ from the attributes set using the _**setAttribute**_ API.
 >
 > * **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
-> * ***setAttribute* API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
+> * **_setAttribute_ API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
 
 > 🚧 Current Limitation
 >
-> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
+> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the _setAttribute_ API.
 
 ## Usage
 
-```node
-// Define the user context object to identify and provide user-specific details
-const userContext = {
-  id: 'unique_user_id',
-  customVariables: { age: 25, location: 'US' },
-  userAgent:
-    'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
-  ipAddress: '1.1.1.1',
-};
+```go
+context := map[string]interface{}{
+    "id": "unique_user_id", // Set a unique user identifier
 
-// The same user context can be used across different APIs. For example -
+    // Create custom variables
+    "customVariables": map[string]interface{}{
+        "age":      25,
+        "location": "US",
+    },
 
-// Returns a flag object which can be used to get flag's status or variable(s)
-const flag = await vwoClient.getFlag('feature_key', userContext);
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+    "ipAddress": "1.1.1.1",
+}
 
-// Track a metric conversion for the specified event-name
-vwoClient.trackEvent('event-name', userContext);
+// Check if a feature flag is enabled
+getFlag, err := vwoClient.GetFlag("feature_key", context)
+if err != nil {
+  log.Printf("Error getting feature flag: %v", err)
+} else {
+  isFeatureEnabled := getFlag.IsEnabled()
+  fmt.Println("Is feature enabled?", isFeatureEnabled)
 
-// Send a user attribute to VWO
-vwoClient.setAttribute('attribute-name', 'attribute-value', userContext);
+  // Get a variable value with a default fallback
+  variableValue := getFlag.GetVariable("feature_variable", "default_value")
+  fmt.Println("Variable value:", variableValue)
+}
+
+// Track a custom event
+trackResponse, err := vwoClient.TrackEvent("event_name", context, nil)
+if err != nil {
+  log.Printf("Error tracking event: %v", err)
+} else {
+  fmt.Println("Event tracked:", trackResponse)
+}
+
+// Set multiple custom attributes
+attributeMap := map[string]interface{}{
+  "attribute-name": "attribute-value",
+}
+err = vwoClient.SetAttribute(attributeMap, context)
+if err != nil {
+  log.Printf("Error setting attributes: %v", err)
+}
 ```
 
 ## User Context keys
@@ -78,7 +101,7 @@ vwoClient.setAttribute('attribute-name', 'attribute-value', userContext);
     <tr>
       <td>
         **id**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -92,8 +115,8 @@ vwoClient.setAttribute('attribute-name', 'attribute-value', userContext);
 
     <tr>
       <td>
-        **userAgent**\
-        *Optional*
+        **userAgent**  
+        _Optional_
       </td>
 
       <td>
@@ -101,14 +124,14 @@ vwoClient.setAttribute('attribute-name', 'attribute-value', userContext);
       </td>
 
       <td>
-        The userAgent object for the current user, can be used for targeting & segmentation. 
+        The userAgent object for the current user, can be used for targeting & segmentation.
       </td>
     </tr>
 
     <tr>
       <td>
-        **ipAddress**\
-        *Optional*
+        **ipAddress**  
+        _Optional_
       </td>
 
       <td>
@@ -122,12 +145,12 @@ vwoClient.setAttribute('attribute-name', 'attribute-value', userContext);
 
     <tr>
       <td>
-        **customVariables**\
-        *Optional*
+        **customVariables**  
+        _Optional_
       </td>
 
       <td>
-        Object
+        map[string]interface{}
       </td>
 
       <td>
