@@ -1,5 +1,5 @@
 ---
-title: Copy of Event Batching
+title: Event Batching
 deprecated: false
 hidden: false
 metadata:
@@ -43,13 +43,13 @@ This configuration allows you to define when and how events—such as visitor tr
 
 ### Configuration Parameters:
 
-1. `eventsPerRequest` – Maximum Events per Batch\
+1. `eventsPerRequest` – Maximum Events per Batch  
    Specifies the maximum number of events that can be included in a single batch request.
    Events continue to accumulate in the internal queue until this threshold is reached, triggering an immediate dispatch.
-2. `requestTimeInterval` – Dispatch Interval (in seconds)\
+2. `requestTimeInterval` – Dispatch Interval (in seconds)  
    Defines the time-based threshold for flushing events.
    Once the first event is queued, the SDK starts a timer. If the eventsPerRequest limit is not met by the end of this interval, the queued events are dispatched anyway.
-3. `flushCallback` – Post-Dispatch Hook\
+3. `flushCallback` – Post-Dispatch Hook  
    An optional callback function is executed after the events are successfully (or unsuccessfully) sent to the VWO servers.
    The callback typically receives:
    1. `error`: Details of any transmission failure (if applicable).
@@ -80,7 +80,7 @@ This configuration allows you to define when and how events—such as visitor tr
     <tr>
       <td>
         **eventsPerRequest**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -99,7 +99,7 @@ This configuration allows you to define when and how events—such as visitor tr
     <tr>
       <td>
         **requestTimeInterval**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -117,7 +117,7 @@ This configuration allows you to define when and how events—such as visitor tr
 
     <tr>
       <td>
-        **flushCallback** *Optional*
+        **flushCallback** _Optional_
       </td>
 
       <td>
@@ -147,7 +147,7 @@ By customizing these options, developers gain fine-grained control over how even
 
 ## Example usage
 
-```javascript
+```go
 import { init } from 'vwo-fme-node-sdk';
 
 const vwoClient = await init({
@@ -224,7 +224,7 @@ flowchart TD
 
 <br />
 
-### 1. SDK Initialization with *batchEventData*
+### 1. SDK Initialization with _batchEventData_
 
 The event batching behavior is activated by passing the batchEventData configuration during SDK initialization. This includes:
 
@@ -247,9 +247,9 @@ As events accumulate, the SDK evaluates flushing conditions based on the followi
 
 The SDK checks if it's time to flush the queued events:
 
-* When `eventsPerRequest` is reached:\
+* When `eventsPerRequest` is reached:  
   Once the number of events in the queue meets or exceeds the configured limit, the SDK immediately sends the batched request to the VWO server.
-* When `requestTimeInterval` is exceeded:\
+* When `requestTimeInterval` is exceeded:  
   If the configured time interval passes (from the time the first event was added), the SDK flushes whatever events are present in the queue—even if the batch size hasn’t been met.
 
 > ➤ Manual Flush Option
