@@ -1,7 +1,7 @@
 ---
-title: Copy of Attributes
+title: Attributes
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 next:
@@ -18,7 +18,7 @@ These attributes would typically be any additional user info that you'd like to 
 
 For example, you might want to analyze the performance of a test based on the user type to see which user type converted better or worse than the other. For this, you can pass on the "user type" as an attribute to VWO, with the relevant values for each user, ie "free", "paid" or whatever internal parameters you'd like to use for post-segmentation.
 
-## *Set Attribute* API
+## _Set Attribute_ API
 
 This API allows you to assign a specific attribute key-value pair to a user. By doing so, VWO can:
 
@@ -31,29 +31,31 @@ This API allows you to assign a specific attribute key-value pair to a user. By 
 
 When this API is executed:
 
-* The application assigns the specified attribute (attribute\_key and attribute\_value) to the user defined in the user\_context.
+* The application assigns the specified attribute (attribute_key and attribute_value) to the user defined in the user_context.
 * VWO stores this attribute information and uses it to influence feature flag decisions, experiment variations, and targeting rules.
 * This data is then factored into real-time decision-making, allowing VWO to determine which features, content, or experiments are relevant to the user.
 
 > 📘 Important Note
 >
-> The attributes set using the ***setAttribute*** API differ from the **User Context attributes**
+> The attributes set using the _**setAttribute**_ API differ from the **User Context attributes**
 >
-> * ***setAttribute* API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
+> * **_setAttribute_ API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
 > * **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
 
 > 🚧 Current Limitation
 >
-> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
+> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the _setAttribute_ API.
 
 ## Usage
 
-```node
+```go
 // Set a custom user attribute in VWO for the specified user context.
 // 'attribute_key' is the name of the attribute (e.g., 'subscription_status').
 // 'attribute_value' is the value to assign to the attribute (e.g., 'premium').
-const attributeMap = {attributeKey: 'attributeValue'};
-vwoClient.setAttribute(attributeMap, userContext);
+attributeMap := map[string]interface{}{
+  "attribute-name": "attribute-value",
+}
+vwoClient.SetAttribute(attributeMap, context)
 ```
 
 ### Parameters Definition
@@ -79,11 +81,11 @@ vwoClient.setAttribute(attributeMap, userContext);
     <tr>
       <td>
         **attributeMap**
-        *Required*
+        _Required_
       </td>
 
       <td>
-        object
+        map[string]interface{}
       </td>
 
       <td>
@@ -94,11 +96,11 @@ vwoClient.setAttribute(attributeMap, userContext);
     <tr>
       <td>
         **userContext**
-        *Required*
+        _Required_
       </td>
 
       <td>
-        object
+        map[string]interface{}
       </td>
 
       <td>
@@ -110,4 +112,4 @@ vwoClient.setAttribute(attributeMap, userContext);
 
 > 🚧 Note
 >
-> Please note that the *Attribute* must already be defined in the VWO Application for this, otherwise an unregistered attribute won't get tracked in VWO application.
+> Please note that the _Attribute_ must already be defined in the VWO Application for this, otherwise an unregistered attribute won't get tracked in VWO application.
