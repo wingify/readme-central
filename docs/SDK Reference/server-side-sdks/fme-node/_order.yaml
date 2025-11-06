@@ -1,4 +1,5 @@
 - fme-node-install
+- copy-of-installing-the-sdk
 - fme-node-initialization
 - fme-node-context
 - fme-node-flags
@@ -8,4 +9,3 @@
 - fme-node-storage
 - fme-node-integrations
 - fme-node-event-batching
-- copy-of-installing-the-sdk
