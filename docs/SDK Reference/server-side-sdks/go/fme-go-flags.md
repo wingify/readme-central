@@ -59,7 +59,7 @@ When this API is triggered:
 
 ### Usage
 
-```go Node.js
+```go Go
 // Retrieve the feature flag associated with 'feature_key' for the given user context,
 // Allowing access to feature status using IsEnabled() and associated variables (getVariables/getVariable).
 flag, err := vwoClient.GetFlag("feature_key", context)
