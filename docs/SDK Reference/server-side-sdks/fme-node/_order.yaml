@@ -7,5 +7,5 @@
 - fme-node-logging
 - fme-node-storage
 - fme-node-integrations
-- fme-node-event-batching
 - copy-of-integrations
+- fme-node-event-batching
