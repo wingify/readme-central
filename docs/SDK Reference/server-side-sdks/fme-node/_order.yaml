@@ -1,7 +1,6 @@
 - fme-node-install
 - fme-node-initialization
 - fme-node-context
-- copy-of-user-context
 - fme-node-flags
 - fme-node-metrics
 - fme-node-attributes
