@@ -24,7 +24,7 @@ The storage mechanism ensures that once a decision is made for a user, it remain
 
 ## How to Implement a Storage Service
 
-Storage Service is optional while [instantiating](https://developers.vwo.com/v2/docs/fme-node-initialization) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing it.
+Storage Service is optional while [instantiating](https://developers.vwo.com/v2/docs/fme-go-initialization) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing it.
 
 ### Usage
 
@@ -62,12 +62,20 @@ func (c *CustomStorageConnector) Get(featureKey string, userID string) (interfac
 	return nil, nil
 }
 
-func 
+func main {
+  customStorage := NewCustomStorageConnector()
+  options := map[string]interface{}{
+      "sdkKey":    "32-alpha-numeric-sdk-key",
+      "accountId": "123456",
+      "storage":   customStorage
+    }
+  vwoInstance, err := vwo.Init(options)
+}
 ```
 
 Storage Service should expose two methods: _get_ and _set_. These methods are used by VWO whenever there is a need to read or write from the storage service.
 
 | Method Name | Params             | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
-| get         | featureKey, userId | Retrieve stored data corresponding to featureKey and userId | Returns a matching user-feature data mapping corresponding to featureKey and userId passed |
-| set         | data               | Store user-feature data mapping                             | null                                                                                       |
+| Get         | featureKey, userId | Retrieve stored data corresponding to featureKey and userId | Returns a matching user-feature data mapping corresponding to featureKey and userId passed |
+| Set         | data               | Store user-feature data mapping                             | null                                                                                       |
