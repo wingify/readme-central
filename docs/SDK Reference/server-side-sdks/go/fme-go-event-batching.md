@@ -143,28 +143,22 @@ This configuration allows you to define when and how events—such as visitor tr
 
 By customizing these options, developers gain fine-grained control over how event data flows to VWO, ensuring optimal performance, reliability, and observability across different platforms.
 
-<br />
-
 ## Example usage
 
 ```go
-import { init } from 'vwo-fme-node-sdk';
+options := map[string]interface{}{
+    "sdkKey":       "32-alpha-numeric-sdk-key",
+    "accountId":    "123456",
+    "batchEventData": map[string]interface{}{
+			"eventsPerRequest":    1000,  // Set the number of events per request
+			"requestTimeInterval": 10,
+			"flushCallback": func(err error, events string) {
+				fmt.Printf("flushCallback called with error: %v and events: %s\n", err, events)
+			},
+		},
+}
 
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  batchEventData: {
-    eventsPerRequest: 1000, // Set the number of events per request
-    requestTimeInterval: 300, // Flush events every 5 minutes
-    flushCallback: (error, events) => {
-      if (error) {
-        console.log('Error flushing events:', error);
-      } else {
-        console.log('Events flushed successfully:', events);
-      }
-    },
-  },
-});
+vwoInstance, err := vwo.Init(options)
 ```
 
 > 🚧 Note
