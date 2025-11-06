@@ -4,8 +4,8 @@
 - fme-node-flags
 - fme-node-metrics
 - fme-node-attributes
+- copy-of-attributes
 - fme-node-logging
 - fme-node-storage
 - fme-node-integrations
 - fme-node-event-batching
-- copy-of-attributes
