@@ -1,5 +1,5 @@
 ---
-title: Copy of Storage Service
+title: Storage Service
 deprecated: false
 hidden: false
 metadata:
@@ -10,7 +10,7 @@ next:
       title: Integrations
       type: basic
 ---
-The SDK operates in a stateless mode by default, meaning each get\_flag call triggers a fresh evaluation of the flag against the current user context.
+The SDK operates in a stateless mode by default, meaning each get_flag call triggers a fresh evaluation of the flag against the current user context.
 
 To optimize performance and maintain consistency, you can implement a custom storage mechanism by passing a storage parameter during initialization. This allows you to persist feature flag decisions in your preferred database system (like Redis, MongoDB, or any other data store).
 
@@ -28,40 +28,44 @@ Storage Service is optional while [instantiating](https://developers.vwo.com/v2/
 
 ### Usage
 
-```node
-class StorageConnector extends StorageConnector {
-  constructor() {
-    super();
-  }
-
-  /**
-   * Get data from storage
-   * @param {string} featureKey
-   * @param {string} userId
-   * @returns {Promise<any>}
-   */
-  async get(featureKey, userId) {
-    // return await data (based on featureKey and userId)
-  }
-
-  /**
-   * Set data in storage
-   * @param {object} data
-   */
-  async set(data) {
-    // Set data corresponding to a featureKey and user ID
-    // Use data.featureKey and data.userId to store the above data for a specific feature and a user
-  }
+```go
+// CustomStorageConnector implements the storage.Connector interface
+type CustomStorageConnector struct {
+	data map[string]map[string]interface{}
 }
 
-vwo.init({
-  sdkKey: '...',
-  accountId: '123456',
-  storage: StorageConnector,
-});
+// NewCustomStorageConnector creates a new custom storage connector
+func NewCustomStorageConnector() *CustomStorageConnector {
+	return &CustomStorageConnector{
+		data: make(map[string]map[string]interface{}),
+	}
+}
+
+// Set stores data in the custom storage
+func (c *CustomStorageConnector) Set(data map[string]interface{}) error {
+  // example implementation of Set method
+	featureKey, _ := data["featureKey"].(string)
+	userID, _ := data["userId"].(string)
+
+	key := featureKey + ":" + userID
+	c.data[key] = data
+	return nil
+}
+
+// Get retrieves data from the custom storage
+func (c *CustomStorageConnector) Get(featureKey string, userID string) (interface{}, error) {
+  // example implementation of Get method
+	key := featureKey + ":" + userID
+	if data, exists := c.data[key]; exists {
+		return data, nil
+	}
+	return nil, nil
+}
+
+func 
 ```
 
-Storage Service should expose two methods: *get* and *set*. These methods are used by VWO whenever there is a need to read or write from the storage service.
+Storage Service should expose two methods: _get_ and _set_. These methods are used by VWO whenever there is a need to read or write from the storage service.
 
 | Method Name | Params             | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
