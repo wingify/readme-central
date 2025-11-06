@@ -62,7 +62,7 @@ When this API is triggered:
 ```go Node.js
 // Retrieve the feature flag associated with 'feature_key' for the given user context,
 // Allowing access to feature status using IsEnabled() and associated variables (getVariables/getVariable).
-getFlag, err := vwoClient.GetFlag("feature_key", context)
+flag, err := vwoClient.GetFlag("feature_key", context)
 ```
 
 ### Parameters Definition
@@ -131,9 +131,9 @@ If the current user satisfies the conditions for any rollout, testing, or person
 
 ### Usag
 
-```go Node.js
+```go Go
 // To check if the flag is enabled or disabled, use IsEnabled method
-isFlagEnabled := flag.IsEnabled();
+isFlagEnabled := flag.IsEnabled()
 ```
 
 ### Returns
@@ -144,13 +144,13 @@ Returns True if flag is enabled otherwise false
 
 If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in VWO, which can then be fetched at your server and used to control the user's experience in your codebase.
 
-The _getVariable()_ function retrieves the value of a specific variable associated with a feature flag. If the variable is found, it returns the assigned value; otherwise, it returns the provided default_value. This ensures that your application has a fallback value in case the variable is undefined or unavailable.
+The _GetVariable()_ function retrieves the value of a specific variable associated with a feature flag. If the variable is found, it returns the assigned value; otherwise, it returns the provided default_value. This ensures that your application has a fallback value in case the variable is undefined or unavailable.
 
 ### Usage
 
-```node
+```go
 // Get value of the flag's variable
-variableValue = flag.getVariable('variableKey', 'defaultValue')
+variableValue := flag.GetVariable("variableKey", "defaultValue")
 ```
 
 ### Parameters Definition
@@ -207,15 +207,11 @@ variableValue = flag.getVariable('variableKey', 'defaultValue')
 
 ## _**Get Variables**_ API
 
-The _getVariables()_ function returns all variables associated with the feature flag as a dictionary.
+The _GetVariables()_ function returns all variables associated with the feature flag as a dictionary.
 
 ### Usage
 
-```node
+```go
 // Get value of all the variables of the flag
-allVariables = flag.getVariables()
+allVariables := flag.GetVariables()
 ```
-
-### Returns
-
-Returns an array of objects containing the variables in the flag.
