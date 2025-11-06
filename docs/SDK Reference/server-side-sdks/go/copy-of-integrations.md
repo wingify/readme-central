@@ -1,5 +1,5 @@
 ---
-title: Copy of Integrations
+title: Integrations
 deprecated: false
 hidden: false
 metadata:
