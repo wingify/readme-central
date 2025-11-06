@@ -114,7 +114,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Object
+        map[string]interface{}
       </td>
 
       <td>
@@ -144,7 +144,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Object
+        map[string]interface{}
       </td>
 
       <td>
@@ -159,7 +159,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Object
+        map[string]interface{}
       </td>
 
       <td>
@@ -174,7 +174,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Object
+        map[string]interface{}
       </td>
 
       <td>
