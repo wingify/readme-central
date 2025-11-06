@@ -1,7 +1,7 @@
 ---
-title: Copy of Installing the SDK
+title: Installing the SDK
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 next:
