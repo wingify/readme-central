@@ -178,7 +178,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Configuration for network request retry behavior and exponential backoff strategy. For more details, please check - Retry Config
+        Configuration for network request retry behavior and exponential backoff strategy. For more details, please check - [Retry Config](https://developers.vwo.com/v2/docs/fme-go-initialization#/retry-config)
       </td>
     </tr>
   </tbody>
