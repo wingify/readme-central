@@ -3,6 +3,6 @@
 - fme-go-thin-context
 - fme-go-thin-flags
 - fme-go-thin-variables
-- fme-go-metrics
+- fme-go-thin-metrics
 - fme-go-attributes
 - fme-go-storage
