@@ -2,7 +2,7 @@
 - fme-go-thin-initialization
 - fme-go-thin-context
 - fme-go-thin-flags
-- fme-go-variables
+- fme-go-thin-variables
 - fme-go-metrics
 - fme-go-attributes
 - fme-go-storage
