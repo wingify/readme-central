@@ -1,7 +1,7 @@
 ---
-title: Copy of User Context
+title: User Context
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 next:
