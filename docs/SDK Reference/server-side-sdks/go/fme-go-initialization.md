@@ -191,60 +191,65 @@ If/when you make any changes to the feature flags or rules within VWO after the 
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
-```node
-// Init options with poll_interval
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  pollInterval: 60000,
-});
+```go
+options := map[string]interface{}{
+    "sdkKey":       "32-alpha-numeric-sdk-key",
+    "accountId":    "123456",
+    "pollInterval": 60000, // Set the poll interval to 60 seconds
+}
+
+vwoInstance, err := vwo.Init(options)
 ```
 
 ### Logger
 
 VWO by default logs all ERROR level messages to your server console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
 
-```node
-// Init options with logger
-const vwoClient1 = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  logger: {
-    level: 'DEBUG',
-  },
-});
+```go
+options := map[string]interface{}{
+    "sdkKey":    "32-alpha-numeric-sdk-key",
+    "accountId": "123456",
+    "logger": map[string]interface{}{
+        "level": "DEBUG",
+    },
+}
+
+vwoInstance, err := vwo.Init(options)
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-node-logging) for more advanced logger options.
+Please click [here](https://developers.vwo.com/v2/docs/fme-go-logging) for more advanced logger options.
 
 ### Storage
 
 By default, the SDK operates in stateless mode, evaluating flags on each _getFlag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
-```node
-// Init options with storage
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  storage: StorageConnector,
-});
+```go
+// Use in initialization
+options := map[string]interface{}{
+    "sdkKey":    "32-alpha-numeric-sdk-key",
+    "accountId": "123456",
+    "storage":   customStorage
+}
+
+vwoInstance, err := vwo.Init(options)
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-node-storage)  to learn more about storage implementation.
+Please click [here](https://developers.vwo.com/v2/docs/fme-go-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
 The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
 
-```node
-// Init options with gateway_service
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  gatewayService: {
-    url: 'https://custom.gateway.com',
-  },
-});
+```go
+options := map[string]interface{}{
+    "sdkKey":    "32-alpha-numeric-sdk-key",
+    "accountId": "123456",
+    "gatewayService": map[string]interface{}{
+        "url": "http://custom.gateway.com",
+    },
+}
+
+vwoInstance, err := vwo.Init(options)
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/gateway-service)  to learn more about the VWO Gateway service.
@@ -253,28 +258,30 @@ Please click [here](https://developers.vwo.com/v2/docs/gateway-service)  to lear
 
 VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
 
-```node
-// Init options with integrations
-const vwoClient = await vwo.init({
-    sdkKey: 'bfce67fb74a7a59264045347f650dd2c', //replace with the SDK key for your environment
-    accountId: '917741', //replace with your VWO account ID
-    integrations: {
-      callback (properties) {
-        console.log('Integrations callback', properties); // list of keys
-      }
-    }
-})
+```go
+options := map[string]interface{}{
+    "sdkKey":       "32-alpha-numeric-sdk-key",
+    "accountId":    "123456",
+    "integrations": map[string]interface{}{
+        "Callback": func(properties map[string]interface{}) {
+            // implement your custom logic here
+            fmt.Printf("Integration callback called with properties: %+v\n", properties)
+        },
+    },
+}
+
+vwoInstance, err := vwo.Init(options)
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-node-integrations) to learn more about Integrations,.
+Please click [here](https://developers.vwo.com/v2/docs/fme-go-integrations) to learn more about Integrations,.
 
 ### Initialization with Explicit Settings
 
 The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.  
 Please refer to <Anchor label="this" target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
-```javascript
-const localSettings = {
+```go
+var localSettings = '{
     "accountId": 123456,
     "sdkKey": '32-alpha-numeric-sdk-key',
     "features": {
@@ -284,11 +291,13 @@ const localSettings = {
         // campaigns json here
     },
     "version": 1,
-};
+}'
 
-const vwoClient = await init({
-  accountId: '123456',
-  sdkKey: '32-alpha-numeric-sdk-key',
-  settings: localSettings // Pass the settings object here
-});
+options := map[string]interface{}{
+    "sdkKey":       "32-alpha-numeric-sdk-key",
+    "accountId":    "123456",
+    "settings": localSettings
+}
+
+vwoInstance, err := vwo.Init(options)
 ```
