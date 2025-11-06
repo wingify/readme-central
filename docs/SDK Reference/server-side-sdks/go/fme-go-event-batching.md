@@ -151,9 +151,13 @@ options := map[string]interface{}{
     "accountId":    "123456",
     "batchEventData": map[string]interface{}{
 			"eventsPerRequest":    1000,  // Set the number of events per request
-			"requestTimeInterval": 10,
+			"requestTimeInterval": 300, // Flush events every 5 minutes
 			"flushCallback": func(err error, events string) {
-				fmt.Printf("flushCallback called with error: %v and events: %s\n", err, events)
+				if err != nil {
+					fmt.Printf("Error flushing events: %v\n", err)
+				} else {
+					fmt.Printf("Events flushed successfully: %s\n", events)
+				}
 			},
 		},
 }
@@ -178,9 +182,9 @@ vwoInstance, err := vwo.Init(options)
 
 In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the flushEvents() method, which manually triggers the event dispatch.
 
-```javascript
+```go
 // Call the following method only if you need to manually flush the events; otherwise, it can be ignored.
-await vwoClient.flushEvents();
+vwoClient.FlushEvents();
 ```
 
 <br />
