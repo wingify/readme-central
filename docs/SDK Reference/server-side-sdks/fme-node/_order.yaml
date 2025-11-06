@@ -3,9 +3,9 @@
 - fme-node-context
 - fme-node-flags
 - fme-node-metrics
+- copy-of-metrics-tracking
 - fme-node-attributes
 - fme-node-logging
 - fme-node-storage
 - fme-node-integrations
 - fme-node-event-batching
-- copy-of-metrics-tracking
