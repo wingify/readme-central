@@ -1,7 +1,7 @@
 ---
-title: Copy of Metrics Tracking
+title: Metrics Tracking
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 next:
