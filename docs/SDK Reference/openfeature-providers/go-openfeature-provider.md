@@ -29,4 +29,8 @@ This VWO OpenFeature Provider for Go helps you integrate Feature Experimentation
 >
 > This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
 
+## Requirements
+
+Go 1.24
+
 <br />
