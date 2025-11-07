@@ -24,3 +24,9 @@ This VWO OpenFeature Provider for Go helps you integrate Feature Experimentation
     Check <a href="https://openfeature.dev/docs/reference/technologies/server/go/" target="_blank">this</a> out
   </Card>
 </Cards>
+
+> 🚧 **Note**
+>
+> This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+
+<br />
