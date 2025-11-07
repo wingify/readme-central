@@ -92,7 +92,7 @@ func main() {
 }
 ```
 
-<br />
+## API Details
 
 <Table align={["left","left","left","left"]}>
   <thead>
@@ -118,19 +118,19 @@ func main() {
   <tbody>
     <tr>
       <td>
-        `new VWOProvider(vwo_client)`
+        `vwo.NewVWOProviderWithConfig(config)`
       </td>
 
       <td>
-        `vwo_client` (VWO SDK instance)
+        `config: map[string]interface{}`
       </td>
 
       <td>
-        **vwo_client**: The initialized VWO SDK client instance.
+        **config**: Configuration object containing: `sdkKey` your VWO SDK key and `accountId`your VWO account ID
       </td>
 
       <td>
-        Creates a new instance of `VWOProvider`, which integrates VWO with OpenFeature.
+        Creates a new instance of `VWOProvider`, enabling integration of VWO with OpenFeature in Go.
       </td>
     </tr>
 
