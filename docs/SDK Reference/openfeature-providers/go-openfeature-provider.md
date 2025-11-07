@@ -136,57 +136,56 @@ func main() {
 
     <tr>
       <td>
-        `OpenFeature.setProvider(vwo_provider)`
+        `openfeature.SetProviderAndWait(provider)`
       </td>
 
       <td>
-        `provider` (Instance of `VWOProvider`)
+        `provider` (instance of `VWOProvider`)
       </td>
 
       <td>
-        **provider**: The VWO provider instance that will handle feature flag evaluations.
+        **provider**: The VWO provider instance responsible for flag evaluations.
       </td>
 
       <td>
-        Sets the provider for OpenFeature, enabling it to evaluate feature flags using VWO.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `client.set_context(context)`
-      </td>
-
-      <td>
-        `context: object`
-      </td>
-
-      <td>
-        **context**: Contains user details (e.g., `{ user: { id: 'unique-user-id' } }`).
-      </td>
-
-      <td>
-        Sets the evaluation context for feature flag evaluations, helping with user-based targeting.
+        Registers the VWO provider with OpenFeature and waits until it is ready.
       </td>
     </tr>
 
     <tr>
       <td>
-        `client.get_boolean_value`
+        `openfeature.NewClient(name)`
       </td>
 
       <td>
-        `feature_key: string, default_value: boolean, context: object`
+        `name: string`
       </td>
 
       <td>
-        **feature_key**: The unique key representing the feature flag.<br />
-        **default_value**: The fallback boolean value if the flag evaluation fails.<br />
-        **context**: The evaluation context containing user details and an optional `key` to fetch a specific variable.
+        **name**: A logical application or client name.
       </td>
 
       <td>
-        Fetches the boolean value of a feature flag. If `key` is present in `context`, it retrieves a specific variable; otherwise, it returns whether the feature is enabled.
+        Creates a new OpenFeature client used to evaluate feature flags.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `openfeature.NewEvaluationContext(userID, attributes)`
+      </td>
+
+      <td>
+        `userID: string` `attributes: map[string]any`
+      </td>
+
+      <td>
+        **userID**: Unique identifier for the user. **attributes**: Additional data (e.g., `{ "variableKey": "stringVariableKey" }`)
+      </td>
+
+      <td>
+        Defines the evaluation context for feature flag resolution.  
+            Pass `variableKey` in attributes to fetch a specific variable.
       </td>
     </tr>
 
