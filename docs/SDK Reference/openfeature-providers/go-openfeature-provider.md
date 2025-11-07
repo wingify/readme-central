@@ -1,7 +1,7 @@
 ---
 title: Go Provider
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
