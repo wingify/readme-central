@@ -22,7 +22,7 @@ OpenFeature is an open standard that provides a unified, vendor-agnostic API for
 
 Click on the cards below to view the OpenFeature provider documentation for your chosen programming language.
 
-<Cards columns={5}>
+<Cards columns={4}>
   <Card title="" href="https://developers.vwo.com/v2/docs/dotnet-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET
   </Card>
@@ -42,9 +42,9 @@ Click on the cards below to view the OpenFeature provider documentation for your
   <Card title="" href="https://developers.vwo.com/v2/docs/python-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" /> Python
   </Card>
-  
+
   <Card title="" href="https://developers.vwo.com/v2/docs/go-openfeature-provider">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" width="24" alt="Python logo" /> Python
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" width="24" alt="Go logo" /> Go
   </Card>
 </Cards>
 
