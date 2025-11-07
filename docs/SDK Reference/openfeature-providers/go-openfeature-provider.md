@@ -196,7 +196,7 @@ func main() {
 
       <td>
         `ctx: context.Context, featureKey: string, defaultValue: bool,  
-        evalCtx: EvaluationContext`
+                evalCtx: EvaluationContext`
       </td>
 
       <td>
@@ -207,13 +207,13 @@ func main() {
 
       <td>
         Fetches the boolean value of a feature flag.  
-            Without `variableKey`, evaluates flag enabled/disabled.
+        Without `variableKey`, evaluates flag enabled/disabled.
       </td>
     </tr>
 
     <tr>
       <td>
-         `client.StringValue(ctx, featureKey, defaultValue, evalCtx)`
+        `client.StringValue(ctx, featureKey, defaultValue, evalCtx)`
       </td>
 
       <td>
@@ -226,7 +226,7 @@ func main() {
 
       <td>
         Returns the string variable value.  
-            Without `variableKey`, returns the default value.
+        Without `variableKey`, returns the default value.
       </td>
     </tr>
 
@@ -245,7 +245,7 @@ func main() {
 
       <td>
         Fetches an integer variable value.  
-            Without `variableKey`, returns the default.
+        Without `variableKey`, returns the default.
       </td>
     </tr>
 
@@ -264,13 +264,13 @@ func main() {
 
       <td>
         Fetches a floating-point variable.  
-            Without `variableKey`, returns the default.
+        Without `variableKey`, returns the default.
       </td>
     </tr>
 
     <tr>
       <td>
-         `client.ObjectValue(ctx, featureKey, defaultValue, evalCtx)`
+        `client.ObjectValue(ctx, featureKey, defaultValue, evalCtx)`
       </td>
 
       <td>
@@ -278,13 +278,12 @@ func main() {
       </td>
 
       <td>
-        **evalCtx** may contain `variableKey` to fetch a specific JSON variable;  
-        Otherwise, all variables are returned.
+        **evalCtx** may contain `variableKey` to fetch a specific JSON variable.
       </td>
 
       <td>
         Fetches JSON variable values.  
-            If `variableKey` is provided, returns that variable's value; otherwise, returns the entire JSON object.
+        If `variableKey` is provided, returns that variable's value.
       </td>
     </tr>
   </tbody>
