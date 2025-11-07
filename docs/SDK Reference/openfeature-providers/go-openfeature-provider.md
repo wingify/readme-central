@@ -185,67 +185,106 @@ func main() {
 
       <td>
         Defines the evaluation context for feature flag resolution.  
-            Pass `variableKey` in attributes to fetch a specific variable.
+        Pass `variableKey` in attributes to fetch a specific variable.
       </td>
     </tr>
 
     <tr>
       <td>
-        `client.get_string_value`
+        `client.BooleanValue(ctx, featureKey, defaultValue, evalCtx)`
       </td>
 
       <td>
-        `feature_key: string, default_value: string, context: object`
+        `ctx: context.Context, featureKey: string, defaultValue: bool,  
+        evalCtx: EvaluationContext`
       </td>
 
       <td>
-        **feature_key**: The unique key representing the feature flag.<br />
-        **default_value**: The fallback string value if the flag evaluation fails.<br />
-        **context**: The evaluation context with user details and optional `key` to fetch a specific variable.
+        **featureKey**: The feature flag key.  
+        **defaultValue**: Returned if evaluation fails.  
+        **evalCtx**: Must include `variableKey` to fetch a variable; otherwise returns feature ON/OFF.
       </td>
 
       <td>
-        Fetches the string value of a feature flag. Requires `key` in `context` to return a specific variable's value; otherwise, returns `undefined`.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        `client.get_number_value`
-      </td>
-
-      <td>
-        `feature_key: string, default_value: number, context: object`
-      </td>
-
-      <td>
-        **feature_key**: The unique key representing the feature flag.<br />
-        **default_value**: The fallback numeric value if the flag evaluation fails.<br />
-        **context**: The evaluation context with user details and optional `key` to fetch a specific variable.
-      </td>
-
-      <td>
-        Fetches the numeric value of a feature flag. Requires `key` in `context` to return a specific variable's value; otherwise, returns `undefined`.
+        Fetches the boolean value of a feature flag.  
+            Without `variableKey`, evaluates flag enabled/disabled.
       </td>
     </tr>
 
     <tr>
       <td>
-        `client.get_object_value`
+         `client.StringValue(ctx, featureKey, defaultValue, evalCtx)`
       </td>
 
       <td>
-        `feature_key: string, default_value: object, context: object`
+        `featureKey: string`, `defaultValue: string`, `evalCtx: EvaluationContext`
       </td>
 
       <td>
-        **feature_key**: The unique key representing the feature flag.<br />
-        **default_value**: The fallback JSON object if the flag evaluation fails.<br />
-        **context**: The evaluation context with user details and optional `key` to fetch a specific variable.
+        **evalCtx** must contain `variableKey` to return a string variable.
       </td>
 
       <td>
-        Fetches the JSON object value of a feature flag. If `key` is provided in `context`, it retrieves a specific variable value; otherwise, it returns all JSON variables.
+        Returns the string variable value.  
+            Without `variableKey`, returns the default value.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `client.IntValue(ctx, featureKey, defaultValue, evalCtx)`
+      </td>
+
+      <td>
+        `featureKey: string`, `defaultValue: int64`, `evalCtx: EvaluationContext`
+      </td>
+
+      <td>
+        **evalCtx** must contain `variableKey` to fetch a specific integer variable.
+      </td>
+
+      <td>
+        Fetches an integer variable value.  
+            Without `variableKey`, returns the default.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        `client.FloatValue(ctx, featureKey, defaultValue, evalCtx)`
+      </td>
+
+      <td>
+        `featureKey: string`, `defaultValue: float64`, `evalCtx: EvaluationContext`
+      </td>
+
+      <td>
+        **evalCtx** must include `variableKey` to get the numeric variable.
+      </td>
+
+      <td>
+        Fetches a floating-point variable.  
+            Without `variableKey`, returns the default.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+         `client.ObjectValue(ctx, featureKey, defaultValue, evalCtx)`
+      </td>
+
+      <td>
+        `featureKey: string`, `defaultValue: map[string]any`, `evalCtx: EvaluationContext`
+      </td>
+
+      <td>
+        **evalCtx** may contain `variableKey` to fetch a specific JSON variable;  
+        Otherwise, all variables are returned.
+      </td>
+
+      <td>
+        Fetches JSON variable values.  
+            If `variableKey` is provided, returns that variable's value; otherwise, returns the entire JSON object.
       </td>
     </tr>
   </tbody>
