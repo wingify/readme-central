@@ -65,6 +65,7 @@ You can also explore our OpenFeature-compliant providers, officially listed in t
 | Node     | [https://github.com/wingify/vwo-openfeature-provider-node](https://github.com/wingify/vwo-openfeature-provider-node)     |
 | PHP      | [https://github.com/wingify/vwo-openfeature-provider-php](https://github.com/wingify/vwo-openfeature-provider-php)       |
 | Python   | [https://github.com/wingify/vwo-openfeature-provider-python](https://github.com/wingify/vwo-openfeature-provider-python) |
+| Go       | [https://github.com/wingify/vwo-openfeature-provider-go](https://github.com/wingify/vwo-openfeature-provider-go)         |
 
 <br />
 
