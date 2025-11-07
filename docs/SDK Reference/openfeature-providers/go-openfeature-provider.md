@@ -16,6 +16,11 @@ This VWO OpenFeature Provider for Go helps you integrate Feature Experimentation
     Check <a href="https://github.com/wingify/vwo-openfeature-provider-go" target="_blank">this</a> out
   </Card>
 
+<Card title="OpenFeature Ecosystem" icon="fa-globe-pointer">
+  Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20go" target="_blank">this</a> out
+</Card>
+
+
   <Card title="OpenFeature Docs" icon="fa-book-open">
     Check <a href="https://openfeature.dev/docs/reference/technologies/server/go/" target="_blank">this</a> out
   </Card>
@@ -196,7 +201,7 @@ func main() {
 
       <td>
         `ctx: context.Context, featureKey: string, defaultValue: bool,  
-                evalCtx: EvaluationContext`
+                        evalCtx: EvaluationContext`
       </td>
 
       <td>
