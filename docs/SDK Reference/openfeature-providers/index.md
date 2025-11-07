@@ -52,7 +52,7 @@ Click on the cards below to view the OpenFeature provider documentation for your
 
 You can also explore our OpenFeature-compliant providers, officially listed in the [OpenFeature Ecosystem](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo). These providers enable seamless integration with the VWO Feature Experimentation (FE) product and are designed to support a variety of platforms and deployment needs.
 
-<Image align="center" border={true} src="https://files.readme.io/8d23f2f4a4e7147db590adb35cc8ec6a6736ec5e837c25d49c6499bdbd48a7f7-Screenshot_2025-05-13_at_6.46.22_PM.png" className="border" />
+<Image align="center" border={true} src="https://files.readme.io/7307ca6b7ab53499aadba7d9cc634eff5b38c45fb4f082ba255ee61c05cd3d9a-Screenshot_2025-11-07_at_6.25.18_PM.png" className="border" />
 
 <br />
 
