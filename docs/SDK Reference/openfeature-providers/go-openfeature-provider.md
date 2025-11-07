@@ -11,4 +11,15 @@ An **OpenFeature Provider** is a **pluggable integration layer** that connects t
 
 This VWO OpenFeature Provider for Go helps you integrate Feature Experimentation systems into your Go-based applications.
 
-<br />
+<Cards columns={4}>
+  <Card title="GitHub Repo" icon="fa-code-commit">
+    Check <a href="https://github.com/wingify/vwo-openfeature-provider-go" target="_blank">this</a> out
+  </Card>
+  <Card title="OpenFeature Ecosystem" icon="fa-globe-pointer">
+    Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20node" target="_blank">this</a> out
+  </Card>
+
+  <Card title="OpenFeature Docs" icon="fa-book-open">
+    Check <a href="https://openfeature.dev/docs/reference/technologies/server/javascript/" target="_blank">this</a> out
+  </Card>
+</Cards>
