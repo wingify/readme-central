@@ -33,4 +33,65 @@ This VWO OpenFeature Provider for Go helps you integrate Feature Experimentation
 
 Go 1.24
 
-<br />
+## SDK Installation
+
+```shell
+go get github.com/wingify/vwo-openfeature-provider-go
+```
+
+## Usage
+
+```go
+package main
+
+import (
+    "context"
+    "fmt"
+    "log"
+
+    "github.com/open-feature/go-sdk/openfeature"
+    vwo "github.com/wingify/vwo-openfeature-provider-go/pkg"
+)
+
+func main() {
+    provider, err := vwo.NewVWOProviderWithConfig(map[string]interface{}{
+        "sdkKey":    "<your-vwo-sdk-key>",
+        "accountId": "<your-vwo-account-id>",
+    })
+    if err != nil {
+        log.Fatalf("Failed to create VWO feature provider: %v", err)
+    }
+
+    openfeature.SetProviderAndWait(provider)
+    client := openfeature.NewClient("my-app")
+
+    // Evaluate a boolean flag. If no variableKey is provided, this returns flag enabled/disabled.
+    ctx := openfeature.NewEvaluationContext("unique-user-id", map[string]any{"variableKey": "booleanVariableKey"})
+    enabled, err := client.BooleanValue(context.Background(), "featureKey", false, ctx)
+    if err != nil {
+        log.Fatalf("Failed to get boolean value: %v", err)
+    }
+    fmt.Println("Enabled:", enabled)
+
+    // Evaluate typed variables by passing variableKey in the evaluation context
+    // String variable
+    ctx = openfeature.NewEvaluationContext("unique-user-id", map[string]any{"variableKey": "stringVariableKey"})
+    strVal, _ := client.StringValue(context.Background(), "featureKey", "default", ctx)
+    fmt.Println("String value:", strVal)
+
+    // Integer variable
+    ctx = openfeature.NewEvaluationContext("unique-user-id", map[string]any{"variableKey": "integerVariableKey"})
+    intVal, _ := client.IntValue(context.Background(), "featureKey", 0, ctx)
+    fmt.Println("Int value:", intVal)
+
+    // Float variable
+    ctx = openfeature.NewEvaluationContext("unique-user-id", map[string]any{"variableKey": "floatVariableKey"})
+    floatVal, _ := client.FloatValue(context.Background(), "featureKey", 0.0, ctx)
+    fmt.Println("Float value:", floatVal)
+
+    // JSON variable
+    ctx = openfeature.NewEvaluationContext("unique-user-id", map[string]any{"variableKey": "jsonVariableKey"})
+    jsonVal, _ := client.ObjectValue(context.Background(), "featureKey", map[string]any{}, ctx)
+    fmt.Println("JSON value:", jsonVal)
+}
+```
