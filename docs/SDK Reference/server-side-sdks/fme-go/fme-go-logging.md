@@ -53,32 +53,18 @@ vwoInstance, err := vwo.Init(options)
 The **transport** parameter allows you to implement custom logging behavior by providing your own logging functions. You can define handlers for different log levels (debug, info, warn, error, trace) to process log messages according to your needs.
 
 ```go
+var loggerTransport = func(level string, message string) {
+  // custom implementation here
+	fmt.Printf("[%s] %s\n", level, message)
+}
+
 options := map[string]interface{}{
     "sdkKey":    "32-alpha-numeric-sdk-key",
     "accountId": "123456",
     "logger": map[string]interface{}{
         "level": "DEBUG",
         "transport": map[string]interface{}{
-          "trace": func(message string) {
-            // custom implementation
-            fmt.Printf("[CUSTOM-TRACE] %s\n", message)
-          },
-          "debug": func(message string) {
-            // custom implementation
-            fmt.Printf("[CUSTOM-DEBUG] %s\n", message)
-          },
-          "info": func(message string) {
-            // custom implementation
-            fmt.Printf("[CUSTOM-INFO] %s\n", message)
-          },
-          "warn": func(message string) {
-            // custom implementation
-            fmt.Printf("[CUSTOM-WARN] %s\n", message)
-          },
-          "error": func(message string) {
-            // custom implementation
-            fmt.Printf("[CUSTOM-ERROR] %s\n", message)
-          },
+            "log": loggerTransport,
         },
     },
 }
