@@ -35,6 +35,7 @@ Select your preferred technology stack to explore the implementation:
 
 * Server-side
   * [.NET](https://github.com/wingify/vwo-fme-examples/tree/master/dotnet)
+  * [Go](https://github.com/wingify/vwo-fme-examples/tree/master/go)
   * [Java](https://github.com/wingify/vwo-fme-examples/tree/master/java)
   * [Node.js](https://github.com/wingify/vwo-fme-examples/tree/master/node)
   * [PHP](https://github.com/wingify/vwo-fme-examples/tree/master/php)
