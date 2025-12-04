@@ -13,7 +13,7 @@ next:
 List of Frequently Asked Questions:
 
 * [What should be considered as the User ID?](https://developers.vwo.com/v2/docs/fme-faqs#/what-should-be-considered-as-the-user-id)
-* [How does VWO affect my application speed?](https://developers.vwo.com/v2/docs/list-of-questions#how-does-vwo-affect-my-application-speed)
+* [How does VWO affect my application speed?](https://developers.vwo.com/v2/docs/fme-faqs#/how-does-vwo-affect-my-application-speed)
 * [How do VWO bucket users across SDKs?](https://developers.vwo.com/v2/docs/list-of-questions#how-do-vwo-bucket-users-across-sdks)
 * [How does VWO bucket the same users across platforms?](https://developers.vwo.com/v2/docs/list-of-questions#how-does-vwo-bucket-the-same-users-across-platforms)
 * [Why is it important to use Persistent Storage when deploying to Production?](https://developers.vwo.com/v2/docs/list-of-questions#why-is-it-important-to-use-persistent-storage-when-deploying-to-production)
