@@ -12,7 +12,7 @@ next:
 ---
 List of Frequently Asked Questions:
 
-* [What should be considered as the User ID?](https://developers.vwo.com/v2/docs/list-of-questions#what-should-be-considered-as-the-user-id)
+* [What should be considered as the User ID?](https://developers.vwo.com/v2/docs/fme-faqs#/what-should-be-considered-as-the-user-id)
 * [How does VWO affect my application speed?](https://developers.vwo.com/v2/docs/list-of-questions#how-does-vwo-affect-my-application-speed)
 * [How do VWO bucket users across SDKs?](https://developers.vwo.com/v2/docs/list-of-questions#how-do-vwo-bucket-users-across-sdks)
 * [How does VWO bucket the same users across platforms?](https://developers.vwo.com/v2/docs/list-of-questions#how-does-vwo-bucket-the-same-users-across-platforms)
@@ -47,7 +47,7 @@ For a seamless and consistent experience, the same User ID must be provided ever
 
 **Example:**
 
-A user visits your website for the first time, and you assign them the User ID ***f34c3d91-a66e-4389-92fb-595fa9874725***. The VWO SDK assigns this user to ***Variation-1***. If the same user returns later, you must provide the same User ID to ensure they receive the same variation, maintaining a consistent experience.
+A user visits your website for the first time, and you assign them the User ID _**f34c3d91-a66e-4389-92fb-595fa9874725**_. The VWO SDK assigns this user to _**Variation-1**_. If the same user returns later, you must provide the same User ID to ensure they receive the same variation, maintaining a consistent experience.
 
 **Why IP Addresses Should Not Be Used as User IDs**
 
@@ -63,7 +63,7 @@ To ensure deterministic bucketing and a consistent user experience, always use a
 
 The benefit of using VWO FE feature flags is that these are lightning-fast. With the help of our SDKs, you can get the variation assignment without making any blocking requests to VWO servers. All the computation, like deciding user eligibility for a campaign and assigning variation to a user is carried out by our smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.vwo.com/reference#section-how-bucketing-works).
 
-The only thing that could be blocking it is fetching settings. The VWO SDK requires a *settings* for its instantiation. Either you can cache it or fetch it just after the server is up, if possible.
+The only thing that could be blocking it is fetching settings. The VWO SDK requires a _settings_ for its instantiation. Either you can cache it or fetch it just after the server is up, if possible.
 
 As there is no client-side custom code execution, using a FE feature flag is much faster.
 
@@ -109,7 +109,7 @@ Changing campaign settings without impacting the tracked users, please refer to 
 
 For **asynchronous languages** like Node.js, Java, .NET, and Go, the tracking calls are asynchronous. Therefore, there's no significant impact on the latency when using such APIs.
 
-For **synchronous languages** like PHP, Python, and Ruby, \~150 ms of latency is added to each such API call as these APIs send tracking calls from your server to the VWO server.
+For **synchronous languages** like PHP, Python, and Ruby, ~150 ms of latency is added to each such API call as these APIs send tracking calls from your server to the VWO server.
 
 ## Which programming languages are supported by VWO FE SDKs?
 
@@ -195,7 +195,7 @@ We support the following programming languages:
       </td>
 
       <td>
-        [https://github.com/wingify/vwo-fme-node-sdk](https://github.com/wingify/vwo-fme-node-sdk)\
+        [https://github.com/wingify/vwo-fme-node-sdk](https://github.com/wingify/vwo-fme-node-sdk)  
         (Same as Node.js SDK, shares the common code, build and packaged differently.)
       </td>
     </tr>
@@ -306,8 +306,8 @@ Here is the list of various languages we offer which SDKs and the minimum versio
       </td>
 
       <td>
-        * \*Open JDK 8, 9, 11, 12\
-          Oracle JDK 8, 9, 11, 12\*\*
+        * *Open JDK 8, 9, 11, 12  
+          Oracle JDK 8, 9, 11, 12**
       </td>
     </tr>
 
@@ -384,11 +384,11 @@ Here is the list of various languages we offer which SDKs and the minimum versio
 
 ## Can we track a goal with the same identifier in multiple campaigns at once?
 
-VWO SDKs provide an API to track an event; that event can be associated with *n* number of campaigns in the VWO Application. Please refer to the **trackEvent** API.
+VWO SDKs provide an API to track an event; that event can be associated with _n_ number of campaigns in the VWO Application. Please refer to the **trackEvent** API.
 
 ## How to make sure you are running the latest version of the SDK?
 
-Please use the latest version of the SDK by periodically checking for updates and updating the SDK to enjoy new features we keep on shipping from time to time.\
+Please use the latest version of the SDK by periodically checking for updates and updating the SDK to enjoy new features we keep on shipping from time to time.  
 Refer to this [section](https://developers.vwo.com/reference#fullstack-is-there-any-list-of-features-in-different-sdks) to know about the changes VWO ships in different SDKs.
 
 ## Why use Webhooks for updating settings and not Polling?
@@ -406,4 +406,4 @@ VWO SDKs operate on User ID. As long as the user ID is the same, SDKs will outpu
 
 ## Do I need to modify my firewall when using VWO FE?
 
-If your firewall has any outbound traffic restrictions, you'll need to whitelist ***dev.visualwebsiteoptimizer.com***
+If your firewall has any outbound traffic restrictions, you'll need to whitelist _**dev.visualwebsiteoptimizer.com**_
