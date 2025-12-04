@@ -93,11 +93,19 @@ In all the above-mentioned scenarios, VWO SDKs may not provide consistent result
 
 Please check the following:
 
-* The development flag should **not** be ON(while launching the SDK).
 * The settings on your server is up-to-date. For real-time updates, use Webhooks or Polling.
 * The tracking calls are not reaching the VWO server because of some firewall settings at your end.
 
 For detailed information on how SDK is working, please check the logs by enabling them or writing a custom logger.
+
+## Why aren't conversions reflecting in the campaign report?
+
+Please check the following:
+
+* Ensure you are using the same `id` in `userContext` for both `getFlag` and `trackEvent` for the same user.
+* Confirm that you are calling `getFlag` before calling `trackEvent`.
+
+For detailed information on whether `getFlag` and `trackEvent` are using the same `userId`, please enable the debug logs in the `init` method and check.
 
 ## Are there any repercussions of changing campaign settings mid-campaign?
 
@@ -306,8 +314,8 @@ Here is the list of various languages we offer which SDKs and the minimum versio
       </td>
 
       <td>
-        * *Open JDK 8, 9, 11, 12  
-          Oracle JDK 8, 9, 11, 12**
+        * _Open JDK 8, 9, 11, 12  
+          Oracle JDK 8, 9, 11, 12_*
       </td>
     </tr>
 
