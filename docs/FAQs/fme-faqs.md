@@ -16,7 +16,7 @@ List of Frequently Asked Questions:
 * [How does VWO affect my application speed?](https://developers.vwo.com/v2/docs/fme-faqs#/how-does-vwo-affect-my-application-speed)
 * [How do VWO bucket users across SDKs?](https://developers.vwo.com/v2/docs/fme-faqs#/how-do-vwo-bucket-users-across-sdks)
 * [How does VWO bucket the same users across platforms?](https://developers.vwo.com/v2/docs/fme-faqs#/how-does-vwo-bucket-the-same-users-across-platforms)
-* [Why is it important to use Persistent Storage when deploying to Production?](https://developers.vwo.com/v2/docs/list-of-questions#why-is-it-important-to-use-persistent-storage-when-deploying-to-production)
+* [Why is it important to use Persistent Storage when deploying to Production?](https://developers.vwo.com/v2/docs/fme-faqs#/why-is-it-important-to-use-persistent-storage-when-deploying-to-production)
 * [Why isn't data reflecting in the campaign report](https://developers.vwo.com/v2/docs/list-of-questions#why-isnt-data-reflecting-in-the-campaign-report)
 * [Are there any repercussions of changing campaign settings mid-campaign?](https://developers.vwo.com/v2/docs/list-of-questions#are-there-any-repercussions-of-changing-campaign-settings-mid-campaign)
 * [What latency do getFlag, trackEvent, and setAttribute APIs calls add to my backend?](https://developers.vwo.com/v2/docs/list-of-questions#what-latency-do-getflag-trackevent-and-setattribute-apis-calls-add-to-my-backend)
