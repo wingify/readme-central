@@ -82,7 +82,7 @@ Looking for platform-specific setup instructions?
 <Cards columns={3}>
   <Card title="" href="#cloudflare-workers">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflareworkers
-    /cloudflareworkers-original-wordmark.svg" width="24" alt="Cloudflare Workers logo" /> Cloudflare Workers
+    /cloudflareworkers-original-wordmark.svg" width="36" alt="Cloudflare Workers logo" /> Cloudflare Workers
 
     Jump to Cloudflare Workers specific configuration and examples
   </Card>
