@@ -1,5 +1,9 @@
 ---
 title: Edge Support
+excerpt: >-
+  Learn how to configure the VWO FE JavaScript SDK for edge computing
+  environments like Cloudflare Workers, Vercel Edge Functions, and AWS
+  Lambda@Edge.
 deprecated: false
 hidden: false
 metadata:
@@ -13,10 +17,10 @@ The VWO Feature Experimentation (FE) SDK enables feature flagging, experimentati
 
 * Cloudflare Workers
 * Vercel Edge Functions
-* AWS Lambda\@Edge
+* AWS Lambda{'@'}Edge
 * Netlify Edge Functions
 * Deno Deploy
-* Fastly Compute\@Edge
+* Fastly Compute{'@'}Edge
 * and other similar edge environments
 
 Edge runtimes are optimized for low latency, geographically distributed execution, and ephemeral function lifecycles. These characteristics require special handling of asynchronous operations such as HTTP requests for event tracking and telemetry. This guide outlines the required parameters and settings to run the VWO FE Javascript SDK effectively in edge computing environments.
@@ -37,21 +41,23 @@ These factors necessitate careful handling of all asynchronous operations within
 
 ## Key Configuration for Edge Environments
 
-In edge environments, the SDK has to ensure that tracking calls are properly managed before resolving promises. To achieve this, the `shouldWaitForTrackingCalls` Parameter must be explicitly set.
+In edge environments, use the `edgeConfig` option to optimize SDK performance. This makes `getFlag()`, `trackEvent()`, and `setAttribute()` return much faster.
 
-### Parameter: shouldWaitForTrackingCalls
+**Important**: When using `edgeConfig`, you must call `await vwoClient.flushEvents()` at the end of your function to send tracking events.
 
-The `shouldWaitForTrackingCalls` Parameter is designed to ensure that tracking calls complete before the promise resolves, which is important for edge environments where asynchronous operations like HTTP requests may be handled differently.
+### Parameter: edgeConfig
+
+The `edgeConfig` option should only be used in serverless/edge environments (e.g., Cloudflare Workers, Vercel Edge Functions, AWS Lambda{'@'}Edge).
 
 | Parameter                      | Type    | Default | Recommended Value in Edge |
 | :----------------------------- | :------ | :------ | :------------------------ |
-| **shouldWaitForTrackingCalls** | Boolean | false   | true                      |
+| **shouldWaitForTrackingCalls** | Boolean | true    | true                      |
 
 When `shouldWaitForTrackingCalls` is set to true, the SDK will wait for the tracking calls (such as event tracking or feature flag tracking) to finish before returning control to the application. This ensures that all tracking data is sent successfully before continuing execution, which is particularly useful when using edge functions, where immediate resolution of promises might bypass crucial asynchronous actions like data transmission.
 
 ### Example Configuration
 
-Here’s how you can configure the SDK to work properly in an edge environment:
+Here's how you can configure the SDK to work properly in an edge environment:
 
 ```javascript
 const { init } = require('vwo-fme-node-sdk');
@@ -61,8 +67,10 @@ async function main() {
   const vwoClient = await init({
     accountId: '123456',
     sdkKey: '32-alpha-numeric-sdk-key',
-    // Ensures VWO tracking calls complete before exiting Edge cloud functions
-    shouldWaitForTrackingCalls: true
+    // Edge configuration for serverless environments
+    edgeConfig: {
+      shouldWaitForTrackingCalls: true
+    }
   });
 
   const userContext = { id: 'unique_user_id' };
@@ -79,6 +87,9 @@ async function main() {
 
   // Track an event
   await vwoClient.trackEvent('event_name', userContext);
+
+  // IMPORTANT: Flush events before function exits
+  await vwoClient.flushEvents();
 }
 
 main();
@@ -86,13 +97,112 @@ main();
 
 ### Code Breakdown
 
-* **init(\{ shouldWaitForTrackingCalls: true })**: Ensures the SDK waits for tracking HTTP calls before returning control.
-* **getFlag, trackEvent, and setAttribute**: These return promises that should be awaited in edge runtimes.
+* **init({'{'} edgeConfig: {'{'} shouldWaitForTrackingCalls: true {'}'} {'}'})**: Configures the SDK for edge environments.
+* **getFlag, trackEvent, and setAttribute**: These methods return much faster when using `edgeConfig`.
+* **flushEvents()**: **Required** - Call this at the end of your function to send all tracking events.
 * **Graceful fallback for variables**: Always provide a default value to getVariable() to handle missing configurations.
+
+## Flushing Events in Edge Environments
+
+When using `edgeConfig`, you **must** call `flushEvents()` at the end of your function to send tracking events to VWO.
+
+### Basic Usage
+
+```javascript
+// At the end of your edge function, before returning
+await vwoClient.flushEvents();
+```
+
+### Cloudflare Workers
+
+In Cloudflare Workers, use `ctx.waitUntil()` to ensure events flush even after the response is sent. This is **critical** because Cloudflare may terminate execution after sending a response.
+
+```javascript
+export default {
+  async fetch(request, env, ctx) {
+    const vwoClient = await init({
+      accountId: env.VWO_ACCOUNT_ID,
+      sdkKey: env.VWO_SDK_KEY,
+      edgeConfig: {
+        shouldWaitForTrackingCalls: true,
+      },
+    });
+
+    const userContext = { id: 'user123' };
+    
+    // Your application logic
+    const flag = await vwoClient.getFlag('feature_key', userContext);
+    await vwoClient.trackEvent('event_name', userContext);
+    
+    // CRITICAL: Flush events using ctx.waitUntil in Cloudflare
+    ctx.waitUntil(vwoClient.flushEvents());
+    
+    return new Response('OK');
+  }
+}
+```
+
+### Vercel
+
+In vercel, use `waitUntil()` to ensure events flush even after the response is sent. This is **critical** because Cloudflare may terminate execution after sending a response. To know more about `waitUntil()` click  [here](https://vercel.com/docs/functions/functions-api-reference/vercel-functions-package#helper-methods-non-next.js-usage-or-older-next.js-versions)
+
+```javascript
+import { init } from 'vwo-fme-node-sdk';
+import { waitUntil } from '@vercel/functions';
+
+export default async function handler(req, res) {
+    const vwoClient = await init({
+      accountId: '123456',
+      sdkKey: '32-alpha-numeric-sdk-key',
+      edgeConfig: {
+        shouldWaitForTrackingCalls: true,
+      },
+    });
+
+    const userContext = { id: 'user123' };
+    
+    // Your application logic
+    const flag = await vwoClient.getFlag('feature_key', userContext);
+    await vwoClient.trackEvent('event_name', userContext);
+    
+    // CRITICAL: Flush events using waitUntil in vercel
+    waitUntil(vwoClient.flushEvents());
+    
+    return res.status(200).json({status: 'success'})
+  }
+}
+```
+
+### Other Edge Environments
+
+For other edge environments (AWS Lambda{'@'}Edge, Netlify Edge Functions, etc.), use `await` directly:
+
+```javascript
+export default async function handler(request) {
+  const vwoClient = await init({
+    accountId: '123456',
+    sdkKey: '32-alpha-numeric-sdk-key',
+    edgeConfig: {
+      shouldWaitForTrackingCalls: true,
+    },
+  });
+
+  const userContext = { id: 'user123' };
+  const flag = await vwoClient.getFlag('feature_key', userContext);
+  await vwoClient.trackEvent('event_name', userContext);
+
+  // Flush events before returning
+  await vwoClient.flushEvents();
+
+  return new Response('OK');
+}
+```
 
 ## Best Practices
 
-* **Always await** SDK methods (*getFlag*, *trackEvent*) to ensure calls complete before the edge function exits.
+* **Use `edgeConfig` in edge environments**: Use the `edgeConfig` option for edge/serverless environments to optimize performance.
+* **Always call `flushEvents()`**: Call `vwoClient.flushEvents()` at the end of your edge function to send tracking events.
+* **Use `ctx.waitUntil()` in Cloudflare Workers**: Wrap `vwoClient.flushEvents()` with `ctx.waitUntil()` to ensure events are sent even after the response is returned.
 * **Minimize cold starts** by reusing SDK initialization where possible (e.g., in shared scopes or cached module instances).
 * **Monitor execution time** to stay within limits imposed by edge providers (typically under 50ms to 100ms).
 * **Log or handle tracking errors** (e.g., using try/catch) to improve observability.
@@ -101,8 +211,9 @@ main();
 
 | Recommendation                                | Why It Matters                                          |
 | :-------------------------------------------- | :------------------------------------------------------ |
-| shouldWaitForTrackingCalls: true              | Ensures all telemetry is sent before the function exits |
-| Use await for all SDK calls                   | Prevents lost impressions or incomplete events          |
+| Use `edgeConfig` for edge environments        | Optimizes SDK performance (methods return much faster)  |
+| Call `flushEvents()` at the end of execution  | Required to send tracking events                        |
+| Use `ctx.waitUntil()` in Cloudflare Workers   | Ensures events are sent even after response is returned |
 | Provide the user ID in context                | Enables targeting and consistent evaluations            |
 | Use a proper bundler if targeting the browser | Ensures compatibility with edge environments            |
 
