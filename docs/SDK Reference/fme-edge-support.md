@@ -88,7 +88,7 @@ Looking for platform-specific setup instructions?
   </Card>
 
   <Card title="" href="#vercel">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original-wordmark.svg.svg" width="24" alt="Vercel logo" /> Vercel Edge Functions
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original-wordmark.svg" width="24" alt="Vercel logo" /> Vercel Edge Functions
 
     Jump to Vercel Edge Functions specific configuration and examples
   </Card>
