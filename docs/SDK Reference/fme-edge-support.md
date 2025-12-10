@@ -41,7 +41,7 @@ Edge platforms introduce several behavioral constraints that impact any SDK perf
 
 ## SDK Configuration for Edge Environments
 
-Use the `edgeConfig` option when initializing the VWO SDK inside any edge runtime. 
+Use the `edgeConfig` option when initializing the VWO SDK inside any edge runtime.
 
 ### Parameter: edgeConfig
 
@@ -55,7 +55,7 @@ The `edgeConfig` option should only be used in serverless/edge environments (e.g
 
 With edgeConfig, core methods like `getFlag`, `trackEvent`, and `setAttribute` resolve quickly, while the actual tracking calls are deferred and handled when you call `flushEvents`.
 
-<Callout icon="🚧">
+<Callout icon="🚧" theme="warn">
   **Important Note**
 
   When using `edgeConfig`, you must call `await flushEvents()` at the end of your code flow to send tracking events to VWO for reporting purposes.
@@ -79,13 +79,16 @@ Edge platforms provide different mechanisms to wait for async operations:
 
 Looking for platform-specific setup instructions?
 
-<Cards columns={2}>
+<Cards columns={3}>
   <Card title="Cloudflare Workers" href="#cloudflare-workers" icon="cloud">
     Jump to Cloudflare Workers specific configuration and examples
   </Card>
 
   <Card title="Vercel Edge Functions" href="#vercel" icon="arrow-right">
     Jump to Vercel Edge Functions specific configuration and examples
+  </Card>
+  <Card title="Other Edge Environments" href="#other-edge-environments" icon="arrow-right">
+    Jump to Other Edge Environments specific configuration and examples
   </Card>
 </Cards>
 
@@ -151,7 +154,7 @@ await vwoClient.flushEvents();
 
 #### Cloudflare Workers
 
-Cloudflare worker terminates execution immediately after returning a response. Use `ctx.waitUntil()` to keep async work alive. To know more about `waitUntil`, refer to the official docs <Anchor label="here" target="_blank" href="https://developers.cloudflare.com/workers/runtime-apis/context/#waituntil">here</Anchor> 
+Cloudflare worker terminates execution immediately after returning a response. Use `ctx.waitUntil()` to keep async work alive. To know more about `waitUntil`, refer to the official docs <Anchor label="here" target="_blank" href="https://developers.cloudflare.com/workers/runtime-apis/context/#waituntil">here</Anchor>
 
 ```javascript
 export default {
