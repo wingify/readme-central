@@ -53,8 +53,6 @@ The `edgeConfig` option should only be used in serverless/edge environments (e.g
 | :----------------------------- | :------ | :------ | :------------------------ |
 | **shouldWaitForTrackingCalls** | Boolean | true    | true                      |
 
-When `shouldWaitForTrackingCalls` is set to true, the SDK will wait for the tracking calls (such as event tracking or feature flag tracking) to finish before returning control to the application. This ensures that all tracking data is sent successfully before continuing execution, which is particularly useful when using edge functions, where immediate resolution of promises might bypass crucial asynchronous actions like data transmission.
-
 ### Example Configuration
 
 Here's how you can configure the SDK to work properly in an edge environment:
