@@ -13,7 +13,9 @@ metadata:
 next:
   description: ''
 ---
-The VWO Feature Experimentation (FE) SDK enables feature flagging, experimentation, and event tracking for modern applications. JavaScript is fully supported on edge platforms, making the **VWO FE JavaScript SDK**, a VWO FE Node SDK port, fully compatible with the following edge environments.
+The VWO Feature Experimentation (FE) JavaScript SDK is fully compatible with modern edge runtimes, enabling feature flag evaluations, experimentation, and event tracking at globally distributed locations with extremely low latency.
+
+Supported edge platforms include:
 
 * Cloudflare Workers
 * Vercel Edge Functions
@@ -23,35 +25,55 @@ The VWO Feature Experimentation (FE) SDK enables feature flagging, experimentati
 * Fastly Compute{'@'}Edge
 * and other similar edge environments
 
-Edge runtimes are optimized for low latency, geographically distributed execution, and ephemeral function lifecycles. These characteristics require special handling of asynchronous operations such as HTTP requests for event tracking and telemetry. This guide outlines the required parameters and settings to run the VWO FE Javascript SDK effectively in edge computing environments.
+Edge runtimes are optimized for low latency, geographically distributed execution, and ephemeral function lifecycles. These characteristics require special handling of asynchronous operations, such as HTTP requests for event tracking and telemetry. This guide outlines the parameters and settings necessary to run the VWO FE JavaScript SDK effectively in edge computing environments.
 
 > For further details on the VWO FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [VWO JavaScript SDK Documentation](https://developers.vwo.com/v2/docs/fme-javascript).
 
-For further details on the VWO FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [VWO JavaScript SDK Documentation](https://developers.vwo.com/v2/docs/fme-javascript).
-
 ## Why Edge Environments Need Special Handling
 
-Edge environments introduce several unique challenges:
+Edge platforms introduce several behavioral constraints that impact any SDK performing remote calls (like tracking events):
 
-* **Stateless Execution**: Functions are short-lived and stateless, meaning any delay or unresolved operation might be terminated early.
-* **Asynchronous Nature**: Tracking events involve HTTP requests, which are asynchronous. Without waiting for these to complete, events may be dropped.
-* **Execution Time Constraints**: Edge functions are optimized for performance and often impose strict limits on execution time.
+1. **Stateless, Ephemeral Execution**: Each invocation starts from a clean slate. Any pending asynchronous operations (e.g., tracking calls) can be terminated early if not awaited properly.
+2. **Strict Execution Time Budgets**: Many edge runtimes terminate execution immediately after returning a response—unless you explicitly signal that work is still pending.
+3. **Non-blocking HTTP Requests**: All tracking calls are asynchronous and risk being dropped if the runtime ends the execution loop early.
 
-These factors necessitate careful handling of all asynchronous operations within your application code.
+**Therefore, edge runtimes must explicitly flush tracking events before your function exits.**
 
-## Key Configuration for Edge Environments
+## SDK Configuration for Edge Environments
 
-In edge environments, use the `edgeConfig` option to optimize SDK performance. This makes `getFlag()`, `trackEvent()`, and `setAttribute()` return much faster.
-
-**Important**: When using `edgeConfig`, you must call `await vwoClient.flushEvents()` at the end of your function to send tracking events.  
+Use the `edgeConfig` option when initializing the VWO SDK inside any edge runtime. 
 
 ### Parameter: edgeConfig
 
 The `edgeConfig` option should only be used in serverless/edge environments (e.g., Cloudflare Workers, Vercel Edge Functions, AWS Lambda{'@'}Edge).
 
-| Parameter                      | Type    | Default | Recommended Value in Edge |
-| :----------------------------- | :------ | :------ | :------------------------ |
-| **shouldWaitForTrackingCalls** | Boolean | true    | true                      |
+| Parameter                      | Description                                     | Type    | Default | Recommended Value in Edge |
+| :----------------------------- | :---------------------------------------------- | :------ | :------ | :------------------------ |
+| **shouldWaitForTrackingCalls** | Ensures SDK waits for async tracking operations | Boolean | true    | true                      |
+
+#### Why It Matters
+
+With edgeConfig, core methods like `getFlag`, `trackEvent`, and `setAttribute` resolve quickly, while the actual tracking calls are deferred and handled when you call `flushEvents`.
+
+<Callout icon="🚧">
+  **Important Note**
+
+  When using `edgeConfig`, you must call `await flushEvents()` at the end of your code flow to send tracking events to VWO for reporting purposes.
+</Callout>
+
+<br />
+
+### Essential Rule for Edge Environments
+
+Always call **vwoClient.flushEvents()** before your function exits.
+
+If events are not flushed, they may be dropped entirely.
+
+Edge platforms provide different mechanisms to wait for async operations:
+
+* Cloudflare Workers: `ctx.waitUntil(vwoClient.flushEvents)`
+* Vercel Edge / Fastly: `waitUntil(vwoClient.flushEvents)`
+* Other platforms: standard `await vwoClient.flushEvents()`
 
 ## Quick Platform Setup
 
