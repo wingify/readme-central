@@ -80,14 +80,18 @@ Edge platforms provide different mechanisms to wait for async operations:
 Looking for platform-specific setup instructions?
 
 <Cards columns={3}>
-  <Card title="Cloudflare Workers" href="#cloudflare-workers" icon="cloud">
+  <Card title="Cloudflare Workers" href="#cloudflare-workers">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/loudflareworkers
+/cloudflareworkers-original-wordmark.svg" width="24" alt="Cloudflare Workers logo" />
     Jump to Cloudflare Workers specific configuration and examples
   </Card>
 
-  <Card title="Vercel Edge Functions" href="#vercel" icon="arrow-right">
+  <Card title="Vercel Edge Functions" href="#vercel">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" />
     Jump to Vercel Edge Functions specific configuration and examples
   </Card>
-  <Card title="Other Edge Environments" href="#other-edge-environments" icon="arrow-right">
+
+  <Card title="Other Edge Environments" href="#other-edge-environments" icon="fa-book-open">
     Jump to Other Edge Environments specific configuration and examples
   </Card>
 </Cards>
