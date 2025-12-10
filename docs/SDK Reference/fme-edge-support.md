@@ -75,7 +75,7 @@ Edge platforms provide different mechanisms to wait for async operations:
 * Vercel Edge / Fastly: `waitUntil(vwoClient.flushEvents)`
 * Other platforms: standard `await vwoClient.flushEvents()`
 
-## Quick Platform Setup
+## Quick Start Configuration
 
 Looking for platform-specific setup instructions?
 
@@ -147,9 +147,11 @@ When using `edgeConfig`, you **must** call `flushEvents()` at the end of your fu
 await vwoClient.flushEvents();
 ```
 
-### Cloudflare Workers
+### Platform-Specific Guidance
 
-In Cloudflare Workers, use `ctx.waitUntil()` to ensure events flush even after the response is sent. This is **critical** because Cloudflare may terminate execution after sending a response.
+#### Cloudflare Workers
+
+Cloudflare worker terminates execution immediately after returning a response. Use `ctx.waitUntil()` to keep async work alive. To know more about `waitUntil`, refer to the official docs <Anchor label="here" target="_blank" href="https://developers.cloudflare.com/workers/runtime-apis/context/#waituntil">here</Anchor> 
 
 ```javascript
 export default {
@@ -178,7 +180,7 @@ export default {
 
 ### Vercel
 
-In vercel, use `waitUntil()` to ensure events flush even after the response is sent. This is **critical** because Cloudflare may terminate execution after sending a response. To know more about `waitUntil()` click  [here](https://vercel.com/docs/functions/functions-api-reference/vercel-functions-package#helper-methods-non-next.js-usage-or-older-next.js-versions)
+Similar to Cloudflare, Vercel Edge requires waitUntil(). To know more about `waitUntil()`, check the official docs <Anchor label="here" target="_blank" href="https://vercel.com/docs/functions/functions-api-reference/vercel-functions-package#helper-methods-non-next.js-usage-or-older-next.js-versions">here</Anchor>.
 
 ```javascript
 import { init } from 'vwo-fme-node-sdk';
@@ -209,7 +211,7 @@ export default async function handler(req, res) {
 
 ### Other Edge Environments
 
-For other edge environments (AWS Lambda{'@'}Edge, Netlify Edge Functions, etc.), use `await` directly:
+If the platform does not provide “background work” helpers, simply `await` the flush call::
 
 ```javascript
 export default async function handler(request) {
@@ -225,7 +227,7 @@ export default async function handler(request) {
   const flag = await vwoClient.getFlag('feature_key', userContext);
   await vwoClient.trackEvent('event_name', userContext);
 
-  // Flush events before returning
+  // REQUIRED: Flush events before returning
   await vwoClient.flushEvents();
 
   return new Response('OK');
@@ -234,21 +236,14 @@ export default async function handler(request) {
 
 ## Best Practices
 
-* **Use `edgeConfig` in edge environments**: Use the `edgeConfig` option for edge/serverless environments to optimize performance.
-* **Always call `flushEvents()`**: Call `vwoClient.flushEvents()` at the end of your edge function to send tracking events.
-* **Use `ctx.waitUntil()` in Cloudflare Workers**: Wrap `vwoClient.flushEvents()` with `ctx.waitUntil()` to ensure events are sent even after the response is returned.
-* **Minimize cold starts** by reusing SDK initialization where possible (e.g., in shared scopes or cached module instances).
-* **Monitor execution time** to stay within limits imposed by edge providers (typically under 50ms to 100ms).
-* **Log or handle tracking errors** (e.g., using try/catch) to improve observability.
+* ✔ **Use edgeConfig**: Optimizes performance and defers tracking calls for batch flushing.
+* **✔ Always call flushEvents()**: Ensures event delivery before function termination.
+* **✔ Use Cloudflare/Vercel waitUntil()**: Prevents event loss after response is returned.
+* **✔ Reuse the SDK instance**: Place initialization at the module level to reduce cold-start overhead.
+* **✔ Keep user IDs stable**: User identity consistency ensures correct bucketing.
+* **✔ Monitor execution time**: Most edge runtimes enforce 50ms–100ms budgets.
+* **✔ Add error handling**: Wrap flush calls in try/catch (optional but recommended).
 
-## Summary
-
-| Recommendation                                | Why It Matters                                          |
-| :-------------------------------------------- | :------------------------------------------------------ |
-| Use `edgeConfig` for edge environments        | Optimizes SDK performance (methods return much faster)  |
-| Call `flushEvents()` at the end of execution  | Required to send tracking events                        |
-| Use `ctx.waitUntil()` in Cloudflare Workers   | Ensures events are sent even after response is returned |
-| Provide the user ID in context                | Enables targeting and consistent evaluations            |
-| Use a proper bundler if targeting the browser | Ensures compatibility with edge environments            |
+<br />
 
 By following this guide, you can confidently deploy the VWO FE JavaScript SDK to distributed, edge platforms while preserving the integrity of your feature flagging and experimentation data.
