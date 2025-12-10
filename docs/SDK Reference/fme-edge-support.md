@@ -81,13 +81,18 @@ Looking for platform-specific setup instructions?
 
 <Cards columns={3}>
   <Card title="Cloudflare Workers" href="#cloudflare-workers">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/loudflareworkers
-/cloudflareworkers-original-wordmark.svg" width="24" alt="Cloudflare Workers logo" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cloudflareworkers
+/cloudflareworkers-original-wordmark.svg"
+      width="24"
+      alt="Cloudflare Workers logo"
+    />
+
     Jump to Cloudflare Workers specific configuration and examples
   </Card>
 
   <Card title="Vercel Edge Functions" href="#vercel">
-    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" />
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vercel/vercel-original-wordmark.svg.svg" width="24" alt="Vercel logo" />
+
     Jump to Vercel Edge Functions specific configuration and examples
   </Card>
 
