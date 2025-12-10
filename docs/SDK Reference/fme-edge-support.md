@@ -93,7 +93,7 @@ Looking for platform-specific setup instructions?
     Jump to Vercel Edge Functions specific configuration and examples
   </Card>
 
-  <Card title="Other Edge Environments" href="#other-edge-environments" icon="fa-book-open">
+  <Card title="Other Edge Environments" href="#other-edge-environments" icon="fa-anchor">
     Jump to Other Edge Environments specific configuration and examples
   </Card>
 </Cards>
