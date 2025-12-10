@@ -48,7 +48,7 @@ const vwoClient = await init(options);
 
 **Example 3**: Logging Callback for Third-Party Integration
 
-```Text Javascript
+```javascript Javascript
 useEffect(() => {
   const removeLogListener = VWO.registerLogCallback((log) => {
    const now = new Date();
