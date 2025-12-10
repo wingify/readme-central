@@ -93,9 +93,7 @@ Looking for platform-specific setup instructions?
     Jump to Vercel Edge Functions specific configuration and examples
   </Card>
 
-  <Card title="" href="#other-edge-environments" icon="fa-anchor">
-    Other Edge Environments
-
+  <Card title="Other Edge Environments" href="#other-edge-environments" >
     Jump to Other Edge Environments specific configuration and examples
   </Card>
 </Cards>
