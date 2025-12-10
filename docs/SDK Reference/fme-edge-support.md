@@ -43,7 +43,7 @@ These factors necessitate careful handling of all asynchronous operations within
 
 In edge environments, use the `edgeConfig` option to optimize SDK performance. This makes `getFlag()`, `trackEvent()`, and `setAttribute()` return much faster.
 
-**Important**: When using `edgeConfig`, you must call `await vwoClient.flushEvents()` at the end of your function to send tracking events.
+**Important**: When using `edgeConfig`, you must call `await vwoClient.flushEvents()` at the end of your function to send tracking events.  
 
 ### Parameter: edgeConfig
 
@@ -52,6 +52,20 @@ The `edgeConfig` option should only be used in serverless/edge environments (e.g
 | Parameter                      | Type    | Default | Recommended Value in Edge |
 | :----------------------------- | :------ | :------ | :------------------------ |
 | **shouldWaitForTrackingCalls** | Boolean | true    | true                      |
+
+## Quick Platform Setup
+
+Looking for platform-specific setup instructions?
+
+<Cards columns={2}>
+  <Card title="Cloudflare Workers" href="#cloudflare-workers" icon="cloud">
+    Jump to Cloudflare Workers specific configuration and examples
+  </Card>
+
+  <Card title="Vercel Edge Functions" href="#vercel" icon="arrow-right">
+    Jump to Vercel Edge Functions specific configuration and examples
+  </Card>
+</Cards>
 
 ### Example Configuration
 
