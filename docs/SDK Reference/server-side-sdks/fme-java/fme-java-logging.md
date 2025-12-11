@@ -70,7 +70,6 @@ vwoInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
 
 Map<String, Object> logger = new HashMap<>();
 logger.put("level", "DEBUG");
-logger.put("prefix","your_custom_prefix");
 
 List<Map<String, Object>> transports = new ArrayList<>();
 LogTransport logTransport = new LogTransport() {
