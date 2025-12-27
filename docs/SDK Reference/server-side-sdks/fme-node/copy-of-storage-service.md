@@ -1,7 +1,12 @@
 ---
-title: Copy of Storage Service
+title: Optimizing Performance with Custom Storage in VWO SDK
+excerpt: >-
+  Learn how to implement a custom storage service in the VWO SDK to enhance
+  performance and ensure consistent user experiences.
 deprecated: false
 hidden: true
+link:
+  new_tab: false
 metadata:
   robots: index
 next:
@@ -10,25 +15,25 @@ next:
       title: Integrations
       type: basic
 ---
-The SDK operates in a stateless mode by default, meaning each get\_flag call triggers a fresh evaluation of the flag against the current user context.
+The SDK operates in a stateless mode by default, meaning each `get_flag` call triggers a fresh evaluation of the flag against the current user context.
 
 To optimize performance and maintain consistency, you can implement a custom storage mechanism by passing a storage parameter during initialization. This allows you to persist feature flag decisions in your preferred database system (like Redis, MongoDB, or any other data store).
 
-Key benefits of implementing storage:
+### Key Benefits of Implementing Storage
 
-1. Improved performance by caching decisions
-2. Consistent user experience across sessions
-3. Reduced load on your application
+1. **Improved Performance**: Caching decisions reduces the need for repeated evaluations.
+2. **Consistent User Experience**: Ensures uniformity across user sessions.
+3. **Reduced Load**: Minimizes the strain on your application.
 
 The storage mechanism ensures that once a decision is made for a user, it remains consistent even if campaign settings are modified in the VWO Application. This is particularly useful for maintaining a stable user experience during A/B tests and feature rollouts.
 
 ## How to Implement a Storage Service
 
-Storage Service is optional while [instantiating](https://developers.vwo.com/v2/docs/fme-node-initialization) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing it.
+Implementing a Storage Service is optional when [instantiating](https://developers.vwo.com/v2/docs/fme-node-initialization) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing it.
 
-### Usage
+### Usage Example
 
-```node
+```javascript
 class StorageConnector extends StorageConnector {
   constructor() {
     super();
@@ -61,9 +66,11 @@ vwo.init({
 });
 ```
 
-Storage Service should expose two methods: *get* and *set*. These methods are used by VWO whenever there is a need to read or write from the storage service.
+### Storage Service Methods
 
-| Method Name | Params             | Description                                                 | Returns                                                                                    |
+The Storage Service should expose two methods: **get** and **set**. These methods are used by VWO whenever there is a need to read or write from the storage service.
+
+| Method Name | Parameters         | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
 | get         | featureKey, userId | Retrieve stored data corresponding to featureKey and userId | Returns a matching user-feature data mapping corresponding to featureKey and userId passed |
 | set         | data               | Store user-feature data mapping                             | null                                                                                       |
