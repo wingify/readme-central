@@ -1,7 +1,7 @@
 ---
 title: Copy of Storage Service
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 next:
