@@ -99,8 +99,6 @@ Storage Service should expose two methods: _get_ and _set_. These methods are us
 The storage connector can optionally support settings storage.
 When implemented, the SDK can load settings from storage instead of fetching them from the VWO servers during initialization.
 
-#### Supported Methods
-
 | Method Name   | Params            | Description                                | Returns                                                                                                   |
 | :------------ | :---------------- | :----------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
 | `getSettings` | accountId, sdkKey | Retrieves cached VWO settings              | This function returns an object that includes the settings and a timestamp indicating when it was stored. |
