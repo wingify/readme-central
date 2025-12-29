@@ -13,9 +13,13 @@ metadata:
 next:
   description: ''
 ---
-The VWO Feature Experimentation (FE) JavaScript SDK is fully compatible with modern edge runtimes, enabling feature flag evaluations, experimentation, and event tracking at globally distributed locations with extremely low latency.
+### Overview
 
-Supported edge platforms include:
+Modern edge platforms such as Cloudflare Workers, Vercel Edge Functions, and AWS Edge runtimes are optimized for low-latency, short-lived execution. While these environments provide excellent performance, they introduce unique challenges for SDK initialization and configuration management.
+
+The VWO Feature Experimentation (FE) JavaScript SDK is fully compatible with edge environments. However, to achieve optimal performance and avoid unnecessary network calls, settings management must be handled differently than in traditional long-running servers.
+
+**Supported edge platforms include:**
 
 * Cloudflare Workers
 * Vercel Edge Functions
@@ -25,19 +29,63 @@ Supported edge platforms include:
 * Fastly Compute{'@'}Edge
 * and other similar edge environments
 
-Edge runtimes are optimized for low latency, geographically distributed execution, and ephemeral function lifecycles. These characteristics require special handling of asynchronous operations, such as HTTP requests for event tracking and telemetry. This guide outlines the parameters and settings necessary to run the VWO FE JavaScript SDK effectively in edge computing environments.
+***
+
+This document explains:
+
+1. Why default SDK initialization can be inefficient on edge
+2. How to **fetch, cache, and reuse settings**
+3. How to use **explicit settings injection**
+4. How to leverage the **getSettings / setSettings storage connector APIs**
+5. Recommended patterns for enterprise-scale deployments
+
+<br />
 
 > For further details on the VWO FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [VWO JavaScript SDK Documentation](https://developers.vwo.com/v2/docs/fme-javascript).
+
+## Default SDK Initialization (Not Recommended for Edge)
+
+By default, the SDK fetches settings during initialization:
+
+```javascript
+await VWO.init({
+  sdkKey: 'SDK_KEY',
+  accountId: 'ACCOUNT_ID'
+});
+```
+
+**What Happens Internally**
+
+* SDK makes a network request to VWO servers
+* Settings are fetched on every worker execution
+* No reuse unless the runtime keeps the worker warm
+
+**Impact**
+
+* Redundant network calls
+* Increased tail latency
+* Inefficient for high-traffic edge workloads
+
+<br />
 
 ## Why Edge Environments Need Special Handling
 
 Edge platforms introduce several behavioral constraints that impact any SDK performing remote calls (like tracking events):
 
-1. **Stateless, Ephemeral Execution**: Each invocation starts from a clean slate. Any pending asynchronous operations (e.g., tracking calls) can be terminated early if not awaited properly.
-2. **Strict Execution Time Budgets**: Many edge runtimes terminate execution immediately after returning a response—unless you explicitly signal that work is still pending.
-3. **Non-blocking HTTP Requests**: All tracking calls are asynchronous and risk being dropped if the runtime ends the execution loop early.
+1. **Stateless, Ephemeral Execution**:
+   1. Each invocation starts from a clean slate.
+   2. In-memory variables may not persist.
+   3. Persistence must rely on external storage (KV, Redis, etc.).
+   4. Any pending asynchronous operations (e.g., tracking calls) can be terminated early if not awaited properly.
+2. **Strict Execution Time Budgets**:
+   1. Many edge runtimes terminate execution immediately after returning a response, unless you explicitly signal that work is still pending.
+   2. Cold starts are common
+3. **Non-blocking HTTP Requests**:
+   1. All tracking calls are asynchronous and risk being dropped if the runtime ends the execution loop early.
 
 **Therefore, edge runtimes must explicitly flush tracking events before your function exits.**
+
+<br />
 
 ## SDK Configuration for Edge Environments
 
@@ -93,7 +141,7 @@ Looking for platform-specific setup instructions?
     Jump to Vercel Edge Functions specific configuration and examples
   </Card>
 
-  <Card title="Other Edge Environments" href="#other-edge-environments" >
+  <Card title="Other Edge Environments" href="#other-edge-environments">
     Jump to Other Edge Environments specific configuration and examples
   </Card>
 </Cards>
