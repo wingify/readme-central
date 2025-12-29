@@ -12,15 +12,20 @@ next:
       title: Integrations
       type: basic
 ---
-The SDK operates in a stateless mode by default, meaning each get_flag call triggers a fresh evaluation of the flag against the current user context.
+## Overview
+
+The VWO SDK operates in a stateless mode by default, meaning each `get_flag` call triggers a fresh evaluation of the flag against the current user context.
 
 To optimize performance and maintain consistency, you can implement a custom storage mechanism by passing a storage parameter during initialization. This allows you to persist feature flag decisions in your preferred database system (like Redis, MongoDB, or any other data store).
 
+### Key Benefits
+
 Key benefits of implementing storage:
 
-1. Improved performance by caching decisions
-2. Consistent user experience across sessions
-3. Reduced load on your application
+1. **Improved Performance**: Cache feature flag decisions and SDK settings to reduce API calls
+2. **Consistent User Experience**: Maintain sticky variation assignments across sessions
+3. **Reduced Load**: Decrease network requests and server load
+4. **Faster Initialization**: Load SDK settings from cache instead of fetching from VWO servers
 
 The storage mechanism ensures that once a decision is made for a user, it remains consistent even if campaign settings are modified in the VWO Application. This is particularly useful for maintaining a stable user experience during A/B tests and feature rollouts.
 
@@ -28,10 +33,13 @@ The storage mechanism ensures that once a decision is made for a user, it remain
 
 Storage Service is optional while [instantiating](https://developers.vwo.com/v2/docs/fme-node-initialization) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing it.
 
-### Usage
+### Basic Implementation
 
 ```node
 class StorageConnector extends StorageConnector {
+  protected ttl: number = 7200000; // 2 hours in milliseconds
+  protected alwaysUseCachedSettings: boolean = false;
+  
   constructor() {
     super();
   }
