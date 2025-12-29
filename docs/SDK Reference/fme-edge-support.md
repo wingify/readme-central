@@ -393,16 +393,16 @@ export default async function handler(request) {
 
 ```javascript
 const storageConnector = {
-  async getSettings({ accountId, sdkKey }) {
+  async getSettings(accountId, sdkKey) {
     const key = `vwo_settings_${accountId}_${sdkKey}`;
     const cached = await KV.get(key);
     return cached ? JSON.parse(cached) : null;
   },
 
-  async setSettings({ accountId, sdkKey, settings }) {
-    const key = `vwo_settings_${accountId}_${sdkKey}`;
+  async setSettings({ settings }) {
+    const key = `vwo_settings_${settings.accountId}_${settings.sdkKey}`;
     await KV.put(key, JSON.stringify(settings), {
-      expirationTtl: 3600 // 1 hour
+      expirationTtl: 3600 * 12 // 12 hours
     });
   }
 };
@@ -422,7 +422,7 @@ await init({
 
 ## Best Practices
 
-* ✔ **Use edgeConfig**: Optimizes performance and defers tracking calls for batch flushing.
+* **✔ Use edgeConfig**: Optimizes performance and defers tracking calls for batch flushing.
 * **✔ Always call flushEvents()**: Ensures event delivery before function termination.
 * **✔ Use Cloudflare/Vercel waitUntil()**: Prevents event loss after response is returned.
 * **✔ Reuse the SDK instance**: Place initialization at the module level to reduce cold-start overhead.
