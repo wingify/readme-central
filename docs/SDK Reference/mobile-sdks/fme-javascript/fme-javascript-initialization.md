@@ -16,6 +16,8 @@ To create a VWO Client instance, you need to initialize the VWO FE Node SDK. Thi
 
 ```javascript JavaScript
 const { init } = require('vwo-fme-node-sdk');
+// If using via script tag, you can access VWO FE SDK via vwoSdk global window variable
+// const init = vwoSdk.init
 
 const vwoClient = await init({
   accountId: '123456', // VWO Account ID
@@ -90,8 +92,6 @@ This client object allows you to run experiments, track events, and enable/disab
         Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -
 
         [Polling](https://developers.vwo.com/v2/docs/polling)
-
-
       </td>
     </tr>
 
@@ -106,11 +106,9 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - 
+        An optional logger object that defines the logging behavior. For more details, please check -
 
         [Logger](https://developers.vwo.com/v2/docs/fme-javascript-logging)
-
-
       </td>
     </tr>
 
@@ -125,11 +123,9 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - 
+        Storage Service, if required, can be implemented using this parameter. For more details, please check -
 
         [Storage Service](https://developers.vwo.com/v2/docs/fme-javascript-storage)
-
-
       </td>
     </tr>
 
@@ -144,7 +140,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        If using the 
+        If using the
 
         [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service)
 
@@ -163,11 +159,9 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - 
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check -
 
         [Integrations](https://developers.vwo.com/v2/docs/fme-javascript-integrations)
-
-
       </td>
     </tr>
   </tbody>
