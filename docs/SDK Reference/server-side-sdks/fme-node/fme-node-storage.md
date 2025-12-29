@@ -35,7 +35,7 @@ Storage Service is optional while [instantiating](https://developers.vwo.com/v2/
 
 ### Basic Implementation
 
-```node
+```node Node.js
 class StorageConnector extends StorageConnector {
   protected ttl = 7200000; // 2 hours in milliseconds
   protected alwaysUseCachedSettings = false;
