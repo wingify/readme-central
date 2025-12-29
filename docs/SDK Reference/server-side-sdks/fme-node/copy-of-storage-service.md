@@ -37,8 +37,8 @@ Storage Service is optional while [instantiating](https://developers.vwo.com/v2/
 
 ```node
 class StorageConnector extends StorageConnector {
-  protected ttl: number = 7200000; // 2 hours in milliseconds
-  protected alwaysUseCachedSettings: boolean = false;
+  protected ttl = 7200000; // 2 hours in milliseconds
+  protected alwaysUseCachedSettings = false;
   
   constructor() {
     super();
@@ -70,7 +70,8 @@ class StorageConnector extends StorageConnector {
    * @returns {Promise<ISettingsData>}
    */
   async getSettings(accountId, sdkKey) {
-    // return await data (based on accountId and sdkKey)
+    // Implement logic to retrieve cached settings based on accountId and sdkKey
+    // Must return an object with structure: { settings: {...}, timestamp: number }
   }
 
   /**
@@ -78,7 +79,7 @@ class StorageConnector extends StorageConnector {
    * @param {ISettingsData} data
    */
   async setSettings(data) {
-    // Set settingsData corresponding to a accountId and sdkKey
+    // Implement logic to store settings data
     // Use data.settings.accountId and data.settings.sdkKey to store the above data for a specific accountId and sdkKey
   }
 
@@ -87,7 +88,7 @@ class StorageConnector extends StorageConnector {
 vwo.init({
   sdkKey: '...',
   accountId: '123456',
-  storage: StorageConnector,
+  storage: new StorageConnector(),
 });
 ```
 
@@ -104,17 +105,87 @@ Storage Service should expose two methods: _get_ and _set_. These methods are us
 
 > **Supported from SDK version `1.35.0` onwards**
 
-The storage connector can optionally support settings storage.
-When implemented, the SDK can load settings from storage instead of fetching them from the VWO servers during initialization.
+These methods are **optional** but highly recommended for performance optimization. When implemented, the SDK can load settings from your storage instead of fetching them from VWO servers during initialization.
 
 | Method Name   | Params            | Description                                | Returns                                                                                                   |
 | :------------ | :---------------- | :----------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
 | `getSettings` | accountId, sdkKey | Retrieves cached VWO settings              | This function returns an object that includes the settings and a timestamp indicating when it was stored. |
 | `setSettings` | data              | Stores VWO settings along with a timestamp | void                                                                                                      |
 
-### Settings Storage Behavior
+**ISettingsData Interface:**
 
-* During SDK initialization, the SDK checks if `getSettings` is available
-* If valid settings are returned, they are used directly
-* If not, the SDK fetches settings from VWO servers and persists them using `setSettings`
-* This behavior is transparent and does not affect variation evaluation logic
+```typescript
+interface ISettingsData {
+  settings: Record<string, any>;  // The SDK configuration object
+  timestamp: number;              // Unix timestamp in milliseconds when settings were stored
+}
+```
+
+## Settings Storage Configuration
+
+### TTL (Time To Live)
+
+**TTL** controls how long cached settings remain valid before the SDK fetches fresh settings from VWO servers.
+
+* **Type**: `number` (milliseconds)
+* **Default**: `7200000` (2 hours)
+* **Minimum**: `60000` (1 minute)
+* **Location**: Set via `protected ttl` property in your storage connector class
+
+**How TTL Works:**
+
+1. When settings are stored via `setSettings`, a timestamp is saved
+2. During SDK initialization, `getSettings` is called
+3. The SDK calculates: `currentTime - storedTimestamp`
+4. If the difference exceeds TTL, settings are considered expired
+5. Expired settings trigger a fresh fetch from VWO servers
+
+**Example:**
+
+```typescript
+class RedisStorageConnector extends Connector {
+  protected ttl: number = 3600000; // 1 hour TTL
+
+  constructor() {
+    super();
+    // TTL can be set in constructor or as a class property
+  }
+}
+```
+
+### alwaysUseCachedSettings
+
+**alwaysUseCachedSettings** is a boolean flag that, when enabled, makes the SDK always use cached settings regardless of TTL expiration.
+
+* **Type**: `boolean`
+* **Default**: `false`
+* **Location**: Set via `protected alwaysUseCachedSettings` property in your storage connector class
+
+**Behavior:**
+
+* **When `false`** (default): SDK respects TTL and fetches fresh settings when cache expires
+* **When `true`**: SDK always uses cached settings, skipping TTL validation entirely
+
+**Use Cases:**
+
+* **`false`**: Recommended for most scenarios. Ensures settings stay relatively fresh while benefiting from caching
+* **`true`**: Useful when you want maximum performance and control settings updates manually, or when network calls are expensive/restricted
+
+**Example:**
+
+```typescript
+class CustomStorageConnector extends Connector {
+  protected alwaysUseCachedSettings: boolean = true; // Always use cache
+
+  constructor() {
+    super();
+  }
+}
+```
+
+**Important Notes:**
+
+* Settings storage is completely transparent to variation evaluation logic
+* If `getSettings` or `setSettings` throw errors, SDK falls back to fetching from VWO servers
+* Settings are validated for `accountId` and `sdkKey` match before use
+* Invalid or mismatched settings trigger a fresh fetch
