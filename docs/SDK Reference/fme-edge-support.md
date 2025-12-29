@@ -123,6 +123,8 @@ Edge platforms provide different mechanisms to wait for async operations:
 * Vercel Edge / Fastly: `waitUntil(vwoClient.flushEvents)`
 * Other platforms: standard `await vwoClient.flushEvents()`
 
+<br />
+
 ## Quick Start Configuration
 
 Looking for platform-specific setup instructions?
@@ -193,6 +195,8 @@ main();
 * **flushEvents()**: **Required** - Call this at the end of your function to send all tracking events.
 * **Graceful fallback for variables**: Always provide a default value to getVariable() to handle missing configurations.
 
+<br />
+
 ## Flushing Events in Edge Environments
 
 When using `edgeConfig`, you **must** call `flushEvents()` at the end of your function to send tracking events to VWO.
@@ -204,7 +208,97 @@ When using `edgeConfig`, you **must** call `flushEvents()` at the end of your fu
 await vwoClient.flushEvents();
 ```
 
-### Platform-Specific Guidance
+<br />
+
+## Recommended Approach for Edge: Cached Settings
+
+**Key Idea**
+
+> Fetch settings once, cache them, and reuse them across SDK initializations.
+
+This can be achieved in two ways:
+
+* Explicit settings injection
+* Custom storage connector with `getSettings` / `setSettings`
+
+### Option 1: Explicit SDK Settings Injection
+
+VWO supports initializing the SDK with pre-fetched settings, completely skipping the network call.
+
+> Reference: [https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings](https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings)
+
+#### Example
+
+Fetch and Cache Settings (One-Time or Periodic)
+
+```javascript
+const response = await fetch(
+  `https://dev.visualwebsiteoptimizer.com/server-side-settings?a=${ACCOUNT_ID}&i=${SDK_KEY}`
+);
+
+const settings = await response.json();
+
+// Store in KV, Redis, etc.
+await KV.put(`vwo_settings_${ACCOUNT_ID}_${SDK_KEY}`, JSON.stringify(settings));
+```
+
+Initialize SDK with Cached Settings
+
+```javascript
+const cachedSettings = await KV.get(`vwo_settings_${ACCOUNT_ID}_${SDK_KEY}`);
+
+await init({
+  accountId: ACCOUNT_ID,
+  sdkKey: SDK_KEY,
+  settings: JSON.parse(cachedSettings)
+});
+```
+
+#### Benefits
+
+* Zero network calls during request handling.
+* Predictable latency.
+* Full control over refresh strategy.
+
+#### When to Use
+
+* You already have a background job or cron job.
+* You want explicit control over the settings lifecycle.
+* Highly regulated or locked-down environments.
+
+#### Lifecycle
+
+* VWO Settings API
+* Fetch Once (Background / Cron / First Request)
+* Store in Edge KV / Redis / Durable Store
+* Inject into SDK on init()
+
+### Option 2 (Recommended): Custom Storage Connector with getSettings / setSettings
+
+To simplify settings management, the FE SDK now supports settings **persistence directly via the storage connector**.
+
+> Reference: [https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)
+
+#### Why This Is Better
+
+* No manual settings injection needed
+* SDK automatically:
+  * Reads cached settings via `getSettings`
+  * Stores fetched settings via `setSettings`
+* Cleaner, more maintainable integration
+* Ideal for enterprise edge deployments
+
+#### Lifecycle
+
+* SDK initializes
+* SDK calls `getSettings()`
+* If settings exist → use them
+* If not → fetch from VWO servers
+* SDK calls `setSettings()` to persist them
+
+<br />
+
+## Platform-Specific Guidance
 
 #### Cloudflare Workers
 
@@ -234,6 +328,8 @@ export default {
   }
 }
 ```
+
+<br />
 
 ### Vercel
 
@@ -290,6 +386,39 @@ export default async function handler(request) {
   return new Response('OK');
 }
 ```
+
+### Example: Edge KV-Based Storage Connector
+
+#### Custom Storage Connector
+
+```javascript
+const storageConnector = {
+  async getSettings({ accountId, sdkKey }) {
+    const key = `vwo_settings_${accountId}_${sdkKey}`;
+    const cached = await KV.get(key);
+    return cached ? JSON.parse(cached) : null;
+  },
+
+  async setSettings({ accountId, sdkKey, settings }) {
+    const key = `vwo_settings_${accountId}_${sdkKey}`;
+    await KV.put(key, JSON.stringify(settings), {
+      expirationTtl: 3600 // 1 hour
+    });
+  }
+};
+```
+
+#### SDK Initialization
+
+```javascript
+await init({
+  accountId: ACCOUNT_ID,
+  sdkKey: SDK_KEY,
+  storage: storageConnector
+});
+```
+
+<br />
 
 ## Best Practices
 
