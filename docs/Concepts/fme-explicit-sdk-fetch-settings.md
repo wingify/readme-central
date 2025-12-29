@@ -12,13 +12,15 @@ This page describes how to retrieve settings from the server and pass them to th
 The settings required for SDK initialization can be retrieved from the server via a special endpoint. To get the settings, you can make a GET request to the following URL:
 
 ```text
-https://dev.visualwebsiteoptimizer.com/server-side/v2-settings?i={sdkKey}&a={accountId}&r={randomValue}
+https://dev.visualwebsiteoptimizer.com/server-side/v2-settings?i={sdkKey}&a={accountId}&sn={sdkName}&sv={skdVersion}&r={randomValue}
 ```
 
 Where:
 
 * `{sdkKey}`:  VWO SDK key.
 * `{accountId}`: VWO Account ID.
+* `{skdName}`: VWO FE SDK Name
+* `{sdkVersion}`: VWO FE SDK Version
 * `{randomValue}`: A random value used to prevent caching. You can generate a random value using `Math.random()` (or any other suitable method in your environment). For eg: `0.342411122`
 
 <Callout icon="📘" theme="info">
@@ -46,6 +48,14 @@ The server will return the settings in JSON format. Example:
 ### Passing the Settings to the SDK Initialization
 
 Once you have fetched the settings, you can directly pass them to your SDK's `init` method. This allows you to bypass the automatic settings fetching process, significantly improving initialization time.
+
+```node
+const vwoInstance = await init({
+  settings: settings
+});
+```
+
+<br />
 
 ### Benefits of Passing Settings Explicitly
 
