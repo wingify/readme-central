@@ -312,37 +312,6 @@ class RedisStorageConnector extends Connector {
 **Example:**
 
 ```typescript
-class RedisStorageConnector extends Connector {
-  protected ttl: number = 3600000; // 1 hour TTL
-
-  constructor() {
-    super();
-    // TTL can be set in constructor or as a class property
-  }
-}
-```
-
-### alwaysUseCachedSettings
-
-**alwaysUseCachedSettings** is a boolean flag that, when enabled, makes the SDK always use cached settings regardless of TTL expiration.
-
-* **Type**: `boolean`
-* **Default**: `false`
-* **Location**: Set via `protected alwaysUseCachedSettings` property in your storage connector class
-
-**Behavior:**
-
-* **When `false`** (default): SDK respects TTL and fetches fresh settings when cache expires
-* **When `true`**: SDK always uses cached settings, skipping TTL validation entirely
-
-**Use Cases:**
-
-* **`false`**: Recommended for most scenarios. Ensures settings stay relatively fresh while benefiting from caching
-* **`true`**: Useful when you want maximum performance and control settings updates manually, or when network calls are expensive/restricted
-
-**Example:**
-
-```typescript
 class CustomStorageConnector extends Connector {
   protected alwaysUseCachedSettings: boolean = true; // Always use cache
 
