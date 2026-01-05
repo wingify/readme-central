@@ -277,7 +277,7 @@ await init({
 
 To simplify settings management, the FE SDK now supports settings **persistence directly via the storage connector**.
 
-> Reference: <Anchor label="https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service" target="_blank" href="https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service">https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service</Anchor>
+> Reference: <Anchor label="[https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service)" target="_blank" href="https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service"><Anchor label="https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector" target="_blank" href="https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector">https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector</Anchor></Anchor>
 
 #### Why This Is Better
 
