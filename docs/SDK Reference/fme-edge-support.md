@@ -277,7 +277,7 @@ await init({
 
 To simplify settings management, the FE SDK now supports settings **persistence directly via the storage connector**.
 
-> Reference: <Anchor label="[https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service)" target="_blank" href="https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service"><Anchor label="https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector" target="_blank" href="https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector">https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector</Anchor></Anchor>
+> Reference: <Anchor label="[[https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service)](https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service)" target="_blank" href="https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service"><Anchor label="[https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)" target="_blank" href="https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector">[https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)</Anchor></Anchor>
 
 #### Why This Is Better
 
@@ -422,13 +422,13 @@ await init({
 
 ## Best Practices
 
-* **✔ Use edgeConfig**: Optimizes performance and defers tracking calls for batch flushing.
-* **✔ Always call flushEvents()**: Ensures event delivery before function termination.
-* **✔ Use Cloudflare/Vercel waitUntil()**: Prevents event loss after response is returned.
-* **✔ Reuse the SDK instance**: Place initialization at the module level to reduce cold-start overhead.
-* **✔ Keep user IDs stable**: User identity consistency ensures correct bucketing.
-* **✔ Monitor execution time**: Most edge runtimes enforce 50ms–100ms budgets.
-* **✔ Add error handling**: Wrap flush calls in try/catch (optional but recommended).
+* **Use edgeConfig**: Optimizes performance and defers tracking calls for batch flushing.
+* **Always call flushEvents()**: Ensures event delivery before function termination.
+* **Use Cloudflare/Vercel waitUntil()**: Prevents event loss after response is returned.
+* **Reuse the SDK instance**: Place initialization at the module level to reduce cold-start overhead.
+* **Keep user IDs stable**: User identity consistency ensures correct bucketing.
+* **Monitor execution time**: Most edge runtimes enforce 50ms–100ms budgets.
+* **Add error handling**: Wrap flush calls in try/catch (optional but recommended).
 
 <br />
 
