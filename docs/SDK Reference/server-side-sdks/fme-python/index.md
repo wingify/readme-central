@@ -20,25 +20,27 @@ The SDK's source code is openly available under the Apache 2.0 License and can b
 
 To facilitate a comprehensive understanding and effective implementation of the SDK, the documentation is organized into the following sections:
 
-1. [Installing the SDK](doc:fme-python-install)\
+1. [Installing the SDK](doc:fme-python-install)  
    Learn how to import and reference the SDK in your Python project.
-2. [Initialization](doc:fme-python-initialization)\
+2. [Initialization](doc:fme-python-initialization)  
    Learn how to initialize the VWO client within your application, including configuring essential parameters such as accountId, sdkKey, and optional settings like pollInterval, logger, storage, gatewayService, and integrations.
-3. [User Context](doc:fme-python-context)\
+3. [User Context](doc:fme-python-context)  
    Understand how to define and manage user contexts to enable targeted feature rollouts and personalized user experiences.
-4. [Feature Flags & Variables](doc:fme-python-flags)\
+4. [Feature Flags & Variables](doc:fme-python-flags)  
    Explore how to create, manage, and evaluate feature flags and variables to control feature availability dynamically.
-5. [Metrics Tracking](doc:fme-python-metrics)\
+5. [Metrics Tracking](doc:fme-python-metrics)  
    Discover methods to track user interactions and measure the impact of feature rollouts and experiments on key performance indicators.
-6. [Attributes](doc:fme-python-attributes)\
+6. [Attributes](doc:fme-python-attributes)  
    Learn how to utilize user attributes for advanced targeting and segmentation in your feature experimntation strategy.
-7. [Logging](doc:fme-python-logging)\
+7. [Logging](doc:fme-python-logging)  
    Configure logging to monitor SDK operations, debug issues, and maintain observability within your application.
-8. [Storage Service](doc:fme-python-storage)\
+8. [Storage Service](doc:fme-python-storage)  
    Implement custom storage solutions to persist user assignments and enhance performance.
-9. [Integrations](doc:fme-python-integrations)\
+9. [Integrations](doc:fme-python-integrations)  
    Integrate the SDK with third-party tools and services to extend functionality and streamline workflows.
-10. [Event batching](doc:fme-python-event-batching)\
+10. [Event batching](doc:fme-python-event-batching)  
     Improve performance and reduce network calls by sending events in batches.
+11. [Proxy URL (bypassing Firewall)](doc:fme-python-proxy-url)  
+    Bypass network firewalls, security policies, or compliance-related requirements to ensure secure, efficient retrieval of flag configurations using a custom proxy endpoint.
 
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.
