@@ -210,32 +210,14 @@ if __name__ == '__main__':
 
 ```nginx
 server {
-    listen 443 ssl;
-    server_name proxy.yourdomain.com;
+  listen 443 ssl;
+  server_name proxy.yourdomain.com;
 
-    ssl_certificate /path/to/cert.pem;
-    ssl_certificate_key /path/to/key.pem;
-
-    location / {
-        proxy_pass https://dev.visualwebsiteoptimizer.com/;
-        proxy_set_header Host dev.visualwebsiteoptimizer.com;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Real-IP $remote_addr;
-        
-        # Enable keep-alive connections
-        proxy_http_version 1.1;
-        proxy_set_header Connection "";
-        
-        # Timeouts
-        proxy_connect_timeout 30s;
-        proxy_send_timeout 30s;
-        proxy_read_timeout 30s;
-        
-        # Buffer settings
-        proxy_buffering on;
-        proxy_buffer_size 4k;
-        proxy_buffers 8 4k;
-    }
+  location / {
+    proxy_pass https://dev.visualwebsiteoptimizer.com/;
+    proxy_set_header Host dev.visualwebsiteoptimizer.com;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+  }
 }
 ```
 
