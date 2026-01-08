@@ -1,11 +1,11 @@
 ---
-title: Proxy URL / Prevent Ad-blockers
+title: Proxy URL / Prevent Firewall
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-The VWO Python SDK now includes support for **custom proxy URLs**, enabling you to route all SDK network traffic through your own proxy server. This feature provides enhanced control over request routing, offering significant benefits in environments where direct network access to VWO endpoints may be restricted or blocked.
+The VWO Python SDK includes support for **custom proxy URLs**, enabling you to route all SDK network traffic through your own proxy server. This feature provides enhanced control over request routing, offering significant benefits in environments where direct network access to VWO endpoints may be restricted or blocked.
 
 ## Why Use a Custom Proxy URL?
 
