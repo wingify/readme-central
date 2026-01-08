@@ -101,97 +101,104 @@ Proxying SDK traffic gives you more control, but also introduces potential risks
 
 ## Sample Proxy Implementations
 
-Below are basic proxy implementations in popular platforms to help you get started:
-
-### Python (Flask)
-
-```python
-from flask import Flask, request, jsonify
-import requests
-from urllib.parse import urljoin
-
-app = Flask(__name__)
-
-VWO_BASE_URL = 'https://dev.visualwebsiteoptimizer.com'
-
-@app.route('/', defaults={'path': ''}, methods=['GET', 'POST'])
-@app.route('/<path:path>', methods=['GET', 'POST'])
-def proxy(path):
-    # Construct the target URL
-    target_url = urljoin(VWO_BASE_URL, '/' + path)
-    
-    # Forward query parameters
-    params = request.args.to_dict()
-    
-    # Forward headers (excluding host and connection)
-    headers = {k: v for k, v in request.headers if k.lower() not in ['host', 'connection']}
-    
-    try:
-        if request.method == 'GET':
-            response = requests.get(target_url, params=params, headers=headers, timeout=30)
-        else:  # POST
-            json_data = request.get_json(silent=True)
-            response = requests.post(target_url, json=json_data, params=params, headers=headers, timeout=30)
-        
-        # Return response with appropriate status code and headers
-        return response.content, response.status_code, response.headers.items()
-    except requests.RequestException as e:
-        return jsonify({'error': 'Proxy error', 'details': str(e)}), 500
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=3300, ssl_context='adhoc')  # Use proper SSL in production
-```
+Below is a basic proxy implementation using FastAPI.
 
 ### Python (FastAPI)
 
 ```python
 from fastapi import FastAPI, Request
-from fastapi.responses import Response
+from fastapi.responses import Response, JSONResponse
 import httpx
 from urllib.parse import urljoin
+from typing import Optional
 
 app = FastAPI()
 
 VWO_BASE_URL = 'https://dev.visualwebsiteoptimizer.com'
 
-@app.api_route('/{path:path}', methods=['GET', 'POST', 'PUT', 'DELETE'])
+@app.api_route('/{path:path}', methods=['GET', 'POST', 'PUT', 'DELETE', 'PATCH'])
 async def proxy(request: Request, path: str):
     # Construct the target URL
-    target_url = urljoin(VWO_BASE_URL, '/' + path)
+    target_url = urljoin(VWO_BASE_URL, '/' + path if path else '/')
     
     # Get query parameters
     params = dict(request.query_params)
     
     # Get request body if present
-    body = None
-    if request.method in ['POST', 'PUT']:
-        body = await request.body()
+    body: Optional[bytes] = None
+    json_body: Optional[dict] = None
     
-    # Forward headers (excluding host and connection)
-    headers = {k: v for k, v in request.headers.items() if k.lower() not in ['host', 'connection']}
+    if request.method in ['POST', 'PUT', 'PATCH']:
+        content_type = request.headers.get('content-type', '').lower()
+        if 'application/json' in content_type:
+            try:
+                json_body = await request.json()
+            except (ValueError, TypeError):
+                body = await request.body()
+        else:
+            body = await request.body()
     
-    async with httpx.AsyncClient() as client:
+    # Forward headers (excluding host, connection, and content-length)
+    headers = {}
+    excluded_headers = {'host', 'connection', 'content-length'}
+    
+    for k, v in request.headers.items():
+        if k.lower() not in excluded_headers:
+            headers[k] = v
+    
+    async with httpx.AsyncClient(timeout=httpx.Timeout(30.0)) as client:
         try:
-            response = await client.request(
-                method=request.method,
-                url=target_url,
-                params=params,
-                content=body,
-                headers=headers,
-                timeout=30.0
-            )
+            # Prepare request kwargs
+            request_kwargs = {
+                'method': request.method,
+                'url': target_url,
+                'params': params if params else None,
+                'headers': headers,
+            }
+            
+            # Add body or json based on content type
+            if json_body is not None:
+                request_kwargs['json'] = json_body
+            elif body is not None:
+                request_kwargs['content'] = body
+            
+            # Make the request
+            response = await client.request(**request_kwargs)
+            
+            # Prepare response headers (exclude headers that shouldn't be forwarded)
+            response_headers = {}
+            excluded_response_headers = {
+                'content-encoding', 
+                'transfer-encoding', 
+                'connection',
+                'content-length'  # Let FastAPI calculate this automatically
+            }
+            
+            for k, v in response.headers.items():
+                if k.lower() not in excluded_response_headers:
+                    response_headers[k] = v
             
             # Return response with appropriate status code and headers
             return Response(
                 content=response.content,
                 status_code=response.status_code,
-                headers=dict(response.headers)
+                headers=response_headers,
+                media_type=response.headers.get('content-type')
+            )
+        except httpx.TimeoutException as e:
+            return JSONResponse(
+                status_code=504,
+                content={"error": "Gateway Timeout", "details": str(e)}
+            )
+        except httpx.ConnectError as e:
+            return JSONResponse(
+                status_code=502,
+                content={"error": "Bad Gateway", "details": str(e)}
             )
         except httpx.RequestError as e:
-            return Response(
-                content=f'{{"error": "Proxy error", "details": "{str(e)}"}}',
+            return JSONResponse(
                 status_code=500,
-                media_type='application/json'
+                content={"error": "Proxy Error", "details": str(e)}
             )
 
 if __name__ == '__main__':
