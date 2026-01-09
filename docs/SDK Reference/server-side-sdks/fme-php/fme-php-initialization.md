@@ -120,7 +120,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -135,7 +135,22 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations]()
+        A callback function that receives data, which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations]()
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **settingsConfig**
+        _Optional_
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        Use these to configure the network call timeout for fetching settings from VWO. Refer [this](). 
       </td>
     </tr>
 
@@ -223,6 +238,20 @@ $vwoClient = VWO::init([
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-python-integrations) to learn more about Integrations,.
+
+### Settings Configuration
+
+Use these options to define and control the timeout duration for the network request made to fetch settings from VWO, ensuring the SDK does not wait indefinitely and behaves predictably under slow or unreliable network conditions.
+
+```php
+$vwoClient = VWO::init([
+    'accountId' => '123456',
+    'sdkKey' => '32-alpha-numeric-sdk-key',
+    'settingsConfig' => [
+        'timeout' => 2000, // Network timeout for settings fetch in milliseconds (default: 50000)
+    ],
+]);
+```
 
 ### Initialization with Explicit Settings
 
