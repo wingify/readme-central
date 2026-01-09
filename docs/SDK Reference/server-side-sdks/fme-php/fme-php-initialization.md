@@ -150,7 +150,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Use these to configure the network call timeout for fetching settings from VWO. Refer [this](). 
+        Use these to configure the network call timeout for fetching settings from VWO. Refer [this]().
       </td>
     </tr>
 
@@ -245,11 +245,12 @@ Use these options to define and control the timeout duration for the network req
 
 ```php
 $vwoClient = VWO::init([
-    'accountId' => '123456',
-    'sdkKey' => '32-alpha-numeric-sdk-key',
-    'settingsConfig' => [
-        'timeout' => 2000, // Network timeout for settings fetch in milliseconds (default: 50000)
-    ],
+  'accountId' => '123456',
+  'sdkKey' => '32-alpha-numeric-sdk-key',
+  'settingsConfig' => [
+    // Network timeout for settings fetch in milliseconds (default: 50000)
+    'timeout' => 2000
+   ],
 ]);
 ```
 
