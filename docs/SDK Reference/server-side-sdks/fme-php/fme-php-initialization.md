@@ -20,10 +20,9 @@ To create a VWO Client instance, you need to initialize the VWO FE Php SDK. This
 
 ```php
 $vwoClient = VWO::init([
-       'accountId' => your_account_id,
-       'sdkKey' => your_sdk_key,
-  ]);
-
+  'accountId' => your_account_id,
+  'sdkKey' => your_sdk_key,
+]);
 ```
 
 The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
