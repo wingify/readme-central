@@ -246,6 +246,6 @@ $settings = json_decode($settingsStringified, true);
 $vwoClient = VWO::init([
   'sdkKey' => '32-alpha-numeric-sdk-key',
   'accountId' => '123456',
-  'integrations' => $settings
+  'settings' => $settings
 ]);
 ```
