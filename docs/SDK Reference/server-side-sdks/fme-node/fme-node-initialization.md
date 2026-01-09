@@ -27,7 +27,7 @@ const vwoClient = await init({
 });
 ```
 
-The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature\
+The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
@@ -53,7 +53,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **accountId**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -68,7 +68,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **sdkKey**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -76,14 +76,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
       </td>
     </tr>
 
     <tr>
       <td>
         **pollInterval**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -98,7 +98,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **logger**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -113,7 +113,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **storage**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -128,7 +128,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **gatewayService**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -143,7 +143,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **integrations**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -154,13 +154,28 @@ This client object allows you to run experiments, track events, and enable/disab
         A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-node-integrations)
       </td>
     </tr>
+
+    <tr>
+      <td>
+        **settings**
+        _Optional_
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        Pass the already fetched settings so the SDK can initialize instantly, without waiting to fetch settings from VWO. Refer [this](doc:initialization-with-explicit-settings) 
+      </td>
+    </tr>
   </tbody>
 </Table>
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the *vwoClient* on your server, it pulls the latest configurations you've done in the VWO application.\
-If/when you make any changes to the feature flags or rules within VWO after the *vwoClient* has been initialized in your server, there needs to be some way to update your *vwoClient* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.  
+If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -192,7 +207,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-node-logging) for mor
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each *getFlag* call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _getFlag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```node
 // Init options with storage
@@ -207,7 +222,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-node-storage)  to lea
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
 
 ```node
 // Init options with gateway_service
@@ -243,7 +258,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-node-integrations) to
 
 ### Initialization with Explicit Settings
 
-The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.\
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.  
 Please refer to <Anchor label="this" target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```javascript
