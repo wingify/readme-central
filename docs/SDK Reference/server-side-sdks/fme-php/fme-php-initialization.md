@@ -26,7 +26,7 @@ $vwoClient = VWO::init([
 
 ```
 
-The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature\
+The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
@@ -52,7 +52,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **accountId**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -67,7 +67,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **sdkKey**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -75,14 +75,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
       </td>
     </tr>
 
     <tr>
       <td>
         **logger**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -97,7 +97,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **storage**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -112,7 +112,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **gatewayService**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -127,7 +127,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **integrations**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -136,6 +136,21 @@ This client object allows you to run experiments, track events, and enable/disab
 
       <td>
         A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations]()
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **settings**
+        _Optional_
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        Pass the already fetched settings so the SDK can initialize instantly, without waiting to fetch settings from VWO. Refer [this](doc:fme-php-initialization#initialization-with-explicit-settings)
       </td>
     </tr>
   </tbody>
@@ -160,7 +175,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-php-logging) for more
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each *getFlag* call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _getFlag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```php
 // Init options with storage
@@ -211,7 +226,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-python-integrations) 
 
 ### Initialization with Explicit Settings
 
-The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.\
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.  
 Please refer to <Anchor label="this" target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```php
