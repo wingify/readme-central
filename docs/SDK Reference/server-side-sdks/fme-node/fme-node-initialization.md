@@ -166,7 +166,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Pass the already fetched settings so the SDK can initialize instantly, without waiting to fetch settings from VWO. Refer [this](doc:initialization-with-explicit-settings) 
+        Pass the already fetched settings so the SDK can initialize instantly, without waiting to fetch settings from VWO. Refer [this](doc:fme-node-initialization#initialization-with-explicit-settings).
       </td>
     </tr>
   </tbody>
