@@ -297,7 +297,7 @@ const vwoClient = await init({
 
 ### Retry Configuration
 
-The SDK provides the ability to configure retry mechanism for network requests. You can now customize retry behavior by passing a retryConfig in the init options:
+The SDK includes a built-in retry mechanism to improve reliability when network requests fail due to transient issues such as timeouts or temporary connectivity problems. You can fully control this behavior by providing a retryConfig object during SDK initialization.
 
 ```javascript
 const vwoClient = await init({
@@ -313,4 +313,4 @@ const vwoClient = await init({
 });
 ```
 
-Please click [here](https://developers.vwo.com/v2/update/docs/fme-sdk-retry-mechanism) to learn more about Retry Mechanism
+Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/update/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
