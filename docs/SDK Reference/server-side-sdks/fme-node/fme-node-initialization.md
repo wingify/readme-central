@@ -127,6 +127,20 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
+        **retryConfig**
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration]
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         **gatewayService**
         _Optional_
       </td>
@@ -280,3 +294,23 @@ const vwoClient = await init({
   settings: localSettings // Pass the settings object here
 });
 ```
+
+### Retry Configuration
+
+The SDK provides the ability to configure retry mechanism for network requests. You can now customize retry behavior by passing a retryConfig in the init options:
+
+```javascript
+const vwoClient = await init({
+  accountId: '123456',
+  sdkKey: '32-alpha-numeric-sdk-key',
+
+  retryConfig: {
+    shouldRetry: true, // Turn retries on/off (default: true)
+    maxRetries: 3, // How many times to retry (default: 3)
+    initialDelay: 2, // First retry after 2 seconds (default: 2)
+    backoffMultiplier: 2, // Double the delay each time (delays: 2s, 4s, 8s)
+  },
+});
+```
+
+Please click [here](https://developers.vwo.com/v2/update/docs/fme-sdk-retry-mechanism) to learn more about Retry Mechanism
