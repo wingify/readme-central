@@ -313,4 +313,4 @@ const vwoClient = await init({
 });
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/update/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
