@@ -135,7 +135,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration]
+        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.vwo.com/v2/docs/fme-node-initialization#retry-configuration)
       </td>
     </tr>
 
