@@ -11,20 +11,20 @@ The SDK includes an automatic retry mechanism to handle transient network commun
 
 ## Key Features:
 
-* **Exponential Backoff:**\
+* **Exponential Backoff:**  
   Retry intervals increase exponentially (2s → 4s → 8s), minimizing repeated pressure on network resources.
-* **Maximum Retries:**\
+* **Maximum Retries:**  
   A failed request is retried up to 3 times.
-* **Initial Delay:**\
+* **Initial Delay:**  
   The first retry is initiated after a 2-second delay.
 
 ## Retry Workflow
 
 The retry process follows these steps:
 
-1. **Initial Request:**\
+1. **Initial Request:**  
    The SDK attempts to send the tracking request.
-2. **Failure Detection:**\
+2. **Failure Detection:**  
    If the request fails due to issues such as network errors or timeouts, the retry mechanism is triggered.
 3. **Retry Attempts:**
 
@@ -33,7 +33,7 @@ The retry process follows these steps:
    | 1st     | 2 seconds          |
    | 2nd     | 4 seconds          |
    | 3rd     | 8 seconds          |
-4. **Max Retries Reached:**\
+4. **Max Retries Reached:**  
    After the third failed retry, the SDK ceases further attempts and logs the failure for further diagnosis.
 
 > The following diagram illustrates the retry flow with exponential backoff. It visually represents how the SDK handles failures and retry attempts over time.
@@ -50,8 +50,6 @@ graph TD
 ```
 
 ## Retry Configuration Parameters
-
-> 📘 Retry configuration parameters are currently only available for the vwo-fme-node-sdk.
 
 This table outlines the configurable parameters for the retry mechanism. It defines how many times a retry should be attempted (`maxRetries`), the initial wait time before the first retry (`initialDelay`), and how the delay increases exponentially with each retry (`backoffFactor`). The `shouldRetry` flag enables or disables the retry logic entirely. These settings help control retry behavior in case of transient failures or network issues.
 
@@ -78,11 +76,11 @@ This table shows the retry delays for different combinations of `initialDelay` (
 
 ## Benefits
 
-* **Improved Reliability:**\
+* **Improved Reliability:**  
   Automatically recovers from temporary network issues without requiring developer intervention.
-* **Reduced Server Load:**\
+* **Reduced Server Load:**  
   Retry delays reduce the chance of overwhelming servers during outages or slowdowns.
-* **Automatic Recovery:**\
+* **Automatic Recovery:**  
   Maintains high data integrity by ensuring tracking events are retried intelligently and gracefully.
 
 ## Implementation Notes
