@@ -131,6 +131,21 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
+        **proxyUrl**  
+        _Optional_
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.vwo.com/v2/docs/fme-javascript-initialization#proxyurl)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         **gatewayService**
         _Optional_
       </td>
@@ -276,4 +291,18 @@ const vwoClient = await init({
 });
 ```
 
-<br />
+### ProxyUrl
+
+VWO FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
+
+```javascript
+vwoClient = init({
+  accountId: "VWO_ACCOUNT_ID",
+  sdkKey: "VWO_SDK_KEY",
+
+  proxyUrl: "https://proxy.yourdomain.com",
+  // other configuration options
+});
+```
+
+Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-javascript-proxy-url">here</Anchor> to learn more about ProxyURL.
