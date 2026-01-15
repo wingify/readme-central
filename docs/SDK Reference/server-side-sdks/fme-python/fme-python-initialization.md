@@ -27,7 +27,7 @@ vwo_client = init(options)
 
 A dictionary named `options` is created to store the SDK configuration details.
 
-The `init()` function is called with the `options` dictionary. It initializes and returns a VWO Client Object`vwo_client`, which can be used to perform feature\
+The `init()` function is called with the `options` dictionary. It initializes and returns a VWO Client Object`vwo_client`, which can be used to perform feature  
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
@@ -52,8 +52,8 @@ This client object allows you to run experiments, track events, and enable/disab
   <tbody>
     <tr>
       <td>
-        **account\_id**
-        *Required*
+        **account_id**
+        _Required_
       </td>
 
       <td>
@@ -67,8 +67,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **sdk\_key**\
-        *Required*
+        **sdk_key**  
+        _Required_
       </td>
 
       <td>
@@ -76,14 +76,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
       </td>
     </tr>
 
     <tr>
       <td>
-        **poll\_interval**\
-        *Optional*
+        **poll_interval**  
+        _Optional_
       </td>
 
       <td>
@@ -97,8 +97,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **logger**\
-        *Optional*
+        **logger**  
+        _Optional_
       </td>
 
       <td>
@@ -112,8 +112,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **storage**\
-        *Optional*
+        **storage**  
+        _Optional_
       </td>
 
       <td>
@@ -127,8 +127,23 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **gateway\_service**\
-        *Optional*
+        **proxy_url**  
+        _Optional_
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.vwo.com/v2/docs/fme-python-initialization#proxyurl)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **gateway_service**  
+        _Optional_
       </td>
 
       <td>
@@ -142,8 +157,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **integrations**\
-        *Optional*
+        **integrations**  
+        _Optional_
       </td>
 
       <td>
@@ -159,8 +174,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the *vwo\_client* on your server, it pulls the latest configurations you've done in the VWO application.\
-If/when you make any changes to the feature flags or rules within VWO after the *vwo\_client* has been initialized in your server, there needs to be some way to update your *vwo\_client* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwo_client_ on your server, it pulls the latest configurations you've done in the VWO application.  
+If/when you make any changes to the feature flags or rules within VWO after the _vwo_client_ has been initialized in your server, there needs to be some way to update your _vwo_client_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -198,7 +213,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-python-logging) for m
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each *get\_flag* call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _get_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```python
 # Init options with storage
@@ -216,7 +231,7 @@ Please click [here]()  to learn more about storage implementation.
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
 
 ```python
 # Init options with gateway_service
@@ -259,3 +274,22 @@ vwo_client = init(options
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-python-integrations) to learn more about Integrations.
+
+### ProxyUrl
+
+VWO FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
+
+```python
+from vwo import init
+
+options = {
+    'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
+    'account_id': '123456', # VWO Account ID
+    'proxy_url': 'https://proxy.yourdomain.com',
+    # other configuration options
+}
+
+vwo_client = init(options)
+```
+
+Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-python-proxy-url">here</Anchor> to learn more about ProxyURL.
