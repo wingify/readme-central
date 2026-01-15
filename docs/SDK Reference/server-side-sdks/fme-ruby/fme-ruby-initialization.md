@@ -24,7 +24,7 @@ vwo_client = VWO.init({
 });
 ```
 
-The `init()` function is called with the `sdk_key`and `account_id`. It initializes and returns a VWO Client Object`vwo_client`, which can be used to perform feature\
+The `init()` function is called with the `sdk_key`and `account_id`. It initializes and returns a VWO Client Object`vwo_client`, which can be used to perform feature  
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
@@ -49,8 +49,8 @@ This client object allows you to run experiments, track events, and enable/disab
   <tbody>
     <tr>
       <td>
-        **account\_id**
-        *Required*
+        **account_id**
+        _Required_
       </td>
 
       <td>
@@ -64,8 +64,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **sdk\_key**\
-        *Required*
+        **sdk_key**  
+        _Required_
       </td>
 
       <td>
@@ -73,14 +73,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
       </td>
     </tr>
 
     <tr>
       <td>
-        **poll\_interval**\
-        *Optional*
+        **poll_interval**  
+        _Optional_
       </td>
 
       <td>
@@ -94,8 +94,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **logger**\
-        *Optional*
+        **logger**  
+        _Optional_
       </td>
 
       <td>
@@ -109,8 +109,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **storage**\
-        *Optional*
+        **storage**  
+        _Optional_
       </td>
 
       <td>
@@ -124,8 +124,22 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **gateway\_service**\
-        *Optional*
+        **retry_config** _Optional_
+      </td>
+
+      <td>
+        Hash
+      </td>
+
+      <td>
+        Customize retry behavior by passing a **retry_config** in the init options. For more details, please check - [Retry Configuration](https://developers.vwo.com/v2/docs/fme-ruby-initialization#retry-configuration)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **gateway_service**  
+        _Optional_
       </td>
 
       <td>
@@ -139,8 +153,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **integrations**\
-        *Optional*
+        **integrations**  
+        _Optional_
       </td>
 
       <td>
@@ -170,8 +184,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the *vwo\_client* on your server, it pulls the latest configurations you've done in the VWO application.\
-If/when you make any changes to the feature flags or rules within VWO after the *vwo\_client* has been initialized in your server, there needs to be some way to update your *vwo\_client* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwo_client_ on your server, it pulls the latest configurations you've done in the VWO application.  
+If/when you make any changes to the feature flags or rules within VWO after the _vwo_client_ has been initialized in your server, there needs to be some way to update your _vwo_client_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -203,7 +217,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-ruby-logging) for mor
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each *get\_flag* call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _get_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```ruby
 # Init options with storage
@@ -218,7 +232,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-ruby-storage)  to lea
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
 
 ```ruby
 # Init options with gateway_service
@@ -282,3 +296,22 @@ vwo_client = VWO.init({
     },
 })
 ```
+
+### Retry Configuration
+
+The SDK includes a built-in retry mechanism to improve reliability when network requests fail due to transient issues such as timeouts or temporary connectivity problems. You can fully control this behavior by providing a retryConfig object during SDK initialization.
+
+```ruby
+vwo_client = VWO.init({
+    account_id: '123456',
+    sdk_key: '32-alpha-numeric-sdk-key',
+    retry_config = {
+      should_retry: true,
+      max_retries: 3,
+      initial_delay: 2,
+      backoff_multiplier: 2
+    }
+})
+```
+
+Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
