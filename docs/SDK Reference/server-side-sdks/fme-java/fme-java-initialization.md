@@ -35,7 +35,7 @@ VWO vwoClient = VWO.init(vwoInitOptions);
 
 An object of `VWOInitOptions` is created to store the SDK configuration details.
 
-The `init()` function is called with the `vwoInitOptions` object. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature\
+The `init()` function is called with the `vwoInitOptions` object. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
@@ -65,7 +65,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **accountId**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -83,8 +83,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **sdkKey**\
-        *Required*
+        **sdkKey**  
+        _Required_
       </td>
 
       <td>
@@ -96,14 +96,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
       </td>
     </tr>
 
     <tr>
       <td>
-        **pollInterval**\
-        *Optional*
+        **pollInterval**  
+        _Optional_
       </td>
 
       <td>
@@ -121,8 +121,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **logger**\
-        *Optional*
+        **logger**  
+        _Optional_
       </td>
 
       <td>
@@ -140,8 +140,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **storage**\
-        *Optional*
+        **storage**  
+        _Optional_
       </td>
 
       <td>
@@ -159,8 +159,27 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **gatewayService**\
-        *Optional*
+        **proxyUrl**  
+        _Optional_
+      </td>
+
+      <td>
+        `vwoInitOptions.setProxyUrl("[http://custom.proxy.com](http://custom.proxy.com)");`
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **gatewayService**  
+        _Optional_
       </td>
 
       <td>
@@ -184,8 +203,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **integrations**\
-        *Optional*
+        **integrations**  
+        _Optional_
       </td>
 
       <td>
@@ -205,8 +224,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the *vwoClient* on your server, it pulls the latest configurations you've done in the VWO application.\
-If/when you make any changes to the feature flags or rules within VWO after the *vwoClient* has been initialized in your server, there needs to be some way to update your *vwoClient* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.  
+If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -236,7 +255,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-java-logging) for mor
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each *getFlag* call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _getFlag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```java
 VWOInitOptions vwoInitOptions = new VWOInitOptions();
@@ -251,7 +270,7 @@ Please click [storage](https://developers.vwo.com/v2/docs/fme-java-storage)  to 
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
 
 ```java
 VWOInitOptions vwoInitOptions = new VWOInitOptions();
@@ -287,3 +306,16 @@ VWO vwoInstance = VWO.init(vwoInitOptions);
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-java-integrations) to learn more about Integrations,.
+
+### ProxyUrl
+
+VWO FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature allows users to route all SDK network requests (settings, tracking, etc.) through their own proxy server.
+
+```java
+VWOInitOptions vwoInitOptions = new VWOInitOptions();
+vwoInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
+vwoInitOptions.setAccountId(12345);
+vwoInitOptions.setProxyUrl("http://custom.proxy.com");
+
+VWO vwoInstance = VWO.init(vwoInitOptions);
+```
