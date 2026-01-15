@@ -309,7 +309,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-java-integrations) to
 
 ### ProxyUrl
 
-VWO FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature allows users to route all SDK network requests (settings, tracking, etc.) through their own proxy server.
+VWO FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
 
 ```java
 VWOInitOptions vwoInitOptions = new VWOInitOptions();
