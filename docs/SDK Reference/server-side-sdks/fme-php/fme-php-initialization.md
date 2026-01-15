@@ -110,6 +110,21 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
+        **retryConfig**  
+        _Optional_
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.vwo.com/v2/docs/fme-node-initialization#retry-configuration)
+      </td>
+    </tr>
+
+    <tr>
+      <td>
         **gatewayService**
         _Optional_
       </td>
@@ -278,3 +293,25 @@ $vwoClient = VWO::init([
   'settings' => $settings
 ]);
 ```
+
+### Retry Configuration
+
+The SDK includes a built-in retry mechanism to improve reliability when network requests fail due to transient issues such as timeouts or temporary connectivity problems. You can fully control this behavior by providing a retryConfig object during SDK initialization.
+
+```php
+$vwoClient = VWO::init([
+  'sdkKey' => '32-alpha-numeric-sdk-key',
+  'accountId' => '123456',
+  'shouldWaitForTrackingCalls' => true,
+  'retryConfig' => [
+    'shouldRetry' => true,        // default: true
+    'maxRetries' => 3,            // default: 3
+    'initialDelay' => 2,          // seconds; default: 2
+    'backoffMultiplier' => 2,     // delays: 2s, 4s, 8s; default: 2
+  ],
+]);
+```
+
+> Retry works for synchronous (cURL) calls only, and you should pass 'shouldWaitForTrackingCalls' => true, in the init configration to enable synchronous (cURL) calls and retry.
+
+Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
