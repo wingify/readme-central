@@ -172,7 +172,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL.
+        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.vwo.com/v2/docs/fme-java-proxyurl) 
       </td>
     </tr>
 
