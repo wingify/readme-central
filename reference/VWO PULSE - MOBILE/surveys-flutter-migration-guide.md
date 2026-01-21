@@ -1,7 +1,7 @@
 ---
 title: Surveys - Flutter - Migration Guide
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
