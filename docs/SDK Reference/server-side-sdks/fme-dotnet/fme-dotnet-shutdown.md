@@ -1,5 +1,5 @@
 ---
-title: Shutdown API
+title: Shutdown
 deprecated: false
 hidden: false
 metadata:
