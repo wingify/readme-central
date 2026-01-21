@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-The VWO Pulse Android SDK enables you to deliver in-app surveys directly inside your Android application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
+The VWO Insights Android SDK enables you to deliver in-app surveys directly inside your Android application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
 
 ## Key Features
 
@@ -29,7 +29,7 @@ The VWO Pulse Android SDK enables you to deliver in-app surveys directly inside 
 
 1. **Obtain Your API Key**  
    Log in to the VWO dashboard and navigate to:  
-   `Configuration → Websites and apps → Default mobile app → SDK`  
+   `Configuration → Websites and apps → Default mobile app → SDK Key`  
    Retrieve your API key from this section.
 
 2. **Confirm Minimum SDK**  
