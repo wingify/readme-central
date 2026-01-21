@@ -5,8 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-# VWO Insights Android SDK - Survey Feature
-
 The VWO Insights Android SDK enables you to deliver in-app surveys directly inside your Android application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
 
 ## Key Features
