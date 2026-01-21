@@ -196,7 +196,9 @@ class MyApplication : Application() {
 
 # Step 4: Update Survey Triggers
 
-## Blitzllama (Before)
+## Basic Trigger
+
+**Blitzllama (Before):**
 
 ### Java
 
@@ -210,18 +212,136 @@ BlitzLlamaSDK.getSdkManager(context).triggerEvent("trigger_name");
 BlitzLlamaSDK.getSdkManager(context).triggerEvent("trigger_name")
 ```
 
-## VWO Pulse (After)
+**VWO Pulse (After):**
 
 ### Java
 
 ```java
-VWOInsights.getSurveySdkManager(context).trackEvent("event_name");
+SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+sdkManager.trackEvent("event_name");
 ```
 
 ### Kotlin
 
 ```kotlin
-VWOInsights.getSurveySdkManager(context).trackEvent("event_name")
+val sdkManager = VWOInsights.getSurveySdkManager(context)
+sdkManager.trackEvent("event_name")
+```
+
+## Trigger with Event Properties
+
+**Blitzllama (Before):**
+
+### Java
+
+```java
+Map<String, Object> properties = new HashMap<>();
+properties.put("product_id", "SKU123");
+properties.put("amount", 99.99);
+
+BlitzLlamaSDK.getSdkManager(context).triggerEvent("purchase_completed", properties);
+```
+
+### Kotlin
+
+```kotlin
+val properties = mapOf(
+    "product_id" to "SKU123",
+    "amount" to 99.99
+)
+
+BlitzLlamaSDK.getSdkManager(context).triggerEvent("purchase_completed", properties)
+```
+
+**VWO Pulse (After):**
+
+### Java
+
+```java
+SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+
+Map<String, Object> properties = new HashMap<>();
+properties.put("product_id", "SKU123");
+properties.put("amount", 99.99);
+properties.put("category", "electronics");
+
+sdkManager.trackEvent("purchase_completed", properties);
+```
+
+### Kotlin
+
+```kotlin
+val sdkManager = VWOInsights.getSurveySdkManager(context)
+
+val properties = mapOf(
+    "product_id" to "SKU123",
+    "amount" to 99.99,
+    "category" to "electronics"
+)
+
+sdkManager.trackEvent("purchase_completed", properties)
+```
+
+## Trigger with Completion Callback
+
+**Blitzllama (Before):**
+
+### Java
+
+```java
+BlitzLlamaSDK.getSdkManager(context).triggerEvent("event_name", properties, new SurveyListener() {
+    @Override
+    public void onSurveyComplete() {
+        // Survey completed
+    }
+});
+```
+
+**VWO Pulse (After):**
+
+### Java
+
+```java
+SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+
+Map<String, Object> properties = new HashMap<>();
+properties.put("screen", "home");
+
+sdkManager.trackEvent("home_screen_loaded", properties, result -> {
+    // Survey interaction completed
+    System.out.println("Survey completed with result: " + result);
+});
+```
+
+### Kotlin
+
+```kotlin
+val sdkManager = VWOInsights.getSurveySdkManager(context)
+
+val properties = mapOf("screen" to "home")
+
+sdkManager.trackEvent("home_screen_loaded", properties) { result ->
+    // Survey interaction completed
+    println("Survey completed with result: $result")
+}
+```
+
+## Trigger with Activity Reference
+
+For better context when displaying surveys, you can pass an Activity reference:
+
+### Java
+
+```java
+SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+sdkManager.trackEventWithActivity(this, "checkout_screen");
+```
+
+### Kotlin
+
+```kotlin
+val sdkManager = VWOInsights.getSurveySdkManager(context)
+sdkManager.trackEventWithActivity(this, "checkout_screen")
 ```
 
 ## Method Mapping
@@ -231,6 +351,7 @@ VWOInsights.getSurveySdkManager(context).trackEvent("event_name")
 | `triggerEvent("name")` | `trackEvent("name")` |
 | `triggerEvent("name", properties)` | `trackEvent("name", properties)` |
 | `triggerEvent("name", properties, listener)` | `trackEvent("name", properties, listener)` |
+| N/A | `trackEventWithActivity(activity, "name")` |
 
 ---
 
@@ -508,3 +629,4 @@ val callback = object : IVwoInitCallback {
 | VWO Pulse SDK Version | `2.1.0` |
 | Minimum Android SDK | 21 (Android 5.0) |
 | Blitzllama SDK Version (migrating from) | `1.9.1` |
+
