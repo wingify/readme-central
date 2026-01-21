@@ -1,7 +1,7 @@
 ---
 title: Surveys - React Native
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
@@ -11,21 +11,21 @@ The VWO Pulse React Native SDK provides comprehensive survey functionality that 
 
 ## Key Features
 
-- **Event-based Triggers** - Trigger surveys based on specific events in your app
-- **User Identification** - Identify and track users to ensure proper survey targeting
-- **Personalization** - Personalize surveys with user attributes
-- **Localization** - Localize surveys by setting different languages
+* **Event-based Triggers** - Trigger surveys based on specific events in your app
+* **User Identification** - Identify and track users to ensure proper survey targeting
+* **Personalization** - Personalize surveys with user attributes
+* **Localization** - Localize surveys by setting different languages
 
 ## Requirements
 
-| Requirement | Details |
-|-------------|---------|
-| React Native | 0.60+ |
-| iOS | 12.0+ |
-| Android | API level 21+ (Android 5.0) |
+| Requirement   | Details                                            |
+| ------------- | -------------------------------------------------- |
+| React Native  | 0.60+                                              |
+| iOS           | 12.0+                                              |
+| Android       | API level 21+ (Android 5.0)                        |
 | VWO Dashboard | Access required to retrieve Account ID and SDK Key |
 
----
+***
 
 # Getting Started
 
@@ -39,7 +39,7 @@ The VWO Pulse React Native SDK provides comprehensive survey functionality that 
 2. **Create a Survey**  
    A survey should be created in your VWO dashboard with appropriate trigger events.
 
----
+***
 
 # Quick Start
 
@@ -112,7 +112,7 @@ import { trackEvent } from 'vwo-insights-react-native-sdk';
 trackEvent('event_name');
 ```
 
----
+***
 
 # Triggering Surveys
 
@@ -164,7 +164,7 @@ trackEvent('ErrorOccurred', {
 });
 ```
 
----
+***
 
 # Setting User Attributes
 
@@ -195,11 +195,11 @@ setAttribute({
 
 ## Supported Attribute Types
 
-| Type | Example |
-|------|---------|
-| String | `'premium'` |
-| Number | `99.99` |
-| Boolean | `true` |
+| Type    | Example     |
+| ------- | ----------- |
+| String  | `'premium'` |
+| Number  | `99.99`     |
+| Boolean | `true`      |
 
 ```javascript
 setAttribute({
@@ -210,7 +210,7 @@ setAttribute({
 });
 ```
 
----
+***
 
 # Language Settings
 
@@ -236,17 +236,17 @@ setSurveyLanguage('de'); // German
 
 **Common Language Codes:**
 
-| Code | Language |
-|------|----------|
-| `en` | English |
-| `es` | Spanish |
-| `fr` | French |
-| `de` | German |
-| `ja` | Japanese |
+| Code | Language   |
+| ---- | ---------- |
+| `en` | English    |
+| `es` | Spanish    |
+| `fr` | French     |
+| `de` | German     |
+| `ja` | Japanese   |
 | `pt` | Portuguese |
-| `zh` | Chinese |
+| `zh` | Chinese    |
 
----
+***
 
 # API Reference
 
@@ -258,10 +258,10 @@ Triggers a survey based on an event name.
 trackEvent(event: string, properties?: { [key: string]: any }): void
 ```
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `event` | string | Yes | The name of the event that triggers the survey |
-| `properties` | object | No | Additional properties to pass with the event |
+| Parameter    | Type   | Required | Description                                    |
+| ------------ | ------ | -------- | ---------------------------------------------- |
+| `event`      | string | Yes      | The name of the event that triggers the survey |
+| `properties` | object | No       | Additional properties to pass with the event   |
 
 **Example:**
 
@@ -269,7 +269,7 @@ trackEvent(event: string, properties?: { [key: string]: any }): void
 trackEvent('PurchaseCompleted', { orderId: '12345' });
 ```
 
----
+***
 
 ## setAttribute
 
@@ -279,9 +279,9 @@ Sets user attributes for survey targeting.
 setAttribute(attributes: { [key: string]: any }): void
 ```
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `attributes` | object | Yes | Key-value pairs of user attributes |
+| Parameter    | Type   | Required | Description                        |
+| ------------ | ------ | -------- | ---------------------------------- |
+| `attributes` | object | Yes      | Key-value pairs of user attributes |
 
 **Example:**
 
@@ -292,7 +292,7 @@ setAttribute({
 });
 ```
 
----
+***
 
 ## setSurveyLanguage
 
@@ -302,9 +302,9 @@ Sets the language for surveys.
 setSurveyLanguage(languageCode: string): void
 ```
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `languageCode` | string | Yes | ISO 639-1 language code (e.g., 'en', 'es', 'fr') |
+| Parameter      | Type   | Required | Description                                      |
+| -------------- | ------ | -------- | ------------------------------------------------ |
+| `languageCode` | string | Yes      | ISO 639-1 language code (e.g., 'en', 'es', 'fr') |
 
 **Example:**
 
@@ -312,7 +312,7 @@ setSurveyLanguage(languageCode: string): void
 setSurveyLanguage('en');
 ```
 
----
+***
 
 ## config (iOS only)
 
@@ -322,11 +322,11 @@ Initializes the SDK on iOS.
 config(accountId: string, sdkKey: string, userId: string): void
 ```
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `accountId` | string | Yes | Your VWO account ID |
-| `sdkKey` | string | Yes | Your SDK key from VWO dashboard |
-| `userId` | string | Yes | Unique identifier for the user |
+| Parameter   | Type   | Required | Description                     |
+| ----------- | ------ | -------- | ------------------------------- |
+| `accountId` | string | Yes      | Your VWO account ID             |
+| `sdkKey`    | string | Yes      | Your SDK key from VWO dashboard |
+| `userId`    | string | Yes      | Unique identifier for the user  |
 
 **Example:**
 
@@ -334,7 +334,7 @@ config(accountId: string, sdkKey: string, userId: string): void
 config('your_account_id', 'your_sdk_key', 'user_123');
 ```
 
----
+***
 
 # Best Practices
 
@@ -426,7 +426,7 @@ React.useEffect(() => {
 }, []);
 ```
 
----
+***
 
 # FAQ and Troubleshooting
 
@@ -464,24 +464,12 @@ React.useEffect(() => {
 }, []);
 ```
 
----
-
-# Support
-
-For additional support or questions about survey functionality:
-
-| Resource | Link |
-|----------|------|
-| Documentation | [VWO Developer Documentation](https://developers.vwo.com/reference/mobile-insights-introduction) |
-| Support Email | [support@vwo.com](mailto:support@vwo.com) |
-
----
+***
 
 # Version Information
 
-| Component | Version |
-|-----------|---------|
-| SDK Package | `vwo-insights-react-native-sdk` |
-| Minimum iOS Version | 12.0 |
-| Minimum Android SDK | 21 (Android 5.0) |
-
+| Component           | Version                         |
+| ------------------- | ------------------------------- |
+| SDK Package         | `vwo-insights-react-native-sdk` |
+| Minimum iOS Version | 12.0                            |
+| Minimum Android SDK | 21 (Android 5.0)                |
