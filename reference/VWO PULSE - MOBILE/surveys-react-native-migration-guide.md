@@ -1,7 +1,7 @@
 ---
 title: Surveys - React Native - Migration Guide
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
@@ -358,4 +358,3 @@ useEffect(() => {
 2. **Validate all survey triggers** in VWO Dashboard
 3. **Keep event naming consistent** across platforms (iOS, Android, React Native)
 4. **Test thoroughly** before releasing to production
-
