@@ -49,7 +49,7 @@ Open your pubspec.yaml file and add the following dependency:
 
 ```yaml
 dependencies:
-  vwo_insights_flutter_sdk: ^1.0.12
+  vwo_insights_flutter_sdk: ^2.1.0
 ```
 
 ## Step 2: Install Package
@@ -384,6 +384,8 @@ For additional support or questions:
 
 | Component | Version |
 |-----------|---------|
-| SDK Package | vwo_insights_flutter_sdk ^1.0.12 |
+| Flutter Package | vwo_insights_flutter_sdk ^2.1.0 |
+| Native Android SDK | 2.1.0 |
+| Native iOS SDK | 2.1.0 |
 | Minimum iOS Version | 12.0 |
 | Minimum Android SDK | 21 (Android 5.0) |
