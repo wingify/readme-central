@@ -1,7 +1,7 @@
 ---
 title: Surveys - Flutter
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
