@@ -1,7 +1,7 @@
 ---
 title: Surveys - iOS - Migration Guide
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
@@ -460,4 +460,3 @@ VWO.configure(
 | Minimum iOS Version | 12.0 |
 | Swift Version | 5.0+ |
 | Blitzllama SDK Version (migrating from) | 1.6.29 |
-
