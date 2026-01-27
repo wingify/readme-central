@@ -18,7 +18,7 @@ VWO SDKs help you integrate with several third-party destinations. SDKs help you
 IntegrationCallback integrations = new IntegrationCallback() {
             @Override
             public void execute(Map<String, Object> properties) {
-                // your function definition 
+                // your function definition
             }
         };
 
@@ -40,7 +40,7 @@ All VWO SDKs provide the following properties when a decision is made. This mean
   featureId: Number,
   featureKey: String,  // as passed to API
   userId: String,  // As passed to API
-  api: String,   // API name which triggered the event: getFlag, getVariable, trackMetric
+  api: String,   // API name which triggered the event: getFlag, getVariable, trackEvent
   customVariables: Object, //custom variables for targeting
   rolloutId: Number,
   rolloutKey: String,  // as passed to API

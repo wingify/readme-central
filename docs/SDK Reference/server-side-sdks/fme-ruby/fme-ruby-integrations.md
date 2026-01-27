@@ -38,7 +38,7 @@ All VWO SDKs provide the following properties when a decision is made. This mean
   feature_id: Number,
   feature_key: String,  // as passed to API
   user_id: String,  // As passed to API
-  api: String,   // API name which triggered the event: getFlag, getVariable, trackMetric
+  api: String,   // API name which triggered the event: getFlag, getVariable, trackEvent
   custom_variables: Object, //custom variables for targeting
   rollout_id: Number,
   rollout_key: String,  // as passed to API
