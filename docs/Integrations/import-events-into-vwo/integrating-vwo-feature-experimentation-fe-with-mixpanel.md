@@ -5,11 +5,11 @@ hidden: true
 metadata:
   robots: index
 ---
-# **Overview:**
+## **Overview:**
 
- Amplitude is a powerful digital analytics platform that helps you understand user behavior across web and mobile. It automatically tracks user interactions and provides deep insights into customer journeys, retention, and engagement patterns.
+Amplitude is a powerful digital analytics platform that helps you understand user behavior across web and mobile. It automatically tracks user interactions and provides deep insights into customer journeys, retention, and engagement patterns.
 
-### **What This Integration Achieves**
+## **What This Integration Achieves**
 
 This integration allows you to use Amplitude-identified users and cohorts for VWO feature flag targeting. By importing user cohorts from Amplitude into VWO, you can roll out or test features for specific segments (e.g. Power Users, Premium users, At-Risk users) and personalize product experiences based on actual user behavior tracked in Amplitude.
 
@@ -68,7 +68,7 @@ To enable the VWO-Amplitude integration on your VWO account, follow this:
 * Click Add.
 * First sync may take up to 24 hours depending on the size of cohort. Subsequent syncs are automatic (every 24 hours by default), but you can also trigger manual sync.![][image4]
 
-**Step 5 - SDK Setup (Node.js Example)**
+## **Step 5 - SDK Setup (Node.js Example)**
 
 ### **5.1 Install and Initialize the VWO FE SDK**
 
@@ -78,10 +78,12 @@ Install the official VWO FE Node SDK:
 npm install vwo-fme-node-sdk
 ```
 
-**5.2 Setup Gateway Service :**  
+### 5.2 Setup Gateway Service :**  
+
+
 **Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
 
-**5.3 Initialize the SDK in your application with gateway service:**
+### 5.3 Initialize the SDK in your application with gateway service:**
 
 **Reference**: [SDK Initialization Doc](https://developers.vwo.com/v2/docs/fme-node-initialization)
 
