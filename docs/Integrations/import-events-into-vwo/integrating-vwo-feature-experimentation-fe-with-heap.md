@@ -7,7 +7,7 @@ metadata:
 ---
 ## **Overview:**
 
- **Heap** is an analytics platform that automatically collects user interaction data from your site or app to generate insights. It helps teams understand customer behavior, improve conversion and retention, and drive data-informed decisions.
+**Heap** is an analytics platform that automatically collects user interaction data from your site or app to generate insights. It helps teams understand customer behavior, improve conversion and retention, and drive data-informed decisions.
 
 ## **What This Integration Achieves**
 
@@ -23,10 +23,9 @@ This integration allows you to use **Heap-identified users** for **VWO feature f
 
 To enable the VWO-Heap integration for your VWO account, follow this:
 
-1. # Log in to your VWO account.
+1.  Log in to your VWO account.
 2. From the left panel of your VWO dashboard, go to the **Configurations** > **Integrations** tab.
-3. Click on the **Heap** integration and enable it.  
-        
+3. Click on the **Heap** integration and enable it.
 
    <Image align="center" border={false} src="https://files.readme.io/868ed9269d59e1f16a87120e855510350a3aab1003775e548d21d916d9d88d98-image2.png" />
 
@@ -49,15 +48,16 @@ Once done, you will have to enable the VWO integration in Heap to push the data 
 To export a segment from Heap to VWO, you need to do the following:
 
 1. From your Heap dashboard, go to **Integrations** > **Directory**. Search for **VWO Cohort Sync** and enable it.
-   1. [Create a segment](https://help.heap.io/data-types/segments/segments-overview/#creating-segments), and in the same, scroll down to the **Integrations** section and enable **VWO Cohort Sync**.    
+
+   1. [Create a segment](https://help.heap.io/data-types/segments/segments-overview/#creating-segments), and in the same, scroll down to the **Integrations** section and enable **VWO Cohort Sync**.
 
       <Image align="center" border={false} width="550px" src="https://files.readme.io/fa7ac2db69c424b2ab498cc39aebba1ac1bc2b98c89af83d5f0f157759123f02-image4.png" />
 
-   2.   In the **Sync Segment to VWO Cohort Sync** popup that appears, click **Enable Recurring Sync** to recurrently sync the segment for this specific campaign.
+   2. In the **Sync Segment to VWO Cohort Sync** popup that appears, click **Enable Recurring Sync** to recurrently sync the segment for this specific campaign.
 
-      <br />
+   <br />
 
-      <Image align="center" border={false} width="550px" src="https://files.readme.io/f9430d933b855d6232be6dafe41651668ae2a0393f6569f4eb2902c292346247-image1.png" />
+   <Image align="center" border={false} width="550px" src="https://files.readme.io/f9430d933b855d6232be6dafe41651668ae2a0393f6569f4eb2902c292346247-image1.png" />
 
 **NOTE:** We recommend using the Enable Recurring Sync option as it ensures any new data that is added to the segment is pushed to VWO. However, if you only need the current data and do not require any new data to be pushed to VWO, you can click on the Sync now button.
 
@@ -67,12 +67,11 @@ Now, the Heap segment is imported to your VWO account. You can log in to your VW
 
 To access the Heap Segments imported into VWO, perform the following steps on the **Heap** integration page:
 
-1. Under the **Enable use of Heap segment for visitor targeting** section, click on the **Add segments from Heap** link.  
+1. Under the **Enable use of Heap segment for visitor targeting** section, click on the **Add segments from Heap** link.
 
    <Image align="center" border={false} width="550px" src="https://files.readme.io/78441c5cd773971dc22c11664e657f2bd82974a47f7cecab701d83442e17174f-image5.png" />
 
-2. On the **Add Heap Segments** popup that appears, select the audience and click **Add**.  
-
+2. On the **Add Heap Segments** popup that appears, select the audience and click **Add**.
 
    <Image align="center" border={false} width="450px" src="https://files.readme.io/e8f504b0561d86e663142326cfc6d02d7e967262652cf90dc0b83794dc0b152d-image3.png" />
 
@@ -92,8 +91,7 @@ Install the official VWO FE Node SDK:
 npm install vwo-fme-node-sdk
 ```
 
-### 5.2 Setup Gateway Service :**  
-
+### 5.2 Setup Gateway Service :**
 
 **Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
 
