@@ -1,7 +1,7 @@
 ---
 title: Trigger VWO Events Using GTM
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
