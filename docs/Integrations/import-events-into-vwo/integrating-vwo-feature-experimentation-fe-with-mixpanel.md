@@ -28,7 +28,7 @@ To enable the VWO-Amplitude integration on your VWO account, follow this:
 2. From the left panel of your VWO dashboard, go to **Configurations** > **Integrations**.
 3. Click on the **Amplitude** integration and enable it. Once enabled, the Amplitude screen within the VWO’s Integration section looks like this:
 
-![][image1]
+<Image align="center" border={false} src="https://files.readme.io/e65762a5e66cfdb5101834e9e53fe62790c97a7507637cb6c88711cd7ff142c7-1.png" />
 
 4. You will be auto-navigated to the **Config** tab.
 
@@ -59,7 +59,7 @@ To enable the VWO-Amplitude integration on your VWO account, follow this:
   * One-Time Sync: Use if you do not want to keep syncing changes.
 * Click Sync.
 
-![][image3]
+<br />
 
 ## **Step 4 -  Import & Activate Amplitude Cohorts in VWO**
 
@@ -78,8 +78,7 @@ Install the official VWO FE Node SDK:
 npm install vwo-fme-node-sdk
 ```
 
-### 5.2 Setup Gateway Service :**  
-
+### 5.2 Setup Gateway Service :**
 
 **Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
 
