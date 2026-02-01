@@ -23,15 +23,13 @@ This integration allows you to use **Heap-identified users** for **VWO feature f
 
 To enable the VWO-Heap integration for your VWO account, follow this:
 
-1.  Log in to your VWO account.
+1. Log in to your VWO account.
 2. From the left panel of your VWO dashboard, go to the **Configurations** > **Integrations** tab.
-3. Click on the **Heap** integration and enable it.  
+3. Click on the **Heap** integration and enable it.
 
    <Image align="center" border={false} src="https://files.readme.io/868ed9269d59e1f16a87120e855510350a3aab1003775e548d21d916d9d88d98-image2.png" />
 
 Once enabled, you will be taken to the **Config** tab to configure the data transit for this integration.
-
-<br />
 
 ## **Step 2. Enable Use of Heap Segment for Visitor Targeting**
 
