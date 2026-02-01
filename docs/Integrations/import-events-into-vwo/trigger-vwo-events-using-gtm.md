@@ -26,11 +26,11 @@ Download the VWO Event tag template [from here](https://github.com/wingify/vwo-e
 
 1. Log in to your GTM account and select the appropriate workspace where you want to install the VWO Event.
 
-2. From the main menu on the left, go to **Templates** > **Tag Templates** > **New**.    
+2. From the main menu on the left, go to **Templates** > **Tag Templates** > **New**.
 
    <Image align="center" border={false} width="450px" src="https://files.readme.io/36087e3a70b307cda5f6eda43634dd29ef30902cfea14f9fb83de1ee64449863-image2.png" />
 
-3. On the Template Editor page, click on the vertical ellipsis (**⋮**) and select **Import**.    
+3. On the Template Editor page, click on the vertical ellipsis (**⋮**) and select **Import**.
 
    <Image align="center" border={false} width="550px" src="https://files.readme.io/6a5f7cce930eb4a692c294d969dc97b77accd00ffdfd58e93056f7d49d4992ce-image1.png" />
 
@@ -47,23 +47,19 @@ Upon successful import, you can use the VWO Event template to stream the events 
 * Name the tag and click on the **Tag Configuration** section.
 
 * From the list of tags, under the **Custom** section, select the **VWO Event** tag that you just imported.  
-    
 
   <Image align="center" border={false} width="650px" src="https://files.readme.io/b60042f5c3e724ce674890279839a939ea31a6f8a55178639a5a84df69797824-image3.png" />
 
 * To customize the tag configuration further, you can utilize the following options:
 
-  * Enter the Event Name you want to send to VWO
+  * Enter the Event Name you want to send to VWO  
+    **Properties:** Allows you to add properties that will be sent with every event. To add a property, click on **Add a Property** and enter the input in the respective fields as follows:   
+            **a. Property Name:** The name of the property.  
+            **b. Property Value:** The value of the property.
 
-* **Properties:** Allows you to add properties that will be sent with every event. To add a property, click on **Add a Property** and enter the input in the respective fields as follows:
+<Image align="center" border={false} width="500px" src="https://files.readme.io/82480a00abd11610cc41e0a5c9308f55fdc2bc42216349fd3ced0762f5234e01-image6.png" />
 
-* **Property Name:** The name of the property.
-
-* **Property Value:** The value of the property.  
-
-  <Image align="center" border={false} width="500px" src="https://files.readme.io/82480a00abd11610cc41e0a5c9308f55fdc2bc42216349fd3ced0762f5234e01-image6.png" />
-
-* Click on the **Triggering** section and select the trigger to assign in the VWO Event Tag.  
+* Click on the **Triggering** section and select the trigger to assign in the VWO Event Tag.
 
   <Image align="center" border={false} src="https://files.readme.io/b222733f40b53029a6f7b6b65efacb5d788cb887f668fc425c41ca33b5f9c326-image5.png" />
 
@@ -75,7 +71,7 @@ Upon successful import, you can use the VWO Event template to stream the events 
 
 – **Region:** Region, US (default)
 
-– **VWO Visitor ID:** User’s UUID  
+– **VWO Visitor ID:** User’s UUID
 
 <Image align="center" border={false} width="500px" src="https://files.readme.io/ee8556e480e50743cbf6338ceef03be2fd60561de5b2ce35afe0794315a44787-image4.png" />
 
@@ -89,8 +85,7 @@ Upon successful import, you can use the VWO Event template to stream the events 
 * Choose “1st Party Cookie” as the Variable Type.
 * Enter **_vwo_uuid** in the Cookie Name field.
 
-5. Save the variable.    
-
+5. Save the variable.
 
    <Image align="center" border={false} width="550px" src="https://files.readme.io/c5c31db8b301a009c46b94af4d26cf31e1fbbb05140775255db8b67c6e6edfae-image1.png" />
 
