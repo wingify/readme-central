@@ -58,34 +58,36 @@ Enables sending events for Feature experimentation (FE) using Offline Conversion
 
 ## **Additional Custom Properties**
 
-* **Custom Property:** Allows you to add custom properties that will be sent with every event. To add a custom property, click on **Add New Property** and enter the input in the respective fields as follows:
-  * **Property Name:** The name of the custom property.
-  * **Property Value:** The value of the custom property.
-  * **Nested JSON Field Mapping:** Allows you to import event properties with JSON nested values into VWO. To do this, click on **Add Nested Field Mapping** and enter the input in the respective fields as follows:
-    * **Property Name:** The name of the property you want to map.
-      * **JSON Key Path:** The path to the key in the JSON object.
+**1. Custom Property:** Allows you to add custom properties that will be sent with every event. To add a custom property, click on **Add New Property** and enter the input in the respective fields as follows:
 
-        **Example JSON:**
+* **Property Name:** The name of the custom property.
+* **Property Value:** The value of the custom property.
 
-        ```json
-        {
-          "event": "purchase",
-          "ecommerce": {
-            "transaction_id": "123",
-            "value": 55,
-            "currency": "USD",
-            "items": [
-              { "item_id": "SKU_12345", "item_name": "Vintage Chair" },
-              { "item_id": "SKU_67890", "item_name": "Antique Lamp" }
-            ]
-          }
-        }
-        ```
+**2. Nested JSON Field Mapping:** Allows you to import event properties with JSON nested values into VWO. To do this, click on **Add Nested Field Mapping** and enter the input in the respective fields as follows:
 
-        * For a value inside a nested object, such as "value": 55 inside ecommerce,  the JSON Key Path to use is: **ecommerce.value**
-        * **For a value inside an array**, such as the name of the first purchased item ("Vintage Chair"), the JSON Key Path to use is: **ecommerce.items.0.item_name**
+* **Property Name:** The name of the property you want to map.
+* **JSON Key Path:** The path to the key in the JSON object.
 
-          You can add as many property mappings as needed by clicking **+ Add Field Mapping**.
+  **Example JSON:**
+  ```json
+  {
+    "event": "purchase",
+    "ecommerce": {
+      "transaction_id": "123",
+      "value": 55,
+      "currency": "USD",
+      "items": [
+        { "item_id": "SKU_12345", "item_name": "Vintage Chair" },
+        { "item_id": "SKU_67890", "item_name": "Antique Lamp" }
+      ]
+    }
+  }
+  ```
+  <br />
+* For a value inside a nested object, such as "value": 55 inside ecommerce,  the JSON Key Path to use is: **ecommerce.value**
+* **For a value inside an array**, such as the name of the first purchased item ("Vintage Chair"), the JSON Key Path to use is: **ecommerce.items.0.item_name**
+
+  You can add as many property mappings as needed by clicking **+ Add Field Mapping**.
 
 ## **Manage Event and Property Exclusions:**
 
@@ -196,7 +198,7 @@ By default, GTM is set up to access events from your datalayer variable named 'd
 
   * Verify tag firing using GTM Preview mode.
   * Ensure VWO SmartCode loads before the GTM event fires (if Offline Conversion is not enabled).
-* ### **Issue: Data not linked to the correct user (Offline Conversion)** 
+* ### **Issue: Data not linked to the correct user (Offline Conversion)**
 
   * Ensure the VWO Visitor ID field is populated with a valid UUID.
   * If undefined, check the GTM cookie variable configuration.
