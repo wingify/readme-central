@@ -29,12 +29,12 @@ To enable the VWO-Mixpanel integration for your VWO account:
 
 <Image align="center" border={false} width="750px" src="https://files.readme.io/af3f339c0b6b0df9d6016bbe3d3fb8c1b46eaddeb06fed866569d65c27f8f575-image4.png" />
 
-3. You will be auto-navigated to the **Config** tab.  
+3. You will be auto-navigated to the **Config** tab.
 
 <Image align="center" border={false} width="450px" src="https://files.readme.io/4c21af1578f743ad58fcf4524be772d8f8e25fb3676107eb7c73d6109e08b2e5-image1.png" />
 
-3. Enable "Enable use of Mixpanel cohorts for visitor targeting".  
-4.  Click Save
+3. Enable "Enable use of Mixpanel cohorts for visitor targeting".
+4. Click Save
 5. Copy/note the API key that VWO generates. You'll need this to configure Mixpanel.
 
 ## **Step 2 - Configure VWO as a Destination in Mixpanel:**
@@ -54,7 +54,7 @@ To enable the VWO-Mixpanel integration for your VWO account:
 * Choose the sync frequency:
   * Dynamic Sync: Recommended. Syncs automatically every 2 hours, updates targeting as your cohort changes.
   * One-Time Export: Only exports the current cohort list, no updates.
-* Click Sync.      
+* Click Sync.
 
   <Image align="center" border={false} width="650px" src="https://files.readme.io/92c9c6e8b387ed8d25b3a98e9bfdfa45e020649e073a7468b25930a1e53c8471-image2.png" />
 
@@ -64,12 +64,11 @@ To enable the VWO-Mixpanel integration for your VWO account:
 * Search for or select the Mixpanel cohort(s) you just synced.
 * Click Add.
   * First sync may take up to 2 hours. Subsequent syncs are automatic (every 2 hours by default for dynamic sync).
-  * Manual sync is available if required.    
-      
+  * Manual sync is available if required.
 
     <Image align="center" border={false} width="400px" src="https://files.readme.io/7f49324f988390c09fe56b2ef2d8f7e9ff27c532055b555d4f1b2e8ca2a57f2f-image3.png" />
 
-## Step 5 - SDK Setup (Node.js Example)**
+## Step 5 - SDK Setup (Node.js Example)
 
 ### **5.1 Install and Initialize the VWO SDK**
 
@@ -79,8 +78,7 @@ Install the official VWO FE Node SDK:
 npm install vwo-fme-node-sdk
 ```
 
-### 5.2 Setup Gateway Service :**  
-
+### 5.2 Setup Gateway Service :
 
 **Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
 
