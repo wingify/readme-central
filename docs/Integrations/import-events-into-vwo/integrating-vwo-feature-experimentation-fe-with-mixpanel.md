@@ -5,8 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-<br />
-
 ## **Overview:**
 
 **Mixpanel** is a powerful analytics platform that helps you understand user behavior across web and mobile. It automatically tracks user interactions and provides deep insights into customer journeys, retention, and engagement patterns.
