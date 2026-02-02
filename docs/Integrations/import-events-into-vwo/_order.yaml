@@ -4,4 +4,4 @@
 - trigger-vwo-events-using-gtm
 - fme-integration-import-events-amplitude
 - streaming-events-from-gtm-to-vwo
-- datadog-triggers
+- fme-integration-observability-datadog
