@@ -1,6 +1,6 @@
 - fme-integration-gtm-import-events
 - fme-integration-import-events-mixpanel
-- fme-integration-heap
+- fme-integration-import-events-heap
 - trigger-vwo-events-using-gtm
 - integrating-vwo-feature-experimentation-fe-with-amplitude
 - streaming-events-from-gtm-to-vwo
