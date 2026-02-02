@@ -1,84 +1,78 @@
 ---
-title: Integrating VWO Feature Experimentation (FE) with Amplitude
+title: Integrating VWO Feature Experimentation (FE) with Mixpanel
 deprecated: false
 hidden: true
 metadata:
   robots: index
 ---
+<br />
+
 ## **Overview:**
 
-Amplitude is a powerful digital analytics platform that helps you understand user behavior across web and mobile. It automatically tracks user interactions and provides deep insights into customer journeys, retention, and engagement patterns.
+**Mixpanel** is a powerful analytics platform that helps you understand user behavior across web and mobile. It automatically tracks user interactions and provides deep insights into customer journeys, retention, and engagement patterns.
 
-## **What This Integration Achieves**
+## **What This Integration Achieves:**
 
-This integration allows you to use Amplitude-identified users and cohorts for VWO feature flag targeting. By importing user cohorts from Amplitude into VWO, you can roll out or test features for specific segments (e.g. Power Users, Premium users, At-Risk users) and personalize product experiences based on actual user behavior tracked in Amplitude.
+This integration allows you to use Mixpanel-identified users and cohorts for VWO feature flag targeting. By importing user cohorts from Mixpanel into VWO, you can roll out or test features for specific segments (e.g., Power Users, Premium users, At-Risk users) and personalize product experiences based on actual user behavior tracked in Mixpanel.
 
-## **Key Benefits**
+## **Key Benefits:**
 
-* **Segment-based targeting:** Run feature experiments only for specific Amplitude cohorts
-* **Personalized rollouts:** Deliver variations tailored to user properties (e.g., plan, region, engagement level, lifecycle stage)
-* **Cohort-driven A/B testing:** Combine Amplitude's behavioral analytics with VWO's experimentation engine
-* **Data-driven decisions:** Leverage Amplitude's rich user behavior data for more effective feature rollouts
+* **Segment-based targeting:** Run feature experiments only for specific Mixpanel cohorts.
+* **Personalized rollouts:** Deliver variations tailored to user properties (e.g., plan, region, engagement level, lifecycle stage).
+* **Cohort-driven A/B testing:** Combine Mixpanel's behavioral analytics with VWO's experimentation engine.
+* **Data-driven decisions:** Leverage Mixpanel's rich user behavior data for more effective feature rollouts.
 
-## **Step 1: Enabling the Amplitude Integration for Your VWO Account**
+## **Step 1: Enabling the VWO-Mixpanel Integration for your VWO Account:**
 
-To enable the VWO-Amplitude integration on your VWO account, follow this:
+To enable the VWO-Mixpanel integration for your VWO account:
 
-1. Log in to your VWO account.
-2. From the left panel of your VWO dashboard, go to **Configurations** > **Integrations**.
-3. Click on the **Amplitude** integration and enable it. Once enabled, the Amplitude screen within the VWO’s Integration section looks like this:  
-     
+1. From the main menu of your VWO dashboard, go to **Configurations** > **Integrations**.
+2. Click on the **Mixpanel** integration and enable it by switching on the toggle. Once   enabled, the Mixpanel screen within the VWO’s Integration section looks like this:
 
-   <Image align="center" border={false} src="https://files.readme.io/db3da347795d7134dc0c9cc8a64f831e305b77f7b3787ba1d9f5e4369dcbe611-image1.png" />
-4. You will be auto-navigated to the **Config** tab.
+<Image align="center" border={false} width="750px" src="https://files.readme.io/af3f339c0b6b0df9d6016bbe3d3fb8c1b46eaddeb06fed866569d65c27f8f575-image4.png" />
 
-5 .Enable "Enable use of Amplitude cohorts for visitor targeting".
+3. You will be auto-navigated to the **Config** tab.
 
-* Click Save.
-* Copy/note the API key that VWO auto-generates. You'll need this to configure Amplitude.  
+<Image align="center" border={false} width="450px" src="https://files.readme.io/4c21af1578f743ad58fcf4524be772d8f8e25fb3676107eb7c73d6109e08b2e5-image1.png" />
 
-  <Image align="center" border={false} src="https://files.readme.io/2c0f2a786915338cef35c4099c73cd58f5e6cecb9a9ad71f3a26552765c8473c-image2.png" />
+3. Enable "Enable use of Mixpanel cohorts for visitor targeting".
+4. Click Save
+5. Copy/note the API key that VWO generates. You'll need this to configure Mixpanel.
 
-## **Step 2 - Configure VWO as a Destination in Amplitude**
+## **Step 2 - Configure VWO as a Destination in Mixpanel:**
 
-* In Amplitude, navigate to Data > Catalog > Destinations > VWO.
-* Click Add another destination.
+* In Mixpanel, navigate to Integrations.
+* Click Add a new integration, select VWO.
 * Enter a name for the destination (e.g., “VWO Production”).
 * Paste the API Key from the previous VWO step.
-* For the User ID, select the property that best identifies your users (typically Amplitude's Device ID or User ID, as appropriate for your organization).
-* Click Save.    
+* For the user identification, make sure user profiles in Mixpanel have the $vwo_user_id property set (this must match the User ID in VWO).
+* Click Save.
 
-  <Image align="center" border={false} width="400px" src="https://files.readme.io/3442aab1de98fabaa135820b3a573ff68c2d48c42063bad913e8198d83bc4de3-image3.png" />
+## **Step 3 - Sync Cohorts from Mixpanel to VWO:**
 
-  
-
-## **Step 3 - Sync Cohorts from Amplitude to VWO**
-
-* In Amplitude, go to Users > Cohorts.
-* Select an existing cohort or create a new one using Amplitude’s segmentation builder.
-* Click Sync for the cohort.
-* In the Select Destination popup, choose your VWO destination.
+* In Mixpanel, go to Data Management > Cohorts.
+* Select an existing cohort or create a new one using Mixpanel’s segmentation builder.
+* Click on the cohort’s menu and choose Export to → VWO.
 * Choose the sync frequency:
-  * Enable Scheduled Sync: Recommended (syncs automatically, keeps targeting up to date).
-  * One-Time Sync: Use if you do not want to keep syncing changes.
-* Click Sync.  
+  * Dynamic Sync: Recommended. Syncs automatically every 2 hours, updates targeting as your cohort changes.
+  * One-Time Export: Only exports the current cohort list, no updates.
+* Click Sync.
 
-<Image align="center" border={false} width="550px" src="https://files.readme.io/f73e03bbf6e36c496dd11ce5eaf33b766d48b1c2ee8dab6dc9a833013c5d8894-image5.png" />
+  <Image align="center" border={false} width="650px" src="https://files.readme.io/92c9c6e8b387ed8d25b3a98e9bfdfa45e020649e073a7468b25930a1e53c8471-image2.png" />
 
-## **Step 4 -  Import & Activate Amplitude Cohorts in VWO**
+## **Step 4 -  Import & Activate Mixpanel Cohorts in VWO:**
 
-* Back in VWO, within the Amplitude integration settings, click Add Cohort.
-* Search for or select the Amplitude cohort(s) you just synced.
+* Back in VWO, within the Mixpanel integration settings, click Add Cohort.
+* Search for or select the Mixpanel cohort(s) you just synced.
 * Click Add.
-* First sync may take up to 24 hours depending on the size of cohort. Subsequent syncs are automatic (every 24 hours by default), but you can also trigger manual sync.  
+  * First sync may take up to 2 hours. Subsequent syncs are automatic (every 2 hours by default for dynamic sync).
+  * Manual sync is available if required.
 
-    
+    <Image align="center" border={false} width="400px" src="https://files.readme.io/7f49324f988390c09fe56b2ef2d8f7e9ff27c532055b555d4f1b2e8ca2a57f2f-image3.png" />
 
-  <Image align="center" border={false} width="600px" src="https://files.readme.io/d7dd3745daf67e9ecd3056165fd48adf20f9fbd579d56fc6ba43034f73d10e0f-image4.png" />
+## Step 5 - SDK Setup (Node.js Example)
 
-## **Step 5 - SDK Setup (Node.js Example)**
-
-### **5.1 Install and Initialize the VWO FE SDK**
+### **5.1 Install and Initialize the VWO SDK**
 
 Install the official VWO FE Node SDK:
 
@@ -86,7 +80,7 @@ Install the official VWO FE Node SDK:
 npm install vwo-fme-node-sdk
 ```
 
-### 5.2 Setup Gateway Service :**
+### 5.2 Setup Gateway Service :
 
 **Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
 
@@ -106,11 +100,11 @@ const vwoClient = await vwo.init({
 });
 ```
 
-Note: The gatewayService enables real-time flag evaluations and syncs your SDK with the VWO Gateway.
+**Note:** The gatewayService enables real-time flag evaluations and syncs your SDK with the VWO Gateway.
 
-## **Step 6: Setting Up Pre-Segmentation for Amplitude-Synced Segments**
+## **Step 6: Setting Up Pre-Segmentation for Mixpanel-Synced Segments**
 
-Once your Amplitude segments are imported into VWO, configure **pre-segmentation** in your feature flag to target those users.
+Once your Mixpanel segments are imported into VWO, configure **pre-segmentation** in your feature flag to target those users.
 
 ### **6.1 Configure Pre-Segmentation in the Feature Flag**
 
@@ -134,62 +128,61 @@ Once your Amplitude segments are imported into VWO, configure **pre-segmentation
 
 7. In **Attribute**, select **Custom Variable**.
 
-8. Enter the identifier name used for targeting.
+8. Enter the identifier name used for targeting (e.g., vwo_user_id).
 
 9. Choose **Operator → In List**.
 
-10. Select the **Attribute List** corresponding to your Amplitude segment (e.g., amplitude_premium_users).
+10. Select the **Attribute List** corresponding to your Mixpanel segment (e.g., mixpanel_premium_users).
 
 11. Save the rule and **toggle ON** the rollout rule.
 
-Finally, copy the **SDK Key** — you’ll need it for SDK initialization.
+Finally, copy the **SDK Key;** you’ll need it for SDK initialization.
 
-## **Step 7: Implementing Amplitude Segment Targeting in SDK**
+## **Step 7: Implementing Mixpanel Segment Targeting in SDK**
 
-After configuring pre-segmentation in the VWO app, ensure your SDK passes the appropriate user context for evaluation. Let’s see an example of using Amplitude Segments in feature evaluation.
+After configuring pre-segmentation in the VWO app, ensure your SDK passes the appropriate user context for evaluation. Let’s see an example of using Mixpanel cohorts in feature evaluation.
 
 #### Once the SDK is installed, do the following
 
-* Add the Amplitude user identifier inside customVariables while creating the user context.
-* Pass this context to getFlag() so VWO can evaluate the feature flag using Amplitude cohort pre-segmentation.
+* #### Set the Mixpanel user identifier (mapped to `$vwo_user_id`) inside `customVariables` while creating the user context
+
+* Pass this context to `getFlag()` so VWO can evaluate the feature flag using Mixpanel cohort pre-segmentation.
 
 ```javascript
 let context = {
-    id: 'UserID',
+    id: 'UserID', // Should match $vwo_user_id in Mixpanel
     customVariables: {
-        "your_variable_name": "value_for_variable"
+//example custom variable
+        "vwo_user_id": "user_12345"
     },
     ipAddress: 'user_ip_Address',
-    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36'
-
-
+    userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko)'
 };
 
 const featureFlag = vwoClient.getFlag('featureFlag', context);
 
-if (featureFlag.enabled) {
-    console.log("Feature enabled for Amplitude-segmented user");
+if (featureFlag.isEnabled()) {
+    console.log("Feature enabled for Mixpanel-segmented user");
 } else {
-    console.log("User does not qualify for the Amplitude segment rollout");
+    console.log("User does not qualify for the Mixpanel cohort rollout");
 }
 ```
 
+###
+
 ### **Explanation**
 
-* The key "your_custom_variable" must **exactly match** the identifier defined in your VWO pre-segmentation rule.
-
-* If the value Identifier exists in the imported Amplitude list, the segmentation **passes** and the user qualifies.
-
-* If not, the segmentation **fails** and the rule  remains disabled for that user.
+* The key "vwo_user_id" must exactly match the identifier defined in your VWO pre-segmentation rule.
+* If the value (e.g., user_12345) exists in the imported Mixpanel cohort list, the segmentation passes and the user qualifies.
+* If not, the segmentation fails, and the rule remains disabled for that user.
 
 ***
 
 ## **Notes & Best Practices**
 
-* Ensure the **custom variable key** in your SDK context matches the one defined in VWO’s rule configuration.
-
-* If you have multiple Amplitude Cohorts, create separate rollout rules for each to maintain clear targeting logic.
-
-* Always use **recurring sync** to keep segment data updated between Amplitude and VWO
+* Ensure the custom variable key in your SDK context matches the one defined in VWO’s rule configuration.
+* Only Mixpanel-identified users (with $vwo_user_id) from the synced cohort will pass the segmentation rule.
+* If you have multiple Mixpanel cohorts, create separate rollout rules for each to maintain clear targeting logic.
+* Always use dynamic sync to keep cohort data updated between Mixpanel and VWO.
 
 <br />
