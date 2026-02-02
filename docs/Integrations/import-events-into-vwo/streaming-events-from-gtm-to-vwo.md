@@ -194,11 +194,13 @@ By default, GTM is set up to access events from your datalayer variable named 'd
 
 * ### **Issue: Event is not appearing in VWO**
 
-  * Verify tag firing using GTM Preview mode
-  * Ensure VWO SmartCode loads before the GTM event fires (if Offline Conversion is not enabled)
+  * Verify tag firing using GTM Preview mode.
+  * Ensure VWO SmartCode loads before the GTM event fires (if Offline Conversion is not enabled).
+* ### **Issue: Data not linked to the correct user (Offline Conversion)** 
 
-  ### **Issue: Data not linked to the correct user (Offline Conversion)**
+  * Ensure the VWO Visitor ID field is populated with a valid UUID.
+  * If undefined, check the GTM cookie variable configuration.
 
-  * Ensure the VWO Visitor ID field is populated with a valid UUID
+  <br />
 
-  * If undefined, check the GTM cookie variable configuration
+  <br />
