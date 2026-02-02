@@ -83,7 +83,6 @@ Enables sending events for Feature experimentation (FE) using Offline Conversion
     }
   }
   ```
-  <br />
 * For a value inside a nested object, such as "value": 55 inside ecommerce,  the JSON Key Path to use is: **ecommerce.value**
 * **For a value inside an array**, such as the name of the first purchased item ("Vintage Chair"), the JSON Key Path to use is: **ecommerce.items.0.item_name**
 
