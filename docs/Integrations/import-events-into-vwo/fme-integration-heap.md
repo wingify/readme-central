@@ -1,5 +1,5 @@
 ---
-title: Integrating VWO Feature Experimentation (FE) With Heap
+title: Heap
 deprecated: false
 hidden: true
 metadata:
