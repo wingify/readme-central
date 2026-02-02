@@ -1,5 +1,5 @@
 ---
-title: Integrating VWO Feature Experimentation (FE) with Amplitude
+title: Amplitude
 deprecated: false
 hidden: true
 metadata:
