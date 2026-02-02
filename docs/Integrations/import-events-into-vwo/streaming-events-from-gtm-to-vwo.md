@@ -1,7 +1,7 @@
 ---
 title: Streaming Events From GTM to VWO
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
