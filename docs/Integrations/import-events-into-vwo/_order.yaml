@@ -1,7 +1,7 @@
 - fme-integration-gtm-import-events
 - fme-integration-import-events-mixpanel
 - fme-integration-import-events-heap
-- trigger-vwo-events-using-gtm
+- fme-integration-triggering-events-using-gtm
 - fme-integration-import-events-amplitude
 - fme-integration-import-events-streaming-gtm
 - fme-integration-observability-datadog
