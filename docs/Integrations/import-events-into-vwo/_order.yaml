@@ -2,6 +2,6 @@
 - fme-integration-import-events-mixpanel
 - fme-integration-import-events-heap
 - trigger-vwo-events-using-gtm
-- integrating-vwo-feature-experimentation-fe-with-amplitude
+- fme-integration-import-events-amplitude
 - streaming-events-from-gtm-to-vwo
 - datadog-triggers
