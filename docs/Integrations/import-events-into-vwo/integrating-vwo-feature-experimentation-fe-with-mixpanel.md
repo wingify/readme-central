@@ -1,5 +1,5 @@
 ---
-title: Integrating VWO Feature Experimentation (FE) with Mixpanel
+title: Mixpanel
 deprecated: false
 hidden: true
 metadata:
