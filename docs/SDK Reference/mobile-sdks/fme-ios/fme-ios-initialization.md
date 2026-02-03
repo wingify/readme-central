@@ -31,7 +31,7 @@ VWOFme.initialize(options: options) { result in
 }
 ```
 
-The `initialize()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature\
+The `initialize()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
@@ -57,7 +57,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **accountId**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -72,7 +72,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **sdkKey**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -80,14 +80,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
       </td>
     </tr>
 
     <tr>
       <td>
         **logLevel**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -102,7 +102,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **logPrefix**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -117,7 +117,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **integrations**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -132,7 +132,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **cachedSettingsExpiryTime**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -140,14 +140,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Expiry time for cached settings in milliseconds. For more details, please check - [Cache Management](https://developers.vwo.com/v2/docs/cache-setting-expiry#/)
+        Expiry time for cached settings in milliseconds. For more details, please check - [Cache Management](https://developers.vwo.com/v2/docs/fme-ios-cache-setting-expiry#/)
       </td>
     </tr>
 
     <tr>
       <td>
         **pollInterval**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -162,7 +162,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **batchMinSize**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -170,14 +170,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Minimum size of batch to upload. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/docs/event-batching#/)
+        Minimum size of batch to upload. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/docs/fme-ios-event-batching#/)
       </td>
     </tr>
 
     <tr>
       <td>
         **batchUploadTimeInterval**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -185,14 +185,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Batch upload time interval in milliseconds. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/docs/event-batching#/)
+        Batch upload time interval in milliseconds. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/docs/fme-ios-event-batching#/)
       </td>
     </tr>
 
     <tr>
       <td>
         **logTransport**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
