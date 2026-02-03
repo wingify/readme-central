@@ -140,7 +140,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Expiry time for cached settings in milliseconds. For more details, please check - [Cache Management](https://developers.vwo.com/v2/docs/fme-ios-cache-setting-expiry#/)
+        Expiry time for cached settings in milliseconds. For more details, please check - [Cache Management](https://developers.vwo.com/v2/docs/fme-ios-cache-setting)
       </td>
     </tr>
 
