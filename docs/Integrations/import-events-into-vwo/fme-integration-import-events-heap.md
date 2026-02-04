@@ -1,7 +1,7 @@
 ---
 title: Heap
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -81,7 +81,7 @@ Now, we have to setup the SDK and avail the integration feature.
 
 ## Step 5 : SDK Setup (Node.js Example)
 
-### **5.1 Install and Initialize the VWO SDK**
+### Install and Initialize the VWO SDK
 
 Install the official VWO FE Node SDK:
 
@@ -89,18 +89,18 @@ Install the official VWO FE Node SDK:
 npm install vwo-fme-node-sdk
 ```
 
-### 5.2 Setup Gateway Service :
+### Setup Gateway Service :
 
 **Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
 
-### 5.3 Initialize the SDK in your application with gateway service:
+### Initialize the SDK in your application with the VWO gateway service:
 
 **Reference**: [SDK Initialization Doc](https://developers.vwo.com/v2/docs/fme-node-initialization)
 
 ```javascript
-const vwo = require('vwo-fme-node-sdk');
+const { init } = require('vwo-fme-node-sdk');
 
-const vwoClient = await vwo.init({
+const vwoClient = await init({
     sdkKey: 'YOUR_SDK_KEY',
     accountId: 'YOUR_ACCOUNT_ID',
     gatewayService: {
@@ -111,11 +111,11 @@ const vwoClient = await vwo.init({
 
 Note: The `gatewayService` is mandatory for Heap integration because the SDK itself does not store your Heap segment data. When you evaluate a flag, the SDK uses the Gateway to check in real-time if the user belongs to the synced Heap segment.
 
-## **Step 6: Setting Up Pre-Segmentation for Heap-Synced Segments**
+## Step 6: Setting Up Pre-Segmentation for Heap-Synced Segments
 
 Once your Heap segments are imported into VWO, configure **pre-segmentation** in your feature flag to target those users.
 
-### **6.1 Configure Pre-Segmentation in the Feature Flag**
+### Configure Pre-Segmentation in the Feature Flag
 
 1. Navigate to **Feature Experimentation → Feature Flags** in VWO.
 
@@ -141,7 +141,7 @@ Once your Heap segments are imported into VWO, configure **pre-segmentation** in
 
 9. Choose **Operator → In List**.
 
-10. Select the **Attribute List** corresponding to your Heap segment (e.g., `heap_premium_users`).  
+10. Select the **Attribute List** corresponding to your Heap segment (e.g., `heap_premium_users`).
 
     <Image align="center" border={false} width="700px" src="https://files.readme.io/f9c1dec8265c82ed3b2e25924bcbf16a96664c8fa86f63af53f93a7bfbff5d46-Screenshot_2026-02-04_171510.png" />
 
