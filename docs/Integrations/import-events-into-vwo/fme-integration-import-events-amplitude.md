@@ -138,7 +138,9 @@ Once your Amplitude segments are imported into VWO, configure **pre-segmentation
 
 9. Choose **Operator → In List**.
 
-10. Select the **Attribute List** corresponding to your Amplitude segment (e.g., amplitude_premium_users).
+10. Select the **Attribute List** corresponding to your Amplitude segment (e.g., amplitude_premium_users).  
+
+    <Image align="center" border={false} width="700px" src="https://files.readme.io/676815b88430b6361ff244a518ddd2321f96d0c28776cfc78c3753292ea98437-Screenshot_2026-02-04_171510.png" />
 
 11. Save the rule and **toggle ON** the rollout rule.
 
