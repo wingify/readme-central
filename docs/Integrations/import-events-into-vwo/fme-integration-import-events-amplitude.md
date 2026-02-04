@@ -90,7 +90,7 @@ npm install vwo-fme-node-sdk
 
 **Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
 
-### 5.3 Initialize the SDK in your application with gateway service:**
+### 5.3 Initialize the SDK in your application with gateway service:
 
 **Reference**: [SDK Initialization Doc](https://developers.vwo.com/v2/docs/fme-node-initialization)
 
@@ -106,7 +106,7 @@ const vwoClient = await vwo.init({
 });
 ```
 
-**Note:** The gatewayService is mandatory for Amplitude integration because the SDK itself does not store your Amplitude cohort data. When you evaluate a flag, the SDK uses the Gateway to check in real-time if the user belongs to the synced Amplitude segment.
+**Note:** The `gatewayService` is mandatory for Amplitude integration because the SDK itself does not store your Amplitude cohort data. When you evaluate a flag, the SDK uses the Gateway to check in real-time if the user belongs to the synced Amplitude segment.
 
 ## **Step 6: Setting Up Pre-Segmentation for Amplitude-Synced Segments**
 
