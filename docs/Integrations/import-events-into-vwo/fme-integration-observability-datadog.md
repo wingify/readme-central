@@ -1,10 +1,7 @@
 ---
 title: Datadog Triggers
-excerpt: >-
-  NOTE -- THIS WILL BE SHIFTED FROM HERE, SINCE THIS FOLDER CONTAINS IMPORTING
-  EVENTS TO VWO
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -44,13 +41,13 @@ Once you have your URL, you need to configure it in Datadog.
 5. **URL:** Paste the Trigger URL you constructed in Step 1.
 6. Payload: Paste this JSON to disable the feature:
 
-```
+```json
 { "isEnabled": false }
 ```
 
 7. **Custom Headers:** You must add your **VWO API token** here for authentication.
 
-```
+```json
  { "token": "YOUR_VWO_API_TOKEN" }
 ```
 
