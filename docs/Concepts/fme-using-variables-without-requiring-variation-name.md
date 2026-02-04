@@ -114,15 +114,14 @@ if (flag.isEnabled()) {
 }
 ```
 
-<br />
-
 ### **Benefits of This Pattern**
 
 1. **No dependency on variation names** — Your app logic adapts to variable values only.
 2. **Easier experiment evolution** — Add or change variation values without touching code.
 3. **Single source of truth** — All behavioral configuration lives in VWO.
 4. **Better telemetry & experimentation** — You can measure metric impact on variables directly.
-   <br />
+
+<br />
 
 ## Accessing the Variation Name (When You Really Need It)
 
