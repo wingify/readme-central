@@ -1,5 +1,5 @@
 ---
-title: Observalinity
+title: Observability
 deprecated: false
 hidden: false
 metadata:
