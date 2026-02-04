@@ -98,7 +98,7 @@ const vwoClient = await vwo.init({
 });
 ```
 
-**Note:** The gatewayService is mandatory for Mixpanel integration because the SDK itself does not store your Mixpanel cohort data. When you evaluate a flag, the SDK uses the Gateway to check in real-time if the user belongs to the synced Mixpanel segment.
+**Note:** `The gatewayService` is mandatory for Mixpanel integration because the SDK itself does not store your Mixpanel cohort data. When you evaluate a flag, the SDK uses the Gateway to check in real-time if the user belongs to the synced Mixpanel segment.
 
 ## **Step 6: Setting Up Pre-Segmentation for Mixpanel-Synced Segments**
 
@@ -130,7 +130,7 @@ Once your Mixpanel segments are imported into VWO, configure **pre-segmentation*
 
 9. Choose **Operator → In List**.
 
-10. Select the **Attribute List** corresponding to your Mixpanel segment (e.g., mixpanel_premium_users).  
+10. Select the **Attribute List** corresponding to your Mixpanel segment (e.g., mixpanel_premium_users).
 
     <Image align="center" border={false} width="700px" src="https://files.readme.io/d746aac590a3c6c6d8ad2576fb9c6f50f3182057296016fea48a44662fb384df-Screenshot_2026-02-04_171510.png" />
 
