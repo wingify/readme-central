@@ -79,7 +79,7 @@ This enables VWO to start syncing the segment. You can check the sync status fro
 
 Now, we have to setup the SDK and avail the integration feature.
 
-## Step 5 : SDK Setup (Node.js Example)**
+## Step 5 : SDK Setup (Node.js Example)
 
 ### **5.1 Install and Initialize the VWO SDK**
 
@@ -89,7 +89,7 @@ Install the official VWO FE Node SDK:
 npm install vwo-fme-node-sdk
 ```
 
-### 5.2 Setup Gateway Service :**
+### 5.2 Setup Gateway Service :
 
 **Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
 
