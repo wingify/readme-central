@@ -1,7 +1,7 @@
 ---
 title: Amplitude
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -28,7 +28,7 @@ To enable the VWO-Amplitude integration on your VWO account, follow this:
 2. From the left panel of your VWO dashboard, go to **Configurations** > **Integrations**.
 3. Click on the **Amplitude** integration and enable it. Once enabled, the Amplitude screen within the VWO’s Integration section looks like this:
 
-   <Image align="center" border={false} src="https://files.readme.io/db3da347795d7134dc0c9cc8a64f831e305b77f7b3787ba1d9f5e4369dcbe611-image1.png" />
+   <Image align="center" border={true} src="https://files.readme.io/db3da347795d7134dc0c9cc8a64f831e305b77f7b3787ba1d9f5e4369dcbe611-image1.png" className="border" />
 4. You will be auto-navigated to the **Config** tab.
 
 5 .Enable "Enable use of Amplitude cohorts for visitor targeting".
@@ -36,7 +36,7 @@ To enable the VWO-Amplitude integration on your VWO account, follow this:
 * Click Save.
 * Copy/note the API key that VWO auto-generates. You'll need this to configure Amplitude.
 
-  <Image align="center" border={false} src="https://files.readme.io/2c0f2a786915338cef35c4099c73cd58f5e6cecb9a9ad71f3a26552765c8473c-image2.png" />
+  <Image align="center" border={true} src="https://files.readme.io/2c0f2a786915338cef35c4099c73cd58f5e6cecb9a9ad71f3a26552765c8473c-image2.png" className="border" />
 
 ## **Step 2 - Configure VWO as a Destination in Amplitude**
 
@@ -52,7 +52,7 @@ To enable the VWO-Amplitude integration on your VWO account, follow this:
 
 * Click Save.
 
-  <Image align="center" border={false} width="400px" src="https://files.readme.io/3442aab1de98fabaa135820b3a573ff68c2d48c42063bad913e8198d83bc4de3-image3.png" />
+  <Image align="center" border={true} width="400px" src="https://files.readme.io/3442aab1de98fabaa135820b3a573ff68c2d48c42063bad913e8198d83bc4de3-image3.png" className="border" />
 
 ## **Step 3 - Sync Cohorts from Amplitude to VWO**
 
@@ -65,7 +65,7 @@ To enable the VWO-Amplitude integration on your VWO account, follow this:
   * One-Time Sync: Use if you do not want to keep syncing changes.
 * Click Sync.
 
-<Image align="center" border={false} width="550px" src="https://files.readme.io/f73e03bbf6e36c496dd11ce5eaf33b766d48b1c2ee8dab6dc9a833013c5d8894-image5.png" />
+<Image align="center" border={true} width="550px" src="https://files.readme.io/f73e03bbf6e36c496dd11ce5eaf33b766d48b1c2ee8dab6dc9a833013c5d8894-image5.png" className="border" />
 
 ## **Step 4 -  Import & Activate Amplitude Cohorts in VWO**
 
@@ -112,7 +112,7 @@ const vwoClient = await vwo.init({
 
 Once your Amplitude segments are imported into VWO, configure **pre-segmentation** in your feature flag to target those users.
 
-### **6.1 Configure Pre-Segmentation in the Feature Flag**
+### **Configure Pre-Segmentation in the Feature Flag**
 
 1. Navigate to **Feature Experimentation → Feature Flags** in VWO.
 
@@ -138,7 +138,7 @@ Once your Amplitude segments are imported into VWO, configure **pre-segmentation
 
 9. Choose **Operator → In List**.
 
-10. Select the **Attribute List** corresponding to your Amplitude segment (e.g., amplitude_premium_users).  
+10. Select the **Attribute List** corresponding to your Amplitude segment (e.g., amplitude_premium_users).
 
     <Image align="center" border={false} width="700px" src="https://files.readme.io/676815b88430b6361ff244a518ddd2321f96d0c28776cfc78c3753292ea98437-Screenshot_2026-02-04_171510.png" />
 
