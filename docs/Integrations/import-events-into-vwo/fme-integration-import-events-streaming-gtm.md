@@ -1,12 +1,13 @@
 ---
 title: Streaming Events From GTM to VWO
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
-**ATTENTION**:  
-VWO Event Streamer fetches events only from the GTM `dataLayer` variable. It does **not** import events directly from Google Analytics (GA)
+<Callout icon="🚧">
+  VWO Event Streamer fetches events only from the GTM `dataLayer` variable. It does **not** import events directly from Google Analytics (GA).
+</Callout>
 
 VWO Event Streamer is a custom tag template that you can import into your GTM account in order to stream custom events from GTM to VWO. This is an effortless approach if you just require fetching custom events from GTM to VWO. You just need to install the VWO streamer as a template on GTM and configure the events to be sent to VWO from GTM.
 
@@ -22,14 +23,13 @@ Download the VWO Event Streamer tag template [from here](https://github.com/wing
 
 1. Log in to your GTM account and select the appropriate workspace where you want to install the VWO Event Streamer.
 
-2. From the main menu on the left, go to **Templates** > **Tag Templates** > **New**.  
-
+2. From the main menu on the left, go to **Templates** > **Tag Templates** > **New**.
 
    <Image align="center" border={false} width="650px" src="https://files.readme.io/3c973f3bda16d8cc51fdd648f6d42c15fe28a62324c44fa5566f4ed49c4fd04d-image3.png" />
 
-3. On the Template Editor page, click on the vertical ellipsis (**⋮**) and select **Import**.  
+3. On the Template Editor page, click on the vertical ellipsis (**⋮**) and select **Import**.
 
-   <Image align="center" border={false} width="600px" src="https://files.readme.io/eea08acf5dffff0b6d889b035b00175f48413ea1d8a2be1289c2ec84c6185707-image11.png" />
+   <Image align="center" border={true} width="600px" src="https://files.readme.io/eea08acf5dffff0b6d889b035b00175f48413ea1d8a2be1289c2ec84c6185707-image11.png" className="border" />
 
 4. Unzip the **VWO_Event_Streamer.zip** and select the **template.tpl** file.
 
@@ -41,9 +41,9 @@ Upon successful import, you can use the VWO Event Streamer template to stream th
 
 1. From the main menu on your GTM dashboard, navigate to **Tags** > **New**.
 2. Name the tag and click on the **Tag Configuration** section.
-3. From the list of tags, under the **Custom** section, select the **VWO Streamer** tag.  
+3. From the list of tags, under the **Custom** section, select the **VWO Streamer** tag.
 
-   <Image align="center" border={false} width="625px" src="https://files.readme.io/1885bbf3e462d517b708fbb025ff9b6d232aef8d98db70191f18701d3f53e255-image5.png" />
+   <Image align="center" border={true} width="625px" src="https://files.readme.io/1885bbf3e462d517b708fbb025ff9b6d232aef8d98db70191f18701d3f53e255-image5.png" className="border" />
 
 ## &#x20;**Configure the VWO Template Settings:**
 
@@ -55,7 +55,7 @@ Enables sending events for Feature experimentation (FE) using Offline Conversion
 * **Region:** Region, US (default)
 * **VWO Visitor ID:** [User’s UUID](#configuring-the-vwo-uuid-variable-\(only-required-for-fe\))
 
-<Image align="center" border={false} width="600px" src="https://files.readme.io/b52e54ffe04ee088bbb47bd83665bb46ada5541185578e9dd837d18bf8db9a91-image4.png" />
+<Image align="center" border={true} width="600px" src="https://files.readme.io/b52e54ffe04ee088bbb47bd83665bb46ada5541185578e9dd837d18bf8db9a91-image4.png" className="border" />
 
 ## **Additional Custom Properties**
 
@@ -70,6 +70,7 @@ Enables sending events for Feature experimentation (FE) using Offline Conversion
 * **JSON Key Path:** The path to the key in the JSON object.
 
   **Example JSON:**
+
   ```json
   {
     "event": "purchase",
@@ -94,16 +95,15 @@ Enables sending events for Feature experimentation (FE) using Offline Conversion
 Use this section to block specific data from being sent to VWO
 
 * **Properties to exclude:** Specify the names of the events to exclude if necessary (e.g.,taxValue).
-* **Events to exclude:** Add rows for event names you do not want to track (e.g.,sign_up).   
-   
+* **Events to exclude:** Add rows for event names you do not want to track (e.g.,sign_up).
 
-  <Image align="center" border={false} width="500px" src="https://files.readme.io/b610734c68606eb426b8070c2c07870cc488917a5bca1ad750bdbae3c2124e67-image6.png" />
+  <Image align="center" border={true} width="500px" src="https://files.readme.io/b610734c68606eb426b8070c2c07870cc488917a5bca1ad750bdbae3c2124e67-image6.png" className="border" />
 
 ## **Triggering**
 
-1. Click on the **Triggering** section and click on the **+** icon at the top-right to create a new trigger.  
+1. Click on the **Triggering** section and click on the **+** icon at the top-right to create a new trigger.
 
-   <Image align="center" border={false} width="550px" src="https://files.readme.io/d1db45d7aee4394704a206b6ab7495f8df650ebb516ab77e01eead04264b733d-image10.png" />
+   <Image align="center" border={true} width="550px" src="https://files.readme.io/d1db45d7aee4394704a206b6ab7495f8df650ebb516ab77e01eead04264b733d-image10.png" className="border" />
 2. Name the trigger and click on the **Trigger Configuration** section.
 3. We recommend using the following trigger settings to stream all the events to VWO. Configure your trigger settings as follows and click on **Save**:
 
@@ -113,13 +113,13 @@ Use this section to block specific data from being sent to VWO
 
    3. Select the **Use regex matching** option.
 
-   4. Click **Save**.  
+   4. Click **Save**.
 
-      <Image align="center" border={false} width="550px" src="https://files.readme.io/18589fcead215a22e499d9bee9093a4ed59c019eafb8bd02dfcd6e8c4108fa94-image2.png" />
+      <Image align="center" border={true} width="550px" src="https://files.readme.io/18589fcead215a22e499d9bee9093a4ed59c019eafb8bd02dfcd6e8c4108fa94-image2.png" className="border" />
 
-   Now, your website events from GTM will be streaming into the **UNREGISTERED EVENTS** section under [**Events**](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO)  in your [**VWO Data360**](https://help.vwo.com/hc/en-us/categories/8675257180185-VWO-Data360)  module. You can use these events to [set up your campaign triggers](https://help.vwo.com/hc/en-us/articles/18789345801113)   , [create metrics](https://help.vwo.com/hc/en-us/articles/8675547113625-Working-With-Metrics-in-VWO) , and [target the visitors for your campaigns](https://help.vwo.com/hc/en-us/articles/360020418454-Using-Segmentation-in-VWO) .  
+   Now, your website events from GTM will be streaming into the **UNREGISTERED EVENTS** section under [**Events**](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO)  in your [**VWO Data360**](https://help.vwo.com/hc/en-us/categories/8675257180185-VWO-Data360)  module. You can use these events to [set up your campaign triggers](https://help.vwo.com/hc/en-us/articles/18789345801113)   , [create metrics](https://help.vwo.com/hc/en-us/articles/8675547113625-Working-With-Metrics-in-VWO) , and [target the visitors for your campaigns](https://help.vwo.com/hc/en-us/articles/360020418454-Using-Segmentation-in-VWO) .
 
-   <Image align="center" border={false} width="600px" src="https://files.readme.io/139f37e0e973f60c21ecec316253a60e6c9ffd95faa8971f0e08088cd1352354-image9.png" />
+   <Image align="center" border={true} width="600px" src="https://files.readme.io/139f37e0e973f60c21ecec316253a60e6c9ffd95faa8971f0e08088cd1352354-image9.png" className="border" />
 
 ## **Configuring the VWO UUID Variable (Only required for FE)**
 
@@ -131,9 +131,9 @@ Use this section to block specific data from being sent to VWO
    2. Enter **_vwo_uuid** in the Cookie Name field.
 5. Save the variable.
 
-   **NOTE:** To enable GTM event tracking, the `_vwo_uuid` cookie must be accessible in the browser. Use the VWO SDK’s `getUUID()` method to generate this identifier based on your implementation:  
+   **NOTE:** To enable GTM event tracking, the `_vwo_uuid` cookie must be accessible in the browser. Use the VWO SDK’s `getUUID()` method to generate this identifier based on your implementation:
 
-   <Image align="center" border={false} width="600px" src="https://files.readme.io/44df4f558bcbf250a453ed0847b25e29ab96404482f74a67bab823c3413572c0-image7.png" />
+   <Image align="center" border={true} width="600px" src="https://files.readme.io/44df4f558bcbf250a453ed0847b25e29ab96404482f74a67bab823c3413572c0-image7.png" className="border" />
 
 ### **1. Backend SDK (Server-Side)**
 
@@ -170,16 +170,16 @@ gtag("event", "event_name");
 
 By default, GTM is set up to access events from your datalayer variable named 'dataLayer.' If you use a different datalayer variable name, follow these steps to specify your dataLayer variable name in GTM. This allows GTM to recognize and stream your events:
 
-1. From your GTM dashboard, access **Templates** > **Tag Templates** > **VWO Event Streamer** > **Code**.  
+1. From your GTM dashboard, access **Templates** > **Tag Templates** > **VWO Event Streamer** > **Code**.
 
-   <Image align="center" border={false} width="550px" src="https://files.readme.io/6eacdad66a4aaa77520d241fab64fdc0797c44d251612d4a4d5490938bd65b61-image1.png" />
-2. In the code, replace “dataLayer”, corresponding to **const DATALAYER_VARIABLE_NAME**, with your custom datalayer variable name and click **Save**.  
+   <Image align="center" border={true} width="550px" src="https://files.readme.io/6eacdad66a4aaa77520d241fab64fdc0797c44d251612d4a4d5490938bd65b61-image1.png" className="border" />
+2. In the code, replace “dataLayer”, corresponding to **const DATALAYER_VARIABLE_NAME**, with your custom datalayer variable name and click **Save**.
 
-   <Image align="center" border={false} width="550px" src="https://files.readme.io/5b25a4455260425cda1b759196c5a4a9ecb8f6bfb2f3a01e37c7f972090e77e5-image8.png" />
+   <Image align="center" border={true} width="550px" src="https://files.readme.io/5b25a4455260425cda1b759196c5a4a9ecb8f6bfb2f3a01e37c7f972090e77e5-image8.png" className="border" />
 3. Go to **Permissions** > **Accesses global variables** > **Add key**.
 4. In the **Key** field, enter the name of your custom datalayer variable, select **Read**, and click **Add**.
 
-   <Image align="center" border={false} width="550px" src="https://files.readme.io/c7decc60e38ecf42d05144109a67025097a6323c56df0da50a72bd489d7d2a3e-image12.png" />
+   <Image align="center" border={true} width="550px" src="https://files.readme.io/c7decc60e38ecf42d05144109a67025097a6323c56df0da50a72bd489d7d2a3e-image12.png" className="border" />
 5. Click **Save**.
 
 ## **Technical Details**
