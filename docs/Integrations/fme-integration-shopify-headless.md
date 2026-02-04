@@ -57,9 +57,10 @@ Oxygen is an **Edge-like environment** with:
 * Fast cold starts
 * Streaming SSR
 
-This means:
-✔ SDK must support Edge execution
-❌ Cannot rely on Node-only modules
+This means:  
+
+* ✔ SDK must support Edge execution
+* ❌ Cannot rely on Node-only modules
 
 ## Hydrogen + Oxygen Compatibility
 
