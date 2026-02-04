@@ -1,7 +1,7 @@
 ---
 title: Shopify Headless
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
@@ -11,10 +11,7 @@ metadata:
 
 Overview
 
-
-
 Shopify Headless with **Hydrogen + Oxygen** is a modern, server-centric approach where Hydrogen (React + Remix) renders pages, and Oxygen (Shopify’s Edge environment) executes server-side code.
-
 
 To run **experiments and feature flags** reliably in this architecture, we need a client that can:
 
@@ -28,10 +25,6 @@ The VWO FE SDK — available at [GitHub](https://github.com/wingify/vwo-fme-node
 
 Architectural Considerations
 
-
-
-<br />
-
 | Layer                       | Execution Environment   | Hydration |
 | --------------------------- | ----------------------- | --------- |
 | Remix Loaders               | Server / Oxygen (Edge)  | N/A       |
@@ -42,7 +35,7 @@ Architectural Considerations
 <br />
 
 **Key Design Principle:**
- Always determine feature flags and experiment variations **before sending the HTML**. This avoids flickering and inconsistent UX.
+Always determine feature flags and experiment variations **before sending the HTML**. This avoids flickering and inconsistent UX.
 
 <br />
 
@@ -57,8 +50,6 @@ Architectural Considerations
 
 Environment Constraints (Oxygen & Edge)
 
-
-
 Oxygen is an **Edge-like environment** with:
 
 * No Node’s native modules (fs, net, etc.)
@@ -66,10 +57,9 @@ Oxygen is an **Edge-like environment** with:
 * Fast cold starts
 * Streaming SSR
 
-
 This means:
- ✔ SDK must support Edge execution
- ❌ Cannot rely on Node-only modules
+✔ SDK must support Edge execution
+❌ Cannot rely on Node-only modules
 
 ## Hydrogen + Oxygen Compatibility
 
@@ -78,7 +68,6 @@ This means:
 | Node.js Server (SSR) | ✅                   | Works normally                       |
 | Oxygen Edge          | ⚠️                  | Must await async tracking            |
 | Browser JS           | ⚠️                  | SDK key exposed (use read-only keys) |
-
 
 VWO’s FE SDK is Edge compatible, so we can initialize it server-side during Remix loader execution.
 
@@ -102,7 +91,6 @@ This installs the SDK, which will run in both server and browser contexts.
 
 ### Initializing the SDK (Server / Oxygen)
 
-
 Store keys as environment variables:
 
 ```shell
@@ -115,7 +103,6 @@ VWO_SDK_CLIENT_KEY=your_browser_key
 <br />
 
 ### Server-Side Integration (Hydrogen Loader)
-
 
 Hydrogen uses Remix loaders to fetch data before rendering.
 In this step:
@@ -141,7 +128,6 @@ export async function createVWOClient() {
 }
 ```
 
-
 Inside a Remix route’s `loader`:
 Example: `app/routes/index.server.ts`
 
@@ -164,10 +150,7 @@ export async function loader({ request }) {
 
 This evaluates feature flags before rendering the page.
 
-  
-
 ### Client-Side Integration (Browser)
-
 
 Even though assignments are computed server-side, we may want to trigger:
 
@@ -213,8 +196,7 @@ if (typeof window !== "undefined") {
 }
 ```
 
-
-Use **client SDK keys** for browser embeds, which are read-only and safe (but visible). 
+Use **client SDK keys** for browser embeds, which are read-only and safe (but visible).
 
 <Callout icon="📘" theme="info">
   Important notes:
@@ -231,7 +213,6 @@ Oxygen behaves like Edge (Cloudflare Workers). The FE SDK works there because:
 
 * It uses the browser-fetch API
 * Doesn’t rely on Node native modules
-
 
 Edge runtimes like Oxygen may terminate async work early.
 
@@ -266,7 +247,7 @@ export async function loader({context, request}: LoaderFunctionArgs) {
 
 <br />
 
-<Callout icon="🚧">
+<Callout icon="🚧" theme="warn">
   ⚠️ Required Vite configuration (Build-time)
   When using Vite-based frameworks (Oxygen), you must also update your `vite.config.ts.`
 </Callout>
@@ -303,7 +284,7 @@ export default defineConfig({
 });
 ```
 
-<Callout icon="🚧">
+<Callout icon="🚧" theme="warn">
   Do NOT let un-awaited asynchronous calls hang — they might get dropped.
   Read more on Edge optimizations here - [https://developers.vwo.com/v2/docs/fme-edge-support](https://developers.vwo.com/v2/docs/fme-edge-support)
 </Callout>
@@ -311,8 +292,6 @@ export default defineConfig({
 <br />
 
 Asynchronous Data Fetching & Fallbacks
-
-
 
 Experiments happen during SSR, so:
 
@@ -348,13 +327,11 @@ try {
 
 **❗ SDK Key Exposure** — In browsers, SDK keys are public but read-only. Avoid putting sensitive logic based on them.
 **❗ Edge Execution Constraints** — Must await tracking/event calls explicitly or risk drop.
-**❗ No built-in caching** — The default client fetches on every init. Consider custom caching/storage for Edge if you have high load. 
+**❗ No built-in caching** — The default client fetches on every init. Consider custom caching/storage for Edge if you have high load.
 
 <br />
 
 Should I run SDK initialization on every request?
-
-
 
 Not necessarily — and you shouldn’t if you can avoid it.
 
@@ -364,18 +341,15 @@ VWO FE SDKs support initialising the SDK using already-fetched or cached setting
 * ⚡ Decisioning happens immediately and synchronously
 * ✅ Ideal for Edge-like environments (e.g., Shopify Oxygen)
 
-
 This makes the SDK highly suitable for high-performance SSR and Edge runtimes, where repeated network calls during request handling should be avoided.
 
 <br />
 
 ### ✅ Recommended approach (especially for Edge / Oxygen)
 
-
 * Fetch VWO settings **periodically** (for example, via a scheduled job, cache refresh, or shared storage).
 * Initialize the SDK using those cached settings.
 * Perform **real-time feature flag and experiment evaluation** without waiting on remote calls.
-
 
 This ensures:
 
@@ -398,4 +372,4 @@ Integrating **VWO FE SDK with Shopify Headless** (Hydrogen + Oxygen) gives you:
 * Browser tracking & personalization
 * Multi-environment compatibility
 
-By aligning with the official SDK usage and adapting to Remix/Oxygen constraints, you get a robust experimentation layer for your storefront. 
+By aligning with the official SDK usage and adapting to Remix/Oxygen constraints, you get a robust experimentation layer for your storefront.
