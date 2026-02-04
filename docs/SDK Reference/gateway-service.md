@@ -20,7 +20,6 @@ The Gateway Service is required in the following scenarios:
 
 1. When using pre-segmentation features based on user location or user agent.
 2. For applications requiring advanced targeting capabilities.
-3. It's mandatory when using any thin-client SDK (e.g., [Go SDK](https://github.com/wingify/vwo-fme-go-sdk)).
 
 ## Architecture and Deployment
 
@@ -43,7 +42,7 @@ The Gateway Service is designed to be deployed within your backend infrastructur
 
 Your application calls the VWO FE SDK, which communicates with the locally deployed Gateway Service. The Gateway Service handles complex logic and data management required for Feature Experimentation.
 
-<Image align="center" src="https://files.readme.io/f983ba3e8432b9bc7e203f76372310430473131856b354b494c6f0930238fa9b-FME_Gateway.drawio.png" />
+<Image align="center" border={false} src="https://files.readme.io/f983ba3e8432b9bc7e203f76372310430473131856b354b494c6f0930238fa9b-FME_Gateway.drawio.png" />
 
 ### How the Gateway Service Works
 
@@ -77,7 +76,7 @@ Once the batching condition is met (either 1000 events or 30 seconds), all the c
 
 ## Deployment
 
-VWO FE Gateway Service is available on the Docker Hub.\
+VWO FE Gateway Service is available on the Docker Hub.  
 Docker Image: [https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service](https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service)
 
 ### Prerequisites
