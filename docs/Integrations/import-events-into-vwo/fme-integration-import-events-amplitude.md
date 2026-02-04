@@ -106,7 +106,7 @@ const vwoClient = await vwo.init({
 });
 ```
 
-**Note:** The gatewayService is mandatory for Amplitude integration because the SDK itself does not store your Amplitude cohort data. When you evaluate a flag, the SDK uses the Gateway to check in real-time if the user belongs to the synced Amplitude segment.
+**Note:** The gatewayService is mandatory for Amplitude integration because the SDK itself does not store your Amplitude cohort data. When you evaluate a flag, the SDK uses the Gateway to check in real-time if the user belongs to the synced Amplitude cohort.
 
 ## **Step 6: Setting Up Pre-Segmentation for Amplitude-Synced Segments**
 
