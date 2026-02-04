@@ -135,13 +135,13 @@ Use this section to block specific data from being sent to VWO
 
    <Image align="center" border={true} width="600px" src="https://files.readme.io/44df4f558bcbf250a453ed0847b25e29ab96404482f74a67bab823c3413572c0-image7.png" className="border" />
 
-### **1. Backend SDK (Server-Side)**
+### **Backend SDK (Server-Side)**
 
 * **Generate:** Call `getUUID(userId, accountId)` in your SDK (e.g., Node.js).
 * **Pass:** Send the generated UUID from your server to the frontend.
 * **Set:** Store the value in the browser as the `_vwo_uuid` cookie. Ensure the cookie is **not** `HttpOnly` so GTM can access it.
 
-### **2. Frontend SDK (Client-Side)**
+### **Frontend SDK (Client-Side)**
 
 * **Generate:** Call `getUUID()` directly within your client-side SDK.
 * **Set:** Store the returned string in the browser using `document.cookie` with the name `_vwo_uuid`.
@@ -187,7 +187,7 @@ By default, GTM is set up to access events from your datalayer variable named 'd
 * **SmartCode Dependency:** When the “Feature experimentation” option is OFF, this tag relies on VWO SmartCode running on the page.
 * **Via Offline Conversion:** When ON, the tag pushes data independently of SmartCode. A valid VWO Visitor ID is required.
 
-# #**Recommended Best Practices**
+## Recommended Best Practices
 
 * While configuring the VWO Event tag in GTM, map event parameters (Properties) using **dynamic GTM variables** (typically sourced from the dataLayer) such as orderId or price, rather than using hard-coded static values.
 * Maintain consistent **naming conventions** (camelCase, snake_case).
