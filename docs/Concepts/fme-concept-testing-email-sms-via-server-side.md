@@ -20,14 +20,16 @@ Client-side testing tools (like VWO Visual Editor) rely on two fundamental techn
    * Email Clients (Gmail, Outlook, etc.): Do not execute JavaScript for security reasons.
    * SMS: Is purely text-based (or simple media) and has no execution capability.
 2. **Real-Time Modification**
-   Client-side tools modify content after the page loads but before the user sees it.  
+   Client-side tools modify content after the page loads but before the user sees it.
    * Email/SMS: The content is generated once on the server and "shipped" to the user. Once delivered, the subject line or message body cannot be changed.
 
 Since a script can’t be run on the user's device to decide and change the text, it must be decided on the server before the message is sent.
 
+<br />
+
 ### **Server-Side Experimentation is Best for Backend Logic and Emails/SMS**
 
-### **a. Execution at Source of Delivery**
+**a. Execution at Source of Delivery**
 
 Server-side testing evaluates logic on the backend where operational decisions are made, such as:
 
@@ -37,7 +39,7 @@ Server-side testing evaluates logic on the backend where operational decisions a
 
 This is fundamentally different from client experimentation, where variation is displayed after page load.
 
-### **b. Ability to Run Complex Tests**
+**b. Ability to Run Complex Tests**
 
 Server-side tests support:
 
@@ -51,7 +53,7 @@ Furthermore, server-side experimentation avoids UI performance costs like flicke
 
 ## **What VWO Feature Experimentation (FE) Offers**
 
-### **a. Feature Experimentation Server-Side Support**
+**a. Feature Experimentation Server-Side Support**
 
 VWO FE provides SDKs that you integrate into backend environments (such as Node.js, Java, Python, etc.). These server-side SDKs:
 
@@ -86,7 +88,7 @@ sequenceDiagram
 
 VWO documentation outlines that server-side testing allows testing deeply within the tech stack and is ideal when experimenting inside logic layers rather than UI.
 
-### **Example: A/B Test for Email Subject Lines Using VWO FE**
+**Example: A/B Test for Email Subject Lines Using VWO FE**
 
 **Scenario**
 
@@ -94,8 +96,6 @@ You want to test two subject lines for an email campaign:
 
 * **Variant A:** “Unlock Your Exclusive Offer”
 * **Variant B:** “Don’t Miss Out — Your Deal Awaits”
-
-<br />
 
 **Server-Side Implementation**
 
