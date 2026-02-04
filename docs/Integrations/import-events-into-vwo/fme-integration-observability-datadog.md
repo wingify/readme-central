@@ -68,4 +68,6 @@ Finally, link the webhook to a Monitor.
 5. Click **Create**.
 
 Now, whenever this alert fires, Datadog will hit the trigger and disable the feature flag in VWO.  
-To learn more about how to configure a Datadog monitor, see.
+To learn more about how to configure a Datadog monitor, see <Anchor label="Datadog Notifications" target="_blank" href="https://docs.datadoghq.com/monitors/notify/">Datadog Notifications</Anchor>
+
+<br />
