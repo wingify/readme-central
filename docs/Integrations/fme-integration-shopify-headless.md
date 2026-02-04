@@ -57,7 +57,7 @@ Oxygen is an **Edge-like environment** with:
 * Fast cold starts
 * Streaming SSR
 
-This means:  
+This means:
 
 * ✔ SDK must support Edge execution
 * ❌ Cannot rely on Node-only modules
@@ -101,8 +101,6 @@ VWO_SDK_CLIENT_KEY=your_browser_key
 
 <br />
 
-<br />
-
 ### Server-Side Integration (Hydrogen Loader)
 
 Hydrogen uses Remix loaders to fetch data before rendering.
@@ -111,8 +109,6 @@ In this step:
 * We initialize VWO FE SDK in the **Hydrogen loader**
 * We fetch **experiment assignment**
 * We return data for the React UI
-
-<br />
 
 **Goal**: Evaluate flags & experiment variants in the loader so Hydrogen can render page accordingly.
 
@@ -150,6 +146,8 @@ export async function loader({ request }) {
 ```
 
 This evaluates feature flags before rendering the page.
+
+<br />
 
 ### Client-Side Integration (Browser)
 
