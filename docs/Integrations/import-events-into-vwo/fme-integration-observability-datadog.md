@@ -31,8 +31,7 @@ https://api.vwo.com/v2/accounts/{account_id}/environments/{environment_id}/featu
 
 **API Reference:** For details on this endpoint, see [Toggle Feature Flag Status](https://developers.vwo.com/reference/fme-toggle-feature-flag-status-for-an-environment).
 
-You will also need a **Authentication header** for this which you can get from  
-[Access VWO API](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API)
+You will also need a **Authentication header** for this which you can get from  [Access VWO API](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API)
 
 ## **2. Connecting to Datadog**
 
