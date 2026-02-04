@@ -86,7 +86,7 @@ Install the official VWO FE Node SDK:
 npm install vwo-fme-node-sdk
 ```
 
-### 5.2 Setup Gateway Service :**
+### 5.2 Setup Gateway Service :
 
 **Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
 
@@ -106,7 +106,7 @@ const vwoClient = await vwo.init({
 });
 ```
 
-Note: The gatewayService enables real-time flag evaluations and syncs your SDK with the VWO Gateway.
+**Note:** The gatewayService is mandatory for Amplitude integration because the SDK itself does not store your Amplitude cohort data. When you evaluate a flag, the SDK uses the Gateway to check in real-time if the user belongs to the synced Amplitude segment.
 
 ## **Step 6: Setting Up Pre-Segmentation for Amplitude-Synced Segments**
 
