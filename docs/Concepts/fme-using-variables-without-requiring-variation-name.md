@@ -14,7 +14,7 @@ metadata:
 
 <br />
 
-When running experiments or feature rollouts with VWO Feature Experimentation (FE), you typically need to change behavior or configuration _based on the variation assigned to a user_. A naive approach is to check the variation name returned by VWO and hard-code behavior in your application. However, this quickly leads to **tightly coupled logic**, **hard-to-maintain code**, and **rigid experiment evolution**.
+When running experiments or feature rollouts with VWO Feature Experimentation (FE), you typically need to change behavior or configuration _based on the variation assigned to a user_. One approach is to check the variation name returned by VWO and hard-code behavior in your application. However, this quickly leads to **tightly coupled logic**, **hard-to-maintain code**, and **rigid experiment evolution**.
 
 <br />
 
