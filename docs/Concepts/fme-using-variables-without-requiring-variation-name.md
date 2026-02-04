@@ -86,12 +86,10 @@ Assign values across variations:
 | :-----------: | :--------------: | :-------------: | :--------------------: |
 | **Variation** |  **buttonText**  | **showNewFlow** | **discountPercentage** |
 |    Control    |     “Buy Now”    |      false      |            0           |
-|  Variation\_A |    “Get Deal”    |       true      |           10           |
-|  Variation\_B | “Claim Discount” |       true      |           15           |
+|  Variation_A  |    “Get Deal”    |       true      |           10           |
+|  Variation_B  | “Claim Discount” |       true      |           15           |
 
 Now behavior is driven by _data_, not string matching.
-
-***
 
 ## **Step 2 — Access Variables in Code**
 
@@ -153,12 +151,12 @@ Define a variable such as:
 
 Assign values per variation:
 
-|               |                     |
-| :-----------: | :-----------------: |
-| **Variation** | **variation\_name** |
-|    Control    |      `control`      |
-|  Variation\_A |    `new_flow_v1`    |
-|  Variation\_B |    `new_flow_v2`    |
+|               |                    |
+| :-----------: | :----------------: |
+| **Variation** | **variation_name** |
+|    Control    |      `control`     |
+|  Variation_A  |    `new_flow_v1`   |
+|  Variation_B  |    `new_flow_v2`   |
 
 ### **Accessing It in Code**
 
