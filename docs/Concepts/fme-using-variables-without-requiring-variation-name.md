@@ -131,11 +131,7 @@ There are valid scenarios where teams want to **know which variation was assigne
 * Debugging experiment behavior
 * Integrating with downstream systems that expect a label
 
-**VWO FE intentionally avoids exposing variation names as a first-class runtime dependency**, to discourage tight coupling. Instead, the recommended approach is:
-
-<br />
-
-**Expose the variation name explicitly as a variable.**
+**VWO FE intentionally avoids exposing variation names as a first-class runtime dependency**, to discourage tight coupling. Instead, the recommended approach is: **Expose the variation name explicitly as a variable.**
 
 <br />
 
@@ -172,11 +168,7 @@ if (flag.isEnabled()) {
 
 ```
 
-<br />
-
 ### **Why This Is the Right Approach in VWO FE**
-
-<br />
 
 From a VWO Feature Experimentation product design perspective:
 
