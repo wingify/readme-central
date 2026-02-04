@@ -16,20 +16,22 @@ Triggers allow you to automatically disable a specific rule inside a VWO Feature
 
 To set this up, you need to construct the API URL for the specific rule you want to control.
 
-**URL Format:**
+#### **URL Format:**
 
 ```
 
 https://api.vwo.com/v2/accounts/{account_id}/environments/{environment_id}/features/{feature_key}/toggle
 ```
 
-**How to find these values:**
+#### **How to find these values:**
 
 * **account_id:** Your VWO Account ID.
 * **environment_id:** The environment key .
 * **feature_key:** The unique key of your feature flag.
 
-**API Reference:** For details on this endpoint, see [Toggle Feature Flag Status](https://developers.vwo.com/reference/fme-toggle-feature-flag-status-for-an-environment).
+#### **API Reference:** For details on this endpoint, see 
+
+[Toggle Feature Flag Status](https://developers.vwo.com/reference/fme-toggle-feature-flag-status-for-an-environment).
 
 You will also need a **Authentication header** for this which you can get from  [Access VWO API](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API)
 
