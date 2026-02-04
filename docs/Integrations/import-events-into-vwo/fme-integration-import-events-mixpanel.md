@@ -70,7 +70,7 @@ To enable the VWO-Mixpanel integration for your VWO account:
 
 ## Step 5 - SDK Setup (Node.js Example)
 
-### **5.1 Install and Initialize the VWO SDK**
+### Install and Initialize the VWO SDK
 
 Install the official VWO FE Node SDK:
 
@@ -78,11 +78,11 @@ Install the official VWO FE Node SDK:
 npm install vwo-fme-node-sdk
 ```
 
-### 5.2 Setup Gateway Service :
+### **Setup Gateway Service**:
 
 **Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
 
-### 5.3 Initialize the SDK in your application with gateway service:
+### Initialize the SDK in your application with the VWO Gateway service:
 
 **Reference**: [SDK Initialization Doc](https://developers.vwo.com/v2/docs/fme-node-initialization)
 
@@ -104,7 +104,7 @@ const vwoClient = await init({
 
 Once your Mixpanel segments are imported into VWO, configure **pre-segmentation** in your feature flag to target those users.
 
-### **6.1 Configure Pre-Segmentation in the Feature Flag**
+### Configure Pre-Segmentation in the Feature Flag
 
 1. Navigate to **Feature Experimentation → Feature Flags** in VWO.
 
