@@ -130,7 +130,9 @@ Once your Mixpanel segments are imported into VWO, configure **pre-segmentation*
 
 9. Choose **Operator → In List**.
 
-10. Select the **Attribute List** corresponding to your Mixpanel segment (e.g., mixpanel_premium_users).
+10. Select the **Attribute List** corresponding to your Mixpanel segment (e.g., mixpanel_premium_users).        
+
+    <Image align="center" border={false} src="https://files.readme.io/65f3ccf4e590afba427c23545ff20e6efeec053b693946ea8aa88bab16a6df15-Screenshot_2026-02-04_171019.png" />
 
 11. Save the rule and **toggle ON** the rollout rule.
 
