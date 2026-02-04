@@ -87,9 +87,9 @@ npm install vwo-fme-node-sdk
 **Reference**: [SDK Initialization Doc](https://developers.vwo.com/v2/docs/fme-node-initialization)
 
 ```javascript
-const vwo = require('vwo-fme-node-sdk');
+const { init } = require('vwo-fme-node-sdk');
 
-const vwoClient = await vwo.init({
+const vwoClient = await init({
     sdkKey: 'YOUR_SDK_KEY',
     accountId: 'YOUR_ACCOUNT_ID',
     gatewayService: {
