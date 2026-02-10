@@ -1,5 +1,9 @@
 ---
 title: 'User Aliasing '
+excerpt: >-
+  User Aliasing enables you to link multiple user identifiers to a single user,
+  ensuring consistent feature flag evaluations and event tracking across
+  devices, sessions, and identity states.
 deprecated: false
 hidden: true
 metadata:
