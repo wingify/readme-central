@@ -207,16 +207,14 @@ const flag1 = await vwoClient.getFlag('new_checkout', { id: mobileAnonId });
 const userId = 'user_12345';
 await vwoClient.setAlias(userId, mobileAnonId);
 
+// In another flow where userId is available (user already logged in)
+const flag2 = await vwoClient.getFlag('new_checkout', { id: userId });
+// User gets SAME variation A (since userId and mobileAnonId are aliased)
+
 // Web app: Same user logs in
-const webAnonId = 'web_anon_abc';
-await vwoClient.setAlias(userId, webAnonId);
-
-// Now, all three IDs resolve to the same user
-const flag2 = await vwoClient.getFlag('new_checkout', { id: mobileAnonId });
-const flag3 = await vwoClient.getFlag('new_checkout', { id: webAnonId });
-const flag4 = await vwoClient.getFlag('new_checkout', { id: userId });
-
-// flag2, flag3, and flag4 all return the same variation (A)
+const userId = 'user_12345';
+const flag3 = await vwoClient.getFlag('new_checkout', { id: userId });
+// User gets SAME variation A (since userId and mobileAnonId are aliased in mobile app flow)
 ```
 
 ## Best Practices
