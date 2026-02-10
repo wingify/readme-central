@@ -19,6 +19,8 @@ To use user aliasing, the following must be configured in your SDK setup:
 * **Aliasing must be enabled** via a configuration flag (e.g., `isAliasingEnabled: true`)
 * **Gateway service must be configured**, since alias updates are sent through an API call
 
+<br />
+
 ## Overview
 
 User Aliasing is particularly useful in scenarios where users transition between anonymous and authenticated states. By creating an alias between identifiers, VWO ensures that:
@@ -27,9 +29,11 @@ User Aliasing is particularly useful in scenarios where users transition between
 * Events and conversions are correctly attributed to the original user
 * Flows where userId is not initially known but captured post a login, but the experience needs to be delivered immediately
 
-<Callout icon="📘">
+<Callout icon="📘" theme="info">
   User Aliasing requires the **VWO Gateway Service** to be configured. The Gateway Service stores and retrieves alias mappings. See [Gateway Service documentation](https://developers.vwo.com/v2/docs/gateway-service) for setup instructions.
 </Callout>
+
+<br />
 
 ## How It Works
 
@@ -89,6 +93,8 @@ The diagram illustrates the complete aliasing flow from SDK initialization throu
 | --------- | --------------------------------------------------------------------- |
 | `userId`  | The original/primary user identifier used for bucketing and analytics |
 | `aliasId` | An alternative identifier that maps to the original userId            |
+
+<br />
 
 ## Configuration
 
@@ -152,6 +158,8 @@ Configuration object for the VWO Gateway Service. Required when `isAliasingEnabl
   </Tab>
 </Tabs>
 
+<br />
+
 ## API Reference
 
 ### setAlias()
@@ -170,13 +178,10 @@ setAlias(userId: string, aliasId: string): Promise<boolean>
 
 #### Parameters
 
-**contextOrUserId** `object | string` _required_
-
-Either a context object containing an `id` property, or the user ID string directly. This is the original/primary user identifier.
-
-**aliasId** `string` _required_
-
-The alias identifier to map to the original user ID. Cannot be the same as the userId, cannot be an array, and cannot be empty.
+| Parameter         | Type               | Required | Description                                                                                                                          |
+| ----------------- | ------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `contextOrUserId` | `object \| string` | Yes      | Either a context object containing an `id` property, or the user ID string directly. This is the original (primary) user identifier. |
+| `aliasId`         | `string`           | Yes      | Alias identifier mapped to the original user ID. Must not be empty, must not be an array, and must not match the original user ID.   |
 
 #### Returns
 
@@ -184,7 +189,7 @@ The alias identifier to map to the original user ID. Cannot be the same as the u
 
 #### Where To Call
 
-Typically, setAlias() is called, once the guest user has logged in. The first time the user comes to the platform, and there is no permanent userId available, assign a random userId and use that to get a decision. Once the user has logged in, set that as the aliasId and continue. After that, whether the userId is used, or the aliasId is used, the SDK treats them both as the same user and returns the same variable values.
+Typically, setAlias() is called once the guest user has logged in. The first time the user comes to the platform, and there is no permanent userId available, assign a random userId and use that to get a decision. Once the user has logged in, set that as the aliasId and continue. After that, whether the userId is used or the aliasId is used, the SDK treats them both as the same user and returns the same variable values.
 
 #### Example Usage
 
@@ -222,10 +227,12 @@ Typically, setAlias() is called, once the guest user has logged in. The first ti
   </Tab>
 </Tabs>
 
-<Callout icon="🚧">
+<Callout icon="🚧" theme="warn">
   * `userId` and `aliasId` cannot be the same value
   * Neither value can be an array or empty string
 </Callout>
+
+<br />
 
 ## Automatic Alias Resolution
 
@@ -259,9 +266,11 @@ const flag3 = await vwoClient.getFlag('new_checkout', { id: userId });
 // User gets SAME variation A (since userId and mobileAnonId are aliased in mobile app flow)
 ```
 
+<br />
+
 ## Exception In Consistent Experience
 
-When there are **multiple** devices being used by the same user, and in all those devices, the user is **first** logging in anonymously (with guest userId), and **then** logging in (permanent userId), it is possible that they might get a different experience once, but this gets resolved after setAlias() is called. This is a technical limitation.
+When there are **multiple** devices being used by the same user, and in all those devices, the user is **first** logging in anonymously (with guest userId), and **then** logging in (permanent userId), it is possible that they might get a different experience once, but this gets resolved after `setAlias()` is called. This is a technical limitation.
 
 ```typescript
 // Mobile app: User is anonymous
@@ -289,6 +298,8 @@ const flag4 = await vwoClient.getFlag('new_checkout', { id: webAnonId });
 // user gets a different variation, the first time they log in with second anon id (web_anon_xyz)
 // but once this is connected to the other aliases, the experience reverts back to same variation
 ```
+
+<br />
 
 ## Best Practices
 
