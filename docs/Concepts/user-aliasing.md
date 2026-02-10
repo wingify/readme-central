@@ -25,7 +25,7 @@ User Aliasing is particularly useful in scenarios where users transition between
 
 * Users receive consistent feature flag variations regardless of which identifier is used
 * Events and conversions are correctly attributed to the original user
-* Cross-device experiences remain unified for the same user
+* Flows where userId is not initially known but captured post a login, but the experience needs to be delivered immediately
 
 <Callout theme="default">
   User Aliasing requires the **VWO Gateway Service** to be configured. The Gateway Service stores and retrieves alias mappings. See [Gateway Service documentation](#) for setup instructions.
