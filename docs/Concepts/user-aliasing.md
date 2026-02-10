@@ -146,16 +146,6 @@ Typically, setAlias() is called, once the guest user has logged in. The first ti
 
 #### Example Usage
 
-**contextOrUserId** `object | string` _required_
-
-Either a context object containing an `id` property, or the user ID string directly. This is the original/primary user identifier.
-
-**aliasId** `string` _required_
-
-The alias identifier to map to the original user ID. Cannot be the same as the userId, cannot be an array, and cannot be empty.
-
-#### Example Usage
-
 <Tabs>
   <Tab title="With Context">
     ```typescript
