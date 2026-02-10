@@ -37,9 +37,53 @@ The aliasing system works by maintaining a mapping between alias identifiers and
 
 ### Flow Diagram
 
-> _See `mermaid.txt` file to generate the sequence diagram using any Mermaid renderer._
->
-> The diagram illustrates the complete aliasing flow from SDK initialization through alias creation and subsequent API calls with automatic alias resolution.
+<br />
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant App as Your Application
+    participant SDK as VWO SDK
+    participant Gateway as VWO Gateway Service
+    participant Backend as VWO Backend
+    rect rgb(240, 248, 255)
+        Note over App,Backend: Phase 1: SDK Initialization
+        App->>SDK: init({ isAliasingEnabled: true, gatewayService: {...} })
+        SDK->>Backend: Fetch settings
+        Backend-->>SDK: Settings response
+        SDK-->>App: VWO Client instance
+    end
+    rect rgb(255, 250, 240)
+        Note over App,Backend: Phase 2: Create User Alias
+        App->>SDK: setAlias(userId, aliasId)
+        SDK->>SDK: Validate inputs (not same, not array, not empty)
+        SDK->>Gateway: POST /user-alias/setUserAlias
+        Note right of Gateway: Stores mapping:<br/>aliasId → userId
+        Gateway-->>SDK: Success response
+        SDK-->>App: true
+    end
+    rect rgb(240, 255, 240)
+        Note over App,Backend: Phase 3: API Calls with Alias Resolution
+        App->>SDK: getFlag(featureKey, { id: aliasId })
+        SDK->>Gateway: GET /user-alias/getAliasUserId?userId=[aliasId]
+        Gateway-->>SDK: Original userId
+        SDK->>SDK: Use original userId for bucketing
+        SDK->>Backend: Track impression with original userId
+        Backend-->>SDK: Response
+        SDK-->>App: Flag result
+    end
+    rect rgb(255, 245, 245)
+        Note over App,Backend: Phase 4: Consistent Tracking
+        App->>SDK: trackEvent(eventName, { id: aliasId })
+        SDK->>Gateway: GET /user-alias/getAliasUserId?userId=[aliasId]
+        Gateway-->>SDK: Original userId
+        SDK->>Backend: Track event with original userId
+        Backend-->>SDK: Success
+        SDK-->>App: { eventName: true }
+    end
+```
+
+The diagram illustrates the complete aliasing flow from SDK initialization through alias creation and subsequent API calls with automatic alias resolution.
 
 ### Key Concepts
 
