@@ -43,11 +43,10 @@ The aliasing system works by maintaining a mapping between alias identifiers and
 
 ### Key Concepts
 
-| Term             | Description                                                                           |
-| ---------------- | ------------------------------------------------------------------------------------- |
-| `userId`         | The original/primary user identifier used for bucketing and analytics                 |
-| `aliasId`        | An alternative identifier that maps to the original userId                            |
-| Alias Resolution | The process of looking up the original userId from an aliasId via the Gateway Service |
+| Term      | Description                                                           |
+| --------- | --------------------------------------------------------------------- |
+| `userId`  | The original/primary user identifier used for bucketing and analytics |
+| `aliasId` | An alternative identifier that maps to the original userId            |
 
 ## Configuration
 
