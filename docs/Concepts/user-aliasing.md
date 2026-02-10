@@ -21,7 +21,7 @@ To use user aliasing, the following must be configured in your SDK setup:
 
 ## Overview
 
-User Aliasing is particularly useful in scenarios where users transition between anonymous and authenticated states, or when tracking users across multiple devices. By creating an alias between identifiers, VWO ensures that:
+User Aliasing is particularly useful in scenarios where users transition between anonymous and authenticated states. By creating an alias between identifiers, VWO ensures that:
 
 * Users receive consistent feature flag variations regardless of which identifier is used
 * Events and conversions are correctly attributed to the original user
