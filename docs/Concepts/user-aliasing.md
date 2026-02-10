@@ -16,6 +16,7 @@ Once an alias is created, all future lookups and evaluations can reference a uni
 ### Prerequisites
 
 To use user aliasing, the following must be configured in your SDK setup:
+
 * **Aliasing must be enabled** via a configuration flag (e.g., `isAliasingEnabled: true`)
 * **Gateway service must be configured**, since alias updates are sent through an API call
 
@@ -23,12 +24,12 @@ To use user aliasing, the following must be configured in your SDK setup:
 
 User Aliasing is particularly useful in scenarios where users transition between anonymous and authenticated states, or when tracking users across multiple devices. By creating an alias between identifiers, VWO ensures that:
 
-- Users receive consistent feature flag variations regardless of which identifier is used
-- Events and conversions are correctly attributed to the original user
-- Cross-device experiences remain unified for the same user
+* Users receive consistent feature flag variations regardless of which identifier is used
+* Events and conversions are correctly attributed to the original user
+* Cross-device experiences remain unified for the same user
 
-<Callout type="info" title="Prerequisite">
-User Aliasing requires the **VWO Gateway Service** to be configured. The Gateway Service stores and retrieves alias mappings. See [Gateway Service documentation](#) for setup instructions.
+<Callout theme="default">
+  User Aliasing requires the **VWO Gateway Service** to be configured. The Gateway Service stores and retrieves alias mappings. See [Gateway Service documentation](#) for setup instructions.
 </Callout>
 
 ## How It Works
@@ -43,10 +44,10 @@ The aliasing system works by maintaining a mapping between alias identifiers and
 
 ### Key Concepts
 
-| Term | Description |
-|------|-------------|
-| `userId` | The original/primary user identifier used for bucketing and analytics |
-| `aliasId` | An alternative identifier that maps to the original userId |
+| Term             | Description                                                                           |
+| ---------------- | ------------------------------------------------------------------------------------- |
+| `userId`         | The original/primary user identifier used for bucketing and analytics                 |
+| `aliasId`        | An alternative identifier that maps to the original userId                            |
 | Alias Resolution | The process of looking up the original userId from an aliasId via the Gateway Service |
 
 ## Configuration
@@ -67,46 +68,47 @@ Configuration object for the VWO Gateway Service. Required when `isAliasingEnabl
 
 <Tabs>
   <Tab title="TypeScript">
-```typescript
-import { init } from 'vwo-fme-node-sdk';
+    ```typescript
+    import { init } from 'vwo-fme-node-sdk';
 
-const vwoClient = await init({
-  accountId: 'YOUR_ACCOUNT_ID',
-  sdkKey: 'YOUR_SDK_KEY',
+    const vwoClient = await init({
+      accountId: 'YOUR_ACCOUNT_ID',
+      sdkKey: 'YOUR_SDK_KEY',
 
-  // Enable aliasing
-  isAliasingEnabled: true,
+      // Enable aliasing
+      isAliasingEnabled: true,
 
-  // Gateway service is required for aliasing
-  gatewayService: {
-    url: 'https://your-gateway-service.com',
-    // Optional: specify port if not using default
-    port: 443,
-    // Optional: specify protocol (defaults to https)
-    protocol: 'https'
-  }
-});
-```
+      // Gateway service is required for aliasing
+      gatewayService: {
+        url: 'https://your-gateway-service.com',
+        // Optional: specify port if not using default
+        port: 443,
+        // Optional: specify protocol (defaults to https)
+        protocol: 'https'
+      }
+    });
+    ```
   </Tab>
+
   <Tab title="JavaScript">
-```javascript
-const { init } = require('vwo-fme-node-sdk');
+    ```javascript
+    const { init } = require('vwo-fme-node-sdk');
 
-const vwoClient = await init({
-  accountId: 'YOUR_ACCOUNT_ID',
-  sdkKey: 'YOUR_SDK_KEY',
+    const vwoClient = await init({
+      accountId: 'YOUR_ACCOUNT_ID',
+      sdkKey: 'YOUR_SDK_KEY',
 
-  // Enable aliasing
-  isAliasingEnabled: true,
+      // Enable aliasing
+      isAliasingEnabled: true,
 
-  // Gateway service is required for aliasing
-  gatewayService: {
-    url: 'https://your-gateway-service.com',
-    port: 443,
-    protocol: 'https'
-  }
-});
-```
+      // Gateway service is required for aliasing
+      gatewayService: {
+        url: 'https://your-gateway-service.com',
+        port: 443,
+        protocol: 'https'
+      }
+    });
+    ```
   </Tab>
 </Tabs>
 
@@ -144,52 +146,53 @@ The alias identifier to map to the original user ID. Cannot be the same as the u
 
 <Tabs>
   <Tab title="With Context">
-```typescript
-// User logs in - link anonymous ID to authenticated ID
-const anonymousId = 'anon_abc123';
-const authenticatedId = 'user_john_doe';
+    ```typescript
+    // User logs in - link anonymous ID to authenticated ID
+    const anonymousId = 'anon_abc123';
+    const authenticatedId = 'user_john_doe';
 
-// Create alias: anonymousId now maps to authenticatedId
-const success = await vwoClient.setAlias(
-  { id: authenticatedId },  // Original user ID
-  anonymousId               // Alias ID
-);
+    // Create alias: anonymousId now maps to authenticatedId
+    const success = await vwoClient.setAlias(
+      { id: authenticatedId },  // Original user ID
+      anonymousId               // Alias ID
+    );
 
-if (success) {
-  console.log('Alias created successfully');
-}
-```
+    if (success) {
+      console.log('Alias created successfully');
+    }
+    ```
   </Tab>
-  <Tab title="With User ID">
-```typescript
-// Using user ID string directly
-const success = await vwoClient.setAlias(
-  'user_john_doe',   // Original user ID
-  'anon_abc123'      // Alias ID
-);
 
-if (success) {
-  console.log('Alias created successfully');
-}
-```
+  <Tab title="With User ID">
+    ```typescript
+    // Using user ID string directly
+    const success = await vwoClient.setAlias(
+      'user_john_doe',   // Original user ID
+      'anon_abc123'      // Alias ID
+    );
+
+    if (success) {
+      console.log('Alias created successfully');
+    }
+    ```
   </Tab>
 </Tabs>
 
-<Callout type="warning" title="Important Validations">
-- `userId` and `aliasId` cannot be the same value
-- Neither value can be an array or empty string
-- Both values are trimmed before processing
+<Callout theme="default">
+  * `userId` and `aliasId` cannot be the same value
+  * Neither value can be an array or empty string
+  * Both values are trimmed before processing
 </Callout>
 
 ## Automatic Alias Resolution
 
 When aliasing is enabled, the following SDK methods automatically resolve alias IDs to their original user IDs before processing:
 
-| Method | Behavior |
-|--------|----------|
-| `getFlag()` | Resolves alias before evaluating feature flags, ensuring consistent bucketing |
-| `trackEvent()` | Resolves alias before tracking, attributing events to the original user |
-| `setAttribute()` | Resolves alias before setting attributes on the original user profile |
+| Method           | Behavior                                                                      |
+| ---------------- | ----------------------------------------------------------------------------- |
+| `getFlag()`      | Resolves alias before evaluating feature flags, ensuring consistent bucketing |
+| `trackEvent()`   | Resolves alias before tracking, attributing events to the original user       |
+| `setAttribute()` | Resolves alias before setting attributes on the original user profile         |
 
 ### Example: Cross-Device Consistency
 
@@ -221,48 +224,43 @@ The SDK uses the following Gateway Service endpoints for alias operations. These
 
 ### Set Alias
 
-| | |
-|---|---|
-| **Endpoint** | `/user-alias/setUserAlias` |
-| **Method** | `POST` |
-| **Purpose** | Creates a mapping between a userId and aliasId |
+|              |                                                |
+| ------------ | ---------------------------------------------- |
+| **Endpoint** | `/user-alias/setUserAlias`                     |
+| **Method**   | `POST`                                         |
+| **Purpose**  | Creates a mapping between a userId and aliasId |
 
 ### Get Alias
 
-| | |
-|---|---|
-| **Endpoint** | `/user-alias/getAliasUserId` |
-| **Method** | `GET` |
-| **Purpose** | Retrieves the original userId for a given aliasId |
+|              |                                                   |
+| ------------ | ------------------------------------------------- |
+| **Endpoint** | `/user-alias/getAliasUserId`                      |
+| **Method**   | `GET`                                             |
+| **Purpose**  | Retrieves the original userId for a given aliasId |
 
 ## Error Handling
 
 The SDK handles the following error scenarios gracefully:
 
-| Error | Cause | Behavior |
-|-------|-------|----------|
-| Aliasing not enabled | `setAlias()` called when `isAliasingEnabled` is false | Returns `false`, logs error |
-| No gateway configured | Aliasing enabled but no `gatewayService` provided | Returns `false`, logs error |
-| Invalid parameters | userId equals aliasId, or either is empty/array | Throws `TypeError`, logs error |
-| Gateway unavailable | Network error contacting Gateway Service | Falls back to using provided ID as-is |
+| Error                 | Cause                                                 | Behavior                              |
+| --------------------- | ----------------------------------------------------- | ------------------------------------- |
+| Aliasing not enabled  | `setAlias()` called when `isAliasingEnabled` is false | Returns `false`, logs error           |
+| No gateway configured | Aliasing enabled but no `gatewayService` provided     | Returns `false`, logs error           |
+| Invalid parameters    | userId equals aliasId, or either is empty/array       | Throws `TypeError`, logs error        |
+| Gateway unavailable   | Network error contacting Gateway Service              | Falls back to using provided ID as-is |
 
 ## Best Practices
 
-- **Call setAlias immediately after user identification** - Create the alias as soon as the user logs in or is identified to ensure all subsequent calls use consistent bucketing.
+* **Call setAlias immediately after user identification** - Create the alias as soon as the user logs in or is identified to ensure all subsequent calls use consistent bucketing.
 
-- **Use meaningful identifier patterns** - Use prefixes like `anon_`, `mobile_`, or `web_` to easily distinguish identifier types during debugging.
+* **Use meaningful identifier patterns** - Use prefixes like `anon_`, `mobile_`, or `web_` to easily distinguish identifier types during debugging.
 
-- **Handle setAlias failures gracefully** - Always check the return value and implement appropriate fallback behavior.
+* **Handle setAlias failures gracefully** - Always check the return value and implement appropriate fallback behavior.
 
-- **Avoid circular aliases** - Don't create aliases that point to each other; always alias to a single canonical user ID.
+* **Avoid circular aliases** - Don't create aliases that point to each other; always alias to a single canonical user ID.
 
-<Callout type="success" title="Pro Tip">
-Consider implementing a retry mechanism for `setAlias()` calls in case of transient network failures. The SDK supports `retryConfig` in initialization options for automatic retries.
+<Callout theme="default">
+  Consider implementing a retry mechanism for `setAlias()` calls in case of transient network failures. The SDK supports `retryConfig` in initialization options for automatic retries.
 </Callout>
 
----
-
-<Cards>
-  <Card title="← Gateway Service" href="#" />
-  <Card title="Event Batching →" href="#" />
-</Cards>
+***
