@@ -27,7 +27,7 @@ User Aliasing is particularly useful in scenarios where users transition between
 * Events and conversions are correctly attributed to the original user
 * Flows where userId is not initially known but captured post a login, but the experience needs to be delivered immediately
 
-<Callout theme="default">
+<Callout icon="📘">
   User Aliasing requires the **VWO Gateway Service** to be configured. The Gateway Service stores and retrieves alias mappings. See [Gateway Service documentation](https://developers.vwo.com/v2/docs/gateway-service) for setup instructions.
 </Callout>
 
@@ -36,8 +36,6 @@ User Aliasing is particularly useful in scenarios where users transition between
 The aliasing system works by maintaining a mapping between alias identifiers and original user IDs in the VWO Gateway Service. When API methods are called with an aliased identifier, the SDK automatically resolves it to the original user ID before processing.
 
 ### Flow Diagram
-
-<br />
 
 ```mermaid
 sequenceDiagram
@@ -224,7 +222,7 @@ Typically, setAlias() is called, once the guest user has logged in. The first ti
   </Tab>
 </Tabs>
 
-<Callout theme="default">
+<Callout icon="🚧">
   * `userId` and `aliasId` cannot be the same value
   * Neither value can be an array or empty string
 </Callout>
