@@ -219,37 +219,6 @@ const flag4 = await vwoClient.getFlag('new_checkout', { id: userId });
 // flag2, flag3, and flag4 all return the same variation (A)
 ```
 
-## Gateway API Endpoints
-
-The SDK uses the following Gateway Service endpoints for alias operations. These are called internally by the SDK.
-
-### Set Alias
-
-|              |                                                |
-| ------------ | ---------------------------------------------- |
-| **Endpoint** | `/user-alias/setUserAlias`                     |
-| **Method**   | `POST`                                         |
-| **Purpose**  | Creates a mapping between a userId and aliasId |
-
-### Get Alias
-
-|              |                                                   |
-| ------------ | ------------------------------------------------- |
-| **Endpoint** | `/user-alias/getAliasUserId`                      |
-| **Method**   | `GET`                                             |
-| **Purpose**  | Retrieves the original userId for a given aliasId |
-
-## Error Handling
-
-The SDK handles the following error scenarios gracefully:
-
-| Error                 | Cause                                                 | Behavior                              |
-| --------------------- | ----------------------------------------------------- | ------------------------------------- |
-| Aliasing not enabled  | `setAlias()` called when `isAliasingEnabled` is false | Returns `false`, logs error           |
-| No gateway configured | Aliasing enabled but no `gatewayService` provided     | Returns `false`, logs error           |
-| Invalid parameters    | userId equals aliasId, or either is empty/array       | Throws `TypeError`, logs error        |
-| Gateway unavailable   | Network error contacting Gateway Service              | Falls back to using provided ID as-is |
-
 ## Best Practices
 
 * **Call setAlias immediately after user identification** - Create the alias as soon as the user logs in or is identified to ensure all subsequent calls use consistent bucketing.
