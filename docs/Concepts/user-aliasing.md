@@ -225,12 +225,6 @@ const flag4 = await vwoClient.getFlag('new_checkout', { id: userId });
 
 * **Use meaningful identifier patterns** - Use prefixes like `anon_`, `mobile_`, or `web_` to easily distinguish identifier types during debugging.
 
-* **Handle setAlias failures gracefully** - Always check the return value and implement appropriate fallback behavior.
-
 * **Avoid circular aliases** - Don't create aliases that point to each other; always alias to a single canonical user ID.
-
-<Callout theme="default">
-  Consider implementing a retry mechanism for `setAlias()` calls in case of transient network failures. The SDK supports `retryConfig` in initialization options for automatic retries.
-</Callout>
 
 ***
