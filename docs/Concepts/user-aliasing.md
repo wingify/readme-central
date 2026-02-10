@@ -217,6 +217,37 @@ const flag3 = await vwoClient.getFlag('new_checkout', { id: userId });
 // User gets SAME variation A (since userId and mobileAnonId are aliased in mobile app flow)
 ```
 
+## Exception In Consistent Experience
+
+When there are **multiple** devices being used by the same user, and in all those devices, the user is **first** logging in anonymously (with guest userId), and **then** logging in (permanent userId), it is possible that they might get a different experience once, but this gets resolved after setAlias() is called. This is a technical limitation.
+
+```typescript
+// Mobile app: User is anonymous
+const mobileAnonId = 'mobile_anon_xyz';
+const flag1 = await vwoClient.getFlag('new_checkout', { id: mobileAnonId });
+// User gets variation A
+
+// User logs in on mobile
+const userId = 'user_12345';
+await vwoClient.setAlias(userId, mobileAnonId);
+const flag2 = await vwoClient.getFlag('new_checkout', { id: userId });
+// User gets SAME variation A (since userId and mobileAnonId are aliased)
+
+// Web app : SAME User is logging in anonymously
+const webAnonId = 'web_anon_xyz';
+const flag3 = await vwoClient.getFlag('new_checkout', { id: webAnonId });
+// User MIGHT get variation B
+
+// Now user is logging in
+const userId = 'user_12345;
+await vwoClient.setAlias(userId, webAnonId);
+const flag4 = await vwoClient.getFlag('new_checkout', { id: webAnonId });
+// User gets SAME variation A (since userId, webAnonId and mobileAnonId are all aliased)
+
+// user gets a different variation, the first time they log in with second anon id (web_anon_xyz)
+// but once this is connected to the other aliases, the experience reverts back to same variation
+```
+
 ## Best Practices
 
 * **Call setAlias immediately after user identification** - Create the alias as soon as the user logs in or is identified to ensure all subsequent calls use consistent bucketing.
