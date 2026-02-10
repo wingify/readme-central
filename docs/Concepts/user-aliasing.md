@@ -140,6 +140,20 @@ The alias identifier to map to the original user ID. Cannot be the same as the u
 
 `Promise<boolean>` - Resolves to `true` if the alias was successfully created, `false` otherwise.
 
+#### Where To Call
+
+Typically, setAlias() is called, once the guest user has logged in. The first time the user comes to the platform, and there is no permanent userId available, assign a random userId and use that to get a decision. Once the user has logged in, set that as the aliasId and continue. After that, whether the userId is used, or the aliasId is used, the SDK treats them both as the same user and returns the same variable values.
+
+#### Example Usage
+
+**contextOrUserId** `object | string` _required_
+
+Either a context object containing an `id` property, or the user ID string directly. This is the original/primary user identifier.
+
+**aliasId** `string` _required_
+
+The alias identifier to map to the original user ID. Cannot be the same as the userId, cannot be an array, and cannot be empty.
+
 #### Example Usage
 
 <Tabs>
@@ -179,7 +193,6 @@ The alias identifier to map to the original user ID. Cannot be the same as the u
 <Callout theme="default">
   * `userId` and `aliasId` cannot be the same value
   * Neither value can be an array or empty string
-  * Both values are trimmed before processing
 </Callout>
 
 ## Automatic Alias Resolution
