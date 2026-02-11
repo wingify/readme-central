@@ -43,10 +43,10 @@ public class MyApp extends FlutterApplication {
     }
 
     private void initVWO() {
+        ClientConfiguration config = new ClientConfiguration("ACCOUNT_ID", "SDK_KEY", null);
         // Required for Flutter Impeller (default from Flutter 3.27 on Android). Call before init().
         VWOInsights.enableFlutterPerformanceMode();
 
-        ClientConfiguration config = new ClientConfiguration("ACCOUNT_ID", "SDK_KEY", null);
         VWOInsights.init(this, new IVwoInitCallback() {
  
           @Override
@@ -78,11 +78,10 @@ class MyApp : FlutterApplication() {
     }
 
     fun initVwo() {
+        val configuration = ClientConfiguration("ACCOUNT_ID", "SDK_KEY", null);
         // Required for Flutter Impeller (default from Flutter 3.27 on Android). Call before init().
         VWOInsights.enableFlutterPerformanceMode()
 
-        val configuration = ClientConfiguration("ACCOUNT_ID", "SDK_KEY", null);
-        
         VWOInsights.init(this, object : IVwoInitCallback {
             override fun vwoInitSuccess(s: String) {
                 //Insights SDK Initialized successfully, log it as desired
@@ -125,7 +124,7 @@ If you want to start recording as soon as the application launches, add the foll
 
 <br />
 
-***
+---
 
 ## ProGuard (release builds)
 
