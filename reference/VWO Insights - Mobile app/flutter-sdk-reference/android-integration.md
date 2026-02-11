@@ -43,7 +43,8 @@ public class MyApp extends FlutterApplication {
     }
 
     private void initVWO() {
-        ClientConfiguration config = new ClientConfiguration("ACCOUNT_ID", "SDK_KEY", null);
+      ClientConfiguration config = new ClientConfiguration("ACCOUNT_ID", "SDK_KEY", null);
+
         // Required for Flutter Impeller (default from Flutter 3.27 on Android). Call before init().
         VWOInsights.enableFlutterPerformanceMode();
 
@@ -124,7 +125,7 @@ If you want to start recording as soon as the application launches, add the foll
 
 <br />
 
----
+***
 
 ## ProGuard (release builds)
 
