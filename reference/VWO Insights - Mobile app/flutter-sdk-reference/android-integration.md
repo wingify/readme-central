@@ -12,17 +12,17 @@ next:
 ---
 ## Application class
 
-After installing the SDK, initialize it within the onCreate() function of the FlutterApplication class.
+After installing the SDK, initialize it within the `onCreate()` function of the **FlutterApplication** class (not `Application`).
 
 <br />
 
-If your project doesn't already include a FlutterApplication class, create a file named MyApp.java inside the folder &lt;projectRoot&gt;/android/app/src/main/java/&lt;your package&gt;/. 
+If your project doesn't already include a FlutterApplication class, create a file named MyApp.java inside the folder \<projectRoot>/android/app/src/main/java/\<your package>/.
 
-If you selected Kotlin when creating the project, the folder path will be &lt;projectRoot&gt;/android/app/src/main/kotlin/&lt;your package&gt;/. 
+If you selected Kotlin when creating the project, the folder path will be \<projectRoot>/android/app/src/main/kotlin/\<your package>/.
 
 <br />
 
-Then, copy the code below and replace the "ACCOUNT\_ID" and "SDK\_KEY" with the appropriate values from the dashboard.
+Then, copy the code below and replace the "ACCOUNT_ID" and "SDK_KEY" with the appropriate values from the dashboard.
 
 <br />
 
@@ -34,15 +34,18 @@ import com.vwo.insights.exposed.models.ClientConfiguration;
 import io.flutter.app.FlutterApplication;
  
 public class MyApp extends FlutterApplication {
- 
+
     @Override
     public void onCreate() {
         super.onCreate();
- 
+
         initVWO();
     }
- 
+
     private void initVWO() {
+        // Required for Flutter Impeller (default from Flutter 3.27 on Android). Call before init().
+        VWOInsights.enableFlutterPerformanceMode();
+
         ClientConfiguration config = new ClientConfiguration("ACCOUNT_ID", "SDK_KEY", null);
         VWOInsights.init(this, new IVwoInitCallback() {
  
@@ -70,11 +73,14 @@ import io.flutter.app.FlutterApplication
 class MyApp : FlutterApplication() {
     override fun onCreate() {
         super.onCreate()
- 
+
         initVwo()
     }
- 
+
     fun initVwo() {
+        // Required for Flutter Impeller (default from Flutter 3.27 on Android). Call before init().
+        VWOInsights.enableFlutterPerformanceMode()
+
         val configuration = ClientConfiguration("ACCOUNT_ID", "SDK_KEY", null);
         VWOLog.setLogLevel(VWOLog.ALL)
         VWOInsights.init(this, object : IVwoInitCallback {
@@ -116,3 +122,31 @@ If you want to start recording as soon as the application launches, add the foll
         
 ...rest of the code
 ```
+
+<br />
+
+---
+
+## ProGuard (release builds)
+
+When building a **release** (or **profile**) Android app, ProGuard/R8 can strip or obfuscate classes needed by Flutter and the VWO Insights SDK. Add the following rules to your app’s ProGuard file (e.g. `android/app/proguard-rules.pro`) and ensure that file is referenced from `build.gradle` (e.g. `proguardFiles` in the release buildType).
+
+```proguard
+# Flutter
+-keep class io.flutter.embedding.** { *; }
+-keep class io.flutter.plugin.** { *; }
+
+# VWO Insights SDK
+-keep class com.vwo.** { *; }
+-keep interface com.vwo.** { *; }
+```
+
+**Steps:**
+
+1. Open or create `android/app/proguard-rules.pro`.
+2. Paste the rules above into that file.
+3. In `android/app/build.gradle`, under `buildTypes` → `release`, confirm you have something like:
+   ```gradle
+   proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+   ```
+4. Rebuild the release app (e.g. `flutter build apk` or `flutter build appbundle`).
