@@ -82,7 +82,7 @@ class MyApp : FlutterApplication() {
         VWOInsights.enableFlutterPerformanceMode()
 
         val configuration = ClientConfiguration("ACCOUNT_ID", "SDK_KEY", null);
-        VWOLog.setLogLevel(VWOLog.ALL)
+        
         VWOInsights.init(this, object : IVwoInitCallback {
             override fun vwoInitSuccess(s: String) {
                 //Insights SDK Initialized successfully, log it as desired
@@ -125,7 +125,7 @@ If you want to start recording as soon as the application launches, add the foll
 
 <br />
 
----
+***
 
 ## ProGuard (release builds)
 
