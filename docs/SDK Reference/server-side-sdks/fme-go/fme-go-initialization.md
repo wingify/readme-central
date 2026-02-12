@@ -356,4 +356,6 @@ options := map[string]interface{}{
 vwoInstance, err := vwo.Init(options)
 ```
 
-Please [click](https://developers.vwo.com/v2/docs/fme-go-proxy-url) here to learn more about Proxy URL.
+Please <Anchor label="click" target="_blank" href="https://developers.vwo.com/v2/docs/fme-go-proxy-url">click</Anchor> here to learn more about Proxy URL.
+
+<br />
