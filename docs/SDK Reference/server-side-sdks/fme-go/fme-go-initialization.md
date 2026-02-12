@@ -181,6 +181,21 @@ This client object allows you to run experiments, track events, and enable/disab
         Configuration for network request retry behavior and exponential backoff strategy. For more details, please check - [Retry Config](https://developers.vwo.com/v2/docs/fme-go-initialization#/retry-config)
       </td>
     </tr>
+
+    <tr>
+      <td>
+        **proxyUrl**
+        _Optional_
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        Custom proxy URL for redirecting all SDK network requests through a proxy server. Please check - [ProxyUrl](https://developers.vwo.com/v2/docs/fme-go-initialization#/retry-config) 
+      </td>
+    </tr>
   </tbody>
 </Table>
 
@@ -322,3 +337,21 @@ vwoInstance, err := vwo.Init(options)
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism) to learn more about retry configuration.
+
+### ProxyUrl
+
+The `proxyUrl` parameter allows you to redirect all SDK network calls through a custom proxy server. This feature enables you to route all SDK network requests (settings, tracking, etc.) through your own proxy server, providing better control over network traffic and security.
+
+**How to Use Proxy URL**
+The proxy URL can be configured by passing the `proxyUrl` parameter in the init configuration.
+
+```go
+options := map[string]interface{}{
+    "sdkKey":    "32-alpha-numeric-sdk-key", // Replace with your SDK key
+    "accountId": "123456",                   // Replace with your account ID
+    "proxyUrl": "https://custom.proxy.com"   // Replace with your custom proxy url
+}
+
+// Initialize VWO instance
+vwoInstance, err := vwo.Init(options)
+```
