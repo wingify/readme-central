@@ -344,4 +344,4 @@ const vwoClient = await init({
 });
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/proxy-url-bypassing-firewall">here</Anchor> to learn more about ProxyURL.
+Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-node-proxy-url">here</Anchor> to learn more about ProxyURL.
