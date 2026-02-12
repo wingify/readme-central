@@ -319,3 +319,5 @@ vwoInitOptions.setProxyUrl("http://custom.proxy.com");
 
 VWO vwoInstance = VWO.init(vwoInitOptions);
 ```
+
+Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-java-proxy-url">here</Anchor> to learn more about Proxy URL,.
