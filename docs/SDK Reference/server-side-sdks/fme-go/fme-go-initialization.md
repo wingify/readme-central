@@ -193,7 +193,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Custom proxy URL for redirecting all SDK network requests through a proxy server. Please check - [ProxyUrl](https://developers.vwo.com/v2/docs/fme-go-initialization#/retry-config) 
+        Custom proxy URL for redirecting all SDK network requests through a proxy server. Please check - [ProxyUrl](https://developers.vwo.com/v2/docs/fme-go-initialization#proxyurl)
       </td>
     </tr>
   </tbody>
