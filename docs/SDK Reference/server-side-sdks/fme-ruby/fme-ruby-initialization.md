@@ -190,7 +190,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Custom proxy URL for redirecting all SDK network requests through a proxy server. Please check - [Proxy URL](https://developers.vwo.com/v2/docs/fme-ruby-initialization#proxyUrl)
+        Custom proxy URL for redirecting all SDK network requests through a proxy server. Please check - [Proxy URL](https://developers.vwo.com/v2/docs/fme-ruby-initialization#proxy-url)
       </td>
     </tr>
   </tbody>
