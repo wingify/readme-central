@@ -179,6 +179,20 @@ This client object allows you to run experiments, track events, and enable/disab
         Toggle threading for better performance (enabled by default).
       </td>
     </tr>
+
+    <tr>
+      <td>
+        **proxy_url** _Optional_
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        Custom proxy URL for redirecting all SDK network requests through a proxy server. Please check - [Proxy URL](https://developers.vwo.com/v2/docs/fme-ruby-initialization#proxyUrl)
+      </td>
+    </tr>
   </tbody>
 </Table>
 
@@ -315,3 +329,20 @@ vwo_client = VWO.init({
 ```
 
 Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+
+### Proxy URL
+
+The `proxy_url` parameter allows you to redirect all SDK network calls through a custom proxy server. This feature enables you to route all SDK network requests (settings, tracking, etc.) through your own proxy server, providing better control over network traffic and security.
+
+**How to Use Proxy URL**
+The proxy URL can be configured by passing the `proxy_url` parameter in the init configuration.
+
+```ruby
+vwo_client = VWO.init({
+    sdk_key: '32-alpha-numeric-sdk-key',
+    account_id: '123456',
+    proxy_url: 'https://custom.proxy.com'
+})
+```
+
+Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-ruby-proxy-url">here</Anchor> to learn more about Proxy URL.
