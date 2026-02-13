@@ -227,7 +227,7 @@ For lightweight, scalable deployments, you can set up a proxy using AWS Lambda w
 
 ## Testing Your Proxy
 
-After setting up your proxy, test it with a simple Python script:
+After setting up your proxy, test it with a simple Dotnet script:
 
 ```python
 from vwo import init
