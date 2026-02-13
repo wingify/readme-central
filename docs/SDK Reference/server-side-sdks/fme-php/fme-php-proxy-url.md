@@ -237,8 +237,7 @@ $options = [
         ],
        
         'proxy' => [
-            'url' => 'http://localhost:3300',
-            'isUrlNotSecure' => true
+            'url' => 'https://proxy.yourdomain.com',
         ],
 ];
 
