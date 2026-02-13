@@ -255,5 +255,4 @@ var getFlag = vwoInstance.GetFlag("feature-key", context);
 var isEnabled = getFlag.IsEnabled();
 
 Console.WriteLine($"Flag enabled: {isEnabled}");
-
 ```
