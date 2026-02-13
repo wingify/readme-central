@@ -103,7 +103,7 @@ Proxying SDK traffic gives you more control, but also introduces potential risks
 
 Below is a basic proxy implementation using FastAPI.
 
-### Python (FastAPI)
+### Dotnet
 
 ```python
 from fastapi import FastAPI, Request
