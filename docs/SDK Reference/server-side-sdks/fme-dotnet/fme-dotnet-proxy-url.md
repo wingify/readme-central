@@ -242,9 +242,6 @@ var vwoInitOptions = new VWOInitOptions
                 SdkKey = "a925e1e411809d05444795a82cda149c",
                 AccountId = 1188493,
                 ProxyUrl = "http://localhost:8000",
-                //Settings = settingsString,
-                //IsAliasingEnabled = true
-                //IsBatchingDisabled = false,
             };
             return VWO.Init(vwoInitOptions);
 ```
