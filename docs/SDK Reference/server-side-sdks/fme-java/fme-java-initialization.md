@@ -219,6 +219,25 @@ This client object allows you to run experiments, track events, and enable/disab
         A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-java-integrations)
       </td>
     </tr>
+
+    <tr>
+      <td>
+        **retryConfig**  
+        _Optional_
+      </td>
+
+      <td>
+        `vwoInitOptions.setRetryConfig(retryConfig);`
+      </td>
+
+      <td>
+        Object
+      </td>
+
+      <td>
+        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.vwo.com/v2/docs/fme-node-initialization#retry-configuration)
+      </td>
+    </tr>
   </tbody>
 </Table>
 
@@ -321,3 +340,25 @@ VWO vwoInstance = VWO.init(vwoInitOptions);
 ```
 
 Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-java-proxy-url">here</Anchor> to learn more about Proxy URL,.
+
+### Retry Configuration
+
+The SDK includes a built-in retry mechanism to improve reliability when network requests fail due to transient issues such as timeouts or temporary connectivity problems. You can fully control this behavior by providing a retryConfig object during SDK initialization.
+
+```java
+VWOInitOptions vwoInitOptions = new VWOInitOptions();
+vwoInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
+vwoInitOptions.setAccountId(12345);
+
+// Configure Network Retry
+RetryConfig retryConfig = new RetryConfig();
+retryConfig.setShouldRetry(true); // Enable/Disable retries
+retryConfig.setMaxRetries(3);     // Max number of retries
+retryConfig.setInitialDelay(2);   // Initial delay in seconds (default is 2)
+retryConfig.setBackoffMultiplier(2); // Backoff multiplier (default is 2)
+vwoInitOptions.setRetryConfig(retryConfig);
+
+VWO vwoInstance = VWO.init(vwoInitOptions);
+```
+
+Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
