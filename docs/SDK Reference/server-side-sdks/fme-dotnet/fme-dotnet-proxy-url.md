@@ -244,13 +244,16 @@ using VWOFmeSdk.Models.User;
 
 var vwoInitOptions = new VWOInitOptions
 {
-  SdkKey = "YOUR_SDK_KEY",
-	AccountId = YOUR_ACCOUNT_ID,
-	ProxyUrl = "http://custom.proxy.com",
+    SdkKey = "YOUR_SDK_KEY",
+    AccountId = YOUR_ACCOUNT_ID,
+    ProxyUrl = "http://custom.proxy.com",
 };
 
 var vwoInstance = VWO.Init(vwoInitOptions);
 
 var getFlag = vwoInstance.GetFlag("feature-key", context);
 var isEnabled = getFlag.IsEnabled();
+
+Console.WriteLine($"Flag enabled: {isEnabled}");
+
 ```
