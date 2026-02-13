@@ -25,7 +25,7 @@ To address these issues, VWO provides the ability to configure a **proxy URL**, 
 The request flow when using a custom proxy is as follows:
 
 1. **SDK → Proxy Server**  
-   The VWO SDK sends all API and data collection requests to the proxy server, using the `proxy_url` specified during SDK initialization.
+   The VWO SDK sends all API and data collection requests to the proxy server, using the `proxyUrl` specified during SDK initialization.
 2. **Proxy Server → VWO Backend**  
    Your proxy server receives the SDK request and forwards it to the appropriate VWO endpoint.
 3. **VWO Backend → Proxy Server**  
