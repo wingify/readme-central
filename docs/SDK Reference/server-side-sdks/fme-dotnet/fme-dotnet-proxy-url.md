@@ -250,4 +250,7 @@ var vwoInitOptions = new VWOInitOptions
 };
 
 var vwoInstance = VWO.Init(vwoInitOptions);
+
+var getFlag = vwoInstance.GetFlag("feature-key", context);
+var isEnabled = getFlag.IsEnabled();
 ```
