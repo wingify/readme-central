@@ -35,7 +35,7 @@ The request flow when using a custom proxy is as follows:
 
 ```mermaid
 flowchart TD
-    A["Python SDK"] --> B{"Proxy URL Set?"}
+    A["Dotnet SDK"] --> B{"Proxy URL Set?"}
     B -- Yes --> C["Rewrite URL with Proxy"]
     B -- No --> D["Direct to VWO Servers"]
     C --> E["Request via Proxy Server"]
