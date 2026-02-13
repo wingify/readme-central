@@ -105,105 +105,112 @@ Below is a basic proxy implementation.
 
 ### Dotnet
 
-```python
-from fastapi import FastAPI, Request
-from fastapi.responses import Response, JSONResponse
-import httpx
-from urllib.parse import urljoin
-from typing import Optional
+```csharp
+using System.Net;
+using System.Net.Http.Headers;
 
-app = FastAPI()
+var builder = WebApplication.CreateBuilder(args);
 
-VWO_BASE_URL = 'https://dev.visualwebsiteoptimizer.com'
+builder.Services.AddHttpClient("proxy")
+    .ConfigureHttpClient(client =>
+    {
+        client.Timeout = TimeSpan.FromSeconds(30);
+    });
 
-@app.api_route('/{path:path}', methods=['GET', 'POST', 'PUT', 'DELETE', 'PATCH'])
-async def proxy(request: Request, path: str):
-    # Construct the target URL
-    target_url = urljoin(VWO_BASE_URL, '/' + path if path else '/')
-    
-    # Get query parameters
-    params = dict(request.query_params)
-    
-    # Get request body if present
-    body: Optional[bytes] = None
-    json_body: Optional[dict] = None
-    
-    if request.method in ['POST', 'PUT', 'PATCH']:
-        content_type = request.headers.get('content-type', '').lower()
-        if 'application/json' in content_type:
-            try:
-                json_body = await request.json()
-            except (ValueError, TypeError):
-                body = await request.body()
-        else:
-            body = await request.body()
-    
-    # Forward headers (excluding host, connection, and content-length)
-    headers = {}
-    excluded_headers = {'host', 'connection', 'content-length'}
-    
-    for k, v in request.headers.items():
-        if k.lower() not in excluded_headers:
-            headers[k] = v
-    
-    async with httpx.AsyncClient(timeout=httpx.Timeout(30.0)) as client:
-        try:
-            # Prepare request kwargs
-            request_kwargs = {
-                'method': request.method,
-                'url': target_url,
-                'params': params if params else None,
-                'headers': headers,
+var app = builder.Build();
+
+const string VWO_BASE_URL = "https://dev.visualwebsiteoptimizer.com";
+
+app.MapMethods("/{**path}", new[] { "GET", "POST", "PUT", "DELETE", "PATCH" },
+async (HttpContext context, IHttpClientFactory httpClientFactory, string? path) =>
+{
+    var client = httpClientFactory.CreateClient("proxy");
+
+    var targetUrl = $"{VWO_BASE_URL}/{path ?? ""}{context.Request.QueryString}";
+
+    var requestMessage = new HttpRequestMessage
+    {
+        Method = new HttpMethod(context.Request.Method),
+        RequestUri = new Uri(targetUrl)
+    };
+
+    // Copy headers (excluding restricted ones)
+    foreach (var header in context.Request.Headers)
+    {
+        if (!WebHeaderCollection.IsRestricted(header.Key))
+        {
+            requestMessage.Headers.TryAddWithoutValidation(header.Key, header.Value.ToArray());
+        }
+    }
+
+    // Copy body if present
+    if (context.Request.ContentLength > 0)
+    {
+        requestMessage.Content = new StreamContent(context.Request.Body);
+
+        foreach (var header in context.Request.Headers)
+        {
+            if (header.Key.StartsWith("Content-", StringComparison.OrdinalIgnoreCase))
+            {
+                requestMessage.Content.Headers.TryAddWithoutValidation(header.Key, header.Value.ToArray());
             }
-            
-            # Add body or json based on content type
-            if json_body is not None:
-                request_kwargs['json'] = json_body
-            elif body is not None:
-                request_kwargs['content'] = body
-            
-            # Make the request
-            response = await client.request(**request_kwargs)
-            
-            # Prepare response headers (exclude headers that shouldn't be forwarded)
-            response_headers = {}
-            excluded_response_headers = {
-                'content-encoding', 
-                'transfer-encoding', 
-                'connection',
-                'content-length'  # Let FastAPI calculate this automatically
-            }
-            
-            for k, v in response.headers.items():
-                if k.lower() not in excluded_response_headers:
-                    response_headers[k] = v
-            
-            # Return response with appropriate status code and headers
-            return Response(
-                content=response.content,
-                status_code=response.status_code,
-                headers=response_headers,
-                media_type=response.headers.get('content-type')
-            )
-        except httpx.TimeoutException as e:
-            return JSONResponse(
-                status_code=504,
-                content={"error": "Gateway Timeout", "details": str(e)}
-            )
-        except httpx.ConnectError as e:
-            return JSONResponse(
-                status_code=502,
-                content={"error": "Bad Gateway", "details": str(e)}
-            )
-        except httpx.RequestError as e:
-            return JSONResponse(
-                status_code=500,
-                content={"error": "Proxy Error", "details": str(e)}
-            )
+        }
+    }
 
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, host='0.0.0.0', port=3300, ssl_keyfile='key.pem', ssl_certfile='cert.pem')
+    try
+    {
+        var responseMessage = await client.SendAsync(
+            requestMessage,
+            HttpCompletionOption.ResponseHeadersRead,
+            context.RequestAborted);
+
+        context.Response.StatusCode = (int)responseMessage.StatusCode;
+
+        foreach (var header in responseMessage.Headers)
+        {
+            context.Response.Headers[header.Key] = header.Value.ToArray();
+        }
+
+        foreach (var header in responseMessage.Content.Headers)
+        {
+            context.Response.Headers[header.Key] = header.Value.ToArray();
+        }
+
+        context.Response.Headers.Remove("transfer-encoding");
+
+        await responseMessage.Content.CopyToAsync(context.Response.Body);
+
+    }
+    catch (TaskCanceledException)
+    {
+        context.Response.StatusCode = 504;
+        await context.Response.WriteAsJsonAsync(new
+        {
+            error = "Gateway Timeout"
+        });
+    }
+    catch (HttpRequestException ex)
+    {
+        context.Response.StatusCode = 502;
+        await context.Response.WriteAsJsonAsync(new
+        {
+            error = "Bad Gateway",
+            details = ex.Message
+        });
+    }
+    catch (Exception ex)
+    {
+        context.Response.StatusCode = 500;
+        await context.Response.WriteAsJsonAsync(new
+        {
+            error = "Proxy Error",
+            details = ex.Message
+        });
+    }
+});
+
+app.Run();
+
 ```
 
 ### NGINX Config Snippet
@@ -229,23 +236,15 @@ For lightweight, scalable deployments, you can set up a proxy using AWS Lambda w
 
 After setting up your proxy, test it with a simple Dotnet script:
 
-```python
-from vwo import init
-
-# Test with proxy
-options = {
-    'sdk_key': 'your-sdk-key',
-    'account_id': 'your-account-id',
-    'proxy_url': 'https://proxy.yourdomain.com',
-    'logger': {
-        'level': 'DEBUG'  # Enable debug logging to see requests
-    }
-}
-
-vwo_client = init(options)
-
-# Test a simple operation
-user_context = {'id': 'test-user-123'}
-flag = vwo_client.get_flag('your-feature-key', user_context)
-print(f"Flag enabled: {flag.is_enabled()}")
+```csharp
+var vwoInitOptions = new VWOInitOptions
+            {
+                SdkKey = "a925e1e411809d05444795a82cda149c",
+                AccountId = 1188493,
+                ProxyUrl = "http://localhost:8000",
+                //Settings = settingsString,
+                //IsAliasingEnabled = true
+                //IsBatchingDisabled = false,
+            };
+            return VWO.Init(vwoInitOptions);
 ```
