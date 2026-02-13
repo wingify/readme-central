@@ -25,7 +25,7 @@ To address these issues, VWO provides the ability to configure a **proxy URL**, 
 The request flow when using a custom proxy is as follows:
 
 1. **SDK → Proxy Server**  
-   The VWO SDK sends all API and data collection requests to the proxy server, using the `proxy_url` specified during SDK initialization.
+   The VWO SDK sends all API and data collection requests to the proxy server, using the `proxy` specified during SDK initialization.
 2. **Proxy Server → VWO Backend**  
    Your proxy server receives the SDK request and forwards it to the appropriate VWO endpoint.
 3. **VWO Backend → Proxy Server**  
@@ -57,17 +57,16 @@ flowchart TD
 
 ## Configuration Example
 
-```python
-from vwo import init
+```php
 
-options = {
-    'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
-    'account_id': '123456', # VWO Account ID
-    'proxy_url': 'https://proxy.yourdomain.com',
-    # other configuration options
-}
-
-vwo_client = init(options)
+$vwoClient = VWO::init([
+    'sdkKey' => '32-alpha-numeric-sdk-key',
+    'accountId' => 123456,
+    'proxy' => [
+        'url' => 'http://custom.proxy.com',
+        'isUrlNotSecure' => true // Set to true to allow non-HTTPS (insecure) proxy URLs; false by default for security
+    ],
+]);
 ```
 
 > Ensure your proxy server is properly configured to forward requests to `dev.visualwebsiteoptimizer.com`, handle request/response headers appropriately, and support both GET and POST methods used by the SDK.
