@@ -28,7 +28,7 @@ var vwoClient = VWO.Init(vwoInitOptions);
 
 An object of `VWOInitOptions` is created to store the SDK configuration details.
 
-The `Init()` function is called with the `vwoInitOptions` object. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature\
+The `Init()` function is called with the `vwoInitOptions` object. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
@@ -54,7 +54,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **AccountId**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -68,8 +68,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **SdkKey**\
-        *Required*
+        **SdkKey**  
+        _Required_
       </td>
 
       <td>
@@ -77,14 +77,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
       </td>
     </tr>
 
     <tr>
       <td>
-        **PollInterval**\
-        *Optional*
+        **PollInterval**  
+        _Optional_
       </td>
 
       <td>
@@ -98,8 +98,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **Logger**\
-        *Optional*
+        **Logger**  
+        _Optional_
       </td>
 
       <td>
@@ -113,8 +113,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **Storage**\
-        *Optional*
+        **Storage**  
+        _Optional_
       </td>
 
       <td>
@@ -128,8 +128,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **GatewayService**\
-        *Optional*
+        **GatewayService**  
+        _Optional_
       </td>
 
       <td>
@@ -143,8 +143,8 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **Integrations**\
-        *Optional*
+        **Integrations**  
+        _Optional_
       </td>
 
       <td>
@@ -155,13 +155,28 @@ This client object allows you to run experiments, track events, and enable/disab
         Contains a callback function that receives campaign data which can be pushed to any external tool that you need to integrate with. [Integrations](https://developers.vwo.com/v2/docs/fme-net-integrations)
       </td>
     </tr>
+
+    <tr>
+      <td>
+        **retryConfig**  
+        _Optional_
+      </td>
+
+      <td>
+        Dictionary
+      </td>
+
+      <td>
+        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.vwo.com/v2/docs/fme-dotnet-initialization#retry-configuration)
+      </td>
+    </tr>
   </tbody>
 </Table>
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the *vwoClient* on your server, it pulls the latest configurations you've done in the VWO application.\
-If/when you make any changes to the feature flags or rules within VWO after the *vwoClient* has been initialized in your server, there needs to be some way to update your *vwoClient* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.  
+If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -195,7 +210,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-net-logging) for more
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each *get\_flag* call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _get_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```csharp
 var vwoInitOptions = new VWOInitOptions
@@ -210,7 +225,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-net-storage)  to lear
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
 
 ```csharp
 var vwoInitOptions = new VWOInitOptions
@@ -247,3 +262,26 @@ var vwoClient = VWO.Init(new VWOInitOptions
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-net-integrations) to learn more about Integrations,.
+
+### Retry Configuration
+
+The SDK includes a built-in retry mechanism to improve reliability when network requests fail due to transient issues such as timeouts or temporary connectivity problems. You can fully control this behavior by providing a retryConfig object during SDK initialization.
+
+```csharp
+var retryConfig = new Dictionary<string, object>
+{
+    { "shouldRetry", true },   // Enable retries (default: true)
+    { "maxRetries", 5 },       // Retry up to 5 times
+    { "initialDelay", 3 },     // Wait 3 seconds before first retry
+    { "backoffMultiplier", 2 } // Double the delay for each subsequent retry
+};
+
+var vwoClient = VWO.Init(new VWOInitOptions
+{
+    SdkKey = "your-sdk-key", // Replace with your SDK key
+    AccountId = your-account-id, // Replace with your account ID
+    RetryConfig = retryConfig
+});
+```
+
+Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
