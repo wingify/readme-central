@@ -1,5 +1,5 @@
 ---
-title: Copy of Integrations
+title: Proxy URL (bypassing Firewall)
 deprecated: false
 hidden: false
 metadata:
