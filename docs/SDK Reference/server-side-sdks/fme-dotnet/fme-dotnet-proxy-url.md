@@ -237,7 +237,11 @@ For lightweight, scalable deployments, you can set up a proxy using AWS Lambda w
 After setting up your proxy, test it with a simple Dotnet script:
 
 ```csharp
-var vwoInitOptions = new VWOInitOptions
+using VWOFmeSdk;
+using VWOFmeSdk.Models;
+using VWOFmeSdk.Models.User;
+
+var vwoInitOptions = new VWOInitOptionsx
             {
                 SdkKey = "a925e1e411809d05444795a82cda149c",
                 AccountId = 1188493,
