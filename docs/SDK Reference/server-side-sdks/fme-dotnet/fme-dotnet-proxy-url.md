@@ -243,9 +243,10 @@ using VWOFmeSdk.Models.User;
 
 var vwoInitOptions = new VWOInitOptions
 {
-  SdkKey = "a925e1e411809d05444795a82cda149c",
-  AccountId = 1188493,
-  ProxyUrl = "http://localhost:8000",
+  SdkKey = "YOUR_SDK_KEY",
+	AccountId = YOUR_ACCOUNT_ID,
+	ProxyUrl = "http://custom.proxy.com",
 };
-            return VWO.Init(vwoInitOptions);
+
+var vwoInstance = VWO.Init(vwoInitOptions);
 ```
