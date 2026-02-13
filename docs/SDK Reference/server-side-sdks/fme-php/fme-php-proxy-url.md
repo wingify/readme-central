@@ -245,7 +245,7 @@ $options = [
 $vwoClient = VWO::init($options);
 
 # Test a simple operation
-user_context = {'id': 'test-user-123'}
-flag = vwo_client.get_flag('your-feature-key', user_context)
-print(f"Flag enabled: {flag.is_enabled()}")
+$userContext = [ 'id' => 'unique_user_id'];
+$flag1 = $vwoClient1->getFlag('f1', $userContext);
+
 ```
