@@ -57,17 +57,18 @@ flowchart TD
 
 ## Configuration Example
 
-```python
-from vwo import init
+```csharp
+using VWOFmeSdk;
+using VWOFmeSdk.Models.User;
 
-options = {
-    'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
-    'account_id': '123456', # VWO Account ID
-    'proxy_url': 'https://proxy.yourdomain.com',
-    # other configuration options
-}
+var vwoInitOptions = new VWOInitOptions
+{
+    SdkKey = "32-alpha-numeric-sdk-key",
+		AccountId = YOUR_ACCOUNT_ID,
+    ProxyUrl = "http://custom.proxy.com",
+};
 
-vwo_client = init(options)
+var vwoInstance = VWO.Init(vwoInitOptions);
 ```
 
 > Ensure your proxy server is properly configured to forward requests to `dev.visualwebsiteoptimizer.com`, handle request/response headers appropriately, and support both GET and POST methods used by the SDK.
