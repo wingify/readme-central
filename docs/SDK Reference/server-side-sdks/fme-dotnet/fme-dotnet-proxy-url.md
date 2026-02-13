@@ -101,7 +101,7 @@ Proxying SDK traffic gives you more control, but also introduces potential risks
 
 ## Sample Proxy Implementations
 
-Below is a basic proxy implementation using FastAPI.
+Below is a basic proxy implementation.
 
 ### Dotnet
 
