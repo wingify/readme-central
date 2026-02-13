@@ -222,22 +222,27 @@ For lightweight, scalable deployments, you can set up a proxy using AWS Lambda w
 
 ## Testing Your Proxy
 
-After setting up your proxy, test it with a simple Python script:
+After setting up your proxy, test it with a simple PHP script:
 
-```python
+```php
 from vwo import init
 
-# Test with proxy
-options = {
-    'sdk_key': 'your-sdk-key',
-    'account_id': 'your-account-id',
-    'proxy_url': 'https://proxy.yourdomain.com',
-    'logger': {
-        'level': 'DEBUG'  # Enable debug logging to see requests
-    }
-}
+$options = [
+        'sdkKey' => '11a566590bc297ded6581a38a64685bc',
+        'accountId' => '1193611',
+        'logger' => [
+            'level' => 'DEBUG',
+            'prefix' => 'Instance 1',
+            'isAnsiColorEnabled' => true
+        ],
+       
+        'proxy' => [
+            'url' => 'http://localhost:3300',
+            'isUrlNotSecure' => true
+        ],
+];
 
-vwo_client = init(options)
+$vwoClient = VWO::init($options);
 
 # Test a simple operation
 user_context = {'id': 'test-user-123'}
