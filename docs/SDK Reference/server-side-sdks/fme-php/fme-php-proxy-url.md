@@ -1,7 +1,7 @@
 ---
 title: Proxy URL (bypassing Firewall)
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
