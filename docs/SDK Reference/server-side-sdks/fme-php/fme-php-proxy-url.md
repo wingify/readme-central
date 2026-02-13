@@ -9,7 +9,7 @@ The VWO PHP SDK includes support for **custom proxy URLs**, enabling you to rout
 
 ## Why Use a Custom Proxy URL?
 
-In modern server environments, many organizations utilize network firewalls, security policies, or compliance requirements that restrict direct access to external services. Since the VWO Python SDK communicates with VWO services via the default domain (`dev.visualwebsiteoptimizer.com`), requests to this endpoint may be **blocked or restricted**.
+In modern server environments, many organizations utilize network firewalls, security policies, or compliance requirements that restrict direct access to external services. Since the VWO PHP SDK communicates with VWO services via the default domain (`dev.visualwebsiteoptimizer.com`), requests to this endpoint may be **blocked or restricted**.
 
 When this occurs, it can lead to partial or complete SDK failure, resulting in:
 
@@ -102,107 +102,103 @@ Proxying SDK traffic gives you more control, but also introduces potential risks
 
 Below is a basic proxy implementation using FastAPI.
 
-### Python (FastAPI)
+### PHP
 
-```python
-from fastapi import FastAPI, Request
-from fastapi.responses import Response, JSONResponse
-import httpx
-from urllib.parse import urljoin
-from typing import Optional
+```php
+<?php
 
-app = FastAPI()
+// Base URL to proxy to
+$VWO_BASE_URL = 'https://dev.visualwebsiteoptimizer.com';
 
-VWO_BASE_URL = 'https://dev.visualwebsiteoptimizer.com'
+// Get requested path
+$path = $_SERVER['REQUEST_URI'];
+$targetUrl = rtrim($VWO_BASE_URL, '/') . $path;
 
-@app.api_route('/{path:path}', methods=['GET', 'POST', 'PUT', 'DELETE', 'PATCH'])
-async def proxy(request: Request, path: str):
-    # Construct the target URL
-    target_url = urljoin(VWO_BASE_URL, '/' + path if path else '/')
-    
-    # Get query parameters
-    params = dict(request.query_params)
-    
-    # Get request body if present
-    body: Optional[bytes] = None
-    json_body: Optional[dict] = None
-    
-    if request.method in ['POST', 'PUT', 'PATCH']:
-        content_type = request.headers.get('content-type', '').lower()
-        if 'application/json' in content_type:
-            try:
-                json_body = await request.json()
-            except (ValueError, TypeError):
-                body = await request.body()
-        else:
-            body = await request.body()
-    
-    # Forward headers (excluding host, connection, and content-length)
-    headers = {}
-    excluded_headers = {'host', 'connection', 'content-length'}
-    
-    for k, v in request.headers.items():
-        if k.lower() not in excluded_headers:
-            headers[k] = v
-    
-    async with httpx.AsyncClient(timeout=httpx.Timeout(30.0)) as client:
-        try:
-            # Prepare request kwargs
-            request_kwargs = {
-                'method': request.method,
-                'url': target_url,
-                'params': params if params else None,
-                'headers': headers,
-            }
-            
-            # Add body or json based on content type
-            if json_body is not None:
-                request_kwargs['json'] = json_body
-            elif body is not None:
-                request_kwargs['content'] = body
-            
-            # Make the request
-            response = await client.request(**request_kwargs)
-            
-            # Prepare response headers (exclude headers that shouldn't be forwarded)
-            response_headers = {}
-            excluded_response_headers = {
-                'content-encoding', 
-                'transfer-encoding', 
-                'connection',
-                'content-length'  # Let FastAPI calculate this automatically
-            }
-            
-            for k, v in response.headers.items():
-                if k.lower() not in excluded_response_headers:
-                    response_headers[k] = v
-            
-            # Return response with appropriate status code and headers
-            return Response(
-                content=response.content,
-                status_code=response.status_code,
-                headers=response_headers,
-                media_type=response.headers.get('content-type')
-            )
-        except httpx.TimeoutException as e:
-            return JSONResponse(
-                status_code=504,
-                content={"error": "Gateway Timeout", "details": str(e)}
-            )
-        except httpx.ConnectError as e:
-            return JSONResponse(
-                status_code=502,
-                content={"error": "Bad Gateway", "details": str(e)}
-            )
-        except httpx.RequestError as e:
-            return JSONResponse(
-                status_code=500,
-                content={"error": "Proxy Error", "details": str(e)}
-            )
+// Get HTTP method
+$method = $_SERVER['REQUEST_METHOD'];
 
-if __name__ == '__main__':
-    import uvicorn
-    uvicorn.run(app, host='0.0.0.0', port=3300, ssl_keyfile='key.pem', ssl_certfile='cert.pem')
+// Get request headers
+$headers = getallheaders();
+$forwardHeaders = [];
+
+// Exclude specific headers
+$excludedHeaders = ['Host', 'Connection', 'Content-Length'];
+
+foreach ($headers as $key => $value) {
+    if (!in_array($key, $excludedHeaders)) {
+        $forwardHeaders[] = "$key: $value";
+    }
+}
+
+// Get request body
+$body = file_get_contents('php://input');
+
+// Initialize cURL
+$ch = curl_init($targetUrl);
+
+curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_HEADER, true);
+curl_setopt($ch, CURLOPT_HTTPHEADER, $forwardHeaders);
+curl_setopt($ch, CURLOPT_TIMEOUT, 30);
+
+// Set body for POST, PUT, PATCH
+if (in_array($method, ['POST', 'PUT', 'PATCH'])) {
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+}
+
+// Execute request
+$response = curl_exec($ch);
+
+if ($response === false) {
+    $error = curl_error($ch);
+    curl_close($ch);
+
+    http_response_code(502);
+    header('Content-Type: application/json');
+    echo json_encode([
+        'error' => 'Bad Gateway',
+        'details' => $error
+    ]);
+    exit;
+}
+
+// Separate headers and body
+$headerSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+$responseHeadersRaw = substr($response, 0, $headerSize);
+$responseBody = substr($response, $headerSize);
+$statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+curl_close($ch);
+
+// Set response status
+http_response_code($statusCode);
+
+// Forward response headers (excluding some)
+$excludedResponseHeaders = [
+    'Transfer-Encoding',
+    'Content-Length',
+    'Connection',
+    'Content-Encoding'
+];
+
+$responseHeaders = explode("\r\n", $responseHeadersRaw);
+
+foreach ($responseHeaders as $headerLine) {
+    if (strpos($headerLine, ':') !== false) {
+        list($key, $value) = explode(':', $headerLine, 2);
+        $key = trim($key);
+        $value = trim($value);
+
+        if (!in_array($key, $excludedResponseHeaders)) {
+            header("$key: $value", false);
+        }
+    }
+}
+
+// Output body
+echo $responseBody;
+
 ```
 
 ### NGINX Config Snippet
