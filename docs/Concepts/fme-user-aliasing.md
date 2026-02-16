@@ -1,5 +1,5 @@
 ---
-title: 'User Aliasing '
+title: 'User Aliasing'
 excerpt: >-
   Connect anonymous userId and permanent userId, to get a unified experience for
   logged in and guest users
