@@ -244,8 +244,9 @@ $options = [
 $vwoClient = VWO::init($options);
 
 # Test a simple operation
-$userContext = [ 'id' => 'unique_user_id'];
-$flag1 = $vwoClient1->getFlag('f1', $userContext);
-echo "Flag enabled: " . $getFlag['isEnabled'];
+$userContext = [ 'id' => 'unique_user_id' ];
+$flag = $vwoClient1->getFlag('feature-key', $userContext);
+
+echo "Flag enabled: " . $flag['isEnabled'];
 
 ```
