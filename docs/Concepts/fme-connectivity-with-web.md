@@ -1,35 +1,38 @@
 ---
-title: 'Unifying Server-Side and Client-Side Experimentation in VWO'
+title: Unifying Server-Side and Client-Side Experimentation in VWO
 excerpt: >-
-  A Conceptual Guide to Connecting Feature Experimentation, Web Testing, and Web Insights
+  A Conceptual Guide to Connecting Feature Experimentation, Web Testing, and Web
+  Insights
 deprecated: false
 hidden: true
 metadata:
   robots: index
 ---
-
 Modern experimentation is no longer limited to a single platform or touchpoint. Users interact with your product across **web, mobile, backend services, and APIs**—and experimentation must follow the user seamlessly across this entire journey.
 
 A user journey typically spans:
 
-- CDN → Web Server → Backend Services
-- Browser → SPA Framework → APIs
-- Web → Mobile → Backend
-- Marketing pages → Auth flows → Application dashboards
+* CDN → Web Server → Backend Services
+* Browser → SPA Framework → APIs
+* Web → Mobile → Backend
+* Marketing pages → Auth flows → Application dashboards
 
-To experiment effectively across this ecosystem, you must solve one foundational problem:
+To experiment effectively across this ecosystem, one foundational problem to be solved is:
 
 > How do we ensure that the same user is consistently identified and evaluated across all systems?
 
+<br />
+
 This article explains how **VWO Feature Experimentation (FE)** connects with **VWO Web Testing** and **VWO Web Insights**, enabling:
 
-- Consistent user identification across client and server
-- Combined client-side and server-side experimentation
-- Omni-channel user journey tracking
-- Unified analytics and insights
+* Consistent user identification across client and server
+* Combined client-side and server-side experimentation
+* Omni-channel user journey tracking
+* Unified analytics and insights
 
 We’ll cover **concepts, architecture, step-by-step integration, code examples**, and **real-world scenarios**.
 
+<br />
 
 ## The Fundamental Architectural Difference
 
@@ -41,17 +44,17 @@ At a high level, VWO offers two complementary experimentation models:
 
 Works via **SmartCode**, a JavaScript snippet added to your website
 
-- Best suited for **visual UI** changes
-- Enables non-technical users to create experiments using a **Visual Editor**
-- Runs entirely in the **browser**
+* Best suited for **visual UI** changes
+* Enables non-technical users to create experiments using a **Visual Editor**
+* Runs entirely in the **browser**
 
 Conceptually:
 
-- Code executes in the browser
-- User identity is created in the browser
-- Variations are applied to the DOM
-- Bucketing happens client-side
-- Cookies store visitor identity
+* Code executes in the browser
+* User identity is created in the browser
+* Variations are applied to the DOM
+* Bucketing happens client-side
+* Cookies store visitor identity
 
 > This follows a presentation-layer experimentation model.
 
@@ -61,19 +64,19 @@ Reference: [What is VWO SmartCode?](https://help.vwo.com/hc/en-us/articles/36001
 
 Works via **SDKs** (server-side and client-side)
 
-- Best suited for:
-  - Feature flags
-  - Gradual rollouts
-  - Server-side A/B tests
-  - Backend logic experiments
-- Runs in **backend services, mobile apps, SPAs, and IoT**
+* Best suited for:
+  * Feature flags
+  * Gradual rollouts
+  * Server-side A/B tests
+  * Backend logic experiments
+* Runs in **backend services, mobile apps, SPAs, and IoT**
 
 Conceptually:
 
-- Code executes before the UI renders
-- Decisions are made in business logic
-- Bucketing can occur on the server
-- Feature flags control application behavior
+* Code executes before the UI renders
+* Decisions are made in business logic
+* Bucketing can occur on the server
+* Feature flags control application behavior
 
 > This follows a decision-layer experimentation model.
 
@@ -88,15 +91,39 @@ Reference: [List of VWO Feature Experimentation SDKs](https://developers.vwo.com
 | Audience    | Marketers, CRO teams   | Developers                |
 | Use cases   | UI & UX testing        | Business logic & rollouts |
 
+<br />
+
+### VWO Web Insights (Behavioral Analytics)
+
+Works via **SmartCode-based data collection**, capturing visitor interactions on your website.
+
+* Best suited for:
+  * Session recordings
+  * Heatmaps (click, scroll, movement)
+  * Funnel analysis
+  * Form analytics
+  * On-page surveys
+* Runs in the browser, passively capturing behavioral data
+
+Conceptually:
+
+* User interactions are recorded at the browser level
+* Behavioral events (clicks, scrolls, navigation) are tied to visitor identity
+* Data is aggregated into visual insights (heatmaps) and replayable sessions
+* Visitor sessions can be filtered by experiment variation or feature flag state (when UUID is consistent)
+
+> This follows a behavioral-analytics model, complementing experimentation by explaining why users behaved the way they did.
+
+<br />
 
 ## Why Connectivity Is Necessary
 
 If Web Testing and Feature Experimentation operate independently:
 
-- A user bucketed client-side may be unknown to server-side systems
-- Backend experiments cannot be correlated with frontend experiments
-- Funnel-level analysis becomes fragmented
-- Attribution becomes inaccurate
+* A user bucketed client-side may be unknown to server-side systems
+* Backend experiments cannot be correlated with frontend experiments
+* Funnel-level analysis becomes fragmented
+* Attribution becomes inaccurate
 
 In other words:
 
@@ -106,34 +133,38 @@ Connectivity ensures:
 
 > One user → One identity → One journey → Unified insights
 
+<br />
 
 ## Core Design Principle: UUID-Based Identity
 
 The unifying principle is:
 
-> **A canonical UUID must represent the same user across all evaluation layers.**
+<Callout icon="📘" theme="info">
+  **A canonical UUID must represent the same user across all evaluation layers.**  
+  Read [here](https://developers.vwo.com/v2/docs/user-id-management) to know more about what is a UUID?
+</Callout>
 
 Whether evaluation occurs:
 
-- In the browser (SmartCode)
-- In the backend (FE SDK)
-- In mobile apps
-- In APIs
+* In the browser (SmartCode)
+* In the backend (FE SDK)
+* In mobile apps
+* In APIs
 
 The identity must remain stable.
 
 VWO achieves this by ensuring that:
 
-- FE SDKs can generate and reuse UUIDs
-- SmartCode can read and preserve the same UUID
-- Both systems communicate identity through cookies or server headers
-- All events flow into Web Insights under the same visitor profile
+* FE SDKs can generate/read and reuse UUIDs
+* SmartCode can generate/read and preserve the same UUID
+* Both systems communicate identity through cookies or server headers
+* All events flow into Web Insights under the same visitor profile
+
+<br />
 
 ## Step-by-step guide
 
-### Installation
-
-#### SmartCode Installation (Web Experimentation Example)
+### SmartCode Installation (Web Experimentation Example)
 
 A minimal SmartCode installation looks like this:
 
@@ -157,14 +188,16 @@ if(f=!1,v=d.querySelector('#vwoCode'),cc={},-1<d.URL.indexOf('__vwo_disable__')|
 <!-- End VWO Async SmartCode -->
 ```
 
-Once installed n web-pages:
+Once installed on web pages:
 
-- VWO can identify visitors
-- Bucketing happens client-side
-- Cookies are set automatically
-- Visual experiments can be launched without code changes
+* VWO can identify visitors
+* Bucketing happens client-side
+* Cookies are set automatically
+* Visual experiments can be launched without code changes
 
-#### Feature Experimentation Example (Server-Side)
+<br />
+
+### Feature Experimentation Example (Server-Side)
 
 A simple Node.js server-side Feature Experimentation example:
 
@@ -191,10 +224,11 @@ if (flag.isEnabled()) {
 
 Here:
 
-- The SDK buckets the user locally
-- Decisions happen before the response is sent to front-end
-- Perfect for backend-controlled flows
+* The SDK buckets the user locally
+* Decisions happen before the response is sent to the front-end
+* Perfect for backend-controlled flows
 
+<br />
 
 ## The Two Possible Entry Flows
 
@@ -205,7 +239,17 @@ There are only two logical ways a user can enter the system:
 
 VWO supports both symmetrically.
 
-### Passing UUID Between Server and Client
+Before we dive into how UUID synchronization works between server-side Feature Experimentation and client-side Web Testing, it is important to understand a more fundamental concept:
+
+**How do servers and browsers generally exchange information?**
+
+The mechanisms used for UUID propagation are not unique to experimentation systems. They rely on standard web communication patterns used across modern applications.
+
+Below are the most common and industry-standard ways information flows between server and client.
+
+<br />
+
+### How Server and Client Exchange Information(Passing UUID Between Server and Client)
 
 #### UUID Generation
 
@@ -213,22 +257,20 @@ A UUID can be generated by either system:
 
 | Entry Point  | UUID Generated By |
 | ------------ | ----------------- |
-| Server-first | FE SDK             |
-| Client-first | SmartCode          |
+| Server-first | FE SDK            |
+| Client-first | SmartCode         |
 
+> Once generated, the UUID becomes the source of truth.
 
->Once generated, the UUID becomes the source of truth.
-
-
-To keep the same UUID across server-side and client-side experiments, the identifier must be transferable in both directions—from server to client and from client back to server. The following mechanisms support this bidirectional flow.
+To keep the same UUID across server-side and client-side experiments, the identifier must be transferable in both directions, from server to client and from client back to server. The following mechanisms support this bidirectional flow.
 
 #### 1. Cookies `(Recommended)`
 
 Cookies are the most reliable way to share a UUID between server and client.
 
-- **Server → Client**: Server sets the UUID using the `Set-Cookie` header
-- **Client → Server**: Browser automatically sends the cookie with every request
-- **Client access**: Available via JavaScript if not marked HttpOnly
+* **Server → Client**: Server sets the UUID using the `Set-Cookie` header
+* **Client → Server**: Browser automatically sends the cookie with every request
+* **Client access**: Available via JavaScript if not marked HttpOnly
 
 Cookies persist across page refreshes and navigations, making them ideal for keeping server and client experiments in sync.
 
@@ -236,12 +278,12 @@ Cookies persist across page refreshes and navigations, making them ideal for kee
 
 Custom headers can be used to pass the UUID explicitly.
 
-- **Server → Client**: Server sends the UUID in a response header (e.g., `X-VWO-Visitor-ID`)
-- **Client → Server**: Client includes the same header in subsequent API requests
+* **Server → Client**: Server sends the UUID in a response header (e.g., `X-VWO-Visitor-ID`)
+* **Client → Server**: Client includes the same header in subsequent API requests
 
 This approach works well for API-driven applications but requires explicit handling and persistence on the client.
 
-#### 4. Injecting into the window Object
+#### 3. Injecting into the window Object
 
 The server embeds the UUID into the page during rendering:
 
@@ -251,41 +293,45 @@ The server embeds the UUID into the page during rendering:
 </script>
 ```
 
-- **Server → Client**: UUID is injected during SSR
-- **Client → Server**: Client reads the value and sends it back via cookies or headers
+* **Server → Client**: UUID is injected during SSR
+* **Client → Server**: Client reads the value and sends it back via cookies or headers
 
 This method provides immediate client-side access but relies on another mechanism for persistence.
 
-There can be other ways too depending on the requirements.
+There can be other ways too, depending on the requirements.
 
-> **Recommendation**:
-For consistent experiment identity, use cookies as the primary bidirectional channel, optionally combined with HTML injection (window or JSON script) for immediate client-side availability during initialization.
+> 📘 Recommendation
+>
+> For consistent experiment identity, use cookies as the primary bidirectional channel, optionally combined with HTML injection (window or JSON script) for immediate client-side availability during initialization.
 
+<br />
 
 ## Server-First Architecture
 
 This is common in:
 
-- Authenticated applications
-- API-driven products
-- Backend-rendered pages
-- SaaS dashboards
+* Authenticated applications
+* API-driven products
+* Backend-rendered pages
+* SaaS dashboards
 
 ### Theoretical Flow
 
-1. User request hits server.
+1. User request hits the server.
 2. Server calls FE SDK.
 3. SDK:
-  - Converts provided user ID to a UUID.
-  - Evaluates rules.
-4. UUID is attached to response (cookie or header).
+   1. Converts the provided user ID to a UUID.
+   2. Evaluates rules.
+4. UUID is attached to the response (cookie or header).
 5. Browser loads SmartCode.
 6. SmartCode reads UUID.
 7. Client-side experiments align with server-side decisions.
 
+<br />
+
 ### Conceptual Outcome
 
-* Server becomes the primary authority.
+* The server becomes the primary authority.
 * Browser inherits identity.
 * Cross-layer alignment is automatic.
 
@@ -317,31 +363,39 @@ window.VWO.push(['setVisitorId', () => {
 }]);
 ```
 
+<br />
+
 ## Client-First Architecture
 
 Common in:
 
-- Marketing websites
-- SEO landing pages
-- Anonymous traffic
-- Static sites
+* Marketing websites
+* SEO landing pages
+* Anonymous traffic
+* Static sites
+
+<br />
 
 ### Theoretical Flow
 
 1. SmartCode loads first.
 2. SmartCode:
-  - Generates UUID.
-  - Stores it in a cookie.
-3. User performs an action triggering server request.
+
+* Generates a UUID.
+* Stores it in a cookie.
+
+3. User performs an action, triggering a server request.
 4. Server reads UUID from cookie or request headers.
-6. Server passes UUID into FE SDK.
-7. Backend experiments now align with client-side identity.
+5. Server passes UUID into FE SDK.
+6. Backend experiments now align with client-side identity.
+
+<br />
 
 ### Conceptual Outcome
 
-- Browser becomes the identity authority.
-- Server reuses existing identity.
-- No duplication occurs.
+* The browser becomes the identity authority.
+* Server reuses existing identity.
+* No duplication occurs.
 
 #### Server-side Example
 
@@ -356,15 +410,16 @@ const userContext = {
 const flag = vwoClient.getFlag('recommendation_algo', userContext);
 ```
 
+<br />
 
 ## Why Two-Way Handling Matters
 
 In real-world systems:
 
-- Some users land on marketing pages first.
-- Some users enter through authenticated deep links.
-- Some traffic originates via APIs.
-- Some flows are SPA-based.
+* Some users land on marketing pages first.
+* Some users enter through authenticated deep links.
+* Some traffic originates via APIs.
+* Some flows are SPA-based.
 
 If experimentation only supported one direction, identity fragmentation would occur.
 
@@ -376,6 +431,7 @@ VWO’s model ensures:
 | Client-first | Browser            | Backend inherits |
 | Repeat visit | Cookie persistence | Full alignment   |
 
+<br />
 
 ## Architecture: Siloed vs Connected Systems
 
@@ -395,10 +451,12 @@ flowchart LR
 
 Problems
 
-- Separate visitor identities
-- No shared attribution
-- Fragmented analytics
-- Incomplete funnel visibility
+* Separate visitor identities
+* No shared attribution
+* Fragmented analytics
+* Incomplete funnel visibility
+
+<br />
 
 ### Connected Architecture (Recommended)
 
@@ -417,18 +475,20 @@ flowchart LR
 
 **Benefits**
 
-- Single UUID across systems
-- Unified experimentation
-- Reliable attribution
-- End-to-end journey tracking
+* Single UUID across systems
+* Unified experimentation
+* Reliable attribution
+* End-to-end journey tracking
+
+<br />
 
 ## End-to-End Execution Architecture
 
-The below diagram illustrates:
+The diagram below illustrates:
 
-- FE SDK communicates with VWO for configuration
-- SmartCode communicates independently with VWO
-- UUID is the shared binding identity
+* FE SDK communicates with VWO for configuration
+* SmartCode communicates independently with VWO
+* UUID is the shared binding identity
 
 ```mermaid
 sequenceDiagram
@@ -455,6 +515,7 @@ sequenceDiagram
 
 ```
 
+<br />
 
 ## What This Enables
 
@@ -462,23 +523,24 @@ sequenceDiagram
 
 A single user could experience:
 
-- Visual homepage test
-- Server-side pricing experiment
-- Feature-flagged recommendation engine
-- Mobile push personalization
+* Visual homepage test
+* Server-side pricing experiment
+* Feature-flagged recommendation engine
+* Mobile push personalization
 
->All attributed to one identity.
+> All attributed to one identity.
 
 ### Unified Web Insights
 
 Because both FE SDK events and SmartCode events use the same UUID:
 
-- Funnels remain intact
-- Cross-experiment impact can be measured
-- Combined revenue lift can be calculated
+* Funnels remain intact
+* Cross-experiment impact can be measured
+* Combined revenue lift can be calculated
 
 > Attribution is reliable
 
+<br />
 
 ## Conceptual Example: E-Commerce Platform Migration
 
@@ -492,15 +554,16 @@ Because both FE SDK events and SmartCode events use the same UUID:
 
 #### Without connectivity:
 
-- These appear as two different users
-- Insights are fragmented
+* These appear as two different users
+* Insights are fragmented
 
 #### With connectivity:
 
-- One visitor profile (Same user → same UUID → same journey)
-- Full funnel visibility (Analyze impact, not isolated tests)
-- Clear insight into how frontend + backend experiments interact
+* One visitor profile (Same user → same UUID → same journey)
+* Full funnel visibility (Analyze impact, not isolated tests)
+* Clear insight into how frontend + backend experiments interact
 
+<br />
 
 ## Conversion Tracking Across Feature Experimentation and Web Testing
 
@@ -510,12 +573,14 @@ Conversion tracking in a connected VWO architecture relies on one fundamental re
 
 If identity is consistent across client and server layers, conversions can be attributed accurately across:
 
-- Feature Experimentation (FE)
-- VWO Web Testing
-- VWO Web Insights
-- Offline systems (CRM, POS, backend billing, etc.)
+* Feature Experimentation (FE)
+* VWO Web Testing
+* VWO Web Insights
+* Offline systems (CRM, POS, backend billing, etc.)
 
 This section explains how conversion tracking works in both FE-first and Client-first architectures, and how offline conversions fit into the model.
+
+<br />
 
 ### Conceptual Flow of a Connected Conversion
 
@@ -530,13 +595,15 @@ Let’s start with a simple system-level example:
 
 If UUID continuity is maintained, attribution works across products.
 
+<br />
+
 ### FE-First Conversion Flow
 
 This flow is common in:
 
-- Backend-rendered applications
-- Authenticated SaaS products
-- API-first architectures
+* Backend-rendered applications
+* Authenticated SaaS products
+* API-first architectures
 
 #### Identity and Rendering
 
@@ -548,18 +615,20 @@ This flow is common in:
 
 At this point:
 
-- Server-side experiment decision is locked.
-- Client-side SmartCode reads same UUID.
-- Identity is unified.
+* Server-side experiment decision is locked.
+* Client-side SmartCode reads same UUID.
+* Identity is unified.
+
+<br />
 
 ### Client-Side-First Conversion Flow
 
 This flow is common in:
 
-- Marketing websites
-- Anonymous traffic
-- SEO landing pages
-- Static web deployments
+* Marketing websites
+* Anonymous traffic
+* SEO landing pages
+* Static web deployments
 
 #### Identity and Rendering
 
@@ -570,18 +639,22 @@ This flow is common in:
 5. User action triggers server call.
 6. Server reads UUID from cookie.
 7. Server passes UUID into FE SDK.
-8. FE evaluates user based on client-generated UUID.
+8. FE evaluates the user based on the client-generated UUID.
 
 Now:
 
-- Client and server are aligned.
-- Identity is unified.
+* Client and server are aligned.
+* Identity is unified.
+
+<br />
 
 ### Conversion Trigger
 
-Now assume a button click occurs.
+Now, assume a button click occurs.
 
 There are three supported ways to track the conversion:
+
+<br />
 
 #### Method 1: Client-Side Custom Event API (Web Testing)
 
@@ -605,11 +678,13 @@ VWO.event("REPLACE_WITH_ACTUAL_EVENT_API_NAME", {
 
 Use this when:
 
-- Conversion is purely UI-driven
-- Marketing or CRO teams manage events
-- You want conversion tracked within Web Testing
+* Conversion is purely UI-driven
+* Marketing or CRO teams manage events
+* You want conversion tracked within Web Testing
 
 Since SmartCode is already using the UUID from cookie, attribution remains consistent.
+
+<br />
 
 #### Method 2: FE SDK trackEvent API
 
@@ -625,20 +700,22 @@ vwoClient.trackEvent('REPLACE_WITH_ACTUAL_EVENT_API_NAME', {
 
 Use this when:
 
-- Conversion is backend-confirmed (e.g., payment success)
-- You want authoritative server validation
-- You want conversion tied directly to FE experiment logic
+* Conversion is backend-confirmed (e.g., payment success)
+* You want authoritative server validation
+* You want conversion tied directly to FE experiment logic
 
 Because the same UUID is passed, attribution aligns with earlier bucketing.
+
+<br />
 
 #### Method 3: Offline Conversion Tracking
 
 Conversions may occur outside the web session:
 
-- In-store purchase
-- Call-center sale
-- CRM lifecycle update
-- Subscription upgrade via billing system
+* In-store purchase
+* Call-center sale
+* CRM lifecycle update
+* Subscription upgrade via billing system
 
 If the same UUID is stored in your backend systems, it can be sent later via VWO Data360 offline conversion APIs.
 
@@ -648,18 +725,22 @@ Offline conversion tracking works seamlessly in a connected system.
 
 **Requirements:**
 
-- Store UUID alongside user record (CRM / DB)
-- Use same UUID in offline event payload
-- Ensure UUID originally used during evaluation
+* Store UUID alongside user record (CRM / DB)
+* Use same UUID in offline event payload
+* Ensure UUID originally used during evaluation
 
 This enables:
 
-- Web experiment attribution
-- Feature flag attribution
-- Full journey visibility
-- Revenue mapping across touchpoints
+* Web experiment attribution
+* Feature flag attribution
+* Full journey visibility
+* Revenue mapping across touchpoints
 
-> As long as the UUID matches the one used during evaluation, attribution remains accurate across FE and Web Testing.
+<Callout icon="📘" theme="info">
+  Note: As long as the UUID matches the one used during evaluation, attribution remains accurate across FE and Web Testing.
+</Callout>
+
+<br />
 
 ### Conversion Flow Architecture Diagram
 
@@ -699,56 +780,64 @@ sequenceDiagram
     Note over SmartCode,FE_SDK: Same UUID ensures correct attribution
 ```
 
+<br />
+
 ### Critical Requirement: Conversion After Identity Sync
 
 Conversion tracking should only occur after successful visitor synchronization across layers.
 
 If conversion fires:
 
-- Before UUID is shared,
-- Or before server reuses client UUID,
-- Or before FE SDK evaluation uses correct identity,
+* Before the UUID is shared,
+* Or before the server reuses the client UUID,
+* Or before FE SDK evaluation uses the correct identity,
 
 Then attribution may fragment.
+
+<br />
 
 ## Behavioral Analytics Integration with VWO Web Insights
 
 Beyond experimentation and conversion tracking, VWO Web Insights adds behavioral analytics capabilities such as:
 
-- Session Recordings
-- Heatmaps
-- Funnel Analysis
--Visitor-level analysis
+* Session Recordings
+* Heatmaps
+* Funnel Analysis
+  -Visitor-level analysis
 
 When UUID is consistent across:
 
-- Web Testing
-- Feature Experimentation
-- Web Insights
+* Web Testing
+* Feature Experimentation
+* Web Insights
 
 You unlock a powerful capability:
 
 > You can directly correlate experiment variations with actual user behavior.
 
+<br />
+
 ### Why UUID Consistency Matters for Insights
 
 If UUID is shared across products:
 
-- A visitor bucketed into Variation B (client-side test)
-- Or exposed to Feature Flag ON (server-side experiment)
+* A visitor bucketed into Variation B (client-side test)
+* Or exposed to Feature Flag ON (server-side experiment)
 
 Can be:
 
-- Filtered inside Web Insights
-- Viewed through session recordings
-- Analyzed via heatmaps
-- Compared across variations
+* Filtered inside Web Insights
+* Viewed through session recordings
+* Analyzed via heatmaps
+* Compared across variations
 
 Without shared UUID:
 
-- Session recordings cannot be reliably tied to experiment variations
-- Heatmap segmentation becomes inaccurate
-- Behavioral debugging becomes fragmented
+* Session recordings cannot be reliably tied to experiment variations
+* Heatmap segmentation becomes inaccurate
+* Behavioral debugging becomes fragmented
+
+<br />
 
 ## Summary
 
@@ -762,8 +851,8 @@ When UUID is unified:
 
 Because UUID is identical:
 
-- Exposure → Behavior → Conversion
-- Are all tied to the same visitor profile.
+* Exposure → Behavior → Conversion
+* Are all tied to the same visitor profile.
 
 ### With all three systems connected:
 
@@ -786,9 +875,9 @@ flowchart LR
 
 This architecture enables system-wide experimentation, not just UI testing.
 
-- Web Testing experiments UI behavior
-- Feature Experimentation controls application logic
-- `UUID` is the binding identity
-- Cookies are the transport mechanism
-- Two-way identity propagation is supported
-- VWO Web Insights unifies analytics across layers
+* Web Testing experiments UI behavior
+* Feature Experimentation controls application logic
+* `UUID` is the binding identity
+* Cookies are the transport mechanism
+* Two-way identity propagation is supported
+* VWO Web Insights unifies analytics across layers
