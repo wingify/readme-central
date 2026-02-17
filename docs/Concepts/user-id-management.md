@@ -26,6 +26,8 @@ You can generate a User ID using various strategies, such as:
 
 The only requirement is that the identifier remains **stable and unique per user**.
 
+<br />
+
 ### Ensuring Consistent Behavior
 
 To maintain consistent experiment behavior across sessions, the **same User ID must be supplied on every evaluation request**.
@@ -41,6 +43,8 @@ If the user returns later and the same User ID is passed again:
 * The SDK deterministically assigns the same variation
 * The user experience remains consistent
 * Metrics remain accurate
+
+<br />
 
 ### UUID Conversion and Privacy Compliance
 
@@ -64,6 +68,8 @@ This approach supports:
 >
 > The User IDs you provide are anonymized by our SDKs into a UUID before being sent to VWO servers.
 
+<br />
+
 ### VWO UUID Characteristics
 
 The VWO UUID:
@@ -79,6 +85,8 @@ The original User ID is used only for deterministic UUID generation and is not p
 > 📘 User IDs should be Unique
 >
 > Ensure User IDs are unique: User IDs must be unique for a campaign. VWO SDK relies on the User ID you provide for consistent behavior across platforms. VWO buckets users and provides test metrics based on the User IDs that you provide.
+
+<br />
 
 ### Important Guidelines
 
