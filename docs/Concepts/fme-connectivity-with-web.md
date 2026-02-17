@@ -40,6 +40,8 @@ Before understanding connectivity, we must understand the philosophical differen
 
 At a high level, VWO offers two complementary experimentation models:
 
+<br />
+
 ### VWO Web Testing (Client-Side)
 
 Works via **SmartCode**, a JavaScript snippet added to your website
@@ -59,6 +61,8 @@ Conceptually:
 > This follows a presentation-layer experimentation model.
 
 Reference: [What is VWO SmartCode?](https://help.vwo.com/hc/en-us/articles/360019420774-What-is-VWO-SmartCode)
+
+<br />
 
 ### VWO Feature Experimentation (FE)
 
