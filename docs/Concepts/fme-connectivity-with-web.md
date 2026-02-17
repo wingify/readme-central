@@ -120,6 +120,8 @@ Conceptually:
 
 > This follows a behavioral-analytics model, complementing experimentation by explaining why users behaved the way they did.
 
+Reference: [What is VWO Insights](https://help.vwo.com/hc/en-us/articles/900000051286-What-is-VWO-Insights) 
+
 <br />
 
 ## Why Connectivity Is Necessary
@@ -147,15 +149,15 @@ The unifying principle is:
 
 <Callout icon="📘" theme="info">
   **A canonical UUID must represent the same user across all evaluation layers.**  
-  Read [here](https://developers.vwo.com/v2/docs/user-id-management) to know more about what is a UUID?
+  Check [what is a UUID](https://developers.vwo.com/v2/docs/user-id-management)  for more details.
 </Callout>
 
 Whether evaluation occurs:
 
 * In the browser (SmartCode)
 * In the backend (FE SDK)
-* In mobile apps
-* In APIs
+* In mobile apps (FE SDK)
+* In APIs (Payload)
 
 The identity must remain stable.
 
@@ -230,7 +232,7 @@ if (flag.isEnabled()) {
 
 Here:
 
-* The SDK buckets the user locally
+* The SDK buckets the user locally based on the unique ID for the user
 * Decisions happen before the response is sent to the front-end
 * Perfect for backend-controlled flows
 
@@ -280,6 +282,8 @@ Cookies are the most reliable way to share a UUID between server and client.
 
 Cookies persist across page refreshes and navigations, making them ideal for keeping server and client experiments in sync.
 
+<br />
+
 #### 2. HTTP Response / Request Headers
 
 Custom headers can be used to pass the UUID explicitly.
@@ -288,6 +292,8 @@ Custom headers can be used to pass the UUID explicitly.
 * **Client → Server**: Client includes the same header in subsequent API requests
 
 This approach works well for API-driven applications but requires explicit handling and persistence on the client.
+
+<br />
 
 #### 3. Injecting into the window Object
 
@@ -302,9 +308,7 @@ The server embeds the UUID into the page during rendering:
 * **Server → Client**: UUID is injected during SSR
 * **Client → Server**: Client reads the value and sends it back via cookies or headers
 
-This method provides immediate client-side access but relies on another mechanism for persistence.
-
-There can be other ways too, depending on the requirements.
+This method provides immediate client-side access but relies on another mechanism for persistence. There can be other ways too, depending on the requirements.
 
 > 📘 Recommendation
 >
@@ -613,16 +617,16 @@ This flow is common in:
 
 #### Identity and Rendering
 
-1. User request hits server.
-2. FE SDK evaluates feature flag.
-3. FE SDK generates (or reuses) UUID.
+1. User request hits the server.
+2. FE SDK evaluates the feature flag.
+3. FE SDK generates (or reuses) a UUID.
 4. Server sets UUID in cookie.
 5. Client-side renders UI using this UUID.
 
 At this point:
 
 * Server-side experiment decision is locked.
-* Client-side SmartCode reads same UUID.
+* Client-side SmartCode reads the same UUID.
 * Identity is unified.
 
 <br />
@@ -639,10 +643,10 @@ This flow is common in:
 #### Identity and Rendering
 
 1. SmartCode loads first.
-2. SmartCode generates UUID.
+2. SmartCode generates a UUID.
 3. UUID stored in cookie.
 4. UI renders.
-5. User action triggers server call.
+5. User action triggers a server call.
 6. Server reads UUID from cookie.
 7. Server passes UUID into FE SDK.
 8. FE evaluates the user based on the client-generated UUID.
