@@ -120,11 +120,11 @@ Conceptually:
 
 > This follows a behavioral-analytics model, complementing experimentation by explaining why users behaved the way they did.
 
-Reference: [What is VWO Insights](https://help.vwo.com/hc/en-us/articles/900000051286-What-is-VWO-Insights) 
+Reference: [What is VWO Insights](https://help.vwo.com/hc/en-us/articles/900000051286-What-is-VWO-Insights)
 
 <br />
 
-## Why Connectivity Is Necessary
+## Need for Cross-System Identity Synchronization
 
 If Web Testing and Feature Experimentation operate independently:
 
@@ -238,22 +238,20 @@ Here:
 
 <br />
 
-## The Two Possible Entry Flows
+## Experiment Evaluation Entry Points
 
-There are only two logical ways a user can enter the system:
+There are only two logical ways a user can enter the experimentation system:
 
 1. **Server-first flow**
 2. **Client-first flow**
 
-VWO supports both symmetrically.
+> VWO supports both symmetrically.
 
-Before we dive into how UUID synchronization works between server-side Feature Experimentation and client-side Web Testing, it is important to understand a more fundamental concept:
-
-**How do servers and browsers generally exchange information?**
+Before we dive into how UUID synchronization works between server-side Feature Experimentation and client-side Web Testing, it is important to understand a more fundamental concept: **How do servers and browsers generally exchange information?**
 
 The mechanisms used for UUID propagation are not unique to experimentation systems. They rely on standard web communication patterns used across modern applications.
 
-Below are the most common and industry-standard ways information flows between server and client.
+Below are the most common and industry-standard ways information flows between the server and the client.
 
 <br />
 
@@ -337,7 +335,25 @@ This is common in:
 6. SmartCode reads UUID.
 7. Client-side experiments align with server-side decisions.
 
-<br />
+```mermaid
+sequenceDiagram
+    participant User
+    participant Server
+    participant FE_SDK as VWO FE SDK
+    participant Browser
+    participant SmartCode
+
+    User->>Server: 1. HTTP request
+    Server->>FE_SDK: 2. Evaluate user (userId)
+    FE_SDK->>FE_SDK: 3a. Convert userId → UUID
+    FE_SDK->>FE_SDK: 3b. Evaluate feature rules
+    FE_SDK-->>Server: Evaluation result + UUID
+    Server->>Browser: 4. Response (UUID via cookie/header)
+    Browser->>SmartCode: 5. Page load
+    SmartCode->>Browser: 6. Read UUID
+    SmartCode->>SmartCode: 7. Align client-side experiments
+
+```
 
 ### Conceptual Outcome
 
@@ -384,8 +400,6 @@ Common in:
 * Anonymous traffic
 * Static sites
 
-<br />
-
 ### Theoretical Flow
 
 1. SmartCode loads first.
@@ -399,7 +413,27 @@ Common in:
 5. Server passes UUID into FE SDK.
 6. Backend experiments now align with client-side identity.
 
-<br />
+```mermaid
+sequenceDiagram
+    participant User
+    participant Browser
+    participant SmartCode
+    participant Server
+    participant FE_SDK as VWO FE SDK
+
+    User->>Browser: Visit page
+    Browser->>SmartCode: 1. Load SmartCode
+    SmartCode->>SmartCode: 2a. Generate UUID
+    SmartCode->>Browser: 2b. Store UUID in cookie
+
+    User->>Browser: 3. Trigger action
+    Browser->>Server: Request (UUID cookie/header)
+    Server->>Server: 4. Read UUID
+    Server->>FE_SDK: 5. Evaluate using UUID
+    FE_SDK->>FE_SDK: Use existing UUID
+    FE_SDK-->>Server: 6. Evaluation result
+
+```
 
 ### Conceptual Outcome
 
