@@ -168,7 +168,37 @@ VWO achieves this by ensuring that:
 * Both systems communicate identity through cookies or server headers
 * All events flow into Web Insights under the same visitor profile
 
-<br />
+```mermaid
+flowchart TB
+
+    User[User]
+
+    subgraph Experience Layer
+        Client[Client Application]
+        Server[Backend Service]
+    end
+
+    subgraph Identity Layer
+        UUID[Shared UUID]
+    end
+
+    subgraph VWO Platform
+        WT[VWO Web Testing]
+        FE[VWO Feature Experimentation]
+        VI[VWO Insights]
+    end
+
+    User --> Client
+    User --> Server
+
+    Client --> UUID
+    Server --> UUID
+
+    UUID --> WT
+    UUID --> FE
+    UUID --> VI
+
+```
 
 ## Step-by-step guide
 
