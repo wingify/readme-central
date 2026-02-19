@@ -9,21 +9,21 @@ metadata:
 
 This guide helps you migrate your **survey implementation from Blitzllama React Native SDK to VWO Pulse React Native SDK**. It provides a conceptual mapping, API replacements, and step-by-step migration instructions.
 
----
+***
 
 ## High-Level Differences
 
-| Area | Blitzllama | VWO Pulse |
-|------|------------|-----------|
-| SDK Purpose | In-app surveys & feedback | In-app surveys with advanced targeting |
-| Initialization | App key / environment-based | `ACCOUNT_ID` & `SDK_KEY` |
-| Event-based triggers | Yes | Yes |
-| User attributes | Yes | Yes |
-| User identification | Yes | Yes |
-| Language handling | Explicit / SDK-based | Auto-detected from device (override supported) |
-| Logout handling | `logout()` | Not required |
+| Area                 | Blitzllama                  | VWO Pulse                                      |
+| -------------------- | --------------------------- | ---------------------------------------------- |
+| SDK Purpose          | In-app surveys & feedback   | In-app surveys with advanced targeting         |
+| Initialization       | App key / environment-based | `ACCOUNT_ID` & `SDK_KEY`                       |
+| Event-based triggers | Yes                         | Yes                                            |
+| User attributes      | Yes                         | Yes                                            |
+| User identification  | Yes                         | Yes                                            |
+| Language handling    | Explicit / SDK-based        | Auto-detected from device (override supported) |
+| Logout handling      | `logout()`                  | Not required                                   |
 
----
+***
 
 # Step 1: Update Dependencies
 
@@ -52,9 +52,10 @@ cd ios && pod install && cd ..
 ```
 
 **For Android:**
-- No additional setup required.
 
----
+* No additional setup required.
+
+***
 
 # Step 2: Update SDK Initialization
 
@@ -110,10 +111,11 @@ React.useEffect(() => {
 ```
 
 > 📘 **Migration Note**
-> - Replace Blitz API Key with VWO `ACCOUNT_ID` & `SDK_KEY`
-> - Initialization must happen before triggering surveys
+>
+> * Replace Blitz API Key with VWO `ACCOUNT_ID` & `SDK_KEY`
+> * Initialization must happen before triggering surveys
 
----
+***
 
 # Step 3: Update Survey Triggers
 
@@ -139,7 +141,7 @@ trackEvent('event_name');
 
 > 📘 **Key Change:** VWO uses a function-based approach instead of a component-based approach.
 
----
+***
 
 # Step 4: Update Event Properties
 
@@ -167,7 +169,7 @@ trackEvent('PurchaseCompleted', {
 
 > ⚠️ **Important:** Event names must **exactly match** those configured in the VWO dashboard.
 
----
+***
 
 # Step 5: Update User Attributes
 
@@ -183,6 +185,7 @@ Blitzllama.setUserAttributes('attribute_name', 'attribute_value', 'attribute_dat
 import { setAttribute } from 'vwo-insights-react-native-sdk';
 
 setAttribute({
+  user_id: 'user_123', // Please make sure you add user_id in every setAttribute call you make
   userType: 'premium',
   subscriptionPlan: 'annual',
   accountAge: '6months'
@@ -202,6 +205,7 @@ Blitzllama.setUserEmail('john@example.com');
 
 ```javascript
 setAttribute({
+  'user_id': 'user_123', // Please make sure you add user_id in every setAttribute call you make
   'user_name': 'John Doe',
   'user_email': 'john@example.com'
 });
@@ -209,7 +213,7 @@ setAttribute({
 
 > ⚠️ **Important:** Always set attributes **before** triggering survey events.
 
----
+***
 
 # Step 6: Update Language Settings
 
@@ -229,10 +233,11 @@ setSurveyLanguage('en'); // ISO 639-1
 ```
 
 **Key Difference:**
-- VWO **auto-detects language** from the user's device by default
-- If you explicitly set a language using `setSurveyLanguage`, it **overrides the device language**
 
----
+* VWO **auto-detects language** from the user's device by default
+* If you explicitly set a language using `setSurveyLanguage`, it **overrides the device language**
+
+***
 
 # Step 7: Handle User Logout
 
@@ -246,7 +251,7 @@ Blitz.logout();
 
 Logout handling is no longer required in VWO Pulse.
 
----
+***
 
 # Recommended Initialization Flow
 
@@ -282,75 +287,75 @@ useEffect(() => {
 }, []);
 ```
 
----
+***
 
 # API Mapping Summary
 
-| Blitzllama | VWO Pulse |
-|------------|-----------|
-| `init()` | `config()` |
-| `<Blitzllama showSurvey={} trigger="" />` | `trackEvent()` |
-| `setUserAttributes()` | `setAttribute()` |
-| `setUserName()` | `setAttribute({ 'user_name': 'Name' })` |
-| `setUserEmail()` | `setAttribute({ 'user_email': 'email' })` |
-| `setSurveyLanguage()` | `setSurveyLanguage()` |
-| `logout()` | Not required |
+| Blitzllama                                | VWO Pulse                                 |
+| ----------------------------------------- | ----------------------------------------- |
+| `init()`                                  | `config()`                                |
+| `<Blitzllama showSurvey={} trigger="" />` | `trackEvent()`                            |
+| `setUserAttributes()`                     | `setAttribute()`                          |
+| `setUserName()`                           | `setAttribute({ 'user_name': 'Name' })`   |
+| `setUserEmail()`                          | `setAttribute({ 'user_email': 'email' })` |
+| `setSurveyLanguage()`                     | `setSurveyLanguage()`                     |
+| `logout()`                                | Not required                              |
 
----
+***
 
 # Import Statement Changes
 
-| Blitzllama Import | VWO Pulse Import |
-|-------------------|------------------|
+| Blitzllama Import                                  | VWO Pulse Import                                                                                      |
+| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `import Blitzllama from 'blitzllama-react-native'` | `import { config, trackEvent, setAttribute, setSurveyLanguage } from 'vwo-insights-react-native-sdk'` |
 
----
+***
 
 # Common Migration Issues
 
 ## Survey Not Showing
 
-| Issue | Solution |
-|-------|----------|
-| SDK not initialized | Ensure `config()` is called before any other SDK methods |
-| Event name mismatch | Verify event names match exactly with VWO dashboard |
-| Survey inactive | Check survey status in VWO dashboard |
-| Attributes set after event | Set attributes **before** calling `trackEvent()` |
+| Issue                      | Solution                                                 |
+| -------------------------- | -------------------------------------------------------- |
+| SDK not initialized        | Ensure `config()` is called before any other SDK methods |
+| Event name mismatch        | Verify event names match exactly with VWO dashboard      |
+| Survey inactive            | Check survey status in VWO dashboard                     |
+| Attributes set after event | Set attributes **before** calling `trackEvent()`         |
 
 ## Attributes Not Applied
 
-| Issue | Solution |
-|-------|----------|
-| Key mismatch | Ensure attribute keys match dashboard targeting configuration |
-| Incorrect data types | Use correct data types (string, number, boolean) |
-| Timing issue | Set attributes **before** triggering events |
+| Issue                | Solution                                                      |
+| -------------------- | ------------------------------------------------------------- |
+| Key mismatch         | Ensure attribute keys match dashboard targeting configuration |
+| Incorrect data types | Use correct data types (string, number, boolean)              |
+| Timing issue         | Set attributes **before** triggering events                   |
 
 ## Language Not Applied
 
-| Issue | Solution |
-|-------|----------|
-| Invalid code | Use valid ISO 639-1 language codes |
-| Timing issue | Set language **before** triggering events |
-| Not enabled | Verify language is enabled in VWO dashboard |
+| Issue        | Solution                                    |
+| ------------ | ------------------------------------------- |
+| Invalid code | Use valid ISO 639-1 language codes          |
+| Timing issue | Set language **before** triggering events   |
+| Not enabled  | Verify language is enabled in VWO dashboard |
 
----
+***
 
 # Migration Checklist
 
-- [ ] Uninstalled Blitzllama SDK (`npm uninstall blitzllama-react-native`)
-- [ ] Installed VWO Pulse SDK (`npm install vwo-insights-react-native-sdk`)
-- [ ] Run `pod install` for iOS
-- [ ] Updated Android Application class initialization
-- [ ] Updated iOS initialization with `config()`
-- [ ] Replaced `<Blitzllama />` component with `trackEvent()` calls
-- [ ] Updated `setUserAttributes()` to `setAttribute()`
-- [ ] Updated `setUserName()` and `setUserEmail()` to `setAttribute()`
-- [ ] Updated `setSurveyLanguage()` import
-- [ ] Removed `logout()` calls (no longer needed)
-- [ ] Configured events in VWO dashboard
-- [ ] Tested survey triggering in the app
+* [ ] Uninstalled Blitzllama SDK (`npm uninstall blitzllama-react-native`)
+* [ ] Installed VWO Pulse SDK (`npm install vwo-insights-react-native-sdk`)
+* [ ] Run `pod install` for iOS
+* [ ] Updated Android Application class initialization
+* [ ] Updated iOS initialization with `config()`
+* [ ] Replaced `<Blitzllama />` component with `trackEvent()` calls
+* [ ] Updated `setUserAttributes()` to `setAttribute()`
+* [ ] Updated `setUserName()` and `setUserEmail()` to `setAttribute()`
+* [ ] Updated `setSurveyLanguage()` import
+* [ ] Removed `logout()` calls (no longer needed)
+* [ ] Configured events in VWO dashboard
+* [ ] Tested survey triggering in the app
 
----
+***
 
 # Final Notes
 
