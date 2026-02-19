@@ -12,23 +12,24 @@ metadata:
 This guide helps you migrate your application from the **Blitzllama SDK** to the **VWO Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
 
 **Minimum Requirements:**
-- iOS 12.0 and above
-- VWO dashboard access (to obtain Account ID and SDK Key)
 
----
+* iOS 12.0 and above
+* VWO dashboard access (to obtain Account ID and SDK Key)
+
+***
 
 ## Migration Summary
 
-| Feature | Blitzllama SDK | VWO Pulse SDK |
-|---------|----------------|---------------|
-| Dependency | `BlitzLlamaSDK` | `VWO_Insights` |
-| API Key Location | AppDelegate.swift | AppDelegate.swift |
-| User Creation | Separate `createUser()` call | Passed during initialization |
-| Trigger Method | `triggerEvent()` | `trackEvent()` |
-| SDK Manager | `BlitzLlamaSDK.getSdkManager()` | `VWO.getSurveyManager()` |
-| User Attributes | `setUserAttribute()` | `setAttribute()` |
+| Feature          | Blitzllama SDK                  | VWO Pulse SDK                |
+| ---------------- | ------------------------------- | ---------------------------- |
+| Dependency       | `BlitzLlamaSDK`                 | `VWO_Insights`               |
+| API Key Location | AppDelegate.swift               | AppDelegate.swift            |
+| User Creation    | Separate `createUser()` call    | Passed during initialization |
+| Trigger Method   | `triggerEvent()`                | `trackEvent()`               |
+| SDK Manager      | `BlitzLlamaSDK.getSdkManager()` | `VWO.getSurveyManager()`     |
+| User Attributes  | `setUserAttribute()`            | `setAttribute()`             |
 
----
+***
 
 # Step 1: Update Dependencies
 
@@ -50,7 +51,7 @@ pod 'Blitzllama-ios', '1.6.29'
 pod 'VWO-Insights', '~> 2.1.0'
 ```
 
----
+***
 
 # Step 2: Update Configuration
 
@@ -62,7 +63,7 @@ Blitzllama does not use Info.plist for API keys. The API key is set programmatic
 
 The most significant change is in how the SDK is initialized and how users are identified using `VWO.configure()`.
 
----
+***
 
 # Step 3: Update SDK Initialization
 
@@ -128,7 +129,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 2. **User ID at initialization** - User identifier is passed in ClientConfiguration, not via separate `createUser()` call
 3. **Callback-based initialization** - VWO uses explicit success/failure callbacks
 
----
+***
 
 # Step 4: Update Survey Triggers
 
@@ -162,13 +163,13 @@ surveySDK.trackEvent(
 
 ## Method Mapping
 
-| Blitzllama | VWO Pulse |
-|------------|-----------|
-| `triggerEvent("name")` | `trackEvent("name")` |
-| `triggerEvent("name", properties)` | `trackEvent("name", properties)` |
+| Blitzllama                                   | VWO Pulse                                  |
+| -------------------------------------------- | ------------------------------------------ |
+| `triggerEvent("name")`                       | `trackEvent("name")`                       |
+| `triggerEvent("name", properties)`           | `trackEvent("name", properties)`           |
 | `triggerEvent("name", properties, listener)` | `trackEvent("name", properties, listener)` |
 
----
+***
 
 # Step 5: Update User Attributes
 
@@ -187,8 +188,15 @@ In VWO, use `setAttribute()` to set user email and name:
 
 ```swift
 let surveySDK = VWO.getSurveyManager()
-surveySDK.updateUserEmail("user@example.com")
-surveySDK.updateUserName("John Doe")
+
+// Supports different value types (String, Int, Bool, etc.)
+let attributes: [String: Any] = [
+    "user_id": "user_123" // Please make sure you add user_id in every setAttribute call you make
+    "user_email": "user@example.com",
+    "user_name": "John Doe"
+]
+
+surveySDK.setAttribute(attributes: attributes)
 ```
 
 ## Setting Custom User Attributes
@@ -209,6 +217,7 @@ let surveySDK = VWO.getSurveyManager()
 
 // Supports different value types (String, Int, Bool, etc.)
 let attributes: [String: Any] = [
+    "user_id": "user_123" // Please make sure you add user_id in every setAttribute call you make
     "plan_type": "premium",
     "user_level": 5,        // Can use actual number type
     "is_active": true       // Can use boolean
@@ -219,7 +228,7 @@ surveySDK.setAttribute(attributes: attributes)
 
 > 📘 **Note:** VWO uses `setAttribute()` instead of `updateUserAttributes()`. Data types are automatically inferred, so you don't need to specify them explicitly. You can pass multiple attributes in a single dictionary.
 
----
+***
 
 # Step 6: Update Survey Language Setting
 
@@ -238,7 +247,7 @@ surveySDK.setLanguageCode("en")
 
 This API remains largely the same.
 
----
+***
 
 # Step 7: Handle User Logout (If Applicable)
 
@@ -272,7 +281,7 @@ VWO.configure(
 }
 ```
 
----
+***
 
 # Step 8: Update Event/Trigger Names in VWO Dashboard
 
@@ -285,18 +294,18 @@ If you're using triggers configured in the Blitzllama dashboard, you may need to
 
 > ⚠️ **Important:** Ensure event names match exactly between your code and the VWO dashboard.
 
----
+***
 
 # Import Statement Changes
 
 Update all your import statements:
 
-| Before | After |
-|--------|-------|
-| `import BlitzLlamaSDK` | `import VWO_Insights` |
+| Before                                  | After                    |
+| --------------------------------------- | ------------------------ |
+| `import BlitzLlamaSDK`                  | `import VWO_Insights`    |
 | `BlitzLlamaSDKController.getSDKManager` | `VWO.getSurveyManager()` |
 
----
+***
 
 # Complete Migration Example
 
@@ -366,8 +375,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 // Set attributes after initialization
                 let surveySDK = VWO.getSurveyManager()
-                surveySDK.updateUserEmail("user@example.com")
-                surveySDK.setAttribute(attributes: ["plan": "premium"])
+                surveySDK.setAttribute(attributes: ["user_id": "user_123", "plan": "premium"])
                 surveySDK.setLanguageCode("en")
                 
             case .failure(let error):
@@ -403,7 +411,7 @@ class ViewController: UIViewController {
 }
 ```
 
----
+***
 
 # Troubleshooting
 
@@ -437,26 +445,26 @@ VWO.configure(
 }
 ```
 
----
+***
 
 # Migration Checklist
 
-- [ ] Updated Podfile dependency from `Blitzllama-ios` to `VWO-Insights`
-- [ ] Updated Application class initialization
-- [ ] Replaced `createUser()` with user ID in ClientConfiguration
-- [ ] Changed `triggerEvent()` calls to `trackEvent()`
-- [ ] Updated `setUserAttribute()` to `setAttribute()`
-- [ ] Updated import statements
-- [ ] Configured events in VWO dashboard
-- [ ] Tested survey triggering in the app
+* [ ] Updated Podfile dependency from `Blitzllama-ios` to `VWO-Insights`
+* [ ] Updated Application class initialization
+* [ ] Replaced `createUser()` with user ID in ClientConfiguration
+* [ ] Changed `triggerEvent()` calls to `trackEvent()`
+* [ ] Updated `setUserAttribute()` to `setAttribute()`
+* [ ] Updated import statements
+* [ ] Configured events in VWO dashboard
+* [ ] Tested survey triggering in the app
 
----
+***
 
 # Version Information
 
-| Component | Version |
-|-----------|---------|
-| VWO Pulse SDK Version | 2.1.0+ |
-| Minimum iOS Version | 12.0 |
-| Swift Version | 5.0+ |
-| Blitzllama SDK Version (migrating from) | 1.6.29 |
+| Component                               | Version |
+| --------------------------------------- | ------- |
+| VWO Pulse SDK Version                   | 2.1.0+  |
+| Minimum iOS Version                     | 12.0    |
+| Swift Version                           | 5.0+    |
+| Blitzllama SDK Version (migrating from) | 1.6.29  |
