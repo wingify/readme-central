@@ -9,7 +9,7 @@ metadata:
 
 This guide provides step-by-step instructions for migrating your Flutter application from Blitzllama's Survey SDK to VWO Pulse Survey SDK.
 
----
+***
 
 ## Overview
 
@@ -17,17 +17,17 @@ VWO Pulse SDK provides the same core functionality as Blitzllama with some key a
 
 ### Key Differences at a Glance
 
-| Aspect | Blitzllama | VWO Pulse |
-|--------|------------|-----------|
-| Package | blitzllama_flutter | vwo_insights_flutter_sdk |
-| Class Name | BlitzllamaFlutter | VwoFlutter |
-| Initialization | Dart code | Native code (Android/iOS) |
-| User Creation | createUser() in Dart | userId in native initialization |
-| Trigger Method | triggerEvent() | trackEvent() |
-| User Attributes | Individual method calls | Single map-based method |
-| User Email/Name | Dedicated methods | Use setAttribute() |
+| Aspect          | Blitzllama              | VWO Pulse                       |
+| --------------- | ----------------------- | ------------------------------- |
+| Package         | blitzllama_flutter      | vwo_insights_flutter_sdk        |
+| Class Name      | BlitzllamaFlutter       | VwoFlutter                      |
+| Initialization  | Dart code               | Native code (Android/iOS)       |
+| User Creation   | createUser() in Dart    | userId in native initialization |
+| Trigger Method  | triggerEvent()          | trackEvent()                    |
+| User Attributes | Individual method calls | Single map-based method         |
+| User Email/Name | Dedicated methods       | Use setAttribute()              |
 
----
+***
 
 # Step 1: Update Dependencies
 
@@ -55,7 +55,7 @@ Run the following command to update dependencies:
 flutter pub get
 ```
 
----
+***
 
 # Step 2: Update Imports
 
@@ -73,7 +73,7 @@ import 'package:blitzllama_flutter/blitzllama_flutter.dart';
 import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
 ```
 
----
+***
 
 # Step 3: Update Initialization
 
@@ -173,13 +173,13 @@ import vwo_insights_ios_flutter_sdk
 
 ## Configuration Parameters
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| accountId | String | Yes | Your VWO account ID |
-| sdkKey | String | Yes | Your SDK key from VWO dashboard |
-| userId | String | Yes | Unique identifier for the user |
+| Parameter | Type   | Required | Description                     |
+| --------- | ------ | -------- | ------------------------------- |
+| accountId | String | Yes      | Your VWO account ID             |
+| sdkKey    | String | Yes      | Your SDK key from VWO dashboard |
+| userId    | String | Yes      | Unique identifier for the user  |
 
----
+***
 
 # Step 4: Update User Management
 
@@ -213,6 +213,7 @@ BlitzllamaFlutter.setUserAttribute("is_active", "true", "boolean");
 
 ```dart
 VwoFlutter.setAttribute({
+    "user_id": "user_123", // Please make sure you add user_id in every setAttribute call you make
     "plan": "premium",
     "age": 25,
     "is_active": true
@@ -234,6 +235,7 @@ BlitzllamaFlutter.setUserName(username);
 
 ```dart
 VwoFlutter.setAttribute({
+    "user_id": "user_123", // Please make sure you add user_id in every setAttribute call you make
     "user_email": "user@example.com",
     "user_name": "John Doe"
 });
@@ -253,7 +255,7 @@ BlitzllamaFlutter.setSurveyLanguage("en");
 VwoFlutter.setSurveyLanguage("en");
 ```
 
----
+***
 
 # Step 5: Update Event Triggers
 
@@ -293,7 +295,7 @@ VwoFlutter.trackEvent("HomeActivity", {
 });
 ```
 
----
+***
 
 # Step 6: Handle Removed Features
 
@@ -325,44 +327,44 @@ BlitzllamaFlutter.logout();
 
 Re-initialize SDK with new user ID in native code.
 
----
+***
 
 # API Reference Mapping
 
-| Blitzllama Method | VWO Pulse Equivalent | Notes |
-|-------------------|----------------------|-------|
-| init(apiKey) | Native initialization | See Step 3 |
-| createUser(userId) | Native initialization | User ID in ClientConfiguration |
-| setUserEmail(email) | setAttribute() | Pass user_email in map |
-| setUserName(name) | setAttribute() | Pass user_name in map |
-| setUserAttribute() | setAttribute() | Now accepts a map |
-| setSurveyLanguage(code) | setSurveyLanguage(code) | Same signature |
-| triggerEvent(name) | trackEvent(name) | Method renamed |
-| triggerEvent(name, props) | trackEvent(name, props) | Method renamed |
-| logout() | Re-initialize SDK | Different approach |
-| setCustomFont() | Not available | Feature removed |
+| Blitzllama Method         | VWO Pulse Equivalent    | Notes                          |
+| ------------------------- | ----------------------- | ------------------------------ |
+| init(apiKey)              | Native initialization   | See Step 3                     |
+| createUser(userId)        | Native initialization   | User ID in ClientConfiguration |
+| setUserEmail(email)       | setAttribute()          | Pass user_email in map         |
+| setUserName(name)         | setAttribute()          | Pass user_name in map          |
+| setUserAttribute()        | setAttribute()          | Now accepts a map              |
+| setSurveyLanguage(code)   | setSurveyLanguage(code) | Same signature                 |
+| triggerEvent(name)        | trackEvent(name)        | Method renamed                 |
+| triggerEvent(name, props) | trackEvent(name, props) | Method renamed                 |
+| logout()                  | Re-initialize SDK       | Different approach             |
+| setCustomFont()           | Not available           | Feature removed                |
 
----
+***
 
 # Migration Checklist
 
-- [ ] Update pubspec.yaml to use vwo_insights_flutter_sdk ^2.1.0
-- [ ] Run flutter pub get
-- [ ] Update all import statements
-- [ ] Remove Dart-based init() calls
-- [ ] Add native initialization for Android (FlutterVwoApp.kt)
-- [ ] Register Application class in AndroidManifest.xml
-- [ ] Add native initialization for iOS (AppDelegate.swift)
-- [ ] Remove createUser() calls (handled in native init)
-- [ ] Replace BlitzllamaFlutter with VwoFlutter
-- [ ] Replace triggerEvent() with trackEvent()
-- [ ] Update setUserAttribute() to use setAttribute() with a map
-- [ ] Replace setUserEmail() and setUserName() with setAttribute()
-- [ ] Remove setCustomFont() calls if present
-- [ ] Update logout handling if applicable
-- [ ] Test survey triggering in the app
+* [ ] Update pubspec.yaml to use vwo_insights_flutter_sdk ^2.1.0
+* [ ] Run flutter pub get
+* [ ] Update all import statements
+* [ ] Remove Dart-based init() calls
+* [ ] Add native initialization for Android (FlutterVwoApp.kt)
+* [ ] Register Application class in AndroidManifest.xml
+* [ ] Add native initialization for iOS (AppDelegate.swift)
+* [ ] Remove createUser() calls (handled in native init)
+* [ ] Replace BlitzllamaFlutter with VwoFlutter
+* [ ] Replace triggerEvent() with trackEvent()
+* [ ] Update setUserAttribute() to use setAttribute() with a map
+* [ ] Replace setUserEmail() and setUserName() with setAttribute()
+* [ ] Remove setCustomFont() calls if present
+* [ ] Update logout handling if applicable
+* [ ] Test survey triggering in the app
 
----
+***
 
 # Troubleshooting
 
@@ -392,24 +394,24 @@ import com.vwo.insights.exposed.models.ClientConfiguration
 import io.flutter.app.FlutterApplication
 ```
 
----
+***
 
 # Support
 
 For additional support or questions:
 
-- Documentation: https://developers.vwo.com/reference/mobile-insights-introduction
-- Support Email: support@vwo.com
+* Documentation: [https://developers.vwo.com/reference/mobile-insights-introduction](https://developers.vwo.com/reference/mobile-insights-introduction)
+* Support Email: [support@vwo.com](mailto:support@vwo.com)
 
----
+***
 
 # Version Information
 
-| Component | Version |
-|-----------|---------|
-| VWO Pulse Flutter SDK | ^2.1.0 |
-| Native Android SDK | 2.1.0 |
-| Native iOS SDK | 2.1.0 |
-| Minimum iOS Version | 12.0 |
-| Minimum Android SDK | 21 (Android 5.0) |
-| Blitzllama SDK (migrating from) | 0.6.3 |
+| Component                       | Version          |
+| ------------------------------- | ---------------- |
+| VWO Pulse Flutter SDK           | ^2.1.0           |
+| Native Android SDK              | 2.1.0            |
+| Native iOS SDK                  | 2.1.0            |
+| Minimum iOS Version             | 12.0             |
+| Minimum Android SDK             | 21 (Android 5.0) |
+| Blitzllama SDK (migrating from) | 0.6.3            |
