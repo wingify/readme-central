@@ -12,23 +12,24 @@ metadata:
 This guide helps you migrate your Android application from the **Blitzllama SDK** to the **VWO Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
 
 **Minimum Requirements:**
-- Android 5.0 (API level 21) and above
-- VWO dashboard access (to obtain Account ID and SDK Key)
 
----
+* Android 5.0 (API level 21) and above
+* VWO dashboard access (to obtain Account ID and SDK Key)
+
+***
 
 ## Migration Summary
 
-| Feature | Blitzllama SDK | VWO Pulse SDK |
-|---------|----------------|---------------|
-| Dependency | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.1.0` |
-| API Key Location | AndroidManifest.xml | ClientConfiguration object |
-| User Creation | Separate `createUser()` call | Passed during initialization |
-| Trigger Method | `triggerEvent()` | `trackEvent()` |
-| SDK Manager | `BlitzLlamaSDK.getSdkManager()` | `VWOInsights.getSurveySdkManager()` |
-| User Attributes | `setUserAttribute()` | `setAttribute()` |
+| Feature          | Blitzllama SDK                    | VWO Pulse SDK                       |
+| ---------------- | --------------------------------- | ----------------------------------- |
+| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.1.0`            |
+| API Key Location | AndroidManifest.xml               | ClientConfiguration object          |
+| User Creation    | Separate `createUser()` call      | Passed during initialization        |
+| Trigger Method   | `triggerEvent()`                  | `trackEvent()`                      |
+| SDK Manager      | `BlitzLlamaSDK.getSdkManager()`   | `VWOInsights.getSurveySdkManager()` |
+| User Attributes  | `setUserAttribute()`              | `setAttribute()`                    |
 
----
+***
 
 # Step 1: Update Dependencies
 
@@ -54,7 +55,7 @@ dependencies {
 }
 ```
 
----
+***
 
 # Step 2: Update AndroidManifest.xml
 
@@ -75,7 +76,7 @@ VWO Pulse does not require manifest configuration. Credentials are passed progra
 
 > 📘 **Note:** If you had `<uses-sdk tools:overrideLibrary="com.blitzllama.androidSDK" />`, you can remove it as well.
 
----
+***
 
 # Step 3: Update SDK Initialization
 
@@ -192,7 +193,7 @@ class MyApplication : Application() {
 2. **User ID at initialization** - User identifier is passed in `ClientConfiguration`, not via separate `createUser()` call
 3. **Callback-based initialization** - VWO uses explicit success/failure callbacks
 
----
+***
 
 # Step 4: Update Survey Triggers
 
@@ -346,14 +347,14 @@ sdkManager.trackEventWithActivity(this, "checkout_screen")
 
 ## Method Mapping
 
-| Blitzllama | VWO Pulse |
-|------------|-----------|
-| `triggerEvent("name")` | `trackEvent("name")` |
-| `triggerEvent("name", properties)` | `trackEvent("name", properties)` |
+| Blitzllama                                   | VWO Pulse                                  |
+| -------------------------------------------- | ------------------------------------------ |
+| `triggerEvent("name")`                       | `trackEvent("name")`                       |
+| `triggerEvent("name", properties)`           | `trackEvent("name", properties)`           |
 | `triggerEvent("name", properties, listener)` | `trackEvent("name", properties, listener)` |
-| N/A | `trackEventWithActivity(activity, "name")` |
+| N/A                                          | `trackEventWithActivity(activity, "name")` |
 
----
+***
 
 # Step 5: Update User Attributes
 
@@ -427,7 +428,7 @@ VWOInsights.setAttribute(attributes)
 
 > 📘 **Note:** VWO uses `setAttribute()` instead of `setUserAttribute()`. Data types are automatically inferred, so you don't need to specify them explicitly.
 
----
+***
 
 # Step 6: Update Survey Language Setting
 
@@ -445,7 +446,7 @@ VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
 
 This API remains largely the same.
 
----
+***
 
 # Step 7: Handle User Logout (If Applicable)
 
@@ -470,7 +471,7 @@ ClientConfiguration newUserConfig = new ClientConfiguration(
 VWOInsights.init(application, callback, newUserConfig);
 ```
 
----
+***
 
 # Step 8: Update Event/Trigger Names in VWO Dashboard
 
@@ -483,19 +484,19 @@ If you're using triggers configured in the Blitzllama dashboard, you may need to
 
 > ⚠️ **Important:** Ensure event names match exactly between your code and the VWO dashboard.
 
----
+***
 
 # Import Statement Changes
 
 Update all your import statements:
 
-| Blitzllama Import | VWO Pulse Import |
-|-------------------|------------------|
-| `com.blitzllama.androidSDK.*` | `com.vwo.insights.*` |
-| `com.blitzllama.androidSDK.BlitzLlamaSDK` | `com.vwo.insights.VWOInsights` |
+| Blitzllama Import                                            | VWO Pulse Import                            |
+| ------------------------------------------------------------ | ------------------------------------------- |
+| `com.blitzllama.androidSDK.*`                                | `com.vwo.insights.*`                        |
+| `com.blitzllama.androidSDK.BlitzLlamaSDK`                    | `com.vwo.insights.VWOInsights`              |
 | `com.blitzllama.androidSDK.SdkInitialisationSuccessCallback` | `com.vwo.insights.exposed.IVwoInitCallback` |
 
----
+***
 
 # Complete Migration Example
 
@@ -569,7 +570,8 @@ class MainActivity : AppCompatActivity() {
         val sdkManager = VWOInsights.getSurveySdkManager(this)
         
         // Set attributes (including email and name)
-        VWOInsights.setAttribute(mapOf(
+      VWOInsights.setAttribute(mapOf(
+						"user_id" to "user_123", // Please make sure you add user_id in every setAttribute call you make
             "user_email" to "user@example.com",
             "user_name" to "John Doe",
             "plan" to "premium"
@@ -582,7 +584,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
----
+***
 
 # Troubleshooting
 
@@ -606,26 +608,26 @@ val callback = object : IVwoInitCallback {
 }
 ```
 
----
+***
 
 # Migration Checklist
 
-- [ ] Updated `build.gradle` dependency from Blitzllama to VWO Pulse
-- [ ] Removed Blitzllama meta-data from `AndroidManifest.xml`
-- [ ] Updated Application class initialization
-- [ ] Replaced `createUser()` with user ID in `ClientConfiguration`
-- [ ] Changed `triggerEvent()` calls to `trackEvent()`
-- [ ] Updated `setUserAttribute()` to `setAttribute()`
-- [ ] Updated import statements
-- [ ] Configured events in VWO dashboard
-- [ ] Tested survey triggering in the app
+* [ ] Updated `build.gradle` dependency from Blitzllama to VWO Pulse
+* [ ] Removed Blitzllama meta-data from `AndroidManifest.xml`
+* [ ] Updated Application class initialization
+* [ ] Replaced `createUser()` with user ID in `ClientConfiguration`
+* [ ] Changed `triggerEvent()` calls to `trackEvent()`
+* [ ] Updated `setUserAttribute()` to `setAttribute()`
+* [ ] Updated import statements
+* [ ] Configured events in VWO dashboard
+* [ ] Tested survey triggering in the app
 
----
+***
 
 # Version Information
 
-| Component | Version |
-|-----------|---------|
-| VWO Pulse SDK Version | `2.1.0` |
-| Minimum Android SDK | 21 (Android 5.0) |
-| Blitzllama SDK Version (migrating from) | `1.9.1` |
+| Component                               | Version          |
+| --------------------------------------- | ---------------- |
+| VWO Pulse SDK Version                   | `2.1.0`          |
+| Minimum Android SDK                     | 21 (Android 5.0) |
+| Blitzllama SDK Version (migrating from) | `1.9.1`          |
