@@ -375,6 +375,7 @@ In VWO, use `setAttribute()` to set user email and name:
 
 ```java
 Map<String, Object> attributes = new HashMap<>();
+attributes.put("user_id", "user_123"); // Please make sure you add user_id in every setAttribute call you make
 attributes.put("user_email", "user@example.com");
 attributes.put("user_name", "John Doe");
 
@@ -385,6 +386,7 @@ VWOInsights.setAttribute(attributes);
 
 ```kotlin
 val attributes = mutableMapOf<String, Any>()
+attributes["user_id"] = "user_123" // Please make sure you add user_id in every setAttribute call you make
 attributes["user_email"] = "user@example.com"
 attributes["user_name"] = "John Doe"
 
@@ -408,6 +410,7 @@ BlitzLlamaSDK.getSdkManager(context).setUserAttribute("user_level", "5", "number
 ```java
 // Supports different value types (String, Number, Boolean)
 Map<String, Object> attributes = new HashMap<>();
+attributes.put("user_id", "user_123"); // Please make sure you add user_id in every setAttribute call you make
 attributes.put("plan_type", "premium");
 attributes.put("user_level", 5);      // Can use actual number type
 attributes.put("is_active", true);    // Can use boolean
@@ -419,6 +422,7 @@ VWOInsights.setAttribute(attributes);
 
 ```kotlin
 val attributes = mutableMapOf<String, Any>()
+attributes["user_id"] = "user_123" // Please make sure you add user_id in every setAttribute call you make
 attributes["plan_type"] = "premium"
 attributes["user_level"] = 5
 attributes["is_active"] = true
