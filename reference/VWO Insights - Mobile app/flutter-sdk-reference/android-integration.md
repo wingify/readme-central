@@ -117,7 +117,7 @@ If you want to start recording as soon as the application launches, add the foll
 
     VWOInsights.init(this, object : IVwoInitCallback {
         override fun vwoInitSuccess(s: String) {
-            VWOInsights.startSessionRecording() // If you have enabled performance mode and face any crash / issue with this, Please call startSession() from Dart Method, refer https://developers.vwo.com/reference/startstop-recording
+            VWOInsights.startSessionRecording() // If you have enabled performance mode and face any crash / issue with this, Please call startSession() from Dart Method, refer https://developers.vwo.com/reference/startstop-recording)
         }
         
 ...rest of the code
