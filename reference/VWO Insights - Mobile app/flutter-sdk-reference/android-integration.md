@@ -133,12 +133,6 @@ If you want to start recording as soon as the application launches, add the foll
 
 <br />
 
-<br />
-
-<br />
-
-<br />
-
 ***
 
 ## ProGuard (release builds)
