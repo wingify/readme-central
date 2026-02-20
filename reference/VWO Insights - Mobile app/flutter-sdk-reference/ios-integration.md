@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      		 switch result{
 		     case .success(_):
     	 			print("VWO launched successfull")
-		        VWO.startSessionRecording() // For starting recording
+		        VWO.startSessionRecording() // For starting recording, If you are using dart implementation to start stop recordings, Please do not call VWO.startSessionRecording() from here
 		     case .failure(let error):
         		print("VWO launched failed \(error)")
 		      }
