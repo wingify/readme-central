@@ -6,7 +6,6 @@ hidden: true
 metadata:
   robots: index
 ---
-
 ## Overview
 
 Bot traffic is an industry-wide challenge for experimentation and analytics platforms. Automated scripts, crawlers, monitoring agents, and malicious actors can generate non-human interactions that may skew experiment data if not properly filtered.
@@ -21,6 +20,7 @@ This article explains:
 * How to audit and validate traffic quality
 * Architectural strategies to minimize experiment contamination
 
+<br />
 
 ## How VWO Handles Bot Traffic
 
@@ -70,6 +70,8 @@ If abnormal spikes occur:
 * Configuration validation is provided
 * Root-cause guidance is offered
 
+<br />
+
 ## Why 100% Bot Prevention Is Not Possible
 
 Bot detection is probabilistic across the industry because:
@@ -89,9 +91,13 @@ Because of this:
 
 A fitness brand may naturally have very different traffic patterns compared to a SaaS product.
 
+<br />
+
 ## Customer-Controlled Measures to Reduce Bot Impact
 
-While platform-level filtering exists, the strongest protection comes from customer-side implementation strategy.
+While platform-level filtering exists, the strongest protection comes from the implementation strategy.
+
+<br />
 
 ## Recommended Architecture to Minimize Bot Exposure
 
@@ -157,15 +163,17 @@ For feature experimentation:
 * Trigger events only after meaningful interaction
 * Avoid counting impressions on page load
 * Track only authenticated users when possible
-* Delay decision until engagement threshold met
+* Delay decision until engagement threshold is met
 
 Example:
 
-Instead of counting exposure at page load, rrefer:
+Instead of counting exposure at page load, refer:
 
 * Counting exposure after scroll
-* Counting after click
+* Counting after a click
 * Counting after meaningful UI interaction
+
+<br />
 
 ## Behavioral-Based Mitigation Strategies
 
@@ -174,7 +182,7 @@ Although VWO does not contractually define exclusions based on behavioral anomal
 * Detect Suspicious Patterns Such As:
 * 0-second session duration
 * 100% bounce rate
-* Thousands of events from single IP
+* Thousands of events from a single IP
 * Extremely high event firing frequency
 * No mouse/keyboard events
 * Identical user-agent + IP repetition
@@ -184,6 +192,8 @@ These patterns can be:
 * Filtered before sending events
 * Excluded during analysis
 * Flagged during audits
+
+<br />
 
 ## Data Audit & Export for Independent Validation
 
@@ -203,13 +213,19 @@ Customers can:
   * Security logs
   * Bot detection tools
 
-> Any traffic excluded via `IP filters` and `VWO-identified bot user agents` is already removed from reporting and exported datasets.
+<Callout icon="📘" theme="info">
+  Any traffic excluded via `IP filters` and `VWO-identified bot user agents` is already removed from reporting and exported datasets.
+</Callout>
+
+<br />
 
 ## Best Practices
 
 * Maintain an IP Exclusion Registry
 * Monitor Traffic Spikes
 * Compare Across Systems
+
+<br />
 
 ## What Is Supported and Guaranteed
 
@@ -225,6 +241,8 @@ VWO does not provide:
 * 100% bot elimination guarantee
 * Contractual definition of behavioral anomaly exclusion
 * Separate bot audit reporting artifact
+
+<br />
 
 ## Summary
 
