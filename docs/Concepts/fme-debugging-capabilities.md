@@ -1,15 +1,17 @@
 ---
 title: Deep-Dive Debugging Guide
-excerpt: VWO Feature Experimentation (FE) allows developers and product teams to monitor, identify, and resolve SDK-related issues directly within the VWO dashboard
+excerpt: >-
+  VWO Feature Experimentation (FE) allows developers and product teams to
+  monitor, identify, and resolve SDK-related issues directly within the VWO
+  dashboard
 deprecated: false
 hidden: true
 metadata:
   robots: index
 ---
+## Overview
 
-## Deep-Dive Debugging Guide
-
-When a VWO Feature Experimentation (FE) SDK integration does not behave as expected, feature flags not evaluating correctly, variables returning defaults, events not tracking, or SDK initialization failing — the root cause is almost always visible through SDK logs or VWO’s built-in error monitoring.
+When a VWO Feature Experimentation (FE) SDK integration does not behave as expected, feature flags not evaluating correctly, variables returning defaults, events not tracking, or SDK initialization failing, the root cause is almost always visible through SDK logs or VWO’s built-in error monitoring.
 
 VWO FE SDKs provide:
 
@@ -23,6 +25,8 @@ This guide explains how to systematically debug SDK integrations across:
 * Server-side SDKs (Node, Java, Python, Go, .NET, PHP, Ruby)
 * Client-side SDKs (JavaScript, React)
 * Mobile SDKs (iOS, Android, React Native, Flutter)
+
+<br />
 
 ## Observability Flow (How Debugging Works)
 
@@ -40,26 +44,29 @@ flowchart LR
     F --> G[VWO Dashboard Debug View]
 ```
 
-
 | Stream          | Purpose                                        |
 | --------------- | ---------------------------------------------- |
 | Structured Logs | Local decisioning & execution trace            |
 | Custom Logger   | Centralized log ingestion (Datadog, ELK, etc.) |
 | Error Telemetry | Automatic ERROR reporting to VWO               |
 
-> ERROR-level logs are automatically transmitted to VWO across server-side, browser, and mobile SDKs.
+<Callout icon="📘" theme="info">
+  ERROR-level logs are automatically transmitted to VWO across server-side, browser, and mobile SDKs.
+</Callout>
 
 This allows remote diagnosis without SSH or mobile device log access.
 
 ### What Happens Internally
 
 1. Your application calls the VWO FE SDK.
-2. SDK generates logs based on configured log level.
+2. SDK generates logs based on the configured log level.
 3. Logs are:
-    - Printed to standard output
-    - Optionally forwarded to your logging system
-    - ERROR-level logs automatically sent to VWO
+   * Printed to standard output
+   * Optionally forwarded to your logging system
+   * ERROR-level logs automatically sent to VWO
 4. VWO aggregates SDK errors and displays them inside the dashboard.
+
+<br />
 
 ## SDK Logging Fundamentals
 
@@ -68,10 +75,10 @@ All VWO FE SDKs from VWO:
 * Log errors to standard output by default
 * Default log level: `ERROR`
 * Support configurable log levels:
-  - `ERROR`
-  - `WARNING`
-  - `INFO`
-  - `DEBUG`
+  * `ERROR`
+  * `WARNING`
+  * `INFO`
+  * `DEBUG`
 
 ### What Each Level Provides
 
@@ -82,7 +89,6 @@ All VWO FE SDKs from VWO:
 | INFO    | Operational state transitions |
 | DEBUG   | Full decisioning trace        |
 
-
 ### Default Behavior
 
 If you don't configure anything at your end:
@@ -90,7 +96,11 @@ If you don't configure anything at your end:
 * Only `ERROR` logs are printed
 * `ERROR` logs are also sent to VWO automatically
 
-> For production debugging, temporarily elevate to `DEBUG` mode in a controlled environment.
+<Callout icon="📘" theme="info">
+  For production debugging, temporarily elevate to `DEBUG` mode in a controlled environment.
+</Callout>
+
+<br />
 
 ## Enabling Verbose Logging (Critical First Step)
 
@@ -131,11 +141,13 @@ const vwoClient = init({
 
 This is the most important step when troubleshooting incorrect flag evaluations.
 
+<br />
+
 ## Forwarding Logs to Your Monitoring System
 
 All FE SDKs allow custom logger integration.
 
-Instead of printing to console, forward logs to:
+Instead of printing to the console, forward logs to:
 
 * Datadog
 * ELK Stack
@@ -167,6 +179,8 @@ const vwoClient = init({
 
 In production systems, this is far more powerful than console logging alone.
 
+<br />
+
 ## Automatic SDK Error Telemetry (Server + Client Side)
 
 VWO FE SDKs automatically send ERROR-level logs to VWO servers across:
@@ -177,9 +191,11 @@ VWO FE SDKs automatically send ERROR-level logs to VWO servers across:
 
 This means:
 
->You can view critical SDK-generated errors inside the VWO dashboard — even without accessing internal application logs.
+> You can view critical SDK-generated errors inside the VWO dashboard, even without accessing internal application logs.
 
 No additional configuration is required.
+
+<br />
 
 ## Using VWO Advanced Debugging Dashboard
 
@@ -223,8 +239,9 @@ Inspect:
 * Timestamp
 * Affected user IDs
 
-> For a complete walkthrough of the dashboard capabilities, refer to the VWO [knowledge base article](https://help.vwo.com/hc/en-us/articles/53498732714393-Advanced-Debugging-in-VWO-Feature-Experimentation
-).
+> For a complete walkthrough of the dashboard capabilities, refer to the VWO [knowledge base article](https://help.vwo.com/hc/en-us/articles/53498732714393-Advanced-Debugging-in-VWO-Feature-Experimentation).
+
+<br />
 
 ## Step-by-Step Troubleshooting Playbook
 
@@ -237,7 +254,7 @@ Enable DEBUG logs and confirm:
 
 If initialization fails:
 
-* Validate SDK key for correct environment
+* Validate SDK key for the correct environment
 * Check outbound network access
 * Verify firewall/proxy restrictions
 
@@ -289,9 +306,8 @@ Look for:
 Common causes:
 
 * Browser/Edge navigation terminating request
-* Server shutdown before flush
+* Server shuts down before flush
 * Firewall blocking VWO endpoints
-
 
 ### Step 5 — Correlate Local Logs with VWO Dashboard
 
@@ -314,21 +330,25 @@ If not:
 
 ## Common Integration Pitfalls
 
-* Using wrong SDK key
-* Creating new SDK instance per request
+* Using the wrong SDK key
+* Creating a new SDK instance per request
 * Calling getFlag before initialization
 * Inconsistent user ID
 * Firewall blocking outbound calls
+
+<br />
 
 ## Recommended Production Debugging Strategy
 
 For stable production systems:
 
 1. Keep log level at `ERROR`
-2. Temporarily enable `DEBUG` in affected environment
+2. Temporarily enable `DEBUG` in an affected environment
 3. Forward logs to centralized logging
 4. Compare dashboard telemetry with application logs
 5. Identify spike patterns before rollback
+
+<br />
 
 ## Three-Layer Debugging Model
 
@@ -350,6 +370,8 @@ When combined:
 * VWO telemetry shows SDK-specific errors
 
 Together, they eliminate blind spots.
+
+<br />
 
 ## When to Contact Support
 
