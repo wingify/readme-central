@@ -1,7 +1,7 @@
 ---
 title: Mobile Survey
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
