@@ -74,12 +74,6 @@ public class CustomLogTransport : LogTransport
 }
 
 
-var vwoInitOptions = new VWOInitOptions
-{
-    AccountId = 123456,
-    SdkKey = "32-alpha-numeric-sdk-key"
-};
-
 var logger = new Dictionary<string, object>
 {
     { "level", "DEBUG" },
@@ -93,7 +87,14 @@ var logger = new Dictionary<string, object>
         }
     }
 };
-vwoInitOptions.Logger = logger;
+
+var vwoInitOptions = new VWOInitOptions
+{
+    AccountId = 123456,
+    SdkKey = "32-alpha-numeric-sdk-key",
+    Logger = logger
+};
+
 
 var vwoInstance = VWO.Init(vwoInitOptions);
 ```
