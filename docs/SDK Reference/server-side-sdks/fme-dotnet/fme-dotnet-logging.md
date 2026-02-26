@@ -88,7 +88,7 @@ var logger = new Dictionary<string, object>
             new Dictionary<string, object>
             {
 								// optional: per-transport level filter, defaults to global level
-                // { "level", "DEBUG" },
+                { "level", "DEBUG" },
                 { "log", new CustomLogTransport() }
             }
         }
