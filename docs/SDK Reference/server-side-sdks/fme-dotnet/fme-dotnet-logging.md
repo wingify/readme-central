@@ -27,10 +27,7 @@ var vwoInitOptions1 = new VWOInitOptions
 {
     SdkKey = "32-alpha-numeric-sdk-key",
     AccountId = 123456,
-    Logger = new Logger
-    {
-        Level = "DEBUG"
-    }
+	  Logger = new Dictionary<string, object> { { "level", "DEBUG" } }
 };
 var vwoClient1 = VWO.Init(vwoInitOptions1);
 ```
@@ -51,7 +48,7 @@ var vwoInitOptions2 = new VWOInitOptions
 var vwoClient2 = VWO.Init(vwoInitOptions2);
 ```
 
-**Example 3**: Implement custom transport to handle logs your way.\
+**Example 3**: Implement custom transport to handle logs your way.  
 The **transport** parameter allows you to implement custom logging behavior by providing your own logging functions. You can define handlers for different log levels (debug, info, warn, error, trace) to process log messages according to your needs.
 
 For example, you could:
@@ -95,4 +92,4 @@ var vwoInitOptions3 = new VWOInitOptions
 var vwoClient3 = VWO.Init(vwoInitOptions3);
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing *vwoClient*.](https://developers.vwo.com/v2/docs/fme-initialization)
+This "logger" object can be passed as one of the parameters when [initializing _vwoClient_.](https://developers.vwo.com/v2/docs/fme-initialization)
