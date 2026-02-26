@@ -39,10 +39,10 @@ var vwoInitOptions2 = new VWOInitOptions
 {
     SdkKey = "32-alpha-numeric-sdk-key",
     AccountId = 123456,
-    Logger = new Logger
+    Logger = new Dictionary<string, object>
     {
-        Level = "DEBUG",
-        Prefix = "CUSTOM LOG PREFIX"
+        { "level", "DEBUG" },
+        { "prefix", "CUSTOM LOG PREFIX" }
     }
 };
 var vwoClient2 = VWO.Init(vwoInitOptions2);
