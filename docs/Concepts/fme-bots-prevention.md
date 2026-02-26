@@ -93,13 +93,9 @@ A fitness brand may naturally have very different traffic patterns compared to a
 
 <br />
 
-## Customer-Controlled Measures to Reduce Bot Impact
+## Recommended Architecture to Minimize Bot Exposure
 
 While platform-level filtering exists, the strongest protection comes from the implementation strategy.
-
-<br />
-
-## Recommended Architecture to Minimize Bot Exposure
 
 ### Prefer Server-Side Experimentation for Sensitive Experiments
 
