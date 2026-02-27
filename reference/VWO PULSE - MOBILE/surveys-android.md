@@ -11,19 +11,19 @@ The VWO Pulse Android SDK enables you to deliver in-app surveys directly inside 
 
 ## Key Features
 
-- **Event-based Triggers** - Trigger surveys based on specific events in your app
-- **User Identification** - Identify and track users to ensure proper survey targeting
-- **Personalization** - Personalize surveys with user attributes
-- **Localization** - Localize surveys by setting different languages
+* **Event-based Triggers** - Trigger surveys based on specific events in your app
+* **User Identification** - Identify and track users to ensure proper survey targeting
+* **Personalization** - Personalize surveys with user attributes
+* **Localization** - Localize surveys by setting different languages
 
 ## Requirements
 
-| Requirement | Details |
-|-------------|---------|
-| Android Version | Android 5.0 (API level 21) and above |
-| VWO Dashboard | Access required to retrieve Account ID and SDK Key |
+| Requirement     | Details                                            |
+| --------------- | -------------------------------------------------- |
+| Android Version | Android 5.0 (API level 21) and above               |
+| VWO Dashboard   | Access required to retrieve Account ID and SDK Key |
 
----
+***
 
 # Getting Started
 
@@ -37,7 +37,7 @@ The VWO Pulse Android SDK enables you to deliver in-app surveys directly inside 
 2. **Confirm Minimum SDK**  
    The SDK officially supports API level 21 and above.
 
----
+***
 
 # Quick Start
 
@@ -47,7 +47,7 @@ Add the SDK dependency to your `app/build.gradle`:
 
 ```groovy
 dependencies {
-    implementation 'com.vwo:insights:2.1.0'
+    implementation 'com.vwo:insights:2.1.1'
 }
 ```
 
@@ -155,7 +155,7 @@ SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
 sdkManager.trackEvent("event_name");
 ```
 
----
+***
 
 # Triggers and Event Properties
 
@@ -263,7 +263,7 @@ sdkManager.trackEvent("home_screen_loaded", properties, result -> {
 });
 ```
 
----
+***
 
 # Personalizing and Localizing Surveys
 
@@ -271,12 +271,12 @@ sdkManager.trackEvent("home_screen_loaded", properties, result -> {
 
 You can set profile attributes directly through VWOInsights using `setAttribute()`. This method supports different value types:
 
-| Type | Example |
-|------|---------|
-| String | `"active"` |
-| Number | `3` |
-| Boolean | `true` |
-| Date | Timestamp in milliseconds |
+| Type    | Example                   |
+| ------- | ------------------------- |
+| String  | `"active"`                |
+| Number  | `3`                       |
+| Boolean | `true`                    |
+| Date    | Timestamp in milliseconds |
 
 ### Kotlin
 
@@ -351,57 +351,57 @@ VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
 **Common Language Codes:**
 
 | Code | Language |
-|------|----------|
-| `en` | English |
-| `es` | Spanish |
-| `fr` | French |
-| `de` | German |
+| ---- | -------- |
+| `en` | English  |
+| `es` | Spanish  |
+| `fr` | French   |
+| `de` | German   |
 | `ja` | Japanese |
 
 **Why Set Survey Language?**
 
-- Improve user experience by displaying surveys in the user's native language
-- Support better localization for global apps
+* Improve user experience by displaying surveys in the user's native language
+* Support better localization for global apps
 
----
+***
 
 # API Reference
 
 ## VWOInsights
 
-| Method | Description |
-|--------|-------------|
-| `init(application, callback, config)` | Initializes the VWO SDK |
-| `getSurveySdkManager(context)` | Returns the SdkManager instance for survey operations |
-| `setAttribute(extras)` | Sets custom profile attributes for surveys |
+| Method                                | Description                                           |
+| ------------------------------------- | ----------------------------------------------------- |
+| `init(application, callback, config)` | Initializes the VWO SDK                               |
+| `getSurveySdkManager(context)`        | Returns the SdkManager instance for survey operations |
+| `setAttribute(extras)`                | Sets custom profile attributes for surveys            |
 
 ## SdkManager
 
-| Method | Description |
-|--------|-------------|
-| `trackEvent(trigger)` | Triggers a survey by trigger name |
+| Method                                      | Description                                |
+| ------------------------------------------- | ------------------------------------------ |
+| `trackEvent(trigger)`                       | Triggers a survey by trigger name          |
 | `trackEvent(trigger, properties, listener)` | Triggers a survey with completion callback |
-| `trackEventWithActivity(activity, trigger)` | Triggers a survey with activity reference |
-| `setUserProperties(properties)` | Sets multiple user properties |
-| `setSurveyLanguage(languageCode)` | Sets the preferred survey language |
+| `trackEventWithActivity(activity, trigger)` | Triggers a survey with activity reference  |
+| `setUserProperties(properties)`             | Sets multiple user properties              |
+| `setSurveyLanguage(languageCode)`           | Sets the preferred survey language         |
 
 ## ClientConfiguration
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `accountId` | String | Yes | Your VWO account ID |
-| `appId` | String | Yes | Your SDK key from VWO dashboard |
-| `userId` | String | Yes | Unique identifier for the user |
+| Parameter   | Type   | Required | Description                     |
+| ----------- | ------ | -------- | ------------------------------- |
+| `accountId` | String | Yes      | Your VWO account ID             |
+| `appId`     | String | Yes      | Your SDK key from VWO dashboard |
+| `userId`    | String | Yes      | Unique identifier for the user  |
 
----
+***
 
 # FAQ and Troubleshooting
 
 ## Survey not showing up?
 
-- Ensure VWO SDK is initialized successfully (check for `vwoInitSuccess` callback)
-- Verify that the trigger name matches **exactly** what's configured in the VWO dashboard
-- Check that surveys are active and properly configured in the dashboard
+* Ensure VWO SDK is initialized successfully (check for `vwoInitSuccess` callback)
+* Verify that the trigger name matches **exactly** what's configured in the VWO dashboard
+* Check that surveys are active and properly configured in the dashboard
 
 ## Survey not showing on home screen or first app page?
 
@@ -429,25 +429,25 @@ override fun vwoInitSuccess(message: String) {
 
 ## Network connectivity issues?
 
-- The SDK requires network connectivity for initialization
-- If `vwoInitFailed` is called, check the device's network connection
-- Surveys are fetched from the server when triggered
+* The SDK requires network connectivity for initialization
+* If `vwoInitFailed` is called, check the device's network connection
+* Surveys are fetched from the server when triggered
 
----
+***
 
 # Best Practices
 
-| Practice | Description |
-|----------|-------------|
-| **Initialize early** | Call `VWOInsights.init()` in your Application class's `onCreate()` method |
-| **Wait for initialization** | Always wait for the `vwoInitSuccess` callback before triggering surveys |
-| **Set user attributes early** | Configure user attributes before triggering surveys for better targeting |
+| Practice                      | Description                                                               |
+| ----------------------------- | ------------------------------------------------------------------------- |
+| **Initialize early**          | Call `VWOInsights.init()` in your Application class's `onCreate()` method |
+| **Wait for initialization**   | Always wait for the `vwoInitSuccess` callback before triggering surveys   |
+| **Set user attributes early** | Configure user attributes before triggering surveys for better targeting  |
 
----
+***
 
 # Version Information
 
-| Component | Version |
-|-----------|---------|
-| SDK Version | `2.1.0` |
+| Component           | Version          |
+| ------------------- | ---------------- |
+| SDK Version         | `2.1.0`          |
 | Minimum Android SDK | 21 (Android 5.0) |
