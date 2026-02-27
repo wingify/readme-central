@@ -11,20 +11,20 @@ The VWO Pulse iOS SDK enables you to deliver in-app surveys directly inside your
 
 ## Key Features
 
-- **Event-based Triggers** - Trigger surveys based on specific events in your app
-- **User Identification** - Identify and track users to ensure proper survey targeting
-- **Personalization** - Personalize surveys with user attributes
-- **Localization** - Localize surveys by setting different languages
+* **Event-based Triggers** - Trigger surveys based on specific events in your app
+* **User Identification** - Identify and track users to ensure proper survey targeting
+* **Personalization** - Personalize surveys with user attributes
+* **Localization** - Localize surveys by setting different languages
 
 ## Requirements
 
-| Requirement | Details |
-|-------------|---------|
-| iOS Version | iOS 12.0 and above |
-| Swift Version | 5.0+ |
+| Requirement   | Details                                            |
+| ------------- | -------------------------------------------------- |
+| iOS Version   | iOS 12.0 and above                                 |
+| Swift Version | 5.0+                                               |
 | VWO Dashboard | Access required to retrieve Account ID and SDK Key |
 
----
+***
 
 # Getting Started
 
@@ -38,7 +38,7 @@ The VWO Pulse iOS SDK enables you to deliver in-app surveys directly inside your
 2. **Confirm Minimum iOS Version**  
    The SDK officially supports iOS 12.0 and above.
 
----
+***
 
 # Quick Start
 
@@ -49,6 +49,7 @@ Add the SDK dependency to your `Podfile`:
 ```ruby
 # Podfile
 pod 'VWO-Insights', '~> 2.1.0'
+pod 'SwiftyJSON', '~> 5.0.2'
 ```
 
 Then run:
@@ -103,7 +104,7 @@ surveySDK.trackEvent(
 )
 ```
 
----
+***
 
 # Triggers and Event Properties
 
@@ -136,7 +137,7 @@ surveySDK.trackEvent(
 )
 ```
 
----
+***
 
 # Personalizing and Localizing Surveys
 
@@ -144,12 +145,12 @@ surveySDK.trackEvent(
 
 You can set profile attributes using `setAttribute()`. This method supports different value types:
 
-| Type | Example |
-|------|---------|
-| String | `"active"` |
-| Number | `3` |
-| Boolean | `true` |
-| Date | Timestamp in milliseconds |
+| Type    | Example                   |
+| ------- | ------------------------- |
+| String  | `"active"`                |
+| Number  | `3`                       |
+| Boolean | `true`                    |
+| Date    | Timestamp in milliseconds |
 
 ```swift
 let surveySDK = VWO.getSurveyManager()
@@ -205,19 +206,19 @@ surveySDK.setLanguageCode("en")
 **Common Language Codes:**
 
 | Code | Language |
-|------|----------|
-| `en` | English |
-| `es` | Spanish |
-| `fr` | French |
-| `de` | German |
+| ---- | -------- |
+| `en` | English  |
+| `es` | Spanish  |
+| `fr` | French   |
+| `de` | German   |
 | `ja` | Japanese |
 
 **Why Set Survey Language?**
 
-- Improve user experience by displaying surveys in the user's native language
-- Support better localization for global apps
+* Improve user experience by displaying surveys in the user's native language
+* Support better localization for global apps
 
----
+***
 
 # Handling User Sessions
 
@@ -245,47 +246,47 @@ VWO.configure(
 }
 ```
 
----
+***
 
 # API Reference
 
 ## VWO
 
-| Method | Description |
-|--------|-------------|
-| `configure(accountId:sdkKey:userId:completion:)` | Initializes the VWO SDK |
-| `getSurveyManager()` | Returns the Survey SDK manager instance |
-| `startSessionRecording()` | Starts session recording |
+| Method                                           | Description                             |
+| ------------------------------------------------ | --------------------------------------- |
+| `configure(accountId:sdkKey:userId:completion:)` | Initializes the VWO SDK                 |
+| `getSurveyManager()`                             | Returns the Survey SDK manager instance |
+| `startSessionRecording()`                        | Starts session recording                |
 
 ## SurveyManager
 
-| Method | Description |
-|--------|-------------|
-| `trackEvent(eventName:)` | Triggers a survey by event name |
+| Method                                             | Description                                   |
+| -------------------------------------------------- | --------------------------------------------- |
+| `trackEvent(eventName:)`                           | Triggers a survey by event name               |
 | `trackEvent(eventName:properties:viewController:)` | Triggers a survey with properties and context |
-| `setAttribute(attributes:)` | Sets custom user attributes |
-| `updateUserEmail(_:)` | Sets the user's email |
-| `updateUserName(_:)` | Sets the user's name |
-| `setLanguageCode(_:)` | Sets the preferred survey language |
-| `logout()` | Clears survey-related user data |
+| `setAttribute(attributes:)`                        | Sets custom user attributes                   |
+| `updateUserEmail(_:)`                              | Sets the user's email                         |
+| `updateUserName(_:)`                               | Sets the user's name                          |
+| `setLanguageCode(_:)`                              | Sets the preferred survey language            |
+| `logout()`                                         | Clears survey-related user data               |
 
 ## Configuration Parameters
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `accountId` | String | Yes | Your VWO account ID |
-| `sdkKey` | String | Yes | Your SDK key from VWO dashboard |
-| `userId` | String | Yes | Unique identifier for the user |
+| Parameter   | Type   | Required | Description                     |
+| ----------- | ------ | -------- | ------------------------------- |
+| `accountId` | String | Yes      | Your VWO account ID             |
+| `sdkKey`    | String | Yes      | Your SDK key from VWO dashboard |
+| `userId`    | String | Yes      | Unique identifier for the user  |
 
----
+***
 
 # FAQ and Troubleshooting
 
 ## Survey not showing up?
 
-- Ensure VWO SDK is initialized successfully (check for success in the completion callback)
-- Verify that the event name matches **exactly** what's configured in the VWO dashboard
-- Check that surveys are active and properly configured in the dashboard
+* Ensure VWO SDK is initialized successfully (check for success in the completion callback)
+* Verify that the event name matches **exactly** what's configured in the VWO dashboard
+* Check that surveys are active and properly configured in the dashboard
 
 ## Survey not showing on home screen or first view?
 
@@ -325,28 +326,27 @@ VWO.configure(
 
 ## Network connectivity issues?
 
-- The SDK requires network connectivity for initialization
-- If the completion callback returns failure, check the device's network connection
-- Surveys are fetched from the server when triggered
+* The SDK requires network connectivity for initialization
+* If the completion callback returns failure, check the device's network connection
+* Surveys are fetched from the server when triggered
 
----
+***
 
 # Best Practices
 
-| Practice | Description |
-|----------|-------------|
-| **Initialize early** | Call `VWO.configure()` in your AppDelegate's `application(_:didFinishLaunchingWithOptions:)` method |
-| **Wait for initialization** | Always wait for the success callback before triggering surveys |
-| **Set user attributes early** | Configure user attributes before triggering surveys for better targeting |
-| **Use main thread for UI** | Wrap survey triggers in `DispatchQueue.main.async` when called from background threads |
+| Practice                      | Description                                                                                         |
+| ----------------------------- | --------------------------------------------------------------------------------------------------- |
+| **Initialize early**          | Call `VWO.configure()` in your AppDelegate's `application(_:didFinishLaunchingWithOptions:)` method |
+| **Wait for initialization**   | Always wait for the success callback before triggering surveys                                      |
+| **Set user attributes early** | Configure user attributes before triggering surveys for better targeting                            |
+| **Use main thread for UI**    | Wrap survey triggers in `DispatchQueue.main.async` when called from background threads              |
 
----
+***
 
 # Version Information
 
-| Component | Version |
-|-----------|---------|
-| SDK Version | `2.1.0` |
-| Minimum iOS Version | 12.0 |
-| Swift Version | 5.0+ |
-
+| Component           | Version |
+| ------------------- | ------- |
+| SDK Version         | `2.1.0` |
+| Minimum iOS Version | 12.0    |
+| Swift Version       | 5.0+    |
