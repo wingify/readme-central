@@ -2,7 +2,7 @@
 title: Preventing Bot Traffic from Impacting Your Experiments
 excerpt: Preventing Bot Traffic from Impacting Your Experiments
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
