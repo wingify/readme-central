@@ -1,5 +1,5 @@
 ---
-title: Set Up Rules in FE
+title: Set Up Rules
 deprecated: false
 hidden: false
 metadata:
@@ -18,8 +18,8 @@ Think of rules as the gatekeepers for your feature flag. You set up conditions, 
 * Should this user see the feature at all?
 * If they do see it, which version should they get? (This is key for A/B tests or personalized experiences).
 
-Rules let you specify who sees what, so you can include or exclude anyone from your feature rollout, test, or personalization campaign.
+Rules let you specify who can see what, so you can include or exclude anyone from your feature rollout, test, or personalisation campaign.
 
 > 📘 Read more on
 >
-> [Set Up Rules in FE](https://help.vwo.com/hc/en-us/articles/46347563022233-Set-Up-Rules-in-FE)
+> [Set Up Rules in Feature Experimentation](https://help.vwo.com/hc/en-us/articles/46347563022233-Set-Up-Rules-in-FE)
