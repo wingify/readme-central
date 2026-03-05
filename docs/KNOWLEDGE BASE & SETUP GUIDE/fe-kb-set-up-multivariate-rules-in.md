@@ -1,5 +1,5 @@
 ---
-title: Set Up Multivariate Rules in Feature Experimentation
+title: Set Up Multivariate Rules
 deprecated: false
 hidden: false
 metadata:
