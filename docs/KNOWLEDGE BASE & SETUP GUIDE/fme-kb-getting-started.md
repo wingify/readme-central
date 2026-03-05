@@ -1,11 +1,11 @@
 ---
-title: Getting Started with Feature Experimentation (FE)
+title: Getting Started with Feature Experimentation
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-VWO Fullstack has evolved into VWO Feature Experimentation (FE), offering several new capabilities. FE is a one-stop solution for managing features, executing progressive rollouts and automating guarded releases, running A/B tests, and delivering personalized experiences.
+Feature Experimentation is a one-stop solution for managing features, executing progressive rollouts, automating guarded releases, running A/B tests, and delivering personalized experiences.
 
 It helps understand feature impact, accelerate shipping velocity, and ensure deployment safety—an approach trusted by the best tech-driven companies.
 
