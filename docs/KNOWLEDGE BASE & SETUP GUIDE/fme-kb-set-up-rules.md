@@ -20,6 +20,6 @@ Think of rules as the gatekeepers for your feature flag. You set up conditions, 
 
 Rules let you specify who can see what, so you can include or exclude anyone from your feature rollout, test, or personalisation campaign.
 
-> 📘 Read more on
->
-> [Set Up Rules in Feature Experimentation](https://help.vwo.com/hc/en-us/articles/46347563022233-Set-Up-Rules-in-FE)
+<Callout icon="📘" theme="info">
+  Read more [here](https://help.vwo.com/hc/en-us/articles/46347563022233-Set-Up-Rules-in-FE)
+</Callout>
