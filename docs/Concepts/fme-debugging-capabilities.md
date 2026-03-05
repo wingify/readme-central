@@ -5,7 +5,7 @@ excerpt: >-
   monitor, identify, and resolve SDK-related issues directly within the VWO
   dashboard
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
