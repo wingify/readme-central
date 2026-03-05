@@ -1,5 +1,5 @@
 ---
-title: Configure Segmentation in VWO Feature Experimentation
+title: 'Configure Segmentation '
 deprecated: false
 hidden: false
 metadata:
