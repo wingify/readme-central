@@ -15,7 +15,7 @@ Shopify Headless with **Hydrogen + Oxygen** is a modern, server-centric approach
 
 To run **experiments and feature flags** reliably in this architecture, we need a client that can:
 
-* Execute on the **server **(**Oxygen**)
+* Execute on the **server (Oxygen)**
 * Hydrate in the **browser**
 * Run at the **Edge** if available
 
