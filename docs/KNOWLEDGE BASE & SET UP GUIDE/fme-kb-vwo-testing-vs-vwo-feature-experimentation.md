@@ -1,5 +1,5 @@
 ---
-title: VWO Testing vs. VWO Feature Experimentation
+title: VWO Testing vs VWO Feature Experimentation
 deprecated: false
 hidden: false
 metadata:
