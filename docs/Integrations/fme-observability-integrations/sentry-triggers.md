@@ -5,15 +5,15 @@ hidden: true
 metadata:
   robots: index
 ---
-### **Overview:**
+## **Overview:**
 
 Triggers can be used with Sentry to automatically toggle a Feature Flag based on application errors or performance issues. For example, you can create a trigger that disables a Feature Flag and connect it to a Sentry alert webhook. If Sentry detects a spike in errors or a critical issue in your application, it can call the trigger URL, allowing VWO to automatically disable the Feature Flag and prevent further impact to users.
 
-### **1. Creating the Trigger URL**
+## **1. Creating the Trigger URL**
 
 To set this up, you need to construct the API URL for the specific feature environment you want to control. Because **Sentry** webhooks do not support custom headers or custom payloads, the required parameters (`isEnabled` and the `authToken`) must be included directly in the URL query parameters.
 
-URL Format:
+#### **URL Format**:
 
 ```
 https://app.vwo.com/api/v2/accounts/current/environments/<envId|sdkKey>/features/<featureId|featureKey>/toggle?isEnabled=<0|1>&authToken=<api_token>
@@ -26,7 +26,7 @@ https://app.vwo.com/api/v2/accounts/current/environments/<envId|sdkKey>/features
 * **isEnabled** – Set to `0` to disable the feature flag (or `1` to enable it).
 * **authToken** – Your VWO API authentication token.
 
-### **2. Connecting to Sentry**
+## **2. Connecting to Sentry**
 
 Once you have your complete URL, you need to configure it in Sentry as an Internal Integration.
 
@@ -43,7 +43,7 @@ Once you have your complete URL, you need to configure it in Sentry as an Intern
 7. Under **Webhooks**, check the boxes for `issue` and `error`.
 8. Click **Save Changes**.
 
-### **3. Setting up the Alert**
+## **3. Setting up the Alert**
 
 Finally, link the integration to an Alert Rule in Sentry.
 
