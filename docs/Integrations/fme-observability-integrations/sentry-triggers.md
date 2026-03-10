@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-## **Overview:**
+## **Overview**
 
 Triggers can be used with Sentry to automatically toggle a Feature Flag based on application errors or performance issues. For example, you can create a trigger that disables a Feature Flag and connect it to a Sentry alert webhook. If Sentry detects a spike in errors or a critical issue in your application, it can call the trigger URL, allowing VWO to automatically disable the Feature Flag and prevent further impact to users.
 
