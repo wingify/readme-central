@@ -34,7 +34,7 @@ Once you have your complete URL, you need to configure it in Sentry as an Intern
 
    <Image align="center" width="700px" src="https://files.readme.io/cb834ff029e50541961e96918c3373c397cc4eb151318f5aae39ff913bff6a3e-image4.png" />
 2. Click **Custom Integrations > Create New Integration > Internal Integration**
-3. **Name:** Give it a name (e.g., `vwo-kill-feature`).
+3. **Name:** Give it a name (e.g., `VWO Feature Kill Switch`).
 4. **Webhook URL:** Paste the Trigger URL you constructed in Step 1.
 
    <Image align="center" src="https://files.readme.io/123920e956c3437bc05440046f4a3d4916afb8612fc1d851c75adeb6ecf088bc-image3.png" />
