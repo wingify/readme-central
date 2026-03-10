@@ -39,7 +39,7 @@ Once you have your complete URL, you need to configure it in Sentry as an Intern
 
    <Image align="center" src="https://files.readme.io/123920e956c3437bc05440046f4a3d4916afb8612fc1d851c75adeb6ecf088bc-image3.png" />
 5. **Alert Rule Action:** Toggle this to **ON** (this allows you to use it in alerts).
-6. Under **Permissions**, grant `Read` access to **Alerts**,**Issue & Event** and **Projects**.
+6. Under **Permissions**, grant `Read` access to **Alerts**, **Issue & Event** and **Projects**.
 7. Under **Webhooks**, check the boxes for `issue` and `error`.
 8. Click **Save Changes**.
 
