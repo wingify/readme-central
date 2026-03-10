@@ -57,7 +57,7 @@ Finally, link the integration to an Alert Rule in Sentry.
 
 4. In the **Actions** section, select **Send a notification via an integration**.
 
-5. Choose the `vwo-kill-feature` integration you just created.
+5. Choose the `VWO Feature Kill Switch` integration you just created.
 
    <Image align="center" src="https://files.readme.io/a7e6f167bf36d3f9a3b618ca742a2204a29fdbf1418e61adb4e50b25382b38d2-image2.png" />
 
