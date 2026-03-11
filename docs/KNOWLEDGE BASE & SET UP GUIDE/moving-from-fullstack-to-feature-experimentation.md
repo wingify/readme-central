@@ -1,5 +1,6 @@
 ---
-title: Moving from Fullstack to Feature Experimentation
+title: Transitioning from Fullstack to Feature Experimentation
+excerpt: Differences between the two SDK approaches
 deprecated: false
 hidden: true
 metadata:
