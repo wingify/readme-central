@@ -8,7 +8,7 @@ metadata:
 ---
 # VWO FullStack vs FME
 
-A comprehensive guide to understanding the differences and migrating from VWO FullStack to Feature Management & Experimentation (FME).
+A comprehensive guide to understanding the differences and migrating from VWO FullStack to Feature Experimentation (FE).
 
 ***
 
@@ -16,13 +16,13 @@ A comprehensive guide to understanding the differences and migrating from VWO Fu
 
 **`DEPRECATED`** **VWO FullStack (FS)** — The original server-side SDK for A/B testing and feature management. Only receiving critical bug fixes and security patches.
 
-**`CURRENT`** **VWO FME (Feature Management & Experimentation)** — The actively developed replacement with a modernized API and improved developer experience.
+**`CURRENT`** **VWO FE (Feature Experimentation)** — The actively developed replacement with a modernized API and improved developer experience.
 
 ### Same Purpose, New Philosophy
 
 Both SDKs enable server-side A/B testing and feature management. The key difference lies in their design philosophy:
 
-| FullStack                                                                                                                    | FME                                                                                                                       |
+| FullStack                                                                                                                    | FE                                                                                                                        |
 | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | **Campaign-Centric** — Everything revolves around campaigns. You activate users into campaigns and track goals per campaign. | **Feature-Flag-Centric** — Features are the primary unit. You evaluate flags and track events independently of campaigns. |
 
