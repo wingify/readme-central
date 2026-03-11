@@ -52,10 +52,10 @@ When this API is executed:
 // Set a custom user attribute in VWO for the specified user context.
 // 'attribute_key' is the name of the attribute (e.g., 'subscription_status').
 // 'attribute_value' is the value to assign to the attribute (e.g., 'premium').
-let attributes: [String : Any] = ["subscription_status": "premium"]
+let attributeMap: [String : Any] = ["subscription_status": "premium"]
 
 VWOFme.setAttribute(
-  attributes,
+  attributes: attributeMap,
   context: userContext
 )
 ```
