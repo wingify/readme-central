@@ -1,6 +1,7 @@
 - fme-user-id-management
 - how-user-bucketing-works
 - fme-salting
+- custom-bucketing-seed
 - polling
 - fme-configure-webhooks
 - fme-sdk-retry-mechanism
