@@ -31,11 +31,11 @@ When you provide a `bucketingSeed` in the user context, the SDK uses it **instea
 
 ### **Behavior Rules**
 
-1. **Same seed → same variation** Two users with different IDs but the same `bucketingSeed` always get the same variation.
-2. **Different seeds → may differ** The same user with different seeds may receive different variations, since the hash input changes.
-3. **No seed → falls back to user ID** If `bucketingSeed` is not provided (or is invalid), the user's `id` is used for bucketing as usual.
-4. **Forced variations (whitelisting) take priority** If a user is whitelisted to a specific variation, they always receive that variation. `bucketingSeed` has no effect on whitelisted users. This ensures that QA and internal testing overrides are never broken by a seed.
-5. **Works with aliasing** When aliasing is enabled, the Gateway service resolves the real user ID first. If a `bucketingSeed` is also provided, the seed overrides the resolved ID for bucketing. This means two aliased users that resolve to different real IDs will still get the same variation if they share the same seed.
+1. **Same seed → same variation:** Two users with different IDs but the same `bucketingSeed` always get the same variation.
+2. **Different seeds → may differ:** The same user with different seeds may receive different variations, since the hash input changes.
+3. **No seed → falls back to user ID:** If `bucketingSeed` is not provided (or is invalid), the user's `id` is used for bucketing as usual.
+4. **Forced variations (whitelisting) take priority:** If a user is whitelisted to a specific variation, they always receive that variation. `bucketingSeed` has no effect on whitelisted users. This ensures that QA and internal testing overrides are never broken by a seed.
+5. **Works with aliasing:** When aliasing is enabled, the Gateway service resolves the real user ID first. If a `bucketingSeed` is also provided, the seed overrides the resolved ID for bucketing. This means two aliased users that resolve to different real IDs will still get the same variation if they share the same seed.
 6. **Interaction with campaign salt:** Salt is a server-side property on campaigns. It modifies the campaign-side of the hash key:
 
 | Configuration          | Hash Key Format                |
@@ -119,7 +119,7 @@ const flag = await vwoClient.getFlag('checkout-redesign', {
 // Returns the whitelisted variation, not the seed-based one
 ```
 
-## **Points that you must know:**  
+## **Points that you must know:**
 
 ### **Seed does not affect pre-segmentation or whitelisting**
 
@@ -129,6 +129,6 @@ const flag = await vwoClient.getFlag('checkout-redesign', {
 
 If a user was previously bucketed with seed `A` and their result was stored, a subsequent call with seed `B` will not match the stored result. If you are using a persistent storage layer, ensure the `bucketingSeed` is consistent for the same logical entity across all calls. Treat the seed as part of the user's stable identity.
 
-### **bucketingSeed Validation & Fallback**  
+### **bucketingSeed Validation & Fallback**
 
 `bucketingSeed` must be a non-empty, non-whitespace string. Invalid values are silently discarded with a warning log, and bucketing falls back to the user ID
