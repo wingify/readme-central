@@ -121,14 +121,9 @@ const flag = await vwoClient.getFlag('checkout-redesign', {
 
 ## **Points that you must know:**
 
-### **Seed does not affect pre-segmentation or whitelisting**
-
-`bucketingSeed` only controls the **traffic gate** (is the user in the campaign?) and **variation assignment** (which variation do they get?). It does **not** affect pre-segmentation rules (evaluated using `customVariables`) or whitelisting / forced variations (evaluated using `variationTargetingVariables`). A user can still be excluded from a campaign by failing segment rules, even if a `bucketingSeed` is provided.
-
-### **Changing the seed for a returning user breaks consistency**
-
-If a user was previously bucketed with seed `A` and their result was stored, a subsequent call with seed `B` will not match the stored result. If you are using a persistent storage layer, ensure the `bucketingSeed` is consistent for the same logical entity across all calls. Treat the seed as part of the user's stable identity.
-
-### **bucketingSeed Validation & Fallback**
-
-`bucketingSeed` must be a non-empty, non-whitespace string. Invalid values are silently discarded with a warning log, and bucketing falls back to the user ID
+1. ### **Seed does not affect pre-segmentation or whitelisting**  
+   `bucketingSeed` only controls the **traffic gate** (is the user in the campaign?) and **variation assignment** (which variation do they get?). It does **not** affect pre-segmentation rules (evaluated using `customVariables`) or whitelisting / forced variations (evaluated using `variationTargetingVariables`). A user can still be excluded from a campaign by failing segment rules, even if a `bucketingSeed` is provided.
+2. ### **Changing the seed for a returning user breaks consistency**  
+   If a user was previously bucketed with seed `A` and their result was stored, a subsequent call with seed `B` will not match the stored result. If you are using a persistent storage layer, ensure the `bucketingSeed` is consistent for the same logical entity across all calls. Treat the seed as part of the user's stable identity.
+3. ### **bucketingSeed Validation & Fallback**  
+   `bucketingSeed` must be a non-empty, non-whitespace string. Invalid values are silently discarded with a warning log, and bucketing falls back to the user ID
