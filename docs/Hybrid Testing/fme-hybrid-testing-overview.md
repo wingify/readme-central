@@ -2,7 +2,7 @@
 title: Overview
 excerpt: >-
   A Conceptual Guide to Connecting VWO Feature Experimentation, VWO Web Testing,
-  and VWO Web Insights
+  and VWO Web & Mobile Insights
 deprecated: false
 hidden: true
 metadata:
