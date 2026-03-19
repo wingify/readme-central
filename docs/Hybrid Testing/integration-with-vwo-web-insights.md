@@ -1,5 +1,5 @@
 ---
-title: Integration with VWO Web Insights
+title: Integration with VWO Web & Mobile Insights
 excerpt: Behavioral Analytics Integration with VWO Web Insights
 deprecated: false
 hidden: true
@@ -85,3 +85,11 @@ This architecture enables system-wide experimentation, not just UI testing.
 * Cookies are the transport mechanism
 * Two-way identity propagation is supported
 * VWO Web Insights unifies analytics across layers
+
+<br />
+
+## Integration with VWO Mobile Insights
+
+<Callout icon="📘" theme="info">
+  Refer this [article](https://developers.vwo.com/v2/docs/fme-integrations-vwo-insights-mobile)  to know the details.
+</Callout>
