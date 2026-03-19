@@ -302,7 +302,7 @@ To keep the same UUID across server-side and client-side experiments, the identi
 
 1. Cookies `(Rcommended)`
 2. HTTP Response / Request Headers
-3. Injecting into the window Object  
+3. Injecting into the window Object
 
 #### 1. Cookies `(Recommended)`
 
@@ -340,7 +340,7 @@ The server embeds the UUID into the page during rendering:
 * **Server → Client**: UUID is injected during SSR
 * **Client → Server**: Client reads the value and sends it back via cookies or headers
 
-This method provides immediate client-side access but relies on another mechanism for persistence.  
+This method provides immediate client-side access but relies on another mechanism for persistence.
 
 > 📘 Recommendation
 >
@@ -773,7 +773,7 @@ There are three supported ways to track the conversion:
 
 1. Client-Side Custom Event API (Web Testing)
 2. Method 2: FE SDK `trackEvent` API
-3. Offline Conversion Tracking  
+3. Offline Conversion Tracking
 
 #### Method 1: Client-Side Custom Event API (Web Testing)
 
