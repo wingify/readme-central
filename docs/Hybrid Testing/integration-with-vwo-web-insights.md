@@ -2,7 +2,7 @@
 title: Integration with VWO Web Insights
 excerpt: Behavioral Analytics Integration with VWO Web Insights
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
