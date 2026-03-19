@@ -7,6 +7,11 @@ deprecated: false
 hidden: true
 metadata:
   robots: index
+next:
+  pages:
+    - slug: fme-hybrid-testing-identity-synchronization
+      title: Cross-System Identity Synchronization
+      type: basic
 ---
 # Unifying Server-Side and Client-Side Experimentation in VWO
 
