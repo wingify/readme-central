@@ -1,8 +1,8 @@
 ---
 title: Overview
 excerpt: >-
-  A Conceptual Guide to Connecting Feature Experimentation, Web Testing, and Web
-  Insights
+  A Conceptual Guide to Connecting VWO Feature Experimentation, VWO Web Testing,
+  and VWO Web Insights
 deprecated: false
 hidden: true
 metadata:
