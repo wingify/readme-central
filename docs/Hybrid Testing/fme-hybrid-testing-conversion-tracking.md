@@ -5,6 +5,11 @@ deprecated: false
 hidden: true
 metadata:
   robots: index
+next:
+  pages:
+    - slug: integration-with-vwo-web-insights
+      title: Integration with VWO Web Insights
+      type: basic
 ---
 Conversion tracking in a connected VWO architecture relies on one fundamental requirement:
 
