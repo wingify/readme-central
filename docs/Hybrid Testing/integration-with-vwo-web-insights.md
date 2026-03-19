@@ -43,6 +43,8 @@ Without shared UUID:
 * Heatmap segmentation becomes inaccurate
 * Behavioral debugging becomes fragmented
 
+<br />
+
 ## Summary
 
 When UUID is unified:
