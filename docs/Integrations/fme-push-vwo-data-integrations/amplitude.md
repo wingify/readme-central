@@ -35,7 +35,11 @@ AMPLITUDE_API_KEY=your_amplitude_api_key
 
 Integrating the VWO FE SDK with analytics platforms like Amplitude allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
 
-**Note:** The example below shows an implementation with the **Node.js** SDK. Please note that any VWO FE SDK can be used.
+<br />
+
+> 📘 Note
+>
+> The example below shows an implementation with the `Node` SDK. Please note that any VWO FE SDK can be used.
 
 ### **1. Install Dependencies**
 
@@ -133,7 +137,7 @@ const vwoClient = await init({
 
 The `integrations.callback` receives a `properties` object containing details about the VWO SDK action:
 
-#### For flag evaluations (getFlag):
+### For flag evaluations (getFlag):
 
 ```json
 {
@@ -156,7 +160,7 @@ The `integrations.callback` receives a `properties` object containing details ab
 }
 ```
 
-#### **For event tracking (trackEvent):**
+### **For event tracking (trackEvent):**
 
 ```json
 {
@@ -167,7 +171,7 @@ The `integrations.callback` receives a `properties` object containing details ab
 
 ## **Sample Screenshots**
 
-#### **Live Events** — VWO_getFlag events with user IDs arriving in real-time  
+#### **Live Events** — VWO_getFlag events with user IDs arriving in real-time
 
 <Image align="center" width="750px" src="https://files.readme.io/1c6a22a340232764e599732ffd299c5901a0aa2b8654e609ad11ad5f70bf2c0a-image2.png" />
 
