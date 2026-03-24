@@ -29,12 +29,12 @@ This integration allows you to use Segment-computed traits and audiences for VWO
 To enable the Segment integration in VWO:
 
 1. From the main menu of your VWO dashboard, go to **Configurations > Integrations**.
-2. Click on the **Segment** integration and enable it by switching on the toggle.  
+2. Click on the **Segment** integration and enable it by switching on the toggle.
 
    <Image align="center" width="650px" src="https://files.readme.io/932fad9edbdcf47e45dbebaed1366717572ec1e11e0511e4060b5d91786255e7-image1.png" />
 3. You will be auto-navigated to the **Config** tab.
 4. Enable **"Enable use of Segment audiences for visitor targeting"**.
-5. Click **Save**.  
+5. Click **Save**.
 
    <Image align="center" src="https://files.readme.io/095644fcd5b7592782c5dd1bb82e95b6a8c7ea4e5bf4f3b0e384dbeae7cda946-2.png" />
 
@@ -42,32 +42,30 @@ To enable the Segment integration in VWO:
 
 Before VWO can see your audiences, you must connect them via the Cloud Mode destination:
 
-1. In your Segment dashboard, navigate to **Engage > Audiences** and select your desired audience.  
+1. In your Segment dashboard, navigate to **Engage > Audiences** and select your desired audience.
 
    <Image align="center" width="700px" src="https://files.readme.io/ff51abbe6237df0a3fc51aad335e19ff7f30f045e4c6b6b20a374ac0c0ce91a7-3.png" />
-2. Under the **Destinations** section, click **Add Destination**.  
+2. Under the **Destinations** section, click **Add Destination**.
 
    <Image align="center" width="700px" src="https://files.readme.io/4f90b311fcdab836bafd95e0ae214570f53ff2998019ead7fe5ac3403bc376d3-image4.png" />
 3. Select the **VWO Cloud Mode (Actions)** destination.  
    **INFO:** If you can’t find the **VWO Cloud Mode (Actions)** destination, you need to install it by performing the steps mentioned [here](https://segment.com/docs/connections/destinations/catalog/actions-vwo-cloud/).  
-   Enabling the VWO Cloud Mode (Actions) destination is essential as it is the channel through which the events, attributes, and audiences are transited to VWO from Segment.  
+   Enabling the VWO Cloud Mode (Actions) destination is essential as it is the channel through which the events, attributes, and audiences are transited to VWO from Segment.
 
    <Image align="center" width="700px" src="https://files.readme.io/8adca4968029a09f8f40b935cbf494a521008ac3e9412c02901a7182361e67cb-image7.png" />
-4. In the destination settings, ensure **Send Track** is enabled under Connection settings.  
+4. In the destination settings, ensure **Send Track** is enabled under Connection settings.
 
    <Image align="center" width="700px" src="https://files.readme.io/dbe9b3cf18a1b7bc9913215093e2970dc96c941fc73be0e14e0aa66ac72ba5cc-image5.png" />
 5. Click **Save**.
 
    **Note:** Segment audiences populate in VWO only after your website receives a visitor following this connection.
 
-##
-
 ## **Step 3: Import & Activate Segment Audiences in VWO**
 
 1. Back in VWO (**Configurations** > **Integrations** > **Segment** > **Config**), click **Add Audience**.
 
 2. In the popup, search for or select the Segment audience from the list.  
-   **Note:** List visibility requires a successful connection with the Cloud Mode destination.  
+   **Note:** List visibility requires a successful connection with the Cloud Mode destination.
 
    <Image align="center" width="450px" src="https://files.readme.io/36605ac2c300b39fbe46cc3c4ef3b8d0dca9e6ce85b0463121e0e72f5855cdcf-image6.png" />
 
