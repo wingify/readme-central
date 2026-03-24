@@ -1,7 +1,7 @@
 ---
 title: Segment
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
