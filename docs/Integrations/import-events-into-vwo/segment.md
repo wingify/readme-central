@@ -5,10 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-<br />
-
-Segment
-
 ## **Overview**
 
 **Segment** is a leading Customer Data Platform (CDP) that collects, cleans, and routes your customer data to hundreds of tools. By integrating Segment with **VWO Feature Experimentation**, you can leverage Segment’s powerful "Personas" and "Audiences" to drive your experimentation strategy.
