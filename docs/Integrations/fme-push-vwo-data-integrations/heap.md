@@ -35,9 +35,11 @@ HEAP_APP_ID=your_heap_app_id
 
 ## **Integration Steps**
 
-Integrating the VWO FE SDK with analytics platforms like Heap allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
+Integrating the VWO FE SDK with analytics platforms like Heap allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.  
 
-**Note:** The example below shows an implementation with the Node.js SDK. Please note that any VWO FE SDK can be used.
+> 📘 Note
+>
+> The example below shows an implementation with the `Node` SDK. Please note that any VWO FE SDK can be used.
 
 ### **1. Install Dependencies**
 
@@ -163,11 +165,11 @@ This setup ensures that every time a feature flag is evaluated or an event is tr
 
 ## **Sample Screenshot**
 
-#### **Labeled Events — VWO_getFlag event with custom event properties:**  
+#### **Labeled Events — VWO_getFlag event with custom event properties:**
 
 <Image align="center" width="750px" src="https://files.readme.io/c45531f8ec80bdd549ac8f4f00c43517f1d2fba0c6277021ed94889057a877f7-image1.png" />
 
-#### **Live Data Feed — Real-time VWO events with user identities:**  
+#### **Live Data Feed — Real-time VWO events with user identities:**
 
 <Image align="center" width="750px" src="https://files.readme.io/d7b4a08dd88901a240caba5300920cc89c6e1ba23b7e3d416938213293ca9db8-image2.png" />
 
