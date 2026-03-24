@@ -27,7 +27,7 @@ To enable the Segment integration in VWO:
 1. From the main menu of your VWO dashboard, go to **Configurations > Integrations**.
 2. Click on the **Segment** integration and enable it by switching on the toggle.
 
-   <Image align="center" width="650px" src="https://files.readme.io/932fad9edbdcf47e45dbebaed1366717572ec1e11e0511e4060b5d91786255e7-image1.png" />
+   <Image align="center" width="800px" src="https://files.readme.io/932fad9edbdcf47e45dbebaed1366717572ec1e11e0511e4060b5d91786255e7-image1.png" />
 3. You will be auto-navigated to the **Config** tab.
 4. Enable **"Enable use of Segment audiences for visitor targeting"**.
 5. Click **Save**.
