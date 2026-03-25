@@ -81,7 +81,7 @@ module.exports = { sendToHeap };
 
 ### **3. Initialize VWO SDK and Set Up the integrations.callback**
 
-Provide an integrations.callback when initializing the FE SDK. integrations.callback is a mechanism that automatically forwards FE SDK events (like flag evaluations) to the desired analytics platform for real-time tracking and analysis. Inside the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to Heap.
+Provide an `integrations.callback` when initializing the FE SDK. `integrations.callback` is a mechanism that automatically forwards FE SDK events (like flag evaluations) to the desired analytics platform for real-time tracking and analysis. Inside the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to Heap.
 
 ```javascript
 const { init } = require('vwo-fme-node-sdk');
@@ -125,7 +125,7 @@ const vwoClient = await init({
 
 ## **Integration Data**
 
-The integrations.callback receives a properties object containing details about the VWO SDK action:
+The `integrations.callback` receives a properties object containing details about the VWO SDK action:
 
 ### **For flag evaluations (i.e. getFlag):**
 
