@@ -28,14 +28,14 @@ HEAP_APP_ID=your_heap_app_id
 
 ### **2. VWO FE SDK Configuration**
 
-* Ensure VWO Feature Experimentation is enabled in your VWO account
-* The VWO FE SDK should be properly installed in your project
+* Ensure VWO Feature Experimentation is enabled in your VWO account.
+* The VWO FE SDK should be properly installed in your project.
 * Locate your **Account ID** and **SDK Key** in the VWO dashboard.
 * Set your VWO account ID and SDK key in your application's environment or constants file.
 
 ## **Integration Steps**
 
-Integrating the VWO FE SDK with analytics platforms like Heap allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.  
+Integrating the VWO FE SDK with analytics platforms like Heap allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
 
 > 📘 Note
 >
