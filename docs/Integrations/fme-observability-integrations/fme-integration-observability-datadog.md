@@ -17,7 +17,7 @@ To set this up, you need to construct the API URL for the specific rule you want
 
 ```
 
-https://api.vwo.com/v2/accounts/{account_id}/environments/{environment_id}/features/{feature_key}/toggle
+https://app.vwo.com/api/v2/accounts/{account_id}/environments/{environment_id_or_key}/features/{feature_id_or_key}/toggle
 ```
 
 #### **How to find these values:**
