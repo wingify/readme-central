@@ -12,7 +12,7 @@ You can integrate the FE iOS SDK into your application using either **CocoaPods*
 Add the following line to your Podfile:
 
 ```shell Bash
-pod 'VWO-FE'
+pod 'VWO-FME'
 ```
 
 Then run:
