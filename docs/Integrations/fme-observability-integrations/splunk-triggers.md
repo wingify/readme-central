@@ -24,8 +24,9 @@ https://app.vwo.com/api/v2/accounts/current/environments/<envId|sdkKey>/features
 #### **Required Paramerters:**
 
 * **envId|sdkKey**: The environment ID or SDK key.
-* **featureId|featureKey**: The unique ID or key of your feature flag.
-* **your_api_token**: Your VWO API Authentication token.
+* **featureId|featureKey**: The unique ID or key of your feature flag.  
+* **isEnabled** – Set to `0` to disable the feature flag (or `1` to enable it).
+* **authToken**: Your VWO API Authentication token.
 
 ## **2. Setting up the Alert Detector in Splunk**
 
