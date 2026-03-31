@@ -9,7 +9,7 @@ metadata:
 
 Triggers allow you to automatically disable a specific rule inside a VWO Feature Flag when a metric threshold is breached. For example, if errors spike, Splunk can trigger VWO to turn off the feature flag immediately.
 
-_(Note: Splunk has two different interfaces. Instructions are provided below for both **Splunk Observability Cloud** and **Splunk Enterprise / Classic Cloud**)._
+_(**Note**: Splunk has two different interfaces. Instructions are provided below for both **Splunk Observability Cloud** and **Splunk Enterprise / Classic Cloud**)._
 
 ## **1. Creating the Trigger URL**
 
@@ -35,17 +35,17 @@ In Splunk Observability Cloud, you can configure your alert and attach the VWO W
 
 2. Click the blue **Create Detector** button in the top right.
 
-3. Select the appropriate detector type for your use case (e.g., **Custom Detector** for general metrics) and enter the detector name.  
+3. Select the appropriate detector type for your use case (e.g., **Custom Detector** for general metrics) and enter the detector name.
 
    <Image align="center" src="https://files.readme.io/192c1f5da0af68da4927ff4a50c3b40944fc4692bbf5cd951fd698b83405d998-image3.png" />
 
-4. **Alert Signal:** In the "What signal would you like to alert on?" box, enter the specific metric or log event you want to monitor (e.g., `vwo.test.errors`). Click **Proceed to Alert Condition**.  
+4. **Alert Signal:** In the "What signal would you like to alert on?" box, enter the specific metric or log event you want to monitor (e.g., `vwo.test.errors`). Click **Proceed to Alert Condition**.
 
    <Image align="center" src="https://files.readme.io/befb066d4e09d0d7c00511f77f45b1d86581ab75037d0d6973457d11ef5eddfa-image2.png" />
 
 5. **Alert Condition:** Select the condition type (e.g., **Static Threshold**). Click **Proceed to Alert Settings**.
 
-6. **Alert Settings:** Define your threshold (e.g., Alert when the signal is **Above** a threshold of **50**).  
+6. **Alert Settings:** Define your threshold (e.g., Alert when the signal is **Above** a threshold of **50**).
 
    <Image align="center" src="https://files.readme.io/63d8903e1bdef0cbdc364b3dd7d76d505d20857bfc7d4b6d1f317abe2057e22b-image1.png" />
 
@@ -55,7 +55,7 @@ In Splunk Observability Cloud, you can configure your alert and attach the VWO W
 
 9. **Alert Notifications:** Click **Add recipient**, select **Webhook**.
 
-10. **Target endpoint URL:** Paste the VWO Trigger URL you constructed in Step 1. (Leave 'Shared secret' blank). Click **Update**, then **Proceed to Alert Activation**.  
+10. **Target endpoint URL:** Paste the VWO Trigger URL you constructed in Step 1. (Leave 'Shared secret' blank). Click **Update**, then **Proceed to Alert Activation**.
 
     <Image align="center" src="https://files.readme.io/a547f7dad8496e4b6f060bdfc6cddc036220a954c5539d5fc2cfec3995d3f475-image4.png" />
 
