@@ -1,7 +1,7 @@
 ---
 title: Splunk Triggers
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
