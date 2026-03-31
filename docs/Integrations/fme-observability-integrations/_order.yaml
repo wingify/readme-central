@@ -1,3 +1,4 @@
 - fme-integration-observability-datadog
 - sentry-triggers
 - new-relic-triggers
+- splunk-triggers
