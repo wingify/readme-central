@@ -19,10 +19,10 @@ To set this up, you need to construct the API URL for the specific feature envir
 https://app.vwo.com/api/v2/accounts/current/environments/<envId|sdkKey>/features/<featureId|featureKey>/toggle?isEnabled=<0|1>&authToken=<api_token>
 ```
 
-#### **Parameters:**
+#### **Required Parameters:**
 
-* **feature_id_or_key** – The ID or key of the feature flag you want to control.
-* **environment_id_or_key** – The ID or key of the environment where the feature flag should be toggled.
+* **featureId_or_key** – The ID or key of the feature flag you want to control.
+* **envId_or_key** – The ID or key of the environment where the feature flag should be toggled.
 * **isEnabled** – Set to `0` to disable the feature flag (or `1` to enable it).
 * **authToken** – Your VWO API authentication token.
 
