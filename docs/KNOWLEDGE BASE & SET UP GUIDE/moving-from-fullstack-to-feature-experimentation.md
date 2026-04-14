@@ -2,15 +2,15 @@
 title: Transitioning from Fullstack to Feature Experimentation
 excerpt: >-
   A comprehensive guide to understanding the differences and migrating from VWO
-  FullStack to Feature Management & Experimentation (FME).
+  FullStack to Feature Experimentation (FE).
 deprecated: false
 hidden: true
 metadata:
   robots: index
 ---
-# VWO FullStack vs FME
+# VWO FullStack vs FE
 
-A comprehensive guide to understanding the differences and migrating from VWO FullStack to Feature Management & Experimentation (FME).
+A comprehensive guide to understanding the differences and migrating from VWO FullStack to Feature Experimentation (FE).
 
 ---
 
@@ -18,13 +18,13 @@ A comprehensive guide to understanding the differences and migrating from VWO Fu
 
 **`DEPRECATED`** **VWO FullStack (FS)** — The original server-side SDK for A/B testing and feature management. Only receiving critical bug fixes and security patches.
 
-**`CURRENT`** **VWO FME (Feature Management & Experimentation)** — The actively developed replacement with a modernized API and improved developer experience.
+**`CURRENT`** **VWO FE (Feature Experimentation)** — The actively developed replacement with a modernized API and improved developer experience.
 
 ### Same Purpose, New Philosophy
 
 Both SDKs enable server-side A/B testing and feature management. The key difference lies in their design philosophy:
 
-| FullStack | FME |
+| FullStack | FE |
 |-----------|-----|
 | **Campaign-Centric** — Everything revolves around campaigns. You activate users into campaigns and track goals per campaign. | **Feature-Flag-Centric** — Features are the primary unit. You evaluate flags and track events independently of campaigns. |
 
@@ -32,7 +32,7 @@ Both SDKs enable server-side A/B testing and feature management. The key differe
 
 ## Installation
 
-| Aspect | FullStack | FME |
+| Aspect | FullStack | FE |
 |--------|-----------|-----|
 | **Package Name** | `vwo-node-sdk` | `vwo-fme-node-sdk` |
 | **Install Command** | `npm install vwo-node-sdk` | `npm install vwo-fme-node-sdk` |
@@ -59,7 +59,7 @@ const vwoClient = vwoSDK.launch({
 });
 ```
 
-### FME: Single-Step Process
+### FE: Single-Step Process
 
 ```javascript
 const { init } = require('vwo-fme-node-sdk');
@@ -78,7 +78,7 @@ const vwoClient = await init({
 });
 ```
 
-> **Key Difference:** FME handles settings file fetching internally. No need for a separate `getSettingsFile()` call.
+> **Key Difference:** FE handles settings file fetching internally. No need for a separate `getSettingsFile()` call.
 
 ---
 
@@ -121,7 +121,7 @@ vwoClient.track(
 );
 ```
 
-### FME Approach (Feature-Flag-Centric)
+### FE Approach (Feature-Flag-Centric)
 
 ```javascript
 const { init } = require('vwo-fme-node-sdk');
@@ -153,15 +153,15 @@ vwoClient.trackEvent('purchase-completed', userContext);
 ```
 
 > **Key Differences:**
-> - **User ID:** FS passes it per method; FME uses a reusable `userContext` object
-> - **Variation access:** FS returns variation name to check; FME provides variables directly via `getVariable()`
-> - **Tracking:** FS requires `campaignKey`; FME tracks events independently
+> - **User ID:** FS passes it per method; FE uses a reusable `userContext` object
+> - **Variation access:** FS returns variation name to check; FE provides variables directly via `getVariable()`
+> - **Tracking:** FS requires `campaignKey`; FE tracks events independently
 
 ---
 
 ## Variables Over Variations
 
-One of the most important changes in FME is the shift from **variation-name-based logic** to **variable-driven logic**. This isn't just a syntax change—it's a fundamental improvement in how you architect experiments.
+One of the most important changes in FE is the shift from **variation-name-based logic** to **variable-driven logic**. This isn't just a syntax change—it's a fundamental improvement in how you architect experiments.
 
 ### The Problem with Variation Names (FS Approach)
 
@@ -192,12 +192,12 @@ if (variation === 'Control') {
 > - **Hard to maintain:** Variation logic is scattered across your codebase
 > - **Rigid:** Non-developers cannot iterate on experiments without code changes
 
-### The Solution: Variable-Driven Logic (FME Approach)
+### The Solution: Variable-Driven Logic (FE Approach)
 
-FME encourages you to define **variables** (buttonColor, buttonText, showBadge) in the VWO dashboard, with each variation specifying different values. Your code simply reads these variables:
+FE encourages you to define **variables** (buttonColor, buttonText, showBadge) in the VWO dashboard, with each variation specifying different values. Your code simply reads these variables:
 
 ```javascript
-// FME: Variable-driven logic (RECOMMENDED)
+// FE: Variable-driven logic (RECOMMENDED)
 const flag = await vwoClient.getFlag('checkout-experiment', userContext);
 
 if (flag.isEnabled()) {
@@ -235,7 +235,7 @@ if (variation === 'Variation-1') {
 // 3. Deployment
 ```
 
-**FME (Variable-Based):**
+**FE (Variable-Based):**
 
 ```javascript
 // Code only knows about variables
@@ -255,7 +255,7 @@ if (useNewFlow) {
 
 ### When You Need Variation Names
 
-Sometimes you genuinely need to know which variation a user is in (for logging, analytics, or debugging). In FME, the recommended approach is to create an explicit `variation_name` variable:
+Sometimes you genuinely need to know which variation a user is in (for logging, analytics, or debugging). In FE, the recommended approach is to create an explicit `variation_name` variable:
 
 ```javascript
 // Create a 'variationName' variable in VWO dashboard
@@ -276,7 +276,7 @@ analytics.track('experiment_viewed', { variation: variationName });
 
 ## API Method Mapping
 
-| Purpose | FullStack | FME |
+| Purpose | FullStack | FE |
 |---------|-----------|-----|
 | **Initialize SDK** | `getSettingsFile()` + `launch()` | `init()` |
 | **Get variation** | `activate(campaignKey, userId)` | `getFlag(featureKey, userContext)` |
@@ -290,7 +290,7 @@ analytics.track('experiment_viewed', { variation: variationName });
 
 ## Conceptual Differences
 
-| Aspect | FullStack | FME |
+| Aspect | FullStack | FE |
 |--------|-----------|-----|
 | **Primary Unit** | Campaign | Feature Flag |
 | **User Identification** | `userId` string passed to each method | `userContext` object created once, reused |
@@ -335,7 +335,7 @@ npm install vwo-fme-node-sdk --save
 const vwoSDK = require('vwo-node-sdk');
 ```
 
-**After (FME):**
+**After (FE):**
 ```javascript
 const { init } = require('vwo-fme-node-sdk');
 ```
@@ -353,7 +353,7 @@ const vwoClient = vwoSDK.launch({
 });
 ```
 
-**After (FME):**
+**After (FE):**
 ```javascript
 const vwoClient = await init({
   accountId: '123456',
@@ -378,7 +378,7 @@ vwoClient.activate(campaignKey, userId, options);
 vwoClient.track(campaignKey, userId, goalId, options);
 ```
 
-**After (FME) — User context created once and reused:**
+**After (FE) — User context created once and reused:**
 ```javascript
 const userContext = {
   id: 'user-123',
@@ -404,7 +404,7 @@ if (variation === 'Control') {
 }
 ```
 
-**After (FME):**
+**After (FE):**
 ```javascript
 const flag = await vwoClient.getFlag('button-test', userContext);
 
@@ -432,7 +432,7 @@ vwoClient.track('campaign', userId, 'revenue-goal', {
 });
 ```
 
-**After (FME):**
+**After (FE):**
 ```javascript
 // Track event (no campaign key needed)
 vwoClient.trackEvent('button-clicked', userContext);
@@ -481,7 +481,7 @@ if (flag.isEnabled()) {
 
 ## Summary
 
-| Aspect | FullStack (Deprecated) | FME (Current) |
+| Aspect | FullStack (Deprecated) | FE (Current) |
 |--------|------------------------|---------------|
 | **Package** | `vwo-node-sdk` | `vwo-fme-node-sdk` |
 | **Node.js** | >= 6.10.0 | >= 12.0 |
@@ -495,4 +495,4 @@ if (flag.isEnabled()) {
 
 ---
 
-> **Need Help?** For assistance migrating from FullStack to FME, contact VWO support at support@vwo.com
+> **Need Help?** For assistance migrating from FullStack to FE, contact VWO support at support@vwo.com
