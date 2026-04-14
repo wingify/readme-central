@@ -4,7 +4,7 @@ excerpt: >-
   A comprehensive guide to understanding the differences and migrating from VWO
   FullStack to Feature Experimentation (FE).
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
