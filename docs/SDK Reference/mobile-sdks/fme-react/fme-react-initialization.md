@@ -210,120 +210,19 @@ export default MyComponent;
 
 To customize the SDK further, additional parameters can be passed to the `VWOProvider` component using `config` parameter. Here’s a table describing each option:
 
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Parameter
-      </th>
-
-      <th>
-        Type
-      </th>
-
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        **accountId**
-        *Required*
-      </td>
-
-      <td>
-        Integer
-      </td>
-
-      <td>
-        Your VWO application's Account ID.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **sdkKey**
-        *Required*
-      </td>
-
-      <td>
-        String
-      </td>
-
-      <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **pollInterval**
-        *Optional*
-      </td>
-
-      <td>
-        Number
-      </td>
-
-      <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **logger**
-        *Optional*
-      </td>
-
-      <td>
-        object
-      </td>
-
-      <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-react-logging)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **storage**
-        *Optional*
-      </td>
-
-      <td>
-        object
-      </td>
-
-      <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-react-storage-service)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **integrations**
-        *Optional*
-      </td>
-
-      <td>
-        object
-      </td>
-
-      <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-react-integrations)
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Parameter                   | Type    | Description                                                                                                                                                                                                                                                                                                                |
+| :-------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **accountId** _Required_    | Integer | Your VWO application's Account ID.                                                                                                                                                                                                                                                                                         |
+| **sdkKey** _Required_       | String  | A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.                                                                                                                                                                                        |
+| **pollInterval** _Optional_ | Number  | Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) |
+| **logger** _Optional_       | object  | An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-react-logging)                                                                                                                                                               |
+| **storage** _Optional_      | object  | Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-react-storage)                                                                                                                                            |
+| **integrations** _Optional_ | object  | A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-react-integrations)                                                                                                |
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the *vwoClient* using *VWOProvider*, it pulls the latest configurations you've done in the VWO application.\
-If/when you make any changes to the feature flags or rules within VWO after the *vwoClient* has been initialized in your server, there needs to be some way to update your *vwoClient* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwoClient_ using _VWOProvider_, it pulls the latest configurations you've done in the VWO application.  
+If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -373,7 +272,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-react-logging) for mo
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each *useGetFlag* hook. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _useGetFlag_ hook. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```typescript
 import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
