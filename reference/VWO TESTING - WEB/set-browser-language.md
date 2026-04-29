@@ -14,6 +14,7 @@ The `setBrowserLanguage` API allows you to manually set the browser language for
 ### Signature
 
 ```javascript
+window.VWO = window.VWO || [];
 window.VWO.push(['setBrowserLanguage', language]);
 ```
 
