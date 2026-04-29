@@ -25,6 +25,7 @@ The `destroySession` API clears all session data for the visitor, including cook
 #### Signature
 
 ```javascript
+window.VWO = window.VWO || [];
 window.VWO.push(['destroy']);
 ```
 
