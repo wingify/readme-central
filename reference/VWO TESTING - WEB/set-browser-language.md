@@ -9,7 +9,7 @@ metadata:
 
 ### Overview
 
-The `setBrowserLanguage` API allows you to manually set the browser language for a visitor. This value is stored in localStorage. By setting the browser language explicitly, you can set it programmatically based on your application logic to be used by survey for fetching questions based upon the language set.
+The `setBrowserLanguage` API allows you to manually set the browser language for a visitor. This value is stored in localStorage. By setting the browser language explicitly, you can set it programmatically based on your application logic to be used by the survey for fetching questions based on the language set.
 
 ### Signature
 
