@@ -19,6 +19,7 @@ The `setVariation` API allows you to enforce a specific variation for campaigns 
 ### Signature
 
 ```javascript
+window.VWO = window.VWO || [];
 window.VWO.push(['setVariation', [{e: '<campaignId>', v: '<variationId>'}]]);
 ```
 
