@@ -19,6 +19,7 @@ The `onVariationApplied` callback is triggered when a campaign is applied to the
 ### Signature
 
 ```javascript
+window.VWO = window.VWO || [];
 window.VWO.push(['onVariationApplied',
     <callback_function>                   // Callback function to be called when any campaign runs on the page.
 ]);
@@ -26,9 +27,9 @@ window.VWO.push(['onVariationApplied',
 
 #### Arguments
 
-| Parameter          | Data Type  | Required | Description                                          |
-| ------------------ | ---------- | -------- | ---------------------------------------------------- |
-| callback\_function | `Function` | Yes      | The callback function executes when a campaign runs. |
+| Parameter         | Data Type  | Required | Description                                          |
+| ----------------- | ---------- | -------- | ---------------------------------------------------- |
+| callback_function | `Function` | Yes      | The callback function executes when a campaign runs. |
 
 ### Callback Data
 
