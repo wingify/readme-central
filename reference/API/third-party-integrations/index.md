@@ -2,7 +2,7 @@
 title: Third-party Integrations
 excerpt: ''
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   title: ''
   description: ''
