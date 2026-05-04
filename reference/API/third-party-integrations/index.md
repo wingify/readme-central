@@ -1,6 +1,8 @@
 ---
-title: Third-party Integrations
-excerpt: ''
+title: Third-party Integrations(Depericated)
+excerpt: >-
+  These APIs are deprecated and will be phased out in a future release. A new
+  and improved set of APIs will be available soon.
 deprecated: true
 hidden: true
 metadata:
