@@ -1,5 +1,4 @@
 ---
-title: Update a campaign
 excerpt: ''
 api:
   file: api.json
@@ -27,14 +26,18 @@ PATCH /accounts/40505/campaigns/15
 
 Request Format
 
-```
-PATCH /accounts/40505/campaigns/15
+```json
+{
+  "campaigns" : {
+     "name" : "New name"
+  }
+}
 ```
 
 Update a campaign
 
 > 🚧 **Warning**
-> 
+>
 > Note:
-> 
+>
 > The "globalCode" section allows you to add Pre/Post-Campaign JS/CSS snippets within the editor. This globalCode block is optional and can be omitted if not needed.
