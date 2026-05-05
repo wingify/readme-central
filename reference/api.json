@@ -1186,7 +1186,93 @@
             }
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string",
+                    "default": "ab"
+                  },
+                  "urls": {
+                    "type": "array",
+                    "items": {
+                      "properties": {
+                        "type": {
+                          "type": "string",
+                          "default": "url"
+                        },
+                        "value": {
+                          "type": "string",
+                          "default": "http://wingify.com"
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "type",
+                        "value"
+                      ]
+                    }
+                  },
+                  "primaryUrl": {
+                    "type": "string",
+                    "default": "http://wingify.com"
+                  },
+                  "goals": {
+                    "type": "array",
+                    "items": {
+                      "properties": {
+                        "name": {
+                          "type": "string",
+                          "default": "New Goal"
+                        },
+                        "type": {
+                          "type": "string",
+                          "default": "visitPage"
+                        },
+                        "urls": {
+                          "type": "array",
+                          "items": {
+                            "properties": {
+                              "type": {
+                                "type": "string",
+                                "default": "url"
+                              },
+                              "value": {
+                                "type": "string",
+                                "default": "http://wingify.com"
+                              }
+                            },
+                            "type": "object",
+                            "required": [
+                              "type",
+                              "value"
+                            ]
+                          }
+                        }
+                      },
+                      "type": "object",
+                      "required": [
+                        "name",
+                        "type",
+                        "urls"
+                      ]
+                    }
+                  }
+                },
+                "required": [
+                  "type",
+                  "urls",
+                  "primaryUrl",
+                  "goals"
+                ]
+              }
+            }
+          }
+        }
       }
     },
     "/accounts/{account_id}/campaigns/{campaign_id}": {
