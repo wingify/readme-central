@@ -2014,7 +2014,33 @@
             }
           }
         },
-        "deprecated": false
+        "deprecated": false,
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "campaigns": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
+                        "type": "string",
+                        "default": "New name"
+                      }
+                    },
+                    "required": [
+                      "name"
+                    ]
+                  }
+                },
+                "required": [
+                  "campaigns"
+                ]
+              }
+            }
+          }
+        }
       }
     },
     "/accounts/{account_id}/campaigns/{campaign_id}/share": {
