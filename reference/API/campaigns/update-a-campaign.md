@@ -1,5 +1,4 @@
 ---
-title: Update a campaign
 excerpt: ''
 api:
   file: api.json
@@ -27,8 +26,13 @@ PATCH /accounts/40505/campaigns/15
 
 Request Format
 
-```
-PATCH /accounts/40505/campaigns/15
+```json
+{
+  "campaigns" : {
+     "name" : "New name"
+  }
+}
+
 ```
 
 Update a campaign
