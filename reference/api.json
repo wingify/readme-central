@@ -7878,6 +7878,62 @@
         },
         "parameters": []
       }
+    },
+    "/accounts/{account_id}/campaigns/status-1": {
+      "patch": {
+        "summary": "Copy of Update campaign status",
+        "description": "",
+        "operationId": "update-a-campaign-1-1",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "Use 'current' keyword to refer to the Main Workspace or the Integer Workspace Id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "default": "current"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n    \"_data\": {\n        \"status\": \"STOPPED\",\n        \"ids\": [\n            14,\n            15\n        ]\n    }\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "_data": {
+                      "type": "object",
+                      "properties": {
+                        "status": {
+                          "type": "string",
+                          "example": "STOPPED"
+                        },
+                        "ids": {
+                          "type": "array",
+                          "items": {
+                            "type": "integer",
+                            "example": 14,
+                            "default": 0
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
     }
   },
   "x-readme": {
