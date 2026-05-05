@@ -32,7 +32,6 @@ Request Format
      "name" : "New name"
   }
 }
-
 ```
 
 Update a campaign
