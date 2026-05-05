@@ -1264,11 +1264,38 @@
                   }
                 },
                 "required": [
-                  "type",
-                  "urls",
                   "primaryUrl",
-                  "goals"
+                  "goals",
+                  "type",
+                  "urls"
                 ]
+              },
+              "examples": {
+                "Request format": {
+                  "summary": "Request format",
+                  "value": {
+                    "type": "ab",
+                    "urls": [
+                      {
+                        "type": "url",
+                        "value": "http://wingify.com"
+                      }
+                    ],
+                    "primaryUrl": "http://wingify.com",
+                    "goals": [
+                      {
+                        "name": "New goal",
+                        "type": "visitPage",
+                        "urls": [
+                          {
+                            "type": "url",
+                            "value": "http://wingify.com"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                }
               }
             }
           }
