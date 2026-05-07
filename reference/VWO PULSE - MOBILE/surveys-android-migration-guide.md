@@ -20,14 +20,15 @@ This guide helps you migrate your Android application from the **Blitzllama SDK*
 
 ## Migration Summary
 
-| Feature          | Blitzllama SDK                    | VWO Pulse SDK                       |
-| ---------------- | --------------------------------- | ----------------------------------- |
-| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.2.0`            |
-| API Key Location | AndroidManifest.xml               | ClientConfiguration object          |
-| User Creation    | Separate `createUser()` call      | Passed during initialization        |
-| Trigger Method   | `triggerEvent()`                  | `trackEvent()`                      |
-| SDK Manager      | `BlitzLlamaSDK.getSdkManager()`   | `VWOInsights.getSurveySdkManager()` |
-| User Attributes  | `setUserAttribute()`              | `setAttribute()`                    |
+| Feature          | Blitzllama SDK                    | VWO Pulse SDK                                                |
+| ---------------- | --------------------------------- | ------------------------------------------------------------ |
+| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.2.0`                                     |
+| API Key Location | AndroidManifest.xml               | ClientConfiguration object                                   |
+| User Creation    | Separate `createUser()` call      | Passed during initialization (optional), then use `setUserId()` to switch users |
+| User Switching   | `logout()`                        | `setUserId(newUserId, callback)`                             |
+| Trigger Method   | `triggerEvent()`                  | `trackEvent()`                                               |
+| SDK Manager      | `BlitzLlamaSDK.getSdkManager()`   | `VWOInsights.getSurveySdkManager()`                          |
+| User Attributes  | `setUserAttribute()`              | `setAttribute()`                                             |
 
 ***
 
@@ -82,6 +83,11 @@ VWO Pulse does not require manifest configuration. Credentials are passed progra
 
 The most significant change is in how the SDK is initialized and how users are identified.
 
+**Key Points:**
+- User ID can be passed during initialization in `ClientConfiguration` (optional)
+- Use `setUserId()` later to switch users or identify users after they log in
+- For anonymous users, you can pass an empty string (`""`) during initialization or use a random string with `setUserId()`
+
 ## Blitzllama Approach (Before)
 
 ### Java
@@ -128,11 +134,12 @@ public class MyApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
-        // User ID is now part of initialization
+        // User ID is optional during initialization
+        // Pass empty string ("") for anonymous users, or actual user ID if known
         ClientConfiguration clientConfig = new ClientConfiguration(
             "your_account_id",    // Account ID from VWO dashboard
             "your_sdk_key",       // SDK Key from VWO dashboard
-            "user_id"             // Unique user identifier
+            ""                    // User ID (optional) - use "" for anonymous, or "user_id" if known
         );
 
         IVwoInitCallback callback = new IVwoInitCallback() {
@@ -140,6 +147,9 @@ public class MyApplication extends Application {
             public void vwoInitSuccess(@NotNull String message) {
                 // SDK initialized successfully
                 // Safe to trigger surveys now
+                
+                // If user logs in later, use setUserId() to identify them:
+                // VWOInsights.setUserId("user_id", callback);
             }
 
             @Override
@@ -164,17 +174,21 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        // User ID is now part of initialization
+        // User ID is optional during initialization
+        // Pass empty string ("") for anonymous users, or actual user ID if known
         val clientConfig = ClientConfiguration(
             "your_account_id",    // Account ID from VWO dashboard
             "your_sdk_key",       // SDK Key (App ID) from VWO dashboard
-            "user_id"             // Unique user identifier
+            ""                    // User ID (optional) - use "" for anonymous, or "user_id" if known
         )
 
         val callback = object : IVwoInitCallback {
             override fun vwoInitSuccess(message: String) {
                 // SDK initialized successfully
                 // Safe to trigger surveys now
+                
+                // If user logs in later, use setUserId() to identify them:
+                // VWOInsights.setUserId("user_id", callback)
             }
 
             override fun vwoInitFailed(message: String) {
@@ -190,8 +204,9 @@ class MyApplication : Application() {
 ## Key Changes
 
 1. **No longer extend SDK class** - Your Application class extends `Application` instead of `BlitzLlamaSDK`
-2. **User ID at initialization** - User identifier is passed in `ClientConfiguration`, not via separate `createUser()` call
-3. **Callback-based initialization** - VWO uses explicit success/failure callbacks
+2. **User ID is optional at initialization** - User identifier can be passed in `ClientConfiguration` (use `""` for anonymous users), or set later using `setUserId()`
+3. **Use `setUserId()` to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
+4. **Callback-based initialization** - VWO uses explicit success/failure callbacks
 
 ***
 
@@ -452,7 +467,7 @@ This API remains largely the same.
 
 ***
 
-# Step 7: Handle User Logout (If Applicable)
+# Step 7: Handle User Switching
 
 ## Blitzllama (Before)
 
@@ -462,18 +477,101 @@ BlitzLlamaSDK.logout();
 
 ## VWO Pulse (After)
 
-VWO Pulse handles user sessions differently. To switch users, re-initialize the SDK with a new `ClientConfiguration` containing the new user's ID:
+VWO Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+
+### Switching to a New User
+
+Use `setUserId()` when your user logs in or switches accounts:
+
+
 
 ```java
-// When user logs out and a new user logs in
-ClientConfiguration newUserConfig = new ClientConfiguration(
-    "your_account_id",
-    "your_sdk_key",
-    "new_user_id"
-);
+import com.vwo.insights.VWOInsights;
+import com.vwo.insights.exposed.IVwoInitCallback;
 
-VWOInsights.init(application, callback, newUserConfig);
+// When user logs in or switches account
+VWOInsights.setUserId("new_user_id", new IVwoInitCallback() {
+    @Override
+    public void vwoInitSuccess(String message) {
+        // User switch complete
+        // Recording resumes automatically if it was active before
+    }
+
+    @Override
+    public void vwoInitFailed(String message) {
+        // Handle failure
+    }
+});
 ```
+```kotlin
+import com.vwo.insights.VWOInsights
+import com.vwo.insights.exposed.IVwoInitCallback
+
+// When user logs in or switches account
+VWOInsights.setUserId("new_user_id", object : IVwoInitCallback {
+    override fun vwoInitSuccess(message: String) {
+        // User switch complete
+        // Recording resumes automatically if it was active before
+    }
+
+    override fun vwoInitFailed(message: String) {
+        // Handle failure
+    }
+})
+```
+
+### Switching to Anonymous User (Logout)
+
+If your user logs out and you want to track them as anonymous, generate a random user ID:
+
+**Java:**
+
+```java
+import java.util.UUID;
+
+// When user logs out
+String randomUserId = UUID.randomUUID().toString();
+VWOInsights.setUserId(randomUserId, new IVwoInitCallback() {
+    @Override
+    public void vwoInitSuccess(String message) {
+        // Now tracking as anonymous user
+    }
+
+    @Override
+    public void vwoInitFailed(String message) {
+        // Handle failure
+    }
+});
+```
+
+**Kotlin:**
+
+```kotlin
+import java.util.UUID
+
+// When user logs out
+val randomUserId = UUID.randomUUID().toString()
+VWOInsights.setUserId(randomUserId, object : IVwoInitCallback {
+    override fun vwoInitSuccess(message: String) {
+        // Now tracking as anonymous user
+    }
+
+    override fun vwoInitFailed(message: String) {
+        // Handle failure
+    }
+})
+```
+
+### Key Differences
+
+| Blitzllama                      | VWO Pulse                                         |
+| ------------------------------- | ------------------------------------------------- |
+| `BlitzLlamaSDK.logout()`        | No direct logout method                           |
+| N/A                             | `VWOInsights.setUserId(userId, callback)`         |
+| Logout clears session           | Use random string for anonymous tracking          |
+| Requires re-initialization      | `setUserId()` handles session refresh internally  |
+
+> 📘 **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
 
 ***
 
@@ -619,7 +717,7 @@ val callback = object : IVwoInitCallback {
 * [ ] Updated `build.gradle` dependency from Blitzllama to VWO Pulse
 * [ ] Removed Blitzllama meta-data from `AndroidManifest.xml`
 * [ ] Updated Application class initialization
-* [ ] Replaced `createUser()` with user ID in `ClientConfiguration`
+* [ ] Replaced `createUser()` with `setUserId()` for user identification
 * [ ] Changed `triggerEvent()` calls to `trackEvent()`
 * [ ] Updated `setUserAttribute()` to `setAttribute()`
 * [ ] Updated import statements
