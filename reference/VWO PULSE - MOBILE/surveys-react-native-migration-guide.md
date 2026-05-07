@@ -1,5 +1,6 @@
 ---
 title: Surveys - React Native - Migration Guide
+excerpt: Latest SDK version is 2.2.0
 deprecated: false
 hidden: true
 metadata:
