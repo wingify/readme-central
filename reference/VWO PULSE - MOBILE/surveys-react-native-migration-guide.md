@@ -21,15 +21,15 @@ This guide helps you migrate your application from the **Blitzllama SDK** to the
 
 ## Migration Summary
 
-| Feature          | Blitzllama SDK                  | VWO Pulse SDK                                                     |
-| ---------------- | ------------------------------- | ----------------------------------------------------------------- |
-| Dependency       | `BlitzLlamaSDK`                 | `VWO_Insights`                                                    |
-| API Key Location | AppDelegate.swift               | AppDelegate.swift                                                 |
+| Feature          | Blitzllama SDK                  | VWO Pulse SDK                                                                   |
+| ---------------- | ------------------------------- | ------------------------------------------------------------------------------- |
+| Dependency       | `BlitzLlamaSDK`                 | `VWO_Insights`                                                                  |
+| API Key Location | AppDelegate.swift               | AppDelegate.swift                                                               |
 | User Creation    | Separate `createUser()` call    | Passed during initialization (optional), then use `setUserId()` to switch users |
-| User Switching   | `logout()`                      | `setUserId(newUserId, completion)`                                |
-| Trigger Method   | `triggerEvent()`                | `trackEvent()`                                                    |
-| SDK Manager      | `BlitzLlamaSDK.getSdkManager()` | `VWO.getSurveyManager()`                                          |
-| User Attributes  | `setUserAttribute()`            | `setAttribute()`                                                  |
+| User Switching   | `logout()`                      | `setUserId(randomString, completion)`                                           |
+| Trigger Method   | `triggerEvent()`                | `trackEvent()`                                                                  |
+| SDK Manager      | `BlitzLlamaSDK.getSdkManager()` | `VWO.getSurveyManager()`                                                        |
+| User Attributes  | `setUserAttribute()`            | `setAttribute()`                                                                |
 
 ***
 
@@ -72,9 +72,10 @@ The most significant change is in how the SDK is initialized and how users are i
 The most significant change is in how the SDK is initialized and how users are identified.
 
 **Key Points:**
-- User ID can be passed during initialization in `VWO.configure()` (optional)
-- Use `setUserId()` later to switch users or identify users after they log in
-- For anonymous users, you can pass nil, or "" or a random string with `setUserId()`
+
+* User ID can be passed during initialization in `VWO.configure()` (optional)
+* Use `setUserId()` later to switch users or identify users after they log in
+* For anonymous users, you can pass nil, or "" or a random string with `setUserId()`
 
 ## Blitzllama Approach (Before)
 
@@ -315,12 +316,12 @@ VWO.setUserId(randomUserId) { result in
 
 ### Key Differences
 
-| Blitzllama                      | VWO Pulse                                         |
-| ------------------------------- | ------------------------------------------------- |
-| `BlitzLlamaSDK.logout()`        | No direct logout method                           |
-| -                               | `VWO.setUserId(userId, completion)`               |
-| Logout clears session           | Use random string for anonymous tracking          |
-| Requires re-initialization      | `setUserId()` handles session refresh internally  |
+| Blitzllama                 | VWO Pulse                                        |
+| -------------------------- | ------------------------------------------------ |
+| `BlitzLlamaSDK.logout()`   | No direct logout method                          |
+| -                          | `VWO.setUserId(userId, completion)`              |
+| Logout clears session      | Use random string for anonymous tracking         |
+| Requires re-initialization | `setUserId()` handles session refresh internally |
 
 > 📘 **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
 
