@@ -1,5 +1,6 @@
 ---
 title: Installation
+excerpt: Latest SDK version is 2.2.1
 deprecated: false
 hidden: false
 link:
@@ -24,7 +25,7 @@ $ flutter pub add vwo_insights_flutter_sdk
 This will add a line like the one below to your package's pubspec.yaml file. Use the latest SDK version for new features and improvements.
 
 > dependencies:  
-> vwo_insights_flutter_sdk: ^1.0.12
+> vwo_insights_flutter_sdk: 2.2.1
 
 <br />
 
@@ -36,7 +37,7 @@ $ flutter pub get
 
 <br />
 
----
+***
 
 ## Flutter Impeller compatibility
 
@@ -50,4 +51,4 @@ From **Flutter 3.27** onwards, **Impeller** is the default rendering engine on *
 
 <br />
 
----
+***
