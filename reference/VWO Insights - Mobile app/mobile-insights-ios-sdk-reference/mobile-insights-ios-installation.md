@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The latest SDK version for IOS is **2.1.4** and you can view the changelog [here](https://github.com/wingify/ios-mobile-insights-artifacts/blob/main/CHANGELOG.md?plain=1).
+The latest SDK version for IOS is **2.2.0** and you can view the changelog [here](https://github.com/wingify/ios-mobile-insights-artifacts/blob/main/CHANGELOG.md?plain=1).
 
 <br />
 
