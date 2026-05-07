@@ -1,44 +1,43 @@
 ---
 title: Switch User
+excerpt: Set or update the current user identifier for VWO Insights.
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-# setUserId
-
 Sets or updates the current user identifier for VWO Insights.
 
-## Method Signature
+**Method Signature**
 
 ```ts
 setUserId(userId: string): Promise<boolean>
 ```
 
-## Parameters
+**Parameters**
 
-- `userId` (`string`, required): Unique identifier for the user.
+* `userId` (`string`, required): Unique identifier for the user.
 
-## Returns
+**Returns**
 
 `Promise<boolean>`
 
-- `true`: User ID update succeeded.
-- `false`: SDK did not apply the update.
-- Rejected Promise: Update failed with an error.
+* `true`: User ID update succeeded.
+* `false`: SDK did not apply the update.
+* Rejected Promise: Update failed with an error.
 
-## When to Call
+**When to Call**
 
-- After successful user login
-- When switching accounts
-- When you want to associate future session activity with a known user
+* After successful user login
+* When switching accounts
+* When you want to associate future session activity with a known user
 
-## Notes
+**Notes**
 
-- Call only after SDK initialization is complete.
-- Any downstream session/recording behavior may be handled internally by the native SDK.
+* Call only after SDK initialization is complete.
+* Any downstream session/recording behavior may be handled internally by the native SDK.
 
-## Example
+**Example**
 
 ```ts
 import { setUserId } from 'vwo-insights-react-native-sdk';
