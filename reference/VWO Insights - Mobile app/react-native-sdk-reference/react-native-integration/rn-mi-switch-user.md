@@ -12,7 +12,7 @@ Sets or updates the current user identifier for VWO Insights.
 
 **Method Signature**
 
-```ts
+```typescript
 setUserId(userId: string): Promise<boolean>
 ```
 
@@ -41,7 +41,7 @@ setUserId(userId: string): Promise<boolean>
 
 **Example**
 
-```ts
+```typescript
 import { setUserId } from 'vwo-insights-react-native-sdk';
 
 async function identifyUser(userId: string) {
