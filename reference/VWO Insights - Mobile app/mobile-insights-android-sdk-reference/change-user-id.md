@@ -44,6 +44,8 @@ ClientConfiguration clientConfig =
 VWOInsights.init(application, initCallback, clientConfig);
 ```
 
+### Set userId when the user changes after initialization
+
 Use `VWOInsights.setUserId(...)` only when the user changes **after** initialization (e.g., logout/login switch) and you need to re-identify without restarting the app.
 
 ```kotlin
