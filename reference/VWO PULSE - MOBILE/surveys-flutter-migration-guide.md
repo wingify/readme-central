@@ -47,7 +47,7 @@ Add the VWO Pulse Flutter SDK:
 
 ```yaml
 dependencies:
-  vwo_insights_flutter_sdk: ^2.1.0
+  vwo_insights_flutter_sdk: ^2.2.1
 ```
 
 Run the following command to update dependencies:
