@@ -48,7 +48,7 @@ pod 'Blitzllama-ios', '1.6.29'
 
 ```ruby
 # Podfile
-pod 'VWO-Insights', '~> 2.1.0'
+pod 'VWO-Insights', '~> 2.2.0'
 ```
 
 ***
