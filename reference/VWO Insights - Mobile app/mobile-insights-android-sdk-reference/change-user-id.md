@@ -46,7 +46,6 @@ VWOInsights.init(application, initCallback, clientConfig);
 
 Use `VWOInsights.setUserId(...)` only when the user changes **after** initialization (e.g., logout/login switch) and you need to re-identify without restarting the app.
 
-### Kotlin
 
 ```kotlin
 val accepted = VWOInsights.setUserId("user_123", object : IVwoInitCallback {
@@ -60,9 +59,6 @@ val accepted = VWOInsights.setUserId("user_123", object : IVwoInitCallback {
   }
 })
 ```
-
-### Java
-
 ```java
 boolean accepted = VWOInsights.setUserId("user_123", new IVwoInitCallback() {
   @Override public void vwoInitSuccess(String message) {
