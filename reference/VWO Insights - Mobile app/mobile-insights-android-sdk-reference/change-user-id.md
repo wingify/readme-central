@@ -37,9 +37,6 @@ val clientConfig = ClientConfiguration(
 
 VWOInsights.init(application, initCallback, clientConfig)
 ```
-
-### Java
-
 ```java
 ClientConfiguration clientConfig =
   new ClientConfiguration("your_account_id", "your_sdk_key", "user_123");
