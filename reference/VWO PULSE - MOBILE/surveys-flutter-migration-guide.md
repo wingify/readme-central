@@ -1,5 +1,6 @@
 ---
 title: Surveys - Flutter - Migration Guide
+excerpt: Latest SDK version is 2.2.1
 deprecated: false
 hidden: true
 metadata:
