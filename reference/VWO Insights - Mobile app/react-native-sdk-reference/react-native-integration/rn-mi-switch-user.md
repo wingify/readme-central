@@ -37,7 +37,7 @@ setUserId(userId: string): Promise<boolean>
 **Notes**
 
 * Call only after SDK initialization is complete.
-* Any downstream session/recording behavior may be handled internally by the native SDK.
+* If recording was active before calling `setUserId`, it automatically resumes after the user switch completes. If recording was stopped, it remains stopped.
 
 **Example**
 
