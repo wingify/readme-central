@@ -632,6 +632,6 @@ val callback = object : IVwoInitCallback {
 
 | Component                               | Version          |
 | --------------------------------------- | ---------------- |
-| VWO Pulse SDK Version                   | `2.1.0`          |
+| VWO Pulse SDK Version                   | `2.2.0`          |
 | Minimum Android SDK                     | 21 (Android 5.0) |
 | Blitzllama SDK Version (migrating from) | `1.9.1`          |
