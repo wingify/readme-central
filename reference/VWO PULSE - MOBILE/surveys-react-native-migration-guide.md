@@ -6,23 +6,30 @@ hidden: true
 metadata:
   robots: index
 ---
-# Migration Guide: Blitzllama to VWO Pulse React Native SDK
+# Migration Guide: Blitzllama to VWO Pulse iOS SDK
 
-This guide helps you migrate your **survey implementation from Blitzllama React Native SDK to VWO Pulse React Native SDK**. It provides a conceptual mapping, API replacements, and step-by-step migration instructions.
+## Overview
+
+This guide helps you migrate your application from the **Blitzllama SDK** to the **VWO Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
+
+**Minimum Requirements:**
+
+* iOS 12.0 and above
+* VWO dashboard access (to obtain Account ID and SDK Key)
 
 ***
 
-## High-Level Differences
+## Migration Summary
 
-| Area                 | Blitzllama                  | VWO Pulse                                                     |
-| -------------------- | --------------------------- | ------------------------------------------------------------- |
-| SDK Purpose          | In-app surveys & feedback   | In-app surveys with advanced targeting                        |
-| Initialization       | App key / environment-based | `ACCOUNT_ID` & `SDK_KEY`                                      |
-| Event-based triggers | Yes                         | Yes                                                           |
-| User attributes      | Yes                         | Yes                                                           |
-| User identification  | Yes                         | Passed during initialization (optional), then use `setUserId()` |
-| User switching       | `logout()`                  | `setUserId(randomString)`                                        |
-| Language handling    | Explicit / SDK-based        | Auto-detected from device (override supported)                |
+| Feature          | Blitzllama SDK                  | VWO Pulse SDK                                                     |
+| ---------------- | ------------------------------- | ----------------------------------------------------------------- |
+| Dependency       | `BlitzLlamaSDK`                 | `VWO_Insights`                                                    |
+| API Key Location | AppDelegate.swift               | AppDelegate.swift                                                 |
+| User Creation    | Separate `createUser()` call    | Passed during initialization (optional), then use `setUserId()` to switch users |
+| User Switching   | `logout()`                      | `setUserId(newUserId, completion)`                                |
+| Trigger Method   | `triggerEvent()`                | `trackEvent()`                                                    |
+| SDK Manager      | `BlitzLlamaSDK.getSdkManager()` | `VWO.getSurveyManager()`                                          |
+| User Attributes  | `setUserAttribute()`            | `setAttribute()`                                                  |
 
 ***
 
@@ -32,223 +39,225 @@ This guide helps you migrate your **survey implementation from Blitzllama React 
 
 **Before (Blitzllama):**
 
-```bash
-npm uninstall blitzllama-react-native
+```ruby
+# Podfile
+pod 'Blitzllama-ios', '1.6.29'
 ```
 
 ## Add VWO Pulse Dependency
 
 **After (VWO Pulse):**
 
-```bash
-npm install vwo-insights-react-native-sdk
-# or
-yarn add vwo-insights-react-native-sdk
+```ruby
+# Podfile
+pod 'VWO-Insights', '~> 2.2.0'
 ```
-
-**For iOS:**
-
-```bash
-cd ios && pod install && cd ..
-```
-
-**For Android:**
-
-* No additional setup required.
 
 ***
 
-# Step 2: Update SDK Initialization
+# Step 2: Update Configuration
+
+## Remove Blitzllama Configuration
+
+Blitzllama does not use Info.plist for API keys. The API key is set programmatically via `setBlitzLlamaAPIKey()`. VWO Pulse also uses programmatic configuration but passes credentials during initialization.
+
+## VWO Configuration
+
+The most significant change is in how the SDK is initialized and how users are identified using `VWO.configure()`.
+
+***
+
+# Step 3: Update SDK Initialization
+
+The most significant change is in how the SDK is initialized and how users are identified.
 
 **Key Points:**
-- User ID can be passed during initialization (optional)
+- User ID can be passed during initialization in `VWO.configure()` (optional)
 - Use `setUserId()` later to switch users or identify users after they log in
-- For anonymous users, you can pass an empty string (`""`) during initialization or use a random string with `setUserId()`
+- For anonymous users, you can pass nil, or "" or a random string with `setUserId()`
 
-## Blitzllama (Before)
+## Blitzllama Approach (Before)
 
-```javascript
-Blitz.init({
-  apiKey: 'BLITZ_API_KEY',
-});
-```
+```swift
+import BlitzLlamaSDK
+import UIKit
 
-## VWO Pulse (After)
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
-### Android Initialization
-
-Initialize VWO SDK in your Application class (`ReactNativeVwoApp.kt`):
-
-```kotlin
-// ReactNativeVwoApp.kt
-import com.vwo.insights.VwoInsightsReactNativeSdkModule
-
-class ReactNativeVwoApp : Application() {
-    override fun onCreate() {
-        super.onCreate()
+    func application(_ application: UIApplication, 
+                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // User ID is optional - use "" for anonymous users
-        VwoInsightsReactNativeSdkModule.init(
-            this,
-            "your_account_id",
-            "your_sdk_key",
-            ""  // User ID (optional) - use "" for anonymous, or "user_id" if known
-        )
+        // Initialize Blitzllama SDK with API key
+        BlitzLlamaSDKController.getSDKManager.setBlitzLlamaAPIKey("API_KEY")
+        
+        // Create user separately
+        BlitzLlamaSDKController.getSDKManager.createUser("user_id")
+        
+        return true
     }
 }
 ```
 
-Register the Application class in `AndroidManifest.xml`:
+## VWO Pulse Approach (After)
 
-```xml
-<application
-    android:name=".ReactNativeVwoApp"
-    ... >
-</application>
-```
+```swift
+import VWO_Insights
 
-### iOS Initialization
-
-```javascript
-import { config } from 'vwo-insights-react-native-sdk';
-
-React.useEffect(() => {
-    // User ID is optional - use '' for anonymous users
-    config(ACCOUNT_ID, SDK_KEY, '');  // User ID (optional) - use '' for anonymous, or 'user_id' if known
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
-    // If user logs in later, use setUserId() to identify them:
-    // setUserId('user_id').then(success => { ... });
-}, []);
+    func application(_ application: UIApplication, 
+                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // User ID is optional during initialization
+        // Pass nil or "" for anonymous users, or actual user ID if known
+        VWO.configure(
+            accountId: "your_account_id",  // Account ID from VWO dashboard
+            sdkKey: "your_sdk_key",        // SDK Key from VWO dashboard
+            userId: nil                    // User ID (optional) - use nil for anonymous, or "user_id" if known
+        ) { result in
+            switch result {
+            case .success(_):
+                print("VWO SDK initialized successfully")
+                // Safe to trigger surveys now
+                VWO.startSessionRecording()
+                
+                // If user logs in later, use setUserId() to identify them:
+                // VWO.setUserId("user_id") { result in ... }
+            case .failure(let error):
+                print("VWO SDK initialization failed: \(error)")
+            }
+        }
+        
+        return true
+    }
+}
 ```
 
-> 📘 **Migration Note**
->
-> * Replace Blitz API Key with VWO `ACCOUNT_ID` & `SDK_KEY`
-> * User ID is optional during initialization
-> * Use `setUserId()` to identify or switch users after initialization
-> * Initialization must happen before triggering surveys
+## Key Changes
+
+1. **No longer extend SDK class** - Your Application class extends `UIResponder` and `UIApplicationDelegate` instead of extending Blitzllama SDK
+2. **User ID is optional at initialization** - User identifier can be passed in `VWO.configure()` (use `nil` or `""` for anonymous users), or set later using `setUserId()`
+3. **Use `setUserId()` to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
+4. **Callback-based initialization** - VWO uses explicit success/failure callbacks
 
 ***
 
-# Step 3: Update Survey Triggers
+# Step 4: Update Survey Triggers
 
 ## Blitzllama (Before)
 
-```jsx
-const [show, setShow] = React.useState(false);
+```swift
+// Trigger survey without properties
+BlitzLlamaSDKController.getSDKManager.fetchSurvey(triggerName: "trigger_name")
 
-<Blitzllama 
-  showSurvey={show}
-  trigger="trigger_name"
-  closeSurvey={() => setShow(false)}
-/>
+// Trigger survey with properties
+let eventProperties: [String: Any] = [
+    "eventKey1": "eventValue1",
+    "eventKey2": "eventValue2"
+]
+BlitzLlamaSDKController.getSDKManager().fetchSurvey(triggerName: "trigger_name", properties: eventProperties)
 ```
 
 ## VWO Pulse (After)
 
-```javascript
-import { trackEvent } from 'vwo-insights-react-native-sdk';
+```swift
+// Get Survey SDK manager
+let surveySDK = VWO.getSurveyManager()
 
-trackEvent('event_name');
+// Track event (trigger survey)
+surveySDK.trackEvent(
+    eventName: "trigger_name",
+    properties: ["key": "value"],  // Optional
+    viewController: self           // Optional, for presentation context
+)
 ```
 
-> 📘 **Key Change:** VWO uses a function-based approach instead of a component-based approach.
+## Method Mapping
 
-***
-
-# Step 4: Update Event Properties
-
-## Blitzllama (Before)
-
-```jsx
-<Blitzllama 
-  event_properties={event_property_object}
-  trigger="trigger_name"
-/>
-```
-
-## VWO Pulse (After)
-
-```javascript
-import { trackEvent } from 'vwo-insights-react-native-sdk';
-
-trackEvent('PurchaseCompleted', {
-  productId: '12345',
-  productName: 'Premium Plan',
-  amount: 99.99,
-  currency: 'USD'
-});
-```
-
-> ⚠️ **Important:** Event names must **exactly match** those configured in the VWO dashboard.
+| Blitzllama                                   | VWO Pulse                                  |
+| -------------------------------------------- | ------------------------------------------ |
+| `triggerEvent("name")`                       | `trackEvent("name")`                       |
+| `triggerEvent("name", properties)`           | `trackEvent("name", properties)`           |
+| `triggerEvent("name", properties, listener)` | `trackEvent("name", properties, listener)` |
 
 ***
 
 # Step 5: Update User Attributes
 
-## Blitzllama (Before)
-
-```javascript
-Blitzllama.setUserAttributes('attribute_name', 'attribute_value', 'attribute_datatype');
-```
-
-## VWO Pulse (After)
-
-```javascript
-import { setAttribute } from 'vwo-insights-react-native-sdk';
-
-setAttribute({
-  userType: 'premium',
-  subscriptionPlan: 'annual',
-  accountAge: '6months'
-});
-```
-
-> 📘 **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
-
-## Setting User Email and Name
+## Setting Email and Name
 
 **Blitzllama (Before):**
 
-```javascript
-Blitzllama.setUserName('John Doe');
-Blitzllama.setUserEmail('john@example.com');
+```swift
+BlitzLlamaSDKController.getSDKManager.updateUserEmail("user@example.com")
+BlitzLlamaSDKController.getSDKManager.updateUserName("user_name")
 ```
 
 **VWO Pulse (After):**
 
-```javascript
-setAttribute({
-  'user_name': 'John Doe',
-  'user_email': 'john@example.com'
-});
+In VWO, use `setAttribute()` to set user email and name:
+
+```swift
+let surveySDK = VWO.getSurveyManager()
+
+// Supports different value types (String, Int, Bool, etc.)
+let attributes: [String: Any] = [
+    "user_email": "user@example.com",
+    "user_name": "John Doe"
+]
+
+surveySDK.setAttribute(attributes: attributes)
 ```
 
-> ⚠️ **Important:** Always set attributes **before** triggering survey events.
+> 📘 **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
+
+## Setting Custom User Attributes
+
+**Blitzllama (Before):**
+
+```swift
+// Set individual attributes with data type
+BlitzLlamaSDKController.getSDKManager.updateUserAttributes("plan_type", attributeValue: "premium", dataType: "string")
+BlitzLlamaSDKController.getSDKManager.updateUserAttributes("user_level", attributeValue: "5", dataType: "number")
+BlitzLlamaSDKController.getSDKManager.updateUserAttributes("is_active", attributeValue: "true", dataType: "boolean")
+```
+
+**VWO Pulse (After):**
+
+```swift
+let surveySDK = VWO.getSurveyManager()
+
+// Supports different value types (String, Int, Bool, etc.)
+let attributes: [String: Any] = [
+    "plan_type": "premium",
+    "user_level": 5,        // Can use actual number type
+    "is_active": true       // Can use boolean
+]
+
+surveySDK.setAttribute(attributes: attributes)
+```
+
+> 📘 **Note:** VWO uses `setAttribute()` instead of `updateUserAttributes()`. Data types are automatically inferred, so you don't need to specify them explicitly. You can pass multiple attributes in a single dictionary. The SDK automatically associates attributes with the current user ID.
 
 ***
 
-# Step 6: Update Language Settings
+# Step 6: Update Survey Language Setting
 
-## Blitzllama (Before)
+**Blitzllama (Before):**
 
-```javascript
-Blitz.setSurveyLanguage('en');
+```swift
+BlitzLlamaSDKController.getSDKManager.setLanguageCode("en")
 ```
 
-## VWO Pulse (After)
+**VWO Pulse (After):**
 
-```javascript
-import { setSurveyLanguage } from 'vwo-insights-react-native-sdk';
-
-// Optional: override device language
-setSurveyLanguage('en'); // ISO 639-1
+```swift
+let surveySDK = VWO.getSurveyManager()
+surveySDK.setLanguageCode("en")
 ```
 
-**Key Difference:**
-
-* VWO **auto-detects language** from the user's device by default
-* If you explicitly set a language using `setSurveyLanguage`, it **overrides the device language**
+This API remains largely the same.
 
 ***
 
@@ -256,8 +265,8 @@ setSurveyLanguage('en'); // ISO 639-1
 
 ## Blitzllama (Before)
 
-```javascript
-Blitz.logout();
+```swift
+BlitzLlamaSDK.logout()
 ```
 
 ## VWO Pulse (After)
@@ -268,18 +277,19 @@ VWO Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to s
 
 Use `setUserId()` when your user logs in or switches accounts:
 
-```javascript
-import { setUserId } from 'vwo-insights-react-native-sdk';
+```swift
+import VWO_Insights
 
 // When user logs in or switches account
-try {
-  const success = await setUserId('new_user_id');
-  if (success) {
-    console.log('User switch complete');
-    // Recording resumes automatically if it was active before
-  }
-} catch (error) {
-  console.error('User switch failed:', error);
+VWO.setUserId("new_user_id") { result in
+    switch result {
+    case .success(let message):
+        print("User switch complete: \(message)")
+        // Recording resumes automatically if it was active before
+        
+    case .failure(let error):
+        print("User switch failed: \(error.localizedDescription)")
+    }
 }
 ```
 
@@ -287,141 +297,217 @@ try {
 
 If your user logs out and you want to track them as anonymous, generate a random user ID:
 
-```javascript
-import { setUserId } from 'vwo-insights-react-native-sdk';
+```swift
+import Foundation
 
-// When user logs out - generate random ID for anonymous tracking
-const randomUserId = Math.random().toString(36).substring(7);
-
-try {
-  const success = await setUserId(randomUserId);
-  if (success) {
-    console.log('Now tracking as anonymous user');
-  }
-} catch (error) {
-  console.error('Failed to switch to anonymous:', error);
+// When user logs out
+let randomUserId = UUID().uuidString
+VWO.setUserId(randomUserId) { result in
+    switch result {
+    case .success(let message):
+        print("Now tracking as anonymous user")
+        
+    case .failure(let error):
+        print("Failed to switch to anonymous: \(error.localizedDescription)")
+    }
 }
 ```
 
 ### Key Differences
 
-| Blitzllama           | VWO Pulse                                        |
-| -------------------- | ------------------------------------------------ |
-| `Blitz.logout()`     | No direct logout method                          |
-| N/A                  | `setUserId(userId)` returns `Promise<boolean>`   |
-| Logout clears session| Use random string for anonymous tracking         |
+| Blitzllama                      | VWO Pulse                                         |
+| ------------------------------- | ------------------------------------------------- |
+| `BlitzLlamaSDK.logout()`        | No direct logout method                           |
+| -                               | `VWO.setUserId(userId, completion)`               |
+| Logout clears session           | Use random string for anonymous tracking          |
+| Requires re-initialization      | `setUserId()` handles session refresh internally  |
 
 > 📘 **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
 
 ***
 
-# Recommended Initialization Flow
+# Step 8: Update Event/Trigger Names in VWO Dashboard
 
-Here's the recommended complete initialization flow for VWO Pulse:
+If you're using triggers configured in the Blitzllama dashboard, you may need to recreate them in the VWO dashboard:
 
-```javascript
-import {
-  config,
-  setSurveyLanguage,
-  setAttribute,
-  trackEvent
-} from 'vwo-insights-react-native-sdk';
+1. Log in to your VWO dashboard
+2. Navigate to **Data360 → Events → Create**
+3. Create events with the same names you used as trigger names in Blitzllama
+4. Configure these events in **Surveys → Custom Triggers**
 
-useEffect(() => {
-  // 1. Initialize SDK (iOS)
-  config(ACCOUNT_ID, SDK_KEY, USER_ID);
-
-  // 2. Set language (optional - override device default)
-  setSurveyLanguage('en');
-
-  // 3. Set user attributes for targeting
-  setAttribute({ 
-    userType: 'premium' 
-  });
-  
-  setAttribute({
-    'user_name': 'John Doe',
-    'user_email': 'john@example.com'
-  });
-  
-  // 4. Trigger initial survey event
-  trackEvent('AppLaunched');
-}, []);
-```
-
-***
-
-# API Mapping Summary
-
-| Blitzllama                                | VWO Pulse                                 |
-| ----------------------------------------- | ----------------------------------------- |
-| `init()`                                  | `config()`                                |
-| `<Blitzllama showSurvey={} trigger="" />` | `trackEvent()`                            |
-| `setUserAttributes()`                     | `setAttribute()`                          |
-| `setUserName()`                           | `setAttribute({ 'user_name': 'Name' })`   |
-| `setUserEmail()`                          | `setAttribute({ 'user_email': 'email' })` |
-| `setSurveyLanguage()`                     | `setSurveyLanguage()`                     |
-| `logout()`                                | `setUserId(randomString)` for anonymous   |
+> ⚠️ **Important:** Ensure event names match exactly between your code and the VWO dashboard.
 
 ***
 
 # Import Statement Changes
 
-| Blitzllama Import                                  | VWO Pulse Import                                                                                               |
-| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
-| `import Blitzllama from 'blitzllama-react-native'` | `import { config, setUserId, trackEvent, setAttribute, setSurveyLanguage } from 'vwo-insights-react-native-sdk'` |
+Update all your import statements:
+
+| Before                                  | After                    |
+| --------------------------------------- | ------------------------ |
+| `import BlitzLlamaSDK`                  | `import VWO_Insights`    |
+| `BlitzLlamaSDKController.getSDKManager` | `VWO.getSurveyManager()` |
 
 ***
 
-# Common Migration Issues
+# Complete Migration Example
 
-## Survey Not Showing
+## Before (Blitzllama)
 
-| Issue                      | Solution                                                 |
-| -------------------------- | -------------------------------------------------------- |
-| SDK not initialized        | Ensure `config()` is called before any other SDK methods |
-| Event name mismatch        | Verify event names match exactly with VWO dashboard      |
-| Survey inactive            | Check survey status in VWO dashboard                     |
-| Attributes set after event | Set attributes **before** calling `trackEvent()`         |
+```swift
+import UIKit
+import BlitzLlamaSDK
 
-## Attributes Not Applied
+@main
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    func application(_ application: UIApplication, 
+                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // Initialize SDK with API key
+        BlitzLlamaSDKController.getSDKManager.setBlitzLlamaAPIKey("API_KEY")
+        
+        // Create user
+        BlitzLlamaSDKController.getSDKManager.createUser("user_123")
+        
+        // Set user attributes
+        BlitzLlamaSDKController.getSDKManager.updateUserEmail("user@example.com")
+        BlitzLlamaSDKController.getSDKManager.updateUserAttributes("plan", attributeValue: "premium", dataType: "string")
+        BlitzLlamaSDKController.getSDKManager.setLanguageCode("en")
+        
+        return true
+    }
+}
 
-| Issue                | Solution                                                      |
-| -------------------- | ------------------------------------------------------------- |
-| Key mismatch         | Ensure attribute keys match dashboard targeting configuration |
-| Incorrect data types | Use correct data types (string, number, boolean)              |
-| Timing issue         | Set attributes **before** triggering events                   |
+// In your ViewController
+class ViewController: UIViewController {
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Trigger survey with properties
+        let eventProperties: [String: Any] = [
+            "screen": "home"
+        ]
+        BlitzLlamaSDKController.getSDKManager().fetchSurvey(triggerName: "home_screen_loaded", properties: eventProperties)
+    }
+}
+```
 
-## Language Not Applied
+## After (VWO Pulse)
 
-| Issue        | Solution                                    |
-| ------------ | ------------------------------------------- |
-| Invalid code | Use valid ISO 639-1 language codes          |
-| Timing issue | Set language **before** triggering events   |
-| Not enabled  | Verify language is enabled in VWO dashboard |
+```swift
+import UIKit
+import VWO_Insights
+
+class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    func application(_ application: UIApplication, 
+                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        // Initialize SDK with user ID
+        VWO.configure(
+            accountId: "your_account_id",
+            sdkKey: "your_sdk_key",
+            userId: "user_123"  // User ID now here
+        ) { result in
+            switch result {
+            case .success(_):
+                print("VWO SDK initialized")
+                VWO.startSessionRecording()
+                
+                // Set attributes after initialization
+                let surveySDK = VWO.getSurveyManager()
+                surveySDK.setAttribute(attributes: ["plan": "premium"])
+                surveySDK.setLanguageCode("en")
+                
+            case .failure(let error):
+                print("Initialization failed: \(error)")
+            }
+        }
+        
+        return true
+    }
+}
+
+// In your ViewController
+class ViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Wait for SDK initialization before triggering
+        // Best practice: Trigger in viewDidAppear or after initialization callback
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Trigger survey
+        let surveySDK = VWO.getSurveyManager()
+        surveySDK.trackEvent(
+            triggerName: "home_screen_loaded",
+            properties: ["screen": "home"],
+            viewController: self
+        )
+    }
+}
+```
+
+***
+
+# Troubleshooting
+
+## Survey not showing after migration?
+
+1. **Verify initialization**: Ensure the success callback is received before triggering surveys
+2. **Check event names**: Event names must match exactly with VWO dashboard configuration
+3. **Verify credentials**: Confirm Account ID and SDK Key are correct from VWO dashboard
+4. **Check initialization timing**: Wait for the initialization callback before calling survey methods
+
+## Race condition on first screen?
+
+Use the initialization callback to trigger surveys:
+
+```swift
+VWO.configure(
+    accountId: "your_account_id",
+    sdkKey: "your_sdk_key",
+    userId: "user_id"
+) { result in
+    switch result {
+    case .success(_):
+        // Safe to trigger survey here
+        DispatchQueue.main.async {
+            let surveySDK = VWO.getSurveyManager()
+            surveySDK.trackEvent(triggerName: "app_launched")
+        }
+    case .failure(let error):
+        print("Initialization failed: \(error)")
+    }
+}
+```
 
 ***
 
 # Migration Checklist
 
-* [ ] Uninstalled Blitzllama SDK (`npm uninstall blitzllama-react-native`)
-* [ ] Installed VWO Pulse SDK (`npm install vwo-insights-react-native-sdk`)
-* [ ] Run `pod install` for iOS
-* [ ] Updated Android Application class initialization
-* [ ] Updated iOS initialization with `config()`
-* [ ] Replaced `<Blitzllama />` component with `trackEvent()` calls
-* [ ] Updated `setUserAttributes()` to `setAttribute()`
-* [ ] Updated `setUserName()` and `setUserEmail()` to `setAttribute()`
-* [ ] Updated `setSurveyLanguage()` import
-* [ ] Replaced `logout()` calls with `setUserId()` for user switching
+* [ ] Updated Podfile dependency from `Blitzllama-ios` to `VWO-Insights`
+* [ ] Updated Application class initialization
+* [ ] Replaced `createUser()` with `setUserId()` for user identification
+* [ ] Changed `triggerEvent()` calls to `trackEvent()`
+* [ ] Updated `setUserAttribute()` to `setAttribute()`
+* [ ] Updated import statements
 * [ ] Configured events in VWO dashboard
 * [ ] Tested survey triggering in the app
 
 ***
 
-# Final Notes
+# Version Information
 
-1. **Remove Blitzllama SDK** after successful migration
-2. **Validate all survey triggers** in VWO Dashboard
-3. **Keep event naming consistent** across platforms (iOS, Android, React Native)
-4. **Test thoroughly** before releasing to production
+| Component                               | Version |
+| --------------------------------------- | ------- |
+| VWO Pulse SDK Version                   | 2.2.0+  |
+| Minimum iOS Version                     | 12.0    |
+| Swift Version                           | 5.0+    |
+| Blitzllama SDK Version (migrating from) | 1.6.29  |
