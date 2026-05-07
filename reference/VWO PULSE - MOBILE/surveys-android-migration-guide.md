@@ -20,15 +20,15 @@ This guide helps you migrate your Android application from the **Blitzllama SDK*
 
 ## Migration Summary
 
-| Feature          | Blitzllama SDK                    | VWO Pulse SDK                                                                   |
-| ---------------- | --------------------------------- | ------------------------------------------------------------------------------- |
-| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.2.0`                                                        |
-| API Key Location | AndroidManifest.xml               | ClientConfiguration object                                                      |
+| Feature          | Blitzllama SDK                    | VWO Pulse SDK                                                |
+| ---------------- | --------------------------------- | ------------------------------------------------------------ |
+| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.2.0`                                     |
+| API Key Location | AndroidManifest.xml               | ClientConfiguration object                                   |
 | User Creation    | Separate `createUser()` call      | Passed during initialization (optional), then use `setUserId()` to switch users |
-| User Switching   | `logout()`                        | `setUserId(randomString)`                                                       |
-| Trigger Method   | `triggerEvent()`                  | `trackEvent()`                                                                  |
-| SDK Manager      | `BlitzLlamaSDK.getSdkManager()`   | `VWOInsights.getSurveySdkManager()`                                             |
-| User Attributes  | `setUserAttribute()`              | `setAttribute()`                                                                |
+| User Switching   | `logout()`                        | `setUserId(newUserId, callback)`                             |
+| Trigger Method   | `triggerEvent()`                  | `trackEvent()`                                               |
+| SDK Manager      | `BlitzLlamaSDK.getSdkManager()`   | `VWOInsights.getSurveySdkManager()`                          |
+| User Attributes  | `setUserAttribute()`              | `setAttribute()`                                             |
 
 ***
 
@@ -84,10 +84,9 @@ VWO Pulse does not require manifest configuration. Credentials are passed progra
 The most significant change is in how the SDK is initialized and how users are identified.
 
 **Key Points:**
-
-* User ID can be passed during initialization in `ClientConfiguration` (optional)
-* Use `setUserId()` later to switch users or identify users after they log in
-* For anonymous users, you can pass an empty string (`""`) during initialization or use a random string with `setUserId()`
+- User ID can be passed during initialization in `ClientConfiguration` (optional)
+- Use `setUserId()` later to switch users or identify users after they log in
+- For anonymous users, you can pass an empty string (`""`) during initialization or use a random string with `setUserId()`
 
 ## Blitzllama Approach (Before)
 
@@ -391,7 +390,6 @@ In VWO, use `setAttribute()` to set user email and name:
 
 ```java
 Map<String, Object> attributes = new HashMap<>();
-attributes.put("user_id", "user_123"); // Please make sure you add user_id in every setAttribute call you make
 attributes.put("user_email", "user@example.com");
 attributes.put("user_name", "John Doe");
 
@@ -401,13 +399,15 @@ VWOInsights.setAttribute(attributes);
 ### Kotlin
 
 ```kotlin
-val attributes = mutableMapOf<String, Any>()
-attributes["user_id"] = "user_123" // Please make sure you add user_id in every setAttribute call you make
-attributes["user_email"] = "user@example.com"
-attributes["user_name"] = "John Doe"
+val attributes = mapOf(
+    "user_email" to "user@example.com",
+    "user_name" to "John Doe"
+)
 
 VWOInsights.setAttribute(attributes)
 ```
+
+> 📘 **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
 
 ## Setting Custom User Attributes
 
@@ -426,7 +426,6 @@ BlitzLlamaSDK.getSdkManager(context).setUserAttribute("user_level", "5", "number
 ```java
 // Supports different value types (String, Number, Boolean)
 Map<String, Object> attributes = new HashMap<>();
-attributes.put("user_id", "user_123"); // Please make sure you add user_id in every setAttribute call you make
 attributes.put("plan_type", "premium");
 attributes.put("user_level", 5);      // Can use actual number type
 attributes.put("is_active", true);    // Can use boolean
@@ -437,16 +436,16 @@ VWOInsights.setAttribute(attributes);
 ### Kotlin
 
 ```kotlin
-val attributes = mutableMapOf<String, Any>()
-attributes["user_id"] = "user_123" // Please make sure you add user_id in every setAttribute call you make
-attributes["plan_type"] = "premium"
-attributes["user_level"] = 5
-attributes["is_active"] = true
+val attributes = mapOf(
+    "plan_type" to "premium",
+    "user_level" to 5,
+    "is_active" to true
+)
 
 VWOInsights.setAttribute(attributes)
 ```
 
-> 📘 **Note:** VWO uses `setAttribute()` instead of `setUserAttribute()`. Data types are automatically inferred, so you don't need to specify them explicitly.
+> 📘 **Note:** VWO uses `setAttribute()` instead of `setUserAttribute()`. Data types are automatically inferred, so you don't need to specify them explicitly. The SDK automatically associates attributes with the current user ID.
 
 ***
 
@@ -483,6 +482,8 @@ VWO Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to s
 ### Switching to a New User
 
 Use `setUserId()` when your user logs in or switches accounts:
+
+
 
 ```java
 import com.vwo.insights.VWOInsights;
@@ -563,12 +564,12 @@ VWOInsights.setUserId(randomUserId, object : IVwoInitCallback {
 
 ### Key Differences
 
-| Blitzllama                 | VWO Pulse                                        |
-| -------------------------- | ------------------------------------------------ |
-| `BlitzLlamaSDK.logout()`   | No direct logout method                          |
-| N/A                        | `VWOInsights.setUserId(userId, callback)`        |
-| Logout clears session      | Use random string for anonymous tracking         |
-| Requires re-initialization | `setUserId()` handles session refresh internally |
+| Blitzllama                      | VWO Pulse                                         |
+| ------------------------------- | ------------------------------------------------- |
+| `BlitzLlamaSDK.logout()`        | No direct logout method                           |
+| N/A                             | `VWOInsights.setUserId(userId, callback)`         |
+| Logout clears session           | Use random string for anonymous tracking          |
+| Requires re-initialization      | `setUserId()` handles session refresh internally  |
 
 > 📘 **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
 
@@ -671,8 +672,7 @@ class MainActivity : AppCompatActivity() {
         val sdkManager = VWOInsights.getSurveySdkManager(this)
         
         // Set attributes (including email and name)
-      VWOInsights.setAttribute(mapOf(
-						"user_id" to "user_123", // Please make sure you add user_id in every setAttribute call you make
+        VWOInsights.setAttribute(mapOf(
             "user_email" to "user@example.com",
             "user_name" to "John Doe",
             "plan" to "premium"
