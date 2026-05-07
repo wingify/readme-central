@@ -18,15 +18,16 @@ VWO Pulse SDK provides the same core functionality as Blitzllama with some key a
 
 ### Key Differences at a Glance
 
-| Aspect          | Blitzllama              | VWO Pulse                       |
-| --------------- | ----------------------- | ------------------------------- |
-| Package         | blitzllama_flutter      | vwo_insights_flutter_sdk        |
-| Class Name      | BlitzllamaFlutter       | VwoFlutter                      |
-| Initialization  | Dart code               | Native code (Android/iOS)       |
-| User Creation   | createUser() in Dart    | userId in native initialization |
-| Trigger Method  | triggerEvent()          | trackEvent()                    |
-| User Attributes | Individual method calls | Single map-based method         |
-| User Email/Name | Dedicated methods       | Use setAttribute()              |
+| Aspect          | Blitzllama              | VWO Pulse                                                     |
+| --------------- | ----------------------- | ------------------------------------------------------------- |
+| Package         | blitzllama_flutter      | vwo_insights_flutter_sdk                                      |
+| Class Name      | BlitzllamaFlutter       | VwoFlutter                                                    |
+| Initialization  | Dart code               | Native code (Android/iOS)                                     |
+| User Creation   | createUser() in Dart    | userId in native initialization (optional), then use setUserId() |
+| User Switching  | logout()                | setUserId(newUserId)                                          |
+| Trigger Method  | triggerEvent()          | trackEvent()                                                  |
+| User Attributes | Individual method calls | Single map-based method                                       |
+| User Email/Name | Dedicated methods       | Use setAttribute()                                            |
 
 ***
 
@@ -80,6 +81,11 @@ import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
 
 This is the most significant change. VWO SDK requires native initialization instead of Dart initialization.
 
+**Key Points:**
+- User ID can be passed during native initialization (optional)
+- Use `setUserId()` later to switch users or identify users after they log in
+- For anonymous users, you can pass an empty string or `null` during initialization, or use a random string with `setUserId()`
+
 ## Remove Blitzllama Dart Initialization
 
 Remove the following from your Dart code:
@@ -108,16 +114,20 @@ class FlutterVwoApp : FlutterApplication() {
     override fun onCreate() {
         super.onCreate()
 
+        // User ID is optional - use "" for anonymous users
         val configuration = ClientConfiguration(
             "YOUR_ACCOUNT_ID",
             "YOUR_SDK_KEY",
-            "USER_ID"
+            ""  // User ID (optional) - use "" for anonymous, or "user_id" if known
         )
         
         VWOInsights.init(this, object : IVwoInitCallback {
             override fun vwoInitSuccess(s: String) {
                 Log.d("VWO", "VWO initialized successfully")
                 // Safe to trigger surveys now
+                
+                // If user logs in later in Flutter, use setUserId():
+                // VwoFlutter.setUserId("user_id");
             }
 
             override fun vwoInitFailed(s: String) {
@@ -153,14 +163,17 @@ import vwo_insights_ios_flutter_sdk
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         
+        // User ID is optional - use nil for anonymous users
         VWO.configure(
             accountId: "YOUR_ACCOUNT_ID",
             sdkKey: "YOUR_SDK_KEY",
-            userId: "USER_ID"
+            userId: nil  // User ID (optional) - use nil for anonymous, or "user_id" if known
         ) { result in
             switch result {
             case .success(_):
                 print("VWO launch Success")
+                // If user logs in later in Flutter, use setUserId():
+                // VwoFlutter.setUserId("user_id");
             case .failure(_):
                 print("VWO launch Failure")
             }
@@ -174,11 +187,11 @@ import vwo_insights_ios_flutter_sdk
 
 ## Configuration Parameters
 
-| Parameter | Type   | Required | Description                     |
-| --------- | ------ | -------- | ------------------------------- |
-| accountId | String | Yes      | Your VWO account ID             |
-| sdkKey    | String | Yes      | Your SDK key from VWO dashboard |
-| userId    | String | Yes      | Unique identifier for the user  |
+| Parameter | Type   | Required | Description                                          |
+| --------- | ------ | -------- | ---------------------------------------------------- |
+| accountId | String | Yes      | Your VWO account ID                                  |
+| sdkKey    | String | Yes      | Your SDK key from VWO dashboard                      |
+| userId    | String | Optional | Unique identifier for the user (use "" or nil for anonymous) |
 
 ***
 
@@ -186,7 +199,7 @@ import vwo_insights_ios_flutter_sdk
 
 ## User Creation
 
-Blitzllama's createUser() is no longer needed. The user ID is now passed during native initialization.
+Blitzllama's createUser() is no longer needed. The user ID can be passed during native initialization (optional), or set later using `setUserId()`.
 
 **Before (Blitzllama):**
 
@@ -196,7 +209,15 @@ BlitzllamaFlutter.createUser(user_id);
 
 **After (VWO Pulse):**
 
-User ID is passed in native ClientConfiguration or VWO.configure().
+User ID is passed in native initialization (optional), or use `setUserId()` in Dart:
+
+```dart
+// When user logs in
+final success = await VwoFlutter.setUserId('user_123');
+if (success) {
+  print('User identified successfully');
+}
+```
 
 ## User Attributes
 
@@ -214,12 +235,13 @@ BlitzllamaFlutter.setUserAttribute("is_active", "true", "boolean");
 
 ```dart
 VwoFlutter.setAttribute({
-    "user_id": "user_123", // Please make sure you add user_id in every setAttribute call you make
     "plan": "premium",
     "age": 25,
     "is_active": true
 });
 ```
+
+> 📘 **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
 
 ## User Email and User Name
 
@@ -236,7 +258,6 @@ BlitzllamaFlutter.setUserName(username);
 
 ```dart
 VwoFlutter.setAttribute({
-    "user_id": "user_123", // Please make sure you add user_id in every setAttribute call you make
     "user_email": "user@example.com",
     "user_name": "John Doe"
 });
@@ -314,9 +335,9 @@ BlitzllamaFlutter.setCustomFont("Roboto-Regular", "Roboto-Bold");
 
 Not available - remove this call.
 
-## Logout
+## User Switching
 
-The logout() method behavior has changed. In VWO, switching users requires re-initializing the SDK with a new user ID.
+VWO Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
 
 **Before (Blitzllama):**
 
@@ -326,24 +347,48 @@ BlitzllamaFlutter.logout();
 
 **After (VWO Pulse):**
 
-Re-initialize SDK with new user ID in native code.
+### Switching to a New User
+
+```dart
+// When user logs in or switches account
+final success = await VwoFlutter.setUserId('new_user_id');
+if (success) {
+  print('User switch complete');
+  // Recording resumes automatically if it was active before
+}
+```
+
+### Switching to Anonymous User (Logout)
+
+```dart
+import 'dart:math';
+
+// When user logs out - generate random ID for anonymous tracking
+final randomUserId = 'anon_${Random().nextInt(999999)}';
+final success = await VwoFlutter.setUserId(randomUserId);
+if (success) {
+  print('Now tracking as anonymous user');
+}
+```
+
+> 📘 **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
 
 ***
 
 # API Reference Mapping
 
-| Blitzllama Method         | VWO Pulse Equivalent    | Notes                          |
-| ------------------------- | ----------------------- | ------------------------------ |
-| init(apiKey)              | Native initialization   | See Step 3                     |
-| createUser(userId)        | Native initialization   | User ID in ClientConfiguration |
-| setUserEmail(email)       | setAttribute()          | Pass user_email in map         |
-| setUserName(name)         | setAttribute()          | Pass user_name in map          |
-| setUserAttribute()        | setAttribute()          | Now accepts a map              |
-| setSurveyLanguage(code)   | setSurveyLanguage(code) | Same signature                 |
-| triggerEvent(name)        | trackEvent(name)        | Method renamed                 |
-| triggerEvent(name, props) | trackEvent(name, props) | Method renamed                 |
-| logout()                  | Re-initialize SDK       | Different approach             |
-| setCustomFont()           | Not available           | Feature removed                |
+| Blitzllama Method         | VWO Pulse Equivalent    | Notes                                |
+| ------------------------- | ----------------------- | ------------------------------------ |
+| init(apiKey)              | Native initialization   | See Step 3                           |
+| createUser(userId)        | setUserId(userId)       | Use after initialization             |
+| setUserEmail(email)       | setAttribute()          | Pass user_email in map               |
+| setUserName(name)         | setAttribute()          | Pass user_name in map                |
+| setUserAttribute()        | setAttribute()          | Now accepts a map                    |
+| setSurveyLanguage(code)   | setSurveyLanguage(code) | Same signature                       |
+| triggerEvent(name)        | trackEvent(name)        | Method renamed                       |
+| triggerEvent(name, props) | trackEvent(name, props) | Method renamed                       |
+| logout()                  | setUserId(randomString) | Use random string for anonymous      |
+| setCustomFont()           | Not available           | Feature removed                      |
 
 ***
 
@@ -356,13 +401,13 @@ Re-initialize SDK with new user ID in native code.
 * [ ] Add native initialization for Android (FlutterVwoApp.kt)
 * [ ] Register Application class in AndroidManifest.xml
 * [ ] Add native initialization for iOS (AppDelegate.swift)
-* [ ] Remove createUser() calls (handled in native init)
+* [ ] Replace createUser() with setUserId() for user identification
 * [ ] Replace BlitzllamaFlutter with VwoFlutter
 * [ ] Replace triggerEvent() with trackEvent()
 * [ ] Update setUserAttribute() to use setAttribute() with a map
 * [ ] Replace setUserEmail() and setUserName() with setAttribute()
 * [ ] Remove setCustomFont() calls if present
-* [ ] Update logout handling if applicable
+* [ ] Replace logout() with setUserId() for user switching
 * [ ] Test survey triggering in the app
 
 ***
@@ -410,9 +455,9 @@ For additional support or questions:
 
 | Component                       | Version          |
 | ------------------------------- | ---------------- |
-| VWO Pulse Flutter SDK           | ^2.1.0           |
-| Native Android SDK              | 2.1.0            |
-| Native iOS SDK                  | 2.1.0            |
+| VWO Pulse Flutter SDK           | ^2.2.1           |
+| Native Android SDK              | 2.2.0            |
+| Native iOS SDK                  | 2.2.0            |
 | Minimum iOS Version             | 12.0             |
 | Minimum Android SDK             | 21 (Android 5.0) |
 | Blitzllama SDK (migrating from) | 0.6.3            |
