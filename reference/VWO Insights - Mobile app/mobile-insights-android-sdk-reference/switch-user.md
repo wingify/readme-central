@@ -13,25 +13,26 @@ metadata:
 ```kotlin
 fun setUserId(userId: String, initCallBack: IVwoInitCallback?): Boolean
 ```
+
 ```java
 public static boolean setUserId(String userId, IVwoInitCallback initCallBack)
 ```
 
 **Parameters**
 
-* `userId` — Non-blank string. Blank values return `false`.
-* `initCallBack` — Optional. Invoked when configuration refresh finishes after the switch (`vwoInitSuccess` / `vwoInitFailed`), similar to init.
+- `userId` — Non-blank string. Blank values return `false`.
+- `initCallBack` — Optional. Invoked when configuration refresh finishes after the switch (`vwoInitSuccess` / `vwoInitFailed`), similar to init.
 
 **Returns**
 
-* `true` — Request accepted locally; refresh started.
-* `false` — Rejected (blank `userId`, or SDK not initialized).
+- `true` — Request accepted locally; refresh started.
+- `false` — Rejected (blank `userId`, or SDK not initialized).
 
 **Behavior**
 
-* Stops recording/session for the previous user when needed.
-* Updates client identity and refreshes server configuration for the new `userId`.
-* Does not auto-start recording. Call `startSessionRecording()` in `vwoInitSuccess` when you want recording to resume.
+- Stops the current recording/session for the previous user.
+- Updates client identity and refreshes server configuration for the new `userId`.
+- If recording was active before the switch, it automatically resumes after configuration refresh completes. If recording was stopped, it remains stopped.
 
 
 ```kotlin
@@ -40,7 +41,7 @@ import com.vwo.insights.exposed.IVwoInitCallback
 
 val accepted = VWOInsights.setUserId("user-123", object : IVwoInitCallback {
     override fun vwoInitSuccess(message: String) {
-        VWOInsights.startSessionRecording()
+        // User switch complete
     }
 
     override fun vwoInitFailed(message: String) {
@@ -55,7 +56,7 @@ import com.vwo.insights.exposed.IVwoInitCallback;
 boolean accepted = VWOInsights.setUserId("user-123", new IVwoInitCallback() {
     @Override
     public void vwoInitSuccess(String message) {
-        VWOInsights.startSessionRecording();
+        // User switch complete
     }
 
     @Override
