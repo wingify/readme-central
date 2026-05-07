@@ -20,14 +20,15 @@ This guide helps you migrate your application from the **Blitzllama SDK** to the
 
 ## Migration Summary
 
-| Feature          | Blitzllama SDK                  | VWO Pulse SDK                |
-| ---------------- | ------------------------------- | ---------------------------- |
-| Dependency       | `BlitzLlamaSDK`                 | `VWO_Insights`               |
-| API Key Location | AppDelegate.swift               | AppDelegate.swift            |
-| User Creation    | Separate `createUser()` call    | Passed during initialization |
-| Trigger Method   | `triggerEvent()`                | `trackEvent()`               |
-| SDK Manager      | `BlitzLlamaSDK.getSdkManager()` | `VWO.getSurveyManager()`     |
-| User Attributes  | `setUserAttribute()`            | `setAttribute()`             |
+| Feature          | Blitzllama SDK                  | VWO Pulse SDK                                                     |
+| ---------------- | ------------------------------- | ----------------------------------------------------------------- |
+| Dependency       | `BlitzLlamaSDK`                 | `VWO_Insights`                                                    |
+| API Key Location | AppDelegate.swift               | AppDelegate.swift                                                 |
+| User Creation    | Separate `createUser()` call    | Passed during initialization (optional), then use `setUserId()` to switch users |
+| User Switching   | `logout()`                      | `setUserId(newUserId, completion)`                                |
+| Trigger Method   | `triggerEvent()`                | `trackEvent()`                                                    |
+| SDK Manager      | `BlitzLlamaSDK.getSdkManager()` | `VWO.getSurveyManager()`                                          |
+| User Attributes  | `setUserAttribute()`            | `setAttribute()`                                                  |
 
 ***
 
@@ -69,6 +70,11 @@ The most significant change is in how the SDK is initialized and how users are i
 
 The most significant change is in how the SDK is initialized and how users are identified.
 
+**Key Points:**
+- User ID can be passed during initialization in `VWO.configure()` (optional)
+- Use `setUserId()` later to switch users or identify users after they log in
+- For anonymous users, you can pass nil, or "" or a random string with `setUserId()`
+
 ## Blitzllama Approach (Before)
 
 ```swift
@@ -102,17 +108,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, 
                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        // User ID is now part of initialization
+        // User ID is optional during initialization
+        // Pass nil or "" for anonymous users, or actual user ID if known
         VWO.configure(
             accountId: "your_account_id",  // Account ID from VWO dashboard
             sdkKey: "your_sdk_key",        // SDK Key from VWO dashboard
-            userId: "user_id"              // Unique user identifier
+            userId: nil                    // User ID (optional) - use nil for anonymous, or "user_id" if known
         ) { result in
             switch result {
             case .success(_):
                 print("VWO SDK initialized successfully")
                 // Safe to trigger surveys now
                 VWO.startSessionRecording()
+                
+                // If user logs in later, use setUserId() to identify them:
+                // VWO.setUserId("user_id") { result in ... }
             case .failure(let error):
                 print("VWO SDK initialization failed: \(error)")
             }
@@ -125,9 +135,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ## Key Changes
 
-1. **No longer extend SDK class** - Your Application class extends Application instead of BlitzLlamaSDK
-2. **User ID at initialization** - User identifier is passed in ClientConfiguration, not via separate `createUser()` call
-3. **Callback-based initialization** - VWO uses explicit success/failure callbacks
+1. **No longer extend SDK class** - Your Application class extends `UIResponder` and `UIApplicationDelegate` instead of extending Blitzllama SDK
+2. **User ID is optional at initialization** - User identifier can be passed in `VWO.configure()` (use `nil` or `""` for anonymous users), or set later using `setUserId()`
+3. **Use `setUserId()` to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
+4. **Callback-based initialization** - VWO uses explicit success/failure callbacks
 
 ***
 
@@ -191,13 +202,14 @@ let surveySDK = VWO.getSurveyManager()
 
 // Supports different value types (String, Int, Bool, etc.)
 let attributes: [String: Any] = [
-    "user_id": "user_123" // Please make sure you add user_id in every setAttribute call you make
     "user_email": "user@example.com",
     "user_name": "John Doe"
 ]
 
 surveySDK.setAttribute(attributes: attributes)
 ```
+
+> 📘 **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
 
 ## Setting Custom User Attributes
 
@@ -217,7 +229,6 @@ let surveySDK = VWO.getSurveyManager()
 
 // Supports different value types (String, Int, Bool, etc.)
 let attributes: [String: Any] = [
-    "user_id": "user_123" // Please make sure you add user_id in every setAttribute call you make
     "plan_type": "premium",
     "user_level": 5,        // Can use actual number type
     "is_active": true       // Can use boolean
@@ -226,7 +237,7 @@ let attributes: [String: Any] = [
 surveySDK.setAttribute(attributes: attributes)
 ```
 
-> 📘 **Note:** VWO uses `setAttribute()` instead of `updateUserAttributes()`. Data types are automatically inferred, so you don't need to specify them explicitly. You can pass multiple attributes in a single dictionary.
+> 📘 **Note:** VWO uses `setAttribute()` instead of `updateUserAttributes()`. Data types are automatically inferred, so you don't need to specify them explicitly. You can pass multiple attributes in a single dictionary. The SDK automatically associates attributes with the current user ID.
 
 ***
 
@@ -249,7 +260,7 @@ This API remains largely the same.
 
 ***
 
-# Step 7: Handle User Logout (If Applicable)
+# Step 7: Handle User Switching
 
 ## Blitzllama (Before)
 
@@ -259,27 +270,58 @@ BlitzLlamaSDK.logout()
 
 ## VWO Pulse (After)
 
-VWO Pulse handles user sessions differently. To switch users, re-initialize the SDK with a new ClientConfiguration containing the new user's ID:
+VWO Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+
+### Switching to a New User
+
+Use `setUserId()` when your user logs in or switches accounts:
 
 ```swift
-// When user logs out and a new user logs in
-let surveySDK = VWO.getSurveyManager()
-surveySDK.logout()  // Clears survey-related data
+import VWO_Insights
 
-// Re-initialize with new user
-VWO.configure(
-    accountId: "your_account_id",
-    sdkKey: "your_sdk_key",
-    userId: "new_user_id"
-) { result in
+// When user logs in or switches account
+VWO.setUserId("new_user_id") { result in
     switch result {
-    case .success(_):
-        VWO.startSessionRecording()
+    case .success(let message):
+        print("User switch complete: \(message)")
+        // Recording resumes automatically if it was active before
+        
     case .failure(let error):
-        print("Re-initialization failed: \(error)")
+        print("User switch failed: \(error.localizedDescription)")
     }
 }
 ```
+
+### Switching to Anonymous User (Logout)
+
+If your user logs out and you want to track them as anonymous, generate a random user ID:
+
+```swift
+import Foundation
+
+// When user logs out
+let randomUserId = UUID().uuidString
+VWO.setUserId(randomUserId) { result in
+    switch result {
+    case .success(let message):
+        print("Now tracking as anonymous user")
+        
+    case .failure(let error):
+        print("Failed to switch to anonymous: \(error.localizedDescription)")
+    }
+}
+```
+
+### Key Differences
+
+| Blitzllama                      | VWO Pulse                                         |
+| ------------------------------- | ------------------------------------------------- |
+| `BlitzLlamaSDK.logout()`        | No direct logout method                           |
+| N/A                             | `VWO.setUserId(userId, completion)`               |
+| Logout clears session           | Use random string for anonymous tracking          |
+| Requires re-initialization      | `setUserId()` handles session refresh internally  |
+
+> 📘 **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
 
 ***
 
@@ -375,7 +417,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 
                 // Set attributes after initialization
                 let surveySDK = VWO.getSurveyManager()
-                surveySDK.setAttribute(attributes: ["user_id": "user_123", "plan": "premium"])
+                surveySDK.setAttribute(attributes: ["plan": "premium"])
                 surveySDK.setLanguageCode("en")
                 
             case .failure(let error):
@@ -451,7 +493,7 @@ VWO.configure(
 
 * [ ] Updated Podfile dependency from `Blitzllama-ios` to `VWO-Insights`
 * [ ] Updated Application class initialization
-* [ ] Replaced `createUser()` with user ID in ClientConfiguration
+* [ ] Replaced `createUser()` with `setUserId()` for user identification
 * [ ] Changed `triggerEvent()` calls to `trackEvent()`
 * [ ] Updated `setUserAttribute()` to `setAttribute()`
 * [ ] Updated import statements
@@ -464,7 +506,7 @@ VWO.configure(
 
 | Component                               | Version |
 | --------------------------------------- | ------- |
-| VWO Pulse SDK Version                   | 2.1.0+  |
+| VWO Pulse SDK Version                   | 2.2.0+  |
 | Minimum iOS Version                     | 12.0    |
 | Swift Version                           | 5.0+    |
 | Blitzllama SDK Version (migrating from) | 1.6.29  |
