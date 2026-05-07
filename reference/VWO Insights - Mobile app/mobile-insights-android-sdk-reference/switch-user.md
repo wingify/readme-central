@@ -33,7 +33,6 @@ public static boolean setUserId(String userId, IVwoInitCallback initCallBack)
 * Updates client identity and refreshes server configuration for the new `userId`.
 * Does not auto-start recording. Call `startSessionRecording()` in `vwoInitSuccess` when you want recording to resume.
 
-**Kotlin**
 
 ```kotlin
 import com.vwo.insights.VWOInsights
@@ -49,9 +48,6 @@ val accepted = VWOInsights.setUserId("user-123", object : IVwoInitCallback {
     }
 })
 ```
-
-**Java**
-
 ```java
 import com.vwo.insights.VWOInsights;
 import com.vwo.insights.exposed.IVwoInitCallback;
