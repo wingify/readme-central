@@ -22,7 +22,7 @@ This guide helps you migrate your Android application from the **Blitzllama SDK*
 
 | Feature          | Blitzllama SDK                    | VWO Pulse SDK                       |
 | ---------------- | --------------------------------- | ----------------------------------- |
-| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.1.0`            |
+| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.2.0`            |
 | API Key Location | AndroidManifest.xml               | ClientConfiguration object          |
 | User Creation    | Separate `createUser()` call      | Passed during initialization        |
 | Trigger Method   | `triggerEvent()`                  | `trackEvent()`                      |
@@ -51,7 +51,7 @@ dependencies {
 ```groovy
 // app/build.gradle
 dependencies {
-    implementation 'com.vwo:insights:2.1.0'
+    implementation 'com.vwo:insights:2.2.0'
 }
 ```
 
