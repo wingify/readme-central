@@ -14,15 +14,15 @@ This guide helps you migrate your **survey implementation from Blitzllama React 
 
 ## High-Level Differences
 
-| Area                 | Blitzllama                  | VWO Pulse                                      |
-| -------------------- | --------------------------- | ---------------------------------------------- |
-| SDK Purpose          | In-app surveys & feedback   | In-app surveys with advanced targeting         |
-| Initialization       | App key / environment-based | `ACCOUNT_ID` & `SDK_KEY`                       |
-| Event-based triggers | Yes                         | Yes                                            |
-| User attributes      | Yes                         | Yes                                            |
-| User identification  | Yes                         | Yes                                            |
-| Language handling    | Explicit / SDK-based        | Auto-detected from device (override supported) |
-| Logout handling      | `logout()`                  | Not required                                   |
+| Area                 | Blitzllama                  | VWO Pulse                                                     |
+| -------------------- | --------------------------- | ------------------------------------------------------------- |
+| SDK Purpose          | In-app surveys & feedback   | In-app surveys with advanced targeting                        |
+| Initialization       | App key / environment-based | `ACCOUNT_ID` & `SDK_KEY`                                      |
+| Event-based triggers | Yes                         | Yes                                                           |
+| User attributes      | Yes                         | Yes                                                           |
+| User identification  | Yes                         | Passed during initialization (optional), then use `setUserId()` |
+| User switching       | `logout()`                  | `setUserId(randomString)`                                        |
+| Language handling    | Explicit / SDK-based        | Auto-detected from device (override supported)                |
 
 ***
 
@@ -60,6 +60,11 @@ cd ios && pod install && cd ..
 
 # Step 2: Update SDK Initialization
 
+**Key Points:**
+- User ID can be passed during initialization (optional)
+- Use `setUserId()` later to switch users or identify users after they log in
+- For anonymous users, you can pass an empty string (`""`) during initialization or use a random string with `setUserId()`
+
 ## Blitzllama (Before)
 
 ```javascript
@@ -82,11 +87,12 @@ class ReactNativeVwoApp : Application() {
     override fun onCreate() {
         super.onCreate()
         
+        // User ID is optional - use "" for anonymous users
         VwoInsightsReactNativeSdkModule.init(
             this,
             "your_account_id",
             "your_sdk_key",
-            "user_id"
+            ""  // User ID (optional) - use "" for anonymous, or "user_id" if known
         )
     }
 }
@@ -107,13 +113,19 @@ Register the Application class in `AndroidManifest.xml`:
 import { config } from 'vwo-insights-react-native-sdk';
 
 React.useEffect(() => {
-    config(ACCOUNT_ID, SDK_KEY, USER_ID);
+    // User ID is optional - use '' for anonymous users
+    config(ACCOUNT_ID, SDK_KEY, '');  // User ID (optional) - use '' for anonymous, or 'user_id' if known
+    
+    // If user logs in later, use setUserId() to identify them:
+    // setUserId('user_id').then(success => { ... });
 }, []);
 ```
 
 > 📘 **Migration Note**
 >
 > * Replace Blitz API Key with VWO `ACCOUNT_ID` & `SDK_KEY`
+> * User ID is optional during initialization
+> * Use `setUserId()` to identify or switch users after initialization
 > * Initialization must happen before triggering surveys
 
 ***
@@ -186,12 +198,13 @@ Blitzllama.setUserAttributes('attribute_name', 'attribute_value', 'attribute_dat
 import { setAttribute } from 'vwo-insights-react-native-sdk';
 
 setAttribute({
-  user_id: 'user_123', // Please make sure you add user_id in every setAttribute call you make
   userType: 'premium',
   subscriptionPlan: 'annual',
   accountAge: '6months'
 });
 ```
+
+> 📘 **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
 
 ## Setting User Email and Name
 
@@ -206,7 +219,6 @@ Blitzllama.setUserEmail('john@example.com');
 
 ```javascript
 setAttribute({
-  'user_id': 'user_123', // Please make sure you add user_id in every setAttribute call you make
   'user_name': 'John Doe',
   'user_email': 'john@example.com'
 });
@@ -240,7 +252,7 @@ setSurveyLanguage('en'); // ISO 639-1
 
 ***
 
-# Step 7: Handle User Logout
+# Step 7: Handle User Switching
 
 ## Blitzllama (Before)
 
@@ -250,7 +262,56 @@ Blitz.logout();
 
 ## VWO Pulse (After)
 
-Logout handling is no longer required in VWO Pulse.
+VWO Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+
+### Switching to a New User
+
+Use `setUserId()` when your user logs in or switches accounts:
+
+```javascript
+import { setUserId } from 'vwo-insights-react-native-sdk';
+
+// When user logs in or switches account
+try {
+  const success = await setUserId('new_user_id');
+  if (success) {
+    console.log('User switch complete');
+    // Recording resumes automatically if it was active before
+  }
+} catch (error) {
+  console.error('User switch failed:', error);
+}
+```
+
+### Switching to Anonymous User (Logout)
+
+If your user logs out and you want to track them as anonymous, generate a random user ID:
+
+```javascript
+import { setUserId } from 'vwo-insights-react-native-sdk';
+
+// When user logs out - generate random ID for anonymous tracking
+const randomUserId = Math.random().toString(36).substring(7);
+
+try {
+  const success = await setUserId(randomUserId);
+  if (success) {
+    console.log('Now tracking as anonymous user');
+  }
+} catch (error) {
+  console.error('Failed to switch to anonymous:', error);
+}
+```
+
+### Key Differences
+
+| Blitzllama           | VWO Pulse                                        |
+| -------------------- | ------------------------------------------------ |
+| `Blitz.logout()`     | No direct logout method                          |
+| N/A                  | `setUserId(userId)` returns `Promise<boolean>`   |
+| Logout clears session| Use random string for anonymous tracking         |
+
+> 📘 **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
 
 ***
 
@@ -300,15 +361,15 @@ useEffect(() => {
 | `setUserName()`                           | `setAttribute({ 'user_name': 'Name' })`   |
 | `setUserEmail()`                          | `setAttribute({ 'user_email': 'email' })` |
 | `setSurveyLanguage()`                     | `setSurveyLanguage()`                     |
-| `logout()`                                | Not required                              |
+| `logout()`                                | `setUserId(randomString)` for anonymous   |
 
 ***
 
 # Import Statement Changes
 
-| Blitzllama Import                                  | VWO Pulse Import                                                                                      |
-| -------------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `import Blitzllama from 'blitzllama-react-native'` | `import { config, trackEvent, setAttribute, setSurveyLanguage } from 'vwo-insights-react-native-sdk'` |
+| Blitzllama Import                                  | VWO Pulse Import                                                                                               |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `import Blitzllama from 'blitzllama-react-native'` | `import { config, setUserId, trackEvent, setAttribute, setSurveyLanguage } from 'vwo-insights-react-native-sdk'` |
 
 ***
 
@@ -352,7 +413,7 @@ useEffect(() => {
 * [ ] Updated `setUserAttributes()` to `setAttribute()`
 * [ ] Updated `setUserName()` and `setUserEmail()` to `setAttribute()`
 * [ ] Updated `setSurveyLanguage()` import
-* [ ] Removed `logout()` calls (no longer needed)
+* [ ] Replaced `logout()` calls with `setUserId()` for user switching
 * [ ] Configured events in VWO dashboard
 * [ ] Tested survey triggering in the app
 
