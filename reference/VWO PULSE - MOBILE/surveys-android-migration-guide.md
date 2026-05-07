@@ -20,15 +20,15 @@ This guide helps you migrate your Android application from the **Blitzllama SDK*
 
 ## Migration Summary
 
-| Feature          | Blitzllama SDK                    | VWO Pulse SDK                                                |
-| ---------------- | --------------------------------- | ------------------------------------------------------------ |
-| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.2.0`                                     |
-| API Key Location | AndroidManifest.xml               | ClientConfiguration object                                   |
+| Feature          | Blitzllama SDK                    | VWO Pulse SDK                                                                   |
+| ---------------- | --------------------------------- | ------------------------------------------------------------------------------- |
+| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.2.0`                                                        |
+| API Key Location | AndroidManifest.xml               | ClientConfiguration object                                                      |
 | User Creation    | Separate `createUser()` call      | Passed during initialization (optional), then use `setUserId()` to switch users |
-| User Switching   | `logout()`                        | `setUserId(newUserId, callback)`                             |
-| Trigger Method   | `triggerEvent()`                  | `trackEvent()`                                               |
-| SDK Manager      | `BlitzLlamaSDK.getSdkManager()`   | `VWOInsights.getSurveySdkManager()`                          |
-| User Attributes  | `setUserAttribute()`              | `setAttribute()`                                             |
+| User Switching   | `logout()`                        | `setUserId(randomString)`                                                       |
+| Trigger Method   | `triggerEvent()`                  | `trackEvent()`                                                                  |
+| SDK Manager      | `BlitzLlamaSDK.getSdkManager()`   | `VWOInsights.getSurveySdkManager()`                                             |
+| User Attributes  | `setUserAttribute()`              | `setAttribute()`                                                                |
 
 ***
 
@@ -84,9 +84,10 @@ VWO Pulse does not require manifest configuration. Credentials are passed progra
 The most significant change is in how the SDK is initialized and how users are identified.
 
 **Key Points:**
-- User ID can be passed during initialization in `ClientConfiguration` (optional)
-- Use `setUserId()` later to switch users or identify users after they log in
-- For anonymous users, you can pass an empty string (`""`) during initialization or use a random string with `setUserId()`
+
+* User ID can be passed during initialization in `ClientConfiguration` (optional)
+* Use `setUserId()` later to switch users or identify users after they log in
+* For anonymous users, you can pass an empty string (`""`) during initialization or use a random string with `setUserId()`
 
 ## Blitzllama Approach (Before)
 
@@ -483,8 +484,6 @@ VWO Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to s
 
 Use `setUserId()` when your user logs in or switches accounts:
 
-
-
 ```java
 import com.vwo.insights.VWOInsights;
 import com.vwo.insights.exposed.IVwoInitCallback;
@@ -564,12 +563,12 @@ VWOInsights.setUserId(randomUserId, object : IVwoInitCallback {
 
 ### Key Differences
 
-| Blitzllama                      | VWO Pulse                                         |
-| ------------------------------- | ------------------------------------------------- |
-| `BlitzLlamaSDK.logout()`        | No direct logout method                           |
-| N/A                             | `VWOInsights.setUserId(userId, callback)`         |
-| Logout clears session           | Use random string for anonymous tracking          |
-| Requires re-initialization      | `setUserId()` handles session refresh internally  |
+| Blitzllama                 | VWO Pulse                                        |
+| -------------------------- | ------------------------------------------------ |
+| `BlitzLlamaSDK.logout()`   | No direct logout method                          |
+| N/A                        | `VWOInsights.setUserId(userId, callback)`        |
+| Logout clears session      | Use random string for anonymous tracking         |
+| Requires re-initialization | `setUserId()` handles session refresh internally |
 
 > 📘 **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
 
