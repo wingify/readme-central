@@ -36,7 +36,7 @@ This will add a line like the one below to your package.json file.
 
 "dependencies": {
 	// other code
-	vwo-insights-react-native-sdk: 2.2.0
+	"vwo-insights-react-native-sdk": "2.2.0"
 	// other code
 }
 
