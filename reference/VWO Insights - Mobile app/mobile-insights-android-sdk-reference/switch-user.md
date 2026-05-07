@@ -13,27 +13,25 @@ metadata:
 ```kotlin
 fun setUserId(userId: String, initCallBack: IVwoInitCallback?): Boolean
 ```
-
 ```java
 public static boolean setUserId(String userId, IVwoInitCallback initCallBack)
 ```
 
 **Parameters**
 
-- `userId` — Non-blank string. Blank values return `false`.
-- `initCallBack` — Optional. Invoked when configuration refresh finishes after the switch (`vwoInitSuccess` / `vwoInitFailed`), similar to init.
+* `userId` — Non-blank string. Blank values return `false`.
+* `initCallBack` — Optional. Invoked when configuration refresh finishes after the switch (`vwoInitSuccess` / `vwoInitFailed`), similar to init.
 
 **Returns**
 
-- `true` — Request accepted locally; refresh started.
-- `false` — Rejected (blank `userId`, or SDK not initialized).
+* `true` — Request accepted locally; refresh started.
+* `false` — Rejected (blank `userId`, or SDK not initialized).
 
 **Behavior**
 
-- Stops the current recording/session for the previous user.
-- Updates client identity and refreshes server configuration for the new `userId`.
-- If recording was active before the switch, it automatically resumes after configuration refresh completes. If recording was stopped, it remains stopped.
-
+* Stops the current recording/session for the previous user.
+* Updates client identity and refreshes server configuration for the new `userId`.
+* If recording was active before the switch, it automatically resumes after configuration refresh completes. If recording was stopped, it remains stopped.
 
 ```kotlin
 import com.vwo.insights.VWOInsights
