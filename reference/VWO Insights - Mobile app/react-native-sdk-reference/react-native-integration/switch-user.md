@@ -1,5 +1,5 @@
 ---
-title: Switch User
+title: Switch User - Available from version 2.2.0
 excerpt: Set or update the current user identifier for VWO Insights.
 deprecated: false
 hidden: false
