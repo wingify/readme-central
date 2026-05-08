@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+## Event Hooks
+
 ### Overview
 
 The `addPreHook` and `addPostHook` APIs register callbacks that run **before and after certain event sync requests** are sent. They are **not** a single global wrapper around every `window.VWO.*` call or every outbound HTTP request.
