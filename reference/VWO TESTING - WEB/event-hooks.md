@@ -20,7 +20,7 @@ The `addPreHook` and `addPostHook` APIs register callbacks that run **before and
 
 * **Post-hook (`addPostHook`)**: Runs **after the network request completes** for that sync. The callback's **return value does not change** what was already sent; use post-hooks for side effects (tags, logging, forwarding).
 
-Scope details (supported vs not supported, dashboard labels, and lifecycle/identity APIs that bypass generic hooks) are summarized under **Notes** below.
+Scope details are summarized under **Notes** below.
 
 ### API Signature
 
