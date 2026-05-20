@@ -6773,7 +6773,7 @@
         "deprecated": false
       },
       "patch": {
-        "summary": "Update integration settings for specific account",
+        "summary": "Delete integration connection for specific account integration",
         "description": "",
         "operationId": "update-third-party-integrations-for-account",
         "parameters": [
