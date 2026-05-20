@@ -8279,7 +8279,8 @@
             "schema": {
               "type": "string"
             },
-            "required": true
+            "required": true,
+            "description": "Unique identifier of the integration connection that should be deleted."
           }
         ],
         "requestBody": {
