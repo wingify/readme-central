@@ -6669,7 +6669,7 @@
     },
     "/accounts/{account_id}/integrations": {
       "get": {
-        "summary": "Get integration settings of a Workspace",
+        "summary": "Get integrations of a Workspace",
         "description": "",
         "operationId": "third-party-integrations-of-current--sub-account",
         "parameters": [
