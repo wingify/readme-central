@@ -6772,7 +6772,7 @@
         },
         "deprecated": false
       },
-      "patch": {
+      "delete": {
         "summary": "Delete integration connection for specific account integration",
         "description": "",
         "operationId": "update-third-party-integrations-for-account",
