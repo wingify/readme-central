@@ -9,7 +9,7 @@ metadata:
   description: ''
   robots: noindex
 ---
-Request URI for Sub Account
+Request URI
 
 ```
 DELETE /api/v2/accounts/{account_id}/connection/{connection_id}
