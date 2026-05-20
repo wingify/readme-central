@@ -1,5 +1,4 @@
 ---
-title: Update integration settings for specific account
 excerpt: ''
 api:
   file: api.json
