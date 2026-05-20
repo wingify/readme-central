@@ -8258,7 +8258,7 @@
         ]
       }
     },
-    "/accounts/{account_id}/connector/{connection_id}": {
+    "/accounts/{account_id}/connection/{connection_id}": {
       "delete": {
         "summary": "Delete Integration Connection for a Specific Account Integration",
         "description": "Deletes an existing integration connection for the specified account and connection ID.",
