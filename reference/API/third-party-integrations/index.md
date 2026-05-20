@@ -1,7 +1,7 @@
 ---
 title: Third-party Integrations
 deprecated: true
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''
