@@ -6676,7 +6676,7 @@
           {
             "name": "account_id",
             "in": "path",
-            "description": "Workspace ID",
+            "description": "Use 'current' keyword to refer to the Main Workspace or the Integer Workspace Id",
             "schema": {
               "type": "string"
             },
