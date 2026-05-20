@@ -1,5 +1,4 @@
 ---
-title: Get integration settings of a Workspace
 excerpt: ''
 api:
   file: api.json
