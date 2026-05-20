@@ -12,7 +12,7 @@ metadata:
 Request URI for Sub Account
 
 ```
-PATCH /accounts/1/integrations
+DELETE /api/v2/accounts/{account_id}/connector/{connection_id}
 ```
 
 <br />
