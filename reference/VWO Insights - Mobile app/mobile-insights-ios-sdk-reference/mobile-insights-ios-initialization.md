@@ -19,7 +19,8 @@ After, add the following Initialization code inside the function ->
 _func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)_
 
 ```swift
-// If your app is purely written in SwiftUI only, then feel free to pass isSwiftUI as true in the function below - eg. VWO.configure(accountId: "", sdkKey: "", userId: "", isSwiftUI: true)
+// From SDK version 2.2.0 and above, If your app is purely and fully written in SwiftUI, then feel free to pass isSwiftUI as true in the function below - 
+//eg. VWO.configure(accountId: "", sdkKey: "", userId: "", isSwiftUI: true)
 
 VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the VWO account
       switch result{
