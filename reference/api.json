@@ -6771,207 +6771,6 @@
           }
         },
         "deprecated": false
-      },
-      "delete": {
-        "summary": "Delete integration connection for specific account integration",
-        "description": "",
-        "operationId": "update-third-party-integrations-for-account",
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "Use 'current' keyword to refer to the Main Account or the Integer Sub Account Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "ga": {
-                    "properties": {
-                      "": {
-                        "type": "array",
-                        "description": "Information regarding Google Analytics",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Google Analytics whether enabled or not"
-                      },
-                      "slot": {
-                        "type": "integer",
-                        "description": "Google Analytics Slot",
-                        "format": "int32"
-                      },
-                      "prefix": {
-                        "type": "string",
-                        "description": "Google Analytics Account prefix"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "ua": {
-                    "properties": {
-                      "": {
-                        "type": "array",
-                        "description": "Universal Analytics Settings",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "enabled": {
-                        "type": "string",
-                        "description": "Universal Analytics whether enabled or not"
-                      },
-                      "dimension": {
-                        "type": "string",
-                        "description": "Custom Dimension used inside Google Analytics"
-                      },
-                      "prefix": {
-                        "type": "string",
-                        "description": "Google Analytics Account prefix"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "gtm": {
-                    "properties": {
-                      "": {
-                        "type": "string",
-                        "description": "Settings for Google Tag Manager"
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Google Tag Manager whether enabled or not"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "clicktale": {
-                    "properties": {
-                      "": {
-                        "type": "array",
-                        "description": "ClickTale Settings",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Clicktale whether enabled or not"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "isGaPremium": {
-                    "type": "boolean",
-                    "description": "Whether Google Analytics is premium"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "200",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n  \"_data\": {\n    \"ga\": {\n      \"enabled\": true,\n      \"slot\": 4,\n      \"prefix\": \"\"\n    },\n    \"ua\": {\n      \"enabled\": false,\n      \"dimension\": 1,\n      \"prefix\": \"\"\n    },\n    \"gtm\": {\n      \"enabled\": false\n    },\n    \"clicktale\": {\n      \"enabled\": false\n    },\n    \"isGaPremium\": false\n  }\n}"
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "_data": {
-                      "type": "object",
-                      "properties": {
-                        "ga": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": true,
-                              "default": true
-                            },
-                            "slot": {
-                              "type": "integer",
-                              "example": 4,
-                              "default": 0
-                            },
-                            "prefix": {
-                              "type": "string",
-                              "example": ""
-                            }
-                          }
-                        },
-                        "ua": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": false,
-                              "default": true
-                            },
-                            "dimension": {
-                              "type": "integer",
-                              "example": 1,
-                              "default": 0
-                            },
-                            "prefix": {
-                              "type": "string",
-                              "example": ""
-                            }
-                          }
-                        },
-                        "gtm": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": false,
-                              "default": true
-                            }
-                          }
-                        },
-                        "clicktale": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": false,
-                              "default": true
-                            }
-                          }
-                        },
-                        "isGaPremium": {
-                          "type": "boolean",
-                          "example": false,
-                          "default": true
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
       }
     },
     "/accounts/billing-details": {
@@ -8457,6 +8256,209 @@
             "required": true
           }
         ]
+      }
+    },
+    "/accounts/{account_id}/connector/783": {
+      "delete": {
+        "summary": "Delete integration connection for specific account integration",
+        "description": "",
+        "operationId": "update-third-party-integrations-for-account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "Use 'current' keyword to refer to the Main Account or the Integer Sub Account Id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ga": {
+                    "properties": {
+                      "": {
+                        "type": "array",
+                        "description": "Information regarding Google Analytics",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "description": "Google Analytics whether enabled or not"
+                      },
+                      "slot": {
+                        "type": "integer",
+                        "description": "Google Analytics Slot",
+                        "format": "int32"
+                      },
+                      "prefix": {
+                        "type": "string",
+                        "description": "Google Analytics Account prefix"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  },
+                  "ua": {
+                    "properties": {
+                      "": {
+                        "type": "array",
+                        "description": "Universal Analytics Settings",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "enabled": {
+                        "type": "string",
+                        "description": "Universal Analytics whether enabled or not"
+                      },
+                      "dimension": {
+                        "type": "string",
+                        "description": "Custom Dimension used inside Google Analytics"
+                      },
+                      "prefix": {
+                        "type": "string",
+                        "description": "Google Analytics Account prefix"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  },
+                  "gtm": {
+                    "properties": {
+                      "": {
+                        "type": "string",
+                        "description": "Settings for Google Tag Manager"
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "description": "Google Tag Manager whether enabled or not"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  },
+                  "clicktale": {
+                    "properties": {
+                      "": {
+                        "type": "array",
+                        "description": "ClickTale Settings",
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "enabled": {
+                        "type": "boolean",
+                        "description": "Clicktale whether enabled or not"
+                      }
+                    },
+                    "required": [],
+                    "type": "object"
+                  },
+                  "isGaPremium": {
+                    "type": "boolean",
+                    "description": "Whether Google Analytics is premium"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"_data\": {\n    \"ga\": {\n      \"enabled\": true,\n      \"slot\": 4,\n      \"prefix\": \"\"\n    },\n    \"ua\": {\n      \"enabled\": false,\n      \"dimension\": 1,\n      \"prefix\": \"\"\n    },\n    \"gtm\": {\n      \"enabled\": false\n    },\n    \"clicktale\": {\n      \"enabled\": false\n    },\n    \"isGaPremium\": false\n  }\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "_data": {
+                      "type": "object",
+                      "properties": {
+                        "ga": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": true,
+                              "default": true
+                            },
+                            "slot": {
+                              "type": "integer",
+                              "example": 4,
+                              "default": 0
+                            },
+                            "prefix": {
+                              "type": "string",
+                              "example": ""
+                            }
+                          }
+                        },
+                        "ua": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": false,
+                              "default": true
+                            },
+                            "dimension": {
+                              "type": "integer",
+                              "example": 1,
+                              "default": 0
+                            },
+                            "prefix": {
+                              "type": "string",
+                              "example": ""
+                            }
+                          }
+                        },
+                        "gtm": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": false,
+                              "default": true
+                            }
+                          }
+                        },
+                        "clicktale": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": false,
+                              "default": true
+                            }
+                          }
+                        },
+                        "isGaPremium": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
       }
     }
   },
