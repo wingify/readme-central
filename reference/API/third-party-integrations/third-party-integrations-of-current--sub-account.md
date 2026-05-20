@@ -23,8 +23,7 @@ This API endpoint allows you to fetch all integration connections configured for
 Use this endpoint when:
 
 * retrieving all connected third-party integrations for an account
-* validating existing integration configurations
 * displaying connected integrations in an admin dashboard
 * auditing or managing workspace integrations
 
-The endpoint returns the list of integrations associated with the provided `account_id`, including their configuration details and connection metadata.
+The endpoint returns the list of integrations associated with the provided `account_id`, including their  connections metadata.
