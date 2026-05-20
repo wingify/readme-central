@@ -8258,7 +8258,7 @@
         ]
       }
     },
-    "/accounts/{account_id}/connector/783": {
+    "/accounts/{account_id}/connector/{connection_id}": {
       "delete": {
         "summary": "Delete integration connection for specific account integration",
         "description": "",
@@ -8272,6 +8272,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "in": "path",
+            "name": "connection_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
           }
         ],
         "requestBody": {
