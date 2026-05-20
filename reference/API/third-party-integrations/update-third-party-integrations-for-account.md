@@ -12,7 +12,7 @@ metadata:
 Request URI for Sub Account
 
 ```
-DELETE /api/v2/accounts/{account_id}/connector/{connection_id}
+DELETE /api/v2/accounts/{account_id}/connection/{connection_id}
 ```
 
 <br />
