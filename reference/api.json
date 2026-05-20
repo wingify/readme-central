@@ -8260,8 +8260,8 @@
     },
     "/accounts/{account_id}/connector/{connection_id}": {
       "delete": {
-        "summary": "Delete integration connection for specific account integration",
-        "description": "",
+        "summary": "Delete Integration Connection for a Specific Account Integration",
+        "description": "Deletes an existing integration connection for the specified account and connection ID.",
         "operationId": "update-third-party-integrations-for-account",
         "parameters": [
           {
