@@ -25,8 +25,8 @@ import VWO_Insights_ios_flutter_sdk
 class AppDelegate: UIResponder, UIApplicationDelegate {
      
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-         
-    VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the VWO account
+         // Please make sure you pass isFlutter as true in config parameters from SDK version 2.2.0 and onwards
+    VWO.configure(accountId: "", sdkKey: "", userId: "", isFlutter: true){ result in // where accountID and sdkKey are provided on the VWO account
      		 switch result{
 		     case .success(_):
     	 			print("VWO launched successfull")
