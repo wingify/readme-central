@@ -56,185 +56,28 @@ VWO.init(vwoInitOptions, new IVwoInitCallback() {
 });
 ```
 
-The `init()` method is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature\
+The `init()` method is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Parameter
-      </th>
-
-      <th>
-        Type
-      </th>
-
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        **accountId**
-        *Required*
-      </td>
-
-      <td>
-        Integer
-      </td>
-
-      <td>
-        VWO Account ID for authentication.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **sdkKey**
-        *Required*
-      </td>
-
-      <td>
-        String
-      </td>
-
-      <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **Default Project**.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **pollInterval**
-        *Optional*
-      </td>
-
-      <td>
-        Integer
-      </td>
-
-      <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **storage**
-        *Optional*
-      </td>
-
-      <td>
-        Object
-      </td>
-
-      <td>
-        Custom storage connector for persisting user decisions and campaign data.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **logger**
-        *Optional*
-      </td>
-
-      <td>
-        Object
-      </td>
-
-      <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-android-logging)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **integrations**
-        *Optional*
-      </td>
-
-      <td>
-        Object
-      </td>
-
-      <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-android-integrations)
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **cachedSettingsExpiryTime**
-        *Optional*
-      </td>
-
-      <td>
-        Integer
-      </td>
-
-      <td>
-        Controls the duration (in milliseconds) the SDK uses cached settings before fetching new ones.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **batchMinSize**
-        *Optional*
-      </td>
-
-      <td>
-        Integer
-      </td>
-
-      <td>
-        Uploads are triggered when the batch reaches this minimum size.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **batchUploadTimeInterval**
-        *Optional*
-      </td>
-
-      <td>
-        Integer
-      </td>
-
-      <td>
-        Specifies the time interval (in milliseconds) for periodic batch uploads.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **context**
-        *Optional*
-      </td>
-
-      <td>
-        Context
-      </td>
-
-      <td>
-        Android application context. When provided, SDK will use internal storage for persisting user decisions and campaign data.
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Parameter                               | Type    | Description                                                                                                                                                                                                                                                                                                                |
+| :-------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **accountId** _Required_                | Integer | VWO Account ID for authentication.                                                                                                                                                                                                                                                                                         |
+| **sdkKey** _Required_                   | String  | A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **Default Project**.                                                                                                                                                                                          |
+| **context** _Required_                  | Context | Android application context. When provided, SDK will use internal storage for persisting user decisions and campaign data.                                                                                                                                                                                                 |
+| **pollInterval** _Optional_             | Integer | Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) |
+| **storage** _Optional_                  | Object  | Custom storage connector for persisting user decisions and campaign data.                                                                                                                                                                                                                                                  |
+| **logger** _Optional_                   | Object  | An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-android-logging)                                                                                                                                                             |
+| **integrations** _Optional_             | Object  | A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-android-integrations)                                                                                              |
+| **cachedSettingsExpiryTime** _Optional_ | Integer | Controls the duration (in milliseconds) the SDK uses cached settings before fetching new ones.                                                                                                                                                                                                                             |
+| **batchMinSize** _Optional_             | Integer | Uploads are triggered when the batch reaches this minimum size.                                                                                                                                                                                                                                                            |
+| **batchUploadTimeInterval** _Optional_  | Integer | Specifies the time interval (in milliseconds) for periodic batch uploads.                                                                                                                                                                                                                                                  |
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the *vwoClient* on your mobile, it pulls the latest configurations you've done in the VWO application.\
-If/when you make any changes to the feature flags or rules within VWO after the *vwoClient* has been initialized on your mobile, there needs to be some way to update your *vwoClient* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwoClient_ on your mobile, it pulls the latest configurations you've done in the VWO application.  
+If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized on your mobile, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
