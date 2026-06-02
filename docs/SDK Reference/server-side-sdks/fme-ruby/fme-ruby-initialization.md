@@ -24,8 +24,7 @@ vwo_client = VWO.init({
 });
 ```
 
-The `init()` function is called with the `sdk_key`and `account_id`. It initializes and returns a VWO Client Object`vwo_client`, which can be used to perform feature  
-This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` function is called with the `sdk_key`and `account_id`. It initializes and returns a VWO Client Object`vwo_client`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -49,7 +48,7 @@ This client object allows you to run experiments, track events, and enable/disab
   <tbody>
     <tr>
       <td>
-        **account_id**
+        **account\_id**
         _Required_
       </td>
 
@@ -64,8 +63,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **sdk_key**  
-        _Required_
+        **sdk\_key**<br />_Required_
       </td>
 
       <td>
@@ -73,14 +71,13 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **_Default Project_**.
       </td>
     </tr>
 
     <tr>
       <td>
-        **poll_interval**  
-        _Optional_
+        **poll\_interval**<br />_Optional_
       </td>
 
       <td>
@@ -94,8 +91,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **logger**  
-        _Optional_
+        **logger**<br />_Optional_
       </td>
 
       <td>
@@ -109,8 +105,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **storage**  
-        _Optional_
+        **storage**<br />_Optional_
       </td>
 
       <td>
@@ -124,7 +119,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **retry_config** _Optional_
+        **retry\_config** _Optional_
       </td>
 
       <td>
@@ -132,14 +127,13 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Customize retry behavior by passing a **retry_config** in the init options. For more details, please check - [Retry Configuration](https://developers.vwo.com/v2/docs/fme-ruby-initialization#retry-configuration)
+        Customize retry behavior by passing a **retry\_config** in the init options. For more details, please check - [Retry Configuration](https://developers.vwo.com/v2/docs/fme-ruby-initialization#retry-configuration)
       </td>
     </tr>
 
     <tr>
       <td>
-        **gateway_service**  
-        _Optional_
+        **gateway\_service**<br />_Optional_
       </td>
 
       <td>
@@ -153,8 +147,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **integrations**  
-        _Optional_
+        **integrations**<br />_Optional_
       </td>
 
       <td>
@@ -182,7 +175,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **proxy_url** _Optional_
+        **proxy\_url** _Optional_
       </td>
 
       <td>
@@ -198,8 +191,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the _vwo_client_ on your server, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwo_client_ has been initialized in your server, there needs to be some way to update your _vwo_client_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwo\_client_ on your server, it pulls the latest configurations you've done in the VWO application.<br />If/when you make any changes to the feature flags or rules within VWO after the _vwo\_client_ has been initialized in your server, there needs to be some way to update your _vwo\_client_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -231,7 +223,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-ruby-logging) for mor
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each _get_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _get\_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```ruby
 # Init options with storage
@@ -246,7 +238,7 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-ruby-storage)  to lea
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```ruby
 # Init options with gateway_service
@@ -319,7 +311,7 @@ The SDK includes a built-in retry mechanism to improve reliability when network 
 vwo_client = VWO.init({
     account_id: '123456',
     sdk_key: '32-alpha-numeric-sdk-key',
-    retry_config = {
+    retry_config : {
       should_retry: true,
       max_retries: 3,
       initial_delay: 2,
@@ -328,7 +320,7 @@ vwo_client = VWO.init({
 })
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
 
 ### Proxy URL
 
@@ -345,4 +337,4 @@ vwo_client = VWO.init({
 })
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-ruby-proxy-url">here</Anchor> to learn more about Proxy URL.
+Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-ruby-proxy-url">here</Anchor> to learn more about Proxy URL.
