@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-After installing the SDK, initialize VWO Insights in your AppDelegate file by following the steps below:
+After installing the SDK, initialize Wingify Insights in your AppDelegate file by following the steps below:
 
 <br />
 

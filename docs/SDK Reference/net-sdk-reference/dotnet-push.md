@@ -14,18 +14,18 @@ next:
       slug: dotnet-get-and-update-settings-file
       title: Get And Update Settings File
 ---
-Pushes a custom dimension for a particular user to the VWO server. It is used for post-segmenting the data in the campaign reports.
+Pushes a custom dimension for a particular user to the Wingify server. It is used for post-segmenting the data in the campaign reports.
 
 ## Description
 
 The API method:
 
 * Validates the parameters passed
-* Sends a call to the VWO server for associating custom dimensions for the user to the same users that are part of the FullStack campaign.
+* Sends a call to the Wingify server for associating custom dimensions for the user to the same users that are part of the FullStack campaign.
 
 The API method accepts a custom dimension key - *customDimensionKey*, custom dimension value - *customDimensionValue*, and user-id - *userId*.
 
-*customDimensionKey* is the unique key associated with a particular custom dimension made in VWO application.\
+*customDimensionKey* is the unique key associated with a particular custom dimension made in Wingify application.\
 *customDimensionValue* is the value you want to tag a custom dimension with.\
 *userId* is the unique id associated with the user for identification.
 
@@ -100,7 +100,7 @@ The API method accepts a custom dimension key - *customDimensionKey*, custom dim
 
 ## Returns
 
-A boolean value based on whether the call was made to the VWO server.
+A boolean value based on whether the call was made to the Wingify server.
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -130,7 +130,7 @@ A boolean value based on whether the call was made to the VWO server.
       </td>
 
       <td>
-        If call is successfully being made to the VWO server for post-segmentation
+        If call is successfully being made to the Wingify server for post-segmentation
       </td>
     </tr>
 
@@ -229,4 +229,4 @@ vwoClientInstance.Push(customDimensionMap, userId);
 
 > 📘 NOTE
 >
-> This will make multiple asynchronous tracking calls to the VWO server corresponding to each key-value pair.
+> This will make multiple asynchronous tracking calls to the Wingify server corresponding to each key-value pair.

@@ -10,19 +10,19 @@ metadata:
 next:
   description: ''
 ---
-The VWO client class needs to be instantiated as an instance that exposes various API methods like [activate](https://developers.vwo.com/docs/go-activate), [getVariationName](https://developers.vwo.com/docs/go-get-variation-name) and [track](https://developers.vwo.com/docs/go-track).
+The Wingify client class needs to be instantiated as an instance that exposes various API methods like [activate](https://developers.vwo.com/docs/go-activate), [getVariationName](https://developers.vwo.com/docs/go-get-variation-name) and [track](https://developers.vwo.com/docs/go-track).
 
-Each VWO client represents the state of a project corresponding to the [settingsFile](https://developers.vwo.com/docs/go-get-settings-file). *SettingsFile* needs to be fetched before instantiating a VWO client. Read more on how to get [SettingsFile](https://developers.vwo.com/docs/go-get-settings-file).
+Each Wingify client represents the state of a project corresponding to the [settingsFile](https://developers.vwo.com/docs/go-get-settings-file). *SettingsFile* needs to be fetched before instantiating a Wingify client. Read more on how to get [SettingsFile](https://developers.vwo.com/docs/go-get-settings-file).
 
 ## API Description
 
-SDK provides a method to instantiate a VWO client as an instance. The method accepts an object to configure the VWO client.
+SDK provides a method to instantiate a Wingify client as an instance. The method accepts an object to configure the Wingify client.
 
 The only required parameter for instantiating the SDK is *settings file*. There are other optional parameters, which you could provide for overriding the default behavior or setting environment.
 
 ## Parameter Definitions
 
-Below is the list of all parameters that can be used for configuring the VWO SDK.
+Below is the list of all parameters that can be used for configuring the Wingify SDK.
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -68,7 +68,7 @@ Below is the list of all parameters that can be used for configuring the VWO SDK
       </td>
 
       <td>
-        Flag for experimenting the SDK on test-app/staging so that no impression is sent to the VWO server for tracking.
+        Flag for experimenting the SDK on test-app/staging so that no impression is sent to the Wingify server for tracking.
       </td>
     </tr>
 
@@ -106,7 +106,7 @@ Below is the list of all parameters that can be used for configuring the VWO SDK
 
 ## Returns
 
-An instance of the VWO class, which can be referenced later for calling out different API methods.
+An instance of the Wingify class, which can be referenced later for calling out different API methods.
 
 ## Usage
 

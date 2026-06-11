@@ -1,6 +1,6 @@
 ---
-title: VWO FullStack JavaScript SDK Usage
-description: Recipe DescriptionExample of how VWO SDK can be integrated into your codebase.
+title: Wingify FullStack JavaScript SDK Usage
+description: Recipe DescriptionExample of how Wingify SDK can be integrated into your codebase.
 hidden: false
 recipe:
   color: '#018FF4'
@@ -24,23 +24,23 @@ vwoClientInstance.track(campaignKey, userId, goalIdentifier);
 {"success":true}
 ```
 
-# Import VWO SDK
+# Import Wingify SDK
 
 <!-- node@1 -->
 
-Install and import the VWO SDK
+Install and import the Wingify SDK
 
 # Fetch Settings
 
 <!-- node@3 -->
 
-After importing VWO SDK, fetch the campaign settings by providing your VWO Account ID and SDK key.
+After importing Wingify SDK, fetch the campaign settings by providing your Wingify Account ID and SDK key.
 
 # Launch the SDK
 
 <!-- node@5-7 -->
 
-Launch the SDK by providing the fetched settings-file. This will create VWO SDK's client instance which would be used to call the activation and tracking APIs exposed by the SDK.
+Launch the SDK by providing the fetched settings-file. This will create Wingify SDK's client instance which would be used to call the activation and tracking APIs exposed by the SDK.
 
 # Activate the A/B Campaign
 

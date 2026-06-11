@@ -249,7 +249,7 @@ We add a notification listener to listen to NSNotification with key `VWOUserStar
 
 If you need to use super properties or people properties, modify the following code and send appropriate values to Mixpanel.
 
-The next step is to look for VWO events in your Mixpanel account. You can look at the funnels with the VWO event or look at the segment data.
+The next step is to look for Wingify events in your Mixpanel account. You can look at the funnels with the Wingify event or look at the segment data.
 
 ```objectivec
 [NSNotificationCenter.defaultCenter addObserverForName:VWOUserStartedTrackingInCampaignNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {

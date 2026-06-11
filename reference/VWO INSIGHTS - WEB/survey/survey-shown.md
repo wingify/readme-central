@@ -30,7 +30,7 @@ window.VWO.push(['onSurveyShown', function (data) {
 
 | Parameter | Data Type | Required | Description                                     |
 | --------- | --------- | -------- | ----------------------------------------------- |
-| accountId | number    | Yes      | The VWO account ID.                             |
+| accountId | number    | Yes      | The Wingify account ID.                             |
 | surveyId  | number    | Yes      | The survey campaign ID of the completed survey. |
 | uuid      | string    | Yes      | The unique identifier for the visitor.          |
 

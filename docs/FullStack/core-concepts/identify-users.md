@@ -20,8 +20,8 @@ You can use a client-side first-party cookie which will be available when any re
 
 > 🚧 User IDs should be Unique
 >
-> Ensure User IDs are unique: User IDs must be unique for a campaign. VWO SDK relies on the User ID you provide for consistent behavior across platforms. VWO buckets users and provides test metrics based on the User IDs that you provide.
+> Ensure User IDs are unique: User IDs must be unique for a campaign. Wingify SDK relies on the User ID you provide for consistent behavior across platforms. Wingify buckets users and provides test metrics based on the User IDs that you provide.
 
 > ❗️ Anonymize User ID
 >
-> The User IDs you provide are sent to VWO servers without any modification. You are responsible for anonymizing any sensitive data provided in User ID in accordance with your company's policies.
+> The User IDs you provide are sent to Wingify servers without any modification. You are responsible for anonymizing any sensitive data provided in User ID in accordance with your company's policies.

@@ -14,13 +14,13 @@ next:
       slug: mutually-exclusive-groups
       title: Mutually Exclusive Groups
 ---
-Every user is evaluated by the SDK for checking eligibility to become a part of a campaign. After the user is found eligible for the campaign, the bucketing system assigns a variation corresponding to the traffic distribution set of each variation in the VWO application.
+Every user is evaluated by the SDK for checking eligibility to become a part of a campaign. After the user is found eligible for the campaign, the bucketing system assigns a variation corresponding to the traffic distribution set of each variation in the Wingify application.
 
 So, *Bucketing* is the process of assigning different users to different variations of a campaign. This process depends on the User ID you provide. As long as the user ID is the same, SDK results in the same variation across platforms.
 
 **How do variations traffic distribution ensure deterministic bucketing?**
 
-We first allocate the bucketing range to each variation of a campaign, corresponding to the settings in the VWO application. The minimum value a variation can have is *1*, and the maximum value is *10,000*. These numbers are constant, being chosen precisely for carrying out the arithmetic logic behind bucketing variations.\
+We first allocate the bucketing range to each variation of a campaign, corresponding to the settings in the Wingify application. The minimum value a variation can have is *1*, and the maximum value is *10,000*. These numbers are constant, being chosen precisely for carrying out the arithmetic logic behind bucketing variations.\
 For example, a campaign having two variations, *Control* and *Variation-1*, having traffic distribution set to 40% and 60% respectively, will get ranges as follows:
 
 | Variation Name | bucket Range   |

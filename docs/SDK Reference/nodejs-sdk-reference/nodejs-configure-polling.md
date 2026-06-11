@@ -10,18 +10,18 @@ metadata:
 next:
   description: ''
 ---
-[Settings-file](https://developers.vwo.com/docs/nodejs-get-settings-file) is the representation of the VWO campaigns settings and is responsible for running campaigns with up-to-date configurations. As mentioned in the sections - [Caching](https://developers.vwo.com/docs/caching-your-settingsfile) and [Updating](https://developers.vwo.com/docs/updating-cached-settings-file) the settings-file is an essential step in preventing the settings network requests to be made every time a user comes.
+[Settings-file](https://developers.vwo.com/docs/nodejs-get-settings-file) is the representation of the Wingify campaigns settings and is responsible for running campaigns with up-to-date configurations. As mentioned in the sections - [Caching](https://developers.vwo.com/docs/caching-your-settingsfile) and [Updating](https://developers.vwo.com/docs/updating-cached-settings-file) the settings-file is an essential step in preventing the settings network requests to be made every time a user comes.
 
 ## Ways of Detecting Changes in Settings File
 
-One way to detect a change in the settings-file is by polling VWO servers frequently, and when detected, update the settings file.
+One way to detect a change in the settings-file is by polling Wingify servers frequently, and when detected, update the settings file.
 
 Another way to detect a change in the settings-file is by using Webhooks. Refer [Configure Webhooks](https://developers.vwo.com/docs/nodejs-configure-webhooks) to know about it.
 
 ## Polling of Settings File
 
-Polling of settings-file is a mechanism of continuously fetching the settings from VWO and updating the old one with the latest version. It is a continuous process and hence, requires an input which tells after how long settings should be fetched.\
-Fetching the settings-file after a regular interval of time and using it helps in synchronizing the VWO Campaigns state with the server's state and helps in delivering a consistent and deterministic result.
+Polling of settings-file is a mechanism of continuously fetching the settings from Wingify and updating the old one with the latest version. It is a continuous process and hence, requires an input which tells after how long settings should be fetched.\
+Fetching the settings-file after a regular interval of time and using it helps in synchronizing the Wingify Campaigns state with the server's state and helps in delivering a consistent and deterministic result.
 
 <Image title="Polling.png" alt={1700} width="smart" src="https://files.readme.io/3481821-Polling.png">
   Polling
@@ -37,7 +37,7 @@ The polling comes with its own limitations.
 
 > 📘 Optimal Polling Interval
 >
-> Finding the optimal polling interval is tricky as it depends on how frequently VWO campaign settings are changed and how much you're willing to compromise with the real-time updates.
+> Finding the optimal polling interval is tricky as it depends on how frequently Wingify campaign settings are changed and how much you're willing to compromise with the real-time updates.
 
 ## Usage
 

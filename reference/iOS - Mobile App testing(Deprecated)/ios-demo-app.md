@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Using the VWO demo app, you can try Mobile App A/B testing.\
+Using the Wingify demo app, you can try Mobile App A/B testing.\
 To try the demo app, you will need `ApiKey`.
 
 ## Running the Demo App
@@ -21,7 +21,7 @@ Run `pod install`
 
 ## Enter ApiKey
 
-You need to add an app to your VWO account. Please refer to [Adding an App](ref:ios-adding-an-app) for details.\
+You need to add an app to your Wingify account. Please refer to [Adding an App](ref:ios-adding-an-app) for details.\
 Copy your `ApiKey`.\
 Run the app from Xcode. You can choose either a simulator or your iPhone.
 

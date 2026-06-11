@@ -4,8 +4,8 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: VWO Mobile Insights
-  description: Introduction to VWO Mobile Insights for your mobile applications
+  title: Wingify Mobile Insights
+  description: Introduction to Wingify Mobile Insights for your mobile applications
   robots: index
 next:
   description: ''

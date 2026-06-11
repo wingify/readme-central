@@ -457,7 +457,7 @@ We add Broadcast Receiver to listen to the Local broadcast with the key `VWO.Con
 
 If you wish to use super properties or people properties, please feel free to modify the following code and send appropriate values to Mixpanel.
 
-The next step is to look for VWO events in your Mixpanel account. You can look at the funnels with the VWO event or look at the segment data.
+The next step is to look for Wingify events in your Mixpanel account. You can look at the funnels with the Wingify event or look at the segment data.
 
 ```java
 private BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -583,7 +583,7 @@ We add a Broadcast Receiver to listen to the Local broadcast with the key `VWO.C
 
 Events in MoEngage take an event name and event properties in the form of a Properties object.
 
-If the campaign name is TestSignup and the campaign ID is 21, we can set the event name as VWO Campaign - TestSignup - 21. We also send event parameters as campaign\_name, campaign\_id, variation\_name, and variation\_id.
+If the campaign name is TestSignup and the campaign ID is 21, we can set the event name as Wingify Campaign - TestSignup - 21. We also send event parameters as campaign\_name, campaign\_id, variation\_name, and variation\_id.
 
 ```java
 private BroadcastReceiver receiver = new BroadcastReceiver() {

@@ -37,4 +37,4 @@ To add your campaign to a mutually exclusive group:
 
 > 🚧 Note
 >
-> Mutually Exclusive Groups is an Enterprise-only feature of VWO Testing and FullStack. As of now, you can add a maximum of 10 campaigns in one mutually exclusive group.
+> Mutually Exclusive Groups is an Enterprise-only feature of Wingify Testing and FullStack. As of now, you can add a maximum of 10 campaigns in one mutually exclusive group.

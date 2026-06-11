@@ -16,7 +16,7 @@ next:
 ---
 ## SDK Reference
 
-The VWO SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2019-2020.
+The Wingify SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2019-2020.
 
 Learn more about how to use [SDK](https://developers.vwo.com/docs/sdk-quickstart).
 
@@ -26,7 +26,7 @@ Check out the [end-to-end flow](https://developers.vwo.com/docs/core-concepts#ho
 
 ## Source Code
 
-The VWO SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2019-2020.
+The Wingify SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2019-2020.
 
 <Table align={["left","left"]}>
   <thead>
@@ -116,7 +116,7 @@ The VWO SDK code is available in various languages on GitHub. All different SDKs
 
 ## Reports
 
-Inside the VWO application, click the **FullStack A/B** menu option, select your campaign, and then click the detailed report to see the reports of your campaign.
+Inside the Wingify application, click the **FullStack A/B** menu option, select your campaign, and then click the detailed report to see the reports of your campaign.
 
 <Image title="Screenshot 2019-07-06 01.12.20.png" alt={2602} border={true} src="https://files.readme.io/c7fc042-Screenshot_2019-07-06_01.12.20.png">
   FullStack Campaign Reports

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can set up VWO Config while initializing your VWO SDK. This is helpful if you want to perform the following tasks:
+You can set up Wingify Config while initializing your Wingify SDK. This is helpful if you want to perform the following tasks:
 
 * [Target Visitor Groups](ref:ios-targeting-visitor-groups)
 * [Opt Out](ref:ios-opt-out) 
@@ -47,9 +47,9 @@ VWO.launch(apiKey: "<your-api-key>", config: config
 });
 ```
 
-## Configure VWO CDN for China
+## Configure Wingify CDN for China
 
-VWO initialization supports VWO Chinese CDN in order to prevent tracking calls being getting blocked in China. This can be achieved by configuring the SDK at the time of instantiating it.
+VWO initialization supports Wingify Chinese CDN in order to prevent tracking calls being getting blocked in China. This can be achieved by configuring the SDK at the time of instantiating it.
 
 ```objectivec
 VWOConfig *config = [VWOConfig new];

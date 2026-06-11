@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-After successfully [instantiating](https://developers.vwo.com/docs/javascript-launch) a VWO class, *isFeatureEnabled API* returns whether a feature is enabled for the campaign(for Feature Rollout) / campaign's variation(for Feature Test) for a specified user and for a running campaign.
+After successfully [instantiating](https://developers.vwo.com/docs/javascript-launch) a Wingify class, *isFeatureEnabled API* returns whether a feature is enabled for the campaign(for Feature Rollout) / campaign's variation(for Feature Test) for a specified user and for a running campaign.
 
 In the case of a Feature Rollout campaign, a boolean value is returned based on whether a user qualifies for a campaign or not.\
 In the case of a Feature Test campaign, a boolean value is returned based on whether a user qualifies for a campaign or not and also whether the feature is enabled for the variation assigned to that user or not.
@@ -26,7 +26,7 @@ The API method:
 * Checks whether the user is eligible for the campaign based on pre-segmentation conditions.
 * Checks whether the user qualifies to become a part of the campaign based on traffic allocation.
 * Assigns a deterministic variation to the qualified user.
-* Sends an impression event to the VWO server for generating reports.
+* Sends an impression event to the Wingify server for generating reports.
 * Returns whether the feature is enabled for the user.
 
 The API method requires a campaign unique-key *campaignKey*, feature, and a User ID - *userId*. You can also pass other flags under the *options* key. 
@@ -38,13 +38,13 @@ The API method requires a campaign unique-key *campaignKey*, feature, and a User
 The API method has various levels of stages and depending on each stage result, the subsequent stage is executed.
 
 * **Parameter Validation** - first, validates the parameters passed. If these are not valid, log the error, and the API method returns null, that is, no variation found.
-* **Whitelisting** - checks whether a user is forced into a variation. This could be achieved via user ID or passing custom variation targeting variables that would be evaluated against conditions configured inside the campaign on VWO app. If the user is whitelisted, variation defined in conditions is returned otherwise proceeded further.
+* **Whitelisting** - checks whether a user is forced into a variation. This could be achieved via user ID or passing custom variation targeting variables that would be evaluated against conditions configured inside the campaign on Wingify app. If the user is whitelisted, variation defined in conditions is returned otherwise proceeded further.
 * **Pre-segmentation** - checks whether the user passes the segmentation conditions i.e. whether the user is eligible for the campaign by evaluating campaign segmentation conditions against passed custom variables. If the user is eligible, then proceed further, otherwise return.
 * **User Bucketing** - checks whether the User(*userId*) qualifies for the campaign. This is achieved by hashing the *userId* by using the [murmur3 hashing algorithm](https://en.wikipedia.org/wiki/MurmurHash), which always provides the same hash value for the same *userId*. This helps in maintaining consistent behavior throughout for a particular *userId*. The hash value is normalized to a number in the range 1–100 and is checked with the campaign *percent traffic*, which was configured at the time of campaign creation. If the hash value is less than or equal to the campaign *percent traffic*, the user is marked as being qualified for the campaign having the key as *campaignKey*. If the *userId* is not qualified for the campaign, the API method returns false, that is, no variation assigned.
 
 This method does take care of *UserStorageService*. It first looks into *UserStorageService*(if provided at the time of Instantiation) before the above logic executes and if the stored variation is found, it returns with that value.
 
-* **Sending Impression** - sends an impression to the VWO server for generating reports.
+* **Sending Impression** - sends an impression to the Wingify server for generating reports.
 
 ## Parameter definitions
 
@@ -167,7 +167,7 @@ If User Storage Service is provided, SDK will not track the same visitor multipl
 
 > 🚧 Note
 >
-> VWO only tracks a visitor and its corresponding conversion only once even if the SDK sends multiple calls.
+> Wingify only tracks a visitor and its corresponding conversion only once even if the SDK sends multiple calls.
 
 ## When is Campaign Activation Mandatory
 
@@ -179,8 +179,8 @@ If [User Storage Service](https://developers.vwo.com/docs/javascript-implement-a
 
 ## Passing meta-information that would be available to User Storage Service
 
-If [User Storage Service](https://developers.vwo.com/docs/javascript-implement-a-user-storage-service) is provided, there could be cases where you would want to store some other details along with the VWO decision-related data into the storage. It is easily achievable by storing the data at your end asynchronously, while SDK will use the User Storage Service to save the decision-related data.\
-Our SDKs provide a way of passing the meta-information like *browser, os, IP address, location*, etc., along with the decision-related data. The data you will provide in the API call will be available in the ***set*** method of User Storage Service, which you can use to save along with VWO SDK's decision-related data.
+If [User Storage Service](https://developers.vwo.com/docs/javascript-implement-a-user-storage-service) is provided, there could be cases where you would want to store some other details along with the Wingify decision-related data into the storage. It is easily achievable by storing the data at your end asynchronously, while SDK will use the User Storage Service to save the decision-related data.\
+Our SDKs provide a way of passing the meta-information like *browser, os, IP address, location*, etc., along with the decision-related data. The data you will provide in the API call will be available in the ***set*** method of User Storage Service, which you can use to save along with Wingify SDK's decision-related data.
 
 ```javascript JavaScript
 var vwoSDK = require('vwo-node-sdk');
@@ -216,7 +216,7 @@ vwoClientInstance.isFeatureEnabled(campaignKey, userId, options);
 
 ## Promises and async
 
-If your application uses promises for asynchronous operations, you can configure the SDK to manage asynchronous operations. VWO SDK is capable of returning a value as well as promise depending on the use case.\
+If your application uses promises for asynchronous operations, you can configure the SDK to manage asynchronous operations. Wingify SDK is capable of returning a value as well as promise depending on the use case.\
 When returning a value, API response time is faster (\< 50ms) as it does not wait for the asynchronous tracking call to get completed. in the case of returning a promise, API will wait for both the decision as well as the asynchronous tracking call to get completed, and thereby, the response time of the API will include the round-trip time of the network call.
 
 Since the async/await syntax is based on Promises, all APIs will also work with it.

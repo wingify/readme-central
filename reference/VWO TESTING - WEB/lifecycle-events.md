@@ -14,7 +14,7 @@ next:
 
 ### Overview
 
-The `onEventReceive` API enables listening to key VWO lifecycle events and executing custom actions when these events occur. This is useful for tracking conversions, handling variations, managing redirections, and optimizing user experience dynamically.
+The `onEventReceive` API enables listening to key Wingify lifecycle events and executing custom actions when these events occur. This is useful for tracking conversions, handling variations, managing redirections, and optimizing user experience dynamically.
 
 ### API Signature
 
@@ -36,11 +36,11 @@ VWO.push(['onEventReceive', <event_name>, <callback_function>]);
 
 | Element        | Type     | Description                                        |
 | -------------- | -------- | -------------------------------------------------- |
-| `eventName`    | `string` | Name of the triggered VWO event.                   |
+| `eventName`    | `string` | Name of the triggered Wingify event.                   |
 | `experimentId` | `string` | ID of the experiment the visitor is bucketed into. |
 | `goalId`       | `string` | ID of the campaign goal that gets triggered.       |
 
-### VWO Lifecycle Events and Use Cases
+### Wingify Lifecycle Events and Use Cases
 
 | Event Name                                       | Description                                                 | Use Cases                                                                           |
 | ------------------------------------------------ | ----------------------------------------------------------- | ----------------------------------------------------------------------------------- |

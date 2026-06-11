@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-After installing the SDK, you can initialize the VWO SDK in your mobile app.
+After installing the SDK, you can initialize the Wingify SDK in your mobile app.
 
 ## API Key
 
@@ -28,7 +28,7 @@ import VWO
 SDK can be launched in two ways:\
 **asynchronous** and **synchronous**.
 
-Asynchronous initialization does NOT block code execution while SDK fetches settings from the VWO content distribution network, but a synchronous call blocks code execution.\
+Asynchronous initialization does NOT block code execution while SDK fetches settings from the Wingify content distribution network, but a synchronous call blocks code execution.\
 We recommend asynchronous initialization, because it does not affect the UI of your app.
 
 ## Asynchronous Initialization
@@ -50,7 +50,7 @@ VWO.launch(apiKey: "<your-api-key>", config: nil
 ```
 
 Launch configuration can be passed while launching the SDK. To learn more, click [here](ref:launch-configuration).\
-The completion callback method is used after the SDK fetches settings from the VWO content distribution network and processes these settings.\
+The completion callback method is used after the SDK fetches settings from the Wingify content distribution network and processes these settings.\
 Use callback when you want to get notified that the SDK is ready.
 
 The following is a use case for using the callback method:\
@@ -76,7 +76,7 @@ If settings cannot be fetched in the given time, the SDK uses old settings for a
 
 > 📘 Launch the SDK Once
 >
-> On `launchForAPIKey` or `launchSynchronouslyForAPIKey` calls, the SDK fetches campaign settings from the VWO content distribution network.\
+> On `launchForAPIKey` or `launchSynchronouslyForAPIKey` calls, the SDK fetches campaign settings from the Wingify content distribution network.\
 > In case the settings cannot be fetched, the SDK doesn't retry to fetch the settings during an ongoing app session.\
 > This is done to keep the app behavior consistent during an app session.
 >

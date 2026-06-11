@@ -20,7 +20,7 @@ The API method:
 * Checks whether the user is whitelisted.
 * Checks if User Storage Service is provided to know whether the user is returning. If yes, show the previously assigned variation always.
 * Assigns the consistent variation to the new/returning qualified user.
-* Sends an impression event to the VWO server for generating reports.
+* Sends an impression event to the Wingify server for generating reports.
 
 The API method requires a campaign unique-key - *campaignKey*, unique user identifier - *userId* and the goal-identifier - *goalIdentifer*. You can also pass other flags under the *options* key.
 
@@ -137,12 +137,12 @@ The API method requires a campaign unique-key - *campaignKey*, unique user ident
 
 ## Returns
 
-A boolean value based on whether the impression was made to the VWO server.
+A boolean value based on whether the impression was made to the Wingify server.
 
 | Value | Type    | Description                                                                                                                 |
 | :---- | :------ | :-------------------------------------------------------------------------------------------------------------------------- |
-| true  | Boolean | If an impression event is successfully received by VWO server for report generation.                                        |
-| false | Boolean | If userId provided is not part of campaign or when unexpected error comes and no impression call is received by VWO server. |
+| true  | Boolean | If an impression event is successfully received by Wingify server for report generation.                                        |
+| false | Boolean | If userId provided is not part of campaign or when unexpected error comes and no impression call is received by Wingify server. |
 
 ## Usage
 
@@ -172,7 +172,7 @@ For passing *userStorageData* in the options, please follow this [doc](https://d
 
 > 🚧 Tracking Conversions for PAUSED campaign
 >
-> If your server is using an old version of settings, VWO will discard any track calls for a campaign that is now in a **Paused** state. SDKs will keep on sending tracking hits for users or conversions for that campaign until you fetch the latest settings file and update your VWO client-instance.
+> If your server is using an old version of settings, Wingify will discard any track calls for a campaign that is now in a **Paused** state. SDKs will keep on sending tracking hits for users or conversions for that campaign until you fetch the latest settings file and update your Wingify client-instance.
 
 ## Tracking goal having same identifier across different campaigns
 
@@ -182,7 +182,7 @@ When you want to track a goal having the same identifier across multiple campaig
 >
 > A goal is considered to be the **same** when the goal identifier used for that goal is same across the multiple campaigns, irrespective of the type of campaign i.e. A/B or Feature Test Campaign.
 
-VWO offer two types of goal i.e. **Conversion** and **Revenue**, which can be configured inside VWO application.
+VWO offer two types of goal i.e. **Conversion** and **Revenue**, which can be configured inside Wingify application.
 
 > 📘 Tracking goal across campaigns only if goal-type is same
 >
@@ -231,12 +231,12 @@ vwoClientInstance.track(null, userId, goalIdentifier, options);
 
 > 🚧 Unique Conversions
 >
-> VWO only tracks a conversion corresponding to a visitor hit only once even if the SDK sends multiple calls for the same user per campaign.
+> Wingify only tracks a conversion corresponding to a visitor hit only once even if the SDK sends multiple calls for the same user per campaign.
 
 ## Passing meta-information that would be available to User Storage Service
 
-If [User Storage Service](https://developers.vwo.com/docs/javascript-implement-a-user-storage-service) is provided, there could be cases where you would want to store some other details along with the VWO decision-related data into the storage. It is easily achievable by storing the data at your end asynchronously, while SDK will use the User Storage Service to save the decision-related data.\
-Our SDKs provide a way of passing the meta-information like *browser, os, IP address, location*, etc., along with the decision-related data. The data you will provide in the API call will be available in the ***set*** method of User Storage Service, which you can use to save along with VWO SDK's decision-related data.
+If [User Storage Service](https://developers.vwo.com/docs/javascript-implement-a-user-storage-service) is provided, there could be cases where you would want to store some other details along with the Wingify decision-related data into the storage. It is easily achievable by storing the data at your end asynchronously, while SDK will use the User Storage Service to save the decision-related data.\
+Our SDKs provide a way of passing the meta-information like *browser, os, IP address, location*, etc., along with the decision-related data. The data you will provide in the API call will be available in the ***set*** method of User Storage Service, which you can use to save along with Wingify SDK's decision-related data.
 
 ```javascript Node.js
 var vwoSDK = require('vwo-node-sdk');
@@ -272,7 +272,7 @@ vwoClientInstance.track(campaignKey, userId, goalIdentifier, options);
 
 ## Promises and async
 
-If your application uses promises for asynchronous operations, you can configure the SDK to manage asynchronous operations. VWO SDK is capable of returning a value as well as promise depending on the use case.\
+If your application uses promises for asynchronous operations, you can configure the SDK to manage asynchronous operations. Wingify SDK is capable of returning a value as well as promise depending on the use case.\
 When returning a value, API response time is faster (\< 50ms) as it does not wait for the asynchronous tracking call to get completed. in the case of returning a promise, API will wait for both the decision as well as the asynchronous tracking call to get completed, and thereby, the response time of the API will include the round-trip time of the network call.
 
 Since the async/await syntax is based on Promises, all APIs will also work with it.

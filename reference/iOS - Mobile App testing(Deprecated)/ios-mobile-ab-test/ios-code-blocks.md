@@ -12,9 +12,9 @@ next:
 ---
 Code blocks is a powerful way to run custom logic for different variations. For tests which are not based on the existing variables of your app, code block offers a developer-friendly approach to test different variations.
 
-The VWO SDK identifies a test by its campaign key. The campaign key should match the key you created while setting up the A/B test on the VWO web portal.
+The Wingify SDK identifies a test by its campaign key. The campaign key should match the key you created while setting up the A/B test on the Wingify web portal.
 
-The `variationName` function returns the name of the variation you created on the VWO web portal.
+The `variationName` function returns the name of the variation you created on the Wingify web portal.
 
 ```objectivec
 NSString *variationName = [VWO variationNameForTestKey:@"campaign_key"];
@@ -40,6 +40,6 @@ if let variation = VWO.variationNameFor(testKey: "campaign_key") {
 }
 ```
 
-The variation name should match the name you used on the VWO web portal.\
+The variation name should match the name you used on the Wingify web portal.\
 Use the last else or default section to code the behavior of your app if this A/B test is not running.\
 If your control and default behaviors are the same, you can remove the control condition.

@@ -11,7 +11,7 @@ next:
   description: ''
 ---
 Use Variables to parameterize your mobile app and easily run A/B tests on the parameters.\
-Variables can be defined in the VWO interface, and then used in your app. Once you define a variable, you can run an unlimited number of A/B tests on that variable, without any code changes or deploy.
+Variables can be defined in the Wingify interface, and then used in your app. Once you define a variable, you can run an unlimited number of A/B tests on that variable, without any code changes or deploy.
 
 Variables can be of type integer, float, string or boolean.\
 To create a variable, click on APPS section in Mobile App A/B.

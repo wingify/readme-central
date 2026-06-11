@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Every backend application relies on some kind of logs to debug it. The VWO SDK **logger** logs information about your running campaigns to help you with debugging. You can customize what kind of logs you need and where to send these, that is, you can write your own logger implementation to write the logs on some file, database, or some third-party logging service.
+Every backend application relies on some kind of logs to debug it. The Wingify SDK **logger** logs information about your running campaigns to help you with debugging. You can customize what kind of logs you need and where to send these, that is, you can write your own logger implementation to write the logs on some file, database, or some third-party logging service.
 
 > 📘 Note
 >
-> For the production environment, we recommend that you pass in your custom logger implementation while creating a VWO client instance.
+> For the production environment, we recommend that you pass in your custom logger implementation while creating a Wingify client instance.
 
 ## Log Levels
 
@@ -38,7 +38,7 @@ Every backend application relies on some kind of logs to debug it. The VWO SDK *
       </td>
 
       <td>
-        The events that prevent campaigns from functioning properly (for example, invalid settingsFile while initializing the VWO SDK, invalid campaign keys, or goal identifiers) are logged.
+        The events that prevent campaigns from functioning properly (for example, invalid settingsFile while initializing the Wingify SDK, invalid campaign keys, or goal identifiers) are logged.
       </td>
     </tr>
 
@@ -68,13 +68,13 @@ Every backend application relies on some kind of logs to debug it. The VWO SDK *
       </td>
 
       <td>
-        Any kind of useful information that can help VWO debug the issue in case of unexpected behavior (for example, a user is not in a campaign, bucket value assigned, hash value assigned, and stored User Storage Service used, and others) are logged.
+        Any kind of useful information that can help Wingify debug the issue in case of unexpected behavior (for example, a user is not in a campaign, bucket value assigned, hash value assigned, and stored User Storage Service used, and others) are logged.
       </td>
     </tr>
   </tbody>
 </Table>
 
-To filter these log levels while writing your own logger implementation, use the Enum provided to you by VWO SDKs.
+To filter these log levels while writing your own logger implementation, use the Enum provided to you by Wingify SDKs.
 
 ```php
 <?php

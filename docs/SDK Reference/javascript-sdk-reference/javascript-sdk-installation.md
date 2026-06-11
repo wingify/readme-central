@@ -16,9 +16,9 @@ next:
 ---
 ## JavaScript SDK Installation
 
-To integrate VWO JavaScript SDK into your web application, you first need to install the SDK through a package manager for JavaScript. VWO JavaScript SDK can be installed using either [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/).
+To integrate Wingify JavaScript SDK into your web application, you first need to install the SDK through a package manager for JavaScript. Wingify JavaScript SDK can be installed using either [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/).
 
-There's one common repository since code is almost the same, written in JavaScript. VWO JavaScript SDK shares the code with our VWO Node.js SDK, build, and packaged differently. But the installation is the same as VWO Node.js SDK.
+There's one common repository since code is almost the same, written in JavaScript. Wingify JavaScript SDK shares the code with our Wingify Node.js SDK, build, and packaged differently. But the installation is the same as Wingify Node.js SDK.
 
 ## Requirements
 
@@ -29,7 +29,7 @@ There's one common repository since code is almost the same, written in JavaScri
 
 ## Installation via npm
 
-To integrate VWO JavaScript SDK into your web application through [npm](https://www.npmjs.com/), run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
+To integrate Wingify JavaScript SDK into your web application through [npm](https://www.npmjs.com/), run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
 
 ```shell
 npm install vwo-node-sdk --save
@@ -37,7 +37,7 @@ npm install vwo-node-sdk --save
 
 ## Installation via yarn
 
-To integrate VWO JavaScript SDK into your web application through [yarn](https://yarnpkg.com/en/), run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
+To integrate Wingify JavaScript SDK into your web application through [yarn](https://yarnpkg.com/en/), run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
 
 ```shell
 yarn add vwo-node-sdk
@@ -45,7 +45,7 @@ yarn add vwo-node-sdk
 
 ## Installation via script tag
 
-For client-side, VWO JavaScript SDK can also be used by directly downloading the SDK and using script tags in HTML
+For client-side, Wingify JavaScript SDK can also be used by directly downloading the SDK and using script tags in HTML
 
 ```html
 <script src="/path/to/vwo-javascript-sdk" />
@@ -63,7 +63,7 @@ Or can be downloaded from CDNs like [jsdelivr](https://www.jsdelivr.com/). For e
 
 ## Source Code
 
-The VWO SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2019-2021.
+The Wingify SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2019-2021.
 
 <Table align={["left","left"]}>
   <thead>

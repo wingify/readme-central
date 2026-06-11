@@ -1,5 +1,5 @@
 ---
-title: VWO Loaded
+title: Wingify Loaded
 excerpt: ''
 deprecated: false
 hidden: false
@@ -14,11 +14,11 @@ next:
 
 VWO loading on a page can be broken down into three main steps:
 
-* **Loading Campaigns**: The VWO SmartCode retrieves all campaigns eligible for the current URL from the server.
-* **Library Initialization**: The VWO library is loaded. As it loads, it executes all eligible campaigns for which the relevant page elements have already been loaded.
-* **Loading Remaining Campaigns**: The VWO library fetches the remaining campaigns in the account. This includes campaigns eligible for other pages and any active Insights campaigns.
+* **Loading Campaigns**: The Wingify SmartCode retrieves all campaigns eligible for the current URL from the server.
+* **Library Initialization**: The Wingify library is loaded. As it loads, it executes all eligible campaigns for which the relevant page elements have already been loaded.
+* **Loading Remaining Campaigns**: The Wingify library fetches the remaining campaigns in the account. This includes campaigns eligible for other pages and any active Insights campaigns.
 
-The following callbacks are triggered on different steps of VWO loading on the page:
+The following callbacks are triggered on different steps of Wingify loading on the page:
 
 * The `onVWOLoaded` callback is triggered when Step 2 (library initialization and campaign execution) is completed.
 * The `onVWOCampaignsLoaded` callback is triggered when Step 3 (loading of remaining campaigns) is completed.
@@ -40,7 +40,7 @@ window.VWO.push(['onVWOLoaded', function(data) {
 
 | Parameter          | Type       | Required | Description                                            |
 | ------------------ | ---------- | -------- | ------------------------------------------------------ |
-| callback\_function | `Function` | Yes      | Function executed once the VWO library is fully loaded |
+| callback\_function | `Function` | Yes      | Function executed once the Wingify library is fully loaded |
 
 #### Callback Data
 
@@ -162,4 +162,4 @@ window.VWO.push(['onVWOCampaignsLoaded', function (data) {
   Sync campaign performance data with platforms like Google Analytics or Mixpanel to measure conversion rates, engagement, and campaign success.
 
 * **Persistent experience**\
-  Ensure visitors have a uniform experience by opting them out of VWO if the SmartCode times out, preventing unexpected variations.
+  Ensure visitors have a uniform experience by opting them out of Wingify if the SmartCode times out, preventing unexpected variations.

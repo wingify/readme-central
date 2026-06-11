@@ -108,7 +108,7 @@ window.VWO.event('purchaseCompleted', {
 
 * **Custom Data Capture**: Enhance event payloads by dynamically adding properties such as user segments, session attributes, or experiment metadata. This can improve reporting and analytics accuracy by including business-specific data points.
 
-* **Cross-Platform Integration**: Extend event tracking by forwarding VWO events to external marketing and analytics platforms such as Google Analytics, Segment, or Mixpanel. This ensures a unified view of user behavior across multiple tools.
+* **Cross-Platform Integration**: Extend event tracking by forwarding Wingify events to external marketing and analytics platforms such as Google Analytics, Segment, or Mixpanel. This ensures a unified view of user behavior across multiple tools.
 
 ### Notes
 

@@ -14,7 +14,7 @@ next:
 
 ### Overview
 
-The VWO `opt-out` API allows visitors to stop tracking on a specific browser by default, clearing all cookies except for `_vis_opt_out`. This cookie ensures VWO recognizes that the visitor should not be tracked. The API also provides an option to retain data for previously experienced campaigns. It can be used directly or to generate opt-out links for integration into the website.
+The Wingify `opt-out` API allows visitors to stop tracking on a specific browser by default, clearing all cookies except for `_vis_opt_out`. This cookie ensures Wingify recognizes that the visitor should not be tracked. The API also provides an option to retain data for previously experienced campaigns. It can be used directly or to generate opt-out links for integration into the website.
 
 ### Signature
 
@@ -39,7 +39,7 @@ window.VWO = window.VWO || [];
 VWO.push(['optOutVisitor']);
 ```
 
-Use this API when you want to opt a visitor out of VWO tracking and stop all campaign changes. This deletes all VWO cookies and halts tracking. If the visitor returns, they will not be tracked, and no campaign changes will be applied on subsequent visits.
+Use this API when you want to opt a visitor out of Wingify tracking and stop all campaign changes. This deletes all Wingify cookies and halts tracking. If the visitor returns, they will not be tracked, and no campaign changes will be applied on subsequent visits.
 
 ```javascript
 // Opt-Out with Experiences Maintained: Retains the visitor's previous campaign experience while stopping new tracking.

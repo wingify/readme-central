@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-[Settings-file](https://developers.vwo.com/reference#fullstack-get-settings) is the representation of the VWO campaigns settings and is responsible for running campaigns with up-to-date configurations. Fetching the settings-file is an essential step in preventing the network requests to be made every time a user comes. Please refer to [Caching](https://developers.vwo.com/reference#fullstack-best-practices-caching-your-settingsfile) and [Updating](https://developers.vwo.com/reference#fullstack-updating-cached-settings-file) of the settings-file for more information.
+[Settings-file](https://developers.vwo.com/reference#fullstack-get-settings) is the representation of the Wingify campaigns settings and is responsible for running campaigns with up-to-date configurations. Fetching the settings-file is an essential step in preventing the network requests to be made every time a user comes. Please refer to [Caching](https://developers.vwo.com/reference#fullstack-best-practices-caching-your-settingsfile) and [Updating](https://developers.vwo.com/reference#fullstack-updating-cached-settings-file) of the settings-file for more information.
 
 ## Webhooks
 
-Anytime there is a change in the FullStack campaign settings, VWO sends an HTTP POST call with a payload to the configured URL. Therefore, you know when to fetch the settings-file. It helps you to keep the most up-to-date version of the settings file. 
+Anytime there is a change in the FullStack campaign settings, Wingify sends an HTTP POST call with a payload to the configured URL. Therefore, you know when to fetch the settings-file. It helps you to keep the most up-to-date version of the settings file. 
 
-With Webhooks in place, you don't have to worry whether or not you are using the updated settings file. VWO keeps you up-to-date.
+With Webhooks in place, you don't have to worry whether or not you are using the updated settings file. Wingify keeps you up-to-date.
 
-**For example**, as soon the traffic allocation percentage of a variation is changed from the app, VWO sends an HTTP POST call with a payload to notify about a change in the campaign settings. 
+**For example**, as soon the traffic allocation percentage of a variation is changed from the app, Wingify sends an HTTP POST call with a payload to notify about a change in the campaign settings. 
 
 To get notified about the change in the settings file, all you need to do is-enable the Webhook setting from the Campaign Settings UI and specify the URL where you wish to receive the change event notification.
 
@@ -37,7 +37,7 @@ If you wish to get notified whenever there is a change in campaign settings, ena
 
 **Procedure**
 
-* Log in to your VWO account.
+* Log in to your Wingify account.
 * From the left panel, go to FULL STACK > Projects and select a project.
 * Under the Environment(s) section, select the Enable Webhooks option for those environments that you prefer to subscribe to the changes for.
 
@@ -50,7 +50,7 @@ If you wish to get notified whenever there is a change in campaign settings, ena
 
 ## Securing Webhooks with API key based authentication
 
-While configuring the webhook, you can secure it by generating a secret key which will be sent in the **x-vwo-auth** header of the POST request by VWO. You can then compare this key at your end to authenticate that the requests are sent by VWO and not by any other third-party service. In case you want to generate a new key for the webhook, you can do that from the VWO app.
+While configuring the webhook, you can secure it by generating a secret key which will be sent in the **x-vwo-auth** header of the POST request by VWO. You can then compare this key at your end to authenticate that the requests are sent by Wingify and not by any other third-party service. In case you want to generate a new key for the webhook, you can do that from the Wingify app.
 
 > 📘 Secure your Secret Key
 >
@@ -58,7 +58,7 @@ While configuring the webhook, you can secure it by generating a secret key whic
 
 ## Payload Format
 
-The webhook URL must accept a POST call. VWO will send an HTTP POST call to the configured URL along with the payload that helps you in knowing the exact time when settings were changed along with other information. Please refer to the format below:
+The webhook URL must accept a POST call. Wingify will send an HTTP POST call to the configured URL along with the payload that helps you in knowing the exact time when settings were changed along with other information. Please refer to the format below:
 
 ```json
 {

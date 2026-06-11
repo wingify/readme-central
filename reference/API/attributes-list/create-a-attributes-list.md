@@ -12,7 +12,7 @@ metadata:
 ---
 Creates a new attributes list by uploading one-column CSV-style values in the request body.
 
-These list attributes can later be used for audience targeting in VWO campaigns.
+These list attributes can later be used for audience targeting in Wingify campaigns.
 
 ### Constraints
 

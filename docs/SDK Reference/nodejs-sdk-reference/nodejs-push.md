@@ -10,18 +10,18 @@ metadata:
 next:
   description: ''
 ---
-Pushes a custom dimension for a particular user to the VWO server. It is used for post-segmenting the data in the campaign reports.
+Pushes a custom dimension for a particular user to the Wingify server. It is used for post-segmenting the data in the campaign reports.
 
 ## Description
 
 The API method:
 
 * Validates the parameters passed
-* Sends an asynchronous impression to the VWO server for associating custom dimension(s) for the user that became part of the FullStack campaign.
+* Sends an asynchronous impression to the Wingify server for associating custom dimension(s) for the user that became part of the FullStack campaign.
 
 The API method accepts a custom dimension key - *customDimensionKey*, custom dimension value - *customDimensionValue*, and user-id - *userId*.
 
-*customDimensionKey* is the unique key associated with a particular custom dimension created in the VWO application.\
+*customDimensionKey* is the unique key associated with a particular custom dimension created in the Wingify application.\
 *customDimensionValue* is the value you want to associate with the custom dimension.\
 *userId* is the unique ID associated with the user for identification.
 
@@ -96,7 +96,7 @@ The API method accepts a custom dimension key - *customDimensionKey*, custom dim
 
 ## Returns
 
-A boolean value based on whether the call was made to the VWO server.
+A boolean value based on whether the call was made to the Wingify server.
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -126,7 +126,7 @@ A boolean value based on whether the call was made to the VWO server.
       </td>
 
       <td>
-        If call is successfully being made to the VWO server for post-segmentation
+        If call is successfully being made to the Wingify server for post-segmentation
       </td>
     </tr>
 
@@ -221,11 +221,11 @@ vwoClientInstance.push(customDimensionMap, userId);
 
 > 📘 Note
 >
-> This will make multiple asynchronous tracking calls to the VWO server corresponding to each key-value pair.
+> This will make multiple asynchronous tracking calls to the Wingify server corresponding to each key-value pair.
 
 ## Promises and async
 
-If your application uses promises for asynchronous operations, you can configure the SDK to manage asynchronous operations. VWO SDK is capable of returning a value as well as promise depending on the use case.\
+If your application uses promises for asynchronous operations, you can configure the SDK to manage asynchronous operations. Wingify SDK is capable of returning a value as well as promise depending on the use case.\
 When returning a value, API response time is faster (\< 50ms) as it does not wait for the asynchronous tracking call to get completed. in the case of returning a promise, API will wait for both the decision as well as the asynchronous tracking call to get completed, and thereby, the response time of the API will include the round-trip time of the network call.
 
 Since the async/await syntax is based on Promises, all APIs will also work with it.

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page tracks the impact of VWO iOS SDK for different parameters on your app.
+This page tracks the impact of Wingify iOS SDK for different parameters on your app.
 
 ## Launch Time
 
@@ -21,17 +21,17 @@ The SDK can be initialised in two ways: synchronous and asynchronous.
 
 ## API Calls
 
-VWO SDK makes three types of API calls to VWO CDN. 
+VWO SDK makes three types of API calls to Wingify CDN. 
 
 * To fetch settings at the time of SDK initialization. The SDK makes only one call to fetch settings. If this call fails, the SDK does not retry to fetch settings during an ongoing app session. This is done to keep the app behaviour consistent during an ongoing session.
-* To inform VWO when a user becomes part of a campaign. If this call fails, the SDK keeps a track of it and try to send it again after some time.
-* To inform VWO when a user converts a goal in a campaign.  If this call fails, the SDK keeps a track of it and try to send it again after some time.
+* To inform Wingify when a user becomes part of a campaign. If this call fails, the SDK keeps a track of it and try to send it again after some time.
+* To inform Wingify when a user converts a goal in a campaign.  If this call fails, the SDK keeps a track of it and try to send it again after some time.
 
 The SDK makes call to CDN every 20 seconds.
 
 ## Disk Space
 
-After adding VWO to you Xcode project the size of Xcode project changes as follows
+After adding Wingify to you Xcode project the size of Xcode project changes as follows
 
 <Table align={["left","left"]}>
   <thead>

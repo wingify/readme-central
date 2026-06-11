@@ -10,16 +10,16 @@ metadata:
 next:
   description: ''
 ---
-Each VWO SDK client corresponds to the *settings file* representing the current state of the campaign settings, that is, a list of FullStack running campaign settings. See [Review core concepts](https://developers.vwo.com/docs/core-concepts) for more information.
+Each Wingify SDK client corresponds to the *settings file* representing the current state of the campaign settings, that is, a list of FullStack running campaign settings. See [Review core concepts](https://developers.vwo.com/docs/core-concepts) for more information.
 
 ## Description
 
-VWO SDK is a helper for executing various FullStack capabilities. It requires a certain set of settings for its work. These settings are related to your FullStack campaigns you create or update in the VWO application.\
-So, before [instantiating](https://developers.vwo.com/docs/ruby-launch) the VWO SDK, *settings file* needs to be fetched.
+VWO SDK is a helper for executing various FullStack capabilities. It requires a certain set of settings for its work. These settings are related to your FullStack campaigns you create or update in the Wingify application.\
+So, before [instantiating](https://developers.vwo.com/docs/ruby-launch) the Wingify SDK, *settings file* needs to be fetched.
 
 The method accepts two parameters:
 
-* **account\_id** - account-id associated with your VWO account.
+* **account\_id** - account-id associated with your Wingify account.
 * **sdk\_key** - generated inside the respective *Project* under the ***FullStack Testing***.
 
 ## Parameter Definitions
@@ -53,7 +53,7 @@ The method accepts two parameters:
       </td>
 
       <td>
-        Your VWO application's Account ID.
+        Your Wingify application's Account ID.
       </td>
     </tr>
 
@@ -68,7 +68,7 @@ The method accepts two parameters:
       </td>
 
       <td>
-        Unique environment-key provided to you inside the Projects section in VWO application..
+        Unique environment-key provided to you inside the Projects section in Wingify application..
       </td>
     </tr>
   </tbody>
@@ -76,7 +76,7 @@ The method accepts two parameters:
 
 ## Returns
 
-Returns a Promise which on success returns the *settings file* which helps in [Instantiating](https://developers.vwo.com/docs/ruby-launch) the VWO SDK. This method handles any error in fetching the settings file. Please follow the best practices to ensure that your app is prevented from crashing.
+Returns a Promise which on success returns the *settings file* which helps in [Instantiating](https://developers.vwo.com/docs/ruby-launch) the Wingify SDK. This method handles any error in fetching the settings file. Please follow the best practices to ensure that your app is prevented from crashing.
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -106,7 +106,7 @@ Returns a Promise which on success returns the *settings file* which helps in [I
       </td>
 
       <td>
-        The settings representing the current state of the running VWO FullStack campaings.
+        The settings representing the current state of the running Wingify FullStack campaings.
       </td>
     </tr>
   </tbody>

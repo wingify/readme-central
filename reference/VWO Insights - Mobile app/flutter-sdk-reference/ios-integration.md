@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
      
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
          
-    VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the VWO account
+    VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the Wingify account
      		 switch result{
 		     case .success(_):
     	 			print("VWO launched successfull")

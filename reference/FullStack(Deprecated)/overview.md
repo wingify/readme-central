@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-> 🚧 VWO has a new server-side solution known as  [Feature Experimentation](https://developers.vwo.com/v2/docs/).
+> 🚧 Wingify has a new server-side solution known as  [Feature Experimentation](https://developers.vwo.com/v2/docs/).
 
-**⚠️ The VWO FullStack project is no longer actively developed. ⚠️**
+**⚠️ The Wingify FullStack project is no longer actively developed. ⚠️**
 
 **✅ We are only fixing critical bugs and security issues.**
 
@@ -32,4 +32,4 @@ For migration assistance or any questions, contact us at [support@vwo.com](suppo
 
 ## Documentation
 
-Please refer to the VWO FullStack documentation [here](https://developers.vwo.com/docs/fullstack-overview).
+Please refer to the Wingify FullStack documentation [here](https://developers.vwo.com/docs/fullstack-overview).

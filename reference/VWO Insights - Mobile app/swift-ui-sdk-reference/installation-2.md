@@ -15,7 +15,7 @@ The latest SDK version for IOS is **v1.0.6** and you can view the changelog <Anc
 
 <br />
 
-If the integration is being made with SPM (Swift Package Manager), please integrate VWO with the following:
+If the integration is being made with SPM (Swift Package Manager), please integrate Wingify with the following:
 
 URL: [https://github.com/wingify/ios-mobile-insights-artifacts.git](https://github.com/wingify/ios-mobile-insights-artifacts.git)
 
@@ -31,7 +31,7 @@ URL: [https://github.com/wingify/ios-mobile-insights-artifacts.git](https://gith
 
 <br />
 
-You can use CocoaPods to install the VWO Insights IOS SDK by adding the below pods to your Pod file.
+You can use CocoaPods to install the Wingify Insights IOS SDK by adding the below pods to your Pod file.
 
 ```shell
 pod 'VWO-Insights'

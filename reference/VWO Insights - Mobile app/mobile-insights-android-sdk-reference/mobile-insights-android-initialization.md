@@ -35,7 +35,7 @@ After installing the SDK, initialize the app in the *onCreate* function of the A
       </td>
 
       <td>
-        VWO Account ID
+        Wingify Account ID
       </td>
     </tr>
 

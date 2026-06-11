@@ -12,7 +12,7 @@ next:
 ---
 VWO SDK allows you to track conversions using ***track*** API. There could be scenarios when you would like to track conversions without using the SDK.
 
-To understand this in detail, let's take an example, where you have your own centralized data-storage service which stores the information of all the events.  Whenever a conversion happens at your application, you store the data in the storage service but the integrated tools like VWO do not know about this conversion. Let's assume you do not prefer real-time syncing of this data with VWO and therefore, you run a [cron job](https://en.wikipedia.org/wiki/Cron) at the end of the day to sync conversions data with VWO. To achieve this,  you would want an HTTP API to send the conversions data of all the users who became part of the campaign back to VWO.
+To understand this in detail, let's take an example, where you have your own centralized data-storage service which stores the information of all the events.  Whenever a conversion happens at your application, you store the data in the storage service but the integrated tools like Wingify do not know about this conversion. Let's assume you do not prefer real-time syncing of this data with Wingify and therefore, you run a [cron job](https://en.wikipedia.org/wiki/Cron) at the end of the day to sync conversions data with VWO. To achieve this,  you would want an HTTP API to send the conversions data of all the users who became part of the campaign back to VWO.
 
 VWO offers an endpoint that you can use to mark a conversion for a particular user who became part of the campaign earlier, by calling it with the required parameters.
 
@@ -48,7 +48,7 @@ VWO offers an endpoint that you can use to mark a conversion for a particular us
       </td>
 
       <td>
-        VWO Account ID
+        Wingify Account ID
       </td>
 
       <td>
@@ -178,7 +178,7 @@ VWO offers an endpoint that you can use to mark a conversion for a particular us
       </td>
 
       <td>
-        VWO Platform
+        Wingify Platform
       </td>
 
       <td>
@@ -231,5 +231,5 @@ https://dev.visualwebsiteoptimizer.com/server-side/track-goal?experiment_id=84&c
 ## References
 
 1. [Download the detailed report of a campaign](https://help.vwo.com/hc/en-us/articles/360019594933-How-to-Email-or-Download-a-Test-Report-in-VWO-)
-2. [Integrating VWO with Google Cloud Storage](https://help.vwo.com/hc/en-us/articles/900006484803-Integrating-VWO-with-Google-Cloud-Storage)
-3. [Integrating VWO with Amazon S3](https://help.vwo.com/hc/en-us/articles/900006485423-Integrating-VWO-with-Amazon-S3)
+2. [Integrating Wingify with Google Cloud Storage](https://help.vwo.com/hc/en-us/articles/900006484803-Integrating-VWO-with-Google-Cloud-Storage)
+3. [Integrating Wingify with Amazon S3](https://help.vwo.com/hc/en-us/articles/900006485423-Integrating-VWO-with-Amazon-S3)

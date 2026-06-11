@@ -24,7 +24,7 @@ Using the Mutually Exclusive Groups option in VWO, you can group multiple campai
 >
 > A campaign can only become a part of one exclusive group.
 
-Many VWO users set up multiple campaigns on the same page and want them to run simultaneously. In such situations, a user on the page can become a part of multiple campaigns running on the same URL, and the user data is collected from all the campaign reports.
+Many Wingify users set up multiple campaigns on the same page and want them to run simultaneously. In such situations, a user on the page can become a part of multiple campaigns running on the same URL, and the user data is collected from all the campaign reports.
 
 **For example**, let's say you want to run a campaign by changing the color and position of your primary CTA button on the homepage to make it more prominent on the page. Simultaneously, you also want to run another campaign on the same page by changing the headline of the page to campaign if an idea is communicated effectively to the users.\
 In such a scenario, if you run both campaigns at the same time to track the increase in engagement on the page, you cannot be sure which change delivered positive or negative results. In other words, you can not say accurately which set of changes had the maximum impact. Creating mutually exclusive groups allows you to run these campaigns without overlapping users' data between the campaigns.

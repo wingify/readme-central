@@ -16,7 +16,7 @@ The SDK can be installed by using Gradle.
 
 To integrate your mobile application using Gradle:
 
-**1.** Add the VWO Android SDK dependency to your `build.gradle` file.
+**1.** Add the Wingify Android SDK dependency to your `build.gradle` file.
 
 ```groovy Dependencies
 repositories {
@@ -56,7 +56,7 @@ If you are using Proguard for building Android projects, it may cause an error w
 # Support libraries
 -keep class android.support.v4.content.LocalBroadcastManager
 
-# VWO module
+# Wingify module
 -keep public class * extends com.vwo.mobile.models.Entry
 
 -keepclassmembers class * extends com.vwo.mobile.models.Entry{
@@ -69,7 +69,7 @@ public <init>(android.os.Parcel);
 
 ## Source Code
 
-The VWO Android SDK code is available on GitHub:\
+The Wingify Android SDK code is available on GitHub:\
 [https://github.com/wingify/vwo-android](https://github.com/wingify/vwo-android)
 
 ##

@@ -12,7 +12,7 @@ next:
 ---
 Once a user is [identified](https://developers.vwo.com/docs/identify-users) and assigned a unique identifier, that identifier should be used throughout the user's journey to experience a consistent behavior of an application.
 
-APIs exposed by different VWO SDKs accept the User Identifier along with the unique campaign key for determining the decision for that user. As long as the user ID is the same, VWO SDKs will output the same decision every time on all the platforms.
+APIs exposed by different Wingify SDKs accept the User Identifier along with the unique campaign key for determining the decision for that user. As long as the user ID is the same, Wingify SDKs will output the same decision every time on all the platforms.
 
 > 📘 Similar Campaigns
 >

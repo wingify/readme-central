@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Pushes a custom dimension for a particular user to the VWO server. It is used for post-segmenting the data in the campaign reports.
+Pushes a custom dimension for a particular user to the Wingify server. It is used for post-segmenting the data in the campaign reports.
 
 Read [here](https://help.vwo.com/hc/en-us/articles/360038019054-Creating-a-Custom-Dimension-in-VWO) on how to create custom dimension in VWO
 
@@ -23,11 +23,11 @@ Read [here](https://help.vwo.com/hc/en-us/articles/360038019054-Creating-a-Custo
 The API method:
 
 * validates the parameters passed
-* sends a call to VWO server for associating the custom dimension for the same user that became part of the campaign.
+* sends a call to Wingify server for associating the custom dimension for the same user that became part of the campaign.
 
 The API method accepts a custom dimension key - *customDimensionKey* and custom dimension value - *customDimensionValue*.
 
-*customDimensionKey* is the unique key associated with a particular custom dimension made in VWO application.
+*customDimensionKey* is the unique key associated with a particular custom dimension made in Wingify application.
 
 *customDimensionValue* is the value you want to tag a custom dimension with.
 

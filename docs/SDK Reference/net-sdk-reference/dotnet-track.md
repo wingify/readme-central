@@ -26,7 +26,7 @@ The API method:
 * Checks whether the user is whitelisted.
 * Checks if User Storage Service is provided to know whether the user is returning. If yes, show the previously assigned variation always.
 * Assigns the consistent variation to the qualified user.
-* Sends an impression event to the VWO server for generating reports.
+* Sends an impression event to the Wingify server for generating reports.
 
 The API method requires a campaign unique-key - *campaignKey*, unique user identifier - *userId* and the goal-identifier - *goalIdentifer*. You can also pass other flags under the *options* key.
 
@@ -143,12 +143,12 @@ The API method requires a campaign unique-key - *campaignKey*, unique user ident
 ## Returns
 
 
-A boolean value based on whether the impression was made to the VWO server.
+A boolean value based on whether the impression was made to the Wingify server.
 
 | Value | Type    | Description                                                                                                                 |
 | :---- | :------ | :-------------------------------------------------------------------------------------------------------------------------- |
-| true  | Boolean | If an impression event is successfully received by VWO server for report generation.                                        |
-| false | Boolean | If userId provided is not part of campaign or when unexpected error comes and no impression call is received by VWO server. |
+| true  | Boolean | If an impression event is successfully received by Wingify server for report generation.                                        |
+| false | Boolean | If userId provided is not part of campaign or when unexpected error comes and no impression call is received by Wingify server. |
 
 ## Usage
 
@@ -195,7 +195,7 @@ bool isSuccessful = vwoClientInstance.Track(campaignKey, userId, goalIdentifier,
 
 > 🚧 Tracking Conversions for PAUSED campaign
 >
-> If your server is using an old version of settings, VWO will discard any track calls for a campaign that is now in a **Paused** state. SDKs will keep on sending tracking hits for users or conversions for that campaign until you fetch the latest settings file and update your VWO client-instance.
+> If your server is using an old version of settings, Wingify will discard any track calls for a campaign that is now in a **Paused** state. SDKs will keep on sending tracking hits for users or conversions for that campaign until you fetch the latest settings file and update your Wingify client-instance.
 
 ## Tracking goal having same identifier across different campaigns
 
@@ -206,7 +206,7 @@ When you want to track a goal having the same identifier across multiple campaig
 >
 > A goal is considered to be the **same** when the goal identifier used for that goal is same across the multiple campaigns, irrespective of the type of campaign i.e. A/B or Feature Test Campaign.
 
-VWO offer two types of goal i.e. **Conversion** and **Revenue**, which can be configured inside VWO application.
+VWO offer two types of goal i.e. **Conversion** and **Revenue**, which can be configured inside Wingify application.
 
 > 📘 Tracking goal across campaigns only if goal-type is same
 >
@@ -258,4 +258,4 @@ vwoClientInstance.Track(userId, goalIdentifier, options);
 > 
 > Unique Conversions
 >
-> VWO only tracks a conversion corresponding to a visitor hit only once even if the SDK sends multiple calls for the same user per campaign.
+> Wingify only tracks a conversion corresponding to a visitor hit only once even if the SDK sends multiple calls for the same user per campaign.

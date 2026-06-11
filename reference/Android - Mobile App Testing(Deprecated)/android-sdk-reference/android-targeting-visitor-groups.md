@@ -62,7 +62,7 @@ val vwoConfig = VWOConfig.Builder()
 VWO.with(this, VWO_API_KEY).config(vwoConfig).launch(null)
 ```
 
-If you do not wish to pass the customVariables at the time of VWO launch, you can pass them using the `setCustomVariable(String, String)` method after the VWO SDK is initialized.
+If you do not wish to pass the customVariables at the time of Wingify launch, you can pass them using the `setCustomVariable(String, String)` method after the Wingify SDK is initialized.
 
 ```java
 VWOConfig vwoConfig = new VWOConfig.Builder().build();
@@ -84,6 +84,6 @@ VWO.setCustomVariable("user_type", "paid");
 
 * If in the campaign, you have specified certain custom variables, their values have to be set in the code before calling the `getObjectForKey(String key, Object defaultValue)` method.
 
-* If you have set **Make user part of the campaign on app launch**  in the VWO dashboard, then custom variables should be set before launching the SDK. This is required else SDK will try to make the user a part of the campaign on app launch.
+* If you have set **Make user part of the campaign on app launch**  in the Wingify dashboard, then custom variables should be set before launching the SDK. This is required else SDK will try to make the user a part of the campaign on app launch.
 
 ![1464](https://files.readme.io/9a7e58a-sc.png "sc.png")

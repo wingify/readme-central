@@ -12,7 +12,7 @@ next:
 ---
 ## Go SDK Installation
 
-To integrate VWO Go SDK into your application, you first need to install the SDK.
+To integrate Wingify Go SDK into your application, you first need to install the SDK.
 
 ## Requirements
 
@@ -30,7 +30,7 @@ go get "github.com/wingify/vwo-go-sdk"
 
 ## Source Code
 
-The VWO SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2020.
+The Wingify SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2020.
 
 <Table align={["left","left"]}>
   <thead>

@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-> 🚧 VWO has a new mobile solution known as  [Feature Experimentation](https://developers.vwo.com/v2/docs/).
+> 🚧 Wingify has a new mobile solution known as  [Feature Experimentation](https://developers.vwo.com/v2/docs/).
 
-**⚠️ The VWO Mobile App Testing project is no longer actively developed. ⚠️**
+**⚠️ The Wingify Mobile App Testing project is no longer actively developed. ⚠️**
 
 **✅ We are only fixing critical bugs and security issues.**
 

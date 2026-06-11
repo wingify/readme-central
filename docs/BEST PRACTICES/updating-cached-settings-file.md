@@ -18,9 +18,9 @@ next:
 
 Once you have understood the lifecycle of FullStack SDK which is explained [here](https://developers.vwo.com/docs/core-concepts#how-vwo-fullstack-sdks-work-end-to-end), you might have a doubt on when and how frequently to update the settings-file.
 
-As mentioned in the section on how to instantiate the SDK, a settings-file is required to create an instance of the VWO SDK which represents the state of the server application corresponding to the [settings-file](https://developers.vwo.com/reference#fullstack-get-settings).
+As mentioned in the section on how to instantiate the SDK, a settings-file is required to create an instance of the Wingify SDK which represents the state of the server application corresponding to the [settings-file](https://developers.vwo.com/reference#fullstack-get-settings).
 
-Each environment in a project has a corresponding settings file. This file has all the configuration data of all your running campaigns, such as variations, goals, and features, etc, in a [JSON](https://www.json.org/) format. Whenever there are changes in a campaign, each environment's settings file is automatically updated with the latest campaign configuration. By maintaining and synchronizing a local copy of this settings file, the SDK can run experiments without making blocking network requests to our VWO CDN. Caching your settings-file is explained [here](https://developers.vwo.com/docs/caching-your-settingsfile).
+Each environment in a project has a corresponding settings file. This file has all the configuration data of all your running campaigns, such as variations, goals, and features, etc, in a [JSON](https://www.json.org/) format. Whenever there are changes in a campaign, each environment's settings file is automatically updated with the latest campaign configuration. By maintaining and synchronizing a local copy of this settings file, the SDK can run experiments without making blocking network requests to our Wingify CDN. Caching your settings-file is explained [here](https://developers.vwo.com/docs/caching-your-settingsfile).
 
 ## How frequently settings-file should be updated?
 
@@ -35,7 +35,7 @@ This is totally dependent on your use-case. Following is the list of actions whi
 
 > 🚧 Tracking User & Conversion for PAUSED campaign
 >
-> VWO will not track if a campaign is no longer running but SDK still sends tracking hits for user or conversion for that campaign.
+> Wingify will not track if a campaign is no longer running but SDK still sends tracking hits for user or conversion for that campaign.
 
 So, depending on the usage, settings-file can be updated.
 
