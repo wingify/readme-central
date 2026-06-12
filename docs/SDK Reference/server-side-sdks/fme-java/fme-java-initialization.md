@@ -267,12 +267,12 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-java-logging) for mor
 By default, the SDK operates in stateless mode, evaluating flags on each _getFlag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```java
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setAccountId(123456);
-vwoInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
-vwoInitOptions.setStorage(storageObject)
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
+wingifyInitOptions.setAccountId(123456);
+wingifyInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
+wingifyInitOptions.setStorage(storageObject)
 
-VWO vwoInstance = VWO.init(vwoInitOptions);
+Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
 Please click [storage](https://developers.vwo.com/v2/docs/fme-java-storage)  to learn more about storage implementation.
