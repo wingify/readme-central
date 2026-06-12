@@ -14,7 +14,7 @@ next:
 
 You can create a free account with us by accessing the [signup page](https://vwo.com/free-trial/).
 
-To create and run A/B tests, sign in to the VWO dashboard and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the VWO A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
+To create and run A/B tests, sign in to the Wingify dashboard and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the Wingify A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
 
 ![](https://files.readme.io/8e6b451-Screen_Shot_2017-12-15_at_3.15.46_PM.png "Screen Shot 2017-12-15 at 3.15.46 PM.png")
 
@@ -28,8 +28,8 @@ Create A/B tests
 
 ## Create an App
 
-Registering your app on VWO is a one-time process.\
-Adding your app generates an `Api Key`, which is used by VWO servers to recognize your app.
+Registering your app on Wingify is a one-time process.\
+Adding your app generates an `Api Key`, which is used by Wingify servers to recognize your app.
 
 Select the **Mobile App A/B** option under the test menu.\
 Click **Create**, and then click **Add App**. Write a name for your app, and in the **Platform** option, select **Android**.
@@ -47,7 +47,7 @@ Type the name of the app you want to add, and then click **Create**.
 
 ![](https://files.readme.io/6c8d833-be06a8c-MobileAppAB-1.jpg "be06a8c-MobileAppAB-1.jpg")
 
-As you add an app, VWO generates API Keys for both the iOS and Android platforms. You can make a note of the API Key under the Settings section and are used during app initialization.
+As you add an app, Wingify generates API Keys for both the iOS and Android platforms. You can make a note of the API Key under the Settings section and are used during app initialization.
 
 ## Defining the Variables You Want To Test
 
@@ -69,7 +69,7 @@ To add the variable, click Create. You can add multiple variables to an app.
 
 On the **Mobile App A/B** testing screen, go to the **Campaigns** tab, and then click **Create**. 
 
-Choose the App you want to test. All mobile apps you have added to VWO are listed here.
+Choose the App you want to test. All mobile apps you have added to Wingify are listed here.
 
 Select a platform where the app is running.
 
@@ -83,7 +83,7 @@ Select Next and click **Add Variable**. All the variables you have created for t
 
 Select the variable you want to test, and then enter the variation values. You can test multiple variables in one test. In the example above, we have added speed variable, defined value as 20 for the variation. For control, the value is 10, which is the default value for the variable. 
 
-Based on the test key and variation names, VWO generates the code snippet that you can use in the mobile app.
+Based on the test key and variation names, Wingify generates the code snippet that you can use in the mobile app.
 
 To continue, click **Next**
 
@@ -210,7 +210,7 @@ import VWO from 'vwo-react-native';
 
 Library can be initialized in the following ways:
 
-#### I. Launching VWO SDK
+#### I. Launching Wingify SDK
 
 ```javascript
 var config = { optOut: false, disablePreview: false, customVariables: {}}
@@ -222,15 +222,15 @@ VWO.launch('YOUR_API_KEY', config).then(() => {
 
 #### Launch configuration
 
-You can pass a `config` object during the launch of the VWO SDK. `Config` is a javascript object which can have following keys:
+You can pass a `config` object during the launch of the Wingify SDK. `Config` is a javascript object which can have following keys:
 
-* `optOut`: it can have a boolean value which tells the VWO SDK whether to initialize the SDK or not. It defaults to false.
+* `optOut`: it can have a boolean value which tells the Wingify SDK whether to initialize the SDK or not. It defaults to false.
 
 * `disablePreview`: Boolean value to turn on or off the preview mode. It defaults to false.
 
 * `customVariables`: Takes in a javascript object as its value. Check [Targeting Visitor Groups](ref:ios-targeting-visitor-groups) / [Targeting Visitor Groups](ref:android-targeting-visitor-groups) for more details. It defaults to an empty object.
 
-* `customDimensionKey`: String value which is the unique key associated with a particular custom dimension made in the VWO application. Check [Push Custom Dimension](https://developers.vwo.com/reference#4-push-custom-dimension)  for more details. It defaults to an empty String.
+* `customDimensionKey`: String value which is the unique key associated with a particular custom dimension made in the Wingify application. Check [Push Custom Dimension](https://developers.vwo.com/reference#4-push-custom-dimension)  for more details. It defaults to an empty String.
 
 * `customDimensionValue`: String value which is the value you want to tag a custom dimension with. Check [Push Custom Dimension](https://developers.vwo.com/reference#4-push-custom-dimension)  for more details. It defaults to an empty String.
 
@@ -303,7 +303,7 @@ VWO.variationNameForTestKey("campaign_key").then((variationName) => {
 
 We would track the effect of this campaign on our conversion metric.\
 Earlier we defined `conversionGoal` as a goal.\
-We need to tell the VWO SDK when this conversion happens. Use the following code to trigger this goal.
+We need to tell the Wingify SDK when this conversion happens. Use the following code to trigger this goal.
 
 ```javascript
 var goal = "conversionGoal";
@@ -325,13 +325,13 @@ VWO.trackConversionWithValue(goal, 133.25);
 
 ## 4. Push Custom Dimension
 
-Pushes a custom dimension for a particular user to the VWO server. It is used for post-segmenting the data in the campaign reports.
+Pushes a custom dimension for a particular user to the Wingify server. It is used for post-segmenting the data in the campaign reports.
 
-Read [here](https://help.vwo.com/hc/en-us/articles/360038019054-Creating-a-Custom-Dimension-in-VWO) on how to create custom dimension in VWO
+Read [here](https://help.vwo.com/hc/en-us/articles/360038019054-Creating-a-Custom-Dimension-in-VWO) on how to create custom dimension in Wingify
 
 The API method accepts a custom dimension key - *customDimensionKey* and custom dimension value - *customDimensionValue*.
 
-*customDimensionKey* is the unique key associated with a particular custom dimension made in the VWO application.
+*customDimensionKey* is the unique key associated with a particular custom dimension made in the Wingify application.
 
 *customDimensionValue* is the value you want to tag a custom dimension with.
 
@@ -350,7 +350,7 @@ You can set different log levels depending upon the priority of logging as follo
 * **logLevelError**: Indicates Error
 * **logLevelOff**: No logs are printed
 
-The different methods set the log level of the message. VWO will only print messages with a log level that is greater to or equal to it's current log level setting. So a logger with a level of Warning will only output log messages with a level of Warning, or Error.
+The different methods set the log level of the message. Wingify will only print messages with a log level that is greater to or equal to it's current log level setting. So a logger with a level of Warning will only output log messages with a level of Warning, or Error.
 
 ```javascript
 VWO.setLogLevel(VWO.logLevelDebug);
@@ -362,7 +362,7 @@ VWO.setLogLevel(VWO.logLevelDebug);
 
 ## Opt out
 
-To opt out of tracking by VWO, use `config` object to set OptOut to true or false. This `config` object is passed when `VWO.launch` function is called.
+To opt out of tracking by Wingify, use `config` object to set OptOut to true or false. This `config` object is passed when `VWO.launch` function is called.
 
 ```javascript
 var config = {optOut: false}
@@ -377,7 +377,7 @@ From the **Mobile App A/B** menu, select your campaign and click **Detailed Repo
 
 ## Source Code
 
-VWO React-Native Library code is available on GitHub:\
+Wingify React-Native Library code is available on GitHub:\
 [https://github.com/wingify/vwo-react-native](https://github.com/wingify/vwo-react-native)
 
 ## Next Steps

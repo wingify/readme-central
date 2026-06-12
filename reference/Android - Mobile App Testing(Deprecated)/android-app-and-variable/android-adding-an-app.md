@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Before you can A/B test your mobile app, register it with VWO.\
+Before you can A/B test your mobile app, register it with Wingify.\
 Registering an app is a one-time process.
 
 From the **Test** menu, select **Mobile App A/B**.\
