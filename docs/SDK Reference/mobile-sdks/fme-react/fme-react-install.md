@@ -25,7 +25,7 @@ To integrate VWO FE SDK into your React application, you must first install the 
 To integrate the FE React SDK into your application through [npm](https://www.npmjs.com/), run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
 
 ```javascript Shell
-npm install vwo-fme-react-sdk --save
+npm install wingify-fme-react-sdk --save
 ```
 
 ## Installation via yarn
@@ -33,7 +33,7 @@ npm install vwo-fme-react-sdk --save
 To integrate FE React SDK into your application through [yarn](https://yarnpkg.com/en/), run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
 
 ```Text Shell
-yarn add vwo-fme-react-sdk
+yarn add wingify-fme-react-sdk
 ```
 
 ## Source Code
@@ -43,3 +43,5 @@ VWO FE SDKs source code is available in various languages on GitHub. All the SDK
 | Language | Repository                                                                                   |
 | :------- | :------------------------------------------------------------------------------------------- |
 | React    | [https://github.com/wingify/vwo-fme-react-sdk](https://github.com/wingify/vwo-fme-react-sdk) |
+
+<br />
