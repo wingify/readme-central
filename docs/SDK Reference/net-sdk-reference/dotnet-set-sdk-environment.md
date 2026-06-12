@@ -14,7 +14,7 @@ next:
       slug: dotnet-configure-the-logger
       title: Configure the Logger
 ---
-Setting up the environment for your application is critical. We strongly recommend you to use this setting carefully. The default environment is set to **production**, which means that the VWO SDK will send events to the VWO server for tracking visitors and conversions along with actions like bucketing variation, checking eligibility of a user to become part of a campaign, assigning a variation to a user, and so on.
+Setting up the environment for your application is critical. We strongly recommend you to use this setting carefully. The default environment is set to **production**, which means that the Wingify SDK will send events to the Wingify server for tracking visitors and conversions along with actions like bucketing variation, checking eligibility of a user to become part of a campaign, assigning a variation to a user, and so on.
 
 <Table align={["left","left","left"]}>
   <thead>

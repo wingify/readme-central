@@ -10,6 +10,6 @@ metadata:
 next:
   description: ''
 ---
-This section is a full reference for VWO Mobile Insights Android SDK.
+This section is a full reference for Wingify Mobile Insights Android SDK.
 
 Read further to find out how to install Android SDK, initialize the SDK, and start recording users' behaviour.

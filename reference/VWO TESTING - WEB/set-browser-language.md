@@ -48,7 +48,7 @@ window.VWO.push(['setBrowserLanguage', 'fr']);
 * The language value is stored in localStorage with the key `vwo_bL`.
 * The value persists across browser sessions until explicitly changed or cleared.
 * Use a supported language code from the table below.
-* If no custom language is set, VWO falls back to the default browser language value available in settings.
+* If no custom language is set, Wingify falls back to the default browser language value available in settings.
 * This API is intended for Survey language resolution.
 
 #### Supported languages

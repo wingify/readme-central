@@ -12,7 +12,7 @@ next:
 ---
 ## Java SDK Installation
 
-To integrate VWO Java SDK into your application, you first need to install the SDK through a package manager for Java. VWO Java SDK can be installed using [maven](https://maven.apache.org/) or [gradle](https://gradle.org/)
+To integrate Wingify Java SDK into your application, you first need to install the SDK through a package manager for Java. Wingify Java SDK can be installed using [maven](https://maven.apache.org/) or [gradle](https://gradle.org/)
 
 ## Requirements
 
@@ -31,7 +31,7 @@ mvn install
 
 ## Source Code
 
-The VWO SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2019-2020.
+The Wingify SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2019-2020.
 
 <Table align={["left","left"]}>
   <thead>

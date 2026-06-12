@@ -10,6 +10,6 @@ metadata:
 next:
   description: ''
 ---
-This section is a full reference for VWO Android SDK.
+This section is a full reference for Wingify Android SDK.
 
 Read further to find out how to install Android SDK, preview your changes, and run optimization tests.

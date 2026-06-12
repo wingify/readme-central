@@ -14,7 +14,7 @@ next:
 
 ### Overview
 
-The `onSurveyAnswerSubmitted` API triggers custom functionality when a survey answer is submitted in VWO surveys. It provides access to the data related to the submitted answers, including question details and visitor responses.
+The `onSurveyAnswerSubmitted` API triggers custom functionality when a survey answer is submitted in Wingify surveys. It provides access to the data related to the submitted answers, including question details and visitor responses.
 
 ### Signature
 
@@ -30,7 +30,7 @@ window.VWO.push(['onSurveyAnswerSubmitted', function(data) {
 
 | Parameter    | Data Type | Required | Description                                                                            |
 | ------------ | --------- | -------- | -------------------------------------------------------------------------------------- |
-| accountId    | number    | Yes      | The VWO account ID.                                                                    |
+| accountId    | number    | Yes      | The Wingify account ID.                                                                    |
 | surveyId     | number    | Yes      | The survey campaign ID of the survey being answered.                                   |
 | uuid         | string    | Yes      | The unique identifier for the visitor.                                                 |
 | questionId   | number    | Yes      | The unique ID of the question being answered.                                          |

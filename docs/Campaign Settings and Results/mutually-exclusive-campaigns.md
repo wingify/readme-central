@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Using the Mutually Exclusive Groups option in VWO, you can group multiple campaigns together that are mutually exclusive. By ensuring visitors do not overlap multiple campaigns, you can ensure that the same visitor does not see the unrelated campaign variations. This eliminates the interaction effects that multiple campaigns could have with each other. Improvements in conversion rate can be attributed to the right campaign and remove bias.
+Using the Mutually Exclusive Groups option in Wingify, you can group multiple campaigns together that are mutually exclusive. By ensuring visitors do not overlap multiple campaigns, you can ensure that the same visitor does not see the unrelated campaign variations. This eliminates the interaction effects that multiple campaigns could have with each other. Improvements in conversion rate can be attributed to the right campaign and remove bias.
 
 ## Set Up Mutually Exclusive Groups
 
@@ -37,4 +37,4 @@ To add your campaign to a mutually exclusive group:
 
 > 🚧 Note
 >
-> Mutually Exclusive Groups is an Enterprise-only feature of VWO Testing and FullStack. As of now, you can add a maximum of 10 campaigns in one mutually exclusive group.
+> Mutually Exclusive Groups is an Enterprise-only feature of Wingify Testing and FullStack. As of now, you can add a maximum of 10 campaigns in one mutually exclusive group.

@@ -11,7 +11,7 @@ Manual Hide for SwiftUI
 
 <br />
 
-You can manually hide specific views from being recorded using **VWO Manual Hide.**
+You can manually hide specific views from being recorded using **Wingify Manual Hide.**
 
 <br />
 

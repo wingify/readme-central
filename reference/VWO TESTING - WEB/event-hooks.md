@@ -108,12 +108,12 @@ window.VWO.event('purchaseCompleted', {
 
 * **Custom Data Capture**: Enhance event payloads by dynamically adding properties such as user segments, session attributes, or experiment metadata. This can improve reporting and analytics accuracy by including business-specific data points.
 
-* **Cross-Platform Integration**: Extend event tracking by forwarding VWO events to external marketing and analytics platforms such as Google Analytics, Segment, or Mixpanel. This ensures a unified view of user behavior across multiple tools.
+* **Cross-Platform Integration**: Extend event tracking by forwarding Wingify events to external marketing and analytics platforms such as Google Analytics, Segment, or Mixpanel. This ensures a unified view of user behavior across multiple tools.
 
 ### Notes
 
-* **Supported:** **Custom events** sent via **`window.VWO.event(eventName, attributes)`** are eligible for hooks and appear in the dashboard as **My Events** / **Unregistered Events**; see [Working with events in VWO](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO).  
-  **Custom attributes** passed with **`window.VWO.event(eventName, attributes)`** (the `attributes` keys mapped to `payload.d.event.props`) are also hook-eligible, appear as **My Attributes** / **Unregistered Attributes**, and include visitor custom-attribute sync via **`window.VWO.visitor({...})`**; see [Working with attributes in VWO](https://help.vwo.com/hc/en-us/articles/8681465703705-Working-With-Attributes-in-VWO).
+* **Supported:** **Custom events** sent via **`window.VWO.event(eventName, attributes)`** are eligible for hooks and appear in the dashboard as **My Events** / **Unregistered Events**; see [Working with events in Wingify](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO).  
+  **Custom attributes** passed with **`window.VWO.event(eventName, attributes)`** (the `attributes` keys mapped to `payload.d.event.props`) are also hook-eligible, appear as **My Attributes** / **Unregistered Attributes**, and include visitor custom-attribute sync via **`window.VWO.visitor({...})`**; see [Working with attributes in Wingify](https://help.vwo.com/hc/en-us/articles/8681465703705-Working-With-Attributes-in-VWO).
 
 * **Not supported:** **Standard events** are outside this hook surface (for example: **Page visit**, **Click**, **Form submission**).  
   **Standard attributes** are also outside this hook surface; ABM-style identity attributes (for example **`identifyVisitor`**, commonly `POST .../abm/identify...`) do not run through these generic hooks.  

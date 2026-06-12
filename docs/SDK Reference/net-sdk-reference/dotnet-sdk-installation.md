@@ -16,7 +16,7 @@ next:
 ---
 ## .NET SDK Installation
 
-To integrate VWO .NET SDK into your application, you first need to install the SDK through a package manager for .NET. VWO .NET SDK can be installed using [NuGet](https://www.nuget.org).
+To integrate Wingify .NET SDK into your application, you first need to install the SDK through a package manager for .NET. Wingify .NET SDK can be installed using [NuGet](https://www.nuget.org).
 
 ## Requirements
 
@@ -34,7 +34,7 @@ PM> Install-Package VWO.Sdk
 
 ## Source Code
 
-The VWO SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2019-2021.
+The Wingify SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2019-2021.
 
 <Table align={["left","left"]}>
   <thead>

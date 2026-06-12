@@ -10,6 +10,6 @@ metadata:
 next:
   description: ''
 ---
-This section is a full reference for VWO Insights - Mobile App React Native SDK.
+This section is a full reference for Wingify Insights - Mobile App React Native SDK.
 
 Read further to find out how to install React Native SDK, initialize it for both the platforms (Android & IOS) individually, and start recording user behavior.

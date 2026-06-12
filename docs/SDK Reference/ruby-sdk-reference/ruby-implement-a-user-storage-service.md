@@ -15,7 +15,7 @@ For example, you can create an implementation that reads and saves user-campaign
 
 ## How to Implement User Storage Service
 
-User Storage Service is optional while [instantiating](https://developers.vwo.com/docs/ruby-launch) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing one.
+User Storage Service is optional while [instantiating](https://developers.vwo.com/docs/ruby-launch) the Wingify SDK. However, to ensure sticky variation assignments, we recommend implementing one.
 
 User Storage Service should expose two methods: *get* and *set*.
 
@@ -56,7 +56,7 @@ class VWO
 	end
 end
 
-# Now use it to initiate VWO client instance
+# Now use it to initiate Wingify client instance
 vwo_client_instance = VWO.new(account_id, sdk_key, custom_logger, UserStorage.new)
 ```
 
@@ -148,7 +148,7 @@ The following keys are expected in the map:
 
 > 🚧 Note:
 >
-> VWO SDK validates the *variationName* and checks whether the variation exists in the campaign having the *campaignkey* or not. If the variation is found, SDK will use without looking into the User Storage service. If the variation of not found, SDK will jump onto the process of checking whether the user is eligible for the campaign or not and returns accordingly from the SDK API.
+> Wingify SDK validates the *variationName* and checks whether the variation exists in the campaign having the *campaignkey* or not. If the variation is found, SDK will use without looking into the User Storage service. If the variation of not found, SDK will jump onto the process of checking whether the user is eligible for the campaign or not and returns accordingly from the SDK API.
 
 Below is an example:
 

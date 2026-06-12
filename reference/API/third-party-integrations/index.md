@@ -18,6 +18,6 @@ Currently, these APIs support:
 * retrieving the list of configured integrations for a workspace
 * deleting a specific integration connection
 
-These APIs help manage external platform connections and maintain integration configurations across VWO services.
+These APIs help manage external platform connections and maintain integration configurations across Wingify services.
 
-To understand third-party integration supported in VWO, read our knowledge base articles on [VWO Integration](https://help.vwo.com/hc/en-us/sections/360003824734-Web-Analytics-Integrations).
+To understand third-party integration supported in Wingify, read our knowledge base articles on [Wingify Integration](https://help.vwo.com/hc/en-us/sections/360003824734-Web-Analytics-Integrations).

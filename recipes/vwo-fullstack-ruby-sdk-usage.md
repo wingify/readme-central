@@ -1,6 +1,6 @@
 ---
-title: VWO FullStack Ruby SDK Usage
-description: Example of how VWO SDK can be integrated into your codebase.
+title: Wingify FullStack Ruby SDK Usage
+description: Example of how Wingify SDK can be integrated into your codebase.
 hidden: false
 recipe:
   color: '#018FF4'
@@ -23,18 +23,18 @@ vwo_client_instance.track(campaign_key, user_id, goal_identifier, options)
 {"success":true}
 ```
 
-# Import VWO SDK
+# Import Wingify SDK
 
 <!-- ruby@1 -->
 
-Install and import the VWO SDK
+Install and import the Wingify SDK
 
 # Fetch Settings and Launch the SDK
 
 <!-- ruby@3 -->
 
-After importing VWO SDK, fetch the campaign settings by providing your VWO Account ID and SDK key.
-This will create VWO SDK's client instance which would be used to call the activation and tracking APIs exposed by the SDK.
+After importing Wingify SDK, fetch the campaign settings by providing your Wingify Account ID and SDK key.
+This will create Wingify SDK's client instance which would be used to call the activation and tracking APIs exposed by the SDK.
 
 # Activate the A/B Campaign
 

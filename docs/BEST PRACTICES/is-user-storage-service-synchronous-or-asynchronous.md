@@ -17,11 +17,11 @@ next:
         Why is it important to use Persistent Storage when deploying to
         Production?
 ---
-User Storage Service is a service that stores the user information and VWO campaign-related decision-making details. User Storage Service provides persistent storage for the user-campaign details. 
+User Storage Service is a service that stores the user information and Wingify campaign-related decision-making details. User Storage Service provides persistent storage for the user-campaign details. 
 
  User Storage Service recommends having two methods ***set*** and ***get***.
 
-***set*** method is called when a decision is made by our SDKs logic for a specific campaign and userId and User Storage Service is properly configured. Implementation inside ***set*** methods could be synchronous or asynchronous, based upon your requirements, since VWO SDKs do not rely on the return value from the ***set*** method, 
+***set*** method is called when a decision is made by our SDKs logic for a specific campaign and userId and User Storage Service is properly configured. Implementation inside ***set*** methods could be synchronous or asynchronous, based upon your requirements, since Wingify SDKs do not rely on the return value from the ***set*** method, 
 
 ***get*** method, on the other hand, is called the very first time when API is triggered, after Whitelisting, if there, and ensuring User Storage Service is properly configured. This method is responsible for fetching the data from the DB/Storage. Instead of SDK re-evaluating the logic for the returning visitor for a specific campaign, this method gives preference to the already stored data.\
 Since SDK APIs are all synchronous in nature, it is mandatory to have the implementation of ***get*** method in a synchronous way.
@@ -33,7 +33,7 @@ Eventually, even if we are doing asynchronous work, the end result would still b
 
 That's why we have kept the ***get*** implementation to work synchronously but there's surely a way to tackle asynchronous behavior of your DB calls. Please refer to the section - *What if our implementation to fetch data is asynchronous in nature?* below.
 
-## Can't VWO handle the promise returned by *get* method?
+## Can't Wingify handle the promise returned by *get* method?
 
 We would have. But the point being, even if the ***get*** method returns data asynchronously, SDK's execution will have to be deferred till the response. This means the promise returned by the ***get*** method has to be wisely resolved or rejected by the implementation in order to let SDK work in the desired way.
 
@@ -75,7 +75,7 @@ const customerStorageService = {
  }
 }
 
-// Pass this to VWO SDK at the time of launching it
+// Pass this to Wingify SDK at the time of launching it
 let userStorageService = {
   get: (userId, campaignKey) => {
     // Do not implement it
@@ -86,10 +86,10 @@ let userStorageService = {
   }
 }
 
-// use VWO SDK
+// use Wingify SDK
 var vwoSDK = require('vwo-node-sdk');
 
-// Instantiate the VWO SDK
+// Instantiate the Wingify SDK
 var vwoClientInstance = vwoSDK.launch({
   settingsFile: settingsFile,
   userStorageService: userStorageService 
@@ -110,7 +110,7 @@ vwoClientInstance.track(campaignKey, userId, goalIdentifier, options);
 
 > 📘 Passing Stored Data to APIs
 >
-> **userStorageData** is the key that needs to be passed in the **options** parameter. The value should be the user-campaign map in the same format as VWO provides to the **set** method of User Storage Service.
+> **userStorageData** is the key that needs to be passed in the **options** parameter. The value should be the user-campaign map in the same format as Wingify provides to the **set** method of User Storage Service.
 
 ## Format for the userStorageData
 
@@ -200,7 +200,7 @@ Following keys are expected in the map:
 
 > 🚧 Note:
 >
-> VWO SDK validates the *variationName* and checks whether the variation exists in the campaign having the *campaignkey* or not. If the variation is found, SDK will use without looking into the User Storage service. If the variation of not found, SDK will jump onto the process of checking whether the user is eligible for the campaign or not and returns accordingly from the SDK API.
+> Wingify SDK validates the *variationName* and checks whether the variation exists in the campaign having the *campaignkey* or not. If the variation is found, SDK will use without looking into the User Storage service. If the variation of not found, SDK will jump onto the process of checking whether the user is eligible for the campaign or not and returns accordingly from the SDK API.
 
 Below is an example of the map:
 
@@ -224,4 +224,4 @@ Below is an example of the map:
 > ***get***  method should be synchronous. For asynchronous, call the asynchronous implementation and pass it to the options key in all the respective APIs.\
 > ***set*** method could be asynchronous as per the above-mentioned implementation.
 >
-> And, please remember to return the data in the same structure in the ***get*** method, as what VWO SDK provides in the ***set*** method.
+> And, please remember to return the data in the same structure in the ***get*** method, as what Wingify SDK provides in the ***set*** method.

@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-After installing the SDK, initialize VWO Insights in your AppDelegate file by following the steps below:
+After installing the SDK, initialize Wingify Insights in your AppDelegate file by following the steps below:
 
 <br />
 
@@ -33,10 +33,10 @@ func application(
     ) { result in
         switch result {
         case .success(_):
-            print("VWO launched successfully")
+            print("Wingify launched successfully")
             VWO.startSessionRecording()
         case .failure(let error):
-            print("VWO launch failed: \(error)")
+            print("Wingify launch failed: \(error)")
         }
     }
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page tracks the impact of VWO SDK on different parameters for an app.
+This page tracks the impact of Wingify SDK on different parameters for an app.
 
 ## **Launch Time**
 
@@ -18,7 +18,7 @@ The SDK is designed to be launched in the background, ensuring that it does not 
 
 ## Increase in APK file size
 
-When an Android app is integrated with the VWO SDK, the increase in the size of the APK file is around \~800 KB without Proguard and **\~300 KB with Proguard**.
+When an Android app is integrated with the Wingify SDK, the increase in the size of the APK file is around \~800 KB without Proguard and **\~300 KB with Proguard**.
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -221,7 +221,7 @@ Here is a summary of the Android application analysis. This analysis includes a 
 
 ## API Calls
 
-VWO SDK makes two types of API calls to VWO CDN.
+Wingify SDK makes two types of API calls to Wingify CDN.
 
 1. ***AppSettings***-  During SDK initialization, a single request is made to fetch settings, with two retry attempts. If this initial request fails, the SDK does not make any further attempts to fetch settings. This approach ensures consistent app behavior throughout an ongoing session.
 2. ***DataSync*** - Data synchronization for session recording and heatmaps is facilitated through a dedicated request. In the event of a failure, the SDK keeps track of the issue and will attempt to resend the data after a specified interval.

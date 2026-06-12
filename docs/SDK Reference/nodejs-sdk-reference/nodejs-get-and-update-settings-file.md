@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-Once the SDK is launched properly, there might be scenarios later on when you need to fetch the latest settings-file and use that instead of the stale one to sync SDK and VWO application. You can do this by calling [Get Settings File](https://developers.vwo.com/docs/node-get-settings-file) API and passing the fetched settings-file to the [Launch](https://developers.vwo.com/docs/node-launch) API to re-instantiate the VWO SDK. Or, you can simply use the Get and Update Settings File API, available on the VWO Client Instance that is already available.
+Once the SDK is launched properly, there might be scenarios later on when you need to fetch the latest settings-file and use that instead of the stale one to sync SDK and Wingify application. You can do this by calling [Get Settings File](https://developers.vwo.com/docs/node-get-settings-file) API and passing the fetched settings-file to the [Launch](https://developers.vwo.com/docs/node-launch) API to re-instantiate the Wingify SDK. Or, you can simply use the Get and Update Settings File API, available on the Wingify Client Instance that is already available.
 
 ## Description
 
-**Get And Update Settings File** API will fetch the latest settings-file from the VWO server and update the VWO Client Instance to use that. Every VWO SDK API used after this API will work according to the latest settings-file fetched.
+**Get And Update Settings File** API will fetch the latest settings-file from the Wingify server and update the Wingify Client Instance to use that. Every Wingify SDK API used after this API will work according to the latest settings-file fetched.
 
 The method accepts three parameters:
 
-* **accountId** - account-id associated with your VWO account.
+* **accountId** - account-id associated with your Wingify account.
 * **sdkKey** - generated inside the respective *Project* under the ***FullStack Testing***.
 
 ## Parameter Definitions
@@ -52,7 +52,7 @@ The method accepts three parameters:
       </td>
 
       <td>
-        Your VWO application's account-id.
+        Your Wingify application's account-id.
       </td>
     </tr>
 
@@ -67,7 +67,7 @@ The method accepts three parameters:
       </td>
 
       <td>
-        Unique environment-key provided to you inside the Projects section in VWO application..
+        Unique environment-key provided to you inside the Projects section in Wingify application..
       </td>
     </tr>
 
@@ -82,7 +82,7 @@ The method accepts three parameters:
       </td>
 
       <td>
-        VWO SDKs require this to handle webhook generated settings-file requests differently.
+        Wingify SDKs require this to handle webhook generated settings-file requests differently.
 
         * \*Note:\*\* Only pass true when this API is used once the webhook is triggered.
       </td>
@@ -122,7 +122,7 @@ Returns the fetched settings-file. If somehow the latest settings-file could not
       </td>
 
       <td>
-        The settings representing the current state of the running VWO FullStack campaigns.
+        The settings representing the current state of the running Wingify FullStack campaigns.
       </td>
     </tr>
   </tbody>

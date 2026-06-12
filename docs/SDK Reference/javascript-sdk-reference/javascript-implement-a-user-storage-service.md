@@ -15,7 +15,7 @@ For example, you can create an implementation that reads and saves user-campaign
 
 ## How to Implement User Storage Service
 
-User Storage Service is optional while [instantiating](https://developers.vwo.com/docs/javascript-launch) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing one.
+User Storage Service is optional while [instantiating](https://developers.vwo.com/docs/javascript-launch) the Wingify SDK. However, to ensure sticky variation assignments, we recommend implementing one.
 
 User Storage Service should expose two methods: *get* and *set*.
 
@@ -152,7 +152,7 @@ The following keys are expected in the map:
 
 > 🚧 Note:
 >
-> VWO SDK validates the *variationName* and checks whether the variation exists in the campaign having the *campaignkey* or not. If the variation is found, SDK will use without looking into the User Storage service. If the variation of not found, SDK will jump onto the process of checking whether the user is eligible for the campaign or not and returns accordingly from the SDK API.
+> Wingify SDK validates the *variationName* and checks whether the variation exists in the campaign having the *campaignkey* or not. If the variation is found, SDK will use without looking into the User Storage service. If the variation of not found, SDK will jump onto the process of checking whether the user is eligible for the campaign or not and returns accordingly from the SDK API.
 
 Below is an example:
 
@@ -169,7 +169,7 @@ Below is an example:
 > ***get*** method needs to be synchronous as all SDK APIs are synchronous except *getSettingsFile* API.\
 > Using asynchronous DB/Storage operations inside ***get*** method are not useful as, in any way, SDK needs to wait for the response so that the stored results could be used synchronously.
 >
-> ***set*** method could be asynchronous as VWO SDK need not wait for any response from it.
+> ***set*** method could be asynchronous as Wingify SDK need not wait for any response from it.
 >
 > Also, asynchronous behavior is limited to languages like Node.js, JavaScript, and Java as other languages do not natively support them in all the SDK supported versions.
 

@@ -40,5 +40,5 @@ This will make sure that all extra code is required only while development; ther
 
 ## Source Code
 
-The VWO iOS SDK code is available on GitHub:\
+The Wingify iOS SDK code is available on GitHub:\
 [https://github.com/wingify/vwo-ios-sdk](https://github.com/wingify/vwo-ios-sdk)

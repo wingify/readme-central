@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-After successfully instantiating a VWO class, *getVariationName API* returns the variation assigned to the specified user if the user qualifies to become part of the specified campaign. This API doesn't activate the campaign i.e. it will not send any impression call to the VWO servers for tracking any data.
+After successfully instantiating a Wingify class, *getVariationName API* returns the variation assigned to the specified user if the user qualifies to become part of the specified campaign. This API doesn't activate the campaign i.e. it will not send any impression call to the Wingify servers for tracking any data.
 
 ## Description
 
@@ -23,12 +23,12 @@ The API method:
 * Checks whether the user is eligible based on the campaign's pre-segmentation conditions.
 * Checks whether the user qualifies to become a part of the campaign based on traffic allocation.
 * Assigns a deterministic variation to the qualified user.
-* Does ***not*** send an impression event to the VWO server.
+* Does ***not*** send an impression event to the Wingify server.
 
-It takes the same parameters and returns the same value as [Activate API](https://developers.vwo.com/docs/javascript-activate). The only difference is that this API method does ***not*** send a tracking impression to the VWO server. This API method is used to get the variation assigned to the *userId*.\
+It takes the same parameters and returns the same value as [Activate API](https://developers.vwo.com/docs/javascript-activate). The only difference is that this API method does ***not*** send a tracking impression to the Wingify server. This API method is used to get the variation assigned to the *userId*.\
 The behaviour of the two API methods, that is, [activate](https://developers.vwo.com/docs/javascript-activate) and [getVariationName](https://developers.vwo.com/docs/javascript-get-variation-name) is identical otherwise.
 
-Use *Get Variation Name* API if *Activate* API has already been triggered to prevent a user from being tracked again. Also, this API is also helpful in retrieving the variation assignment to a particular User Id, respecting all other factors like segmentation, whitelisting, etc. without sending any impression call to the VWO servers.
+Use *Get Variation Name* API if *Activate* API has already been triggered to prevent a user from being tracked again. Also, this API is also helpful in retrieving the variation assignment to a particular User Id, respecting all other factors like segmentation, whitelisting, etc. without sending any impression call to the Wingify servers.
 
 ## Parameter definitions
 

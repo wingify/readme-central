@@ -10,19 +10,19 @@ metadata:
 next:
   description: ''
 ---
-The VWO client class needs to be instantiated as an instance that exposes various API methods like [activate](https://developers.vwo.com/docs/javascript-activate), [getVariationName](https://developers.vwo.com/docs/javascript-get-variation-name) and [track](https://developers.vwo.com/docs/javascript-track).
+The Wingify client class needs to be instantiated as an instance that exposes various API methods like [activate](https://developers.vwo.com/docs/javascript-activate), [getVariationName](https://developers.vwo.com/docs/javascript-get-variation-name) and [track](https://developers.vwo.com/docs/javascript-track).
 
-Each VWO client represents the state of a project corresponding to the [settingsFile](https://developers.vwo.com/docs/javascript-get-settings-file). *SettingsFile* needs to be fetched before instantiating a VWO client. Read more on how to get [SettingsFile](https://developers.vwo.com/docs/javascript-get-settings-file).
+Each Wingify client represents the state of a project corresponding to the [settingsFile](https://developers.vwo.com/docs/javascript-get-settings-file). *SettingsFile* needs to be fetched before instantiating a Wingify client. Read more on how to get [SettingsFile](https://developers.vwo.com/docs/javascript-get-settings-file).
 
 ## API Description
 
-SDK provides a method to instantiate a VWO client as an instance. The method accepts an object to configure the VWO client.
+SDK provides a method to instantiate a Wingify client as an instance. The method accepts an object to configure the Wingify client.
 
 The only required parameter for instantiating the SDK is *settings file*. There are other optional parameters, which you could provide for overriding the default behavior or setting environment.
 
 ## Parameter Definitions
 
-Below is the list of all parameters that can be used for configuring the VWO SDK.
+Below is the list of all parameters that can be used for configuring the Wingify SDK.
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -68,7 +68,7 @@ Below is the list of all parameters that can be used for configuring the VWO SDK
       </td>
 
       <td>
-        Flag for experimenting the SDK on test-app/staging so that no impression is sent to the VWO server for tracking.
+        Flag for experimenting the SDK on test-app/staging so that no impression is sent to the Wingify server for tracking.
       </td>
     </tr>
 
@@ -136,7 +136,7 @@ Below is the list of all parameters that can be used for configuring the VWO SDK
 
 ## Returns
 
-An instance of the VWO class, which can be referenced later for calling out different API methods.
+An instance of the Wingify class, which can be referenced later for calling out different API methods.
 
 ## Usage
 
@@ -151,7 +151,7 @@ vwoSdk.getSettingsFile(accountId, sdkKey).then(function (settingsFile) {
 
 ## Promises and async
 
-If your application uses promises for asynchronous operations, you can configure the SDK to manage asynchronous operations. VWO SDK is capable of returning a value as well as promise depending on the use case.\
+If your application uses promises for asynchronous operations, you can configure the SDK to manage asynchronous operations. Wingify SDK is capable of returning a value as well as promise depending on the use case.\
 When returning a value, API response time is faster (\< 50ms) as it does not wait for the asynchronous tracking call to get completed. in the case of returning a promise, API will wait for both the decision as well as the asynchronous tracking call to get completed, and thereby, the response time of the API will include the round-trip time of the network call.
 
 Since the async/await syntax is based on Promises, all APIs will also work with it.

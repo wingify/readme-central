@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Due to limitations of the Flutter platform on Android, the screen hiding feature from the VWO dashboard's 'Exclude elements/sections from screen recording' section may not work for certain frames. 
+Due to limitations of the Flutter platform on Android, the screen hiding feature from the Wingify dashboard's 'Exclude elements/sections from screen recording' section may not work for certain frames. 
 
 To address this, we recommend using the pause and resume feature of our SDK. When you need to hide a screen, pause the recording before the screen appears. Similarly, to unhide a screen, resume the recording after the screen is dismissed. 
 

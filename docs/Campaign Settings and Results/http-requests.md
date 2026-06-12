@@ -14,7 +14,7 @@ next:
       slug: impression-events
       title: Impression Events
 ---
-List of all HTTP requests that are made to VWO server for various purposes.
+List of all HTTP requests that are made to Wingify server for various purposes.
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -57,7 +57,7 @@ List of all HTTP requests that are made to VWO server for various purposes.
       </td>
 
       <td style={{ textAlign: "left" }}>
-        This is required for fetching the settingsFile required for [instantiating](https://developers.vwo.com/reference#fullstack-sdk-instantiation) the VWO SDK.
+        This is required for fetching the settingsFile required for [instantiating](https://developers.vwo.com/reference#fullstack-sdk-instantiation) the Wingify SDK.
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -81,11 +81,11 @@ List of all HTTP requests that are made to VWO server for various purposes.
       </td>
 
       <td style={{ textAlign: "left" }}>
-        VWO sends the essential params like accountId, campaignId, variation assigned, current time, user ID, UUID of user, along with meta information like sdk-name, sdk-version, etc.
+        Wingify sends the essential params like accountId, campaignId, variation assigned, current time, user ID, UUID of user, along with meta information like sdk-name, sdk-version, etc.
       </td>
 
       <td style={{ textAlign: "left" }}>
-        To send an event to VWO server to track a visitor.
+        To send an event to Wingify server to track a visitor.
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -104,11 +104,11 @@ List of all HTTP requests that are made to VWO server for various purposes.
       </td>
 
       <td style={{ textAlign: "left" }}>
-        VWO sends the essential params like accountId, campaignId, variation assigned, current time, user ID, UUID of user, goalId and revenue(if revenue goal), along with meta information like sdk-name, sdk-version, etc.
+        Wingify sends the essential params like accountId, campaignId, variation assigned, current time, user ID, UUID of user, goalId and revenue(if revenue goal), along with meta information like sdk-name, sdk-version, etc.
       </td>
 
       <td style={{ textAlign: "left" }}>
-        To send an event to VWO server to track a conversion. Various metrics are calculated and shown in campaign reports based on count of visitors and conversions.
+        To send an event to Wingify server to track a conversion. Various metrics are calculated and shown in campaign reports based on count of visitors and conversions.
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -127,7 +127,7 @@ List of all HTTP requests that are made to VWO server for various purposes.
       </td>
 
       <td style={{ textAlign: "left" }}>
-        VWO sends the essential params like accountId, current time, user ID, UUID of user, custom-dimension-key, custom-dimension-value, along with meta information like sdk-name, sdk-version, etc.
+        Wingify sends the essential params like accountId, current time, user ID, UUID of user, custom-dimension-key, custom-dimension-value, along with meta information like sdk-name, sdk-version, etc.
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -149,11 +149,11 @@ List of all HTTP requests that are made to VWO server for various purposes.
       </td>
 
       <td style={{ textAlign: "left" }}>
-        VWO SDK batches different events like track-user, track-goal, and push and sends to VWO.
+        Wingify SDK batches different events like track-user, track-goal, and push and sends to Wingify.
       </td>
 
       <td style={{ textAlign: "left" }}>
-        VWO SDK batches different events and sends them in a single POST call.
+        Wingify SDK batches different events and sends them in a single POST call.
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -200,7 +200,7 @@ If you enable the DEBUG or INFO logs, all such information can be seen there. Re
       </td>
 
       <td>
-        VWO Account ID
+        Wingify Account ID
       </td>
 
       <td>
@@ -276,7 +276,7 @@ https://dev.visualwebsiteoptimizer.com/server-side/settings?a=12345&i=aa87170ad9
       </td>
 
       <td>
-        VWO Account ID
+        Wingify Account ID
       </td>
 
       <td>
@@ -333,7 +333,7 @@ https://dev.visualwebsiteoptimizer.com/server-side/settings?a=12345&i=aa87170ad9
       </td>
 
       <td>
-        VWO Experiment ID
+        Wingify Experiment ID
       </td>
 
       <td>
@@ -506,7 +506,7 @@ https://dev.visualwebsiteoptimizer.com/server-side/track-user?experiment_id=480&
       </td>
 
       <td>
-        VWO Account ID
+        Wingify Account ID
       </td>
 
       <td>
@@ -563,7 +563,7 @@ https://dev.visualwebsiteoptimizer.com/server-side/track-user?experiment_id=480&
       </td>
 
       <td>
-        VWO Experiment ID
+        Wingify Experiment ID
       </td>
 
       <td>
@@ -755,7 +755,7 @@ https://dev.visualwebsiteoptimizer.com/server-side/track-goal?experiment_id=481&
       </td>
 
       <td>
-        VWO Account ID
+        Wingify Account ID
       </td>
 
       <td>
