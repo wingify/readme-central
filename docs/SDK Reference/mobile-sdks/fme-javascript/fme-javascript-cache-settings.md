@@ -12,21 +12,21 @@ These enhanced options allow developers to fine-tune storage behavior by specify
 ## Key Features:
 
 1. **Custom TTL (Time To Live) Option**
-   * The TTL setting allows specifying how long the settings should remain valid in the storage. If not specified, the default TTL is set to 2 hours. This helps in controlling the frequency with which settings are refreshed from the server.
+   - The TTL setting allows specifying how long the settings should remain valid in the storage. If not specified, the default TTL is set to 2 hours. This helps in controlling the frequency with which settings are refreshed from the server.
      Note - The TTL value is specified in milliseconds.
-   * This is especially useful when you want to limit the frequency of network requests and instead rely on cached settings for performance.
-2. **`alwaysUseCachedSettings`Option**
-   * When enabled, the SDK will always use cached settings, regardless of the TTL value. This means the settings stored in the browser will be used even if they have expired based on the TTL.
-   * By default, this option is disabled. If disabled, the SDK will check the TTL and refresh settings as per the specified interval.
+   - This is especially useful when you want to limit the frequency of network requests and instead rely on cached settings for performance.
+2. `alwaysUseCachedSettings`**Option**
+   - When enabled, the SDK will always use cached settings, regardless of the TTL value. This means the settings stored in the browser will be used even if they have expired based on the TTL.
+   - By default, this option is disabled. If disabled, the SDK will check the TTL and refresh settings as per the specified interval.
 3. **Background Refresh**
-   * When valid cached settings are returned and the TTL has not expired, the SDK will use the cached settings immediately. While doing so, it will asynchronously refresh the settings in the background. This helps in ensuring the settings are up to date without introducing delays in loading or performance bottlenecks.
+   - When valid cached settings are returned and the TTL has not expired, the SDK will use the cached settings immediately. While doing so, it will asynchronously refresh the settings in the background. This helps in ensuring the settings are up to date without introducing delays in loading or performance bottlenecks.
 
 ## Benefits
 
-* **Improved Performance:** By customizing the TTL and cache usage, you can optimize how often settings are fetched from the server, reducing unnecessary network requests and improving load times.
-* **Better Control:** You can fine-tune how settings are stored and refreshed, ensuring that your application behaves exactly as needed depending on the environment and the use case.
-* **Flexible Caching:** It allows for a balance between always using fresh settings and reducing the reliance on server fetches, giving you more control over your caching strategy.
-* **Non-Blocking Updates:** The background refresh feature ensures that the user experiences no delay in getting the settings, while the SDK silently keeps them updated in the background.
+- **Improved Performance:** By customizing the TTL and cache usage, you can optimize how often settings are fetched from the server, reducing unnecessary network requests and improving load times.
+- **Better Control:** You can fine-tune how settings are stored and refreshed, ensuring that your application behaves exactly as needed depending on the environment and the use case.
+- **Flexible Caching:** It allows for a balance between always using fresh settings and reducing the reliance on server fetches, giving you more control over your caching strategy.
+- **Non-Blocking Updates:** The background refresh feature ensures that the user experiences no delay in getting the settings, while the SDK silently keeps them updated in the background.
 
 <br />
 
@@ -63,16 +63,16 @@ These enhanced options allow developers to fine-tune storage behavior by specify
       </td>
 
       <td>
-        Unique key used to store SDK data in browser storage. 
+        Unique key used to store SDK data in browser storage.
       </td>
 
       <td>
-        * If only one SDK instance is running, this can be omitted (defaults to _vwo_fme_data_).
-        * If multiple SDK instances are running (for different environments of the same account or across different accounts), a custom key must be provided.
+        - If only one SDK instance is running, this can be omitted (defaults to _vwo\_fme\_data_).
+        - If multiple SDK instances are running (for different environments of the same account or across different accounts), a custom key must be provided.
       </td>
 
       <td>
-        vwo_fme_data
+        vwo\_fme\_data
       </td>
     </tr>
 
@@ -123,7 +123,7 @@ These enhanced options allow developers to fine-tune storage behavior by specify
 ## Usage
 
 ```javascript
-const vwoClient = await init({
+const wingifyClient = await init({
   accountId: '123456',
   sdkKey: '32-alpha-numeric-sdk-key',
   clientStorage: {
@@ -140,10 +140,10 @@ const vwoClient = await init({
 
 ```
 
-<Callout icon="❗️" theme="error">
-  When running the SDK for multiple environments (e.g., staging, production) of the same or different accounts, ensure that the **_clientStorage.key_** value is unique per environment.
-  Using the same key across environments may cause conflicts or data overwrites in local storage.
-</Callout>
+> ❗️
+>
+> When running the SDK for multiple environments (e.g., staging, production) of the same or different accounts, ensure that the **_clientStorage.key_** value is unique per environment.
+> Using the same key across environments may cause conflicts or data overwrites in local storage.
 
 ## Flow
 
@@ -185,3 +185,5 @@ flowchart TD
    1. If enabled: Always use cached data.
    2. If not: Fallback to TTL logic.
 4. **Background Refresh** – Ensures the app uses available cached data immediately while updating it in the background for freshness.
+
+<br />
