@@ -15,13 +15,13 @@ To create a VWO Client instance, you need to initialize the VWO FE Ruby SDK. Thi
 ## Usage
 
 ```ruby
-require 'vwo'
+require 'wingify'
 
-# Initialize VWO client
-vwo_client = VWO.init({
+# Initialize Wingify client
+wingify_client = Wingify.init({
   account_id: '123456',
   sdk_key: '32-alpha-numeric-sdk-key'
-});
+})
 ```
 
 The `init()` function is called with the `sdk_key`and `account_id`. It initializes and returns a VWO Client Object`vwo_client`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
@@ -197,7 +197,7 @@ The poll interval is an optional parameter that allows the SDK to automatically 
 
 ```ruby
 # Init options with poll_interval
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
   account_id: '123456',
   sdk_key: '32-alpha-numeric-sdk-key',
   poll_interval: 60000
@@ -210,7 +210,7 @@ VWO by default logs all ERROR level messages to your server console. To gain mor
 
 ```ruby
 # Init options with logger
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
     account_id: '123456',
     sdk_key: '32-alpha-numeric-sdk-key',
     logger: {
@@ -227,7 +227,7 @@ By default, the SDK operates in stateless mode, evaluating flags on each _get\_f
 
 ```ruby
 # Init options with storage
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
     account_id: '123456',
     sdk_key: '32-alpha-numeric-sdk-key',
     storage: StorageConnector.new
@@ -242,7 +242,7 @@ The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enablin
 
 ```ruby
 # Init options with gateway_service
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
   account_id: '123456',
   sdk_key: '32-alpha-numeric-sdk-key',
   gateway_service: {
@@ -263,7 +263,7 @@ def callback(data)
 end
 
 # Init options with integrations
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
     account_id: '123456',
     sdk_key: '32-alpha-numeric-sdk-key',
     integrations: {
@@ -281,7 +281,7 @@ The SDK leverages threading to efficiently manage concurrent operations. Threadi
 **Disable Threading**: When threading is disabled, all tracking calls will block the main execution thread until they complete. This means your application will wait for each VWO operation before continuing.
 
 ```ruby
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
     account_id: '123456',
     sdk_key: '32-alpha-numeric-sdk-key',
     threading: {
@@ -293,7 +293,7 @@ vwo_client = VWO.init({
 **Enable Threading (Default)**: When enabled, all tracking calls are processed asynchronously in the background. This prevents these network calls from blocking your application's main execution flow. The SDK uses a thread pool to manage these concurrent operations efficiently. The default pool size of 5 threads is suitable for most applications, but you can adjust it based on your needs:
 
 ```ruby
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
     account_id: '123456',
     sdk_key: '32-alpha-numeric-sdk-key',
     threading: {
@@ -308,7 +308,7 @@ vwo_client = VWO.init({
 The SDK includes a built-in retry mechanism to improve reliability when network requests fail due to transient issues such as timeouts or temporary connectivity problems. You can fully control this behavior by providing a retryConfig object during SDK initialization.
 
 ```ruby
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
     account_id: '123456',
     sdk_key: '32-alpha-numeric-sdk-key',
     retry_config : {
@@ -330,7 +330,7 @@ The `proxy_url` parameter allows you to redirect all SDK network calls through a
 The proxy URL can be configured by passing the `proxy_url` parameter in the init configuration.
 
 ```ruby
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
     sdk_key: '32-alpha-numeric-sdk-key',
     account_id: '123456',
     proxy_url: 'https://custom.proxy.com'
