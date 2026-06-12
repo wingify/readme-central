@@ -19,16 +19,15 @@ To create a VWO Client instance, you need to initialize the VWO FE Node SDK. Thi
 ## Usage
 
 ```node Node.js
-const { init } = require('vwo-fme-node-sdk');
+const { init } = require('wingify-fme-node-sdk');
 
-const vwoClient = await init({
-  accountId: '123456', // VWO Account ID
-  sdkKey: '32-alpha-numeric-sdk-key', // SDK Key,
+const wingifyClient = await init({
+  accountId: '123456', // Wingify Account ID
+  sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
 });
 ```
 
-The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
-This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -76,7 +75,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **_Default Project_**.
       </td>
     </tr>
 
@@ -186,8 +185,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **proxyUrl**  
-        _Optional_
+        **proxyUrl**<br />_Optional_
       </td>
 
       <td>
@@ -203,15 +201,14 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.<br />If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
 ```node
-// Init options with poll_interval
-const vwoClient = await init({
-  accountId: '123456',
+// Init options with pollInterval
+const wingifyClient = await init({
+  accountId: '123456', // Wingify Account ID
   sdkKey: '32-alpha-numeric-sdk-key',
   pollInterval: 60000,
 });
@@ -223,8 +220,8 @@ VWO by default logs all ERROR level messages to your server console. To gain mor
 
 ```node
 // Init options with logger
-const vwoClient1 = await init({
-  accountId: '123456',
+const wingifyClient = await init({
+  accountId: '123456', // Wingify Account ID
   sdkKey: '32-alpha-numeric-sdk-key',
   logger: {
     level: 'DEBUG',
@@ -240,7 +237,7 @@ By default, the SDK operates in stateless mode, evaluating flags on each _getFla
 
 ```node
 // Init options with storage
-const vwoClient = await init({
+const wingifyClient = await init({
   accountId: '123456',
   sdkKey: '32-alpha-numeric-sdk-key',
   storage: StorageConnector,
@@ -251,11 +248,11 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-node-storage)  to lea
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```node
 // Init options with gateway_service
-const vwoClient = await init({
+const wingifyClient = await init({
   accountId: '123456',
   sdkKey: '32-alpha-numeric-sdk-key',
   gatewayService: {
@@ -272,9 +269,9 @@ VWO FE SDKs provide seamless integration with third-party tools like analytics p
 
 ```node
 // Init options with integrations
-const vwoClient = await vwo.init({
-    sdkKey: 'bfce67fb74a7a59264045347f650dd2c', //replace with the SDK key for your environment
-    accountId: '917741', //replace with your VWO account ID
+const wingifyClient = await vwo.init({
+    accountId: '123456', //replace with your Wingify account ID
+    sdkKey: '32-alpha-numeric-sdk-key', //replace with the SDK key for your environment
     integrations: {
       callback (properties) {
         console.log('Integrations callback', properties); // list of keys
@@ -287,12 +284,11 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-node-integrations) to
 
 ### Initialization with Explicit Settings
 
-The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.  
-Please refer to <Anchor label="this" target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.<br />Please refer to <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```javascript
 const localSettings = {
-    "accountId": 123456,
+    "accountId": '123456',
     "sdkKey": '32-alpha-numeric-sdk-key',
     "features": {
         // features json here
@@ -303,7 +299,7 @@ const localSettings = {
     "version": 1,
 };
 
-const vwoClient = await init({
+const wingifyClient = await init({
   accountId: '123456',
   sdkKey: '32-alpha-numeric-sdk-key',
   settings: localSettings // Pass the settings object here
@@ -315,7 +311,7 @@ const vwoClient = await init({
 The SDK includes a built-in retry mechanism to improve reliability when network requests fail due to transient issues such as timeouts or temporary connectivity problems. You can fully control this behavior by providing a retryConfig object during SDK initialization.
 
 ```javascript
-const vwoClient = await init({
+const wingifyClient = await init({
   accountId: '123456',
   sdkKey: '32-alpha-numeric-sdk-key',
 
@@ -328,20 +324,20 @@ const vwoClient = await init({
 });
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
 
 ### ProxyUrl
 
 VWO FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
 
 ```javascript
-const vwoClient = await init({
-  accountId: "VWO_ACCOUNT_ID",
-  sdkKey: "VWO_SDK_KEY",
+const wingifyClient = await init({
+  accountId: '123456',
+  sdkKey: '32-alpha-numeric-sdk-key',
 
   proxyUrl: "https://proxy.yourdomain.com",
   // other configuration options
 });
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-node-proxy-url">here</Anchor> to learn more about ProxyURL.
+Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-node-proxy-url">here</Anchor> to learn more about ProxyURL.
