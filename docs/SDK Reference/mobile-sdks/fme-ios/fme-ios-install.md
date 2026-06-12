@@ -12,7 +12,7 @@ You can integrate the FE iOS SDK into your application using either **CocoaPods*
 Add the following line to your Podfile:
 
 ```shell Bash
-pod 'VWO-FME'
+pod 'Wingify-FME'
 ```
 
 Then run:
@@ -35,10 +35,10 @@ pod install
 
 The SDK is compatible with the following Apple platforms and minimum OS versions:
 
-* **iOS**: 12.0 and later
-* **watchOS**: 7.0 and later
-* **tvOS**: 12.0 and later
-* **macOS**: 10.14 and later
+- **iOS**: 12.0 and later
+- **watchOS**: 7.0 and later
+- **tvOS**: 12.0 and later
+- **macOS**: 10.14 and later
 
 <br />
 
