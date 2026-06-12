@@ -21,7 +21,7 @@ To integrate VWO FE SDK into your Java application, you must first install the S
 ```java
 <dependency>
     <groupId>com.vwo.sdk</groupId>
-    <artifactId>vwo-fme-java-sdk</artifactId>
+    <artifactId>wingify-fme-java-sdk</artifactId>
     <version>LATEST</version>
 </dependency>
 ```
