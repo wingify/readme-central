@@ -48,16 +48,18 @@ class StorageConnector {
 // Initialize the StorageConnector
 $storageConnector = new StorageConnector();
 
-$vwoClient = VWO::init([
+$wingifyClient = Wingify::init([
   'sdkKey' => '32-alpha-numeric-sdk-key',
   'accountId' => '123456',
   'storage' => $storageConnector,
 ]);
 ```
 
-Storage Service should expose two methods: *get* and *set*. VWO uses these methods whenever there is a need to read or write from the storage service.
+Storage Service should expose two methods: _get_ and _set_. VWO uses these methods whenever there is a need to read or write from the storage service.
 
 | Method Name | Params             | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
 | get         | featureKey, userId | Retrieve stored data corresponding to featureKey and userId | Returns a matching user-feature data mapping corresponding to featureKey and userId passed |
 | set         | data               | Store user-feature data mapping                             | Null.                                                                                      |
+
+<br />
