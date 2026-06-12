@@ -49,7 +49,7 @@ When this API is executed:
 ## Usage
 
 ```ruby
-# Set a custom user attribute in VWO for the specified user context.
+# Set a custom user attribute in Wingify for the specified user context.
 # 'attribute_key' is the name of the attribute (e.g., 'subscription_status').
 # 'attribute_value' is the value to assign to the attribute (e.g., 'premium').
 wingify_client.set_attribute({attribute_key: 'attribute_value'}, user_context)
