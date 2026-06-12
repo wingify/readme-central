@@ -49,18 +49,18 @@ When this API is executed:
 ## Usage
 
 ```kotlin
-// Set a custom user attribute in VWO for the specified user context.
+// Set a custom user attribute in Wingify for the specified user context.
 val attributeMap = mutableMapOf<String, Any>(
     "userType" to "paid"
 )
-vwoClient.setAttribute(attributeMap, userContext);
+wingifyClient.setAttribute(attributeMap, userContext);
 ```
 ```java
-// Set a custom user attribute in VWO for the specified user context.
+// Set a custom user attribute in Wingify for the specified user context.
 Map<String, Object> attributeMap = new HashMap<>();
 eventProperties.put("userType", "paid");
 
-vwoClient.setAttribute(attributeMap, userContext);
+wingifyClient.setAttribute(attributeMap, userContext);
 ```
 
 ### Parameters Definition
