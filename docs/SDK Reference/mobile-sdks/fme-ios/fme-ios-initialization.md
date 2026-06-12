@@ -10,18 +10,18 @@ metadata:
 next:
   description: ''
 ---
-To create a VWO Client instance, you need to initialize the VWO FE iOS SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
+To create a Wingify Client instance, you need to initialize the Wingify FE iOS SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
 
 ## Usage
 
 ```swift Swift
-import VWO_FME
+import Wingify_FME
 
 // Set SDK Key and Account ID
-let options = VWOInitOptions(accountId: ACCOUNT_ID, sdkKey: SDK_KEY)
+let options = WingifyInitOptions(accountId: ACCOUNT_ID, sdkKey: SDK_KEY)
 
 // Initialize VWO SDK
-VWOFme.initialize(options: options) { result in
+WingifyFme.initialize(options: options) { result in
     switch result {
         case .success(let message):
             // VWO SDK initialized
@@ -31,8 +31,7 @@ VWOFme.initialize(options: options) { result in
 }
 ```
 
-The `initialize()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
-This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `initialize()` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object`vwoClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -65,7 +64,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Your VWO application's Account ID.
+        Your Wingify application's Account ID.
       </td>
     </tr>
 
@@ -80,7 +79,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **_Default Project_**.
       </td>
     </tr>
 
@@ -223,7 +222,7 @@ class MyClass: IntegrationCallback {
 // Create an instance of your class
 let integrationClass = MyClass()
 
-let options = VWOInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, integrations: integrationClass)
+let options = WingifyInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, integrations: integrationClass)
 ```
 
 See [Integrations](https://developers.vwo.com/v2/docs/fme-ios-integrations#usage) documentation for additional information.
@@ -247,21 +246,21 @@ class MyClass: LogTransport {
 // Create an instance of your class
 let logClass = MyClass()
 
-// Initialize VWOInitOptions with the custom log transport
-let options = VWOInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID,  logTransport:logClass)
+// Initialize WingifyInitOptions with the custom log transport
+let options = WingifyInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID,  logTransport:logClass)
 ```
 
 See [Logging](https://developers.vwo.com/v2/docs/fme-ios-logging) documentation for additional information.
 
 ### Polling Interval Adjustment
 
-The `pollInterval` is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
+The `pollInterval` is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
 Example usage:
 
 ```swift
-// Initialize VWOInitOptions with a custom polling interval in milliseconds
-let options = VWOInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID,  pollInterval:600000)
+// Initialize WingifyInitOptions with a custom polling interval in milliseconds
+let options = WingifyInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID,  pollInterval:600000)
 ```
 
 See [Polling](https://developers.vwo.com/v2/docs/polling) documentation for additional information.
@@ -273,8 +272,8 @@ The `cachedSettingsExpiryTime` parameter allows you to specify how long the cach
 Example usage:
 
 ```swift
-// Initialize VWOInitOptions with a custom cached settings expiry time
-let options = VWOInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, cachedSettingsExpiryTime:600000)
+// Initialize WingifyInitOptions with a custom cached settings expiry time
+let options = WingifyInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, cachedSettingsExpiryTime:600000)
 ```
 
 ### Event Batching Configuration
@@ -293,6 +292,8 @@ See [Event Batching](https://developers.vwo.com/v2/docs/event-batching#/) docume
 Example usage:
 
 ```swift
-// Initialize VWOInitOptions with batch configuration
-let options = VWOInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, batchMinSize:10, batchUploadTimeInterval: 300000)
+// Initialize WingifyInitOptions with batch configuration
+let options = WingifyInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, batchMinSize:10, batchUploadTimeInterval: 300000)
 ```
+
+<br />
