@@ -10,12 +10,12 @@ metadata:
 next:
   description: ''
 ---
-VWO FE SDKs help you integrate with several third-party tools, be it analytics, monitoring, customer data platforms, messaging, etc., by implementing a very basic and generic callback capable of receiving VWO-specific properties that can then be pushed to any third-party tool.
+Wingify FE SDKs help you integrate with several third-party tools, be it analytics, monitoring, customer data platforms, messaging, etc., by implementing a very basic and generic callback capable of receiving Wingify-specific properties that can then be pushed to any third-party tool.
 
 ## Usage
 
 ```javascript
-import { init, VWO } from 'vwo-fme-react-native-sdk';
+import { init, Wingify } from 'wingify-fme-react-native-sdk';
 
 // define the integration callback
 const handleIntegrationCallback = (properties: {[key: string]: any}) => {
@@ -23,10 +23,10 @@ const handleIntegrationCallback = (properties: {[key: string]: any}) => {
 };
 
 // register the integration callback
-VWO.registerIntegrationCallback(handleIntegrationCallback);
+Wingify.registerIntegrationCallback(handleIntegrationCallback);
 
 // declare integrations in the initialization options and initialize SDK
-const options: VWOInitOptions = {
+const options: WingifyInitOptions = {
 	sdkKey: SDK_KEY,
 	accountId: ACCOUNT_ID,
 	integrations: true
@@ -36,7 +36,7 @@ await init(options);
 
 ## Properties available to use for integrations
 
-All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.vwo.com/v2/docs/fme-react-native-flags) and [trackEvent](https://developers.vwo.com/v2/docs/fme-react-native-metrics) APIs.
+All Wingify SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever Wingify SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.vwo.com/v2/docs/fme-react-native-flags) and [trackEvent](https://developers.vwo.com/v2/docs/fme-react-native-metrics) APIs.
 
 ```json
 {
@@ -61,8 +61,10 @@ Different destinations have their own formats for integrating with them and usin
 
 ## Which platforms I can integrate with?
 
-Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party tool capable of receiving it via APIs.
+Since Wingify SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party tool capable of receiving it via APIs.
 
 > 📘 Note
 >
-> Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
+> Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the Wingify SDK.
+
+<br />
