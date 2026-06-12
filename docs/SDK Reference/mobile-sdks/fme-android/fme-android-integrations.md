@@ -16,26 +16,26 @@ VWO FE SDKs help you integrate with several third-party tools, be it analytics, 
 
 ```kotlin
 // Set SDK Key and Account ID
-val vwoInitOptions = VWOInitOptions()
+val wingifyInitOptions = WingifyInitOptions()
 
-vwoInitOptions.sdkKey = SDK_KEY
-vwoInitOptions.accountId = ACCOUNT_ID
+wingifyInitOptions.sdkKey = SDK_KEY
+wingifyInitOptions.accountId = ACCOUNT_ID
 
 val integrations = object : IntegrationCallback {
     override fun execute(properties: Map<String, Any>) {
         // your function definition
     }
 }
-vwoInitOptions.integrations = integrations
+wingifyInitOptions.integrations = integrations
 
-// Initialize VWO SDK
-VWO.init(vwoInitOptions, object : IVwoInitCallback {
-    override fun vwoInitSuccess(vwo: VWO, message: String) {
-        // VWO SDK initialized
+// Initialize Wingify SDK
+Wingify.init(wingifyInitOptions, object : IWingifyInitCallback {
+    override fun wingifyInitSuccess(wingify: Wingify, message: String) {
+        // Wingify SDK initialized
     }
 
-    override fun vwoInitFailed(message: String) {
-        // VWO SDK failed to initialize
+    override fun wingifyInitFailed(message: String) {
+        // Wingify SDK failed to initialize
     }
 })
 ```
@@ -47,21 +47,21 @@ IntegrationCallback integrations = new IntegrationCallback() {
             }
         };
 
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setSdkKey("sdkKey");
-vwoInitOptions.setAccountId(12345);
-vwoInitOptions.setIntegrations(integrations);
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
+wingifyInitOptions.setSdkKey("sdkKey");
+wingifyInitOptions.setAccountId(12345);
+wingifyInitOptions.setIntegrations(integrations);
 
-// Initialize VWO SDK
-VWO.init(vwoInitOptions, new IVwoInitCallback() {
+// Initialize Wingify SDK
+Wingify.init(wingifyInitOptions, new IWingifyInitCallback() {
     @Override
-    public void vwoInitSuccess(@NonNull VWO vwo, @NonNull String message) {
-        // VWO SDK Initialized
+    public void wingifyInitSuccess(@NonNull Wingify wingify, @NonNull String message) {
+        // Wingify SDK Initialized
     }
 
     @Override
-    public void vwoInitFailed(@NonNull String message) {
-        // VWO SDK failed to initialize
+    public void wingifyInitFailed(@NonNull String message) {
+        // Wingify SDK failed to initialize
     }
 });
 ```
@@ -98,3 +98,5 @@ Since VWO SDKs are platform agnostic, with the help of the above code snippets, 
 > 📘 Note
 >
 > Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
+
+<br />
