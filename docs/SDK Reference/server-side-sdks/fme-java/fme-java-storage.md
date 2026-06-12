@@ -33,44 +33,47 @@ Storage Service is optional while [instantiating](https://developers.vwo.com/v2/
 ### Usage
 
 ```java
-import com.vwo.packages.storage.Connector;
-import java.util.HashMap;
-import java.util.Map;
-public class StorageTest extends Connector {
+import com.wingify.packages.storage.Connector; 
+import java.util.HashMap; 
+import java.util.Map; 
 
-private final Map<String, Map<String, Object>> storage = new HashMap<>();
-
-  @Override
-  public void set(Map<String, Object> data) throws Exception {
-      String key = data.get("featureKey") + "_" + data.get("user");
-
-      // Create a map to store the data
-      Map<String, Object> value = new HashMap<>();
-      value.put("rolloutKey", data.get("rolloutKey"));
-      value.put("rolloutVariationId", data.get("rolloutVariationId"));
-      value.put("experimentKey", data.get("experimentKey"));
-      value.put("experimentVariationId", data.get("experimentVariationId"));
-
-      // Store the value in the storage
-      storage.put(key, value);
-  }
-
-  @Override
-  public Object get(String featureKey, String userId) throws Exception {
-      String key = featureKey + "_" + userId;
-
-      // Check if the key exists in the storage
-      if (storage.containsKey(key)) {
-          return storage.get(key);
-      }
-      return null;
-  }
+public class StorageTest extends Connector { 
+ 
+    private final Map < String , Map < String , Object >> storage = new HashMap <> (); 
+ 
+    @Override 
+    public void set ( Map < String , Object > data ) throws Exception { 
+        String key = data.get( "featureKey" ) + "_" + data.get( "user" ); 
+ 
+        // Create a map to store the data 
+        Map < String , Object > value = new HashMap <> (); 
+        value.put( "rolloutKey" , data.get( "rolloutKey" )); 
+        value.put( "rolloutVariationId" , data.get( "rolloutVariationId" )); 
+        value.put( "experimentKey" , data.get( "experimentKey" )); 
+        value.put( "experimentVariationId" , data.get( "experimentVariationId" )); 
+ 
+        // Store the value in the storage 
+        storage.put( key , value ); 
+    } 
+ 
+    @Override 
+    public Object get ( String featureKey , String userId ) throws Exception { 
+        String key = featureKey + "_" + userId ; 
+ 
+        // Check if the key exists in the storage 
+        if ( storage.containsKey ( key )) { 
+            return storage.get ( key ); 
+        } 
+        return null; 
+    } 
 }
 ```
 
-Storage Service should expose two methods: *get* and *set*. VWO uses these methods whenever there is a need to read or write from the storage service.
+Storage Service should expose two methods: _get_ and _set_. VWO uses these methods whenever there is a need to read or write from the storage service.
 
 | Method Name | Params    | Description                                 | Returns                                                                       |
 | :---------- | :-------- | :------------------------------------------ | :---------------------------------------------------------------------------- |
 | get         | key       | Retrieve stored data                        | Returns a matching user-campaign data mapping corresponding to the key passed |
 | set         | key, data | Store user-campaign-variation data mapping. | null                                                                          |
+
+<br />
