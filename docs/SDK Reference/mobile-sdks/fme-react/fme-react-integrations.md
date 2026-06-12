@@ -15,10 +15,11 @@ VWO FE SDKs help you integrate with several third-party tools, be it analytics, 
 ## Usage
 
 ```javascript
-import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
-const vwoConfig: IVWOOptions = {
+import { WingifyProvider, IWingifyOptions, IWingifyContextModel } from 'wingify-fme-react-sdk';
+
+const wingifyConfig: IWingifyOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
-  accountId: '123456', // VWO Account ID
+  accountId: '123456', // Wingify Account ID
   integrations: {
     callback (properties) {
       console.log('Integrations callback', properties); // list of keys
@@ -26,12 +27,13 @@ const vwoConfig: IVWOOptions = {
   }
 };
 
-const userContext: IVWOContextModel = {id: 'unique_user_id'};
+const userContext: IWingifyContextModel = {id: 'unique_user_id'};
 
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext=ONTEXT>
+  // BUG FIX: Corrected `userContext=ONTEXT` to valid JSX syntax `userContext={userContext}`
+  <WingifyProvider config={wingifyConfig} userContext={userContext}>
     <YourComponent />
-  </VWOProvider>
+  </WingifyProvider>
 );
 
 export default App;
@@ -71,3 +73,5 @@ Since VWO SDKs are platform agnostic, with the help of the above code snippets, 
 > 📘 Note
 >
 > Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
+
+<br />
