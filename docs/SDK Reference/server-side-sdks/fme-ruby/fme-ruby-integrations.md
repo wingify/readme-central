@@ -19,7 +19,7 @@ def callback(data)
     puts "Integration data: #{data}"
 end
 
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
     account_id: '123456',
     sdk_key: '32-alpha-numeric-sdk-key',
     integrations: {
@@ -59,3 +59,5 @@ Since VWO SDKs are platform agnostic, with the help of the above code snippets, 
 > 📘 Note
 >
 > Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
+
+<br />
