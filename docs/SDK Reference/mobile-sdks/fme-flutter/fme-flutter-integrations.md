@@ -15,17 +15,17 @@ VWO FE SDKs help you integrate with several third-party tools, be it analytics, 
 ## Usage
 
 ```swift Dart
-// Create a VWOOptions object.
-final vwoOptions = VWOInitOptions(
+// Create a WingifyInitOptions object.
+final wingifyOptions = WingifyInitOptions(
   sdkKey: 'your-sdk-key',
   accountId: account_id,
   integrationCallback: (Map<String, dynamic> properties) {
-    print('VWO: Integration callback received: $properties');
+    print('Wingify: Integration callback received: $properties');
   },
 );
 
 // Create an instance of the SDK
-VWO? vwoClient = await VWO.init(initOptions);
+Wingify? wingifyClient = await Wingify.init(initOptions);
 ```
 
 ## Properties available to use for integrations
