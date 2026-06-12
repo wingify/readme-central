@@ -23,21 +23,22 @@ VWO by default logs all ERROR level messages to your console. To gain more contr
 **Example 1**: Set log level to control the verbosity of logs
 
 ```typescript
-import { VWOProvider, IVWOOptions, IVWOContextModel, LogLevelEnum } from 'vwo-fme-react-sdk';
-const vwoConfig: IVWOOptions = {
+import { WingifyProvider, IWingifyOptions, IWingifyContextModel, LogLevelEnum } from 'wingify-fme-react-sdk';
+
+const wingifyConfig: IWingifyOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
-  accountId: '123456', // VWO Account ID
+  accountId: '123456', // Wingify Account ID
   logger: {
     level: LogLevelEnum.DEBUG // INFO, WARN, ERROR
   },
 };
 
-const userContext: IVWOContextModel = {id: 'unique_user_id'};
+const userContext: IWingifyContextModel = {id: 'unique_user_id'};
 
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={userContext}>
+  <WingifyProvider config={wingifyConfig} userContext={userContext}>
     <YourComponent />
-  </VWOProvider>
+  </WingifyProvider>
 );
 
 export default App;
@@ -46,22 +47,23 @@ export default App;
 **Example 2**: Add a custom prefix to log messages for easier identification
 
 ```typescript
-import { VWOProvider, IVWOOptions, IVWOContextModel, LogLevelEnum } from 'vwo-fme-react-sdk';
-const vwoConfig: IVWOOptions = {
+import { WingifyProvider, IWingifyOptions, IWingifyContextModel, LogLevelEnum } from 'wingify-fme-react-sdk';
+
+const wingifyConfig: IWingifyOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
-  accountId: '123456', // VWO Account ID
+  accountId: '123456', // Wingify Account ID
   logger: {
-    level: LogLevelEnum.DEBUG // INFO, WARN, ERROR
+    level: LogLevelEnum.DEBUG, // INFO, WARN, ERROR
     prefix: 'CUSTOM LOG PREFIX', // custom logger prefix
   },
 };
 
-const userContext: IVWOContextModel = {id: 'unique_user_id'};
+const userContext: IWingifyContextModel = {id: 'unique_user_id'};
 
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={userContext}>
+  <WingifyProvider config={wingifyConfig} userContext={userContext}>
     <YourComponent />
-  </VWOProvider>
+  </WingifyProvider>
 );
 
 export default App;
@@ -73,19 +75,20 @@ The transport parameter allows you to implement custom logging behavior by provi
 
 For example, you could:
 
-* Send logs to a third-party logging service
-* Write logs to a file
-* Format log messages differently
-* Filter or transform log messages
-* Route different log levels to different destinations
+- Send logs to a third-party logging service
+- Write logs to a file
+- Format log messages differently
+- Filter or transform log messages
+- Route different log levels to different destinations
 
 The transport object should implement handlers for the log levels you want to customize. Each handler receives the log message as a parameter.
 
 ```typescript
-import { VWOProvider, IVWOOptions, IVWOContextModel, LogLevelEnum } from 'vwo-fme-react-sdk';
-const vwoConfig: IVWOOptions = {
+import { WingifyProvider, IWingifyOptions, IWingifyContextModel, LogLevelEnum } from 'wingify-fme-react-sdk';
+
+const wingifyConfig: IWingifyOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
-  accountId: '123456', // VWO Account ID
+  accountId: '123456', // Wingify Account ID
   logger: {
     level: LogLevelEnum.DEBUG, // INFO, WARN, ERROR
     transport: {
@@ -97,12 +100,12 @@ const vwoConfig: IVWOOptions = {
   },
 };
 
-const userContext: IVWOContextModel = {id: 'unique_user_id'};
+const userContext: IWingifyContextModel = {id: 'unique_user_id'};
 
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={userContext}>
+  <WingifyProvider config={wingifyConfig} userContext={userContext}>
     <YourComponent />
-  </VWOProvider>
+  </WingifyProvider>
 );
 
 export default App;
@@ -111,10 +114,11 @@ export default App;
 For multiple `transports` you can use the transports parameter. For example:
 
 ```typescript
-import { VWOProvider, IVWOOptions, IVWOContextModel, LogLevelEnum } from 'vwo-fme-react-sdk';
-const vwoConfig: IVWOOptions = {
+import { WingifyProvider, IWingifyOptions, IWingifyContextModel, LogLevelEnum } from 'wingify-fme-react-sdk';
+
+const wingifyConfig: IWingifyOptions = {
   sdkKey: '32-alpha-numeric-sdk-key', // SDK Key
-  accountId: '123456', // VWO Account ID
+  accountId: '123456', // Wingify Account ID
   logger: {
     transports: [
       {
@@ -124,7 +128,7 @@ const vwoConfig: IVWOOptions = {
         },
       },
       {
-        level: LogLevelEnum.ERROR // DEBUG, INFO, WARN
+        level: LogLevelEnum.ERROR, // DEBUG, INFO, WARN
         log: (level, message) => {
           // your custom implementation here
         },
@@ -133,15 +137,15 @@ const vwoConfig: IVWOOptions = {
   },
 };
 
-const userContext: IVWOContextModel = {id: 'unique_user_id'};
+const userContext: IWingifyContextModel = {id: 'unique_user_id'};
 
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={userContext}>
+  <WingifyProvider config={wingifyConfig} userContext={userContext}>
     <YourComponent />
-  </VWOProvider>
+  </WingifyProvider>
 );
 
 export default App;
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing *VWOProvider*.](https://dash.readme.com/project/vwo/v2/docs/fme-react-initialization)
+This "logger" object can be passed as one of the parameters when [initializing _VWOProvider_.](https://dash.readme.com/project/vwo/v2/docs/fme-react-initialization)
