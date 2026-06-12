@@ -39,16 +39,18 @@ class StorageConnector
   end
 end
 
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
     account_id: '123456',
     sdk_key: '32-alpha-numeric-sdk-key',
     storage: StorageConnector.new
 })
 ```
 
-Storage Service should expose two methods: *get* and *set*. These methods are used by VWO whenever there is a need to read or write from the storage service.
+Storage Service should expose two methods: _get_ and _set_. These methods are used by VWO whenever there is a need to read or write from the storage service.
 
 | Method Name | Params                 | Description                                                     | Returns                                                                                        |
 | :---------- | :--------------------- | :-------------------------------------------------------------- | :--------------------------------------------------------------------------------------------- |
 | get         | feature\_key, user\_id | Retrieve stored data corresponding to feature\_key and user\_id | Returns a matching user-feature data mapping corresponding to feature\_key and user\_id passed |
 | set         | data                   | Store user-feature data mapping                                 | null                                                                                           |
+
+<br />
