@@ -31,11 +31,11 @@ However, you can customize this behavior using the `clientStorage` option during
 ### Usage
 
 ```typescript
-import { VWOProvider, IVWOOptions, IVWOContextModel, StorageConnector } from 'vwo-fme-react-sdk';
+import { WingifyProvider, IWingifyOptions, IWingifyContextModel, StorageConnector } from 'wingify-fme-react-sdk';
 
-const vwoConfig: IVWOOptions = {
-  sdkKey: '32-alpha-numeric-sdk-key', // Your VWO SDK Key
-  accountId: '123456', // Your VWO Account ID
+const wingifyConfig: IWingifyOptions = {
+  sdkKey: '32-alpha-numeric-sdk-key', // Your Wingify SDK Key
+  accountId: '123456', // Your Wingify Account ID
   logger: {
     level: 'debug', // Optional log level for debugging
   },
@@ -46,12 +46,12 @@ const vwoConfig: IVWOOptions = {
   }
 };
 
-const userContext: IVWOContextModel = {id: 'unique_user_id'};
+const userContext: IWingifyContextModel = {id: 'unique_user_id'};
 
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={userContext}>
+  <WingifyProvider config={wingifyConfig} userContext={userContext}>
     <YourComponent />
-  </VWOProvider>
+  </WingifyProvider>
 );
 
 export default App;
@@ -67,8 +67,8 @@ export default App;
 
 > 📘 Important Notes
 >
-> * **Browser Environment Only:** The `clientStorage` option works exclusively in browser environments where `localStorage` and `sessionStorage` APIs are available.
-> * **Node.js Environments:** For server-side or Node.js environments, use the `storage` option for implementing custom storage logic, as `localStorage` and `sessionStorage` are not available there. To know more, click [here](https://developers.vwo.com/v2/docs/fme-node-storage#/).
+> - **Browser Environment Only:** The `clientStorage` option works exclusively in browser environments where `localStorage` and `sessionStorage` APIs are available.
+> - **Node.js Environments:** For server-side or Node.js environments, use the `storage` option for implementing custom storage logic, as `localStorage` and `sessionStorage` are not available there. To know more, click [here](https://developers.vwo.com/v2/docs/fme-node-storage#/).
 
 ## How to Implement a StorageConnector
 
@@ -77,9 +77,9 @@ If you still wish to connect it to our data store, you can implement a StorageCo
 ### Usage
 
 ```typescript
-import { VWOProvider, IVWOOptions, IVWOContextModel, StorageConnector } from 'vwo-fme-react-sdk';
+import { WingifyProvider, IWingifyOptions, IWingifyContextModel, StorageConnector } from 'wingify-fme-react-sdk';
 
-class StorageConnector extends StorageConnector {
+class CustomStorageConnector extends StorageConnector {
   constructor() {
     super();
   }
@@ -104,29 +104,33 @@ class StorageConnector extends StorageConnector {
   }
 }
 
-const vwoConfig: IVWOOptions = {
-  sdkKey: '32-alpha-numeric-sdk-key', // Your VWO SDK Key
-  accountId: '123456', // Your VWO Account ID
+const wingifyConfig: IWingifyOptions = {
+  sdkKey: '32-alpha-numeric-sdk-key', // Your Wingify SDK Key
+  accountId: '123456', // Your Wingify Account ID
   logger: {
     level: 'debug', // Optional log level for debugging
   },
-  storage: StorageConnector
+  // BUG FIX 2: Instantiate the class using `new`
+  storage: new CustomStorageConnector() 
 };
 
-const userContext: IVWOContextModel = {id: 'unique_user_id'};
+const userContext: IWingifyContextModel = {id: 'unique_user_id'};
 
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={userContext}>
+  <WingifyProvider config={wingifyConfig} userContext={userContext}>
     <YourComponent />
-  </VWOProvider>
+  </WingifyProvider>
 );
 
 export default App;
+
 ```
 
-Storage Service should expose two methods: *get* and *set*. These methods are used by VWO whenever there is a need to read or write from the storage service.
+Storage Service should expose two methods: _get_ and _set_. These methods are used by VWO whenever there is a need to read or write from the storage service.
 
 | Method Name | Params             | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
 | get         | featureKey, userId | Retrieve stored data corresponding to featureKey and userId | Returns a matching user-feature data mapping corresponding to featureKey and userId passed |
 | set         | data               | Store user-feature data mapping                             | null                                                                                       |
+
+<br />
