@@ -15,9 +15,9 @@ VWO FE SDKs help you integrate with several third-party tools, be it analytics, 
 ## Usage
 
 ```node
-const vwoClient = await vwo.init({
+const wingifyClient = await wingify.init({
     sdkKey: '32-alpha-numeric-sdk-key', //replace with the SDK key for your environment
-    accountId: '123456', //replace with your VWO account ID
+    accountId: '123456', //replace with your Wingify account ID
     integrations: {
       callback (properties) {
         console.log('Integrations callback', properties); // list of keys
@@ -58,3 +58,5 @@ Since VWO SDKs are platform agnostic, with the help of the above code snippets, 
 > 📘 Note
 >
 > Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
+
+<br />
