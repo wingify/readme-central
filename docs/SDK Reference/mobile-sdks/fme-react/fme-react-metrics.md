@@ -18,42 +18,42 @@ Metrics in FE are based on "Custom Events" that you can create inside the VWO Ap
 
 Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet:
 
-## ***useTrackEvent*** Hook
+## **_useTrackEvent_** Hook
 
 This hook sends data to VWO whenever a defined user action occurs. The captured event data can be used to:
 
-* Measure the success of experiments (e.g., conversion rates).
-* Track key performance indicators (KPIs), such as sign-ups or purchases.
-* Analyze user engagement with new features or content.
-* Trigger real-time personalization based on user behavior.
+- Measure the success of experiments (e.g., conversion rates).
+- Track key performance indicators (KPIs), such as sign-ups or purchases.
+- Analyze user engagement with new features or content.
+- Trigger real-time personalization based on user behavior.
 
 ### How It Works:
 
 When this hook is executed:
 
-* The application sends the event name and user details to VWO’s platform.
-* VWO logs the event and associates it with ongoing experiments or feature rollouts.
-* The collected data is then available in VWO’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
+- The application sends the event name and user details to VWO’s platform.
+- VWO logs the event and associates it with ongoing experiments or feature rollouts.
+- The collected data is then available in VWO’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
 
 ### Why It’s Valuable:
 
-* *Conversion Tracking*: Measure how many users complete desired actions, like purchases or sign-ups.
-* *Experiment Analysis*: Evaluate the performance of different variations in A/B tests.
-* *User Behavior Insights*: Understand how users interact with features and content.
-* *Personalization Triggers*: Deliver dynamic content based on real-time user actions.
-* *Performance Optimization*: Identify friction points in the user journey to improve the overall experience.
+- _Conversion Tracking_: Measure how many users complete desired actions, like purchases or sign-ups.
+- _Experiment Analysis_: Evaluate the performance of different variations in A/B tests.
+- _User Behavior Insights_: Understand how users interact with features and content.
+- _Personalization Triggers_: Deliver dynamic content based on real-time user actions.
+- _Performance Optimization_: Identify friction points in the user journey to improve the overall experience.
 
 > 📘 Important Note
 >
-> * The event name and properties sent via the  ***trackEvent*** hook must correspond exactly to the custom events defined in VWO’s Data360 module.
-> * If the event is not pre-registered in Data360, the conversion will not be recorded in the VWO dashboard.
-> * Event properties should match the key names and data types defined in the event setup to ensure accurate metric tracking and reporting.
-> * The trackEvent hook is primarily for conversion and behavioral tracking and should not be used to alter user targeting or feature rollout logic.
+> - The event name and properties sent via the  **_trackEvent_** hook must correspond exactly to the custom events defined in VWO’s Data360 module.
+> - If the event is not pre-registered in Data360, the conversion will not be recorded in the VWO dashboard.
+> - Event properties should match the key names and data types defined in the event setup to ensure accurate metric tracking and reporting.
+> - The trackEvent hook is primarily for conversion and behavioral tracking and should not be used to alter user targeting or feature rollout logic.
 
 ### Usage
 
 ```typescript TypeScript
-import { useTrackEvent } from "vwo-fme-react-sdk";
+import { useTrackEvent } from "wingify-fme-react-sdk";
 
 const YourComponent = () => {
   const { trackEvent, isReady } = useTrackEvent();
@@ -68,7 +68,6 @@ const YourComponent = () => {
 };
 
 export default YourComponent;
-
 ```
 
 ### Parameters Definition
@@ -96,7 +95,7 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
     <tr>
       <td>
         **eventName**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -111,7 +110,7 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
     <tr>
       <td>
         **eventProperties**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -127,26 +126,26 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
 
 ### Hook Lifecycle & Side Effects
 
-* On each render:
-  * Initializes and returns a stable trackEvent function.
-  * Pulls vwoClient, userContext, and isReady from useVWOContext.
-* When the trackEvent() function is invoked:
-  * Validates Inputs:
-    * Ensures eventName is a non-empty string.
-    * Checks if userContext exists and contains a valid id.
-    * Verifies that vwoClient is initialized and SDK is ready.
-  * If all validations pass:
-    * Sends the event to VWO via vwoClient.trackEvent(), including eventProperties if provided.
-    * Returns a Promise that resolves to \{ \[eventName]: true } on success.
-  * If validations fail or tracking fails:
-    * Logs detailed errors using the internal logger.
-    * Gracefully resolves with an empty object {} to avoid app crashes.
-* Side Effects:
-  * Network call made to VWO’s event ingestion endpoint when trackEvent() is called.
-  * Logs internal messages for missing inputs or runtime errors.
-* Graceful Degradation:
-  * The hook does not throw exceptions; it always returns a safe response.
-  * Ensures predictable behavior even when VWO context is misconfigured or unavailable.
+- On each render:
+  - Initializes and returns a stable trackEvent function.
+  - Pulls vwoClient, userContext, and isReady from useVWOContext.
+- When the trackEvent() function is invoked:
+  - Validates Inputs:
+    - Ensures eventName is a non-empty string.
+    - Checks if userContext exists and contains a valid id.
+    - Verifies that vwoClient is initialized and SDK is ready.
+  - If all validations pass:
+    - Sends the event to VWO via vwoClient.trackEvent(), including eventProperties if provided.
+    - Returns a Promise that resolves to { \[eventName]: true } on success.
+  - If validations fail or tracking fails:
+    - Logs detailed errors using the internal logger.
+    - Gracefully resolves with an empty object {} to avoid app crashes.
+- Side Effects:
+  - Network call made to VWO’s event ingestion endpoint when trackEvent() is called.
+  - Logs internal messages for missing inputs or runtime errors.
+- Graceful Degradation:
+  - The hook does not throw exceptions; it always returns a safe response.
+  - Ensures predictable behavior even when VWO context is misconfigured or unavailable.
 
 ### Return Type
 
@@ -162,9 +161,11 @@ interface ITrackEvent {
 
 The hook returns an object with the following structure:
 
-* `trackEvent` : Sends the event to VWO and returns a Promise resolving to \{ \[eventName]: boolean }.
-* `isReady` : Boolean indicating whether the VWO SDK and userContext are properly initialized and the application is ready to track events. Should always be checked before calling trackEvent.
+- `trackEvent` : Sends the event to VWO and returns a Promise resolving to { \[eventName]: boolean }.
+- `isReady` : Boolean indicating whether the VWO SDK and userContext are properly initialized and the application is ready to track events. Should always be checked before calling trackEvent.
 
 > 🚧 Note
 >
-> The *Event* must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application. Please refer [this](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO) KB article to know more on how to create and manage events in VWO application.
+> The _Event_ must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application. Please refer [this](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO) KB article to know more on how to create and manage events in VWO application.
+
+<br />
