@@ -22,25 +22,25 @@ For example, you might want to analyze the performance of a test based on the us
 
 This API allows you to assign a specific attribute key-value pair to a user. By doing so, VWO can:
 
-* Segment users based on defined attributes.
-* Deliver personalized experiences tailored to individual user preferences.
-* Enable targeted feature rollouts to specific user groups.
-* Improve the accuracy of experiments by analyzing results across different audience segments.
+- Segment users based on defined attributes.
+- Deliver personalized experiences tailored to individual user preferences.
+- Enable targeted feature rollouts to specific user groups.
+- Improve the accuracy of experiments by analyzing results across different audience segments.
 
 ### How It Works:
 
 When this API is executed:
 
-* The application assigns the specified attribute (attribute_key and attribute_value) to the user defined in the user_context.
-* VWO stores this attribute information and uses it to influence feature flag decisions, experiment variations, and targeting rules.
-* This data is then factored into real-time decision-making, allowing VWO to determine which features, content, or experiments are relevant to the user.
+- The application assigns the specified attribute (attribute\_key and attribute\_value) to the user defined in the user\_context.
+- VWO stores this attribute information and uses it to influence feature flag decisions, experiment variations, and targeting rules.
+- This data is then factored into real-time decision-making, allowing VWO to determine which features, content, or experiments are relevant to the user.
 
 > 📘 Important Note
 >
-> The attributes set using the _**setAttribute**_ API differ from the **User Context attributes**
+> The attributes set using the **_setAttribute_** API differ from the **User Context attributes**
 >
-> * **_setAttribute_ API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
-> * **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
+> - **_setAttribute_ API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
+> - **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
 
 > 🚧 Current Limitation
 >
@@ -55,7 +55,7 @@ When this API is executed:
 attributeMap := map[string]interface{}{
   "attribute-name": "attribute-value",
 }
-vwoClient.SetAttribute(attributeMap, context)
+wingifyClient.SetAttribute(attributeMap, context)
 ```
 
 ### Parameters Definition
@@ -85,7 +85,7 @@ vwoClient.SetAttribute(attributeMap, context)
       </td>
 
       <td>
-        map[string]interface{}
+        map\[string]interface{}
       </td>
 
       <td>
@@ -100,7 +100,7 @@ vwoClient.SetAttribute(attributeMap, context)
       </td>
 
       <td>
-        map[string]interface{}
+        map\[string]interface{}
       </td>
 
       <td>
@@ -113,3 +113,5 @@ vwoClient.SetAttribute(attributeMap, context)
 > 🚧 Note
 >
 > Please note that the _Attribute_ must already be defined in the VWO Application for this, otherwise an unregistered attribute won't get tracked in VWO application.
+
+<br />
