@@ -21,12 +21,12 @@ def callback(properties):
 
 options = {
     'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
-    'account_id': '12345', # VWO Account ID
+    'account_id': '12345', # Wingify Account ID
     'integrations': {
         'callback': callback
     }
 }
-vwo_client = init(options)
+wingify_client = init(options)
 ```
 
 ## Properties available to use for integrations
@@ -63,3 +63,5 @@ Since VWO SDKs are platform agnostic, with the help of the above code snippets, 
 > 📘 Note
 >
 > Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
+
+<br />
