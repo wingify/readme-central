@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 ```
 
-Replace `VWO_ACCOUNT_ID` and `VWO_SDK_KEY` with your actual FE account ID. Refer to the [FE JavaScript documentation](https://developers.vwo.com/v2/docs/fme-javascript) for additional configuration options.
+Replace `WINGIFY_ACCOUNT_ID` and `WINGIFY_SDK_KEY` with your actual FE account ID. Refer to the [FE JavaScript documentation](https://developers.wingify.com/v2/docs/fme-javascript) for additional configuration options.
 
 <br />
 

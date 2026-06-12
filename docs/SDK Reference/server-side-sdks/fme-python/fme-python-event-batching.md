@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-All VWO FE SDKs implement an advanced event batching mechanism to efficiently handle tracking for visitor events, conversion goals, and custom attributes. Instead of sending each event individually, the SDK collects them in memory and dispatches them in bulk within a single network request.
+All Wingify FE SDKs implement an advanced event batching mechanism to efficiently handle tracking for visitor events, conversion goals, and custom attributes. Instead of sending each event individually, the SDK collects them in memory and dispatches them in bulk within a single network request.
 
 This batching approach offers several advantages:
 
@@ -20,7 +20,7 @@ Developers can configure batching behavior to match their application’s perfor
 
 ## What is Event Batching?
 
-Event Batching is a core mechanism across all VWO FE SDKs that enhances performance and scalability by aggregating multiple tracking events—such as visitors, conversions, and attribute updates—before sending them to the VWO servers.
+Event Batching is a core mechanism across all Wingify FE SDKs that enhances performance and scalability by aggregating multiple tracking events—such as visitors, conversions, and attribute updates—before sending them to the Wingify servers.
 
 Rather than sending each event as an individual network request, the SDK collects events over a period of time, queues them in memory, and dispatches them together in a single batched request. For example, if an application generates 4,000 events in quick succession, the SDK groups these into one or more batches based on configurable thresholds, significantly reducing the number of outbound network calls.
 
@@ -37,9 +37,9 @@ This approach ensures reliable and efficient data transmission, especially in hi
 
 ## Configuring Event Batching
 
-VWO FE SDKs offer flexible configuration options to control how event batching behaves across different environments. During SDK initialization, developers can enable and fine-tune event batching via a configuration object (commonly named `batch_event_data` or equivalent, depending on the SDK language.
+Wingify FE SDKs offer flexible configuration options to control how event batching behaves across different environments. During SDK initialization, developers can enable and fine-tune event batching via a configuration object (commonly named `batch_event_data` or equivalent, depending on the SDK language.
 
-This configuration allows you to define when and how events—such as visitor tracking, conversions, and custom attributes—should be grouped and dispatched to the VWO servers.
+This configuration allows you to define when and how events—such as visitor tracking, conversions, and custom attributes—should be grouped and dispatched to the Wingify servers.
 
 ### Configuration Parameters:
 
@@ -47,7 +47,7 @@ This configuration allows you to define when and how events—such as visitor tr
    Events continue to accumulate in the internal queue until this threshold is reached, triggering an immediate dispatch.
 2. `request_time_interval` – Dispatch Interval (in seconds)<br />Defines the time-based threshold for flushing events.
    Once the first event is queued, the SDK starts a timer. If the _events\_per\_request_ limit is not met by the end of this interval, the queued events are dispatched anyway.
-3. `flush_callback` – Post-Dispatch Hook<br />An optional callback function is executed after the events are successfully (or unsuccessfully) sent to the VWO servers.
+3. `flush_callback` – Post-Dispatch Hook<br />An optional callback function is executed after the events are successfully (or unsuccessfully) sent to the Wingify servers.
    The callback typically receives:
    1. `error`: Details of any transmission failure (if applicable).
    2. `events`: The list of events that were flushed in the batch.
@@ -138,7 +138,7 @@ This configuration allows you to define when and how events—such as visitor tr
 - For low-frequency tracking, reduce `request_time_interval` to ensure timely dispatch.
 - Use `flush_callback` for logging, retry logic, or triggering downstream workflows.
 
-By customizing these options, developers gain fine-grained control over how event data flows to VWO, ensuring optimal performance, reliability, and observability across different platforms.
+By customizing these options, developers gain fine-grained control over how event data flows to, ensuring optimal performance, reliability, and observability across different platforms.
 
 <br />
 
@@ -187,9 +187,9 @@ wingify_client.flush_events()
 
 <br />
 
-## Event Batching Lifecycle in VWO FE SDKs
+## Event Batching Lifecycle in Wingify FE SDKs
 
-The VWO FE SDKs provide a structured mechanism for batching events before sending them to the VWO server. The flow below outlines how events are processed, queued, and flushed—either automatically or manually, based on configuration parameters defined during SDK initialization.
+The Wingify FE SDKs provide a structured mechanism for batching events before sending them to the Wingify server. The flow below outlines how events are processed, queued, and flushed—either automatically or manually, based on configuration parameters defined during SDK initialization.
 
 ```mermaid
 flowchart TD
@@ -243,7 +243,7 @@ As events accumulate, the SDK evaluates flushing conditions based on the followi
 
 The SDK checks if it's time to flush the queued events:
 
-- When `events_per_request` is reached:<br />Once the number of events in the queue meets or exceeds the configured limit, the SDK immediately sends the batched request to the VWO server.
+- When `events_per_request` is reached:<br />Once the number of events in the queue meets or exceeds the configured limit, the SDK immediately sends the batched request to the Wingify server.
 - When `request_time_interval` is exceeded:<br />If the configured time interval passes (from the time the first event was added), the SDK flushes whatever events are present in the queue, even if the batch size hasn’t been met.
 
 > ➤ Manual Flush Option

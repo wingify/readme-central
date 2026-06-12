@@ -20,7 +20,7 @@ Key benefits of implementing storage:
 2. Consistent user experience across sessions
 3. Reduced load on your application
 
-The storage mechanism ensures that once a decision is made for a user, it remains consistent even if campaign settings are modified in the VWO Application. This is particularly useful for maintaining a stable user experience during A/B tests and feature rollouts.
+The storage mechanism ensures that once a decision is made for a user, it remains consistent even if campaign settings are modified in the Wingify Application. This is particularly useful for maintaining a stable user experience during A/B tests and feature rollouts.
 
 ## In-Built Storage
 
@@ -68,7 +68,7 @@ export default App;
 > 📘 Important Notes
 >
 > - **Browser Environment Only:** The `clientStorage` option works exclusively in browser environments where `localStorage` and `sessionStorage` APIs are available.
-> - **Node.js Environments:** For server-side or Node.js environments, use the `storage` option for implementing custom storage logic, as `localStorage` and `sessionStorage` are not available there. To know more, click [here](https://developers.vwo.com/v2/docs/fme-node-storage#/).
+> - **Node.js Environments:** For server-side or Node.js environments, use the `storage` option for implementing custom storage logic, as `localStorage` and `sessionStorage` are not available there. To know more, click [here](https://developers.wingify.com/v2/docs/fme-node-storage#/).
 
 ## How to Implement a StorageConnector
 
@@ -126,7 +126,7 @@ export default App;
 
 ```
 
-Storage Service should expose two methods: _get_ and _set_. These methods are used by VWO whenever there is a need to read or write from the storage service.
+Storage Service should expose two methods: _get_ and _set_. These methods are used by Wingify whenever there is a need to read or write from the storage service.
 
 | Method Name | Params             | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |

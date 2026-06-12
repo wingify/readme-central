@@ -1,24 +1,24 @@
 ---
 title: Transitioning from Fullstack to Feature Experimentation
 excerpt: >-
-  A comprehensive guide to understanding the differences and migrating from VWO
+Wingify  A comprehensive guide to understanding the differences and migrating from
   FullStack to Feature Experimentation (FE).
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-# VWO FullStack vs FE
+# Wingify FullStack vs FE
 
-A comprehensive guide to understanding the differences and migrating from VWO FullStack to Feature Experimentation (FE).
+A comprehensive guide to understanding the differences and migrating from Wingify FullStack to Feature Experimentation (FE).
 
 ---
 
 ## Introduction
 
-**`DEPRECATED`** **VWO FullStack (FS)** — The original server-side SDK for A/B testing and feature management. Only receiving critical bug fixes and security patches.
+**`DEPRECATED`** **Wingify FullStack (FS)** — The original server-side SDK for A/B testing and feature management. Only receiving critical bug fixes and security patches.
 
-**`CURRENT`** **VWO FE (Feature Experimentation)** — The actively developed replacement with a modernized API and improved developer experience.
+**`CURRENT`** **Wingify FE (Feature Experimentation)** — The actively developed replacement with a modernized API and improved developer experience.
 
 ### Same Purpose, New Philosophy
 
@@ -34,8 +34,8 @@ Both SDKs enable server-side A/B testing and feature management. The key differe
 
 | Aspect | FullStack | FE |
 |--------|-----------|-----|
-| **Package Name** | `vwo-node-sdk` | `vwo-fme-node-sdk` |
-| **Install Command** | `npm install vwo-node-sdk` | `npm install vwo-fme-node-sdk` |
+| **Package Name** | `vwo-node-sdk` | `wingify-fme-node-sdk` |
+| **Install Command** | `npm install vwo-node-sdk` | `npm install wingify-fme-node-sdk` |
 | **Node.js Version** | >= 6.10.0 | >= 12.0 |
 
 ---
@@ -54,7 +54,7 @@ const settingsFile = await vwoSDK.getSettingsFile(
 );
 
 // Step 2: Launch SDK
-const vwoClient = vwoSDK.launch({
+const wingifyClient = vwoSDK.launch({
   settingsFile: settingsFile
 });
 ```
@@ -62,16 +62,16 @@ const vwoClient = vwoSDK.launch({
 ### FE: Single-Step Process
 
 ```javascript
-const { init } = require('vwo-fme-node-sdk');
+const { init } = require('wingify-fme-node-sdk');
 
 // Single initialization call
-const vwoClient = await init({
+const wingifyClient = await init({
   accountId: '123456',
   sdkKey: 'your-sdk-key',
 });
 
 // Optional: auto-refresh settings
-const vwoClient = await init({
+const wingifyClient = await init({
   accountId: '123456',
   sdkKey: 'your-sdk-key',
   pollInterval: 60000,
@@ -91,10 +91,10 @@ const vwoSDK = require('vwo-node-sdk');
 
 // Initialize
 const settingsFile = await vwoSDK.getSettingsFile(accountId, sdkKey);
-const vwoClient = vwoSDK.launch({ settingsFile });
+const wingifyClient = vwoSDK.launch({ settingsFile });
 
 // Activate user in campaign - returns variation name
-const variation = vwoClient.activate(
+const variation = wingifyClient.activate(
   'checkout-button-campaign',  // campaignKey
   'user-123',                   // userId
   {
@@ -114,7 +114,7 @@ if (variation === 'Control') {
 }
 
 // Track conversion (requires campaignKey)
-vwoClient.track(
+wingifyClient.track(
   'checkout-button-campaign',  // campaignKey
   'user-123',                   // userId
   'purchase-completed'          // goalIdentifier
@@ -124,10 +124,10 @@ vwoClient.track(
 ### FE Approach (Feature-Flag-Centric)
 
 ```javascript
-const { init } = require('vwo-fme-node-sdk');
+const { init } = require('wingify-fme-node-sdk');
 
 // Initialize
-const vwoClient = await init({
+const wingifyClient = await init({
   accountId: '123456',
   sdkKey: 'your-sdk-key',
 });
@@ -140,7 +140,7 @@ const userContext = {
 };
 
 // Get feature flag - contains all variation data
-const flag = await vwoClient.getFlag('checkout-button', userContext);
+const flag = await wingifyClient.getFlag('checkout-button', userContext);
 
 // Check if enabled and get variables
 if (flag.isEnabled()) {
@@ -149,7 +149,7 @@ if (flag.isEnabled()) {
 }
 
 // Track event (no campaign key needed)
-vwoClient.trackEvent('purchase-completed', userContext);
+wingifyClient.trackEvent('purchase-completed', userContext);
 ```
 
 > **Key Differences:**
@@ -169,7 +169,7 @@ In FullStack, you typically check which variation a user is in and branch your c
 
 ```javascript
 // FullStack: Variation-name-based logic (NOT recommended)
-const variation = vwoClient.activate('checkout-experiment', userId);
+const variation = wingifyClient.activate('checkout-experiment', userId);
 
 if (variation === 'Control') {
   buttonColor = 'blue';
@@ -187,21 +187,21 @@ if (variation === 'Control') {
 ```
 
 > **Problems with this approach:**
-> - **Tight coupling:** Your code is tightly coupled to variation names defined in VWO
+Wingify  - **Tight coupling:** Your code is tightly coupled to variation names defined in
 > - **Code changes for experiments:** Adding a new variation requires a code deployment
 > - **Hard to maintain:** Variation logic is scattered across your codebase
 > - **Rigid:** Non-developers cannot iterate on experiments without code changes
 
 ### The Solution: Variable-Driven Logic (FE Approach)
 
-FE encourages you to define **variables** (buttonColor, buttonText, showBadge) in the VWO dashboard, with each variation specifying different values. Your code simply reads these variables:
+FE encourages you to define **variables** (buttonColor, buttonText, showBadge) in the Wingify dashboard, with each variation specifying different values. Your code simply reads these variables:
 
 ```javascript
 // FE: Variable-driven logic (RECOMMENDED)
-const flag = await vwoClient.getFlag('checkout-experiment', userContext);
+const flag = await wingifyClient.getFlag('checkout-experiment', userContext);
 
 if (flag.isEnabled()) {
-  // Variables are configured in VWO dashboard, not hardcoded
+  // Variables are configured in Wingify dashboard, not hardcoded
   const buttonColor = flag.getVariable('buttonColor', 'blue');
   const buttonText = flag.getVariable('buttonText', 'Buy Now');
   const showBadge = flag.getVariable('showBadge', false);
@@ -212,7 +212,7 @@ if (flag.isEnabled()) {
 
 > **Benefits of variable-driven logic:**
 > - **Decoupled:** Code doesn't know or care about variation names
-> - **No deployments:** Add new variations or modify existing ones entirely in VWO
+Wingify  - **No deployments:** Add new variations or modify existing ones entirely in
 > - **Single source of truth:** All experiment configuration lives in the dashboard
 > - **Team empowerment:** Product managers can iterate without engineering
 
@@ -250,7 +250,7 @@ if (useNewFlow) {
 }
 
 // Adding variations:
-// Just update VWO dashboard!
+// Just update Wingify dashboard!
 ```
 
 ### When You Need Variation Names
@@ -258,12 +258,12 @@ if (useNewFlow) {
 Sometimes you genuinely need to know which variation a user is in (for logging, analytics, or debugging). In FE, the recommended approach is to create an explicit `variation_name` variable:
 
 ```javascript
-// Create a 'variationName' variable in VWO dashboard
+// Create a 'variationName' variable in Wingify dashboard
 // Control: variationName = "control"
 // Variation-1: variationName = "green-button"
 // Variation-2: variationName = "orange-button"
 
-const flag = await vwoClient.getFlag('checkout-experiment', userContext);
+const flag = await wingifyClient.getFlag('checkout-experiment', userContext);
 const variationName = flag.getVariable('variationName', 'control');
 
 // Use for logging/analytics only, not branching logic
@@ -303,8 +303,8 @@ analytics.track('experiment_viewed', { variation: variationName });
 
 ## Quick Migration Checklist
 
-- [ ] Update package: `vwo-node-sdk` → `vwo-fme-node-sdk`
-- [ ] Change import: `require('vwo-node-sdk')` → `const { init } = require('vwo-fme-node-sdk')`
+- [ ] Update package: `vwo-node-sdk` → `wingify-fme-node-sdk`
+- [ ] Change import: `require('vwo-node-sdk')` → `const { init } = require('wingify-fme-node-sdk')`
 - [ ] Replace `getSettingsFile()` + `launch()` with single `init()`
 - [ ] Create `userContext` objects instead of passing `userId` strings
 - [ ] Replace `activate()` with `getFlag()`
@@ -325,7 +325,7 @@ analytics.track('experiment_viewed', { variation: variationName });
 npm uninstall vwo-node-sdk
 
 # Install new package
-npm install vwo-fme-node-sdk --save
+npm install wingify-fme-node-sdk --save
 ```
 
 ### Step 2: Update Import Statement
@@ -337,7 +337,7 @@ const vwoSDK = require('vwo-node-sdk');
 
 **After (FE):**
 ```javascript
-const { init } = require('vwo-fme-node-sdk');
+const { init } = require('wingify-fme-node-sdk');
 ```
 
 ### Step 3: Refactor Initialization
@@ -346,7 +346,7 @@ const { init } = require('vwo-fme-node-sdk');
 ```javascript
 const settingsFile = await vwoSDK.getSettingsFile(accountId, sdkKey);
 
-const vwoClient = vwoSDK.launch({
+const wingifyClient = vwoSDK.launch({
   settingsFile,
   isDevelopmentMode: false,
   logging: { level: 'ERROR' }
@@ -355,7 +355,7 @@ const vwoClient = vwoSDK.launch({
 
 **After (FE):**
 ```javascript
-const vwoClient = await init({
+const wingifyClient = await init({
   accountId: '123456',
   sdkKey: 'your-sdk-key',
   logger: { level: 'ERROR' },
@@ -374,8 +374,8 @@ const options = {
   userIpAddress: req.ip
 };
 
-vwoClient.activate(campaignKey, userId, options);
-vwoClient.track(campaignKey, userId, goalId, options);
+wingifyClient.activate(campaignKey, userId, options);
+wingifyClient.track(campaignKey, userId, goalId, options);
 ```
 
 **After (FE) — User context created once and reused:**
@@ -387,15 +387,15 @@ const userContext = {
   ipAddress: req.ip
 };
 
-const flag = await vwoClient.getFlag(featureKey, userContext);
-vwoClient.trackEvent(eventName, userContext);
+const flag = await wingifyClient.getFlag(featureKey, userContext);
+wingifyClient.trackEvent(eventName, userContext);
 ```
 
 ### Step 5: Migrate A/B Test Logic
 
 **Before (FS):**
 ```javascript
-const variation = vwoClient.activate('button-test', userId, options);
+const variation = wingifyClient.activate('button-test', userId, options);
 
 if (variation === 'Control') {
   showBlueButton();
@@ -406,7 +406,7 @@ if (variation === 'Control') {
 
 **After (FE):**
 ```javascript
-const flag = await vwoClient.getFlag('button-test', userContext);
+const flag = await wingifyClient.getFlag('button-test', userContext);
 
 if (flag.isEnabled()) {
   const color = flag.getVariable('buttonColor', 'blue');
@@ -421,13 +421,13 @@ if (flag.isEnabled()) {
 **Before (FS):**
 ```javascript
 // Track requires campaign key
-vwoClient.track('button-test', userId, 'button-clicked');
+wingifyClient.track('button-test', userId, 'button-clicked');
 
 // Track across multiple campaigns
-vwoClient.track(['campaign-1', 'campaign-2'], userId, 'purchase');
+wingifyClient.track(['campaign-1', 'campaign-2'], userId, 'purchase');
 
 // Revenue tracking
-vwoClient.track('campaign', userId, 'revenue-goal', {
+wingifyClient.track('campaign', userId, 'revenue-goal', {
   revenueValue: 99.99
 });
 ```
@@ -435,13 +435,13 @@ vwoClient.track('campaign', userId, 'revenue-goal', {
 **After (FE):**
 ```javascript
 // Track event (no campaign key needed)
-vwoClient.trackEvent('button-clicked', userContext);
+wingifyClient.trackEvent('button-clicked', userContext);
 
 // Same event works across all campaigns automatically
-vwoClient.trackEvent('purchase', userContext);
+wingifyClient.trackEvent('purchase', userContext);
 
 // Event with properties
-vwoClient.trackEvent('revenue-goal', userContext, {
+wingifyClient.trackEvent('revenue-goal', userContext, {
   revenue: 99.99
 });
 ```
@@ -451,13 +451,13 @@ vwoClient.trackEvent('revenue-goal', userContext, {
 **Before (FS):**
 ```javascript
 // Check feature and get variables separately
-const isEnabled = vwoClient.isFeatureEnabled('new-checkout', userId);
+const isEnabled = wingifyClient.isFeatureEnabled('new-checkout', userId);
 
 if (isEnabled) {
-  const headerText = vwoClient.getFeatureVariableValue(
+  const headerText = wingifyClient.getFeatureVariableValue(
     'new-checkout', 'headerText', userId
   );
-  const showBanner = vwoClient.getFeatureVariableValue(
+  const showBanner = wingifyClient.getFeatureVariableValue(
     'new-checkout', 'showBanner', userId
   );
 }
@@ -466,7 +466,7 @@ if (isEnabled) {
 **After (FME):**
 ```javascript
 // Get flag once, access all variables
-const flag = await vwoClient.getFlag('new-checkout', userContext);
+const flag = await wingifyClient.getFlag('new-checkout', userContext);
 
 if (flag.isEnabled()) {
   const headerText = flag.getVariable('headerText', 'Welcome');
@@ -483,7 +483,7 @@ if (flag.isEnabled()) {
 
 | Aspect | FullStack (Deprecated) | FE (Current) |
 |--------|------------------------|---------------|
-| **Package** | `vwo-node-sdk` | `vwo-fme-node-sdk` |
+| **Package** | `vwo-node-sdk` | `wingify-fme-node-sdk` |
 | **Node.js** | >= 6.10.0 | >= 12.0 |
 | **Init Pattern** | Two-step (fetch + launch) | Single `init()` call |
 | **User ID** | String per method | `userContext` object |
@@ -495,4 +495,4 @@ if (flag.isEnabled()) {
 
 ---
 
-> **Need Help?** For assistance migrating from FullStack to FE, contact VWO support at support@vwo.com
+> **Need Help?** For assistance migrating from FullStack to FE, contact Wingify support at support@vwo.com

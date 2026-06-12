@@ -94,7 +94,7 @@ The `initialize()` function is called with the `sdkKey`and `accountId`. It initi
       </td>
 
       <td>
-        The level of logging to be used. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-ios-logging)
+        The level of logging to be used. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-ios-logging)
       </td>
     </tr>
 
@@ -109,7 +109,7 @@ The `initialize()` function is called with the `sdkKey`and `accountId`. It initi
       </td>
 
       <td>
-        A prefix to be added to log messages. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-ios-logging)
+        A prefix to be added to log messages. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-ios-logging)
       </td>
     </tr>
 
@@ -124,7 +124,7 @@ The `initialize()` function is called with the `sdkKey`and `accountId`. It initi
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-ios-integrations)
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-ios-integrations)
       </td>
     </tr>
 
@@ -139,7 +139,7 @@ The `initialize()` function is called with the `sdkKey`and `accountId`. It initi
       </td>
 
       <td>
-        Expiry time for cached settings in milliseconds. For more details, please check - [Cache Management](https://developers.vwo.com/v2/docs/fme-ios-cache-setting)
+        Expiry time for cached settings in milliseconds. For more details, please check - [Cache Management](https://developers.wingify.com/v2/docs/fme-ios-cache-setting)
       </td>
     </tr>
 
@@ -154,7 +154,7 @@ The `initialize()` function is called with the `sdkKey`and `accountId`. It initi
       </td>
 
       <td>
-        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
+        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling)
       </td>
     </tr>
 
@@ -169,7 +169,7 @@ The `initialize()` function is called with the `sdkKey`and `accountId`. It initi
       </td>
 
       <td>
-        Minimum size of batch to upload. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/docs/fme-ios-event-batching#/)
+        Minimum size of batch to upload. For more detail, please check - [Event Batching](https://developers.wingify.com/v2/docs/fme-ios-event-batching#/)
       </td>
     </tr>
 
@@ -184,7 +184,7 @@ The `initialize()` function is called with the `sdkKey`and `accountId`. It initi
       </td>
 
       <td>
-        Batch upload time interval in milliseconds. For more detail, please check - [Event Batching](https://developers.vwo.com/v2/docs/fme-ios-event-batching#/)
+        Batch upload time interval in milliseconds. For more detail, please check - [Event Batching](https://developers.wingify.com/v2/docs/fme-ios-event-batching#/)
       </td>
     </tr>
 
@@ -199,7 +199,7 @@ The `initialize()` function is called with the `sdkKey`and `accountId`. It initi
       </td>
 
       <td>
-        Protocol to send logs to external systems. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-ios-logging)
+        Protocol to send logs to external systems. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-ios-logging)
       </td>
     </tr>
   </tbody>
@@ -225,7 +225,7 @@ let integrationClass = MyClass()
 let options = WingifyInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, integrations: integrationClass)
 ```
 
-See [Integrations](https://developers.vwo.com/v2/docs/fme-ios-integrations#usage) documentation for additional information.
+See [Integrations](https://developers.wingify.com/v2/docs/fme-ios-integrations#usage) documentation for additional information.
 
 ### Log Transport
 
@@ -250,7 +250,7 @@ let logClass = MyClass()
 let options = WingifyInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID,  logTransport:logClass)
 ```
 
-See [Logging](https://developers.vwo.com/v2/docs/fme-ios-logging) documentation for additional information.
+See [Logging](https://developers.wingify.com/v2/docs/fme-ios-logging) documentation for additional information.
 
 ### Polling Interval Adjustment
 
@@ -263,7 +263,7 @@ Example usage:
 let options = WingifyInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID,  pollInterval:600000)
 ```
 
-See [Polling](https://developers.vwo.com/v2/docs/polling) documentation for additional information.
+See [Polling](https://developers.wingify.com/v2/docs/polling) documentation for additional information.
 
 ### Cached Settings Expiry Time
 
@@ -282,7 +282,7 @@ The Wingify SDK supports storing impression events while the device is offline, 
 
 #### NOTE: The uploading of events will get triggered based on whichever condition is met first if using both options.
 
-See [Event Batching](https://developers.vwo.com/v2/docs/event-batching#/) documentation for additional information.
+See [Event Batching](https://developers.wingify.com/v2/docs/event-batching#/) documentation for additional information.
 
 | **Parameter**             | **Description**                                                                    | **Required** | **Type** | **Example** |
 | ------------------------- | ---------------------------------------------------------------------------------- | ------------ | -------- | ----------- |

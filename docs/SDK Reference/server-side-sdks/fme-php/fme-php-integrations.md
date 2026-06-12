@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-VWO FE SDKs help you integrate with several third-party tools, be it analytics, monitoring, customer data platforms, messaging, etc., by implementing a very basic and generic callback capable of receiving VWO-specific properties that can then be pushed to any third-party tool.
+Wingify FE SDKs help you integrate with several third-party tools, be it analytics, monitoring, customer data platforms, messaging, etc., by implementing a very basic and generic callback capable of receiving-specific properties that can then be pushed to any third-party tool.
 
 ## Usage
 
@@ -33,7 +33,7 @@ $wingifyClient = Wingify::init($options);
 
 ## Properties available to use for integrations
 
-All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.vwo.com/docs/fme-php-flags) and [trackEvent](https://developers.vwo.com/docs/fme-php-metrics) APIs.
+All Wingify SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever Wingify SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.wingify.com/docs/fme-php-flags) and [trackEvent](https://developers.wingify.com/docs/fme-php-metrics) APIs.
 
 ```json
 {
@@ -54,14 +54,14 @@ All VWO SDKs provide the following properties when a decision is made. This mean
 
 ```
 
-Different destinations have their own formats for integrating with them and using their respective methods/APIs. Please check the documentation of the respective third-party destination so that the above properties can be mapped accordingly before using the destination APIs.<br />This is the reason why VWO SDKs do not provide different libraries to connect with different third-party sources. You can simply refer to the third-party destination's documentation and connect VWO the way you want.
+Different destinations have their own formats for integrating with them and using their respective methods/APIs. Please check the documentation of the respective third-party destination so that the above properties can be mapped accordingly before using the destination APIs.<br />This is the reason why Wingify SDKs do not provide different libraries to connect with different third-party sources. You can simply refer to the third-party destination's documentation and connect Wingify the way you want.
 
 ## Which platforms I can integrate with?
 
-Since VWO SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party destination.
+Since Wingify SDKs are platform agnostic, with the help of the above code snippets, you can integrate with any third-party destination.
 
 > 📘 Note
 >
-> Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
+> Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the Wingify SDK.
 
 <br />

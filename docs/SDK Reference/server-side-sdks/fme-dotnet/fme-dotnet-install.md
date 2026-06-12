@@ -12,7 +12,7 @@ next:
 ---
 ## .NET SDK Installation
 
-To integrate VWO FE SDK into your .NET application, you must first install the SDK through a Python package manager. VWO .NET SDK can be installed using NuGet Package Manager [NuGet](https://www.nuget.org/packages/VWO.FE.Sdk).
+To integrate Wingify FE SDK into your .NET application, you must first install the SDK through a Python package manager. Wingify .NET SDK can be installed using NuGet Package Manager [NuGet](https://www.nuget.org/packages/VWO.FE.Sdk).
 
 ## Requirements
 

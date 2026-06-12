@@ -1,8 +1,8 @@
 ---
 title: Overview
 excerpt: >-
-  A Conceptual Guide to Connecting VWO Feature Experimentation, VWO Web Testing,
-  and VWO Web & Mobile Insights
+  A Conceptual Guide to Connecting Wingify Feature Experimentation, Wingify Web Testing,
+  and Wingify Web & Mobile Insights
 deprecated: false
 hidden: true
 metadata:
@@ -13,7 +13,7 @@ next:
       title: Cross-System Identity Synchronization
       type: basic
 ---
-# Unifying Server-Side and Client-Side Experimentation in VWO
+Wingify  Unifying Server-Side and Client-Side Experimentation in
 
 Modern experimentation is no longer limited to a single platform or touchpoint. Users interact with your product across **web, mobile, backend services, and APIs**—and experimentation must follow the user seamlessly across this entire journey.
 
@@ -28,7 +28,7 @@ To experiment effectively across this ecosystem, one foundational problem to be 
 
 > How do we ensure that the same user is consistently identified and evaluated across all systems?
 
-This section explains how **VWO Feature Experimentation (FE)** connects with **VWO Web Testing** and **VWO Web Insights**, enabling:
+This section explains how **Wingify Feature Experimentation (FE)** connects with **Wingify Web Testing** and **Wingify Web Insights**, enabling:
 
 * Consistent user identification across client and server
 * Combined client-side and server-side experimentation
@@ -43,9 +43,9 @@ We’ll cover **concepts, architecture, step-by-step integration, code examples*
 
 Before understanding connectivity, we must understand the philosophical difference between the two experimentation models.
 
-At a high level, VWO offers two complementary experimentation models:
+At a high level, Wingify offers two complementary experimentation models:
 
-### VWO Web Testing (Client-Side)
+### Wingify Web Testing (Client-Side)
 
 Works via **SmartCode**, a JavaScript snippet added to your website
 
@@ -63,9 +63,9 @@ Conceptually:
 
 > This follows a presentation-layer experimentation model.
 
-Reference: [What is VWO SmartCode?](https://help.vwo.com/hc/en-us/articles/360019420774-What-is-VWO-SmartCode)
+Reference: [What is Wingify SmartCode?](https://help.vwo.com/hc/en-us/articles/360019420774-What-is-VWO-SmartCode)
 
-### VWO Feature Experimentation (FE)
+### Wingify Feature Experimentation (FE)
 
 Works via **SDKs** (server-side and client-side)
 
@@ -85,7 +85,7 @@ Conceptually:
 
 > This follows a decision-layer experimentation model.
 
-Reference: [List of VWO Feature Experimentation SDKs](https://developers.vwo.com/v2/docs/list-of-fme-sdks)
+Reference: [List of Wingify Feature Experimentation SDKs](https://developers.wingify.com/v2/docs/list-of-fme-sdks)
 
 ### Key Difference
 
@@ -96,7 +96,7 @@ Reference: [List of VWO Feature Experimentation SDKs](https://developers.vwo.com
 | Audience    | Marketers, CRO teams   | Developers                |
 | Use cases   | UI & UX testing        | Business logic & rollouts |
 
-### VWO Web Insights (Behavioral Analytics)
+### Wingify Web Insights (Behavioral Analytics)
 
 Works via **SmartCode-based data collection**, capturing visitor interactions on your website.
 
@@ -117,7 +117,7 @@ Conceptually:
 
 > This follows a behavioral-analytics model, complementing experimentation by explaining why users behaved the way they did.
 
-Reference: [What is VWO Insights](https://help.vwo.com/hc/en-us/articles/900000051286-What-is-VWO-Insights)
+Reference: [What is Wingify Insights](https://help.vwo.com/hc/en-us/articles/900000051286-What-is-VWO-Insights)
 
 <br />
 
@@ -125,4 +125,4 @@ Reference: [What is VWO Insights](https://help.vwo.com/hc/en-us/articles/9000000
 
 1. [Cross-System Identity Synchronization](doc:fme-hybrid-testing-identity-synchronization)
 2. [Conversion Tracking Across Platforms](doc:fme-hybrid-testing-conversion-tracking)
-3. [Integration with VWO Web & Mobile Insights](doc:integration-with-vwo-web-insights)
+3. [Integration with Wingify Web & Mobile Insights](doc:integration-with-vwo-web-insights)

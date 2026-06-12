@@ -16,7 +16,7 @@ next:
 ---
 ## Java SDK Installation
 
-To integrate VWO FE SDK into your Java application, you must first install the SDK through a java package manager. VWO FE Python SDK can be installed using [maven](https://mvnrepository.com/artifact).
+To integrate Wingify FE SDK into your Java application, you must first install the SDK through a java package manager. Wingify FE Python SDK can be installed using [maven](https://mvnrepository.com/artifact).
 
 ```java
 <dependency>
@@ -40,4 +40,4 @@ You must then install the dependencies using`mvn install`
 | :------- | :----------------------------------------------------------------------------------------- |
 | Java     | [https://github.com/wingify/vwo-fme-java-sdk](https://github.com/wingify/vwo-fme-java-sdk) |
 
-The VWO SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.
+The Wingify SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.

@@ -14,7 +14,7 @@ next:
       slug: fme-java-context
       title: User Context
 ---
-To create a VWO Client instance, you need to initialize the VWO FE Java SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
+To create a Wingify Client instance, you need to initialize the Wingify FE Java SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
 
 ## Usage
 
@@ -35,7 +35,7 @@ Wingify wingifyClient = Wingify.init(wingifyInitOptions);
 
 An object of `wingifyInitOptions` is created to store the SDK configuration details.
 
-The `init()` function is called with the `wingifyInitOptions` object. It initializes and returns a VWO Client Object `wingifyClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` function is called with the `wingifyInitOptions` object. It initializes and returns a Wingify Client Object `wingifyClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -76,7 +76,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        Your VWO application's Account ID.
+        Your Wingify application's Account ID.
       </td>
     </tr>
 
@@ -94,7 +94,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **_Default Project_**.
+        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under **_Default Project_**.
       </td>
     </tr>
 
@@ -112,7 +112,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
+        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling)
       </td>
     </tr>
 
@@ -130,7 +130,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check -[Logger](https://developers.vwo.com/v2/docs/fme-java-logging)
+        An optional logger object that defines the logging behavior. For more details, please check -[Logger](https://developers.wingify.com/v2/docs/fme-java-logging)
       </td>
     </tr>
 
@@ -148,7 +148,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-java-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-java-storage)
       </td>
     </tr>
 
@@ -166,7 +166,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.vwo.com/v2/docs/fme-java-initialization#proxyurl)
+        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.wingify.com/v2/docs/fme-java-initialization#proxyurl)
       </td>
     </tr>
 
@@ -190,7 +190,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service) , this object will specify the location and port of where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.wingify.com/v2/docs/gateway-service) , this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -208,7 +208,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-java-integrations)
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-java-integrations)
       </td>
     </tr>
 
@@ -226,17 +226,17 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.vwo.com/v2/docs/fme-java-initialization#retry-configuration)
+        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.wingify.com/v2/docs/fme-java-initialization#retry-configuration)
       </td>
     </tr>
   </tbody>
 </Table>
 
-### Poll Interval (Keeping VWO client up-to-date)
+### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.<br />If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _wingifyClient_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _wingifyClient_ has been initialized in your server, there needs to be some way to update your _wingifyClient_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
-The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
+The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
 ```java
 WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
@@ -247,7 +247,7 @@ Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 
 ### Logger
 
-VWO by default logs all ERROR level messages to your server console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server console. To gain more control over's logging behavior, you can use the logger parameter in the init configuration.
 
 ```java
 WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
@@ -260,7 +260,7 @@ wingifyInitOptions.setLogger(logger);
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-java-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v2/docs/fme-java-logging) for more advanced logger options.
 
 ### Storage
 
@@ -275,11 +275,11 @@ wingifyInitOptions.setStorage(storageObject)
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click [storage](https://developers.vwo.com/v2/docs/fme-java-storage)  to learn more about storage implementation.
+Please click [storage](https://developers.wingify.com/v2/docs/fme-java-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
+The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```java
 WingifyInitOptions wingifyInitOptions = new WingifyInitOptions(); 
@@ -292,11 +292,11 @@ wingifyInitOptions.setGatewayService(gatewayService);
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click [GatewayService](https://developers.vwo.com/v2/docs/gateway-service)  to learn more about gateway service.
+Please click [GatewayService](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about gateway service.
 
 ### Integrations
 
-VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives-specific properties and can forward them to any third-party tool of your choice.
 
 ```java
 IntegrationCallback integrations = new IntegrationCallback() { 
@@ -314,11 +314,11 @@ wingifyInitOptions.setIntegrations(integrations);
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-java-integrations) to learn more about Integrations,.
+Please click [here](https://developers.wingify.com/v2/docs/fme-java-integrations) to learn more about Integrations,.
 
 ### ProxyUrl
 
-VWO FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
+Wingify FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
 
 ```java
 WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
@@ -329,7 +329,7 @@ wingifyInitOptions.setProxyUrl("http://custom.proxy.com");
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-java-proxy-url">here</Anchor> to learn more about Proxy URL,.
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-java-proxy-url">here</Anchor> to learn more about Proxy URL,.
 
 ### Retry Configuration
 
@@ -351,4 +351,4 @@ wingifyInitOptions.setRetryConfig(retryConfig);
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism

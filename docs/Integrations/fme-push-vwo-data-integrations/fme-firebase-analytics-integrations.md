@@ -23,15 +23,15 @@ Integrating FE with Firebase Analytics offers significant benefits. FE sends fea
 * Add the configuration file to your Xcode project
 * Follow the detailed setup instructions mentioned at <Anchor label="Firebase iOS Setup Guide" target="_blank" href="https://firebase.google.com/docs/ios/setup">Firebase iOS Setup Guide</Anchor>
 
-### VWO FE SDK Installation and Configuration
+### Wingify FE SDK Installation and Configuration
 
-* Ensure you have the VWO Feature Experimentation product enabled for your VWO account
-* The VWO FE SDK should be properly installed in your project
-* Set your VWO account ID and SDK key in your application's configuration:
+* Ensure you have the Wingify Feature Experimentation product enabled for your Wingify account
+* The Wingify FE SDK should be properly installed in your project
+* Set your Wingify account ID and SDK key in your application's configuration:
 
 ```swift
-let FME_ACCOUNT_ID = "your_account_id" // Replace with your actual VWO account ID
-let FME_SDK_KEY = "your_sdk_key" // Replace with your actual VWO sdk key
+let FME_ACCOUNT_ID = "your_account_id" // Replace with your actual Wingify account ID
+let FME_SDK_KEY = "your_sdk_key" // Replace with your actual Wingify sdk key
 ```
 
 <br />
@@ -42,7 +42,7 @@ Firebase Analytics SDK integration enables automatic collection of feature flag 
 
 > 📘 Note
 >
-> The example below shows an implementation with the `iOS` SDK. Please note that any VWO FE SDK can be used.
+> The example below shows an implementation with the `iOS` SDK. Please note that any Wingify FE SDK can be used.
 
 ### 1. Add Required Dependencies
 
@@ -58,12 +58,12 @@ pod 'VWO-FE-iOS'
 Implement a class to handle Firebase Analytics integration and provide methods for tracking events and flag evaluations.
 
 ```swift
-import VWO_FME
+import_FME
 import FirebaseAnalytics
 
 class FirebaseAnalyticsIntegration: IntegrationCallback {
     func execute(_ properties: [String: Any]) {
-        // Extract event name and parameters from VWO properties
+        // Extract event name and parameters from Wingify properties
         if let api = properties["api"] as? String {
             switch api {
             case "getFlag":
@@ -102,8 +102,8 @@ Initialize your `FirebaseAnalyticsIntegration` instance and provide an implement
 ```swift
 // Example Integration Callback Setup
 let integration = FirebaseAnalyticsIntegration()
-let options = VWOInitOptions(sdkKey: FME_SDK_KEY, // Replace with your actual VWO sdk key
-                           accountId: FME_ACCOUNT_ID, // Replace with your actual VWO account ID
+let options =InitOptions(sdkKey: FME_SDK_KEY, // Replace with your actual Wingify sdk key
+                           accountId: FME_ACCOUNT_ID, // Replace with your actual Wingify account ID
                            integrations: integration)
 
 VWOFme.initialize(options: options) { result in
@@ -118,7 +118,7 @@ VWOFme.initialize(options: options) { result in
 
 ### Integration Data
 
-The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` containing details about the VWO SDK action:
+The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` containing details about the Wingify SDK action:
 
 * **For flag evaluations** (i.e. `getFlag`):
 
@@ -148,7 +148,7 @@ The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` 
 
 Ensure you have added your Firebase configuration to your project as specified in the Prerequisites.
 
-This setup ensures that every time a feature flag is evaluated or an event is tracked by the VWO SDK, the relevant data is automatically sent to your Firebase Analytics dashboard.
+This setup ensures that every time a feature flag is evaluated or an event is tracked by the Wingify SDK, the relevant data is automatically sent to your Firebase Analytics dashboard.
 
 ### Sample Screenshot
 
@@ -183,4 +183,4 @@ After integrating Firebase Analytics with your app, you can view the tracked dat
    * Export data to BigQuery for advanced analysis
    * Set up automated insights and anomaly detection
 
-> This is an example of an implementation using the iOS SDK. While this demonstrates the approach, you can utilize any of the VWO FE SDKs for your project.
+> This is an example of an implementation using the iOS SDK. While this demonstrates the approach, you can utilize any of the Wingify FE SDKs for your project.

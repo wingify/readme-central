@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide provides step-by-step instructions for integrating the VWO FE JavaScript SDK into an Ionic-based mobile application.
+This guide provides step-by-step instructions for integrating the Wingify FE JavaScript SDK into an Ionic-based mobile application.
 
 ### What is Ionic?
 
@@ -13,9 +13,9 @@ This guide provides step-by-step instructions for integrating the VWO FE JavaScr
 
 <br />
 
-### Compatibility with VWO FE JavaScript SDK
+### Compatibility with Wingify FE JavaScript SDK
 
-The VWO FE JavaScript SDK integrates seamlessly with Ionic applications through the installation of an npm package. Since Ionic uses web technologies and can leverage Capacitor for native functionality, the VWO FE JavaScript SDK can be directly imported and used within Ionic services and components.
+The Wingify FE JavaScript SDK integrates seamlessly with Ionic applications through the installation of an npm package. Since Ionic uses web technologies and can leverage Capacitor for native functionality, the Wingify FE JavaScript SDK can be directly imported and used within Ionic services and components.
 
 <br />
 
@@ -37,7 +37,7 @@ For detailed instructions, refer to the [Ionic Getting Started Guide](https://io
 
 ### 2. Install FE JavaScript SDK
 
-Add the VWO FE JavaScript SDK to your project using npm:
+Add the Wingify FE JavaScript SDK to your project using npm:
 
 ```shell
 npm install wingify-fme-node-sdk
@@ -67,7 +67,7 @@ export const environment = {
 >
 > **Recommendation**: We highly recommend using environment variables for your SDK key and account ID. This practice helps to keep your credentials secure and out of your codebase.
 
-### 4. Create VWO Service
+### 4. Create Wingify Service
 
 Create a service to handle FE SDK initialization and operations:
 
@@ -133,7 +133,7 @@ export class WingifyService {
 
 ### 5. Use FE in Components
 
-Import and use the VWO service in your Ionic components:
+Import and use the Wingify service in your Ionic components:
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -170,11 +170,11 @@ export class HomePage implements OnInit {
 
 <br />
 
-> 💡 The VWO Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
+> 💡 The Wingify Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
 >
-> - [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
-> - [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
-> - [setAttribute()](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/) to send user attributes to VWO
+> - [getFlag()](https://developers.wingify.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
+> - [trackEvent()](https://developers.wingify.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
+Wingify  - [setAttribute()](https://developers.wingify.com/v2/docs/fme-javascript-attributes#/) to send user attributes to
 
 <br />
 

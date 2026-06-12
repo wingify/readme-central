@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The VWO FE Android SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within Android applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
+The Wingify FE Android SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within Android applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
 
 ### Source Code Repository
 
@@ -23,7 +23,7 @@ To facilitate a comprehensive understanding and effective implementation of the 
 1. [Installing the SDK](doc:fme-android-install)\
    Learn how to import and reference the SDK in your Android project.
 2. [Initialization](doc:fme-android-initialization)\
-   Learn how to initialize the VWO client within your application, including configuring essential parameters such as accountId, sdkKey, and optional settings like pollInterval, logger, storage, gatewayService, and integrations.
+   Learn how to initialize the Wingify client within your application, including configuring essential parameters such as accountId, sdkKey, and optional settings like pollInterval, logger, storage, gatewayService, and integrations.
 3. [User Context](doc:fme-android-context)\
    Understand how to define and manage user contexts to enable targeted feature rollouts and personalized user experiences.
 4. [Feature Flags & Variables](doc:fme-android-flags)\
@@ -43,6 +43,6 @@ To facilitate a comprehensive understanding and effective implementation of the 
 11. [Cache Settings](doc:fme-android-cache-settings)\
     Enhance speed and reduce API usage with configurable(TTL) caching of settings.
 12. [Impact Analysis](doc:fme-android-impact-analysis)\
-    Understand how VWO FE affects your app footprint.
+    Understand how Wingify FE affects your app footprint.
 
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.

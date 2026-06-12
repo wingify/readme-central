@@ -87,7 +87,7 @@ The Wingify FE React Native SDK is compatible with both old and new React Native
 
 For detailed usage instructions and examples, please refer to links below:
 
-> 📘 [FE React Native SDK documentation](https://developers.vwo.com/v2/docs/fme-react-native-initialization)
+> 📘 [FE React Native SDK documentation](https://developers.wingify.com/v2/docs/fme-react-native-initialization)
 
 > 📘 [Example app](https://github.com/wingify/vwo-fme-examples/tree/master/react-native)
 

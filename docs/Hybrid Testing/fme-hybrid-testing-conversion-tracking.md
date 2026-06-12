@@ -8,18 +8,18 @@ metadata:
 next:
   pages:
     - slug: integration-with-vwo-web-insights
-      title: Integration with VWO Web Insights
+      title: Integration with Wingify Web Insights
       type: basic
 ---
-Conversion tracking in a connected VWO architecture relies on one fundamental requirement:
+Conversion tracking in a connected Wingify architecture relies on one fundamental requirement:
 
 > The same UUID must be used at the time of conversion as was used at the time of bucketing.
 
 If identity is consistent across client and server layers, conversions can be attributed accurately across:
 
 * Feature Experimentation (FE)
-* VWO Web Testing
-* VWO Web Insights
+* Wingify Web Testing
+* Wingify Web Insights
 * Offline systems (CRM, POS, backend billing, etc.)
 
 This section explains how conversion tracking works in both FE-first and Client-first architectures, and how offline conversions fit into the model.
@@ -57,7 +57,7 @@ This flow is common in:
 sequenceDiagram
     participant User
     participant Server
-    participant FE_SDK as VWO FE SDK
+    participant FE_SDK as Wingify FE SDK
     participant Browser
 
     User->>Server: 1. HTTP request
@@ -101,7 +101,7 @@ sequenceDiagram
     participant Browser
     participant SmartCode
     participant Server
-    participant FE_SDK as VWO FE SDK
+    participant FE_SDK as Wingify FE SDK
 
     User->>Browser: Visit page
     Browser->>SmartCode: 1. Load SmartCode
@@ -143,7 +143,7 @@ Example:
 <script>
 // Do not change anything in the following two lines
 window.VWO = window.VWO || [];
-VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
+VWO.event =.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
 
 // Replace the property values with your actual values
 VWO.event("REPLACE_WITH_ACTUAL_EVENT_API_NAME", {
@@ -168,7 +168,7 @@ Conversion is tracked server-side using FE SDK.
 Example (Node.js):
 
 ```javascript
-vwoClient.trackEvent('REPLACE_WITH_ACTUAL_EVENT_API_NAME', {
+wingifyClient.trackEvent('REPLACE_WITH_ACTUAL_EVENT_API_NAME', {
   id: uuidFromCookie
 });
 ```
@@ -190,9 +190,9 @@ Conversions may occur outside the web session:
 * CRM lifecycle update
 * Subscription upgrade via billing system
 
-If the same UUID is stored in your backend systems, it can be sent later via VWO Data360 offline conversion APIs.
+If the same UUID is stored in your backend systems, it can be sent later via Wingify Data360 offline conversion APIs.
 
-Reference: [How to Track Offline Conversions Using VWO Data360](https://help.vwo.com/hc/en-us/articles/25754666953241-How-to-Track-Offline-Conversions-Using-VWO-Data360)
+Reference: [How to Track Offline Conversions Using Wingify Data360](https://help.vwo.com/hc/en-us/articles/25754666953241-How-to-Track-Offline-Conversions-Using-VWO-Data360)
 
 Offline conversion tracking works seamlessly in a connected system.
 
@@ -223,8 +223,8 @@ sequenceDiagram
     participant Browser
     participant SmartCode
     participant Server
-    participant FE_SDK as VWO FE SDK
-    participant VWO
+    participant FE_SDK as Wingify FE SDK
+Wingify    participant
     participant Data360 as Offline System
 
     User->>Browser: Visit Page
@@ -233,19 +233,19 @@ sequenceDiagram
 
     Browser->>Server: Request (UUID cookie sent)
     Server->>FE_SDK: Evaluate flag using UUID
-    FE_SDK->>VWO: Fetch config & evaluate
-    VWO-->>FE_SDK: Decision
+    FE_SDK->>Wingify: Fetch config & evaluate
+   -->>FE_SDK: Decision
     FE_SDK-->>Server: Variation decision
 
     User->>Browser: Click "Buy Now"
 
     alt Client-side conversion
-        SmartCode->>VWO: track.customEvent(UUID)
+        SmartCode->>Wingify: track.customEvent(UUID)
     else Server-side conversion
         Server->>FE_SDK: trackEvent(UUID)
-        FE_SDK->>VWO: Send conversion event
+        FE_SDK->>Wingify: Send conversion event
     else Offline conversion
-        Data360->>VWO: Push conversion(UUID)
+        Data360->>Wingify: Push conversion(UUID)
     end
 
     Note over SmartCode,FE_SDK: Same UUID ensures correct attribution

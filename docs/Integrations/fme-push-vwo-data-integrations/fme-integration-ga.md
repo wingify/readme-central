@@ -7,25 +7,25 @@ metadata:
 ---
 ## Overview
 
-**Integrating VWO Feature Experimentation with GA4** offers powerful benefits. VWO Feature Experimentation sends feature flag and event data directly to GA4, allowing you to see which feature flag variations users encounter during their sessions. This enables you to correlate user behaviour and performance metrics with specific experiments and feature rollouts. As a result, you can better understand how new features impact key KPIs like retention, engagement, and conversion:
+**Integrating Wingify Feature Experimentation with GA4** offers powerful benefits. Wingify Feature Experimentation sends feature flag and event data directly to GA4, allowing you to see which feature flag variations users encounter during their sessions. This enables you to correlate user behaviour and performance metrics with specific experiments and feature rollouts. As a result, you can better understand how new features impact key KPIs like retention, engagement, and conversion:
 
 <br />
 
 ## Prerequisites
 
-### VWO FE SDK Installation and Configuration
+### Wingify FE SDK Installation and Configuration
 
-* Ensure you have the VWO Feature Experimentation product enabled for your VWO account.
-* The VWO FE SDK should be properly installed in your Node.js project.
-* Set your VWO account ID and SDK key in your application's constants in `.env` file:
+* Ensure you have the Wingify Feature Experimentation product enabled for your Wingify account.
+* The Wingify FE SDK should be properly installed in your Node.js project.
+* Set your Wingify account ID and SDK key in your application's constants in `.env` file:
   ```
-  VWO_ACCOUNT_ID=vwo_account_id
-  VWO_SDK_KEY=vwo_sdk_key
-  VWO_FLAG_KEY=flag_key
-  VWO_FLAG_VARIABLE_1_KEY=flag_variable1
-  VWO_FLAG_VARIABLE_2_KEY=flag_variable2
-  VWO_EVENT_NAME=event_name
-  VWO_LOG_LEVEL= DEBUG # DEBUG, INFO, WARN, ERROR
+  WINGIFY_ACCOUNT_ID=vwo_account_id
+  WINGIFY_SDK_KEY=vwo_sdk_key
+ _FLAG_KEY=flag_key
+ _FLAG_VARIABLE_1_KEY=flag_variable1
+ _FLAG_VARIABLE_2_KEY=flag_variable2
+ _EVENT_NAME=event_name
+ _LOG_LEVEL= DEBUG # DEBUG, INFO, WARN, ERROR
   ```
 
 ### GA4 Account Setup
@@ -66,19 +66,19 @@ Add the following dependencies to your app:
 
 ```shell
 # via npm
-npm install vwo-fme-node-sdk --save
+npm install wingify-fme-node-sdk --save
 
 # via yarn
-yarn add vwo-fme-node-sdk
+yarn add wingify-fme-node-sdk
 ```
 
 <br />
 
 ## Integration Steps
 
-Integrating the VWO FE SDK with analytics platforms like GA4 allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FE SDK.
+Integrating the Wingify FE SDK with analytics platforms like GA4 allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FE SDK.
 
-* Clone the VWO FE Examples from [GitHub](https://github.com/wingify/vwo-fme-examples)
+* Clone the Wingify FE Examples from [GitHub](https://github.com/wingify/vwo-fme-examples)
   ```shell
   git clone https://github.com/wingify/vwo-fme-examples.git
   ```
@@ -87,13 +87,13 @@ Integrating the VWO FE SDK with analytics platforms like GA4 allows you to autom
   cd vwo-fme-examples/node
   ```
 * Open the project in an IDE and open the file `vwoHelper.ts` . It's located inside`src > utils`
-* Inside the `vwoHelper.ts` file, you will find the `initVwoClient` method. Within this method, there is a constant named `sdkConfig`. Within sdkConfig, there is an integration object that requires the GA4 API to be invoked through the integration callback to send events to GA4.
+* Inside the `vwoHelper.ts` file, you will find the `initWingifyClient` method. Within this method, there is a constant named `sdkConfig`. Within sdkConfig, there is an integration object that requires the GA4 API to be invoked through the integration callback to send events to GA4.
 
 <Image align="center" className="border" border={true} width="800px" src="https://files.readme.io/d5f79b66eb0120ccd613fc3833e61d4362d998510d0a70b58efa42b4acd78634-vwo_fme_integrations_ga.png" />
 
 ### Integration Data
 
-The `IntegrationCallback` receives a `properties: Record<string, unknown>` containing details about the VWO SDK action:
+The `IntegrationCallback` receives a `properties: Record<string, unknown>` containing details about the Wingify SDK action:
 
 * For flag evaluations (i.e.  `getFlag`):
   ```json

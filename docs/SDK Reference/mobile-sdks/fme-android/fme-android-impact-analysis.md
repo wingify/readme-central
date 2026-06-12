@@ -5,17 +5,17 @@ hidden: false
 metadata:
   robots: index
 ---
-This document provides a comprehensive analysis of the VWO Android SDK's impact on application performance, resource utilization, and network consumption. The metrics presented below are based on extensive testing and real-world implementation scenarios.
+This document provides a comprehensive analysis of the Wingify Android SDK's impact on application performance, resource utilization, and network consumption. The metrics presented below are based on extensive testing and real-world implementation scenarios.
 
 ## Executive Summary
 
-The VWO Android SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust Feature Experimentation capabilities.
+The Wingify Android SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust Feature Experimentation capabilities.
 
 ## Application Launch Performance
 
 ### Asynchronous Initialization Architecture
 
-The VWO SDK employs a non-blocking initialization strategy to ensure minimal impact on application startup times:
+The Wingify SDK employs a non-blocking initialization strategy to ensure minimal impact on application startup times:
 
 **Key Features:**
 
@@ -32,7 +32,7 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 
 ### Settings Management
 
-**Endpoint**: VWO Settings API
+**Endpoint**: Wingify Settings API
 
 * **Frequency**: Single request per session with intelligent caching
 * **Caching Strategy**: Configurable cache duration with offline fallback support
@@ -41,7 +41,7 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 
 ### Event Tracking System
 
-**Endpoint**: VWO Event Tracking API
+**Endpoint**: Wingify Event Tracking API
 
 * **Processing Mode**: Asynchronous batch processing with local queuing
 * **Retry Logic**: Automatic retry mechanism for failed requests with exponential backoff
@@ -95,7 +95,7 @@ _Note: The size measurements reflect the SDK's complete package, including all i
 
 | Component               | Method Count |
 | ----------------------- | :----------: |
-| com.vwo (Core SDK)      |      402     |
+| com.wingify(Core SDK)      |      402     |
 | com.github.eprst:murmur |      38      |
 | com.google.code.gson    |     1,239    |
 | androidx.work           |     1,694    |
@@ -155,4 +155,4 @@ _Data consumption measured for typical operation scenarios_
 
 ***
 
-_This performance analysis is based on VWO Android SDK version 1.6.2. Performance characteristics may vary based on device specifications, network conditions, and implementation patterns._
+_This performance analysis is based on Wingify Android SDK version 1.6.2. Performance characteristics may vary based on device specifications, network conditions, and implementation patterns._

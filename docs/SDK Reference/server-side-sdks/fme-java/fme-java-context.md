@@ -33,7 +33,7 @@ By leveraging these attributes, organizations can deliver **precisely targeted f
 
 > 🚧 Current Limitation
 >
-> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the _setAttribute_ API.
+> Wingify **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of Wingify applications. For post-segmentation, it is recommended to rely on attributes set via the _setAttribute_ API.
 
 ## Usage
 
@@ -102,7 +102,7 @@ wingifyClient.setAttribute("attribute_key", "attribute_value", context);
       </td>
 
       <td>
-        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to VWO. [Read more here](https://developers.vwo.com/v2/docs/user-id-management)  .
+        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to. [Read more here](https://developers.wingify.com/v2/docs/user-id-management)  .
       </td>
     </tr>
 
@@ -144,7 +144,7 @@ wingifyClient.setAttribute("attribute_key", "attribute_value", context);
       </td>
 
       <td>
-        Any additional details of the current user that you want to push to VWO can be added here as key-value pairs, can be used for targeting & pre-segmentation.
+        Any additional details of the current user that you want to push to Wingify can be added here as key-value pairs, can be used for targeting & pre-segmentation.
       </td>
     </tr>
   </tbody>

@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-The VWO Feature Experimentation (FE) SDK is a powerful tool that enables dynamic feature flag management and experimentation in your iOS applications. It allows developers to:
+The Wingify Feature Experimentation (FE) SDK is a powerful tool that enables dynamic feature flag management and experimentation in your iOS applications. It allows developers to:
 
 * Implement user ID-based feature flag evaluation
 * Track user interactions and events
@@ -23,10 +23,10 @@ The VWO Feature Experimentation (FE) SDK is a powerful tool that enables dynamic
 
 ## Prerequisites
 
-#### VWO FE SDK Installation and Configuration
+#### Wingify FE SDK Installation and Configuration
 
-* Ensure you have the VWO Feature Experimentation product enabled for your VWO account
-* The VWO FE SDK should be properly installed in your iOS project
+* Ensure you have the Wingify Feature Experimentation product enabled for your Wingify account
+* The Wingify FE SDK should be properly installed in your iOS project
 
 #### Mixpanel Account Setup
 
@@ -37,12 +37,12 @@ The VWO Feature Experimentation (FE) SDK is a powerful tool that enables dynamic
 
 ## Integration Steps
 
-Integrating the VWO FE SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FE SDK.
+Integrating the Wingify FE SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FE SDK.
 
 Initialize your `MixpanelIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FE SDK. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Mixpanel instance.
 
 ```swift
-import VWO_FME
+import_FME
 import Mixpanel
 
 class MixpanelIntegration: IntegrationCallback {
@@ -76,23 +76,23 @@ class MixpanelIntegration: IntegrationCallback {
     }
 }
 
-// Initialize VWO SDK with Mixpanel integration
+// Initialize Wingify SDK with Mixpanel integration
 let integration = MixpanelIntegration()
-let options = VWOInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, integrations: integration)
+let options =InitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, integrations: integration)
 
 VWOFme.initialize(options: options) { result in
     switch result {
     case .success(_):
-        print("VWO initialized with Mixpanel integration")
+        print("Wingify initialized with Mixpanel integration")
     case .failure(let error):
-        print("VWO initialization failed")
+        print("Wingify initialization failed")
     }
 }
 ```
 
 #### Integration Data
 
-The `execute` method of the `IntegrationCallback` receives a dictionary `[String: Any]` containing details about the VWO SDK action:
+The `execute` method of the `IntegrationCallback` receives a dictionary `[String: Any]` containing details about the Wingify SDK action:
 
 * For flag evaluations (i.e. `getFlag`):
 
@@ -115,7 +115,7 @@ The `execute` method of the `IntegrationCallback` receives a dictionary `[String
 }
 ```
 
-This setup ensures that every time a feature flag is evaluated or an event is tracked by the VWO SDK, the relevant data is automatically sent to your configured Mixpanel project.
+This setup ensures that every time a feature flag is evaluated or an event is tracked by the Wingify SDK, the relevant data is automatically sent to your configured Mixpanel project.
 
 ## How to see the data in the analytics tool
 

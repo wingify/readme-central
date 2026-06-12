@@ -37,9 +37,9 @@ This makes webhooks ideal for event-driven integrations, allowing you to respond
 
 <Image align="center" border={true} caption="How Webhooks Work" src="https://files.readme.io/9bb354009aee72f1ad4b48b74871181e589b37b9c2877313902a249400775721-webhooks.png" />
 
-## Role of Webhooks in VWO FE SDKs
+## Role of Webhooks in Wingify FE SDKs
 
-VWO FE SDKs fetch configuration settings (features, campaigns, variations) from the VWO servers. By default, they periodically poll for updates. Webhooks allow a more efficient and scalable solution by enabling:
+Wingify FE SDKs fetch configuration settings (features, campaigns, variations) from the Wingify servers. By default, they periodically poll for updates. Webhooks allow a more efficient and scalable solution by enabling:
 
 * **Real-time config sync**: No delay between a change on the dashboard and its reflection in the SDK.
 * **Hot-reloading support**: SDK settings are updated in-memory using the webhook payload.
@@ -47,9 +47,9 @@ VWO FE SDKs fetch configuration settings (features, campaigns, variations) from 
 
 <br />
 
-## Enabling Webhooks in VWO
+## Enabling Webhooks in
 
-1. Log in to your VWO account.
+1. Log in to your Wingify account.
 2. Navigate to `Configurations` → `Website and Apps` from the left-hand panel.
 3. Select the `Default Project` associated with your FE setup.
 4. Click on the `Configurations` tab.
@@ -59,22 +59,22 @@ VWO FE SDKs fetch configuration settings (features, campaigns, variations) from 
 
 <br />
 
-<Image align="center" border={true} caption="Configuring FE Webhooks in VWO" src="https://files.readme.io/c44a29c6f6a6396ceb2690d81878d377f2a1bef0f31d2d3f7688c78ed65f0b33-Screenshot_2025-07-15_at_2.26.38_AM.png" />
+<Image align="center" border={true} caption="Configuring FE Webhooks in" src="https://files.readme.io/c44a29c6f6a6396ceb2690d81878d377f2a1bef0f31d2d3f7688c78ed65f0b33-Screenshot_2025-07-15_at_2.26.38_AM.png" />
 
 <br />
 
-> Once saved, VWO will start sending HTTP POST requests to your configured URL whenever relevant configuration changes occur in the selected environment(s).
+> Once saved, Wingify will start sending HTTP POST requests to your configured URL whenever relevant configuration changes occur in the selected environment(s).
 
 <br />
 
 ## Securing Webhooks with API Key-Based Authentication
 
-When setting up a webhook in the VWO app, it’s essential to ensure that your endpoint only accepts requests from trusted sources, i.e., from VWO itself. To facilitate this, VWO supports **API key-based authentication** using a secret key.
+When setting up a webhook in the Wingify app, it’s essential to ensure that your endpoint only accepts requests from trusted sources, i.e., from Wingify itself. To facilitate this, Wingify supports **API key-based authentication** using a secret key.
 
 ### How It Works
 
-* During webhook configuration in the VWO dashboard, you can generate a secret key specifically for that webhook.
-* Every time VWO triggers the webhook (via an HTTP `POST`), it will include this secret key in the request header:
+* During webhook configuration in the Wingify dashboard, you can generate a secret key specifically for that webhook.
+* Every time Wingify triggers the webhook (via an HTTP `POST`), it will include this secret key in the request header:
   ```
   x-vwo-auth: YOUR\_SECRET\_KEY
   ```
@@ -83,13 +83,13 @@ When setting up a webhook in the VWO app, it’s essential to ensure that your e
   2. Compare it with the secret key you generated and securely stored during setup.
   3. Reject the request (e.g., with a `401 Unauthorized`) if the key does not match.
 
-This approach ensures that only authenticated POST requests from VWO are accepted by your application, effectively preventing any third-party or malicious source from spoofing webhook events.
+This approach ensures that only authenticated POST requests from Wingify are accepted by your application, effectively preventing any third-party or malicious source from spoofing webhook events.
 
 ### Regenerating the Secret Key
 
-If the key gets exposed or you suspect unauthorized access, you can regenerate a new secret key from within the VWO app. Once updated:
+If the key gets exposed or you suspect unauthorized access, you can regenerate a new secret key from within the Wingify app. Once updated:
 
-* VWO will use the new key for all future webhook calls.
+* Wingify will use the new key for all future webhook calls.
 * You must also update your server-side logic to validate against the new key.
 
 > 📘 Note
@@ -100,7 +100,7 @@ If the key gets exposed or you suspect unauthorized access, you can regenerate a
 
 ## Webhook Payload Format
 
-Whenever a settings change occurs (e.g., feature flag modified, campaign updated), VWO triggers a webhook request to your configured endpoint. This is an HTTP POST request with a JSON payload that contains metadata about the event.
+Whenever a settings change occurs (e.g., feature flag modified, campaign updated), Wingify triggers a webhook request to your configured endpoint. This is an HTTP POST request with a JSON payload that contains metadata about the event.
 
 ### Payload Fields Explained:
 
@@ -118,7 +118,7 @@ Whenever a settings change occurs (e.g., feature flag modified, campaign updated
 | Field           | Description                                                                                                               |
 | --------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | `timestamp`     | UNIX timestamp (in seconds) indicating exactly when the change occurred. Useful for logging and event ordering.           |
-| `event`         | Describes the type of event. Currently, this is always `"settings_changed"` for VWO SDK-related updates.                  |
+| `event`         | Describes the type of event. Currently, this is always `"settings_changed"` for Wingify SDK-related updates.                  |
 | `action`        | A more specific indicator of what changed, for example, `campaign_settings_changed`, `feature_flag_updated`, etc.         |
 | \`triggered\_by | Source of the event trigger, usually `"vwo"`; this may help in filtering internal vs external triggers in future support. |
 
@@ -135,39 +135,39 @@ Whenever a settings change occurs (e.g., feature flag modified, campaign updated
 
 const express = require('express');
 const app = express();
-// require VWO SDK
-const { init } = require('vwo-fme-node-sdk');
+// require Wingify SDK
+const { init } = require('wingify-fme-node-sdk');
 
-let vwoClient = await init({
-  accountId: 'VWO_ACCOUNT_ID',
-  sdkKey: 'VWO_SDK_KEY'
+let wingifyClient = await init({
+  accountId: 'WINGIFY_ACCOUNT_ID',
+  sdkKey: 'WINGIFY_SDK_KEY'
 });
 
-const webhookAuthKey = 'SECRET_WEBHOOK_KEY_GENERATED_IN_VWO_APP';
+const webhookAuthKey = 'SECRET_WEBHOOK_KEY_GENERATED_IN_WINGIFY_APP';
 
-// Endpoint to subscribe to changes made in VWO FullStack running campaigns
+// Endpoint to subscribe to changes made in Wingify FullStack running campaigns
 app.post('/vwo-webhook', async (req, res) => {
   console.log('WEBHOOK TRIGGERED', req.body, 'Webhook Auth Key:', req.headers['x-vwo-auth']);
 
   if (webhookAuthKey && req.headers['x-vwo-auth']) {
     if (req.headers['x-vwo-auth'] !== webhookAuthKey) {
-      console.error('VWO webhook authentication failed. Please check.');
+      console.error('Wingify webhook authentication failed. Please check.');
 
       return;
     } else {
-      console.log('VWO webhook authenticated successfully.');
+      console.log('Wingify webhook authenticated successfully.');
     }
   } else {
     console.log('Skipping Webhook Authentication as webhookAuthKey is not provided');
   }
 
   // You may want to fetch the updated settings so that SDK can use the same
-  await vwoClient.updateSettings();
+  await wingifyClient.updateSettings();
 
   res.end(JSON.stringify({
       status: 'success',
       message: 'Webhook received and Settings updated successfully'
-  });
+  }));
 });
 
 app.listen(4000, () => {});
@@ -175,7 +175,7 @@ app.listen(4000, () => {});
 ```python
 # Assuming Flask server
 
-# require VWO SDK
+# require Wingify SDK
 import vwo
 from flask import Flask, request, abort, make_response
 
@@ -192,41 +192,41 @@ def webhook():
 
     if WEBHOOK_AUTH_KEY and request.headers.get('x-vwo-auth'):
         if WEBHOOK_AUTH_KEY != request.headers.get('x-vwo-auth'):
-            print('VWO Webhook authentication failed')
+            print('Wingify Webhook authentication failed')
             abort(401)
         else:
-            print('VWO Webhook authentication successful')
+            print('Wingify Webhook authentication successful')
     else:
         print('Skipping authentication as missing webhook authentication key')
 
-    if vwo_client:
-        vwo_client.update_settings()
+    if wingify_client:
+        wingify_client.update_settings()
     return make_response({'status': 'success', 'message': 'settings updated successfully'}, 200)
 ```
 ```java
-// Endpoint to subscribe to changes made in VWO FullStack running
+// Endpoint to subscribe to changes made in Wingify FullStack running
 @PostMapping("/vwo-webhook")
 @ResponseStatus(HttpStatus.OK)
 public void webhook(
   @RequestHeader("x-vwo-auth") String secretKey,
   @RequestBody String body
 ) {
-  String webhookAuthKey = "SECRET_WEBHOOK_KEY_GENERATED_IN_VWO_APP";
+  String webhookAuthKey = "SECRET_WEBHOOK_KEY_GENERATED_IN_WINGIFY_APP";
 
   if (webhookAuthKey != null && secretKey != null) {
     if (secretKey.equals(webhookAuthKey)) {
-      System.out.println("VWO webhook authenticated successfully.");
+      System.out.println("Wingify webhook authenticated successfully.");
     } else {
-      System.out.println("VWO webhook authentication failed. Please check.");
+      System.out.println("Wingify webhook authentication failed. Please check.");
       return;
     }
   } else {
     System.out.println("Skipping Webhook Authentication as webhookAuthKey is not provided.");
   }
 
-  if (vwoClient != null) {
-    vwoClient.updateSettings();
-    System.out.println(vwoClientInstance.getSettingFileString());
+  if (wingifyClient != null) {
+    wingifyClient.updateSettings();
+    System.out.println(wingifyClientInstance.getSettingFileString());
   }
 }
 ```
@@ -236,7 +236,7 @@ public void webhook(
 public async Task<string> webhook()
 {
     CustomLogger logger = new CustomLogger();
-    logger.WriteLog(LogLevel.DEBUG, "Post request from vwo app");
+    logger.WriteLog(LogLevel.DEBUG, "Post request from wingifyapp");
 
     string PayLoad;
     using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))
@@ -244,29 +244,29 @@ public async Task<string> webhook()
         PayLoad = await reader.ReadToEndAsync();
     }
 
-    logger.WriteLog(LogLevel.DEBUG, "VWO webhook payload: " + PayLoad);
+    logger.WriteLog(LogLevel.DEBUG, "Wingify webhook payload: " + PayLoad);
 
     bool isAuthenticated = true;
 
     if (!string.IsNullOrEmpty(Defaults.WebhookSecretKey))
     {
-        logger.WriteLog(LogLevel.DEBUG, "WebhookSecretKey exists . VWO webhook authentication Checking.");
+        logger.WriteLog(LogLevel.DEBUG, "WebhookSecretKey exists . Wingify webhook authentication Checking.");
 
         if (Request.Headers["x-vwo-auth"].ToString() != Defaults.WebhookSecretKey)
         {
-            logger.WriteLog(LogLevel.DEBUG, "VWO webhook authentication failed. Please check.");
-            return "VWO webhook authentication failed. Please check.";
+            logger.WriteLog(LogLevel.DEBUG, "Wingify webhook authentication failed. Please check.");
+            return "Wingify webhook authentication failed. Please check.";
         }
     }
 
-    if (VWOClient != null)
+    if (WingifyClient != null)
     {
         logger.WriteLog(LogLevel.DEBUG,
             string.IsNullOrEmpty(Defaults.WebhookSecretKey)
                 ? "UpdateSettings function called"
                 : "Authentication passed and UpdateSettings function is called");
 
-        await VWOClient.UpdateSettings();
+        await WingifyClient.UpdateSettings();
 
         logger.WriteLog(LogLevel.DEBUG, "Setting has been updated");
     }
@@ -291,7 +291,7 @@ post '/webhook' do
   else
     puts('Skipping authentication as missing webhook authentication key')
   end
-  vwo_client.update_settings
+  wingify_client.update_settings
   return {'status': 'success', 'message': 'settings updated successfully'}.to_json
 end
 ```
@@ -300,7 +300,7 @@ end
 
 ## Webhook Retries
 
-If the webhook endpoint is unavailable or returns a non-2xx HTTP response, VWO will automatically retry the request for up to 1 hour, with retry attempts made every 1 to 2 seconds. This ensures resilience in the event of temporary network issues or server downtime.
+If the webhook endpoint is unavailable or returns a non-2xx HTTP response, Wingify will automatically retry the request for up to 1 hour, with retry attempts made every 1 to 2 seconds. This ensures resilience in the event of temporary network issues or server downtime.
 
 <br />
 

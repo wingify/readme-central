@@ -10,14 +10,14 @@ metadata:
 next:
   description: ''
 ---
-VWO by default logs all ERROR level messages to your server's console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server's console. To gain more control over's logging behavior, you can use the logger parameter in the init configuration.
 
 ## Logger Properties
 
 | Paramter       | Type         | Description                                                                            |
 | :------------- | :----------- | :------------------------------------------------------------------------------------- |
 | **Level**      | string       | Level or Type of error. Could be one of the following: DEBUG, INFO, ERROR, TRACE, WARN |
-| **Prefix**     | string       | The text that is prefixed to the error messages when logged. Defaults to 'VWO-SDK'.    |
+| **Prefix**     | string       | The text that is prefixed to the error messages when logged. Defaults to 'WINGIFY-SDK'.    |
 | **Transports** | LogTransport | Map of functions that control the logging behaviour of each type of log message.       |
 
 **Example 1**: Set log level to control the verbosity of logs
@@ -100,4 +100,4 @@ var wingifyInstance = Wingify.Init(wingifyInitOptions);
 
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing _vwoClient_.](https://developers.vwo.com/v2/docs/fme-initialization)
+This "logger" object can be passed as one of the parameters when [initializing _wingifyClient_.](https://developers.wingify.com/v2/docs/fme-initialization)

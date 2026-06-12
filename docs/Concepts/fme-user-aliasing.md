@@ -23,21 +23,21 @@ To use user aliasing, the following must be configured in your SDK setup:
 
 ## Overview
 
-User Aliasing is particularly useful in scenarios where users transition between anonymous and authenticated states. By creating an alias between identifiers, VWO ensures that:
+User Aliasing is particularly useful in scenarios where users transition between anonymous and authenticated states. By creating an alias between identifiers, Wingify ensures that:
 
 * Users receive consistent feature flag variations regardless of which identifier is used
 * Events and conversions are correctly attributed to the original user
 * Flows where userId is not initially known but captured post a login, but the experience needs to be delivered immediately
 
 <Callout icon="📘" theme="info">
-  User Aliasing requires the **VWO Gateway Service** to be configured. The Gateway Service stores and retrieves alias mappings. See [Gateway Service documentation](https://developers.vwo.com/v2/docs/gateway-service) for setup instructions.
+  User Aliasing requires the **Wingify Gateway Service** to be configured. The Gateway Service stores and retrieves alias mappings. See [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service) for setup instructions.
 </Callout>
 
 <br />
 
 ## How It Works
 
-The aliasing system works by maintaining a mapping between alias identifiers and original user IDs in the VWO Gateway Service. When API methods are called with an aliased identifier, the SDK automatically resolves it to the original user ID before processing.
+The aliasing system works by maintaining a mapping between alias identifiers and original user IDs in the Wingify Gateway Service. When API methods are called with an aliased identifier, the SDK automatically resolves it to the original user ID before processing.
 
 ### Flow Diagram
 
@@ -45,15 +45,15 @@ The aliasing system works by maintaining a mapping between alias identifiers and
 sequenceDiagram
     autonumber
     participant App as Your Application
-    participant SDK as VWO SDK
-    participant Gateway as VWO Gateway Service
-    participant Backend as VWO Backend
+    participant SDK as Wingify SDK
+    participant Gateway as Wingify Gateway Service
+    participant Backend as Wingify Backend
     rect rgb(240, 248, 255)
         Note over App,Backend: Phase 1: SDK Initialization
         App->>SDK: init({ isAliasingEnabled: true, gatewayService: {...} })
         SDK->>Backend: Fetch settings
         Backend-->>SDK: Settings response
-        SDK-->>App: VWO Client instance
+        SDK-->>App: Wingify Client instance
     end
     rect rgb(255, 250, 240)
         Note over App,Backend: Phase 2: Create User Alias
@@ -98,7 +98,7 @@ The diagram illustrates the complete aliasing flow from SDK initialization throu
 
 ## Configuration
 
-To enable User Aliasing, you must configure both the `isAliasingEnabled` flag and the `gatewayService` when initializing the VWO SDK.
+To enable User Aliasing, you must configure both the `isAliasingEnabled` flag and the `gatewayService` when initializing the Wingify SDK.
 
 ### Initialization Options
 
@@ -108,16 +108,16 @@ Set to `true` to enable user aliasing functionality. Default is `false`.
 
 **gatewayService** `object` _required for aliasing_
 
-Configuration object for the VWO Gateway Service. Required when `isAliasingEnabled` is `true`.
+Configuration object for the Wingify Gateway Service. Required when `isAliasingEnabled` is `true`.
 
 ### Example Configuration
 
 <Tabs>
   <Tab title="TypeScript">
     ```typescript
-    import { init } from 'vwo-fme-node-sdk';
+    import { init } from 'wingify-fme-node-sdk';
 
-    const vwoClient = await init({
+    const wingifyClient = await init({
       accountId: 'YOUR_ACCOUNT_ID',
       sdkKey: 'YOUR_SDK_KEY',
 
@@ -138,9 +138,9 @@ Configuration object for the VWO Gateway Service. Required when `isAliasingEnabl
 
   <Tab title="JavaScript">
     ```javascript
-    const { init } = require('vwo-fme-node-sdk');
+    const { init } = require('wingify-fme-node-sdk');
 
-    const vwoClient = await init({
+    const wingifyClient = await init({
       accountId: 'YOUR_ACCOUNT_ID',
       sdkKey: 'YOUR_SDK_KEY',
 
@@ -201,7 +201,7 @@ Typically, setAlias() is called once the guest user has logged in. The first tim
     const authenticatedId = 'user_john_doe';
 
     // Create alias: anonymousId now maps to authenticatedId
-    const success = await vwoClient.setAlias(
+    const success = await wingifyClient.setAlias(
       { id: authenticatedId },  // Original user ID
       anonymousId               // Alias ID
     );
@@ -215,7 +215,7 @@ Typically, setAlias() is called once the guest user has logged in. The first tim
   <Tab title="With User ID">
     ```typescript
     // Using user ID string directly
-    const success = await vwoClient.setAlias(
+    const success = await wingifyClient.setAlias(
       'user_john_doe',   // Original user ID
       'anon_abc123'      // Alias ID
     );
@@ -249,20 +249,20 @@ When aliasing is enabled, the following SDK methods automatically resolve alias 
 ```typescript
 // Mobile app: User is anonymous
 const mobileAnonId = 'mobile_anon_xyz';
-const flag1 = await vwoClient.getFlag('new_checkout', { id: mobileAnonId });
+const flag1 = await wingifyClient.getFlag('new_checkout', { id: mobileAnonId });
 // User gets variation A
 
 // User logs in on mobile
 const userId = 'user_12345';
-await vwoClient.setAlias(userId, mobileAnonId);
+await wingifyClient.setAlias(userId, mobileAnonId);
 
 // In another flow where userId is available (user already logged in)
-const flag2 = await vwoClient.getFlag('new_checkout', { id: userId });
+const flag2 = await wingifyClient.getFlag('new_checkout', { id: userId });
 // User gets SAME variation A (since userId and mobileAnonId are aliased)
 
 // Web app: Same user logs in
 const userId = 'user_12345';
-const flag3 = await vwoClient.getFlag('new_checkout', { id: userId });
+const flag3 = await wingifyClient.getFlag('new_checkout', { id: userId });
 // User gets SAME variation A (since userId and mobileAnonId are aliased in mobile app flow)
 ```
 
@@ -275,24 +275,24 @@ When there are **multiple** devices being used by the same user, and in all thos
 ```typescript
 // Mobile app: User is anonymous
 const mobileAnonId = 'mobile_anon_xyz';
-const flag1 = await vwoClient.getFlag('new_checkout', { id: mobileAnonId });
+const flag1 = await wingifyClient.getFlag('new_checkout', { id: mobileAnonId });
 // User gets variation A
 
 // User logs in on mobile
 const userId = 'user_12345';
-await vwoClient.setAlias(userId, mobileAnonId);
-const flag2 = await vwoClient.getFlag('new_checkout', { id: userId });
+await wingifyClient.setAlias(userId, mobileAnonId);
+const flag2 = await wingifyClient.getFlag('new_checkout', { id: userId });
 // User gets SAME variation A (since userId and mobileAnonId are aliased)
 
 // Web app : SAME User is logging in anonymously
 const webAnonId = 'web_anon_xyz';
-const flag3 = await vwoClient.getFlag('new_checkout', { id: webAnonId });
+const flag3 = await wingifyClient.getFlag('new_checkout', { id: webAnonId });
 // User MIGHT get variation B
 
 // Now user is logging in
 const userId = 'user_12345;
-await vwoClient.setAlias(userId, webAnonId);
-const flag4 = await vwoClient.getFlag('new_checkout', { id: webAnonId });
+await wingifyClient.setAlias(userId, webAnonId);
+const flag4 = await wingifyClient.getFlag('new_checkout', { id: webAnonId });
 // User gets SAME variation A (since userId, webAnonId and mobileAnonId are all aliased)
 
 // user gets a different variation, the first time they log in with second anon id (web_anon_xyz)

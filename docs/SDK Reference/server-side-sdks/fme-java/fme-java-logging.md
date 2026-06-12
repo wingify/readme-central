@@ -14,14 +14,14 @@ next:
       slug: fme-java-storage
       title: Storage Service
 ---
-VWO by default logs all ERROR level messages to your server's console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server's console. To gain more control over's logging behavior, you can use the logger parameter in the init configuration.
 
 ## Logger Properties
 
 | Parameter     | Type   | Description                                                                            |
 | :------------ | :----- | :------------------------------------------------------------------------------------- |
 | **level**     | String | Level or Type of error. Could be one of the following: DEBUG, INFO, ERROR, TRACE, WARN |
-| **prefix**    | String | The text that is prefixed to the error messages when logged. Defaults to 'VWO-SDK'.    |
+| **prefix**    | String | The text that is prefixed to the error messages when logged. Defaults to 'WINGIFY-SDK'.    |
 | **transport** | String | Custom logger implementation                                                           |
 
 **Example 1**: Set log level to control verbosity of logs

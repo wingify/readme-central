@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The VWO Go SDK uses the Gateway Service for caching and storage. Unlike some other SDKs, the Go SDK does not provide a separate storage interface for custom implementations.
+The Wingify Go SDK uses the Gateway Service for caching and storage. Unlike some other SDKs, the Go SDK does not provide a separate storage interface for custom implementations.
 
 ## Gateway Service Storage
 
@@ -20,13 +20,13 @@ The Gateway Service handles caching and storage of:
 * User-specific variation assignments
 * Metrics data
 
-This centralized storage approach ensures consistency across your application instances and reduces the load on VWO's servers.
+This centralized storage approach ensures consistency across your application instances and reduces the load on's servers.
 
 ## Benefits
 
-1. **Improved Performance**: The Gateway Service caches data, reducing the need for frequent API calls to VWO servers.
+1. **Improved Performance**: The Gateway Service caches data, reducing the need for frequent API calls to Wingify servers.
 2. **Consistency**: All instances of your application connect to the same Gateway Service, ensuring consistent feature flag evaluations.
-3. **Real-time Updates**: The Gateway Service can receive real-time updates from VWO, ensuring your application always has the latest configuration.
+3. **Real-time Updates**: The Gateway Service can receive real-time updates from, ensuring your application always has the latest configuration.
 
 ## Configuration
 
@@ -39,10 +39,10 @@ options := map[string]interface{}{
     "gatewayServiceURL": "http://your.gateway.service:port",
 }
 
-vwoClient, err := vwo.Init(options)
+wingifyClient, err := vwo.Init(options)
 if err != nil {
     // Handle initialization error
 }
 ```
 
-For more information on setting up and configuring the Gateway Service, refer to the [Gateway Service documentation](https://developers.vwo.com/v2/docs/gateway-service).
+For more information on setting up and configuring the Gateway Service, refer to the [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service).

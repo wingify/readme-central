@@ -7,7 +7,7 @@ metadata:
 ---
 ## **Overview**
 
-Triggers allow you to automatically disable a specific rule inside a VWO Feature Flag when a metric threshold is breached. For example, if errors spike, Splunk can trigger VWO to turn off the feature flag immediately.
+Triggers allow you to automatically disable a specific rule inside a Wingify Feature Flag when a metric threshold is breached. For example, if errors spike, Splunk can trigger Wingify to turn off the feature flag immediately.
 
 _(**Note**: Splunk has two different interfaces. Instructions are provided below for both **Splunk Observability Cloud** and **Splunk Enterprise / Classic Cloud**)._
 
@@ -18,7 +18,7 @@ To set this up, you need to construct the API URL for the specific rule you want
 #### **URL Format:**
 
 ```
-https://app.vwo.com/api/v2/accounts/current/environments/<envId|sdkKey>/features/<featureId|featureKey>/toggle?isEnabled=0&authToken=<your_api_token>
+https://app.wingify.com/api/v2/accounts/current/environments/<envId|sdkKey>/features/<featureId|featureKey>/toggle?isEnabled=0&authToken=<your_api_token>
 ```
 
 #### **Required Paramerters:**
@@ -26,11 +26,11 @@ https://app.vwo.com/api/v2/accounts/current/environments/<envId|sdkKey>/features
 * **envId|sdkKey**: The environment ID or SDK key.
 * **featureId|featureKey**: The unique ID or key of your feature flag.  
 * **isEnabled** – Set to `0` to disable the feature flag (or `1` to enable it).
-* **authToken**: Your VWO API Authentication token.
+* **authToken**: Your Wingify API Authentication token.
 
 ## **2. Setting up the Alert Detector in Splunk**
 
-In Splunk Observability Cloud, you can configure your alert and attach the VWO Webhook all in one place.
+In Splunk Observability Cloud, you can configure your alert and attach the Wingify Webhook all in one place.
 
 1. Navigate to **Alerts > Detector** on the left main menu in Splunk.
 
@@ -56,13 +56,13 @@ In Splunk Observability Cloud, you can configure your alert and attach the VWO W
 
 9. **Alert Notifications:** Click **Add recipient**, select **Webhook**.
 
-10. **Target endpoint URL:** Paste the VWO Trigger URL you constructed in Step 1. (Leave 'Shared secret' blank). Click **Update**, then **Proceed to Alert Activation**.
+10. **Target endpoint URL:** Paste the Wingify Trigger URL you constructed in Step 1. (Leave 'Shared secret' blank). Click **Update**, then **Proceed to Alert Activation**.
 
     <Image align="center" src="https://files.readme.io/a547f7dad8496e4b6f060bdfc6cddc036220a954c5539d5fc2cfec3995d3f475-image4.png" />
 
 11. **Activate:** Name your detector rule and click the **Activate Alert Rule** button.
 
-Now, whenever this alert threshold is breached, Splunk will instantly hit the webhook and disable the feature flag in VWO.
+Now, whenever this alert threshold is breached, Splunk will instantly hit the webhook and disable the feature flag in.
 
 ## **Alternative: Splunk Enterprise / Classic Cloud Setup**
 
@@ -72,5 +72,5 @@ If you are using classic Splunk instead of Observability Cloud, the process uses
 2. **Save as Alert:** Click **Save As** in the top right corner and select **Alert**.
 3. **Trigger Conditions:** Define when the alert should fire (e.g., trigger when the **Number of Results** is **> 0** in the last **1 minute**).
 4. **Trigger Actions:** Click **+ Add Actions** and select **Webhook**.
-5. **URL:** Paste the VWO Trigger URL constructed in Step 1. (No payload configuration is necessary since `isEnabled=0` is in the URL).
+5. **URL:** Paste the Wingify Trigger URL constructed in Step 1. (No payload configuration is necessary since `isEnabled=0` is in the URL).
 6. Click **Save**.

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The VWO FE iOS SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within iOS applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
+The Wingify FE iOS SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within iOS applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
 
 ### Source Code Repository
 
@@ -23,7 +23,7 @@ To facilitate a comprehensive understanding and effective implementation of the 
 1. [Installing the SDK](doc:fme-ios-install)\
    Learn how to import and reference the SDK in your iOS project.
 2. [Initialization](doc:fme-ios-initialization)\
-   Learn how to initialize the VWO client within your application, including configuring essential parameters such as accountId, sdkKey, and optional settings like pollInterval, logger, storage, gatewayService, and integrations.
+   Learn how to initialize the Wingify client within your application, including configuring essential parameters such as accountId, sdkKey, and optional settings like pollInterval, logger, storage, gatewayService, and integrations.
 3. [User Context](doc:fme-ios-context)\
    Understand how to define and manage user contexts to enable targeted feature rollouts and personalized user experiences.
 4. [Feature Flags & Variables](doc:fme-ios-flags)\

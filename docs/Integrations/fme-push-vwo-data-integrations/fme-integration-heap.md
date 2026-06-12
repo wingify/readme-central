@@ -9,7 +9,7 @@ metadata:
 
 **Heap (by Contentsquare)** is a digital analytics platform that automatically captures user interactions—clicks, form submissions, and page views without manual event tracking.
 
-**VWO Feature Experimentation (FE)** sends feature-flag and event data to Heap. This allows you to see which feature flag variations users are exposed to directly within your Heap reports. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
+**Wingify Feature Experimentation (FE)** sends feature-flag and event data to Heap. This allows you to see which feature flag variations users are exposed to directly within your Heap reports. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
 
 ## **Prerequisites**
 
@@ -26,28 +26,28 @@ HEAP_APP_ID=your_heap_app_id
 
 **Note:** Heap provides two environments - Production and Development. Ensure you use the correct App ID for the environment you want to send data to.
 
-### **2. VWO FE SDK Configuration**
+### **2. Wingify FE SDK Configuration**
 
-* Ensure VWO Feature Experimentation is enabled in your VWO account.
-* The VWO FE SDK should be properly installed in your project.
-* Locate your **Account ID** and **SDK Key** in the VWO dashboard.
-* Set your VWO account ID and SDK key in your application's environment or constants file.
+* Ensure Wingify Feature Experimentation is enabled in your Wingify account.
+* The Wingify FE SDK should be properly installed in your project.
+* Locate your **Account ID** and **SDK Key** in the Wingify dashboard.
+* Set your Wingify account ID and SDK key in your application's environment or constants file.
 
 ## **Integration Steps**
 
-Integrating the VWO FE SDK with analytics platforms like Heap allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
+Integrating the Wingify FE SDK with analytics platforms like Heap allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
 
 > 📘 Note
 >
-> The example below shows an implementation with the `Node` SDK. Please note that any VWO FE SDK can be used.
+> The example below shows an implementation with the `Node` SDK. Please note that any Wingify FE SDK can be used.
 
 ### **1. Install Dependencies**
 
-Install the VWO FE Node SDK. No additional Heap SDK is required as we use the Heap Track API.
+Install the Wingify FE Node SDK. No additional Heap SDK is required as we use the Heap Track API.
 
 ```
 
-npm install vwo-fme-node-sdk
+npm install wingify-fme-node-sdk
 ```
 
 <br />
@@ -79,17 +79,17 @@ module.exports = { sendToHeap };
 
 <br />
 
-### **3. Initialize VWO SDK and Set Up the integrations.callback**
+### **3. Initialize Wingify SDK and Set Up the integrations.callback**
 
 Provide an `integrations.callback` when initializing the FE SDK. `integrations.callback` is a mechanism that automatically forwards FE SDK events (like flag evaluations) to the desired analytics platform for real-time tracking and analysis. Inside the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to Heap.
 
 ```javascript
-const { init } = require('vwo-fme-node-sdk');
+const { init } = require('wingify-fme-node-sdk');
 const { sendToHeap } = require('./heapIntegration');
 
-const vwoClient = await init({
-  sdkKey: process.env.FE_SDK_KEY,         // Replace with your actual VWO SDK key
-  accountId: process.env.FE_ACCOUNT_ID,   // Replace with your actual VWO account ID
+const wingifyClient = await init({
+  sdkKey: process.env.FE_SDK_KEY,         // Replace with your actual Wingify SDK key
+  accountId: process.env.FE_ACCOUNT_ID,   // Replace with your actual Wingify account ID
   integrations: {
     callback(properties) {
       if (properties.featureName) {
@@ -125,7 +125,7 @@ const vwoClient = await init({
 
 ## **Integration Data**
 
-The `integrations.callback` receives a properties object containing details about the VWO SDK action:
+The `integrations.callback` receives a properties object containing details about the Wingify SDK action:
 
 ### **For flag evaluations (i.e. getFlag):**
 
@@ -161,15 +161,15 @@ The `integrations.callback` receives a properties object containing details abou
 
 Ensure you have added your Heap App ID to your environment or constants file as specified in the Prerequisites.
 
-This setup ensures that every time a feature flag is evaluated or an event is tracked by the VWO SDK, the relevant data is automatically sent to your configured Heap project.
+This setup ensures that every time a feature flag is evaluated or an event is tracked by the Wingify SDK, the relevant data is automatically sent to your configured Heap project.
 
 ## **Sample Screenshot**
 
-#### **Labeled Events — VWO_getFlag event with custom event properties:**
+#### **Labeled Events —_getFlag event with custom event properties:**
 
 <Image align="center" width="750px" src="https://files.readme.io/c45531f8ec80bdd549ac8f4f00c43517f1d2fba0c6277021ed94889057a877f7-image1.png" />
 
-#### **Live Data Feed — Real-time VWO events with user identities:**
+#### **Live Data Feed — Real-time Wingify events with user identities:**
 
 <Image align="center" width="750px" src="https://files.readme.io/d7b4a08dd88901a240caba5300920cc89c6e1ba23b7e3d416938213293ca9db8-image2.png" />
 
@@ -195,10 +195,10 @@ After integrating Heap with your application, you can view the tracked data in t
 
 4. **View Real-Time Data:**
    * Go to **Data > Live Data Feed**
-   * See VWO events arriving in real-time with user identities and labels
+   * See Wingify events arriving in real-time with user identities and labels
 
 5. **Analyze Data:** Use Heap's analytics tools to:
-   * Create custom charts and funnels using VWO events
+   * Create custom charts and funnels using Wingify events
    * Segment users by experiment variation
    * Track conversion rates across feature flag variations
    * Monitor feature flag performance in real-time

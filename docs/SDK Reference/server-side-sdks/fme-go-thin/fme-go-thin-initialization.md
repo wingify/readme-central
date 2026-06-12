@@ -21,7 +21,7 @@ Before you can use the  FE Go SDK, you need to initialize it with your account s
 Here's how to initialize the FE Go SDK:
 
 ```go
-import vwo "github.com/wingify/vwo-fme-go-sdk"
+import wingify "github.com/wingify/wingify-fme-go-sdk"
 
 func main() {
     options := map[string]interface{}{
@@ -30,13 +30,13 @@ func main() {
         "gatewayServiceURL": "http://your.gateway.service:port",
     }
 
-    vwoClient, err := vwo.Init(options)
+    wingifyClient, err := wingify.Init(options)
     if err != nil {
         // Handle initialization error
         panic(err)
     }
 
-    // Use the vwoClient for further operations
+    // Use the wingifyClient for further operations
 }
 
 ```
@@ -70,7 +70,7 @@ func main() {
       </td>
 
       <td>
-        Your VWO application's Account ID.
+        Your Wingify application's Account ID.
       </td>
     </tr>
 
@@ -85,7 +85,7 @@ func main() {
       </td>
 
       <td>
-        Unique environment key provided to you inside the Websites & Apps section in VWO application, under "Default Project".
+        Unique environment key provided to you inside the Websites & Apps section in Wingify application, under "Default Project".
       </td>
     </tr>
 
@@ -100,7 +100,7 @@ func main() {
       </td>
 
       <td>
-        URL of your [Gateway Service](https://developers.vwo.com/v2/docs/gateway-service).
+        URL of your [Gateway Service](https://developers.wingify.com/v2/docs/gateway-service).
       </td>
     </tr>
   </tbody>
@@ -108,6 +108,6 @@ func main() {
 
 <br />
 
-Please note that all three parameters are mandatory for initializing the Go SDK. Make sure you have set up the Gateway Service before initializing the SDK. For more information on the Gateway Service, refer to our [Gateway Service documentation](https://developers.vwo.com/v2/docs/gateway-service).
+Please note that all three parameters are mandatory for initializing the Go SDK. Make sure you have set up the Gateway Service before initializing the SDK. For more information on the Gateway Service, refer to our [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service).
 
 After successful initialization, you can use the instance to access all SDK functionalities.

@@ -12,13 +12,13 @@ next:
 ---
 ### The need for polling
 
-When you initialize an instance of the *vwoClient* on your server, it automatically fetches the latest configurations and settings from your VWO account and makes them available to use within your project. It might happen though, that you make some changes to the feature flags or rules in VWO after having already initialized an instance of *vwoClient* in your server. We need to ensure there's some way for the *vwoClient* on your server to be up-to-date with the latest setup in the VWO dashboard. 
+When you initialize an instance of the *wingifyClient* on your server, it automatically fetches the latest configurations and settings from your Wingify account and makes them available to use within your project. It might happen though, that you make some changes to the feature flags or rules in Wingify after having already initialized an instance of *wingifyClient* in your server. We need to ensure there's some way for the *wingifyClient* on your server to be up-to-date with the latest setup in the Wingify dashboard. 
 
-The way to keep the *vwoClient* updated on your server is by *polling* VWO servers at a fixed frequency to check for any changes. If detected, the new changes are fetched and vwoClient is updated.
+The way to keep the *wingifyClient* updated on your server is by *polling* Wingify servers at a fixed frequency to check for any changes. If detected, the new changes are fetched and wingifyClient is updated.
 
-## Polling of Settings from VWO
+## Polling of Settings from
 
-Polling is a mechanism of continuously fetching the settings from VWO and updating the old *vwoClient* with the latest settings. It is a continuous process and hence requires an input that specifies the frequency at which the settings should be fetched and checked.
+Polling is a mechanism of continuously fetching the settings from Wingify and updating the old *wingifyClient* with the latest settings. It is a continuous process and hence requires an input that specifies the frequency at which the settings should be fetched and checked.
 
 <Image title="Polling.png" alt={1700} align="center" width="smart" src="https://files.readme.io/3481821-Polling.png">
   Polling
@@ -32,7 +32,7 @@ If you set the polling interval too high, chances are you might end up using a s
 
 > 📘 Optimal Polling Interval
 >
-> Finding the optimal polling interval is tricky as it depends on how frequently VWO campaign settings are changed and how much you're willing to compromise with the real-time updates.
+> Finding the optimal polling interval is tricky as it depends on how frequently Wingify campaign settings are changed and how much you're willing to compromise with the real-time updates.
 
 ## Usage
 

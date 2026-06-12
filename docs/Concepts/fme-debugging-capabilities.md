@@ -1,8 +1,8 @@
 ---
 title: Deep-Dive Debugging Guide
 excerpt: >-
-  VWO Feature Experimentation (FE) allows developers and product teams to
-  monitor, identify, and resolve SDK-related issues directly within the VWO
+  Wingify Feature Experimentation (FE) allows developers and product teams to
+Wingify  monitor, identify, and resolve SDK-related issues directly within the
   dashboard
 deprecated: false
 hidden: false
@@ -11,13 +11,13 @@ metadata:
 ---
 ## Overview
 
-When a VWO Feature Experimentation (FE) SDK integration does not behave as expected, feature flags not evaluating correctly, variables returning defaults, events not tracking, or SDK initialization failing, the root cause is almost always visible through SDK logs or VWO’s built-in error monitoring.
+When a Wingify Feature Experimentation (FE) SDK integration does not behave as expected, feature flags not evaluating correctly, variables returning defaults, events not tracking, or SDK initialization failing, the root cause is almost always visible through SDK logs or’s built-in error monitoring.
 
-VWO FE SDKs provide:
+Wingify FE SDKs provide:
 
 * Configurable log levels
 * Custom log forwarding support
-* Automatic error telemetry to VWO
+Wingify  Automatic error telemetry to
 * In-app error visibility for debugging
 
 This guide explains how to systematically debug SDK integrations across:
@@ -30,47 +30,47 @@ This guide explains how to systematically debug SDK integrations across:
 
 ## Observability Flow (How Debugging Works)
 
-Every VWO FE SDK emits three streams of diagnostic signals:
+Every Wingify FE SDK emits three streams of diagnostic signals:
 
 ```mermaid
 flowchart LR
-    A[Application Runtime] --> B[VWO FE SDK Core]
+    A[Application Runtime] --> B[Wingify FE SDK Core]
 
     B --> C[Structured Logs]
     B --> D[Custom Logger Adapter]
     B --> E[Error Telemetry Pipeline]
 
-    E --> F[VWO Aggregation Service]
-    F --> G[VWO Dashboard Debug View]
+    E --> F[Wingify Aggregation Service]
+    F --> G[Wingify Dashboard Debug View]
 ```
 
 | Stream          | Purpose                                        |
 | --------------- | ---------------------------------------------- |
 | Structured Logs | Local decisioning & execution trace            |
 | Custom Logger   | Centralized log ingestion (Datadog, ELK, etc.) |
-| Error Telemetry | Automatic ERROR reporting to VWO               |
+| Error Telemetry | Automatic ERROR reporting to Wingify               |
 
 <Callout icon="📘" theme="info">
-  ERROR-level logs are automatically transmitted to VWO across server-side, browser, and mobile SDKs.
+  ERROR-level logs are automatically transmitted to Wingify across server-side, browser, and mobile SDKs.
 </Callout>
 
 This allows remote diagnosis without SSH or mobile device log access.
 
 ### What Happens Internally
 
-1. Your application calls the VWO FE SDK.
+1. Your application calls the Wingify FE SDK.
 2. SDK generates logs based on the configured log level.
 3. Logs are:
    * Printed to standard output
    * Optionally forwarded to your logging system
-   * ERROR-level logs automatically sent to VWO
-4. VWO aggregates SDK errors and displays them inside the dashboard.
+Wingify   * ERROR-level logs automatically sent to
+4. Wingify aggregates SDK errors and displays them inside the dashboard.
 
 <br />
 
 ## SDK Logging Fundamentals
 
-All VWO FE SDKs from VWO:
+All Wingify FE SDKs from Wingify:
 
 * Log errors to standard output by default
 * Default log level: `ERROR`
@@ -94,7 +94,7 @@ All VWO FE SDKs from VWO:
 If you don't configure anything at your end:
 
 * Only `ERROR` logs are printed
-* `ERROR` logs are also sent to VWO automatically
+* `ERROR` logs are also sent to Wingify automatically
 
 <Callout icon="📘" theme="info">
   For production debugging, temporarily elevate to `DEBUG` mode in a controlled environment.
@@ -109,9 +109,9 @@ When debugging, change the log level to `DEBUG`.
 Below is a Node.js example of how to configure log level.
 
 ```javascript
-const { init, LogLevelEnum } = require('vwo-fme-node-sdk');
+const { init, LogLevelEnum } = require('wingify-fme-node-sdk');
 
-const vwoClient = init({
+const wingifyClient = init({
   sdkKey: 'YOUR_SDK_KEY',
   logger: {
     level: LogLevelEnum.DEBUG
@@ -119,7 +119,7 @@ const vwoClient = init({
 });
 ```
 
-> For more details, see the Logging section in each SDK reference—for example, the [Node.js Logging](https://developers.vwo.com/v2/docs/fme-node-logging) documentation.
+> For more details, see the Logging section in each SDK reference—for example, the [Node.js Logging](https://developers.wingify.com/v2/docs/fme-node-logging) documentation.
 
 | Level   | What It Shows                   |
 | ------- | ------------------------------- |
@@ -164,7 +164,7 @@ const customLogger = {
   }
 };
 
-const vwoClient = init({
+const wingifyClient = init({
   sdkKey: 'YOUR_SDK_KEY',
   logger: customLogger
 });
@@ -183,7 +183,7 @@ In production systems, this is far more powerful than console logging alone.
 
 ## Automatic SDK Error Telemetry (Server + Client Side)
 
-VWO FE SDKs automatically send ERROR-level logs to VWO servers across:
+Wingify FE SDKs automatically send ERROR-level logs to Wingify servers across:
 
 * Server-side SDKs
 * JavaScript / React SDK
@@ -191,15 +191,15 @@ VWO FE SDKs automatically send ERROR-level logs to VWO servers across:
 
 This means:
 
-> You can view critical SDK-generated errors inside the VWO dashboard, even without accessing internal application logs.
+> You can view critical SDK-generated errors inside the Wingify dashboard, even without accessing internal application logs.
 
 No additional configuration is required.
 
 <br />
 
-## Using VWO Advanced Debugging Dashboard
+## Using Wingify Advanced Debugging Dashboard
 
-Inside the VWO application, SDK-generated errors are aggregated and made searchable.
+Inside the Wingify application, SDK-generated errors are aggregated and made searchable.
 
 You can:
 
@@ -239,7 +239,7 @@ Inspect:
 * Timestamp
 * Affected user IDs
 
-> For a complete walkthrough of the dashboard capabilities, refer to the VWO [knowledge base article](https://help.vwo.com/hc/en-us/articles/53498732714393-Advanced-Debugging-in-VWO-Feature-Experimentation).
+> For a complete walkthrough of the dashboard capabilities, refer to the Wingify [knowledge base article](https://help.vwo.com/hc/en-us/articles/53498732714393-Advanced-Debugging-in-VWO-Feature-Experimentation).
 
 <br />
 
@@ -263,7 +263,7 @@ If initialization fails:
 Common mistake:
 
 ```javascript
-vwoClient.getFlag('wrong_feature_key', context);
+wingifyClient.getFlag('wrong_feature_key', context);
 ```
 
 DEBUG logs will show:
@@ -307,13 +307,13 @@ Common causes:
 
 * Browser/Edge navigation terminating request
 * Server shuts down before flush
-* Firewall blocking VWO endpoints
+* Firewall blocking Wingify endpoints
 
-### Step 5 — Correlate Local Logs with VWO Dashboard
+### Step 5 — Correlate Local Logs with Wingify Dashboard
 
 After enabling logs:
 
-* Open VWO Application
+* Open Wingify Application
 * Navigate to `Website and Apps` under `Configurations` section from the left navbar
 * Select the Feature Experimentation Default Project and switch to `Logs` tab
 * Filter by environment
@@ -356,7 +356,7 @@ For stable production systems:
 flowchart TB
     A[Application Logs]
     B[Infrastructure Logs]
-    C[VWO SDK Error Telemetry]
+    C[Wingify SDK Error Telemetry]
 
     A --> D[Root Cause Analysis]
     B --> D
@@ -367,7 +367,7 @@ When combined:
 
 * Application logs show execution flow
 * Infrastructure logs show environment failures
-* VWO telemetry shows SDK-specific errors
+* Wingify telemetry shows SDK-specific errors
 
 Together, they eliminate blind spots.
 

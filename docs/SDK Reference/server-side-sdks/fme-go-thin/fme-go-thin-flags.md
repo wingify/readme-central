@@ -14,14 +14,14 @@ next:
       slug: fme-go-variables
       title: Variables
 ---
-Feature flags are at the core of VWO's Feature Experimentation capabilities. They allow you to control feature rollouts and conduct experiments.
+Feature flags are at the core of's Feature Experimentation capabilities. They allow you to control feature rollouts and conduct experiments.
 
 ## GetFlag()
 
 The `GetFlag()` function is used to fetch the status and variables of a feature flag for a given user.
 
 ```go
-flag, err := vwoClient.GetFlag("feature_key", userContext)
+flag, err := wingifyClient.GetFlag("feature_key", userContext)
 if err != nil {
     // Handle error
 }
@@ -85,7 +85,7 @@ if flag.IsEnabled() {
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-node-context).
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-node-context).
       </td>
     </tr>
   </tbody>
@@ -104,7 +104,7 @@ The *GetFlag()* function returns a *GetFlagResponse* object, which has the follo
 ### Example Usage
 
 ```go
-flag, err := vwoClient.GetFlag("new_checkout", userContext)
+flag, err := wingifyClient.GetFlag("new_checkout", userContext)
 if err != nil {
     log.Fatal(err)
 }
@@ -118,4 +118,4 @@ if flag.IsEnabled() {
 }
 ```
 
-Remember that the feature flag must be defined in your VWO dashboard before using it in your code.
+Remember that the feature flag must be defined in your Wingify dashboard before using it in your code.
