@@ -21,7 +21,7 @@ import (
     "fmt"
     "log"
 
-    vwo "github.com/wingify/wingify-fme-go-sdk"
+    wingify "github.com/wingify/wingify-fme-go-sdk"
 )
 
 func main() {
