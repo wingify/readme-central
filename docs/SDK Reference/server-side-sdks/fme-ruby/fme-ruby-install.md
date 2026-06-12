@@ -25,11 +25,10 @@ To integrate the VWO Feature Experimentation SDK into your Ruby project, you mus
 Run the following command in your project directory:
 
 ```ruby
-gem install vwo-fme-ruby-sdk
+gem install wingify-fme-ruby-sdk
 ```
 
-This command will download and install the VWO FE SDK and its dependencies in your project.\
-Import the SDK
+This command will download and install the VWO FE SDK and its dependencies in your project.<br />Import the SDK
 
 Now, you're ready to initialize and use the SDK in your Ruby application.
 
