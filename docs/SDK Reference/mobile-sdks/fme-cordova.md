@@ -51,25 +51,26 @@ For reference, we're using `jsDelivr` CDN and local copy as backup:
 <head>
   <!-- Other head elements -->
   <script
-    src="https://cdn.jsdelivr.net/npm/vwo-fme-node-sdk@1/dist/client/vwo-fme-javascript-sdk.min.js"
-    onload="console.log('VWO SDK script loaded successfully from CDN')"
-    onerror="console.error('Failed to load VWO SDK from CDN, trying local fallback'); loadVwoSdkFallback();">
+    src="https://cdn.jsdelivr.net/npm/wingify-fme-node-sdk@1/dist/client/wingify-fme-javascript-sdk.min.js"
+    onload="console.log('Wingify SDK script loaded successfully from CDN')"
+    onerror="console.error('Failed to load Wingify SDK from CDN, trying local fallback'); loadWingifySdkFallback();">
   </script>
   <script>
-    function loadVwoSdkFallback() {
-      console.log('Loading VWO SDK from local fallback...');
+    function loadWingifySdkFallback() {
+      console.log('Loading Wingify SDK from local fallback...');
       var script = document.createElement('script');
-      script.src = 'js/vwo-fme-javascript-sdk.min.js';
+      script.src = 'js/wingify-fme-javascript-sdk.min.js';
       script.onload = function() {
-        console.log('VWO SDK loaded successfully from local fallback');
+        console.log('Wingify SDK loaded successfully from local fallback');
       };
       script.onerror = function() {
-        console.error('Failed to load VWO SDK from local fallback as well');
+        console.error('Failed to load Wingify SDK from local fallback as well');
       };
       document.head.appendChild(script);
     }
   </script>
 </head>
+
 ```
 
 <br />
@@ -102,50 +103,50 @@ window.FME_CONFIG = FME_CONFIG;
 Create a `www/js/vwo-setup.js` file to handle SDK initialization:
 
 ```javascript
-let vwoClient = null;
-let vwoLogs = [];
+let wingifyClient = null;
+let wingifyLogs = [];
 
-// Initialize VWO SDK
-async function initVwo() {
+// Initialize Wingify SDK
+async function initWingify() {
     try {
-        // Check if VWO SDK is available
-        if (typeof vwoSdk === 'undefined') {
-            throw new Error('VWO SDK not loaded. Please check your internet connection and try again.');
+        // Check if Wingify SDK is available
+        if (typeof wingifySdk === 'undefined') {
+            throw new Error('Wingify SDK not loaded. Please check your internet connection and try again.');
         }
 
         // Get configuration from config.js
         const config = window.FME_CONFIG;
 
         if (!config || !config.FME_SDK_KEY || !config.FME_ACCOUNT_ID) {
-            throw new Error('Missing required VWO configuration.');
+            throw new Error('Missing required Wingify configuration.');
         }
 
-        vwoClient = await vwoSdk.init({
+        wingifyClient = await wingifySdk.init({
             accountId: config.FME_ACCOUNT_ID,
             sdkKey: config.FME_SDK_KEY,
             logger: {
                 level: 'DEBUG',
                 transport: {
                     log: (level, message) => {
-                        vwoLogs.push({ level, message, timestamp: new Date().toISOString() });
+                        wingifyLogs.push({ level, message, timestamp: new Date().toISOString() });
                     },
                 },
             },
             pollInterval: 120000, // 2 minutes
         });
 
-        window.vwoClient = vwoClient;
+        window.wingifyClient = wingifyClient;
         return true;
     } catch (error) {
-        console.error('Failed to initialize VWO FE SDK:', error);
+        console.error('Failed to initialize Wingify FME SDK:', error);
         return false;
     }
 }
 
 // Get flag and track event
-async function getVwoFlagAndTrack(userId, query) {
-    if (!window.vwoClient) {
-        throw new Error('VWO SDK not initialized');
+async function getWingifyFlagAndTrack(userId, query) {
+    if (!window.wingifyClient) {
+        throw new Error('Wingify SDK not initialized');
     }
 
     const config = window.FME_CONFIG;
@@ -156,7 +157,7 @@ async function getVwoFlagAndTrack(userId, query) {
 
     try {
         // Get the flag
-        const flag = await window.vwoClient.getFlag(config.FLAG_NAME, userContext);
+        const flag = await window.wingifyClient.getFlag(config.FLAG_NAME, userContext);
         const isEnabled = flag.isEnabled();
 
         // Get variables
@@ -167,7 +168,7 @@ async function getVwoFlagAndTrack(userId, query) {
         });
 
         // Track event
-        window.vwoClient.trackEvent(config.EVENT_NAME, userContext, {
+        window.wingifyClient.trackEvent(config.EVENT_NAME, userContext, {
             model: modelName,
             query: query,
             response: queryAnswer.content
@@ -194,12 +195,12 @@ Call the initialization function when your app starts. Add this to your main Jav
 
 ```javascript
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize VWO SDK
+    // Initialize Wingify SDK
     initVwo().then(success => {
         if (success) {
-            console.log('VWO SDK initialized successfully');
+            console.log('Wingify SDK initialized successfully');
         } else {
-            console.error('Failed to initialize VWO SDK');
+            console.error('Failed to initialize Wingify SDK');
         }
     });
 });
@@ -214,7 +215,8 @@ Call the FE functions from your application logic:
 ```javascript
 async function handleUserInteraction(userId, query) {
     try {
-        const result = await getVwoFlagAndTrack(userId, query);
+        // Updated to invoke the Wingify-specific wrapper function created in the previous step
+        const result = await getWingifyFlagAndTrack(userId, query);
 
         if (result.isEnabled) {
             // Use feature flag variables
@@ -239,13 +241,11 @@ function displayResponse(content, background) {
 
 <br />
 
-<Callout icon="💡" theme="default">
-  ### The VWO Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
-
-  * [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
-  * [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
-  * [setAttribute()](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/) to send user attributes to VWO
-</Callout>
+> 💡 The VWO Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
+>
+> - [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
+> - [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
+> - [setAttribute()](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/) to send user attributes to VWO
 
 <br />
 
