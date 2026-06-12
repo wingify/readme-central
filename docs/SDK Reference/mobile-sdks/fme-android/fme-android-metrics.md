@@ -49,7 +49,7 @@ When this API is executed:
 // Record a metric conversion for the specified event without any additional properties.
 // 'event_name' is the name of the event to be tracked.
 // The 'user_context' ensures the event is associated with the correct user.
-val trackResponse = vwo?.trackEvent("event_name", userContext)
+val trackResponse = wingify?.trackEvent("event_name", userContext)
 
 // Record a metric conversion for the specified event with additional properties.
 // Set 'event_properties' to provide custom attributes for the event (e.g., 'userType' to specify the type of user).
@@ -57,14 +57,14 @@ val eventProperties = mutableMapOf<String, Any>(
     "cartvalue" to 120,
     "productCountInCart" to 2
 )
-val trackResponse = vwo?.trackEvent("event_name", userContext, eventProperties)
+val trackResponse = wingify?.trackEvent("event_name", userContext, eventProperties)
 
 ```
 ```java
 // Record a metric conversion for the specified event without any additional properties.
 // 'event_name' is the name of the event to be tracked.
 // The 'user_context' ensures the event is associated with the correct user.
-Map<String, Boolean> trackResponse = vwoClient.trackEvent("vwoevent", userContext);
+Map<String, Boolean> trackResponse = wingifyClient.trackEvent("wingifyevent", userContext);
 
 // Record a metric conversion for the specified event with additional properties.
 // Set 'event_properties' to provide custom attributes for the event (e.g., 'userType' to specify the type of user).
@@ -72,7 +72,7 @@ Map<String, Object> eventProperties = new HashMap<>();
 eventProperties.put("cartvalue", 120);
 eventProperties.put("productCountInCart", 2);
 
-Map<String, Boolean> trackResponse = vwoClient.trackEvent("event-name", userContext, eventProperties);
+Map<String, Boolean> trackResponse = wingifyClient.trackEvent("event-name", userContext, eventProperties);
 ```
 
 ## Parameters Definition
