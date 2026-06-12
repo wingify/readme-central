@@ -10,40 +10,40 @@ metadata:
 next:
   description: ''
 ---
-The **user context** serves as a unique identifier for individual users and plays a critical role in ensuring **consistent feature rollouts** across sessions and devices. Typically represented as an **object**, the user context includes an *id* key that uniquely identifies the user.
+The **user context** serves as a unique identifier for individual users and plays a critical role in ensuring **consistent feature rollouts** across sessions and devices. Typically represented as an **object**, the user context includes an _id_ key that uniquely identifies the user.
 
-In addition to the user ID, the context can incorporate various ***attributes*** to support advanced targeting and segmentation strategies. These may include:
+In addition to the user ID, the context can incorporate various **_attributes_** to support advanced targeting and segmentation strategies. These may include:
 
-* **customVariables**: User-specific data points for personalized experiences.
+- **customVariables**: User-specific data points for personalized experiences.
 
 By leveraging these attributes, organizations can deliver **precisely targeted features**, maintain **personalization consistency**, and **conduct granular experimentation** for improved user engagement and performance analysis.
 
 > 📘 Important Note
 >
-> The **user context attributes** differ from the attributes set using the ***setAttribute*** API.
+> The **user context attributes** differ from the attributes set using the **_setAttribute_** API.
 >
-> * **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
-> * ***setAttribute* API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
+> - **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
+> - **_setAttribute_ API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
 
 > 🚧 Current Limitation
 >
-> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
+> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the _setAttribute_ API.
 
 ## Usage with `VWOProvider`
 
 ```typescript TypeScript
 import React from 'react';
-import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+import { WingifyProvider, IWingifyOptions, IWingifyContextModel } from 'wingify-fme-react-sdk';
 
-const vwoConfig: IVWOOptions = {
-  sdkKey: '32-alpha-numeric-sdk-key', // Your VWO SDK Key
-  accountId: '123456', // Your VWO Account ID
+const wingifyConfig: IWingifyOptions = {
+  sdkKey: '32-alpha-numeric-sdk-key', // Your Wingify SDK Key
+  accountId: '123456', // Your Wingify Account ID
   logger: {
     level: 'debug', // Optional log level for debugging
   },
 };
 
-const userContext: IVWOContextModel = {
+const userContext: IWingifyContextModel = {
   id: 'unique_user_id', // Required: Unique identifier for the user
   customVariables: { age: 25, location: 'US' }, // Optional
   userAgent:
@@ -51,14 +51,14 @@ const userContext: IVWOContextModel = {
   ipAddress: '1.1.1.1', // Optional
 };
 
-// Optional: Provide a fallback UI component that will be displayed while VWOProvider initializes.
+// Optional: Provide a fallback UI component that will be displayed while WingifyProvider initializes.
 // This is useful for showing a loading state or placeholder content during SDK initialization.
-const fallbackComponent = <div>Initializing VWO...</div>;
+const fallbackComponent = <div>Initializing Wingify...</div>;
 
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={ userContext } fallbackComponent={fallbackComponent}>
+  <WingifyProvider config={wingifyConfig} userContext={ userContext } fallbackComponent={fallbackComponent}>
     <YourComponent />
-  </VWOProvider>
+  </WingifyProvider>
 );
 
 export default App;
@@ -87,7 +87,7 @@ export default App;
     <tr>
       <td>
         **id**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -102,7 +102,7 @@ export default App;
     <tr>
       <td>
         **userAgent**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -117,7 +117,7 @@ export default App;
     <tr>
       <td>
         **ipAddress**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -132,7 +132,7 @@ export default App;
     <tr>
       <td>
         **customVariables**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -149,9 +149,9 @@ export default App;
 ## Usage with `useGetFlag` Hook
 
 ```typescript TypeScript
-import { IVWOContextModel } from 'vwo-fme-react-sdk';
+import { IWingifyContextModel, useGetFlag } from 'wingify-fme-react-sdk';
 
-const userContext: IVWOContextModel = { id: 'unique_user_id' }
+const userContext: IWingifyContextModel = { id: 'unique_user_id' };
 const { flag, isReady } = useGetFlag('feature_key', userContext);
 ```
 
