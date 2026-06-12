@@ -18,30 +18,30 @@ Metrics in FE are based on "Custom Events" that you can create in VWO > Data360>
 
 Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet:
 
-## ***Track Event*** API
+## **_Track Event_** API
 
 This API sends data to VWO whenever a defined user action occurs. The captured event data can be used to:
 
-* Measure the success of experiments (e.g., conversion rates).
-* Track key performance indicators (KPIs), such as sign-ups or purchases.
-* Analyze user engagement with new features or content.
-* Trigger real-time personalization based on user behavior.
+- Measure the success of experiments (e.g., conversion rates).
+- Track key performance indicators (KPIs), such as sign-ups or purchases.
+- Analyze user engagement with new features or content.
+- Trigger real-time personalization based on user behavior.
 
 ### How It Works:
 
 When this API is executed:
 
-* The application sends the event name and user details to VWO’s platform.
-* VWO logs the event and associates it with ongoing experiments or feature rollouts.
-* The collected data is then available in VWO’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
+- The application sends the event name and user details to VWO’s platform.
+- VWO logs the event and associates it with ongoing experiments or feature rollouts.
+- The collected data is then available in VWO’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
 
 ### Why It’s Valuable:
 
-* *Conversion Tracking*: Measure how many users complete desired actions, like purchases or sign-ups.
-* *Experiment Analysis*: Evaluate the performance of different variations in A/B tests.
-* *User Behavior Insights*: Understand how users interact with features and content.
-* *Personalization Triggers*: Deliver dynamic content based on real-time user actions.
-* *Performance Optimization*: Identify friction points in the user journey to improve the overall experience.
+- _Conversion Tracking_: Measure how many users complete desired actions, like purchases or sign-ups.
+- _Experiment Analysis_: Evaluate the performance of different variations in A/B tests.
+- _User Behavior Insights_: Understand how users interact with features and content.
+- _Personalization Triggers_: Deliver dynamic content based on real-time user actions.
+- _Performance Optimization_: Identify friction points in the user journey to improve the overall experience.
 
 ## Usage
 
@@ -49,11 +49,11 @@ When this API is executed:
 # Record a metric conversion for the specified event without any additional properties.
 # 'event_name' is the name of the event to be tracked.
 # The 'user_context' ensures the event is associated with the correct user.
-vwo_client.track_event('event-name', user_context)
+wingify_client.track_event('event-name', user_context)
 
 # Record a metric conversion for the specified event with additional properties.
 # Set 'event_properties' to provide custom attributes for the event (e.g., 'userType' to specify the type of user).
-vwo_client.track_event('event-name', user_context, {userType: 'paid'})
+wingify_client.track_event('event-name', user_context, {userType: 'paid'})
 ```
 
 ## Parameters Definition
@@ -79,7 +79,7 @@ vwo_client.track_event('event-name', user_context, {userType: 'paid'})
     <tr>
       <td>
         **event\_name**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -93,8 +93,7 @@ vwo_client.track_event('event-name', user_context, {userType: 'paid'})
 
     <tr>
       <td>
-        **user\_context**\
-        *Required*
+        **user\_context**<br />_Required_
       </td>
 
       <td>
@@ -108,8 +107,7 @@ vwo_client.track_event('event-name', user_context, {userType: 'paid'})
 
     <tr>
       <td>
-        **event\_properties**\
-        *Optional*
+        **event\_properties**<br />_Optional_
       </td>
 
       <td>
@@ -125,4 +123,6 @@ vwo_client.track_event('event-name', user_context, {userType: 'paid'})
 
 > 🚧 Note
 >
-> The *Event* must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application. Please refer [this](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO) KB article to know more on how to create and manage events in VWO application.
+> The _Event_ must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application. Please refer [this](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO) KB article to know more on how to create and manage events in VWO application.
+
+<br />
