@@ -23,7 +23,7 @@ VWO by default logs all ERROR level messages to your server's console. To gain m
 
 ```ruby
 # Set log level
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
     account_id: '123456',
     sdk_key: '32-alpha-numeric-sdk-key',
     logger: {
@@ -36,7 +36,7 @@ vwo_client = VWO.init({
 
 ```ruby
 # Set log level
-vwo_client = VWO.init({
+wingify_client = Wingify.init({
     account_id: '123456',
     sdk_key: '32-alpha-numeric-sdk-key',
     logger: {
@@ -46,4 +46,4 @@ vwo_client = VWO.init({
 })
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing *vwo\_client*.](https://developers.vwo.com/v2/docs/fme-ruby-initialization)
+This "logger" object can be passed as one of the parameters when [initializing _vwo\_client_.](https://developers.vwo.com/v2/docs/fme-ruby-initialization)
