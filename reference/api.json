@@ -1241,38 +1241,38 @@
                                 "type": "string",
                                 "default": "url"
                               },
-                              "url": {
+                              "value": {
                                 "type": "string",
                                 "default": "http://wingify.com"
                               }
                             },
                             "type": "object",
                             "required": [
-                              "url",
-                              "type"
+                              "type",
+                              "value"
                             ]
                           }
                         }
                       },
                       "type": "object",
                       "required": [
-                        "urls",
+                        "name",
                         "type",
-                        "name"
+                        "urls"
                       ]
                     }
                   }
                 },
                 "required": [
-                  "type",
-                  "urls",
+                  "primaryUrl",
                   "goals",
-                  "primaryUrl"
+                  "type",
+                  "urls"
                 ]
               },
               "examples": {
-                "Request Format": {
-                  "summary": "Request Format",
+                "Request format": {
+                  "summary": "Request format",
                   "value": {
                     "type": "ab",
                     "urls": [
@@ -4788,61 +4788,7 @@
             }
           }
         },
-        "deprecated": false,
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "Name of the project"
-                  },
-                  "languages": {
-                    "type": "array",
-                    "description": "List of languages",
-                    "default": "",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "environments": {
-                    "type": "array",
-                    "description": "List of environments",
-                    "items": {
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "description": "ID of the environment "
-                        },
-                        "name": {
-                          "type": "string",
-                          "description": "Name of the environment"
-                        },
-                        "isEnabled": {
-                          "type": "boolean",
-                          "default": "false",
-                          "description": "Set the environment as default"
-                        }
-                      },
-                      "type": "object",
-                      "required": [
-                        "id",
-                        "name"
-                      ]
-                    }
-                  }
-                },
-                "type": "object",
-                "required": [
-                  "name",
-                  "environments",
-                  "languages"
-                ]
-              }
-            }
-          }
-        }
+        "deprecated": false
       },
       "delete": {
         "summary": "Delete a project",
@@ -6723,14 +6669,14 @@
     },
     "/accounts/{account_id}/integrations": {
       "get": {
-        "summary": "Get integration settings of a Workspace",
+        "summary": "Get Integrations of a Workspace",
         "description": "",
         "operationId": "third-party-integrations-of-current--sub-account",
         "parameters": [
           {
             "name": "account_id",
             "in": "path",
-            "description": "Workspace ID",
+            "description": "Use 'current' keyword to refer to the Main Workspace or the Integer Workspace Id",
             "schema": {
               "type": "string"
             },
@@ -6802,207 +6748,6 @@
                           }
                         },
                         "gtm": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": false,
-                              "default": true
-                            }
-                          }
-                        },
-                        "isGaPremium": {
-                          "type": "boolean",
-                          "example": false,
-                          "default": true
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      },
-      "patch": {
-        "summary": "Update integration settings for specific account",
-        "description": "",
-        "operationId": "update-third-party-integrations-for-account",
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "Use 'current' keyword to refer to the Main Account or the Integer Sub Account Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "ga": {
-                    "properties": {
-                      "": {
-                        "type": "array",
-                        "description": "Information regarding Google Analytics",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Google Analytics whether enabled or not"
-                      },
-                      "slot": {
-                        "type": "integer",
-                        "description": "Google Analytics Slot",
-                        "format": "int32"
-                      },
-                      "prefix": {
-                        "type": "string",
-                        "description": "Google Analytics Account prefix"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "ua": {
-                    "properties": {
-                      "": {
-                        "type": "array",
-                        "description": "Universal Analytics Settings",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "enabled": {
-                        "type": "string",
-                        "description": "Universal Analytics whether enabled or not"
-                      },
-                      "dimension": {
-                        "type": "string",
-                        "description": "Custom Dimension used inside Google Analytics"
-                      },
-                      "prefix": {
-                        "type": "string",
-                        "description": "Google Analytics Account prefix"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "gtm": {
-                    "properties": {
-                      "": {
-                        "type": "string",
-                        "description": "Settings for Google Tag Manager"
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Google Tag Manager whether enabled or not"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "clicktale": {
-                    "properties": {
-                      "": {
-                        "type": "array",
-                        "description": "ClickTale Settings",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Clicktale whether enabled or not"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "isGaPremium": {
-                    "type": "boolean",
-                    "description": "Whether Google Analytics is premium"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "200",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n  \"_data\": {\n    \"ga\": {\n      \"enabled\": true,\n      \"slot\": 4,\n      \"prefix\": \"\"\n    },\n    \"ua\": {\n      \"enabled\": false,\n      \"dimension\": 1,\n      \"prefix\": \"\"\n    },\n    \"gtm\": {\n      \"enabled\": false\n    },\n    \"clicktale\": {\n      \"enabled\": false\n    },\n    \"isGaPremium\": false\n  }\n}"
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "_data": {
-                      "type": "object",
-                      "properties": {
-                        "ga": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": true,
-                              "default": true
-                            },
-                            "slot": {
-                              "type": "integer",
-                              "example": 4,
-                              "default": 0
-                            },
-                            "prefix": {
-                              "type": "string",
-                              "example": ""
-                            }
-                          }
-                        },
-                        "ua": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": false,
-                              "default": true
-                            },
-                            "dimension": {
-                              "type": "integer",
-                              "example": 1,
-                              "default": 0
-                            },
-                            "prefix": {
-                              "type": "string",
-                              "example": ""
-                            }
-                          }
-                        },
-                        "gtm": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": false,
-                              "default": true
-                            }
-                          }
-                        },
-                        "clicktale": {
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -8006,7 +7751,218 @@
         "deprecated": false
       }
     },
-    "/new-endpoint": {
+    "/accounts/{account_id}/attribute-list": {
+      "post": {
+        "description": "",
+        "operationId": "post_accounts{account_id}attribute-list",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "New Example": {
+                    "summary": "New Example",
+                    "value": ""
+                  },
+                  "response": {
+                    "summary": "response",
+                    "value": {
+                      "_data": {
+                        "id": 880,
+                        "name": "Sample Attributes List",
+                        "fileName": 1705490596,
+                        "description": "This is a sample attributes list",
+                        "filePath": "65a7b8a4cf3ff",
+                        "createdBy": "test12",
+                        "createdOn": 1705490596,
+                        "updatedOn": 1705490596,
+                        "source": "Api",
+                        "entityId": null,
+                        "status": "Synced",
+                        "accountInfo": {
+                          "id": 8000398,
+                          "name": "testdemo",
+                          "isMainAccount": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "required": true,
+            "description": "Your VWO account ID",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": true,
+            "description": "Your API token (see auth guide)",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "description": "Name of the list attribute",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "description": "Short description for the attribute",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Content type must be text/plain",
+            "schema": {
+              "type": "string",
+              "default": "text/plain"
+            }
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "required": true,
+            "description": "API response type",
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {},
+                "type": "object"
+              }
+            }
+          }
+        },
+        "x-readme": {
+          "code-samples": [
+            {
+              "code": "curl --location 'https://app.vwo.com/api/v2/accounts/{account_id}/attribute-list?name=myList&description=testList' \\\n--header 'accept: application/json' \\\n--header 'token: {authenticationToken}' \\\n--header 'Content-Type: text/plain' \\\n--data 'user_1\nuser_2\nuser_3'",
+              "language": "shell",
+              "name": ""
+            }
+          ],
+          "samples-languages": [
+            "shell"
+          ]
+        }
+      }
+    },
+    "/accounts/{account_id}/attribute-list/{id}": {
+      "post": {
+        "description": "",
+        "operationId": "get_new-endpoint",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "required": true,
+            "description": "Your VWO account ID",
+            "schema": {
+              "type": "string",
+              "default": "current"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the attributes list to update",
+            "schema": {
+              "type": "integer",
+              "default": ""
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Name of the list attribute (max 25 characters)",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "description": "Description of the list (max 50 characters)",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": true,
+            "description": "Your VWO API authentication token",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "required": true,
+            "description": "Must be application/json",
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "description": "Must be text/plain",
+            "schema": {
+              "type": "string",
+              "default": "text/plain"
+            }
+          }
+        ]
+      }
+    },
+    "//accounts/{account_id}/attribute-list/{id}": {
       "get": {
         "description": "",
         "operationId": "get_new-endpoint",
@@ -8015,10 +7971,408 @@
             "description": ""
           }
         },
-        "parameters": []
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ]
       }
     },
-    "/accounts/{account_id}/campaigns/status-1": {}
+    "/accounts/{account_id}/insights-metrics": {
+      "get": {
+        "description": "",
+        "operationId": "get_accounts{account_id}insights-metrics",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "_data": {
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "partialCollection": {
+                          "type": "array",
+                          "items": {
+                            "properties": {},
+                            "type": "object"
+                          }
+                        },
+                        "totalCount": {
+                          "type": "number"
+                        },
+                        "offset": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "New Example": {
+                    "summary": "New Example",
+                    "value": {
+                      "_data": {
+                        "partialCollection": [
+                          {
+                            "id": 27,
+                            "name": "new Report",
+                            "status": "RUNNING",
+                            "createdOn": 1758607258,
+                            "modifiedOn": 1758607258,
+                            "isDeleted": false,
+                            "createdBy": {
+                              "name": "VWO Support",
+                              "imageUrl": "/assets/images/vwo-support.svg"
+                            },
+                            "startedOn": "2025-09-23 06:00:58",
+                            "dataIntervalRange": {
+                              "intervalSize": 86400,
+                              "startTime": 1758585600,
+                              "endTime": 1758671999,
+                              "limitingStartTime": 1758585600,
+                              "limitingEndTime": 1758671999
+                            },
+                            "goals": [
+                              {
+                                "id": 1,
+                                "name": "new Report",
+                                "type": "custom-conversion",
+                                "description": "",
+                                "createdAt": 1758607258,
+                                "metricId": 1274,
+                                "isArchived": false,
+                                "attributionTime": "",
+                                "calcLogic": {
+                                  "logic": "triggered"
+                                },
+                                "events": [
+                                  {
+                                    "props": [
+                                      {
+                                        "id": "112-Property",
+                                        "include": [
+                                          {
+                                            "queryElementType": "partialQuery",
+                                            "id": "90-VwoPageGroup",
+                                            "operator": 11,
+                                            "rOperandValue": "https://bla.com",
+                                            "configurations": {
+                                              "ignoreOnlyQueryParams": true,
+                                              "ignoreOnlyHashFrag": true,
+                                              "caseInsensitive": true
+                                            }
+                                          }
+                                        ],
+                                        "exclude": [],
+                                        "apiName": "event.targetUrl"
+                                      }
+                                    ],
+                                    "id": "58-Event",
+                                    "eventDefinitionType": "STANDARD",
+                                    "apiName": "vwo_dom_click",
+                                    "name": "Click",
+                                    "isComputed": false,
+                                    "queryElementType": "partialQuery"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "totalCount": "5",
+                        "offset": ""
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "number",
+              "default": "25"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/accounts/{account_id}/insights-metrics/{report_id}": {
+      "get": {
+        "description": "",
+        "operationId": "get_accounts{account_id}insights-metrics{metrics_report_id}",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "New Example": {
+                    "summary": "New Example",
+                    "value": {
+                      "_data": {
+                        "id": 30,
+                        "name": "Revenue Report",
+                        "platform": "website",
+                        "type": "insights-metric",
+                        "status": "RUNNING",
+                        "createdOn": 1758697912,
+                        "modifiedOn": 1758697912,
+                        "isDeleted": false,
+                        "createdBy": {
+                          "name": "VWO Support",
+                          "imageUrl": "/assets/images/vwo-support.svg"
+                        },
+                        "startedOn": "2025-09-24 07:11:54",
+                        "dataIntervalRange": {
+                          "intervalSize": 86400,
+                          "startTime": 1758672000,
+                          "endTime": 1758758399,
+                          "limitingStartTime": 1758672000,
+                          "limitingEndTime": 1758758399
+                        },
+                        "goals": [
+                          {
+                            "id": 1,
+                            "name": "Revenue Report",
+                            "type": "revenue",
+                            "description": "",
+                            "createdAt": 1758697912,
+                            "metricId": 1290,
+                            "isArchived": false,
+                            "attributionTime": "",
+                            "calcLogic": {
+                              "logic": "function",
+                              "function": "sum",
+                              "property": 101764,
+                              "unit": "revenue",
+                              "apiName": "price"
+                            },
+                            "events": [
+                              {
+                                "props": [],
+                                "id": "100327-Event",
+                                "eventDefinitionType": "CUSTOM",
+                                "apiName": "revenue",
+                                "name": "revenue",
+                                "isComputed": false,
+                                "queryElementType": "partialQuery"
+                              }
+                            ]
+                          }
+                        ],
+                        "visitorData": [
+                          {
+                            "aggregated": {
+                              "totalRevenue": 450,
+                              "conversionCount": 1
+                            },
+                            "intervalWise": [
+                              {
+                                "totalRevenue": 450,
+                                "conversionCount": 1,
+                                "interval": 1758672000
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "report_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ]
+      }
+    },
+    "/accounts/{account_id}/connection/{connection_id}": {
+      "delete": {
+        "summary": "Delete Integration Connection for a Specific Account Integration",
+        "description": "Deletes an existing integration connection for the specified account and connection ID.",
+        "operationId": "update-third-party-integrations-for-account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "Use 'current' keyword to refer to the Main Account or the Integer Sub Account Id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connection_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Unique identifier of the integration connection that should be deleted."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"_data\": {\n    \"ga\": {\n      \"enabled\": true,\n      \"slot\": 4,\n      \"prefix\": \"\"\n    },\n    \"ua\": {\n      \"enabled\": false,\n      \"dimension\": 1,\n      \"prefix\": \"\"\n    },\n    \"gtm\": {\n      \"enabled\": false\n    },\n    \"clicktale\": {\n      \"enabled\": false\n    },\n    \"isGaPremium\": false\n  }\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "_data": {
+                      "type": "object",
+                      "properties": {
+                        "ga": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": true,
+                              "default": true
+                            },
+                            "slot": {
+                              "type": "integer",
+                              "example": 4,
+                              "default": 0
+                            },
+                            "prefix": {
+                              "type": "string",
+                              "example": ""
+                            }
+                          }
+                        },
+                        "ua": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": false,
+                              "default": true
+                            },
+                            "dimension": {
+                              "type": "integer",
+                              "example": 1,
+                              "default": 0
+                            },
+                            "prefix": {
+                              "type": "string",
+                              "example": ""
+                            }
+                          }
+                        },
+                        "gtm": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": false,
+                              "default": true
+                            }
+                          }
+                        },
+                        "clicktale": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": false,
+                              "default": true
+                            }
+                          }
+                        },
+                        "isGaPremium": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
   },
   "x-readme": {
     "headers": [],

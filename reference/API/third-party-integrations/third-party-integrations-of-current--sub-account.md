@@ -1,5 +1,4 @@
 ---
-title: Get integration settings of a Workspace
 excerpt: ''
 api:
   file: api.json
@@ -19,10 +18,12 @@ Request URI
 GET /accounts/:account_id/integrations
 ```
 
-<HTMLBlock>{`
-<div></div>
+This API endpoint allows you to fetch all integration connections configured for a workspace or account.
 
-<style></style>
-`}</HTMLBlock>
+Use this endpoint when:
 
-Get Third Party Integrations for a Workspace.
+* retrieving all connected third-party integrations for an account
+* displaying connected integrations in an admin dashboard
+* auditing or managing workspace integrations
+
+The endpoint returns the list of integrations associated with the provided `account_id`, including their  connections metadata.

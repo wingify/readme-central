@@ -19,7 +19,7 @@ You can set different log levels depending upon the priority of logging as follo
 * **Error**: Indicates Error
 * **None**: No logs are printed
 
-The different methods set the log level of the message. VWO will only print messages with a log level that is greater to or equal to it's current log level setting. So a logger with a level of Warning will only output log messages with a level of Warning, or Error.
+The different methods set the log level of the message. Wingify will only print messages with a log level that is greater to or equal to it's current log level setting. So a logger with a level of Warning will only output log messages with a level of Warning, or Error.
 
 ```objectivec
 [VWO.setLogLevel: VWOLogLevelWarning];

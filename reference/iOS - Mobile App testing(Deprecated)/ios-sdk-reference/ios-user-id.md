@@ -10,12 +10,12 @@ metadata:
 next:
   description: ''
 ---
-You can identify a user in the VWO SDK by using a string that identifies that user.\
-User ID can be set in the VWO Launch config.
+You can identify a user in the Wingify SDK by using a string that identifies that user.\
+User ID can be set in the Wingify Launch config.
 
-User ID helps VWO identify a user across multiple devices, and allows it to serve the same variation to a user thus keeping the experience consistent.
+User ID helps Wingify identify a user across multiple devices, and allows it to serve the same variation to a user thus keeping the experience consistent.
 
-For example, you may run a campaign on both iPhone and iPad. If a user installs both the iPhone app and iPad app, setting the user ID will allow VWO to serve the same variation for a campaign.
+For example, you may run a campaign on both iPhone and iPad. If a user installs both the iPhone app and iPad app, setting the user ID will allow Wingify to serve the same variation for a campaign.
 
 ```objectivec
 VWOConfig *config = [VWOConfig new];

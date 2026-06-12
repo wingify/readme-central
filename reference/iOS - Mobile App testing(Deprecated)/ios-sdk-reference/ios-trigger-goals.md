@@ -12,7 +12,7 @@ next:
 ---
 For any campaign, we want to track conversion changes for the A/B test.
 
-We can define goals on the VWO web portal during the campaign setup.
+We can define goals on the Wingify web portal during the campaign setup.
 
 ```text Goal Identifier
 test_goal

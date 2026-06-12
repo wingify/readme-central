@@ -52,7 +52,7 @@ The most commonly-used HTTP methods are POST, GET, PATCH, and DELETE that corres
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Used to create an entity in VWO. For example, a variation in a campaign.\
+        Used to create an entity in Wingify. For example, a variation in a campaign.\
         POST requests have a JSON encoded body and the Content-Type: application/json header.
       </td>
 
@@ -67,7 +67,7 @@ The most commonly-used HTTP methods are POST, GET, PATCH, and DELETE that corres
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Used to update an entity in VWO.  The URL includes the id of the entity to update.
+        Used to update an entity in Wingify.  The URL includes the id of the entity to update.
       </td>
 
       <td style={{ textAlign: "left" }}>
@@ -81,7 +81,7 @@ The most commonly-used HTTP methods are POST, GET, PATCH, and DELETE that corres
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Used to remove an entity in VWO. The URL includes the id of the entity to delete. No data is sent in the body.
+        Used to remove an entity in Wingify. The URL includes the id of the entity to delete. No data is sent in the body.
       </td>
 
       <td style={{ textAlign: "left" }}>
