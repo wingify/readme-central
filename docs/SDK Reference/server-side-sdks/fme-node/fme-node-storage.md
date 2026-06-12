@@ -85,7 +85,7 @@ class StorageConnector extends StorageConnector {
 
 }
 
-vwo.init({
+wingify.init({
   sdkKey: '...',
   accountId: '123456',
   storage: new StorageConnector(),
@@ -103,7 +103,7 @@ Storage Service should expose two methods: _get_ and _set_. These methods are us
 
 ### Optional Methods (Settings Storage)
 
-> **Supported from SDK version `1.35.0` onwards**
+> **Supported from SDK version&#x20;**`1.35.0`**&#x20;onwards**
 
 These methods are **optional** but highly recommended for performance optimization. When implemented, the SDK can load settings from your storage instead of fetching them from VWO servers during initialization.
 
@@ -127,10 +127,10 @@ interface ISettingsData {
 
 **TTL** controls how long cached settings remain valid before the SDK fetches fresh settings from VWO servers.
 
-* **Type**: `number` (milliseconds)
-* **Default**: `7200000` (2 hours)
-* **Minimum**: `60000` (1 minute)
-* **Location**: Set via `protected ttl` property in your storage connector class
+- **Type**: `number` (milliseconds)
+- **Default**: `7200000` (2 hours)
+- **Minimum**: `60000` (1 minute)
+- **Location**: Set via `protected ttl` property in your storage connector class
 
 **How TTL Works:**
 
@@ -157,19 +157,19 @@ class RedisStorageConnector extends Connector {
 
 **alwaysUseCachedSettings** is a boolean flag that, when enabled, makes the SDK always use cached settings regardless of TTL expiration.
 
-* **Type**: `boolean`
-* **Default**: `false`
-* **Location**: Set via `protected alwaysUseCachedSettings` property in your storage connector class
+- **Type**: `boolean`
+- **Default**: `false`
+- **Location**: Set via `protected alwaysUseCachedSettings` property in your storage connector class
 
 **Behavior:**
 
-* **When `false`** (default): SDK respects TTL and fetches fresh settings when cache expires
-* **When `true`**: SDK always uses cached settings, skipping TTL validation entirely
+- **When&#x20;**`false` (default): SDK respects TTL and fetches fresh settings when cache expires
+- **When&#x20;**`true`: SDK always uses cached settings, skipping TTL validation entirely
 
 **Use Cases:**
 
-* **`false`**: Recommended for most scenarios. Ensures settings stay relatively fresh while benefiting from caching
-* **`true`**: Useful when you want maximum performance and control settings updates manually, or when network calls are expensive/restricted
+- `false`: Recommended for most scenarios. Ensures settings stay relatively fresh while benefiting from caching
+- `true`: Useful when you want maximum performance and control settings updates manually, or when network calls are expensive/restricted
 
 **Example:**
 
@@ -185,7 +185,9 @@ class CustomStorageConnector extends Connector {
 
 **Important Notes:**
 
-* Settings storage is completely transparent to variation evaluation logic
-* If `getSettings` or `setSettings` throw errors, SDK falls back to fetching from VWO servers
-* Settings are validated for `accountId` and `sdkKey` match before use
-* Invalid or mismatched settings trigger a fresh fetch
+- Settings storage is completely transparent to variation evaluation logic
+- If `getSettings` or `setSettings` throw errors, SDK falls back to fetching from VWO servers
+- Settings are validated for `accountId` and `sdkKey` match before use
+- Invalid or mismatched settings trigger a fresh fetch
+
+<br />
