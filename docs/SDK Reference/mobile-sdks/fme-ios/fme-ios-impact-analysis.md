@@ -5,19 +5,19 @@ hidden: false
 metadata:
   robots: index
 ---
-This document provides a comprehensive analysis of the VWO FE iOS SDK's impact on application performance, resource utilization, and network consumption. The metrics presented below are based on extensive testing and real-world implementation scenarios.
+This document provides a comprehensive analysis of the Wingify FE iOS SDK's impact on application performance, resource utilization, and network consumption. The metrics presented below are based on extensive testing and real-world implementation scenarios.
 
 ## Executive Summary
 
-The VWO FE iOS SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust Feature Experimentation capabilities.
+The Wingify FE iOS SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust Feature Experimentation capabilities.
 
 ## Asynchronous Initialization
 
 The SDK initializes asynchronously
 
-* Initialization happens in the background using GCD (Grand Central Dispatch).
-* Minimal impact on app launch time as initialization is off the main thread.
-* Uses completion handler to notify success or failure of initialization.
+- Initialization happens in the background using GCD (Grand Central Dispatch).
+- Minimal impact on app launch time as initialization is off the main thread.
+- Uses completion handler to notify success or failure of initialization.
 
 ## Network Operations & API Architecture
 
@@ -25,44 +25,44 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 
 ### Settings Management
 
-**Endpoint**: VWO Settings API
+**Endpoint**: Wingify Settings API
 
-* **Frequency**: Single request per session with intelligent caching
-* **Caching Strategy**: Configurable cache duration with offline fallback support
-* **Behavior**: Operates seamlessly in both online and offline modes
-* **Optimization**: Minimizes server requests through persistent local storage
+- **Frequency**: Single request per session with intelligent caching
+- **Caching Strategy**: Configurable cache duration with offline fallback support
+- **Behavior**: Operates seamlessly in both online and offline modes
+- **Optimization**: Minimizes server requests through persistent local storage
 
 ### Event Tracking System
 
-**Endpoint**: VWO Event Tracking API
+**Endpoint**: Wingify Event Tracking API
 
-* **Processing Mode**: Asynchronous batch processing with asynchronous uploads to optimize network usage
-* **Retry Logic**: Automatic retry mechanism for failed requests with exponential backoff
-* **Offline Support**: Local storage for events during network unavailability
-* **Batching Strategy**: Configurable batch sizes for optimal network utilization
+- **Processing Mode**: Asynchronous batch processing with asynchronous uploads to optimize network usage
+- **Retry Logic**: Automatic retry mechanism for failed requests with exponential backoff
+- **Offline Support**: Local storage for events during network unavailability
+- **Batching Strategy**: Configurable batch sizes for optimal network utilization
 
 ### Event Batch Processing
 
 **Technical Implementation:**
 
-* **Batch Configuration**: Customizable batch size and upload intervals
-* **Background Processing**: Uses DispatchSourceTimer on a background queue to schedule periodic event uploads reliably
-* **Automatic Management**: The timer self-manages event syncing and continues until all events are successfully uploaded
-* **Resource Efficiency**: Optimized for minimal battery and data consumption
+- **Batch Configuration**: Customizable batch size and upload intervals
+- **Background Processing**: Uses DispatchSourceTimer on a background queue to schedule periodic event uploads reliably
+- **Automatic Management**: The timer self-manages event syncing and continues until all events are successfully uploaded
+- **Resource Efficiency**: Optimized for minimal battery and data consumption
 
 ### Advanced Segmentation Processing
 
 **Pre-Segmentation Evaluation:**
 
-* **Location Intelligence**: Approximate geographical data for targeting
-* **User Agent Analysis**: Device and operating system fingerprinting for segmentation
-* **Custom Variables**: Integration with client-defined segmentation criteria
-* **Attribute List**: A customizable set of user or device attributes that enable more granular targeting and evaluation of feature flags
+- **Location Intelligence**: Approximate geographical data for targeting
+- **User Agent Analysis**: Device and operating system fingerprinting for segmentation
+- **Custom Variables**: Integration with client-defined segmentation criteria
+- **Attribute List**: A customizable set of user or device attributes that enable more granular targeting and evaluation of feature flags
 
 **Impact on Evaluation**:
 
-* **Latency**: The API call introduces a small delay (in the order of milliseconds), which can vary depending on network conditions
-* **Mitigation**: Uses caching to minimize blocking and repeated requests
+- **Latency**: The API call introduces a small delay (in the order of milliseconds), which can vary depending on network conditions
+- **Mitigation**: Uses caching to minimize blocking and repeated requests
 
 <br />
 
@@ -91,7 +91,7 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 | TrackEvent     |     9     |    9    |    10   |
 | SetAttribute   |     10    |    11   |    12   |
 
-*All measurements represent average response times across multiple test scenarios*
+_All measurements represent average response times across multiple test scenarios_
 
 ### Memory Utilization
 
@@ -103,7 +103,7 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 | TrackEvent     |       0.016       |
 | SetAttribute   |       0.016       |
 
-*Measurements may vary slightly due to system activity and background processes*
+_Measurements may vary slightly due to system activity and background processes_
 
 ### Network Data Consumption
 
@@ -114,7 +114,7 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 | TrackEvent     |       0.5       |
 | SetAttribute   |       0.5       |
 
-*Data consumption measured for typical operation scenarios*
+_Data consumption measured for typical operation scenarios_
 
 ## Integration Considerations
 
@@ -126,4 +126,4 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 
 ***
 
-*This performance analysis is based on VWO FE iOS SDK version 1.6.0. Performance characteristics may vary based on device specifications, network conditions, and implementation patterns.*
+_This performance analysis is based on&#x20;_&#x57;ingif&#x79;_&#x20;FE iOS SDK version 1.6.0. Performance characteristics may vary based on device specifications, network conditions, and implementation patterns._
