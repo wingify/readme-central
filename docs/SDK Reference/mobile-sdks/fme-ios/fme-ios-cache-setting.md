@@ -7,34 +7,34 @@ metadata:
 ---
 ## What is Caching of Settings?
 
-Caching of settings in the VWO FE iOS SDK refers to the ability to store and reuse configuration data locally on the device instead of fetching it from the VWO server every time. This includes feature flags, campaign configurations, and other settings that determine how your application behaves.
+Caching of settings in the Wingify FE iOS SDK refers to the ability to store and reuse configuration data locally on the device instead of fetching it from the Wingify server every time. This includes feature flags, campaign configurations, and other settings that determine how your application behaves.
 
 ### Benefits of Caching Settings:
 
 1. **Improved Performance**: Reduces network calls and latency by using locally stored settings
 2. **Offline Functionality**: Allows the SDK to function even when the device is offline
-3. **Reduced Server Load**: Minimizes the number of requests to VWO servers
+3. **Reduced Server Load**: Minimizes the number of requests to Wingify servers
 4. **Consistent User Experience**: Ensures users get the same experience across app sessions
 5. **Battery Efficiency**: Reduces battery consumption by minimizing network operations
 
 ## cachedSettingsExpiryTime Parameter
 
-The `cachedSettingsExpiryTime` parameter controls how long the cached settings remain valid before the SDK fetches fresh configuration from the VWO server.
+The `cachedSettingsExpiryTime` parameter controls how long the cached settings remain valid before the SDK fetches fresh configuration from the Wingify server.
 
 ### Type and Default Value:
 
-* **Type**: `Int64` (milliseconds)
-* **Default Value**: `nil` (caching disabled)
+- **Type**: `Int64` (milliseconds)
+- **Default Value**: `nil` (caching disabled)
 
 ### Behavior:
 
-* When set to `nil` (default): The SDK fetches fresh settings from the server on every initialization
-* When set to a positive value: The SDK uses cached settings until the specified time expires
-* When offline and cache expires: The SDK continues using expired cached settings to maintain functionality
+- When set to `nil` (default): The SDK fetches fresh settings from the server on every initialization
+- When set to a positive value: The SDK uses cached settings until the specified time expires
+- When offline and cache expires: The SDK continues using expired cached settings to maintain functionality
 
 ## How Caching Works
 
-1. **Initial Fetch**: When the SDK initializes, it fetches settings from the VWO server
+1. **Initial Fetch**: When the SDK initializes, it fetches settings from the Wingify server
 2. **Cache Storage**: Settings are stored in the application's private storage area
 3. **Cache Validation**: Before using cached settings, the SDK checks if they're still valid
 4. **Cache Refresh**: When cache expires, the SDK automatically fetches fresh settings
@@ -42,20 +42,22 @@ The `cachedSettingsExpiryTime` parameter controls how long the cached settings r
 
 ## Important Notes
 
-* Cached settings are stored in UserDefaults and persist between app launches.
-* When the cached settings expire, the SDK will fetch fresh settings from the VWO server during initialization.
-* If the device is offline and cached settings have expired, the SDK will still use the expired cached settings to ensure functionality.
-* Setting `cachedSettingsExpiryTime` to `nil` (the default value) disables caching, and the SDK will always fetch fresh settings from the server.
+- Cached settings are stored in UserDefaults and persist between app launches.
+- When the cached settings expire, the SDK will fetch fresh settings from the Wingify server during initialization.
+- If the device is offline and cached settings have expired, the SDK will still use the expired cached settings to ensure functionality.
+- Setting `cachedSettingsExpiryTime` to `nil` (the default value) disables caching, and the SDK will always fetch fresh settings from the server.
 
 ### How to Use `cachedSettingsExpiryTime`
 
-To utilize the `cachedSettingsExpiryTime` parameter, you need to initialize the VWO SDK with this option. Below is an example of how to set this up:
+To utilize the `cachedSettingsExpiryTime` parameter, you need to initialize the Wingify SDK with this option. Below is an example of how to set this up:
 
 **Example usage**
 
 ```swift Swift
-let options = VWOInitOptions(sdkKey: SDK_KEY,
+let options = WingifyInitOptions(sdkKey: SDK_KEY,
                              accountId: ACCOUNT_ID,
                              cachedSettingsExpiryTime: 600000) // in milliseconds
 
 ```
+
+<br />
