@@ -49,19 +49,19 @@ The `cachedSettingsExpiryTime` parameter controls how long the cached settings r
 ## Example Usage
 
 ```kotlin
-val options = VWOInitOptions()
+val options = WingifyInitOptions()
 options.sdkKey = "YOUR_SDK_KEY"
 options.accountId = YOUR_ACCOUNT_ID
 options.cachedSettingsExpiryTime = 3600000 // Cache for 1 hour (in milliseconds)
 options.context = applicationContext // Required for cache to work
 
-VWO.init(options, object : IVwoInitCallback {
-    override fun vwoInitSuccess(vwo: VWO, message: String?) {
-        // VWO initialization succeeded
+Wingify.init(options, object : IWingifyInitCallback {
+    override fun wingifyInitSuccess(wingify: Wingify, message: String?) {
+        // Wingify initialization succeeded
     }
 
-    override fun vwoInitFailed(message: String?) {
-        // VWO initialization failed
+    override fun wingifyInitFailed(message: String?) {
+        // Wingify initialization failed
     }
 })
 ```
