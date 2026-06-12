@@ -16,19 +16,19 @@ VWO FE SDKs help you integrate with several third-party tools, be it analytics, 
 
 ```php
 function callback($properties) {
-    // properties will contain all the required VWO specific information
+    // properties will contain all the required Wingify specific information
     echo json_encode($properties);
 }
 
 $options = [
     'sdkKey' => '32-alpha-numeric-sdk-key', // SDK Key
-    'accountId' => '12345', // VWO Account ID
+    'accountId' => '12345', // Wingify Account ID
     'integrations' => [
         'callback' => 'callback'
     ]
 ];
 
-$vwoClient = VWO::init($options);
+$wingifyClient = Wingify::init($options);
 ```
 
 ## Properties available to use for integrations
@@ -54,8 +54,7 @@ All VWO SDKs provide the following properties when a decision is made. This mean
 
 ```
 
-Different destinations have their own formats for integrating with them and using their respective methods/APIs. Please check the documentation of the respective third-party destination so that the above properties can be mapped accordingly before using the destination APIs.\
-This is the reason why VWO SDKs do not provide different libraries to connect with different third-party sources. You can simply refer to the third-party destination's documentation and connect VWO the way you want.
+Different destinations have their own formats for integrating with them and using their respective methods/APIs. Please check the documentation of the respective third-party destination so that the above properties can be mapped accordingly before using the destination APIs.<br />This is the reason why VWO SDKs do not provide different libraries to connect with different third-party sources. You can simply refer to the third-party destination's documentation and connect VWO the way you want.
 
 ## Which platforms I can integrate with?
 
@@ -64,3 +63,5 @@ Since VWO SDKs are platform agnostic, with the help of the above code snippets, 
 > 📘 Note
 >
 > Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
+
+<br />
