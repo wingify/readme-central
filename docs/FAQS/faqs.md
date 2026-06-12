@@ -27,7 +27,7 @@ List of Frequently Asked Questions:
 * [Why use Webhooks for updating settings-file and not Polling?](https://developers.vwo.com/docs/faqs#why-use-webhooks-for-updating-settings-file-and-not-polling)
 * [How to make sure you are running the latest version of the SDK?](https://developers.vwo.com/docs/faqs#how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
 * [Why is it important to use Persistent Storage when deploying to Production?](https://developers.vwo.com/docs/faqs#why-is-it-important-to-use-persistent-storage-when-deploying-to-production)
-* [What SDK calls are local and which ones send data to VWO?](https://developers.vwo.com/docs/faqs#what-sdk-calls-are-local-and-which-ones-send-data-to-vwo)
+* [What SDK calls are local and which ones send data to Wingify?](https://developers.vwo.com/docs/faqs#what-sdk-calls-are-local-and-which-ones-send-data-to-vwo)
 * [What latency do activate and track API calls add to my backend?](https://developers.vwo.com/docs/faqs#what-latency-do-activate-isfeatureenabled-and-track-api-calls-add-to-my-backend)
 * [Does Wingify support User aliasing?](https://developers.vwo.com/docs/faqs#does-vwo-support-user-aliasing)
 * [Do I need to modify my firewall when using Wingify FullStack?](https://developers.vwo.com/docs/faqs#do-i-need-to-modify-my-firewall-when-using-vwo-fullstack)
@@ -58,7 +58,7 @@ As there is no client-side custom code execution, using a FullStack campaign is 
 
 All the computations like deciding user eligibility for a campaign and variation assignment to a user are carried out by smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.vwo.com/docs/core-concepts#how-bucketing-works).
 
-VWO also ensures that all of our SDKs give the same output. The bucketing user is language-agnostic.
+Wingify also ensures that all of our SDKs give the same output. The bucketing user is language-agnostic.
 
 ## How does Wingify bucket the same users across platforms?
 
@@ -66,7 +66,7 @@ We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash
 
 ## Why is it important to use Persistent Storage when deploying to Production?
 
-VWO FullStack testing offers multi-platform testing i.e. you can run omnichannel tests to track and boost conversions. For this, Wingify SDKs only require a unique identifier for the user using your application. As long as the identifier is the same, SDKs will provide consistent results without any need for storing anything either at your end or VWO's end.
+Wingify FullStack testing offers multi-platform testing i.e. you can run omnichannel tests to track and boost conversions. For this, Wingify SDKs only require a unique identifier for the user using your application. As long as the identifier is the same, SDKs will provide consistent results without any need for storing anything either at your end or Wingify's end.
 
 We recommend using a Persistent Storage Service at your end in the following scenarios:
 
@@ -86,7 +86,7 @@ Please check the following:
 
 For detailed information on how SDK is working, please check the logs by enabling them or writing a custom logger.
 
-## What SDK calls are local and which ones send data to VWO?
+## What SDK calls are local and which ones send data to Wingify?
 
 Following calls are responsible for tracking data from the server where SDK is implemented to the Wingify server:
 
@@ -404,7 +404,7 @@ Here is the list of various languages we offer which SDKs and the minimum versio
 
 ## Can we track a goal with the same identifier in multiple campaigns at once?
 
-VWO SDKs provide an API to track a particular goal of a campaign or the same goal across multiple campaigns. Please refer to **track** API.
+Wingify SDKs provide an API to track a particular goal of a campaign or the same goal across multiple campaigns. Please refer to **track** API.
 
 ## Can we batch impression events?
 
@@ -1331,7 +1331,7 @@ There might be scenarios when you have a situation like the following:
 * Initially, users who land on my website are not logged in what User ID should I use for them? 
 * Once they log in I have a different User ID for them. How do I manage this situation?
 
-VWO SDKs operate on User ID. As long as the user ID is the same, SDKs will output consistent results, thereby, providing omnichannel testing support. If you have different IDs associated with the same user, please pass only one of them always or create another unique identifier that identifies the same user(logged-out vs logged-in) and pass it always. Wingify currently does not provide a way to alias the multiple User IDs associated with the same user.
+Wingify SDKs operate on User ID. As long as the user ID is the same, SDKs will output consistent results, thereby, providing omnichannel testing support. If you have different IDs associated with the same user, please pass only one of them always or create another unique identifier that identifies the same user(logged-out vs logged-in) and pass it always. Wingify currently does not provide a way to alias the multiple User IDs associated with the same user.
 
 ## Do I need to modify my firewall when using Wingify FullStack?
 

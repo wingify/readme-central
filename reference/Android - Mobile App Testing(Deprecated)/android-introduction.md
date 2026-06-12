@@ -223,7 +223,7 @@ From the Mobile App A/B menu option, select your campaign and click on **DETAILE
 
 ## Source Code
 
-VWO Android SDK code is available on GitHub:\
+Wingify Android SDK code is available on GitHub:\
 [https://github.com/wingify/vwo-android](https://github.com/wingify/vwo-android)
 
 ## Next Steps

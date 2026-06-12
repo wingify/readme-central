@@ -14,7 +14,7 @@ Data warehouses are an integral part of modern organizations used for reporting 
 
 We have made it possible to enrich the BI with the Wingify Testing campaign’s data allowing you to visualize Wingify Testing campaigns with in-house dashboards and reports.
 
-VWO has released the capability to set up a permanent export pipeline to the two most popular Storage services, Google Cloud Storage (GCS) & Amazon S3 which connect seamlessly with popular Data Warehouses.
+Wingify has released the capability to set up a permanent export pipeline to the two most popular Storage services, Google Cloud Storage (GCS) & Amazon S3 which connect seamlessly with popular Data Warehouses.
 
 > 📘 Note
 >

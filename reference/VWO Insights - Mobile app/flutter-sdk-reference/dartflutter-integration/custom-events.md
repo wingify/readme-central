@@ -16,7 +16,7 @@ To transmit custom events to Wingify via Flutter, create key-value pairs using t
 
 ```javascript Dart
 final Map<String, dynamic> addToCartEvent = Map();
-addToCartEvent["productName"]="VWO Insights";
+addToCartEvent["productName"]="Wingify Insights";
 addToCartEvent["productQuantity"]=1;
 
 VwoFlutter.sendCustomEvent("addToCart", addToCartEvent);

@@ -29,7 +29,7 @@ The request flow when using a custom proxy is as follows:
    The Wingify SDK sends all API and data collection requests to the proxy server, using the `proxyUrl` specified in `getSettingsFile()` method. Check the <Anchor label="Configuration" target="_blank" href="https://developers.vwo.com/docs/proxy-url-prevent-ad-blockers?isFramePreview=true#configuration-example">Configuration</Anchor> Section for more details
 2. **Proxy Server → Wingify Backend**\
    Your proxy server receives the SDK request and forwards it to the appropriate Wingify endpoint.
-3. **VWO Backend → Proxy Server**\
+3. **Wingify Backend → Proxy Server**\
    Wingify processes the incoming request, generates a response (e.g., experiment data), and sends it back to your proxy.
 4. **Proxy Server → SDK**\
    Your proxy server relays the response from Wingify back to the SDK, completing the round trip.
@@ -40,11 +40,11 @@ flowchart TD
     B -- Yes --> C["Rewrite URL with Proxy"]
     B -- No --> D["Direct to Wingify Servers"]
     C --> E["Request via Proxy Server"]
-    E --> G["Proxy Forwards to VWO"]
-    D --> F["Direct Request to VWO"]
-    G --> H["VWO Processes Request"]
+    E --> G["Proxy Forwards to Wingify"]
+    D --> F["Direct Request to Wingify"]
+    G --> H["Wingify Processes Request"]
     F --> H
-    H --> I["VWO Response"]
+    H --> I["Wingify Response"]
     I --> J["SDK Processes Response"]
     C -. Bypasses Ad Blockers .-> E
 

@@ -34,5 +34,5 @@ Run the `pod install ` command. Click [here](https://developers.vwo.com/referenc
 
 **For iOS App**\
 After installing the SDK, you can initialize the app in the `AppDelegate` file by using the `didFinishLaunchingWithOptions` method.\
-Import VWO, and then call the `launchForAPIKey` method by using your App Key.\
+Import Wingify, and then call the `launchForAPIKey` method by using your App Key.\
 Click [here](https://developers.vwo.com/reference#ios-launching-sdk) for detailed instructions.

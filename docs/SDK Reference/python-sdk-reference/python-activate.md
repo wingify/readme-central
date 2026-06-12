@@ -141,8 +141,8 @@ vwo_client_instance = vwo.launch(settings_file)
 # user_id: how you identify a particular user
 # custom_variables: pre-segmentation variables (Optional)
 # variation_targeting_variables: pre-segmentation variables (Optional)
-# user_agent: userAgent of visitor to use segmentation on VWO
-# user_ip_address: IpAddress of visitor to use segmentation on VWO
+# user_agent: userAgent of visitor to use segmentation on Wingify
+# user_ip_address: IpAddress of visitor to use segmentation on Wingify
 
 variation_name = vwo_client_instance.activate(campaign_key, user_id, 
                                               custom_variables = custom_variables,

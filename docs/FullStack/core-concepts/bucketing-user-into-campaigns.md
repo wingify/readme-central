@@ -18,5 +18,5 @@ APIs exposed by different Wingify SDKs accept the User Identifier along with the
 >
 > When traffic distribution, number of variations, and their respective weights of two or more campaigns are the same, they are referred to as *similar campaigns*. Pre-segmentation, whitelisting, or other things could vary.
 
-VWO SDKs bucket the same user differently into different campaigns to prevent the same user from getting the same variation in all the similar campaigns.\
+Wingify SDKs bucket the same user differently into different campaigns to prevent the same user from getting the same variation in all the similar campaigns.\
 But there could also be scenarios when you would like to bucket the same user to bucket into the same variation in different similar campaigns. To achieve this, you can toggle the option in the campaign settings. Please check this [doc](https://developers.vwo.com/docs/campaign-bucketing-seed) for more details.

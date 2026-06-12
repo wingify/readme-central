@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-VWO SDKs help you integrate with a number of third-party destinations. SDKs help you integrate with any kind of tool, be it analytics, monitoring, customer data platforms, and messaging, etc. by implementing a very basic and generic hook that is capable of receiving Wingify specific properties.
+Wingify SDKs help you integrate with a number of third-party destinations. SDKs help you integrate with any kind of tool, be it analytics, monitoring, customer data platforms, and messaging, etc. by implementing a very basic and generic hook that is capable of receiving Wingify specific properties.
 
 ## Do I need to install any library to integrate with the destination?
 

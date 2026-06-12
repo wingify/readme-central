@@ -12,7 +12,7 @@ next:
 ---
 Pushes a custom dimension for a particular user to the Wingify server. It is used for post-segmenting the data in the campaign reports.
 
-Read [here](https://help.vwo.com/hc/en-us/articles/360038019054-Creating-a-Custom-Dimension-in-VWO) on how to create custom dimension in VWO
+Read [here](https://help.vwo.com/hc/en-us/articles/360038019054-Creating-a-Custom-Dimension-in-VWO) on how to create custom dimension in Wingify
 
 > 📘 Note:
 >

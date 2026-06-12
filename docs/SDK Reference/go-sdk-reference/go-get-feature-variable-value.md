@@ -24,7 +24,7 @@ The API method:
 * Checks if User Storage Service is provided to know whether the user is returning. If yes, show the previously assigned variation always.
 * Checks whether the user is eligible for the campaign based on pre-segmentation conditions.
 * Checks whether the user qualifies to become a part of the campaign based on traffic allocation.
-* Does not send any impression event to VWO.
+* Does not send any impression event to Wingify.
 * Returns the feature variable value.
 
 The API method requires a campaign unique-key *campaignKey*, *variableKey* and a User ID - *userId*. You can also pass other flags under the *options* key.

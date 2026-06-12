@@ -150,8 +150,8 @@ A boolean value based on whether the impression was made to the Wingify server.
 // options: (Optional)
 //   customVariables: pre-segmentation variables
 //   variationTargetingVariables: forced variation variables
-//.  userAgent: userAgent of visitor to use segmentation on VWO
-//   userIpAddress: IpAddress of visitor to use segmentation on VWO
+//.  userAgent: userAgent of visitor to use segmentation on Wingify
+//   userIpAddress: IpAddress of visitor to use segmentation on Wingify
 
 var options = {
   customVariables: {},
@@ -184,7 +184,7 @@ When you want to track a goal having the same identifier across multiple campaig
 >
 > A goal is considered to be the **same** when the goal identifier used for that goal is same across the multiple campaigns, irrespective of the type of campaign i.e. A/B or Feature Test Campaign.
 
-VWO offer two types of goal i.e. **Conversion** and **Revenue**, which can be configured inside Wingify application.
+Wingify offer two types of goal i.e. **Conversion** and **Revenue**, which can be configured inside Wingify application.
 
 > 📘 Tracking goal across campaigns only if goal-type is same
 >

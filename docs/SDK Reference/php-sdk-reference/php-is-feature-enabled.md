@@ -140,8 +140,8 @@ A boolean indicating whether the feature is enabled for the user.
 // options: (Optional)
 //   customVariables: pre-segmentation variables
 //   variationTargetingVariables: forced variation variables
- //.  userAgent: userAgent of visitor to use segmentation on VWO
-//   userIpAddress: IpAddress of visitor to use segmentation on VWO
+ //.  userAgent: userAgent of visitor to use segmentation on Wingify
+//   userIpAddress: IpAddress of visitor to use segmentation on Wingify
 
 $options = [];
 $options["customVariables"] = [];

@@ -14,7 +14,7 @@ Each Wingify SDK client corresponds to the *settings file* representing the curr
 
 ## Description
 
-VWO SDK is a helper for executing various FullStack capabilities. It requires a certain set of settings for its work. These settings are related to your FullStack campaigns you create or update in the Wingify application.\
+Wingify SDK is a helper for executing various FullStack capabilities. It requires a certain set of settings for its work. These settings are related to your FullStack campaigns you create or update in the Wingify application.\
 So, before [instantiating](https://developers.vwo.com/docs/python-launch) the Wingify SDK, *settings file* needs to be fetched.
 
 The method accepts two parameters:

@@ -12,7 +12,7 @@ next:
 ---
 List of Frequently Asked Questions:
 
-* [What are Mobile Recordings in VWO, and how do they work?](https://developers.vwo.com/reference/mobile-insights-faqs#what-are-mobile-recordings-in-vwo-and-how-do-they-work)
+* [What are Mobile Recordings in Wingify, and how do they work?](https://developers.vwo.com/reference/mobile-insights-faqs#what-are-mobile-recordings-in-vwo-and-how-do-they-work)
 * [What is the maximum duration of the saved recording?](https://developers.vwo.com/reference/mobile-insights-faqs#what-is-the-maximum-duration-of-the-saved-recording)
 * [When does a recording start?](https://developers.vwo.com/reference/mobile-insights-faqs#when-does-a-recording-start)
 * [When does a recording session expire?](https://developers.vwo.com/reference/mobile-insights-faqs#when-does-a-recording-session-expire)
@@ -26,7 +26,7 @@ List of Frequently Asked Questions:
 * [How to make sure you are running the latest version of the SDK?](https://developers.vwo.com/reference/mobile-insights-faqs#how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
 * [Do I need to modify my firewall when using Wingify Mobile Insight?](https://developers.vwo.com/reference/mobile-insights-faqs#do-i-need-to-modify-my-firewall-when-using-vwo-fullstack)
 
-## What are Mobile Recordings in VWO, and how do they work?
+## What are Mobile Recordings in Wingify, and how do they work?
 
 The Mobile Recordings module in Wingify allows you to record visitor interactions with your mobile application in the form of video. These recordings show how the visitors interact with your mobile application by capturing various gestures like single tap, double tap, zoom, fling, scroll, etc. They work based on [sampling](https://help.vwo.com/hc/en-us/articles/360034213994).
 
@@ -36,7 +36,7 @@ The maximum duration of a recording session is 2 hours. Therefore, no new data i
 
 ## When does a recording start?
 
-Once the Mobile Recordings feature is enabled and configured in VWO, the session recordings are triggered as soon as a visitor uses the app, provided the user has been sampled.
+Once the Mobile Recordings feature is enabled and configured in Wingify, the session recordings are triggered as soon as a visitor uses the app, provided the user has been sampled.
 
 ## When does a recording session expire?
 
@@ -56,7 +56,7 @@ By default, Wingify records all the screens of your mobile application. However,
 
 ## How does Wingify affect my application speed?
 
-VWO Mobile Insights SDKs are built in such a way that they track users' journeys and actions very efficiently. By integrating our SDKs, your current app will not be impacted. Once you have initialized the SDKs, they will start tracking the necessary information, batches it, and sync periodically with Wingify servers to show the session recordings on the Wingify dashboard. SDKs use the event-driven approach to capture different user actions and other information like app crashes, application not responding, etc., and smartly replay them on the dashboard.
+Wingify Mobile Insights SDKs are built in such a way that they track users' journeys and actions very efficiently. By integrating our SDKs, your current app will not be impacted. Once you have initialized the SDKs, they will start tracking the necessary information, batches it, and sync periodically with Wingify servers to show the session recordings on the Wingify dashboard. SDKs use the event-driven approach to capture different user actions and other information like app crashes, application not responding, etc., and smartly replay them on the dashboard.
 
 We have benchmarked our SDKs and below is the impact analysis for different SDKs:
 

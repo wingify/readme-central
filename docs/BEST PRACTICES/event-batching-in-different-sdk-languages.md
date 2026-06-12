@@ -21,4 +21,4 @@ Configuring event batching also helps in:
 
 Without event batching, impression events are sent to Wingify in real-time to be get reflected instantaneously in the campaign reports.
 
-With event batching, the campaign reports will only be updated once the batch-events request is sent from your server to the VWO's server.
+With event batching, the campaign reports will only be updated once the batch-events request is sent from your server to the Wingify's server.

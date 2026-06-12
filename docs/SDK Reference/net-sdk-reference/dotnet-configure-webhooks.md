@@ -37,7 +37,7 @@ To get notified about the change in the settings file, all you need to do is-ena
 * Eliminates the need to frequently fetch the latest campaign settings file that reduces the load on your servers.
 * Eliminates the possibility of using the old campaign settings file if not fetched in short intervals.
 
-## Enabling Webhooks in VWO
+## Enabling Webhooks in Wingify
 
 If you wish to get notified whenever there is a change in campaign settings, enable the Webhooks feature. 
 
@@ -56,7 +56,7 @@ If you wish to get notified whenever there is a change in campaign settings, ena
 
 ## Securing Webhooks with API key based authentication
 
-While configuring the webhook, you can secure it by generating a secret key which will be sent in the **x-vwo-auth** header of the POST request by VWO. You can then compare this key at your end to authenticate that the requests are sent by Wingify and not by any other third-party service. In case you want to generate a new key for the webhook, you can do that from the Wingify app.
+While configuring the webhook, you can secure it by generating a secret key which will be sent in the **x-vwo-auth** header of the POST request by Wingify. You can then compare this key at your end to authenticate that the requests are sent by Wingify and not by any other third-party service. In case you want to generate a new key for the webhook, you can do that from the Wingify app.
 
 > 📘 Secure your Secret Key
 >
@@ -94,7 +94,7 @@ public async Task<string> webhook()
         PayLoad = await reader.ReadToEndAsync();
     }
     
-    logger.WriteLog(LogLevel.DEBUG, "VWO webhook payload: " + PayLoad);
+    logger.WriteLog(LogLevel.DEBUG, "Wingify webhook payload: " + PayLoad);
     
     if (string.IsNullOrEmpty(Defaults.WebhookSecretKey) == false)
     {
@@ -102,8 +102,8 @@ public async Task<string> webhook()
 
         if (Request.Headers["x-vwo-auth"].ToString() != Defaults.WebhookSecretKey)
         {
-            logger.WriteLog(LogLevel.DEBUG, "VWO webhook authentication failed. Please check.");
-            return "VWO webhook authentication failed. Please check.";
+            logger.WriteLog(LogLevel.DEBUG, "Wingify webhook authentication failed. Please check.");
+            return "Wingify webhook authentication failed. Please check.";
         }
 
         if (VWOClient != null)

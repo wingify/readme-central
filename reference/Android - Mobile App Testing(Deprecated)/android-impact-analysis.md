@@ -17,11 +17,11 @@ This page tracks the impact of Wingify SDK for different parameters on your app.
 The SDK can be initialized in two ways: synchronous and asynchronous.
 
 * Asynchronous Initialisation: has no impact on the launch time of your app, as SDK is launched in the background. Asynchronous initialisation is the recommended method.
-* Synchronous Initialisation: In Synchronous initialization, the SDK makes a networking call to fetch settings from VWO's CDN. This can block the main thread for a maximum of three seconds. The thread resumes to normal execution after the response from the CDN.
+* Synchronous Initialisation: In Synchronous initialization, the SDK makes a networking call to fetch settings from Wingify's CDN. This can block the main thread for a maximum of three seconds. The thread resumes to normal execution after the response from the CDN.
 
 ## API Calls
 
-VWO SDK makes three types of API calls to Wingify CDN. 
+Wingify SDK makes three types of API calls to Wingify CDN. 
 
 * To fetch settings at the time of SDK initialization. The SDK makes only one call to fetch settings. If this call fails, the SDK does not retry to fetch settings during an ongoing app session. This is done to keep the app behaviour consistent during an ongoing session.
 * To inform Wingify when a user becomes part of a campaign. If this call fails, the SDK keeps a track of it and try to send it again after some time.

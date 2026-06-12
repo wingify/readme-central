@@ -22,7 +22,7 @@ There are scenarios, depending on the implementation and requirements, when a ce
 >
 > Without event batching, impression events are sent to Wingify in real-time to be get reflected instantaneously in the campaign reports.
 >
-> With event batching, the campaign reports will only be updated once the batch events request is sent from your server to VWO.
+> With event batching, the campaign reports will only be updated once the batch events request is sent from your server to Wingify.
 
 ## Real-time(Serial) vs Batch Events
 
@@ -36,7 +36,7 @@ Event Batching, as opposed to real-time events, requires a setting to decide whe
 
 ## Configure Event Batching
 
-VWO SDKs provide two ways to configure when events should be sent to Wingify servers. This can be done only while instantiating the SDK by passing ***batch\_events*** key along with one or both of the following keys.
+Wingify SDKs provide two ways to configure when events should be sent to Wingify servers. This can be done only while instantiating the SDK by passing ***batch\_events*** key along with one or both of the following keys.
 
 1. ***events\_per\_request*** - number of events that should be batched together and sent to Wingify server in a single network request. Until this number is not reached, all events will be queued.
 2. ***request\_time\_interval*** - Send a request to Wingify server after batching events only when the oldest event in the queue has lived for the specified time interval.
@@ -127,7 +127,7 @@ Following are the APIs that will push an event into the batch queue:
 
 If the above-mentioned limits exceed in any case, Wingify server will reject the request responding with status code *413* and message *Payload size too large*. Try with a smaller events number by reducing *events\_per\_request* or setting a smaller interval via *request\_time\_interval*.
 
-VWO SDKs also provide a functionality to call a function upon successful/failure batch network request to Wingify server. You can pass ***flushCallback*** in *batch\_events* config at the time of launching the SDK.
+Wingify SDKs also provide a functionality to call a function upon successful/failure batch network request to Wingify server. You can pass ***flushCallback*** in *batch\_events* config at the time of launching the SDK.
 
 <Table align={["left","left","left","left","left"]}>
   <thead>
@@ -198,7 +198,7 @@ Since Wingify SDKs queue the events and are sent in a network request only upon 
 
 This is also helpful in cases where your server abruptly or gracefully gets closed. Ensure to flush the events to Wingify so that there would be no data loss on server termination.
 
-VWO SDKs have introduced a new API on the client's instance. The name of the API is ***flush\_events*** .\
+Wingify SDKs have introduced a new API on the client's instance. The name of the API is ***flush\_events*** .\
 It makes sure to flush the queue irrespective of the ***batch\_events*** configuration so that events could be successfully reached to Wingify server without any data loss. Any timers associated would also be cleared.
 
 **flush\_events** API

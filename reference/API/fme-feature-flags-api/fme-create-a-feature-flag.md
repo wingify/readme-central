@@ -46,7 +46,7 @@ POST /accounts/123456/features
         {
             "variableName": "variable3",
             "dataType": "json",
-            "defaultValue": { "name": "VWO", "description": "Description" }
+            "defaultValue": { "name": "Wingify", "description": "Description" }
         }
     ]
 }

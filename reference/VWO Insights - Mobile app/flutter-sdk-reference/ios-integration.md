@@ -29,10 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the Wingify account
      		 switch result{
 		     case .success(_):
-    	 			print("VWO launched successfull")
+    	 			print("Wingify launched successfull")
 		        VWO.startSessionRecording() // For starting recording
 		     case .failure(let error):
-        		print("VWO launched failed \(error)")
+        		print("Wingify launched failed \(error)")
 		      }
 		   }	
        return true

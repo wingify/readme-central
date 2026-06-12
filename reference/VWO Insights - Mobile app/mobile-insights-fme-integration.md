@@ -12,7 +12,7 @@ next:
 ---
 # Introduction
 
-This guide outlines the integration process for the **[VWO Insights Mobile SDK](https://developers.vwo.com/reference/mobile-insights-introduction) and [VWO Feature Experimentation SDK](https://developers.vwo.com/v2/docs/fme-overview)** to ensure seamless session data synchronization.
+This guide outlines the integration process for the **[Wingify Insights Mobile SDK](https://developers.vwo.com/reference/mobile-insights-introduction) and [Wingify Feature Experimentation SDK](https://developers.vwo.com/v2/docs/fme-overview)** to ensure seamless session data synchronization.
 
 With this integration, customers can **link session data** between Wingify Insights Mobile SDK and Wingify FME SDK, enabling **post-segmentation of session data** based on various attributes. This empowers them to analyze user behavior more effectively, identify friction points, and optimize user experiences with precise insights.
 
@@ -28,14 +28,14 @@ Benefits of Integrating Both SDKs:
 Before integrating, ensure the following:
 
 * You have access to the latest versions of both SDKs.
-* You have already added **VWO Insights Mobile SDK** and **VWO FME SDK** separately in your application.
-* You have your **VWO Insights Mobile SDK API key** and **VWO FME SDK credentials** along with the **AccountId** and unique **USER\_ID**
+* You have already added **Wingify Insights Mobile SDK** and **Wingify FME SDK** separately in your application.
+* You have your **Wingify Insights Mobile SDK API key** and **Wingify FME SDK credentials** along with the **AccountId** and unique **USER\_ID**
 
 ## Integration
 
 While integrating both SDKs, ensure the following:
 
-* Implement the **Session Callback** as shown and pass the received session data to the **VWO FME SDK** for session validation.
+* Implement the **Session Callback** as shown and pass the received session data to the **Wingify FME SDK** for session validation.
 
 ```kotlin
 private fun getSessionCallback(): IVwoSessionCallback {
@@ -62,7 +62,7 @@ VWO.linkFme(sessionCallback: self, userId: "")
 ```
 
 * **Initialize the Wingify Insights Mobile SDK first**, as it handles session recording and tracking.
-* **Wait for a successful initialization callback** from Wingify Insights before starting the **VWO FME SDK** to avoid misalignment in session data.
+* **Wait for a successful initialization callback** from Wingify Insights before starting the **Wingify FME SDK** to avoid misalignment in session data.
 * **Start session recording before initializing the Wingify FME SDK** to ensure all interactions are captured correctly.
 
 ## Step 1: Configure and Initialize the Wingify Insights Mobile SDK
@@ -126,7 +126,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, VWOSessionCallback {
                 // Init Wingify FME SDK
                 self.initVWOFME()
             case .failure(_):
-                print("VWO Insights initialization failed")
+                print("Wingify Insights initialization failed")
             }
         })
     }
@@ -143,7 +143,7 @@ private fun initVWOFME() {
     vwoInitOptions.context = this@VWOApplication.applicationContext
 
     VWO.init(vwoInitOptions, object : com.vwo.interfaces.IVwoInitCallback {
-        override fun vwoInitSuccess(vwoClient: VWO, message: String) {
+        override fun vwoInitSuccess(vwoClient: Wingify, message: String) {
             // use vwoClient to invoke Wingify FME SDK APIs
         }
 
@@ -162,7 +162,7 @@ private fun initVWOFME() {
     vwoInitOptions.context = this@VWOApplication.applicationContext
 
     VWO.init(vwoInitOptions, object : com.vwo.interfaces.IVwoInitCallback {
-        override fun vwoInitSuccess(vwoClient: VWO, message: String) {
+        override fun vwoInitSuccess(vwoClient: Wingify, message: String) {
             // use vwoClient to invoke Wingify FME SDK APIs
         }
 
@@ -196,4 +196,4 @@ func vwoScreenCaptureSessionDidUpdate(sessionDetails: [String : Any]) {
 
 # Summary
 
-This document outlines integrating the **VWO Insights Mobile SDK** and **VWO FME SDK** in both **Android** and **iOS** applications. Developers can ensure accurate tracking and analysis for experiments and feature rollouts by linking the session data between both SDKs.
+This document outlines integrating the **Wingify Insights Mobile SDK** and **Wingify FME SDK** in both **Android** and **iOS** applications. Developers can ensure accurate tracking and analysis for experiments and feature rollouts by linking the session data between both SDKs.

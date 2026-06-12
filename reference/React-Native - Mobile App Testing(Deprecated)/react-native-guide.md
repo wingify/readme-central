@@ -327,7 +327,7 @@ VWO.trackConversionWithValue(goal, 133.25);
 
 Pushes a custom dimension for a particular user to the Wingify server. It is used for post-segmenting the data in the campaign reports.
 
-Read [here](https://help.vwo.com/hc/en-us/articles/360038019054-Creating-a-Custom-Dimension-in-VWO) on how to create custom dimension in VWO
+Read [here](https://help.vwo.com/hc/en-us/articles/360038019054-Creating-a-Custom-Dimension-in-VWO) on how to create custom dimension in Wingify
 
 The API method accepts a custom dimension key - *customDimensionKey* and custom dimension value - *customDimensionValue*.
 
@@ -362,7 +362,7 @@ VWO.setLogLevel(VWO.logLevelDebug);
 
 ## Opt out
 
-To opt out of tracking by VWO, use `config` object to set OptOut to true or false. This `config` object is passed when `VWO.launch` function is called.
+To opt out of tracking by Wingify, use `config` object to set OptOut to true or false. This `config` object is passed when `VWO.launch` function is called.
 
 ```javascript
 var config = {optOut: false}
@@ -377,7 +377,7 @@ From the **Mobile App A/B** menu, select your campaign and click **Detailed Repo
 
 ## Source Code
 
-VWO React-Native Library code is available on GitHub:\
+Wingify React-Native Library code is available on GitHub:\
 [https://github.com/wingify/vwo-react-native](https://github.com/wingify/vwo-react-native)
 
 ## Next Steps

@@ -141,8 +141,8 @@ The name of the variation in which the user is bucketed, or null if the user doe
 // options: (Optional)
 //   customVariables: pre-segmentation variables
 //   variationTargetingVariables: forced variation variables
-//.  userAgent: userAgent of visitor to use segmentation on VWO
-//   userIpAddress: IpAddress of visitor to use segmentation on VWO
+//.  userAgent: userAgent of visitor to use segmentation on Wingify
+//   userIpAddress: IpAddress of visitor to use segmentation on Wingify
 
 var options = {
   customVariables: {},

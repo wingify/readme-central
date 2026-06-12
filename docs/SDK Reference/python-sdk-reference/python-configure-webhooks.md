@@ -31,7 +31,7 @@ To get notified about the change in the settings file, all you need to do is-ena
 * Eliminates the need to frequently fetch the latest campaign settings file that reduces the load on your servers.
 * Eliminates the possibility of using the old campaign settings file if not fetched in short intervals.
 
-## Enabling Webhooks in VWO
+## Enabling Webhooks in Wingify
 
 If you wish to get notified whenever there is a change in campaign settings, enable the Webhooks feature. 
 
@@ -50,7 +50,7 @@ If you wish to get notified whenever there is a change in campaign settings, ena
 
 ## Securing Webhooks with API key based authentication
 
-While configuring the webhook, you can secure it by generating a secret key which will be sent in the **x-vwo-auth** header of the POST request by VWO. You can then compare this key at your end to authenticate that the requests are sent by Wingify and not by any other third-party service. In case you want to generate a new key for the webhook, you can do that from the Wingify app.
+While configuring the webhook, you can secure it by generating a secret key which will be sent in the **x-vwo-auth** header of the POST request by Wingify. You can then compare this key at your end to authenticate that the requests are sent by Wingify and not by any other third-party service. In case you want to generate a new key for the webhook, you can do that from the Wingify app.
 
 > 📘 Secure your Secret Key
 >
@@ -91,10 +91,10 @@ def webhook():
     
     if WEBHOOK_AUTH_KEY and request.headers.get('x-vwo-auth'):
         if WEBHOOK_AUTH_KEY != request.headers.get('x-vwo-auth'):
-            print('VWO Webhook authentication failed')
+            print('Wingify Webhook authentication failed')
             abort(401)
         else:
-            print('VWO Webhook authentication successful')
+            print('Wingify Webhook authentication successful')
     else:
         print('Skipping authentication as missing webhook authentication key')
 

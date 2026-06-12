@@ -18,9 +18,9 @@ next:
 
 **❌ No new features, enhancements, or non-critical updates will be added.**
 
-### Switch to *VWO Feature Experimentation* – The Better Alternative! 🚀
+### Switch to *Wingify Feature Experimentation* – The Better Alternative! 🚀
 
-VWO’s Feature Experimentation empowers teams to seamlessly test, release, optimize, and roll back features across their entire tech stack while minimizing risk and maximizing business impact.
+Wingify’s Feature Experimentation empowers teams to seamlessly test, release, optimize, and roll back features across their entire tech stack while minimizing risk and maximizing business impact.
 
 * Check out Feature Experimentation developer documentation [here](https://developers.vwo.com/v2/docs/fme-overview).
 * Check [this](https://developers.vwo.com/v2/docs/sdks-release-info) for the list of all FE-supported SDKs.

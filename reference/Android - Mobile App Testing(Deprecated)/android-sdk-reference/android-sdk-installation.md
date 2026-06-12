@@ -42,7 +42,7 @@ dependencies {
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
 
-## ProGuard Configuration to work with VWO
+## ProGuard Configuration to work with Wingify
 
 If you are using Proguard for building Android projects, it may cause an error while compiling the build. To avoid such errors, you can add the following code snippet to the proguard-rules.pro file:
 

@@ -33,10 +33,10 @@ func application(
     ) { result in
         switch result {
         case .success(_):
-            print("VWO launched successfully")
+            print("Wingify launched successfully")
             VWO.startSessionRecording()
         case .failure(let error):
-            print("VWO launch failed: \(error)")
+            print("Wingify launch failed: \(error)")
         }
     }
 

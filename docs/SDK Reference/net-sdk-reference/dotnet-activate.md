@@ -146,8 +146,8 @@ IVWOClient vwoClientInstance = VWO.Instantiate(settingsFile);
 // options: (Optional)
 //   customVariables: pre-segmentation variables
 //   variationTargetingVariables: forced variation variables
-//.  userAgent: send userAgent of visitor to use segmentation on VWO
-//   userIpAddress: send IpAddress of visitor to use segmentation on VWO
+//.  userAgent: send userAgent of visitor to use segmentation on Wingify
+//   userIpAddress: send IpAddress of visitor to use segmentation on Wingify
 
 public static Dictionary<string, dynamic> options = new Dictionary<string, dynamic>()
 {

@@ -53,7 +53,7 @@ public class MyApp extends FlutterApplication {
           
             @Override
             public void vwoInitFailed(String message) {
-                //Could not initialise VWO, log it as desired
+                //Could not initialise Wingify, log it as desired
             }
           
         }, config);
@@ -83,7 +83,7 @@ class MyApp : FlutterApplication() {
             }
  
             override fun vwoInitFailed(s: String) {
-                //Could not initialise VWO, log it as desired
+                //Could not initialise Wingify, log it as desired
             }
         }, configuration)
     }

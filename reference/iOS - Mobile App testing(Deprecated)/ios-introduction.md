@@ -178,7 +178,7 @@ In the mobile app A/B menu option, select your campaign, and then click **DETAIL
 
 ## Source Code
 
-VWO iOS SDK code is available on GitHub:\
+Wingify iOS SDK code is available on GitHub:\
 [https://github.com/wingify/vwo-ios-sdk](https://github.com/wingify/vwo-ios-sdk)
 
 ## Next Steps

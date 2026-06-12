@@ -358,7 +358,7 @@ window.VWOCordovaPlugin.setLogLevel(window.VWOCordovaPlugin.logLevelDebug);
 
 ## 5 Opt-out
 
-To opt out of tracking by VWO, use `config` object to set OptOut to true or false. This `config` object is passed when `VWOCordovaPlugin.launch` or `VWOCordovaPlugin.launchSynchronously` function is called.
+To opt out of tracking by Wingify, use `config` object to set OptOut to true or false. This `config` object is passed when `VWOCordovaPlugin.launch` or `VWOCordovaPlugin.launchSynchronously` function is called.
 
 ```javascript
 var config = {optOut: false}

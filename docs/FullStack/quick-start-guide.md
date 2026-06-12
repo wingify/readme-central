@@ -22,7 +22,7 @@ Learn more about how to use [SDK](https://developers.vwo.com/docs/sdk-quickstart
 
 ## Core Concepts
 
-Check out the [end-to-end flow](https://developers.vwo.com/docs/core-concepts#how-vwo-fullstack-sdks-work-end-to-end) of SDK and how [VWO buckets user to a variation](https://developers.vwo.com/docs/core-concepts#how-bucketing-works).
+Check out the [end-to-end flow](https://developers.vwo.com/docs/core-concepts#how-vwo-fullstack-sdks-work-end-to-end) of SDK and how [Wingify buckets user to a variation](https://developers.vwo.com/docs/core-concepts#how-bucketing-works).
 
 ## Source Code
 

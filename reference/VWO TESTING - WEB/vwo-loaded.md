@@ -12,7 +12,7 @@ next:
 ---
 ### Overview
 
-VWO loading on a page can be broken down into three main steps:
+Wingify loading on a page can be broken down into three main steps:
 
 * **Loading Campaigns**: The Wingify SmartCode retrieves all campaigns eligible for the current URL from the server.
 * **Library Initialization**: The Wingify library is loaded. As it loads, it executes all eligible campaigns for which the relevant page elements have already been loaded.

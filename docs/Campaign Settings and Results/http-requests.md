@@ -149,7 +149,7 @@ List of all HTTP requests that are made to Wingify server for various purposes.
       </td>
 
       <td style={{ textAlign: "left" }}>
-        Wingify SDK batches different events like track-user, track-goal, and push and sends to VWO.
+        Wingify SDK batches different events like track-user, track-goal, and push and sends to Wingify.
       </td>
 
       <td style={{ textAlign: "left" }}>

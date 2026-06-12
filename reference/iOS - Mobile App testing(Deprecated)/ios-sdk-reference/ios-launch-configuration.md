@@ -49,7 +49,7 @@ VWO.launch(apiKey: "<your-api-key>", config: config
 
 ## Configure Wingify CDN for China
 
-VWO initialization supports Wingify Chinese CDN in order to prevent tracking calls being getting blocked in China. This can be achieved by configuring the SDK at the time of instantiating it.
+Wingify initialization supports Wingify Chinese CDN in order to prevent tracking calls being getting blocked in China. This can be achieved by configuring the SDK at the time of instantiating it.
 
 ```objectivec
 VWOConfig *config = [VWOConfig new];

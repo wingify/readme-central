@@ -18,7 +18,7 @@ To ensure that a user on your website who is part of one campaign does not becom
 
 Some campaigns may have variations that would be absurd if presented together. For example, one campaign is running to see the effects of discounts on specific products, while another compares performance when a blanket discount is provided. There is a chance that a user can experience variations where they get a discount for specific products and are also presented with a blanket discount from the other campaign. These users have a better upside and hence you have introduced a bias in both the campaigns. You can avoid that by making the campaign mutually exclusive, you can ensure that users are shown either product-specific discounts from Campaign 1 or blanket discounts from Campaign 2. This will help ensure that improvements in conversion rates from specific campaigns are attributed correctly to that campaign.
 
-Using the Mutually Exclusive Groups option in VWO, you can group multiple campaigns together that are mutually exclusive. By ensuring that your users are not exposed to multiple campaigns running on the same page, you can keep the reports clean, attribute the change in conversion rate to the correct campaign, remove bias, and avoid overlapping users across campaigns. 
+Using the Mutually Exclusive Groups option in Wingify, you can group multiple campaigns together that are mutually exclusive. By ensuring that your users are not exposed to multiple campaigns running on the same page, you can keep the reports clean, attribute the change in conversion rate to the correct campaign, remove bias, and avoid overlapping users across campaigns. 
 
 > 🚧
 >
@@ -36,7 +36,7 @@ For unrelated campaigns, it does not matter if your users become a part of more 
 
 ## Create a Mutually Exclusive Group
 
-To learn about configuring the mutually exclusive campaign groups in VWO, refer to [How to Set Up Mutually Exclusive Campaign Groups in VWO](https://developers.vwo.com/docs/mutually-exclusive-campaigns).
+To learn about configuring the mutually exclusive campaign groups in Wingify, refer to [How to Set Up Mutually Exclusive Campaign Groups in Wingify](https://developers.vwo.com/docs/mutually-exclusive-campaigns).
 
 ## How SDK evaluates
 
