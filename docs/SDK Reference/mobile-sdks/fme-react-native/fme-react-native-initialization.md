@@ -10,29 +10,29 @@ metadata:
 next:
   description: ''
 ---
-To create a VWO Client instance, you need to initialize the VWO FE React Native SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
+To create a Wingify Client instance, you need to initialize the Wingify FE React Native SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
 
 ## Usage
 
 ```javascript JavaScript
-import { init } from 'vwo-fme-react-native-sdk';
+import { init } from 'wingify-fme-react-native-sdk';
 
 import {
-  VWOInitOptions,
-  VWOContext,
+  WingifyInitOptions,
+  WingifyContext,
   GetFlagResult,
-} from 'vwo-fme-react-native-sdk/src/types';
+} from 'wingify-fme-react-native-sdk/src/types';
 
-let vwoClient;;
+let WingifyClient;;
 
 // initialize sdk
 useEffect(() => {
 
     const initializeSDK = async () => {
-      const options: VWOInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID };
+      const options: WingifyInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID };
       try {
-        vwoClient = await init(options);
-        console.log('VWO init success');
+        WingifyClient = await init(options);
+        console.log('Wingify init success');
       } catch (error) {
         console.error('Error initialising', error);
       }
@@ -42,8 +42,7 @@ useEffect(() => {
 }, []);
 ```
 
-The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature\
-This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client ObjectWingify`Client`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -68,7 +67,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **accountId**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -76,14 +75,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Your VWO application's Account ID.
+        Your Wingify application's Account ID.
       </td>
     </tr>
 
     <tr>
       <td>
         **sdkKey**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -91,14 +90,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.
+        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under **_Default Project_**.
       </td>
     </tr>
 
     <tr>
       <td>
         **logLevel**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -113,7 +112,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **logPrefix**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -128,7 +127,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **integrations**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -143,7 +142,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **cachedSettingsExpiryTime**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -158,7 +157,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **pollInterval**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -166,14 +165,14 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
+        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
       </td>
     </tr>
 
     <tr>
       <td>
         **batchMinSize**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -188,7 +187,7 @@ This client object allows you to run experiments, track events, and enable/disab
     <tr>
       <td>
         **batchUploadTimeInterval**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -204,34 +203,34 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Additional Callbacks
 
-* Integration Callback: Use `VWO.registerIntegrationCallback` to manage integration events. [Refer documentation](https://developers.vwo.com/v2/docs/fme-react-native-integrations)
-* Log Callback: Use `VWO.registerLogCallback` to capture and handle log events. [Refer documentation](https://developers.vwo.com/v2/docs/fme-react-native-logging)
+- Integration Callback: Use `Wingify.registerIntegrationCallback` to manage integration events. [Refer documentation](https://developers.vwo.com/v2/docs/fme-react-native-integrations)
+- Log Callback: Use `Wingify.registerLogCallback` to capture and handle log events. [Refer documentation](https://developers.vwo.com/v2/docs/fme-react-native-logging)
 
 ### Polling Interval Adjustment
 
-The `pollInterval` is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
+The `pollInterval` is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
 Example usage:
 
 ```javascript
-const options: VWOInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, pollInterval: 600000 }; // 10 minutes
-vwoClient = await init(options);
+const options: WingifyInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, pollInterval: 600000 }; // 10 minutes
+WingifyClient = await init(options);
 ```
 
 ### Cached Settings Expiry Time
 
-The `cachedSettingsExpiryTime` parameter allows you to specify how long the cached settings should be considered valid before fetching new settings from the VWO server. This helps in managing the freshness of the configuration data.
+The `cachedSettingsExpiryTime` parameter allows you to specify how long the cached settings should be considered valid before fetching new settings from the Wingify server. This helps in managing the freshness of the configuration data.
 
 Example usage:
 
 ```javascript
-const options: VWOInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, cachedSettingsExpiryTime: 600000 }; // 10 minutes
-vwoClient = await init(options);
+const options: WingifyInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, cachedSettingsExpiryTime: 600000 }; // 10 minutes
+WingifyClient = await init(options);
 ```
 
 ### Event Batching Configuration
 
-The VWO SDK supports storing impression events while the device is offline, ensuring no data loss. These events are batched and seamlessly synchronized with VWO servers once the device reconnects to the internet. Additionally, online event batching allows synchronization of impression events while the device is online. This feature can be configured by setting either the minimum batch size or the batch upload time interval during SDK initialization.
+The Wingify SDK supports storing impression events while the device is offline, ensuring no data loss. These events are batched and seamlessly synchronized with Wingify servers once the device reconnects to the internet. Additionally, online event batching allows synchronization of impression events while the device is online. This feature can be configured by setting either the minimum batch size or the batch upload time interval during SDK initialization.
 
 #### NOTE: The batching will trigger based on whichever condition is met first if using both options.
 
@@ -243,6 +242,8 @@ The VWO SDK supports storing impression events while the device is offline, ensu
 Example usage:
 
 ```javascript
-const options: VWOInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, batchMinSize: 10, batchUploadTimeInterval: 300000 }; // 5 minutes
-vwoClient = await init(options);
+const options: WingifyInitOptions = { sdkKey: SDK_KEY, accountId: ACCOUNT_ID, batchMinSize: 10, batchUploadTimeInterval: 300000 }; // 5 minutes
+WingifyClient = await init(options);
 ```
+
+<br />
