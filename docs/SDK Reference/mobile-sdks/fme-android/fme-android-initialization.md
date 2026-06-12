@@ -22,11 +22,11 @@ initOptions.accountId = ACCOUNT_ID
 // Initialize Wingify SDK
 Wingify.init(initOptions, object : IWingifyInitCallback {
     override fun wingifyInitSuccess(wingify: Wingify, message: String) {
-        // VWO SDK initialized
+        // Wingify SDK initialized
     }
 
     override fun wingifyInitFailed(message: String) {
-        // VWO SDK failed to initialize
+        // Wingify SDK failed to initialize
     }
 })
 ```
@@ -44,12 +44,12 @@ initOptions.setAccountId(ACCOUNT_ID);
 Wingify.init(initOptions, new IWingifyInitCallback() {
     @Override
     public void wingifyInitSuccess(@NonNull Wingify wingify, @NonNull String message) {
-        // VWO SDK Initialized
+        // Wingify SDK Initialized
     }
 
     @Override
     public void wingifyInitFailed(@NonNull String message) {
-        // VWO SDK failed to initialize
+        // Wingify SDK failed to initialize
     }
 });
 ```
@@ -71,7 +71,7 @@ The `init()` method is called with the `sdkKey`and `accountId`. It initializes a
 | **batchMinSize** _Optional_             | Integer | Uploads are triggered when the batch reaches this minimum size.                                                                                                                                                                                                                                                            |
 | **batchUploadTimeInterval** _Optional_  | Integer | Specifies the time interval (in milliseconds) for periodic batch uploads.                                                                                                                                                                                                                                                  |
 
-### Poll Interval (Keeping VWO client up-to-date)
+### Poll Interval (Keeping Wingify client up-to-date)
 
 When you initialize the _vwoClient_ on your mobile, it pulls the latest configurations you've done in the VWO application.<br />If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized on your mobile, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
@@ -83,7 +83,7 @@ wingifyInitOptions.sdkKey = SDK_KEY
 wingifyInitOptions.accountId = ACCOUNT_ID
 wingifyInitOptions.pollInterval = POLL_INTERVAL // in milliseconds
 
-// Initialize VWO SDK
+// Initialize Wingify SDK
 Wingify.init(wingifyInitOptions, object : IWingifyInitCallback {
     override fun wingifyInitSuccess(wingify: Wingify, message: String) {
         // Wingify SDK initialized
@@ -95,21 +95,21 @@ Wingify.init(wingifyInitOptions, object : IWingifyInitCallback {
 })
 ```
 ```java
-VWOInitOptions vwoInitOptions = new WingifyInitOptions();
-vwoInitOptions.setSdkKey(SDK_KEY);
-vwoInitOptions.setAccountId(ACCOUNT_ID);
-vwoInitOptions.setPollInterval(POLL_INTERVAL); // in milliseconds
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
+wingifyInitOptions.setSdkKey(SDK_KEY);
+wingifyInitOptions.setAccountId(ACCOUNT_ID);
+wingifyInitOptions.setPollInterval(POLL_INTERVAL); // in milliseconds
 
-// Initialize VWO SDK
-VWO.init(vwoInitOptions, new IVwoInitCallback() {
+// Initialize Wingify SDK
+Wingify.init(wingifyInitOptions, new IWingifyInitCallback() {
     @Override
     public void wingifyInitSuccess(@NonNull Wingify wingify, @NonNull String message) {
-        // VWO SDK Initialized
+        // Wingify SDK Initialized
     }
 
     @Override
     public void wingifyInitFailed(@NonNull String message) {
-        // VWO SDK failed to initialize
+        // Wingify SDK failed to initialize
     }
 });
 ```
@@ -149,14 +149,14 @@ val integrations = object : IntegrationCallback {
 }
 wingifyInitOptions.integrations = integrations
 
-// Initialize VWO SDK
+// Initialize Wingify SDK
 Wingify.init(wingifyInitOptions, object : IWingifyInitCallback {
-    override fun wingifyInitSuccess(vwo: VWO, message: String) {
-        // VWO SDK initialized
+    override fun wingifyInitSuccess(wingify: Wingify, message: String) {
+        // Wingify SDK initialized
     }
 
     override fun wingifyInitFailed(message: String) {
-        // VWO SDK failed to initialize
+        // Wingify SDK failed to initialize
     }
 })
 ```
@@ -168,21 +168,21 @@ IntegrationCallback integrations = new IntegrationCallback() {
             }
         };
 
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setSdkKey("sdkKey");
-vwoInitOptions.setAccountId(12345);
-vwoInitOptions.setIntegrations(integrations);
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
+wingifyInitOptions.setSdkKey("sdkKey");
+wingifyInitOptions.setAccountId(12345);
+wingifyInitOptions.setIntegrations(integrations);
 
-// Initialize VWO SDK
-VWO.init(vwoInitOptions, new IVwoInitCallback() {
+// Initialize Wingify SDK
+Wingify.init(wingifyInitOptions, new IWingifyInitCallback() {
     @Override
-    public void vwoInitSuccess(@NonNull VWO vwo, @NonNull String message) {
-        // VWO SDK Initialized
+    public void wingifyInitSuccess(@NonNull Wingify wingify, @NonNull String message) {
+        // Wingify SDK Initialized
     }
 
     @Override
-    public void vwoInitFailed(@NonNull String message) {
-        // VWO SDK failed to initialize
+    public void wingifyInitFailed(@NonNull String message) {
+        // Wingify SDK failed to initialize
     }
 });
 ```
@@ -196,39 +196,39 @@ The `cachedSettingsExpiryTime` parameter allows you to specify how long the cach
 Usage:
 
 ```kotlin
-// Initialize VWOInitOptions with a custom cached settings expiry time
-val vwoInitOptions = VWOInitOptions()
-vwoInitOptions.sdkKey = SDK_KEY
-vwoInitOptions.accountId = ACCOUNT_ID
-vwoInitOptions.cachedSettingsExpiryTime = 600000
+// Initialize WingifyInitOptions with a custom cached settings expiry time
+val wingifyInitOptions = WingifyInitOptions()
+wingifyInitOptions.sdkKey = SDK_KEY
+wingifyInitOptions.accountId = ACCOUNT_ID
+wingifyInitOptions.cachedSettingsExpiryTime = 600000
 
-// Create VWO instance with the vwoInitOptions
-init(vwoInitOptions, object : IVwoInitCallback {
-    override fun vwoInitSuccess(vwoClient: VWO, message: String) {
-        this@MyActivity.vwoClient = vwoClient
+// Create Wingify instance with the wingifyInitOptions
+init(wingifyInitOptions, object : IWingifyInitCallback {
+    override fun wingifyInitSuccess(wingifyClient: Wingify, message: String) {
+        this@MyActivity.wingifyClient = wingifyClient
     }
 
-    override fun vwoInitFailed(message: String) {
+    override fun wingifyInitFailed(message: String) {
         //Initialization failed
     }
 })
 ```
 ```java
-// Initialize VWOInitOptions with a custom cached settings expiry time
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setSdkKey(SDK_KEY);
-vwoInitOptions.setAccountId(ACCOUNT_ID);
-vwoInitOptions.setCachedSettingsExpiryTime(600000);
+// Initialize WingifyInitOptions with a custom cached settings expiry time
+wingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
+wingifyInitOptions.setSdkKey(SDK_KEY);
+wingifyInitOptions.setAccountId(ACCOUNT_ID);
+wingifyInitOptions.setCachedSettingsExpiryTime(600000);
 
-// Create VWO instance with the vwoInitOptions
-init(vwoInitOptions, new IVwoInitCallback() {
+// Create Wingify instance with the wingifyInitOptions
+init(wingifyInitOptions, new IWingifyInitCallback() {
     @Override
-    public void vwoInitSuccess(@NonNull VWO vwoClient, @NonNull String message) {
-        MyActivity.this.vwoClient = vwoClient;
+    public void wingifyInitSuccess(@NonNull Wingify wingifyClient, @NonNull String message) {
+        MyActivity.this.wingifyClient = wingifyClient;
     }
 
     @Override
-    public void vwoInitFailed(@NonNull String message) {
+    public void wingifyInitFailed(@NonNull String message) {
         //Initialization failed
     }
 });
@@ -250,41 +250,41 @@ See [Event Batching](https://developers.vwo.com/v2/docs/event-batching#/) docume
 Usage:
 
 ```kotlin
-// Initialize VWOInitOptions with batch configuration
-val vwoInitOptions = VWOInitOptions()
-vwoInitOptions.sdkKey = SDK_KEY
-vwoInitOptions.accountId = ACCOUNT_ID
-vwoInitOptions.batchMinSize = 10
-vwoInitOptions.batchUploadTimeInterval = 300000
+// Initialize WingifyInitOptions with batch configuration
+val wingifyInitOptions = WingifyInitOptions()
+wingifyInitOptions.sdkKey = SDK_KEY
+wingifyInitOptions.accountId = ACCOUNT_ID
+wingifyInitOptions.batchMinSize = 10
+wingifyInitOptions.batchUploadTimeInterval = 300000
 
-// Create VWO instance with the vwoInitOptions
-init(vwoInitOptions, object : IVwoInitCallback {
-    override fun vwoInitSuccess(vwoClient: VWO, message: String) {
-        this@MyActivity.vwoClient = vwoClient
+// Create Wingify instance with the wingifyInitOptions
+init(wingifyInitOptions, object : IWingifyInitCallback {
+    override fun wingifyInitSuccess(wingifyClient: Wingify, message: String) {
+        this@MyActivity.wingifyClient = wingifyClient
     }
 
-    override fun vwoInitFailed(message: String) {
+    override fun wingifyInitFailed(message: String) {
         //Initialization failed
     }
 })
 ```
 ```java
-// Initialize VWOInitOptions with batch configuration
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setSdkKey(SDK_KEY);
-vwoInitOptions.setAccountId(ACCOUNT_ID);
-vwoInitOptions.setBatchMinSize(10);
-vwoInitOptions.setBatchUploadTimeInterval(300000);
+// Initialize WingifyInitOptions with batch configuration
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
+wingifyInitOptions.setSdkKey(SDK_KEY);
+wingifyInitOptions.setAccountId(ACCOUNT_ID);
+wingifyInitOptions.setBatchMinSize(10);
+wingifyInitOptions.setBatchUploadTimeInterval(300000);
 
-// Create VWO instance with the vwoInitOptions
-init(vwoInitOptions, new IVwoInitCallback() {
+// Create Wingify instance with the wingifyInitOptions
+init(wingifyInitOptions, new IWingifyInitCallback() {
     @Override
-    public void vwoInitSuccess(@NonNull VWO vwoClient, @NonNull String message) {
-        MyActivity.this.vwoClient = vwoClient;
+    public void wingifyInitSuccess(@NonNull Wingify wingifyClient, @NonNull String message) {
+        MyActivity.this.wingifyClient = wingifyClient;
     }
 
     @Override
-    public void vwoInitFailed(@NonNull String message) {
+    public void wingifyInitFailed(@NonNull String message) {
         //Initialization failed
     }
 });
