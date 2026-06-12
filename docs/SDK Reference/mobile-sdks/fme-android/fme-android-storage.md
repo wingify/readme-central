@@ -33,36 +33,36 @@ The SDK uses Android's `SharedPreferences` API for built-in storage, which provi
 ### Example Usage with Built-in Storage
 
 ```kotlin
-val options = VWOInitOptions()
+val options = WingifyInitOptions()
 options.sdkKey = "YOUR_SDK_KEY"
 options.accountId = YOUR_ACCOUNT_ID
 options.context = applicationContext // Required for built-in storage
 
-VWO.init(options, object : IVwoInitCallback {
-    override fun vwoInitSuccess(vwo: VWO, message: String?) {
-        // VWO initialization succeeded
+Wingify.init(options, object : IWingifyInitCallback {
+    override fun wingifyInitSuccess(wingify: Wingify, message: String?) {
+        // Wingify initialization succeeded
     }
 
-    override fun vwoInitFailed(message: String?) {
-        // VWO initialization failed
+    override fun wingifyInitFailed(message: String?) {
+        // Wingify initialization failed
     }
 })
 ```
 ```java
-VWOInitOptions options = new VWOInitOptions();
+WingifyInitOptions options = new WingifyInitOptions();
 options.setSdkKey("YOUR_SDK_KEY");
 options.setAccountId(YOUR_ACCOUNT_ID);
 options.setContext(getApplicationContext()); // Required for built-in storage
 
-VWO.init(options, new IVwoInitCallback() {
+Wingify.init(options, new IWingifyInitCallback() {
     @Override
-    public void vwoInitSuccess(VWO vwo, String message) {
-        // VWO initialization succeeded
+    public void wingifyInitSuccess(Wingify wingify, String message) {
+        // Wingify initialization succeeded
     }
 
     @Override
-    public void vwoInitFailed(String message) {
-        // VWO initialization failed
+    public void wingifyInitFailed(String message) {
+        // Wingify initialization failed
     }
 });
 ```
@@ -106,18 +106,18 @@ class CustomStorageConnector : Connector() {
 }
 
 // Usage
-val options = VWOInitOptions()
+val options = WingifyInitOptions()
 options.sdkKey = "YOUR_SDK_KEY"
 options.accountId = YOUR_ACCOUNT_ID
 options.storage = CustomStorageConnector()
 
-VWO.init(options, object : IVwoInitCallback {
-    override fun vwoInitSuccess(vwo: VWO, message: String?) {
-        // VWO initialization succeeded
+Wingify.init(options, object : IWingifyInitCallback {
+    override fun wingifyInitSuccess(wingify: Wingify, message: String?) {
+        // Wingify initialization succeeded
     }
 
-    override fun vwoInitFailed(message: String?) {
-        // VWO initialization failed
+    override fun wingifyInitFailed(message: String?) {
+        // Wingify initialization failed
     }
 })
 ```
@@ -147,20 +147,20 @@ public class CustomStorageConnector extends Connector {
 }
 
 // Usage
-VWOInitOptions options = new VWOInitOptions();
+WingifyInitOptions options = new WingifyInitOptions();
 options.setSdkKey("YOUR_SDK_KEY");
 options.setAccountId(YOUR_ACCOUNT_ID);
 options.setStorage(new CustomStorageConnector());
 
-VWO.init(options, new IVwoInitCallback() {
+Wingify.init(options, new IWingifyInitCallback() {
     @Override
-    public void vwoInitSuccess(VWO vwo, String message) {
-        // VWO initialization succeeded
+    public void wingifyInitSuccess(Wingify wingify, String message) {
+        // Wingify initialization succeeded
     }
 
     @Override
-    public void vwoInitFailed(String message) {
-        // VWO initialization failed
+    public void wingifyInitFailed(String message) {
+        // Wingify initialization failed
     }
 });
 ```
