@@ -20,18 +20,18 @@ import Wingify_FME
 // Set SDK Key and Account ID
 let options = WingifyInitOptions(accountId: ACCOUNT_ID, sdkKey: SDK_KEY)
 
-// Initialize VWO SDK
+// Initialize Wingify SDK
 WingifyFme.initialize(options: options) { result in
     switch result {
         case .success(let message):
-            // VWO SDK initialized
+            // Wingify SDK initialized
         case .failure(let error):
-            // VWO SDK failed to initialize
+            // Wingify SDK failed to initialize
     }
 }
 ```
 
-The `initialize()` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object`vwoClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `initialize()` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object Wingify`Client`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -79,7 +79,7 @@ The `initialize()` function is called with the `sdkKey`and `accountId`. It initi
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **_Default Project_**.
+        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under **_Default Project_**.
       </td>
     </tr>
 
@@ -154,7 +154,7 @@ The `initialize()` function is called with the `sdkKey`and `accountId`. It initi
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
+        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
       </td>
     </tr>
 
@@ -207,7 +207,7 @@ The `initialize()` function is called with the `sdkKey`and `accountId`. It initi
 
 ### Integrations
 
-VWO SDKs help you integrate with several third-party destinations. SDKs help you integrate with any kind of tool, be it analytics, monitoring, customer data platforms, messaging, etc. by implementing a very basic and generic callback that is capable of receiving VWO-specific properties.
+Wingify SDKs help you integrate with several third-party destinations. SDKs help you integrate with any kind of tool, be it analytics, monitoring, customer data platforms, messaging, etc. by implementing a very basic and generic callback that is capable of receiving Wingify-specific properties.
 
 Example usage:
 
@@ -267,7 +267,7 @@ See [Polling](https://developers.vwo.com/v2/docs/polling) documentation for addi
 
 ### Cached Settings Expiry Time
 
-The `cachedSettingsExpiryTime` parameter allows you to specify how long the cached settings should be considered valid before fetching new settings from the VWO server. This helps in managing the freshness of the configuration data.
+The `cachedSettingsExpiryTime` parameter allows you to specify how long the cached settings should be considered valid before fetching new settings from the Wingify server. This helps in managing the freshness of the configuration data.
 
 Example usage:
 
@@ -278,7 +278,7 @@ let options = WingifyInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, cachedS
 
 ### Event Batching Configuration
 
-The VWO SDK supports storing impression events while the device is offline, ensuring no data loss. These events are batched and seamlessly synchronized with VWO servers once the device reconnects to the internet. Additionally, online event batching allows synchronization of impression events while the device is online. This feature can be configured by setting either the minimum batch size or the batch upload time interval during SDK initialization.
+The Wingify SDK supports storing impression events while the device is offline, ensuring no data loss. These events are batched and seamlessly synchronized with Wingify servers once the device reconnects to the internet. Additionally, online event batching allows synchronization of impression events while the device is online. This feature can be configured by setting either the minimum batch size or the batch upload time interval during SDK initialization.
 
 #### NOTE: The uploading of events will get triggered based on whichever condition is met first if using both options.
 
