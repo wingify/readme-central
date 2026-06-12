@@ -26,12 +26,10 @@ To integrate the FE .NET SDK into your application, run the following command th
 
 ```javascript Shell
 ## Using .NET CLI
-dotnet add package VWO.FE.Sdk
-
+dotnet add package Wingify.FME.Sdk
 
 ### Using Package Manager
-PM> Install-Package VWO.FE.Sdk
-
+PM> Install-Package Wingify.FME.Sdk
 ```
 
 ## Source Code
