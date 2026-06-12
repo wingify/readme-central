@@ -18,30 +18,30 @@ Metrics in FE are based on "Custom Events" that you can create in VWO > Data360>
 
 Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet:
 
-## _**Track Event**_ API
+## **_Track Event_** API
 
 This API sends data to VWO whenever a defined user action occurs. The captured event data can be used to:
 
-* Measure the success of experiments (e.g., conversion rates).
-* Track key performance indicators (KPIs), such as sign-ups or purchases.
-* Analyze user engagement with new features or content.
-* Trigger real-time personalization based on user behavior.
+- Measure the success of experiments (e.g., conversion rates).
+- Track key performance indicators (KPIs), such as sign-ups or purchases.
+- Analyze user engagement with new features or content.
+- Trigger real-time personalization based on user behavior.
 
 ### How It Works:
 
 When this API is executed:
 
-* The application sends the event name and user details to VWO’s platform.
-* VWO logs the event and associates it with ongoing experiments or feature rollouts.
-* The collected data is then available in VWO’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
+- The application sends the event name and user details to VWO’s platform.
+- VWO logs the event and associates it with ongoing experiments or feature rollouts.
+- The collected data is then available in VWO’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
 
 ### Why It’s Valuable:
 
-* _Conversion Tracking_: Measure how many users complete desired actions, like purchases or sign-ups.
-* _Experiment Analysis_: Evaluate the performance of different variations in A/B tests.
-* _User Behavior Insights_: Understand how users interact with features and content.
-* _Personalization Triggers_: Deliver dynamic content based on real-time user actions.
-* _Performance Optimization_: Identify friction points in the user journey to improve the overall experience.
+- _Conversion Tracking_: Measure how many users complete desired actions, like purchases or sign-ups.
+- _Experiment Analysis_: Evaluate the performance of different variations in A/B tests.
+- _User Behavior Insights_: Understand how users interact with features and content.
+- _Personalization Triggers_: Deliver dynamic content based on real-time user actions.
+- _Performance Optimization_: Identify friction points in the user journey to improve the overall experience.
 
 ## Usage
 
@@ -49,7 +49,7 @@ When this API is executed:
 // Record a metric conversion for the specified event without any additional properties.
 // 'event_name' is the name of the event to be tracked.
 // The 'user_context' ensures the event is associated with the correct user.
-trackResponse, err := vwoClient.TrackEvent("purchase", context)
+trackResponse, err := wingifyClient.TrackEvent("purchase", context)
 
 // Record a metric conversion for the specified event with additional properties.
 // Set 'event_properties' to provide custom attributes for the event (e.g., 'userType' to specify the type of user).
@@ -57,7 +57,7 @@ eventProperties := map[string]interface{}{
     "revenue":  100.50,
     "currency": "USD",
 }
-trackResponse, err := vwoClient.TrackEvent("purchase", context, eventProperties)
+trackResponse, err := wingifyClient.TrackEvent("purchase", context, eventProperties)
 ```
 
 ## Parameters Definition
@@ -82,7 +82,7 @@ trackResponse, err := vwoClient.TrackEvent("purchase", context, eventProperties)
   <tbody>
     <tr>
       <td>
-        **event_name**
+        **event\_name**
         _Required_
       </td>
 
@@ -117,7 +117,7 @@ trackResponse, err := vwoClient.TrackEvent("purchase", context, eventProperties)
       </td>
 
       <td>
-        map[string]interface{}
+        map\[string]interface{}
       </td>
 
       <td>
