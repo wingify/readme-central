@@ -14,34 +14,34 @@ Every feature flag that you create can have connected metrics that can be used t
 
 For each feature flag, you need to define at least one "Primary Metric", and you can set up as many secondary metrics as you'd like.
 
-Metrics in FE are based on "Custom Events" that you can create in VWO > Data360>Events. All the custom events created in Data360 will be available to be used as metrics in your feature flags.
+Metrics in FE are based on "Custom Events" that you can create in Wingify > Data360>Events. All the custom events created in Data360 will be available to be used as metrics in your feature flags.
 
 Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet:
 
-## ***Track Event*** API
+## **_Track Event_** API
 
-This API sends data to VWO whenever a defined user action occurs. The captured event data can be used to:
+This API sends data to Wingify whenever a defined user action occurs. The captured event data can be used to:
 
-* Measure the success of experiments (e.g., conversion rates).
-* Track key performance indicators (KPIs), such as sign-ups or purchases.
-* Analyze user engagement with new features or content.
-* Trigger real-time personalization based on user behavior.
+- Measure the success of experiments (e.g., conversion rates).
+- Track key performance indicators (KPIs), such as sign-ups or purchases.
+- Analyze user engagement with new features or content.
+- Trigger real-time personalization based on user behavior.
 
 ### How It Works:
 
 When this API is executed:
 
-* The application sends the event name and user details to VWO’s platform.
-* VWO logs the event and associates it with ongoing experiments or feature rollouts.
-* The collected data is then available in VWO’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
+- The application sends the event name and user details to Wingify’s platform.
+- Wingify logs the event and associates it with ongoing experiments or feature rollouts.
+- The collected data is then available in Wingify’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
 
 ### Why It’s Valuable:
 
-* *Conversion Tracking*: Measure how many users complete desired actions, like purchases or sign-ups.
-* *Experiment Analysis*: Evaluate the performance of different variations in A/B tests.
-* *User Behavior Insights*: Understand how users interact with features and content.
-* *Personalization Triggers*: Deliver dynamic content based on real-time user actions.
-* *Performance Optimization*: Identify friction points in the user journey to improve the overall experience.
+- _Conversion Tracking_: Measure how many users complete desired actions, like purchases or sign-ups.
+- _Experiment Analysis_: Evaluate the performance of different variations in A/B tests.
+- _User Behavior Insights_: Understand how users interact with features and content.
+- _Personalization Triggers_: Deliver dynamic content based on real-time user actions.
+- _Performance Optimization_: Identify friction points in the user journey to improve the overall experience.
 
 ## Usage
 
@@ -49,12 +49,12 @@ When this API is executed:
 // Record a metric conversion for the specified event without any additional properties.
 // 'event_name' is the name of the event to be tracked.
 // The 'user_context' ensures the event is associated with the correct user.
-vwoClient.trackEvent('event-name', userContext);
+WingifyClient.trackEvent('event-name', userContext);
 
 // Record a metric conversion for the specified event with additional properties.
 // Set 'event_properties' to provide custom attributes for the event (e.g., 'userType' to specify the type of user).
 const eventProperties = { userType: "paid" }
-vwoClient.trackEvent('event_name', userContext, eventProperties);
+WingifyClient.trackEvent('event_name', userContext, eventProperties);
 
 ```
 
@@ -81,7 +81,7 @@ vwoClient.trackEvent('event_name', userContext, eventProperties);
     <tr>
       <td>
         **event\_name**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -89,14 +89,13 @@ vwoClient.trackEvent('event_name', userContext, eventProperties);
       </td>
 
       <td>
-        The unique event name you will see when creating the event in Data360. When the trackEvent() function is called, it will record a metric conversion in VWO for the given event name.
+        The unique event name you will see when creating the event in Data360. When the trackEvent() function is called, it will record a metric conversion in Wingify for the given event name.
       </td>
     </tr>
 
     <tr>
       <td>
-        **userContext**\
-        *Required*
+        **userContext**<br />_Required_
       </td>
 
       <td>
@@ -110,8 +109,7 @@ vwoClient.trackEvent('event_name', userContext, eventProperties);
 
     <tr>
       <td>
-        **eventProperties**\
-        *Optional*
+        **eventProperties**<br />_Optional_
       </td>
 
       <td>
@@ -119,7 +117,7 @@ vwoClient.trackEvent('event_name', userContext, eventProperties);
       </td>
 
       <td>
-        Any properties of this event that you wish to pass to VWO. E.g: for a "purchase" event, some properties could be "cartValue", "currency", "shippingMethod" etc. These must be passed as key-value pairs, and the property name should exactly match what you set while creating the event in VWO > Data360>Events.
+        Any properties of this event that you wish to pass to Wingify. E.g: for a "purchase" event, some properties could be "cartValue", "currency", "shippingMethod" etc. These must be passed as key-value pairs, and the property name should exactly match what you set while creating the event in Wingify > Data360>Events.
       </td>
     </tr>
   </tbody>
@@ -127,4 +125,6 @@ vwoClient.trackEvent('event_name', userContext, eventProperties);
 
 > 🚧 Note
 >
-> The *Event* must already be defined in the VWO Application for this otherwise an unregistered won't get tracked in VWO application. Please refer [this](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO) KB article to know more on how to create and manage events in VWO application.
+> The _Event_ must already be defined in the Wingify Application for this otherwise an unregistered won't get tracked in Wingify application. Please refer [this](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO) KB article to know more on how to create and manage events in Wingify application.
+
+<br />
