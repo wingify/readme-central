@@ -19,24 +19,23 @@ To create a VWO Client instance, you need to initialize the VWO FE Java SDK. Thi
 ## Usage
 
 ```java Java
-import com.vwo.VWO;
-import com.vwo.models.user.VWOInitOptions;
+import com.wingify.Wingify;
+import com.wingify.models.user.WingifyInitOptions;
 
-// Initialize VWO SDK
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
+// Initialize Wingify SDK
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
 
 // Set SDK Key and Account ID
-vwoInitOptions.setSdkKey("sdk-key"); //SDK Key
-vwoInitOptions.setAccountId(123); //account ID
+wingifyInitOptions.setSdkKey("sdk-key"); //SDK Key
+wingifyInitOptions.setAccountId(123); //account ID
 
-// create VWO instance with the vwoInitOptions
-VWO vwoClient = VWO.init(vwoInitOptions);
+// create Wingify instance with the wingifyInitOptions
+Wingify wingifyClient = Wingify.init(wingifyInitOptions);
 ```
 
-An object of `VWOInitOptions` is created to store the SDK configuration details.
+An object of `wingifyInitOptions` is created to store the SDK configuration details.
 
-The `init()` function is called with the `vwoInitOptions` object. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
-This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` function is called with the `wingifyInitOptions` object. It initializes and returns a VWO Client Object `wingifyClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -69,7 +68,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        `vwoInitOptions.setAccountId(123);`
+        `wingifyInitOptions.setAccountId(123);`
       </td>
 
       <td>
@@ -83,12 +82,11 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **sdkKey**  
-        _Required_
+        **sdkKey**<br />_Required_
       </td>
 
       <td>
-        `vwoInitOptions.setSdkKey("sdk-key");`
+        `wingifyInitOptions.setSdkKey("sdk-key");`
       </td>
 
       <td>
@@ -96,18 +94,17 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **_Default Project_**.
       </td>
     </tr>
 
     <tr>
       <td>
-        **pollInterval**  
-        _Optional_
+        **pollInterval**<br />_Optional_
       </td>
 
       <td>
-        `vwoInitOptions.setPollInterval(60);`
+        `wingifyInitOptions.setPollInterval(60);`
       </td>
 
       <td>
@@ -121,12 +118,11 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **logger**  
-        _Optional_
+        **logger**<br />_Optional_
       </td>
 
       <td>
-        `vwoInitOptions.setLogger(logger);`
+        `wingifyInitOptions.setLogger(logger);`
       </td>
 
       <td>
@@ -140,12 +136,11 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **storage**  
-        _Optional_
+        **storage**<br />_Optional_
       </td>
 
       <td>
-        `vwoInitOptions.setStorage(storage)`
+        `wingifyInitOptions.setStorage(storage)`
       </td>
 
       <td>
@@ -159,12 +154,11 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **proxyUrl**  
-        _Optional_
+        **proxyUrl**<br />_Optional_
       </td>
 
       <td>
-        `vwoInitOptions.setProxyUrl("[http://custom.proxy.com](http://custom.proxy.com)");`
+        `wingifyInitOptions.setProxyUrl("[http://custom.proxy.com](http://custom.proxy.com)");`
       </td>
 
       <td>
@@ -178,13 +172,12 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **gatewayService**  
-        _Optional_
+        **gatewayService**<br />_Optional_
       </td>
 
       <td>
         ```
-        vwoInitOptions.setGatewayService(new HashMap<String, Object>() {
+        wingifyInitOptions.setGatewayService(new HashMap<String, Object>() {
                     {
                         put("url", "<https://your.host.com:port")>;
                     }
@@ -203,12 +196,11 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **integrations**  
-        _Optional_
+        **integrations**<br />_Optional_
       </td>
 
       <td>
-        `vwoInitOptions.setIntegrations(integrations);`
+        `wingifyInitOptions.setIntegrations(integrations);`
       </td>
 
       <td>
@@ -222,12 +214,11 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **retryConfig**  
-        _Optional_
+        **retryConfig**<br />_Optional_
       </td>
 
       <td>
-        `vwoInitOptions.setRetryConfig(retryConfig);`
+        `wingifyInitOptions.setRetryConfig(retryConfig);`
       </td>
 
       <td>
@@ -243,16 +234,15 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.<br />If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
 ```java
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setPollInterval(60000); // Set the poll interval to 60 seconds
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
+wingifyInitOptions.setPollInterval(60000); // Set the poll interval to 60 seconds
 
-VWO vwoInstance = VWO.init(vwoInitOptions);
+Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
 ### Logger
@@ -260,14 +250,14 @@ VWO vwoInstance = VWO.init(vwoInitOptions);
 VWO by default logs all ERROR level messages to your server console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
 
 ```java
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setAccountId(123456);
-vwoInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
+wingifyInitOptions.setAccountId(123456);
+wingifyInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
 
 Map<String, Object> logger = new HashMap<>();
 logger.put("level", "DEBUG");
-vwoInitOptions.setLogger(logger);
-VWO vwoInstance = VWO.init(vwoInitOptions);
+wingifyInitOptions.setLogger(logger);
+Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-java-logging) for more advanced logger options.
@@ -289,7 +279,7 @@ Please click [storage](https://developers.vwo.com/v2/docs/fme-java-storage)  to 
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```java
 VWOInitOptions vwoInitOptions = new VWOInitOptions();
@@ -339,7 +329,7 @@ vwoInitOptions.setProxyUrl("http://custom.proxy.com");
 VWO vwoInstance = VWO.init(vwoInitOptions);
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-java-proxy-url">here</Anchor> to learn more about Proxy URL,.
+Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-java-proxy-url">here</Anchor> to learn more about Proxy URL,.
 
 ### Retry Configuration
 
@@ -361,4 +351,4 @@ vwoInitOptions.setRetryConfig(retryConfig);
 VWO vwoInstance = VWO.init(vwoInitOptions);
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
