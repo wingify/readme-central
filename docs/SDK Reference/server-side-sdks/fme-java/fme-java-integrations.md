@@ -15,19 +15,19 @@ VWO SDKs help you integrate with several third-party destinations. SDKs help you
 ## Usage
 
 ```java
-IntegrationCallback integrations = new IntegrationCallback() {
-            @Override
-            public void execute(Map<String, Object> properties) {
-                // your function definition
-            }
-        };
+IntegrationCallback integrations = new IntegrationCallback () { 
+    @Override 
+    public void execute ( Map < String , Object > properties ) { 
+        // your function definition 
+    } 
+}; 
 
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setSdkKey("sdkKey");
-vwoInitOptions.setAccountId(12345);
-vwoInitOptions.setIntegrations(integrations);
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions (); 
+wingifyInitOptions . setSdkKey ( "sdkKey" ); 
+wingifyInitOptions . setAccountId ( 12345 ); 
+wingifyInitOptions . setIntegrations ( integrations ); 
 
-VWO instance = VWO.init(vwoInitOptions);
+Wingify instance = Wingify.init ( wingifyInitOptions );
 ```
 
 ## Properties available to use for integrations
@@ -52,8 +52,7 @@ All VWO SDKs provide the following properties when a decision is made. This mean
 }
 ```
 
-Different destinations have their own formats for integrating with them and using their respective methods/APIs. Please check the documentation of the respective third-party destination so that the above properties can be mapped accordingly before using the destination APIs.\
-This is the reason why VWO SDKs do not provide different libraries to connect with different third-party sources. You can simply refer to the third-party destination's documentation and connect VWO the way you want.
+Different destinations have their own formats for integrating with them and using their respective methods/APIs. Please check the documentation of the respective third-party destination so that the above properties can be mapped accordingly before using the destination APIs.<br />This is the reason why VWO SDKs do not provide different libraries to connect with different third-party sources. You can simply refer to the third-party destination's documentation and connect VWO the way you want.
 
 ## Which platforms can I integrate with?
 
@@ -62,3 +61,5 @@ Since VWO SDKs are platform agnostic, with the help of the above code snippets, 
 > 📘 Note
 >
 > Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
+
+<br />
