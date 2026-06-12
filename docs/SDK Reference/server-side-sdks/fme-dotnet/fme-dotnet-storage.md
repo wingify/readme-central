@@ -31,7 +31,9 @@ Storage Service is optional while [instantiating](https://developers.vwo.com/v2/
 ```node C#
 using System;
 using System.Collections.Generic;
-using VWOFmeSdk.Packages.Storage;
+using WingifyFmeSdk;
+using WingifyFmeSdk.Models.User;
+using WingifyFmeSdk.Packages.Storage;
 
 public class StorageConnector : Connector
 {
@@ -47,18 +49,19 @@ public class StorageConnector : Connector
    }
 }
 
-var vwoInitOptions = new VWOInitOptions
+var wingifyInitOptions = new WingifyInitOptions
 {
    SdkKey = "32-alpha-numeric-sdk-key",
    AccountId = 123456,
    Storage = new StorageConnector()
 };
-
 ```
 
-Storage Service should expose two methods: *get* and *set*. These methods are used by VWO whenever there is a need to read or write from the storage service.
+Storage Service should expose two methods: _get_ and _set_. These methods are used by VWO whenever there is a need to read or write from the storage service.
 
 | Method Name | Params             | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
 | Get         | featureKey, userId | Retrieve stored data corresponding to featureKey and userId | Returns a matching user-feature data mapping corresponding to featureKey and userId passed |
 | Set         | data               | Store user-feature data mapping                             | null                                                                                       |
+
+<br />
