@@ -16,7 +16,7 @@ To integrate FE SDK into your Flutter application, you can do this via cocoapods
 
 ```Text Shell
 # get the sdk
-flutter pub add vwo_fme_flutter_sdk
+flutter pub add wingify_fme_flutter_sdk
 
 # install cocoapods dependencies for ios
 cd ios && pod install
