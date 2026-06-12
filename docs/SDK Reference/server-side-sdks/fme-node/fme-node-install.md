@@ -29,7 +29,7 @@ To integrate FE SDK into your Node.js application, you first need to install the
 To integrate the FE Node.js SDK into your Node.js application through [npm](https://www.npmjs.com/), run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
 
 ```shell
-npm install vwo-fme-node-sdk --save
+npm install wingify-fme-node-sdk --save
 ```
 
 ## Installation via yarn
@@ -37,7 +37,7 @@ npm install vwo-fme-node-sdk --save
 To integrate FE Node.js SDK into your Node.js application through [yarn](https://yarnpkg.com/en/), run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
 
 ```shell Shell
-yarn add vwo-fme-node-sdk
+yarn add wingify-fme-node-sdk
 ```
 
 ## Source Code
