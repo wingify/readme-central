@@ -12,49 +12,49 @@ next:
 ---
 User attributes are specific characteristics or properties assigned to users that help define who they are or how they interact with an application. These attributes can include demographic information (like age, location), behavioral data (such as past purchases), or custom-defined properties relevant to business goals.
 
-For any additional parameters or information about the current user, you can use attributes to pass that data to VWO.
+For any additional parameters or information about the current user, you can use attributes to pass that data to Wingify.
 
-These attributes would typically be any additional user info that you'd like to use in VWO for post-segmentation (filtering, slicing and dicing of reports).
+These attributes would typically be any additional user info that you'd like to use in Wingify for post-segmentation (filtering, slicing and dicing of reports).
 
-For example, you might want to analyze the performance of a test based on the user type to see which user type converted better or worse than the other. For this, you can pass on the "user type" as an attribute to VWO, with the relevant values for each user, ie "free", "paid" or whatever internal parameters you'd like to use for post-segmentation.
+For example, you might want to analyze the performance of a test based on the user type to see which user type converted better or worse than the other. For this, you can pass on the "user type" as an attribute to Wingify, with the relevant values for each user, ie "free", "paid" or whatever internal parameters you'd like to use for post-segmentation.
 
 ## _Set Attribute_ API
 
-This API allows you to assign a specific attribute key-value pair to a user. By doing so, VWO can:
+This API allows you to assign a specific attribute key-value pair to a user. By doing so, Wingify can:
 
-* Segment users based on defined attributes.
-* Deliver personalized experiences tailored to individual user preferences.
-* Enable targeted feature rollouts to specific user groups.
-* Improve the accuracy of experiments by analyzing results across different audience segments.
+- Segment users based on defined attributes.
+- Deliver personalized experiences tailored to individual user preferences.
+- Enable targeted feature rollouts to specific user groups.
+- Improve the accuracy of experiments by analyzing results across different audience segments.
 
 ### How It Works:
 
 When this API is executed:
 
-* The application assigns the specified attribute (attribute_key and attribute_value) to the user defined in the user_context.
-* VWO stores this attribute information and uses it to influence feature flag decisions, experiment variations, and targeting rules.
-* This data is then factored into real-time decision-making, allowing VWO to determine which features, content, or experiments are relevant to the user.
+- The application assigns the specified attribute (attribute\_key and attribute\_value) to the user defined in the user\_context.
+- Wingify stores this attribute information and uses it to influence feature flag decisions, experiment variations, and targeting rules.
+- This data is then factored into real-time decision-making, allowing Wingify to determine which features, content, or experiments are relevant to the user.
 
 > 📘 Important Note
 >
-> The attributes set using the _**setAttribute**_ API differ from the **User Context attributes**
+> The attributes set using the **_setAttribute_** API differ from the **User Context attributes**
 >
-> * **_setAttribute_ API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
-> * **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
+> - **_setAttribute_ API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
+> - **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
 
 > 🚧 Current Limitation
 >
-> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the _setAttribute_ API.
+> Wingify **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of Wingify applications. For post-segmentation, it is recommended to rely on attributes set via the _setAttribute_ API.
 
 ## Usage
 
 ```swift
-// Set a custom user attribute in VWO for the specified user context.
+// Set a custom user attribute in Wingify for the specified user context.
 // 'attribute_key' is the name of the attribute (e.g., 'subscription_status').
 // 'attribute_value' is the value to assign to the attribute (e.g., 'premium').
 let attributeMap: [String : Any] = ["subscription_status": "premium"]
 
-VWOFme.setAttribute(
+WingifyFme.setAttribute(
   attributes: attributeMap,
   context: userContext
 )
@@ -91,14 +91,13 @@ VWOFme.setAttribute(
       </td>
 
       <td>
-        Multiple Key-value pairs to send attributes to VWO.
+        Multiple Key-value pairs to send attributes to Wingify.
       </td>
     </tr>
 
     <tr>
       <td>
-        **context**  
-        _Required_
+        **context**<br />_Required_
       </td>
 
       <td>
@@ -114,4 +113,6 @@ VWOFme.setAttribute(
 
 > 🚧 Note
 >
-> Please note that the _Attribute_ must already be defined in the VWO Application for this, otherwise an unregistered attribute won't get tracked in VWO application.
+> Please note that the _Attribute_ must already be defined in the Wingify Application for this, otherwise an unregistered attribute won't get tracked in Wingify application.
+
+<br />
