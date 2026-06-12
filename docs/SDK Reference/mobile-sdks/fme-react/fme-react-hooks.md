@@ -19,52 +19,62 @@ Here are the available hooks:
 The hook **does not** accept any parameters. It internally consumes the VWO context provided by `VWOProvider`.
 
 ```javascript
-const { vwoClient, isReady } = useVWOClient();
+import { useWingifyClient } from 'wingify-fme-react-sdk';
+
+const { vwoClient, isReady } = useWingifyClient();
+
+// Alternative with aliasing:
+// const { vwoClient: wingifyClient, isReady } = useWingifyClient();
 
 if (isReady) {
-  // Using vwoClient, you can run experiments, track events, and manage feature flags.
+  // Using the client, you can run experiments, track events, and manage feature flags.
   // For example, call methods like vwoClient.getFlag(), vwoClient.trackEvent(), etc.
 }
 ```
 
 #### Hook Lifecycle & Side Effects
 
-* The hook internally accesses the VWO client and readiness state from the React context.
-* If used outside of a `VWOProvider`, it logs an error and returns a default state with no client and `isReady: false`.
-* If the context indicates the client is not ready, it returns a default state signaling the client is still initializing.
-* The hook has `No side effects` (like state updates or async calls) happen inside this hook, it’s purely for safe retrieval of the VWO client from context.
+- The hook internally accesses the VWO client and readiness state from the React context.
+- If used outside of a `VWOProvider`, it logs an error and returns a default state with no client and `isReady: false`.
+- If the context indicates the client is not ready, it returns a default state signaling the client is still initializing.
+- The hook has `No side effects` (like state updates or async calls) happen inside this hook, it’s purely for safe retrieval of the VWO client from context.
 
 #### Return Type
 
 ```typescript
-interface VWOClientResult {
-  vwoClient: IVWOClient | null;
-  isReady: boolean;
-}
+import { IWingifyClient } from 'wingify-fme-react-sdk';
+
+export type WingifyClientResult = { 
+  vwoClient: IWingifyClient | null; 
+  isReady: boolean; 
+};
 ```
 
-* `vwoClient`: The VWO SDK client instance if initialized; otherwise null.
-* `isReady`: Boolean indicating whether the VWO client is fully initialized and ready for use.
+- `vwoClient`: The VWO SDK client instance if initialized; otherwise null.
+- `isReady`: Boolean indicating whether the VWO client is fully initialized and ready for use.
 
 #### Using the above `vwoClient`You can call the different methods available directly without using any hooks.
 
 Check if the feature flag is enabled using `getFlag` method:
 
 ```typescript
-const { vwoClient, isReady } = useVWOClient();
+const { vwoClient, isReady } = useWingifyClient();
 
 useEffect(() => {
   if (!isReady) return;
 
   (async () => {
-    const userContext: IVWOContextModel = { id: 'user_123' };
+    const userContext: IWingifyContextModel = { id: 'user_123' };
 
     // Retrieve the flag using the feature key and userContext
     const feature: Flag = await vwoClient.getFlag('feature_key', userContext);
+    
     // check if the flag is enabled
     const enabled = feature.isEnabled();
+    
     // get specific variable value
-    const variableValue = feature.getVariable('variable-key', 'default-value')
+    const variableValue = feature.getVariable('variable-key', 'default-value');
+    
     // get all variables
     const allVariables = feature.getVariables();
   })();
@@ -74,10 +84,10 @@ useEffect(() => {
 Track an event using `trackEvent` method.
 
 ```typescript
-const { vwoClient, isReady } = useVWOClient();
+const { vwoClient, isReady } = useWingifyClient();
 if (!isReady || !vwoClient) return;
 
-const userContext: IVWOContextModel = { id: 'user_123' };
+const userContext: IWingifyContextModel = { id: 'user_123' };
 vwoClient.trackEvent('event_name', userContext);
 ```
 
@@ -86,10 +96,10 @@ vwoClient.trackEvent('event_name', userContext);
 Set Attributes using `setAttribute` method:
 
 ```typescript
-const { vwoClient, isReady } = useVWOClient();
+const { vwoClient, isReady } = useWingifyClient();
 if (!isReady || !vwoClient) return;
 
-const userContext: IVWOContextModel = { id: 'user_123' };
+const userContext: IWingifyContextModel = { id: 'user_123' };
 vwoClient.setAttribute('event_name', userContext);
 ```
 
@@ -105,10 +115,10 @@ It should only be used within components wrapped by `VWOProvider`.
 
 ```typescript
 import React from 'react';
-import { useVWOContext } from './VWOProvider';
+import { useWingifyContext } from 'wingify-fme-react-sdk';
 
 const UpdateUserContextButton: React.FC = () => {
-  const context = useVWOContext();
+  const context = useWingifyContext();
   // If you want to access the current user context, use - context.userContext
 
   const handleUpdateUser = () => {
@@ -136,48 +146,50 @@ This hook **does not** accept any parameters.
 
 #### Hook Lifecycle & Side Effects
 
-* On component render, `useContext(VWOContext)` is called to retrieve context values.
-* If the hook is used outside of a provider or the context is undefined, an error is logged and `null` is returned.
-* If used correctly, it provides access to current context values and the updater function.
-* There are **no side effects** inside this hook itself.
-* Updating `userContext` via `setUserContext` may trigger re-renders in components using this hook.
+- On component render, `useContext(VWOContext)` is called to retrieve context values.
+- If the hook is used outside of a provider or the context is undefined, an error is logged and `null` is returned.
+- If used correctly, it provides access to current context values and the updater function.
+- There are **no side effects** inside this hook itself.
+- Updating `userContext` via `setUserContext` may trigger re-renders in components using this hook.
 
 > 📘 Important Considerations for `setUserContext` Usage
 >
-> * Using `setUserContext` from the `useVWOContext` hook will cause any component using the `useGetFlag` hook to re-run its effect and likely re-render, since it depends on the `userContext`.
-> * Updating the `id` using `setUserContext` is treated as switching to a new user. This may result in different variation or flag values for the same feature. Additionally, it will be counted as a **new visitor** in VWO.
+> - Using `setUserContext` from the `useVWOContext` hook will cause any component using the `useGetFlag` hook to re-run its effect and likely re-render, since it depends on the `userContext`.
+> - Updating the `id` using `setUserContext` is treated as switching to a new user. This may result in different variation or flag values for the same feature. Additionally, it will be counted as a **new visitor** in VWO.
 
 ## useGetFlag
 
 `useGetFlag` is a custom React hook to fetch and manage the state of a specific feature flag from the VWO SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
 
-* **Usage**: Retrieve a feature flag using VWO client instance.
-* **More Info**: [Learn more about useGetFlag](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables)
+- **Usage**: Retrieve a feature flag using VWO client instance.
+- **More Info**: [Learn more about useGetFlag](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables)
 
 ## useGetFlagVariable
 
 `useGetFlagVariable` is a generic React hook that retrieves the value of a specific variable from a VWO feature flag. It provides a typed interface to safely access variables with a fallback default.
 
-* **Usage**: Retrieve the value of a specific feature flag variable.
-* **More Info**: [Learn more about useGetFlagVariable](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables#usegetflagvariable-hook)
+- **Usage**: Retrieve the value of a specific feature flag variable.
+- **More Info**: [Learn more about useGetFlagVariable](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables#usegetflagvariable-hook)
 
 ## useGetFlagVariables
 
 The `useGetFlagVariable` hook allows you to fetch all variables associated with a feature flag.
 
-* **Usage**: Retrieve all feature flag variables.
-* **More Info**: [Learn more about useGetFlagVariables](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables#usegetflagvariables-hook)
+- **Usage**: Retrieve all feature flag variables.
+- **More Info**: [Learn more about useGetFlagVariables](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables#usegetflagvariables-hook)
 
 ## useTrackEvent
 
 The `useTrackEvent` hook allows you to track custom events within your app, such as user actions or conversions.
 
-* **Usage**: Track important metrics, such as button clicks or completed purchases.
-* **More Info**: [Learn more about useTrackEvent](https://developers.vwo.com/v2/docs/fme-react-metrics-tracking#usetrackevent-hook)
+- **Usage**: Track important metrics, such as button clicks or completed purchases.
+- **More Info**: [Learn more about useTrackEvent](https://developers.vwo.com/v2/docs/fme-react-metrics-tracking#usetrackevent-hook)
 
 ## useSetAttribute
 
 The `useSetAttribute` hook provides a simple way to associate these attributes with users in VWO for advanced segmentation.
 
-* **Usage**: Assign user attributes to help with segmentation and personalization.
-* **More Info**: [Learn more about useSetAttribute](https://developers.vwo.com/v2/docs/fme-react-attributes#usesetattribute-hook)
+- **Usage**: Assign user attributes to help with segmentation and personalization.
+- **More Info**: [Learn more about useSetAttribute](https://developers.vwo.com/v2/docs/fme-react-attributes#usesetattribute-hook)
+
+<br />
