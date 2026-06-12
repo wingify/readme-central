@@ -26,7 +26,7 @@ By leveraging these attributes, organizations can deliver **precisely targeted f
 
 ```swift Dart
 // Define the user context object to identify and provide user-specific details
-final userContext = VWOUserContext(
+final userContext = WingifyUserContext(
     id: userId,
     customVariables: {
         "age": 24,
@@ -37,23 +37,23 @@ final userContext = VWOUserContext(
 // The same user context can be used across different APIs. For example -
 
 // Returns a flag object which can be used to get flag's status or variable(s)
-final featureFlag = await vwoClient?.getFlag(
+final featureFlag = await wingifyClient?.getFlag(
     featureKey: "feature_key",
     context: userContext,
 );
 
 // Track a metric conversion for the specified event-name
-await vwoClient?.trackEvent(
+await wingifyClient?.trackEvent(
     eventName: eventName,
     context: userContext,
     eventProperties: {"cartvalue": 10} // Optional properties if needed
 );
 
-// Send a user attribute to VWO
+// Send a user attribute to Wingify
 final attributes = {
     "userType": "paid"
 };
-await vwoClient?.setAttribute(
+await wingifyClient?.setAttribute(
     attributes: attributes,
     context: userContext,
 );
