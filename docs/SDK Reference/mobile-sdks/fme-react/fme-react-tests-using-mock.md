@@ -11,7 +11,7 @@ Consider the following React component that uses the `useGetFlag` hook to check 
 
 ```typescript
 import React from 'react';
-import { useGetFlag } from 'vwo-fme-react-sdk';
+import { useGetFlag } from 'wingify-fme-react-sdk';
 
 function FeatureStatus(): JSX.Element {
   const { flag, isReady } = useGetFlag('your_feature_key');
@@ -31,9 +31,11 @@ function FeatureStatus(): JSX.Element {
 Use `Jest`  to mock `useGetFlag` and `VWOProvider` to return controlled values, allowing you to test component behaviour under different flag conditions:
 
 ```typescript TypeScript
+import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { useGetFlag } from 'wingify-fme-react-sdk'; // BUG FIX: Added missing import!
 
-jest.mock('vwo-fme-react-sdk', () => ({
+jest.mock('wingify-fme-react-sdk', () => ({
   useGetFlag: () => ({
     flag: {
       isEnabled: () => true,
@@ -41,12 +43,14 @@ jest.mock('vwo-fme-react-sdk', () => ({
     },
     isReady: true,
   }),
-  VWOProvider: ({ children }) => <>{children}</>,
+  WingifyProvider: ({ children }: { children: React.ReactNode }) => <>{children}</>,
 }));
 
 const FlagComponent = () => {
   const { flag, isReady } = useGetFlag('feature-key');
+  
   if (!isReady) return null;
+  
   return (
     <>
       <div data-testid="flag-status">{flag.isEnabled() ? 'Enabled' : 'Disabled'}</div>
@@ -60,7 +64,6 @@ test('renders flag enabled and variable value', () => {
   expect(screen.getByTestId('flag-status').textContent).toBe('Enabled');
   expect(screen.getByTestId('flag-variable').textContent).toBe('mocked_value');
 });
-
 ```
 
 You can also refer to the VWO FE React SDK tests [here](https://github.com/wingify/vwo-fme-react-sdk/tree/master/test) .
