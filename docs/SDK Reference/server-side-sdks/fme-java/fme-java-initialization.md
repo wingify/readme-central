@@ -321,12 +321,12 @@ Please click [here](https://developers.vwo.com/v2/docs/fme-java-integrations) to
 VWO FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
 
 ```java
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
-vwoInitOptions.setAccountId(12345);
-vwoInitOptions.setProxyUrl("http://custom.proxy.com");
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
+wingifyInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
+wingifyInitOptions.setAccountId(12345);
+wingifyInitOptions.setProxyUrl("http://custom.proxy.com");
 
-VWO vwoInstance = VWO.init(vwoInitOptions);
+Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
 Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-java-proxy-url">here</Anchor> to learn more about Proxy URL,.
@@ -336,9 +336,9 @@ Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fm
 The SDK includes a built-in retry mechanism to improve reliability when network requests fail due to transient issues such as timeouts or temporary connectivity problems. You can fully control this behavior by providing a retryConfig object during SDK initialization.
 
 ```java
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
-vwoInitOptions.setAccountId(12345);
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions();
+wingifyInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
+wingifyInitOptions.setAccountId(12345);
 
 // Configure Network Retry
 RetryConfig retryConfig = new RetryConfig();
@@ -346,9 +346,9 @@ retryConfig.setShouldRetry(true); // Enable/Disable retries
 retryConfig.setMaxRetries(3);     // Max number of retries
 retryConfig.setInitialDelay(2);   // Initial delay in seconds (default is 2)
 retryConfig.setBackoffMultiplier(2); // Backoff multiplier (default is 2)
-vwoInitOptions.setRetryConfig(retryConfig);
+wingifyInitOptions.setRetryConfig(retryConfig);
 
-VWO vwoInstance = VWO.init(vwoInitOptions);
+Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
 Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
