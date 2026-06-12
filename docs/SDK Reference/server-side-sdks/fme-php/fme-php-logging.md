@@ -28,7 +28,7 @@ VWO by default logs all ERROR level messages to your server's console. To gain m
 **Example 1**: Set log level to control the verbosity of logs
 
 ```php
-$vwoClient1 = VWO::init([
+$wingifyClient = Wingify::init([
   'sdkKey' => '32-alpha-numeric-sdk-key',
   'accountId' => '123456',
   'logger' => [
@@ -40,7 +40,7 @@ $vwoClient1 = VWO::init([
 **Example 2**: Add a custom prefix to log messages for easier identification
 
 ```php
-$vwoClient2 = VWO::init([
+$wingifyClient = Wingify::init([
   'sdkKey' => '32-alpha-numeric-sdk-key',
   'accountId' => '123456',
   'logger' => [
@@ -50,20 +50,19 @@ $vwoClient2 = VWO::init([
 ]);
 ```
 
-**Example 3**: Implement custom transport to handle logs your way  
-The transports parameter allows you to implement custom logging behavior by providing your own logging functions. You can define handlers for different log levels (debug, info, warn, error, trace) to process log messages according to your needs.
+**Example 3**: Implement custom transport to handle logs your way<br />The transports parameter allows you to implement custom logging behavior by providing your own logging functions. You can define handlers for different log levels (debug, info, warn, error, trace) to process log messages according to your needs.
 
 For example, you could:
 
-* Send logs to a third-party logging serviceWrite logs to a file
-* Format log messages differently
-* Filter or transform log messages
-* Route different log levels to different destinations
+- Send logs to a third-party logging serviceWrite logs to a file
+- Format log messages differently
+- Filter or transform log messages
+- Route different log levels to different destinations
 
 The transport object should implement handlers for the log levels you want to customize. Each handler receives the log message as a parameter.
 
 ```php
-$vwoClient3 = VWO::init([
+$wingifyClient = Wingify::init([
   'sdkKey' => '32-alpha-numeric-sdk-key',
   'logger' => [
     'transport' => [
@@ -79,7 +78,7 @@ $vwoClient3 = VWO::init([
 For multiple `transports` you can use the transports parameter. For example:
 
 ```php
-$vwoClient3 = VWO::init([
+$wingifyClient = Wingify::init([
   'sdkKey' => '32-alpha-numeric-sdk-key',
   'logger' => [
     'transports' => [
@@ -107,7 +106,7 @@ By default, the PHP SDK outputs log messages to standard output or forwards them
 These colour codes are intended for terminals that support ANSI escape sequences. As a result, if you are using a custom logger, the log messages you receive will also include the corresponding ASCII/ANSI colour codes, which may need to be handled or stripped depending on how and where the logs are displayed.
 
 ```php
-$vwoClient = VWO::init([
+$wingifyClient = Wingify::init([
     'accountId' => '123456',
     'sdkKey' => '32-alpha-numeric-sdk-key',
     'logger' => [
@@ -117,6 +116,8 @@ $vwoClient = VWO::init([
 ]);
 ```
 
-<Callout icon="📘" theme="info">
-  **Note:**: Before `v1.17.0`, the default behavior also printed ASCII characters. This caused custom loggers to always include these ASCII characters, even though they are not required by default.
-</Callout>
+> 📘
+>
+> **Note:**: Before `v1.17.0`, the default behavior also printed ASCII characters. This caused custom loggers to always include these ASCII characters, even though they are not required by default.
+
+<br />
