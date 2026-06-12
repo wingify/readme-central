@@ -10,26 +10,26 @@ metadata:
 next:
   description: ''
 ---
-The **user context** serves as a unique identifier for individual users and plays a critical role in ensuring **consistent feature rollouts** across sessions and devices. Typically represented as a **object**, the user context includes an *id* key that uniquely identifies the user.
+The **user context** serves as a unique identifier for individual users and plays a critical role in ensuring **consistent feature rollouts** across sessions and devices. Typically represented as a **object**, the user context includes an _id_ key that uniquely identifies the user.
 
-In addition to the user ID, the context can incorporate various ***attributes*** to support advanced targeting and segmentation strategies. These may include:
+In addition to the user ID, the context can incorporate various **_attributes_** to support advanced targeting and segmentation strategies. These may include:
 
-* **custom-variables**: User-specific data points for personalized experiences.
-* **user-agent**: Information about the user's device, browser, or operating system.
-* **ip-address**: Location-based data to enable geo-targeting.
+- **custom-variables**: User-specific data points for personalized experiences.
+- **user-agent**: Information about the user's device, browser, or operating system.
+- **ip-address**: Location-based data to enable geo-targeting.
 
 By leveraging these attributes, organizations can deliver **precisely targeted features**, maintain **personalization consistency**, and **conduct granular experimentation** for improved user engagement and performance analysis.
 
 > 📘 Important Note
 >
-> The **user context attributes** differ from the attributes set using the ***setAttribute*** API.
+> The **user context attributes** differ from the attributes set using the **_setAttribute_** API.
 >
-> * **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
-> * ***setAttribute* API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
+> - **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
+> - **_setAttribute_ API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
 
 > 🚧 Current Limitation
 >
-> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
+> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the _setAttribute_ API.
 
 ## Usage
 
@@ -45,13 +45,13 @@ user_context = {
 # The same user context can be used across different APIs. For example -
 
 # Returns a flag object which can be used to get flag's status or variable(s)
-flag = vwo_client.get_flag('feature_key', user_context)
+flag = wingify_client.get_flag('feature_key', user_context)
 
 # Track a metric conversion for the specified event-name
-vwo_client.track_event('event-name', user_context)
+wingify_client.track_event('event-name', user_context)
 
-# Send a user attribute to VWO
-vwo_client.set_attribute({userType: 'paid'}, user_context)
+# Send a user attribute to Wingify
+wingify_client.set_attribute({userType: 'paid'}, user_context)
 ```
 
 ## User Context keys
@@ -77,7 +77,7 @@ vwo_client.set_attribute({userType: 'paid'}, user_context)
     <tr>
       <td>
         **id**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -91,8 +91,7 @@ vwo_client.set_attribute({userType: 'paid'}, user_context)
 
     <tr>
       <td>
-        **userAgent**\
-        *Optional*
+        **userAgent**<br />_Optional_
       </td>
 
       <td>
@@ -100,14 +99,13 @@ vwo_client.set_attribute({userType: 'paid'}, user_context)
       </td>
 
       <td>
-        The userAgent object for the current user, can be used for targeting & segmentation. 
+        The userAgent object for the current user, can be used for targeting & segmentation.
       </td>
     </tr>
 
     <tr>
       <td>
-        **ipAddress**\
-        *Optional*
+        **ipAddress**<br />_Optional_
       </td>
 
       <td>
@@ -121,8 +119,7 @@ vwo_client.set_attribute({userType: 'paid'}, user_context)
 
     <tr>
       <td>
-        **customVariables**\
-        *Optional*
+        **customVariables**<br />_Optional_
       </td>
 
       <td>
@@ -139,3 +136,5 @@ vwo_client.set_attribute({userType: 'paid'}, user_context)
 > 📘 Note
 >
 > You need to pass [Gateway Service]() configuration while initializing the SDK for targeting (pre-segmentation using user-agent or IP-address-related segments).
+
+<br />
