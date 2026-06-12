@@ -55,7 +55,7 @@ When this API is executed:
 final attributeMap = {
   'subscription_status': 'premium'
 };
-final success = await vwoClient?.setAttribute(
+final success = await wingifyClient?.setAttribute(
 	attributes: attributeMap,
 	context: userContext,
 );
