@@ -23,19 +23,19 @@ VWO by default logs all ERROR level messages to your server's console. To gain m
 **Example 1**: Set log level to control the verbosity of logs
 
 ```csharp
-var vwoInitOptions1 = new VWOInitOptions
+var wingifyInitOptions = new WingifyInitOptions
 {
     SdkKey = "32-alpha-numeric-sdk-key",
     AccountId = 123456,
 	  Logger = new Dictionary<string, object> { { "level", "DEBUG" } }
 };
-var vwoClient1 = VWO.Init(vwoInitOptions1);
+var wingifyClient = Wingify.Init(wingifyInitOptions);
 ```
 
 **Example 2**: Add a custom prefix to log messages for easier identification
 
 ```csharp
-var vwoInitOptions2 = new VWOInitOptions
+var wingifyInitOptions = new WingifyInitOptions
 {
     SdkKey = "32-alpha-numeric-sdk-key",
     AccountId = 123456,
@@ -45,25 +45,27 @@ var vwoInitOptions2 = new VWOInitOptions
         { "prefix", "CUSTOM LOG PREFIX" }
     }
 };
-var vwoClient2 = VWO.Init(vwoInitOptions2);
+var wingifyClient = Wingify.Init(WingifyInitOptions);
 ```
 
-**Example 3**: Implement custom transport to handle logs your way.  
-The **transport** parameter allows you to implement custom logging behavior by providing your own logging functions. You can define handlers for different log levels (debug, info, warn, error, trace) to process log messages according to your needs.
+**Example 3**: Implement custom transport to handle logs your way.<br />The **transport** parameter allows you to implement custom logging behavior by providing your own logging functions. You can define handlers for different log levels (debug, info, warn, error, trace) to process log messages according to your needs.
 
 For example, you could:
 
-* Send logs to a third-party logging service
-* Write logs to a file
-* Format log messages differently
-* Filter or transform log messages
-* Route different log levels to different destinations
+- Send logs to a third-party logging service
+- Write logs to a file
+- Format log messages differently
+- Filter or transform log messages
+- Route different log levels to different destinations
 
 The transport object should implement handlers for the log levels you want to customize. Each handler receives the log message as a parameter.
 
 ```csharp
-using VWOFmeSdk.Interfaces.Logger;
-using VWOFmeSdk.Packages.Logger.Enums;
+using System.Collections.Generic;
+using WingifyFmeSdk;
+using WingifyFmeSdk.Models.User;
+using WingifyFmeSdk.Interfaces.Logger;
+using WingifyFmeSdk.Packages.Logger.Enums;
 
 public class CustomLogTransport : LogTransport
 {
@@ -72,7 +74,6 @@ public class CustomLogTransport : LogTransport
         // your custom logging logic here
     }
 }
-
 
 var logger = new Dictionary<string, object>
 {
@@ -88,15 +89,15 @@ var logger = new Dictionary<string, object>
     }
 };
 
-var vwoInitOptions = new VWOInitOptions
+var wingifyInitOptions = new WingifyInitOptions
 {
     AccountId = 123456,
     SdkKey = "32-alpha-numeric-sdk-key",
     Logger = logger
 };
 
+var wingifyInstance = Wingify.Init(wingifyInitOptions);
 
-var vwoInstance = VWO.Init(vwoInitOptions);
 ```
 
 This "logger" object can be passed as one of the parameters when [initializing _vwoClient_.](https://developers.vwo.com/v2/docs/fme-initialization)
