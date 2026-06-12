@@ -16,12 +16,12 @@ Feature Flags serve as the foundation for all testing, personalization, and roll
 
 **Key Benefits:**
 
-* Granular Feature Control: Roll out features to specific user segments.
-* A/B Testing: Seamlessly test different feature variations.
-* Real-Time Personalization: Adjust feature behavior based on user attributes dynamically.
-* Reduced Deployment Risk: Enable/disable features without code deployments, minimizing potential issues.
+- Granular Feature Control: Roll out features to specific user segments.
+- A/B Testing: Seamlessly test different feature variations.
+- Real-Time Personalization: Adjust feature behavior based on user attributes dynamically.
+- Reduced Deployment Risk: Enable/disable features without code deployments, minimizing potential issues.
 
-## _**useGetFlag**_ Hook
+## **_useGetFlag_** Hook
 
 useGetFlag is a custom React hook to fetch and manage the state of a specific feature flag from the VWO SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
 
@@ -29,7 +29,7 @@ useGetFlag is a custom React hook to fetch and manage the state of a specific fe
 
 ```typescript TypeScript
 import React from 'react';
-import { useGetFlag, useGetFlagVariable, useGetFlagVariables } from 'vwo-fme-react-sdk'; // Import hooks
+import { useGetFlag, useGetFlagVariable, useGetFlagVariables } from 'wingify-fme-react-sdk'; // Import hooks
 
 const YourComponent = () => {
   // Retrieve the flag using the feature key
@@ -52,11 +52,11 @@ export default YourComponent;
 
 ```typescript TypeScript
 import React from 'react';
-import { useGetFlag, useGetFlagVariable, IVWOContextModel } from 'vwo-fme-react-sdk'; // Import hooks
+import { useGetFlag, useGetFlagVariable, IWingifyContextModel } from 'wingify-fme-react-sdk'; // Import hooks
 
 const YourComponent = () => {
 
-  const userContext: IVWOContextModel = {
+  const userContext: IWingifyContextModel = {
     id: 'unique_user_id',
     customVariables: { age: 25, location: 'US' }
   };
@@ -136,16 +136,16 @@ export default YourComponent;
 
 ### Hook Lifecycle & Side Effects
 
-* `On mount and whenever featureKey, context (deep compared), or readiness changes, the hook:
-  * `Validates inputs (`featureKey` and user context).
-  * If valid and the VWO client is ready, asynchronously fetches the feature flag using `vwoClient.getFlag()`.
-  * Updates local state with the fetched flag instance.
-  * Updates the user context in the global VWO context via `setUserContext`.
-  * Manages a loading state (`isLoading`) to track readiness.
-* Errors during flag fetch are caught and logged without crashing the app.
-* Uses `useMemo` to memoize user context and avoid unnecessary refetches on stable inputs.
-* Uses `useCallback` to memoize the flag fetch function.
-* Returns a fallback flag object when not ready or on errors, to ensure safe usage in components.
+- \`On mount and whenever featureKey, context (deep compared), or readiness changes, the hook:
+  - `Validates inputs (`featureKey\` and user context).
+  - If valid and the VWO client is ready, asynchronously fetches the feature flag using `vwoClient.getFlag()`.
+  - Updates local state with the fetched flag instance.
+  - Updates the user context in the global VWO context via `setUserContext`.
+  - Manages a loading state (`isLoading`) to track readiness.
+- Errors during flag fetch are caught and logged without crashing the app.
+- Uses `useMemo` to memoize user context and avoid unnecessary refetches on stable inputs.
+- Uses `useCallback` to memoize the flag fetch function.
+- Returns a fallback flag object when not ready or on errors, to ensure safe usage in components.
 
 ### Return Type
 
@@ -156,10 +156,10 @@ interface IFlag {
 }
 ```
 
-* `flag`: The VWO feature flag instance or a default fallback flag if not ready or errors occur.
-* `isReady`: Becomes true once the flag data is loaded and available.
+- `flag`: The VWO feature flag instance or a default fallback flag if not ready or errors occur.
+- `isReady`: Becomes true once the flag data is loaded and available.
 
-## _**useGetFlagVariable**_ Hook
+## **_useGetFlagVariable_** Hook
 
 If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in VWO, which can then be fetched at your server and used to control the user's experience in your codebase.
 
@@ -246,7 +246,7 @@ const variableValue = useGetFlagVariable(flag, "variable-value", "default-value"
 
 Returns the value of a specific variable associated with the feature flag. If the variable is found, it returns its assigned value; otherwise, it returns the provided default value.
 
-## _**useGetFlagVariables**_ Hook
+## **_useGetFlagVariables_** Hook
 
 The _useGetFlagVariables()_ hook returns all variables associated with the feature flag as a dictionary.
 
