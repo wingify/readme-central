@@ -26,15 +26,15 @@ In browser-based environments, the VWO FE JavaScript SDK automatically utilizes 
 
 #### By default:
 
-* The SDK leverages window.localStorage to persist all relevant data such as:
-  * User variation assignments
-  * Campaign and experiment metadata
-  * Event tracking identifiers
-* This persistence ensures that:
-  * Data survives browser restarts and page reloads
+- The SDK leverages window\.localStorage to persist all relevant data such as:
+  - User variation assignments
+  - Campaign and experiment metadata
+  - Event tracking identifiers
+- This persistence ensures that:
+  - Data survives browser restarts and page reloads
 
     User consistency is maintained without requiring re-identification
-* All data is stored under a key namespace prefixed with vwo_ for easy identification and isolation.
+- All data is stored under a key namespace prefixed with vwo\_ for easy identification and isolation.
 
 #### Customizing Storage: clientStorage Option
 
@@ -56,7 +56,7 @@ flowchart TD
 ### Usage
 
 ```javascript
-const vwoClient = await init({
+const wingifyClient = await init({
   accountId: '123456',
   sdkKey: '32-alpha-numeric-sdk-key',
 
@@ -126,8 +126,8 @@ const vwoClient = await init({
       </td>
 
       <td>
-        * Use localStorage for persistent storage across sessions (default).
-        * Use sessionStorage if you want data to reset on every new browser session (e.g., enhanced privacy or compliance needs).
+        - Use localStorage for persistent storage across sessions (default).
+        - Use sessionStorage if you want data to reset on every new browser session (e.g., enhanced privacy or compliance needs).
       </td>
 
       <td>
@@ -137,8 +137,7 @@ const vwoClient = await init({
 
     <tr>
       <td>
-        **isDisabled**(Boolean)  
-        (_Optional_)
+        **isDisabled**(Boolean)<br />(_Optional_)
       </td>
 
       <td>
@@ -158,8 +157,8 @@ const vwoClient = await init({
 
 > 📘 Important Notes
 >
-> * **Browser Environment Only:** The `clientStorage` option works exclusively in browser environments where `localStorage` and `sessionStorage` APIs are available.
-> * **Node.js Environments:** For server-side or Node.js environments, use the `storage` option for implementing custom storage logic, as `localStorage` and `sessionStorage` are not available there. To know more, click [here](https://developers.vwo.com/v2/docs/fme-node-storage#/).
+> - **Browser Environment Only:** The `clientStorage` option works exclusively in browser environments where `localStorage` and `sessionStorage` APIs are available.
+> - **Node.js Environments:** For server-side or Node.js environments, use the `storage` option for implementing custom storage logic, as `localStorage` and `sessionStorage` are not available there. To know more, click [here](https://developers.vwo.com/v2/docs/fme-node-storage#/).
 
 <br />
 
@@ -221,7 +220,7 @@ class StorageConnector extends StorageConnector {
 
 }
 
-vwoSdk.init({
+wingifySdk.init({
   sdkKey: '...',
   accountId: '123456',
   storage: new StorageConnector(),
@@ -239,7 +238,7 @@ Storage Service should expose two methods: _get_ and _set_. These methods are us
 
 ### Optional Methods (Settings Storage)
 
-> **Supported from SDK version `1.35.0` onwards**
+> **Supported from SDK version&#x20;**`1.35.0`**&#x20;onwards**
 
 These methods are **optional** but highly recommended for performance optimization. When implemented, the SDK can load settings from your storage instead of fetching them from VWO servers during initialization.
 
@@ -265,10 +264,10 @@ interface ISettingsData {
 
 **TTL** controls how long cached settings remain valid before the SDK fetches fresh settings from VWO servers.
 
-* **Type**: `number` (milliseconds)
-* **Default**: `7200000` (2 hours)
-* **Minimum**: `60000` (1 minute)
-* **Location**: Set via `protected ttl` property in your storage connector class
+- **Type**: `number` (milliseconds)
+- **Default**: `7200000` (2 hours)
+- **Minimum**: `60000` (1 minute)
+- **Location**: Set via `protected ttl` property in your storage connector class
 
 **How TTL Works:**
 
@@ -295,19 +294,19 @@ class RedisStorageConnector extends Connector {
 
 **alwaysUseCachedSettings** is a boolean flag that, when enabled, makes the SDK always use cached settings regardless of TTL expiration.
 
-* **Type**: `boolean`
-* **Default**: `false`
-* **Location**: Set via `protected alwaysUseCachedSettings` property in your storage connector class
+- **Type**: `boolean`
+- **Default**: `false`
+- **Location**: Set via `protected alwaysUseCachedSettings` property in your storage connector class
 
 **Behavior:**
 
-* **When `false`** (default): SDK respects TTL and fetches fresh settings when cache expires
-* **When `true`**: SDK always uses cached settings, skipping TTL validation entirely
+- **When&#x20;**`false` (default): SDK respects TTL and fetches fresh settings when cache expires
+- **When&#x20;**`true`: SDK always uses cached settings, skipping TTL validation entirely
 
 **Use Cases:**
 
-* **`false`**: Recommended for most scenarios. Ensures settings stay relatively fresh while benefiting from caching
-* **`true`**: Useful when you want maximum performance and control settings updates manually, or when network calls are expensive/restricted
+- `false`: Recommended for most scenarios. Ensures settings stay relatively fresh while benefiting from caching
+- `true`: Useful when you want maximum performance and control settings updates manually, or when network calls are expensive/restricted
 
 **Example:**
 
@@ -323,9 +322,9 @@ class CustomStorageConnector extends Connector {
 
 **Important Notes:**
 
-* Settings storage is completely transparent to variation evaluation logic
-* If `getSettings` or `setSettings` throw errors, SDK falls back to fetching from VWO servers
-* Settings are validated for `accountId` and `sdkKey` match before use
-* Invalid or mismatched settings trigger a fresh fetch
+- Settings storage is completely transparent to variation evaluation logic
+- If `getSettings` or `setSettings` throw errors, SDK falls back to fetching from VWO servers
+- Settings are validated for `accountId` and `sdkKey` match before use
+- Invalid or mismatched settings trigger a fresh fetch
 
 <br />
