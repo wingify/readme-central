@@ -16,10 +16,10 @@ To integrate the FE SDK into your React application, you can do this via cocoapo
 
 ```shell Bash
 # get the sdk
-yarn add vwo-fme-react-native-sdk
+yarn add wingify-fme-react-native-sdk
 
 # Or via npm
-npm install vwo-fme-react-native-sdk
+npm install wingify-fme-react-native-sdk
 
 # install cocoapods dependencies for ios
 cd ios && pod install
