@@ -5,30 +5,30 @@ hidden: false
 metadata:
   robots: index
 ---
-The **user context** serves as a unique identifier for individual users and plays a critical role in ensuring **consistent feature rollouts** across sessions and devices. Typically represented as a **object**, the user context includes an *id* key that uniquely identifies the user.
+The **user context** serves as a unique identifier for individual users and plays a critical role in ensuring **consistent feature rollouts** across sessions and devices. Typically represented as a **object**, the user context includes an _id_ key that uniquely identifies the user.
 
-In addition to the user ID, the context can incorporate various ***attributes*** to support advanced targeting and segmentation strategies. This includes **custom-variables** that are User-specific data points for personalized experiences.
+In addition to the user ID, the context can incorporate various **_attributes_** to support advanced targeting and segmentation strategies. This includes **custom-variables** that are User-specific data points for personalized experiences.
 
 By leveraging these attributes, organizations can deliver **precisely targeted features**, maintain **personalization consistency**, and **conduct granular experimentation** for improved user engagement and performance analysis.
 
 > 📘 Important Note
 >
-> The **user context attributes** differ from the attributes set using the ***setAttribute*** API.
+> The **user context attributes** differ from the attributes set using the **_setAttribute_** API.
 >
-> * **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
-> * ***setAttribute* API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
+> - **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
+> - **_setAttribute_ API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
 
 > 🚧 Current Limitation
 >
-> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
+> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the _setAttribute_ API.
 
 ## Usage
 
 ```kotlin
-import com.vwo.models.user.VWOUserContext
+import com.wingify.models.user.WingifyUserContext
 
 // Define the user context object to identify and provide user-specific details
-val userContext = VWOUserContext()
+val userContext = WingifyUserContext()
 // Mandatory
 userContext.id = "unique_user_id"
 
@@ -41,7 +41,7 @@ userContext.customVariables = mutableMapOf(
 // The same user context can be used across different APIs. For example -
 
 // Returns a flag object which can be used to get flag's status or variable(s)
-vwoClient.getFlag("feature-key", userContext, object : IVwoListener {
+wingifyClient.getFlag("feature-key", userContext, object : IWingifyListener {
     override fun onSuccess(data: Any) {
         val featureFlag = data as? GetFlag
     }
@@ -52,19 +52,19 @@ vwoClient.getFlag("feature-key", userContext, object : IVwoListener {
 })
 
 // Track a metric conversion for the specified event-name
-val trackResponse = vwoClient?.trackEvent("event_name", userContext)
+val trackResponse = wingifyClient?.trackEvent("event_name", userContext)
 
-// Send a user attribute to VWO
+// Send a user attribute to Wingify
 val attributeMap = mutableMapOf<String, Any>(
     "userType" to "paid"
 )
-vwoClient.setAttribute(attributeMap, userContext);
+wingifyClient.setAttribute(attributeMap, userContext);
 ```
 ```java
-import com.vwo.models.user.VWOUserContext
+import com.wingify.models.user.WingifyUserContext
 
 // Define the user context object to identify and provide user-specific details
-val userContext = new VWOUserContext();
+val userContext = new WingifyUserContext();
 // Mandatory
 userContext.setId("unique_user_id");
 
@@ -77,7 +77,7 @@ userContext.setCustomVariables(customVariables);
 // The same user context can be used across different APIs. For example -
 
 // Returns a flag object which can be used to get flag's status or variable(s)
-vwoClient.getFlag("feature-key", userContext, new IVwoListener() {
+wingifyClient.getFlag("feature-key", userContext, new IWingifyListener() {
     public void onSuccess(Object data) {
         featureFlag = (GetFlag) data;
     }
@@ -88,13 +88,13 @@ vwoClient.getFlag("feature-key", userContext, new IVwoListener() {
 });
 
 // Track a metric conversion for the specified event-name
-Map<String, Boolean> trackResponse = vwoClient.trackEvent("vwoevent", userContext);
+Map<String, Boolean> trackResponse = wingifyClient.trackEvent("wingifyevent", userContext);
 
-// Send a user attribute to VWO
+// Send a user attribute to Wingify
 Map<String, Object> attributeMap = new HashMap<>();
 eventProperties.put("userType", "paid");
 
-vwoClient.setAttribute(attributeMap, userContext);
+wingifyClient.setAttribute(attributeMap, userContext);
 ```
 
 ## User Context keys
@@ -120,7 +120,7 @@ vwoClient.setAttribute(attributeMap, userContext);
     <tr>
       <td>
         **id**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -135,7 +135,7 @@ vwoClient.setAttribute(attributeMap, userContext);
     <tr>
       <td>
         **customVariables**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -148,3 +148,5 @@ vwoClient.setAttribute(attributeMap, userContext);
     </tr>
   </tbody>
 </Table>
+
+<br />
