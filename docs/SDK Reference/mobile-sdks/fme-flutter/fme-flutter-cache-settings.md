@@ -47,17 +47,17 @@ To utilize the `cachedSettingsExpiryTime` parameter, you need to initialize the 
 ### Example Usage
 
 ```dart Dart
-import 'package:vwo_fme_flutter_sdk/vwo.dart';
-import 'package:vwo_fme_flutter_sdk/vwo/models/vwo_init_options.dart';
+import 'package:wingify_fme_flutter_sdk/wingify.dart';
+import 'package:wingify_fme_flutter_sdk/wingify/models/wingify_init_options.dart';
 
-final vwoInitOptions = VWOInitOptions(
+final wingifyInitOptions = WingifyInitOptions(
   sdkKey: 'YOUR_SDK_KEY',
   accountId: YOUR_ACCOUNT_ID,
   cachedSettingsExpiryTime: 3600000 // Cache for 1 hour (in milliseconds)
 );
 
 // Initialize the SDK
-final vwoClient = await VWO.init(vwoInitOptions);
+final wingifyClient = await Wingify.init(wingifyInitOptions);
 ```
 
 ## Important Notes
