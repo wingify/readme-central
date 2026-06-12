@@ -21,26 +21,25 @@ import (
     "fmt"
     "log"
 
-    vwo "github.com/wingify/vwo-fme-go-sdk"
+    vwo "github.com/wingify/wingify-fme-go-sdk"
 )
 
 func main() {
-    // Initialize VWO SDK with your account details
+    // Initialize Wingify SDK with your account details
     options := map[string]interface{}{
         "sdkKey":    "32-alpha-numeric-sdk-key", // Replace with your SDK key
         "accountId": "123456",                   // Replace with your account ID
     }
 
-    // Initialize VWO vwoClient
-    vwoClient, err := vwo.Init(options)
+    // Initialize Wingify wingifyClient
+    wingifyClient, err := wingify.Init(options)
     if err != nil {
-        log.Fatalf("Failed to initialize VWO client: %v", err)
+        log.Fatalf("Failed to initialize Wingify client: %v", err)
     }
 }
 ```
 
-The `Init` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
-This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `Init` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -88,7 +87,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **_Default Project_**.
       </td>
     </tr>
 
@@ -114,7 +113,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        map[string]interface{}
+        map\[string]interface{}
       </td>
 
       <td>
@@ -144,7 +143,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        map[string]interface{}
+        map\[string]interface{}
       </td>
 
       <td>
@@ -159,7 +158,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        map[string]interface{}
+        map\[string]interface{}
       </td>
 
       <td>
@@ -174,7 +173,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        map[string]interface{}
+        map\[string]interface{}
       </td>
 
       <td>
@@ -201,8 +200,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.<br />If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -213,7 +211,7 @@ options := map[string]interface{}{
     "pollInterval": 60000, // Set the poll interval to 60 seconds
 }
 
-vwoInstance, err := vwo.Init(options)
+wingifyInstance, err := wingify.Init(options)
 ```
 
 ### Logger
@@ -229,7 +227,7 @@ options := map[string]interface{}{
     },
 }
 
-vwoInstance, err := vwo.Init(options)
+wingifyInstance, err := wingify.Init(options)
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-go-logging) for more advanced logger options.
@@ -246,14 +244,14 @@ options := map[string]interface{}{
     "storage":   customStorage
 }
 
-vwoInstance, err := vwo.Init(options)
+wingifyInstance, err := wingify.Init(options)
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-go-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```go
 options := map[string]interface{}{
@@ -264,7 +262,7 @@ options := map[string]interface{}{
     },
 }
 
-vwoInstance, err := vwo.Init(options)
+wingifyInstance, err := wingify.Init(options)
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/gateway-service)  to learn more about the VWO Gateway service.
@@ -285,15 +283,14 @@ options := map[string]interface{}{
     },
 }
 
-vwoInstance, err := vwo.Init(options)
+wingifyInstance, err := wingify.Init(options)
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-go-integrations) to learn more about Integrations,.
 
 ### Initialization with Explicit Settings
 
-The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.  
-Please refer to <Anchor label="this" target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.<br />Please refer to <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```go
 var localSettings = '{
@@ -314,7 +311,7 @@ options := map[string]interface{}{
     "settings": localSettings
 }
 
-vwoInstance, err := vwo.Init(options)
+wingifyInstance, err := wingify.Init(options)
 ```
 
 ### Retry Config
@@ -333,7 +330,7 @@ options := map[string]interface{}{
     },
 }
 
-vwoInstance, err := vwo.Init(options)
+wingifyInstance, err := wingify.Init(options)
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism) to learn more about retry configuration.
@@ -352,10 +349,10 @@ options := map[string]interface{}{
     "proxyUrl": "https://custom.proxy.com"   // Replace with your custom proxy url
 }
 
-// Initialize VWO instance
-vwoInstance, err := vwo.Init(options)
+// Initialize Wingify instance
+wingifyInstance, err := wingify.Init(options)
 ```
 
-Please <Anchor label="click" target="_blank" href="https://developers.vwo.com/v2/docs/fme-go-proxy-url">click</Anchor> here to learn more about Proxy URL.
+Please <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-go-proxy-url">click</Anchor> here to learn more about Proxy URL.
 
 <br />
