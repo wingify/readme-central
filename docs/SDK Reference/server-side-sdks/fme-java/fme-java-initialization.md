@@ -282,14 +282,14 @@ Please click [storage](https://developers.vwo.com/v2/docs/fme-java-storage)  to 
 The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```java
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setAccountId(123456);
-vwoInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions(); 
+wingifyInitOptions.setAccountId(123456); 
+wingifyInitOptions.setSdkKey("32-alpha-numeric-sdk-key"); 
 
-Map<String, Object> gatewayService = new HashMap<>();
-gatewayService.put("url", "http://custom.gateway.com");
-vwoInitOptions.setGatewayService(gatewayService);
-VWO vwoInstance = VWO.init(vwoInitOptions);
+Map < String , Object > gatewayService = new HashMap <> (); 
+gatewayService.put("url", "http://custom.gateway.com"); 
+wingifyInitOptions.setGatewayService(gatewayService); 
+Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
 Please click [GatewayService](https://developers.vwo.com/v2/docs/gateway-service)  to learn more about gateway service.
@@ -299,19 +299,19 @@ Please click [GatewayService](https://developers.vwo.com/v2/docs/gateway-service
 VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
 
 ```java
-IntegrationCallback integrations = new IntegrationCallback() {
-    @Override
-    public void execute(Map<String, Object> properties) {
-        // your function definition
-    }
-};
+IntegrationCallback integrations = new IntegrationCallback() { 
+    @Override 
+    public void execute(Map < String , Object > properties) { 
+        // your function definition 
+    } 
+}; 
 
-VWOInitOptions vwoInitOptions = new VWOInitOptions();
-vwoInitOptions.setSdkKey("32-alpha-numeric-sdk-key");
-vwoInitOptions.setAccountId(12345);
-vwoInitOptions.setIntegrations(integrations);
+WingifyInitOptions wingifyInitOptions = new WingifyInitOptions(); 
+wingifyInitOptions.setSdkKey("32-alpha-numeric-sdk-key"); 
+wingifyInitOptions.setAccountId(12345); 
+wingifyInitOptions.setIntegrations(integrations); 
 
-VWO vwoInstance = VWO.init(vwoInitOptions);
+Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-java-integrations) to learn more about Integrations,.
