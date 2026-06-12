@@ -49,7 +49,7 @@ When this API is executed:
 // Record a metric conversion for the specified event without any additional properties.
 // 'event_name' is the name of the event to be tracked.
 // The 'user_context' ensures the event is associated with the correct user.
-final trackingResult = await vwoClient?.trackEvent(
+final trackingResult = await wingifyClient?.trackEvent(
   eventName: eventName,
   context: userContext
 );
@@ -63,7 +63,7 @@ var eventProperties = {
     "productId":1,
 };
 
-final trackingResult = await vwoClient?.trackEvent(
+final trackingResult = await wingifyClient?.trackEvent(
   eventName: eventName,
   context: userContext,
   eventProperties: eventProperties
