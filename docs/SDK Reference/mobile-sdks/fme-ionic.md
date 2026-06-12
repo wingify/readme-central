@@ -40,7 +40,7 @@ For detailed instructions, refer to the [Ionic Getting Started Guide](https://io
 Add the VWO FE JavaScript SDK to your project using npm:
 
 ```shell
-npm install vwo-fme-node-sdk
+npm install wingify-fme-node-sdk
 ```
 
 <br />
@@ -53,9 +53,9 @@ Set up environment files in `src/environments/`:
 // environment.ts
 export const environment = {
   production: false,
-  vwo: {
-    accountId: process.env.VWO_ACCOUNT_ID || '',
-    sdkKey: process.env.VWO_SDK_KEY || '',
+  wingify: {
+    accountId: process.env.WINGIFY_ACCOUNT_ID || '',
+    sdkKey: process.env.WINGIFY_SDK_KEY || '',
     // Other keys as required
   }
 };
@@ -63,9 +63,9 @@ export const environment = {
 
 <br />
 
-<Callout icon="💡" theme="default">
-  **Recommendation**: We highly recommend using environment variables for your SDK key and account ID. This practice helps to keep your credentials secure and out of your codebase.
-</Callout>
+> 💡
+>
+> **Recommendation**: We highly recommend using environment variables for your SDK key and account ID. This practice helps to keep your credentials secure and out of your codebase.
 
 ### 4. Create VWO Service
 
@@ -74,58 +74,59 @@ Create a service to handle FE SDK initialization and operations:
 ```typescript
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { init } from 'vwo-fme-node-sdk';
+import { init } from 'wingify-fme-node-sdk';
 import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class VwoService {
-  private vwoClient: any = null;
+export class WingifyService {
+  private wingifyClient: any = null;
   private isInitializedSubject = new BehaviorSubject<boolean>(false);
 
   public isInitialized$ = this.isInitializedSubject.asObservable();
 
   constructor() {
-    this.initializeVWO();
+    this.initializeWingify();
   }
 
-  private async initializeVWO(): Promise<void> {
+  private async initializeWingify(): Promise<void> {
     try {
       const options = {
-        accountId: environment.vwo.accountId,
-        sdkKey: environment.vwo.sdkKey,
+        accountId: environment.wingify.accountId,
+        sdkKey: environment.wingify.sdkKey,
         logger: {
           level: 'DEBUG',
           transport: {
             log: (level: string, message: string) => {
-              console.log(`[VWO ${level}]: ${message}`);
+              console.log(`[Wingify ${level}]: ${message}`);
             }
           }
         }
       };
 
-      this.vwoClient = await init(options);
+      this.wingifyClient = await init(options);
       this.isInitializedSubject.next(true);
     } catch (error: any) {
-      console.error('Failed to initialize VWO SDK:', error);
+      console.error('Failed to initialize Wingify SDK:', error);
     }
   }
 
   public async getFlag(featureKey: string, context: any): Promise<any> {
-    if (!this.vwoClient || !this.isInitializedSubject.value) {
+    if (!this.wingifyClient || !this.isInitializedSubject.value) {
       return null;
     }
-    return this.vwoClient.getFlag(featureKey, context);
+    return this.wingifyClient.getFlag(featureKey, context);
   }
 
   public trackEvent(eventName: string, context: any, eventProperties?: any): void {
-    if (!this.vwoClient || !this.isInitializedSubject.value) {
+    if (!this.wingifyClient || !this.isInitializedSubject.value) {
       return;
     }
-    this.vwoClient.trackEvent(eventName, context, eventProperties);
+    this.wingifyClient.trackEvent(eventName, context, eventProperties);
   }
 }
+
 ```
 
 <br />
@@ -136,7 +137,7 @@ Import and use the VWO service in your Ionic components:
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
-import { VwoService } from '../services/vwo.service';
+import { WingifyService } from '../services/wingify.service';
 import { environment } from '../environments/environment';
 
 @Component({
@@ -145,22 +146,22 @@ import { environment } from '../environments/environment';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  isVwoInitialized = false;
+  isWingifyInitialized = false;
 
-  constructor(private vwoService: VwoService) {}
+  constructor(private wingifyService: WingifyService) {}
 
   ngOnInit() {
-    this.vwoService.isInitialized$.subscribe(initialized => {
-      this.isVwoInitialized = initialized;
+    this.wingifyService.isInitialized$.subscribe(initialized => {
+      this.isWingifyInitialized = initialized;
     });
   }
 
   async checkFeatureFlag(userId: string) {
     const context = { id: userId };
-    const flagResult = await this.vwoService.getFlag(environment.vwo.flagKey, context);
+    const flagResult = await this.wingifyService.getFlag(environment.wingify.flagKey, context);
 
     if (flagResult && flagResult.isEnabled()) {
-      const modelName = flagResult.getVariable(environment.vwo.variables.modelName, 'Default');
+      const modelName = flagResult.getVariable(environment.wingify.variables.modelName, 'Default');
       // Use the feature flag result
     }
   }
@@ -169,13 +170,11 @@ export class HomePage implements OnInit {
 
 <br />
 
-<Callout icon="💡" theme="default">
-  ### The VWO Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
-
-  * [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
-  * [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
-  * [setAttribute()](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/) to send user attributes to VWO
-</Callout>
+> 💡 The VWO Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
+>
+> - [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
+> - [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
+> - [setAttribute()](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/) to send user attributes to VWO
 
 <br />
 
@@ -228,3 +227,5 @@ ionic serve
 ## Code Reference
 
 > The complete source code for the Ionic example is available on [GitHub](https://github.com/wingify/vwo-fme-examples/tree/master/ionic).
+
+<br />
