@@ -29,7 +29,7 @@ Storage Service is optional while [instantiating](https://developers.vwo.com/v2/
 ### Usage
 
 ```python
-from vwo import StorageConnector
+from wingify import StorageConnector
 
 class UserStorage(StorageConnector):
     def get(self, key: str, user_id: str):
@@ -49,16 +49,18 @@ class UserStorage(StorageConnector):
         
 options = {
     'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
-    'account_id': '123456', # VWO Account ID
+    'account_id': '123456', # Wingify Account ID
     'storage': UserStorage()
 }
 
-vwo_client = init(options)
+wingify_client = init(options)
 ```
 
-Storage Service should expose two methods: *get* and *set*. These methods are used by VWO whenever there is a need to read or write from the storage service.
+Storage Service should expose two methods: _get_ and _set_. These methods are used by VWO whenever there is a need to read or write from the storage service.
 
 | Method Name | Params             | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
 | get         | featureKey, userId | Retrieve stored data corresponding to featureKey and userId | Returns a matching user-feature data mapping corresponding to featureKey and userId passed |
 | set         | data               | Store user-feature data mapping                             | null                                                                                       |
+
+<br />
