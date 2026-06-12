@@ -9,10 +9,10 @@ All VWO FE SDKs implement an advanced event batching mechanism to efficiently ha
 
 This batching approach offers several advantages:
 
-* **Performance Optimisation**: Reduces the number of network calls, thereby lowering bandwidth usage and minimising latency.
-* **Improved Reliability**: Batching makes the system more resilient during high event throughput by avoiding request flooding.
-* **Configurable Dispatch Triggers**: Events are dispatched either when a predefined batch size is reached or after a time threshold, whichever comes first.
-* **Memory-Efficient Queuing**: Events are queued in memory, ensuring lightweight operations with minimal overhead on the application.
+- **Performance Optimisation**: Reduces the number of network calls, thereby lowering bandwidth usage and minimising latency.
+- **Improved Reliability**: Batching makes the system more resilient during high event throughput by avoiding request flooding.
+- **Configurable Dispatch Triggers**: Events are dispatched either when a predefined batch size is reached or after a time threshold, whichever comes first.
+- **Memory-Efficient Queuing**: Events are queued in memory, ensuring lightweight operations with minimal overhead on the application.
 
 Developers can configure batching behavior to match their application’s performance characteristics and tracking needs. Whether you’re using the SDK on a web, mobile, or server-side environment, event batching ensures scalable and robust data collection.
 
@@ -26,10 +26,10 @@ Rather than sending each event as an individual network request, the SDK collect
 
 ### Key Concepts:
 
-* **Events-Level Tracking**: Multiple events (user, conversion, and attributes) for the same user are batched and sent together.
-* **Threshold-Based Dispatching**: Events are flushed when a maximum batch size is reached or after a specified time interval, whichever comes first.
-* **Optimized Network and Server Usage**: Batching dramatically reduces API call volume, helping conserve bandwidth and decrease server load.
-* **Configurable Behaviour**: Developers can adjust batching thresholds to suit their application's scale, responsiveness requirements, and network conditions.
+- **Events-Level Tracking**: Multiple events (user, conversion, and attributes) for the same user are batched and sent together.
+- **Threshold-Based Dispatching**: Events are flushed when a maximum batch size is reached or after a specified time interval, whichever comes first.
+- **Optimized Network and Server Usage**: Batching dramatically reduces API call volume, helping conserve bandwidth and decrease server load.
+- **Configurable Behaviour**: Developers can adjust batching thresholds to suit their application's scale, responsiveness requirements, and network conditions.
 
 This approach ensures reliable and efficient data transmission, especially in high-traffic environments where event volumes are significant.
 
@@ -43,14 +43,11 @@ This configuration allows you to define when and how events—such as visitor tr
 
 ### Configuration Parameters:
 
-1. `EventsPerRequest` – Maximum Events per Batch\
-   Specifies the maximum number of events that can be included in a single batch request.
+1. `EventsPerRequest` – Maximum Events per Batch<br />Specifies the maximum number of events that can be included in a single batch request.
    Events continue to accumulate in the internal queue until this threshold is reached, triggering an immediate dispatch.
-2. `RequestTimeInterval` – Dispatch Interval (in seconds)\
-   Defines the time-based threshold for flushing events.
+2. `RequestTimeInterval` – Dispatch Interval (in seconds)<br />Defines the time-based threshold for flushing events.
    Once the first event is queued, the SDK starts a timer. If the eventsPerRequest limit is not met by the end of this interval, the queued events are dispatched anyway.
-3. `FlushCallback` – Post-Dispatch Hook\
-   An optional callback function is executed after the events are successfully (or unsuccessfully) sent to the VWO servers.
+3. `FlushCallback` – Post-Dispatch Hook<br />An optional callback function is executed after the events are successfully (or unsuccessfully) sent to the VWO servers.
    The callback typically receives:
    1. `error`: Details of any transmission failure (if applicable).
    2. `events`: The list of events that were flushed in the batch.
@@ -80,7 +77,7 @@ This configuration allows you to define when and how events—such as visitor tr
     <tr>
       <td>
         **EventsPerRequest**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -99,7 +96,7 @@ This configuration allows you to define when and how events—such as visitor tr
     <tr>
       <td>
         **RequestTimeInterval**
-        *Optional*
+        _Optional_
       </td>
 
       <td>
@@ -117,7 +114,7 @@ This configuration allows you to define when and how events—such as visitor tr
 
     <tr>
       <td>
-        **FlushCallback** *Optional*
+        **FlushCallback** _Optional_
       </td>
 
       <td>
@@ -137,9 +134,9 @@ This configuration allows you to define when and how events—such as visitor tr
 
 ### Example Use Cases:
 
-* On a high-traffic application, increase `EventsPerRequest` to reduce API overhead.
-* For low-frequency tracking, reduce `RequestTimeInterval` to ensure timely dispatch.
-* Use `FlushCallback` for logging, retry logic, or triggering downstream workflows.
+- On a high-traffic application, increase `EventsPerRequest` to reduce API overhead.
+- For low-frequency tracking, reduce `RequestTimeInterval` to ensure timely dispatch.
+- Use `FlushCallback` for logging, retry logic, or triggering downstream workflows.
 
 By customizing these options, developers gain fine-grained control over how event data flows to VWO, ensuring optimal performance, reliability, and observability across different platforms.
 
@@ -148,47 +145,50 @@ By customizing these options, developers gain fine-grained control over how even
 ## Example usage
 
 ```csharp
-using VWOFmeSdk.Models;
-using VWOFmeSdk.Interfaces.Batching;
+using WingifyFmeSdk;
+using WingifyFmeSdk.Models;
+using WingifyFmeSdk.Models.User;
+using WingifyFmeSdk.Interfaces.Batching;
+
 IFlushInterface flushCallback = new FlushCallbackImpl();
 
 var batchEventData = new BatchEventData
 {
-   EventsPerRequest = 100,      // Send up to 100 events per
-   RequestTimeInterval = 60,   // Flush events every 60 seconds
+   EventsPerRequest = 100,      // Send up to 100 events per request
+   RequestTimeInterval = 60,    // Flush events every 60 seconds
    FlushCallback = flushCallback,
 };
 
-var vwoInitOptions = new VWOInitOptions
+var wingifyInitOptions = new WingifyInitOptions
 {
-	 SdkKey = "your_sdk_key",
+   SdkKey = "your_sdk_key",
    AccountId = YOUR_ACCOUNT_ID,
    BatchEventData = batchEventData
 };
 
-var vwoClient = VWO.Init(vwoInitOptions);
+var wingifyClient = Wingify.Init(wingifyInitOptions);
 ```
 
 > 🚧 Note
 >
-> * The maximum number of events that can be queued is 5000.
-> * The default time interval is 600 seconds (10 minutes), in case of invalid time interval is passed.
+> - The maximum number of events that can be queued is 5000.
+> - The default time interval is 600 seconds (10 minutes), in case of invalid time interval is passed.
 
 > 📘 Important Note
 >
-> **Event Timing:** The timer starts when the first event is added to the queue. If the time interval expires before the event count reaches the *EventsPerRequest* threshold, the events are dispatched anyway.
+> **Event Timing:** The timer starts when the first event is added to the queue. If the time interval expires before the event count reaches the _EventsPerRequest_ threshold, the events are dispatched anyway.
 >
-> **Manual Flushing:** You can trigger the dispatch of events before the batch limit or time interval is reached by manually calling the *FlushEvents()* method.
+> **Manual Flushing:** You can trigger the dispatch of events before the batch limit or time interval is reached by manually calling the _FlushEvents()_ method.
 
 <br />
 
 ## Flushing Events Manually (Flush Events API)
 
-In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the *FlushEvents()* method, which manually triggers the event dispatch.
+In some situations, events can be sent immediately, before the batch size or time interval is reached. This can be done using the _FlushEvents()_ method, which manually triggers the event dispatch.
 
 ```csharp
 // Call the following method only if you need to manually flush the events; otherwise, it can be ignore
-vwoClient.flushEvents();
+wingifyClient.flushEvents();
 ```
 
 <br />
@@ -226,20 +226,20 @@ flowchart TD
 
 <br />
 
-### 1. SDK Initialization with *BatchEventData*
+### 1. SDK Initialization with _BatchEventData_
 
-The event batching behavior is activated by passing the *BatchEventData* configuration during SDK initialization. This includes:
+The event batching behavior is activated by passing the _BatchEventData_ configuration during SDK initialization. This includes:
 
-* `EventsPerRequest`: Maximum number of events per batch.
-* `RequestTimeInterval`: Max wait time before forcing a flush.
-* `FlushCallback`: Function called post-flush.
+- `EventsPerRequest`: Maximum number of events per batch.
+- `RequestTimeInterval`: Max wait time before forcing a flush.
+- `FlushCallback`: Function called post-flush.
 
 ### 2. Event Occurs
 
 Each time an event is triggered (visitor tracking, conversion, or attribute update), the SDK:
 
-* Captures the event data.
-* Adds the event to an in-memory local batch queue.
+- Captures the event data.
+- Adds the event to an in-memory local batch queue.
 
 ### 3. Batch Queue Management
 
@@ -249,24 +249,22 @@ As events accumulate, the SDK evaluates flushing conditions based on the followi
 
 The SDK checks if it's time to flush the queued events:
 
-* When `EventsPerRequest` is reached:\
-  Once the number of events in the queue meets or exceeds the configured limit, the SDK immediately sends the batched request to the VWO server.
-* When `RequestTimeInterval` is exceeded:\
-  If the configured time interval passes (from the time the first event was added), the SDK flushes whatever events are present in the queue, even if the batch size hasn’t been met.
+- When `EventsPerRequest` is reached:<br />Once the number of events in the queue meets or exceeds the configured limit, the SDK immediately sends the batched request to the VWO server.
+- When `RequestTimeInterval` is exceeded:<br />If the configured time interval passes (from the time the first event was added), the SDK flushes whatever events are present in the queue, even if the batch size hasn’t been met.
 
 > ➤ Manual Flush Option
 
 Developers can trigger a flush programmatically using a method like `FlushEvents()` (name may vary by SDK). This is useful in scenarios such as:
 
-* App shutdown or page unload
-* Test/QA scripts
-* Ensuring real-time dispatch in critical flows
+- App shutdown or page unload
+- Test/QA scripts
+- Ensuring real-time dispatch in critical flows
 
 ### 4. Post-Flush Callback
 
 Regardless of how the flush was triggered (automatic or manual), the SDK invokes the `FlushCallback` function (if provided), which receives:
 
-* `error`: Any error encountered during the dispatch (e.g., network failure).
-* `events`: The list of events successfully sent in the batch.
+- `error`: Any error encountered during the dispatch (e.g., network failure).
+- `events`: The list of events successfully sent in the batch.
 
 This allows for custom logging, error handling, or retry logic.
