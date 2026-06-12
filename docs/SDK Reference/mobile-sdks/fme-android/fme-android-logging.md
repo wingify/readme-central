@@ -19,7 +19,7 @@ VWO by default logs all `ERROR` level messages to your device console. To gain m
 ### Example 1: Set log level to control the verbosity of logs
 
 ```kotlin
-vwoInitOptions.logger = mutableMapOf<String, Any>().apply {
+wingifyInitOptions.logger = mutableMapOf<String, Any>().apply {
   put("level", "TRACE") // DEBUG, INFO, ERROR, TRACE, WARN
 }
 ```
@@ -28,7 +28,7 @@ vwoInitOptions.logger = mutableMapOf<String, Any>().apply {
 Map<String, Object> loggerOptions = new HashMap<>();
 loggerOptions.put("level", "TRACE");  // DEBUG, INFO, ERROR, TRACE, WARN
 
-vwoInitOptions.setLogger(loggerOptions);
+wingifyInitOptions.setLogger(loggerOptions);
 ```
 
 ### Example 2: Implement custom transport to handle logs your way
@@ -45,7 +45,7 @@ transport["defaultTransport"] = object : LogTransport {
     }
 }
 logger.add(transport)
-vwoInitOptions.logger = mutableMapOf<String, Any>().apply {
+wingifyInitOptions.logger = mutableMapOf<String, Any>().apply {
     put("level", "TRACE")
     put("transports", logger)
 }
@@ -65,7 +65,7 @@ logger.add(transport);
 Map<String, Object> loggerOptions = new HashMap<>();
 loggerOptions.put("level", "TRACE");
 loggerOptions.put("transports", logger);
-vwoInitOptions.setLogger(loggerOptions);
+wingifyInitOptions.setLogger(loggerOptions);
 ```
 
 The custom logger implementation allows you to:
