@@ -25,7 +25,7 @@ To integrate VWO FE SDK into your Python application, you must first install the
 To integrate VWO FE Python SDK into your application through [pip](https://pypi.org/project/pip/), run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
 
 ```javascript Shell
-pip install vwo-fme-python-sdk
+pip install wingify-fme-python-sdk
 ```
 
 [VWO FE Python SDK on pypi](https://pypi.org/project/vwo-fme-python-sdk/)
