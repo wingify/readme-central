@@ -24,7 +24,7 @@ public class IntegrationCallbackImpl : IntegrationCallback
     }
 }
 
-var vwoClient = VWO.Init(new VWOInitOptions
+var wingifyClient = Wingify.Init(new WingifyInitOptions
 {
     SdkKey = "your-sdk-key", // Replace with your SDK key
     AccountId = your-account-id, // Replace with your account ID
@@ -67,3 +67,5 @@ Since VWO SDKs are platform agnostic, with the help of the above code snippets, 
 > 📘 Note
 >
 > Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the VWO SDK.
+
+<br />
