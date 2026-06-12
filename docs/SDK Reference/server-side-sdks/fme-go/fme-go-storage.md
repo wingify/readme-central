@@ -10,7 +10,7 @@ next:
       title: Integrations
       type: basic
 ---
-The SDK operates in a stateless mode by default, meaning each get_flag call triggers a fresh evaluation of the flag against the current user context.
+The SDK operates in a stateless mode by default, meaning each get\_flag call triggers a fresh evaluation of the flag against the current user context.
 
 To optimize performance and maintain consistency, you can implement a custom storage mechanism by passing a storage parameter during initialization. This allows you to persist feature flag decisions in your preferred database system (like Redis, MongoDB, or any other data store).
 
@@ -69,7 +69,7 @@ func main {
       "accountId": "123456",
       "storage":   customStorage
     }
-  vwoInstance, err := vwo.Init(options)
+  wingifyInstance, err := wingify.Init(options)
 }
 ```
 
@@ -79,3 +79,5 @@ Storage Service should expose two methods: _Get_ and _Set_. These methods are us
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
 | Get         | featureKey, userId | Retrieve stored data corresponding to featureKey and userId | Returns a matching user-feature data mapping corresponding to featureKey and userId passed |
 | Set         | data               | Store user-feature data mapping                             | null                                                                                       |
+
+<br />
