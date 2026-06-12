@@ -15,20 +15,19 @@ To create a VWO Client instance, you need to initialize the VWO FE Python SDK. T
 ## Usage
 
 ```python Python
-from vwo import init
+from wingify import init
 
 options = {
    'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
-   'account_id': '123456' # VWO Account ID
+   'account_id': '123456' # Wingify Account ID
 }
 
-vwo_client = init(options)
+wingify_client = init(options)
 ```
 
 A dictionary named `options` is created to store the SDK configuration details.
 
-The `init()` function is called with the `options` dictionary. It initializes and returns a VWO Client Object`vwo_client`, which can be used to perform feature  
-This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` function is called with the `options` dictionary. It initializes and returns a VWO Client Object`vwo_client`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -52,7 +51,7 @@ This client object allows you to run experiments, track events, and enable/disab
   <tbody>
     <tr>
       <td>
-        **account_id**
+        **account\_id**
         _Required_
       </td>
 
@@ -67,8 +66,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **sdk_key**  
-        _Required_
+        **sdk\_key**<br />_Required_
       </td>
 
       <td>
@@ -76,14 +74,13 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
+        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **_Default Project_**.
       </td>
     </tr>
 
     <tr>
       <td>
-        **poll_interval**  
-        _Optional_
+        **poll\_interval**<br />_Optional_
       </td>
 
       <td>
@@ -97,8 +94,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **logger**  
-        _Optional_
+        **logger**<br />_Optional_
       </td>
 
       <td>
@@ -112,8 +108,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **storage**  
-        _Optional_
+        **storage**<br />_Optional_
       </td>
 
       <td>
@@ -127,8 +122,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **proxy_url**  
-        _Optional_
+        **proxy\_url**<br />_Optional_
       </td>
 
       <td>
@@ -142,8 +136,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **gateway_service**  
-        _Optional_
+        **gateway\_service**<br />_Optional_
       </td>
 
       <td>
@@ -157,8 +150,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **integrations**  
-        _Optional_
+        **integrations**<br />_Optional_
       </td>
 
       <td>
@@ -174,8 +166,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the _vwo_client_ on your server, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwo_client_ has been initialized in your server, there needs to be some way to update your _vwo_client_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwo\_client_ on your server, it pulls the latest configurations you've done in the VWO application.<br />If/when you make any changes to the feature flags or rules within VWO after the _vwo\_client_ has been initialized in your server, there needs to be some way to update your _vwo\_client_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -183,12 +174,12 @@ The poll interval is an optional parameter that allows the SDK to automatically 
 # Init options with poll_interval
 options = {
     'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
-    'account_id': '123456', # VWO Account ID
+    'account_id': '123456', # Wingify Account ID
     'poll_interval': 60000 # Set the poll interval to 60 seconds
 }
 
 # Initialize the sdk
-vwo_client = init(options)
+wingify_client = init (options)
 ```
 
 ### Logger
@@ -199,52 +190,52 @@ VWO by default logs all ERROR level messages to your server console. To gain mor
 # Init options with logger
 options = {
     'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
-    'account_id': '123456', # VWO Account ID
+    'account_id': '123456', # Wingify Account ID
     'logger': {
         'level': 'DEBUG'
     }
 }
 
 # Initialize the sdk
-vwo_client = init(options)
+wingify_client = init (options)
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-python-logging) for more advanced logger options.
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each _get_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _get\_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```python
 # Init options with storage
 options = {
     'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
-    'account_id': '123456', # VWO Account ID
+    'account_id': '123456', # Wingify Account ID
     'storage': UserStorage() # UserStorage would be your custom class implementation
 }
 
 # Initialize the sdk
-vwo_client = init(options)
+wingify_client = init (options)
 ```
 
 Please click [here]()  to learn more about storage implementation.
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
+The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```python
 # Init options with gateway_service
 options = {
     'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
-    'account_id': '123456', # VWO Account ID
+    'account_id': '123456', # Wingify Account ID
     'gateway_service': {
         'url': 'http://custom.gateway.com'
     }
 }
 
 # Initialize the sdk
-vwo_client = init(options)
+wingify_client = init (options)
 ```
 
 Please click [here]()  to learn more about gateway service.
@@ -263,14 +254,14 @@ def callback(properties):
 # Init options with logger
 options = {
     'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
-    'account_id': '123456', # VWO Account ID
+    'account_id': '123456', # Wingify Account ID
     'integrations': {
         'callback': callback
     }
 }
 
 # Initialize the sdk
-vwo_client = init(options
+wingify_client = init(options)
 ```
 
 Please click [here](https://developers.vwo.com/v2/docs/fme-python-integrations) to learn more about Integrations.
@@ -284,12 +275,12 @@ from vwo import init
 
 options = {
     'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key
-    'account_id': '123456', # VWO Account ID
+    'account_id': '123456', # Wingify Account ID
     'proxy_url': 'https://proxy.yourdomain.com',
     # other configuration options
 }
 
-vwo_client = init(options)
+wingify_client = init(options)
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-python-proxy-url">here</Anchor> to learn more about ProxyURL.
+Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-python-proxy-url">here</Anchor> to learn more about ProxyURL.
