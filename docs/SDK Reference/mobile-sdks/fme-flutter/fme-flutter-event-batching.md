@@ -22,18 +22,18 @@ You can enable event batching during SDK initialization by setting either of the
 ### Example Usage
 
 ```dart
-import 'package:vwo_fme_flutter_sdk/vwo.dart';
-import 'package:vwo_fme_flutter_sdk/vwo/models/vwo_init_options.dart';
+import 'package:wingify_fme_flutter_sdk/wingify.dart';
+import 'package:wingify_fme_flutter_sdk/wingify/models/wingify_init_options.dart';
 
-final vwoInitOptions = VWOInitOptions(
+final wingifyInitOptions = WingifyInitOptions(
   sdkKey: "YOUR_SDK_KEY",
   accountId: YOUR_ACCOUNT_ID,
   batchMinSize: 10,
   batchUploadTimeInterval: 300000,
 );
 
-// Create VWO instance with the vwoInitOptions
-final vwoClient = await VWO.init(vwoInitOptions);
+// Create Wingify instance with the wingifyInitOptions
+final wingifyClient = await Wingify.init(wingifyInitOptions);
 ```
 
 > 📝 Note:
