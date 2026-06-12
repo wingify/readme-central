@@ -38,7 +38,7 @@ window.VWO.push(['destroy']);
 #### Example
 
 ```javascript
-// Destroy the Wingify instance, stop all timers, and remove callback listeners
+// Destroy the VWO instance, stop all timers, and remove callback listeners
 window.VWO = window.VWO || [];
 window.VWO.push(['destroy']);
 ```

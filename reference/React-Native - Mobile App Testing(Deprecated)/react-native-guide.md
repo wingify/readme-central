@@ -205,7 +205,7 @@ After installing the library, you would want to initialize it.\
 Import the Library as follows:
 
 ```javascript
-import Wingify from 'vwo-react-native';
+import VWO from 'vwo-react-native';
 ```
 
 Library can be initialized in the following ways:
