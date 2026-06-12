@@ -41,7 +41,7 @@ Include the FE JavaScript SDK in your index.html file, typically located in your
 ```javascript
 <head>
   <!-- Other head elements -->
-  <script src="https://cdn.jsdelivr.net/npm/vwo-fme-node-sdk@1/dist/client/vwo-fme-javascript-sdk.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/wingify-fme-node-sdk@1/dist/client/wingify-fme-javascript-sdk.min.js" />
 </head>
 ```
 
@@ -55,13 +55,12 @@ After embedding the SDK, initialize it in your main JavaScript file or within a 
 
 ```javascript
 document.addEventListener('DOMContentLoaded', function () {
-  vwoSdk.init({
-    accountId: 'VWO_ACCOUNT_ID',
-    sdkKey: 'VWO_SDK_KEY'
+  wingifySdk.init({
+    accountId: 'WINGIFY_ACCOUNT_ID',
+    sdkKey: 'WINGIFY_SDK_KEY'
     // Additional configuration options
   });
 });
-
 ```
 
 Replace `VWO_ACCOUNT_ID` and `VWO_SDK_KEY` with your actual FE account ID. Refer to the [FE JavaScript documentation](https://developers.vwo.com/v2/docs/fme-javascript) for additional configuration options.
@@ -113,3 +112,5 @@ npx cap open android
    npx cap open ios
    ```
 3. Run your app on a simulator or connected device.
+
+<br />
