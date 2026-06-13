@@ -14,7 +14,7 @@ next:
 
 You can create a free account with us by accessing the [signup page](https://vwo.com/free-trial/).
 
-To create and run A/B tests, sign in to the Wingify dashboard and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the Wingify A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
+To create and run A/B tests, sign in to the Wingify dashboard and then select [Mobile App A/B](https://app.wingify.com/#/test/mobile-ab) on the menu. If you are using the Wingify A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
 
 ![](https://files.readme.io/8e6b451-Screen_Shot_2017-12-15_at_3.15.46_PM.png "Screen Shot 2017-12-15 at 3.15.46 PM.png")
 

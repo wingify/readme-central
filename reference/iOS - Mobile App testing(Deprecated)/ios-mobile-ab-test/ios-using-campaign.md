@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Creating a mobile A/B Test requires starting a campaign on app.vwo.com, and then making corresponding changes to it in the mobile app.
+Creating a mobile A/B Test requires starting a campaign on app.wingify.com, and then making corresponding changes to it in the mobile app.
 
 On the **Mobile App A/B** testing screen, select **Campaigns** **>** **Create**. 
 
