@@ -184,4 +184,4 @@ Wingify iOS SDK code is available on GitHub:\
 ## Next Steps
 
 As the next step, look at [SDK Reference](ref:ios-sdk-reference)  to explore more advanced options of using the SDK.\
-We would look forward to hear from you about any question or feedback at [support@vwo.com](mailto:support@vwo.com).
+We would look forward to hear from you about any question or feedback at [support@wingify.com](mailto:support@wingify.com).
