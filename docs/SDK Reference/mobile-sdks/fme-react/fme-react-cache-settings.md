@@ -109,8 +109,8 @@ const wingifyConfig: IWingifyOptions = {
   sdkKey: '32-alpha-numeric-sdk-key',
 
   clientStorage: {
-    // Custom key used to store SDK data, default is 'vwo_fme_data'
-    key: 'vwo_data', 
+    // Custom key used to store SDK data, default is 'wingify_fme_data'
+    key: 'wingify_data', 
 
     // Use cached settings regardless of TTL, defaults to false
     alwaysUseCachedSettings: true,

@@ -356,7 +356,7 @@ sequenceDiagram
 #### Server-side Example
 
 ```javascript
-const_WEB_UUID_COOKIE_NAME = '_vwo_uuid';
+const _WEB_UUID_COOKIE_NAME = '_vwo_uuid';
 const uuidFromCookie = req.cookies[VWO_WEB_UUID_COOKIE_NAME];
 
 const userContext = {
@@ -399,7 +399,7 @@ flowchart LR
     SmartCode -->_Web[Wingify Web Testing]
 
     Server --> FE_SDK[Wingify FE SDK]
-    FE_SDK -->_FE[Wingify Feature Experimentation]
+    FE_SDK --> Wingify_FE[Wingify Feature Experimentation]
 
     Browser -. separate identity .- Server
 
@@ -418,10 +418,10 @@ Problems
 flowchart LR
     Browser -->|UUID Cookie| Server
     Server --> FE_SDK[Wingify FE SDK]
-Wingify    FE_SDK -->
+    FE_SDK --> Wingify
 
     Browser --> SmartCode
-Wingify    SmartCode -->
+    SmartCode --> Wingify
 
     FE_SDK -. shared UUID .- SmartCode
 
@@ -441,7 +441,7 @@ Wingify    SmartCode -->
 The diagram below illustrates:
 
 * FE SDK communicates with Wingify for configuration
-Wingify  SmartCode communicates independently with
+* SmartCode communicates independently with Wingify
 * UUID is the shared binding identity
 
 ```mermaid
@@ -449,21 +449,21 @@ sequenceDiagram
     participant User
     participant Server
     participant FE_SDK as Wingify FE SDK
-Wingify    participant
+    participant Wingify
     participant Browser
     participant SmartCode
 
     User->>Server: Initial request
     Server->>FE_SDK: Pass user ID / context
     FE_SDK->>Wingify: Fetch settings / evaluate rule
-   -->>FE_SDK: Campaign & flag configuration
+    Wingify-->>FE_SDK: Campaign & flag configuration
     FE_SDK-->>Server: Decision + UUID
     Server->>Browser: Response + UUID (cookie)
 
     Browser->>SmartCode: Load page
     SmartCode->>Browser: Read UUID cookie
     SmartCode->>Wingify: Evaluate visual tests
-   -->>SmartCode: Variation decision
+    Wingify-->>SmartCode: Variation decision
 
     Note over User,SmartCode: Same UUID used across server & client
 

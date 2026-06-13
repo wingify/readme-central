@@ -30,15 +30,15 @@ npm install wingify-fme-node-sdk
 
 ### Step 2 — Generate a Wingify UUID in Your Backend
 
-Use the SDK’s _getUUID()_ method to convert your user’s ID into a **VWO-compatible UUID**. This ensures a consistent identifier across all tracking events.
+Use the SDK’s _getUUID()_ method to convert your user’s ID into a **Wingify-compatible UUID**. This ensures a consistent identifier across all tracking events.
 
 ```javascript
 import { getUUID } from 'wingify-fme-node-sdk';
 const userId = 'sample_user_id';
 const accountId = 'sample_account_id';
 
-const vwoUuid = getUUID(userId, accountId);
-console.log(vwoUuid); // e.g., "A1B2C3D4E5F6..."
+const wingifyUuid = getUUID(userId, accountId);
+console.log(wingifyUuid); // e.g., "A1B2C3D4E5F6..."
 ```
 
 **Next**: Pass this UUID to your frontend via an API response.
@@ -113,7 +113,7 @@ Paste the following script into your GTM Custom HTML field:
     var PAGE_TITLE = document.title;
     var PAGE_URL = window.location.href;
     var REFERRED_URL = document.referrer || "";
-    var_UUID = {{VWO UUID}}; // replace if needed
+    var WINGIFY_UUID = {{VWO UUID}}; // replace if needed
 
     // Generate timestamps
     var timestampMs = new Date().getTime();
@@ -122,8 +122,8 @@ Paste the following script into your GTM Custom HTML field:
     // Construct payload
     var payload = {
         d: {
-            msgId:_UUID + "-" + timestampMs,
-            visId:_UUID,
+            msgId: WINGIFY_UUID + "-" + timestampMs,
+            visId: WINGIFY_UUID,
             event: {
                 name: EVENT_NAME,
                 time: timestampMs,
@@ -179,12 +179,12 @@ import { getUUID } from 'wingify-fme-node-sdk';
 app.get('/api/user-data', (req, res) => {
   const userId = req.user.id;
   const accountId = 'sample_account_id';
-  const vwoUuid = getUUID(userId, accountId);
+  const wingifyUuid = getUUID(userId, accountId);
 
   res.json({
     user: {
       id: userId,
-      vwo_uuid: vwoUuid
+      vwo_uuid: wingifyUuid
     }
   });
 });

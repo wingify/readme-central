@@ -13,7 +13,7 @@ next:
       title: Cross-System Identity Synchronization
       type: basic
 ---
-Wingify  Unifying Server-Side and Client-Side Experimentation in
+Unifying Server-Side and Client-Side Experimentation in Wingify
 
 Modern experimentation is no longer limited to a single platform or touchpoint. Users interact with your product across **web, mobile, backend services, and APIs**—and experimentation must follow the user seamlessly across this entire journey.
 

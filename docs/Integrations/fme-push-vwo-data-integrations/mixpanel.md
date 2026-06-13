@@ -42,7 +42,7 @@ Integrating the Wingify FE SDK with analytics platforms like Mixpanel allows you
 Initialize your `MixpanelIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FE SDK. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Mixpanel instance.
 
 ```swift
-import_FME
+import Wingify_FME
 import Mixpanel
 
 class MixpanelIntegration: IntegrationCallback {
@@ -78,7 +78,7 @@ class MixpanelIntegration: IntegrationCallback {
 
 // Initialize Wingify SDK with Mixpanel integration
 let integration = MixpanelIntegration()
-let options =InitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, integrations: integration)
+let options = WingifyInitOptions(sdkKey: SDK_KEY, accountId: ACCOUNT_ID, integrations: integration)
 
 VWOFme.initialize(options: options) { result in
     switch result {

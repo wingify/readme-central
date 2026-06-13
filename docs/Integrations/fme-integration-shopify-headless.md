@@ -185,7 +185,7 @@ if (typeof window !== "undefined") {
   (async function () {
     const wingifyClient = await init({
       accountId: process.env.WINGIFY_ACCOUNT_ID,
-      sdkKey: process.env.VWO_SDK_BROWSER_KEY,
+      sdkKey: process.env.WINGIFY_SDK_BROWSER_KEY,
     });
 
     wingifyClient.trackEvent("add_to_cart", {

@@ -19,8 +19,8 @@ metadata:
 * The Wingify FE SDK should be properly installed in your Node.js project.
 * Set your Wingify account ID and SDK key in your application's constants in `.env` file:
   ```
-  WINGIFY_ACCOUNT_ID=vwo_account_id
-  WINGIFY_SDK_KEY=vwo_sdk_key
+  WINGIFY_ACCOUNT_ID=wingify_account_id
+  WINGIFY_SDK_KEY=wingify_sdk_key
  _FLAG_KEY=flag_key
  _FLAG_VARIABLE_1_KEY=flag_variable1
  _FLAG_VARIABLE_2_KEY=flag_variable2

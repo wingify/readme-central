@@ -29,7 +29,7 @@ var wingifyClient = Wingify.Init(wingifyInitOptions);
 
 An object of `WingifyInitOptions` is created to store the SDK configuration details.
 
-The `Init()` function is called with the `wingifyInitOptions` object. It initializes and returns a Wingify Client Object`wingifyClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `Init()` function is called with the `wingifyInitOptions` object. It initializes and returns a Wingify Client Object `wingifyClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -183,7 +183,7 @@ var wingifyClient = Wingify.Init(new WingifyInitOptions
 
 ### Logger
 
-Wingify by default logs all ERROR level messages to your server console. To gain more control over's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```csharp
 var wingifyInitOptions = new WingifyInitOptions
@@ -233,7 +233,7 @@ Please click [here]()  to learn more about gateway service.
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```csharp
 // Integration callback implementation

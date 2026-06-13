@@ -25,7 +25,7 @@ Wingify FE allows you to import external events and user data from various sourc
 
 These integrations help you leverage existing data infrastructure while maintaining a single source of truth for experimentation insights, enabling more accurate attribution and deeper analysis of feature impact.
 
-[Read more about Importing Events into](doc:import-events-into-vwo)
+[Read more about Importing Events into Wingify](doc:import-events-into-vwo)
 
 ### Analytics & Experimentation Integration
 

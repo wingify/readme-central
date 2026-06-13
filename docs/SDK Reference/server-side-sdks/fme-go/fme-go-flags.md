@@ -34,7 +34,7 @@ The returned flag object allows you to:
 
 ## **_Get Flag_** API
 
-This API connects the application to’s feature experimentation system to determine:
+This API connects the application to Wingify’s feature experimentation system to determine:
 
 - Whether a feature should be active for a specific user.
 - What configuration or variation of the feature should be presented to that user.
@@ -136,7 +136,7 @@ Returns True if flag is enabled otherwise false
 
 ## **_Get Variable_** API
 
-If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in, which can then be fetched at your server and used to control the user's experience in your codebase.
+If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in Wingify, which can then be fetched at your server and used to control the user's experience in your codebase.
 
 The _GetVariable()_ function retrieves the value of a specific variable associated with a feature flag. If the variable is found, it returns the assigned value; otherwise, it returns the provided default\_value. This ensures that your application has a fallback value in case the variable is undefined or unavailable.
 

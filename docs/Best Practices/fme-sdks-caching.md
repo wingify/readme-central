@@ -42,14 +42,14 @@ Client‑side SDKs (browsers and mobile-apps) provide out‑of‑the‑box cachi
 
 ### 2.1 How It Works
 
-1. **Initial Fetch:** On the first invocation, the SDK retrieves the full settings payload from.
+1. **Initial Fetch:** On the first invocation, the SDK retrieves the full settings payload from Wingify.
 2. **Local Cache:** Settings are stored locally (in Web or Mobile storage) under a designated key.
 3. **Subsequent Calls:** SDK reads from local cache and uses settings immediately for flag/variable evaluation.
-4. **Asynchronous Refresh:** In the background, SDK fetches current settings from. If a difference is detected, the cache is updated and the SDK instance is refreshed.
+4. **Asynchronous Refresh:** In the background, SDK fetches current settings from Wingify. If a difference is detected, the cache is updated and the SDK instance is refreshed.
 
 ```mermaid
 flowchart TD
-    A[Initial Fetch] --> B[Retrieve full settings payload from]
+    A[Initial Fetch] --> B[Retrieve full settings payload from Wingify]
     B --> C["Store settings in local cache (Web/Mobile storage)"]
 
     D[Subsequent Calls] --> E[Read settings from local cache]
@@ -89,7 +89,7 @@ const wingifyClient = init({
   accountId: 123456,
   caching: {
     TTL: 60*60,             // milliseconds
-  	key: 'vwo-cache-storage-key'
+  	key: 'wingify-cache-storage-key'
   },
   pollInterval: 60000       // milliseconds
 });
@@ -136,7 +136,7 @@ flowchart TD
 import { init } from 'wingify-fme-node-sdk';
 
 // Load from your cache store
-const storedSettings = await myCache.get('vwo-settings');
+const storedSettings = await myCache.get('wingify-settings');
 
 // Initialize the SDK with the storedSettings
 const wingifyClient = init({
@@ -178,7 +178,7 @@ const wingifyClient = await init({
 
 ```node
 // Node.js express server example
-app.post('/vwo-webhook', async (req, res) => {
+app.post('/wingify-webhook', async (req, res) => {
   const updatedSettings = req.body.settings;
 
   await wingifyClient.updateSettings(updatedSettings);
@@ -202,7 +202,7 @@ graph LR
   D --> H[Load Stored Settings from Your Storage]
   H --> I{If passed<br/>to init method}
   I -->|Yes| J[Use stored settings to initialize SDK]
-  I -->|No| K[Fetched settings from]
+  I -->|No| K[Fetched settings from Wingify]
   J --> L[Use Settings]
   K --> L
   G --> L

@@ -16,7 +16,7 @@ When you initialize an instance of the *wingifyClient* on your server, it automa
 
 The way to keep the *wingifyClient* updated on your server is by *polling* Wingify servers at a fixed frequency to check for any changes. If detected, the new changes are fetched and wingifyClient is updated.
 
-## Polling of Settings from
+## Polling of Settings from Wingify
 
 Polling is a mechanism of continuously fetching the settings from Wingify and updating the old *wingifyClient* with the latest settings. It is a continuous process and hence requires an input that specifies the frequency at which the settings should be fetched and checked.
 

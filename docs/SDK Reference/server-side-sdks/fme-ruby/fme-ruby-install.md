@@ -38,4 +38,4 @@ Now, you're ready to initialize and use the SDK in your Ruby application.
 | :------- | :----------------------------------------------------------------------------------------- |
 | Ruby     | [https://github.com/wingify/vwo-fme-ruby-sdk](https://github.com/wingify/vwo-fme-ruby-sdk) |
 
-The FE SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2025.
+The FE SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2026.

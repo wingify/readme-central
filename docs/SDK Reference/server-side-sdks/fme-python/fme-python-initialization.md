@@ -184,7 +184,7 @@ wingify_client = init (options)
 
 ### Logger
 
-Wingify by default logs all ERROR level messages to your server console. To gain more control over's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```python
 # Init options with logger
@@ -242,7 +242,7 @@ Please click [here]()  to learn more about gateway service.
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```python
 # Callback function to pass in init options
@@ -271,7 +271,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-python-integratio
 Wingify FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
 
 ```python
-from wingifyimport init
+from wingify import init
 
 options = {
     'sdk_key': '32-alpha-numeric-sdk-key', # SDK Key

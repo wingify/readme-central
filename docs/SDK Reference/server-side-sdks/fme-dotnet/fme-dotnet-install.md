@@ -38,4 +38,4 @@ PM> Install-Package Wingify.FME.Sdk
 | :------- | :--------------------------------------------------------------------------------------------- |
 | .NET     | [https://github.com/wingify/vwo-fme-dotnet-sdk](https://github.com/wingify/vwo-fme-dotnet-sdk) |
 
-The FE SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.
+The FE SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2026.

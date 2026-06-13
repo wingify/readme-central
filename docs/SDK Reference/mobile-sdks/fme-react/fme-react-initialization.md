@@ -243,7 +243,7 @@ const App = () => (
 
 ### Logger
 
-Wingify by default logs all ERROR level messages to your console. To gain more control over's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```typescript
 import { WingifyProvider, IWingifyOptions, IWingifyContextModel } from 'wingify-fme-react-sdk';
@@ -299,7 +299,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-react-storage)  t
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```typescript
 import { WingifyProvider, IWingifyOptions, IWingifyContextModel } from 'wingify-fme-react-sdk';

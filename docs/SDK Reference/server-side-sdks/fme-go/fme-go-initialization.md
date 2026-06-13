@@ -39,7 +39,7 @@ func main() {
 }
 ```
 
-The `Init` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object`wingifyClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `Init` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object `wingifyClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -216,7 +216,7 @@ wingifyInstance, err := wingify.Init(options)
 
 ### Logger
 
-Wingify by default logs all ERROR level messages to your server console. To gain more control over's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```go
 options := map[string]interface{}{
@@ -269,7 +269,7 @@ Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to 
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```go
 options := map[string]interface{}{

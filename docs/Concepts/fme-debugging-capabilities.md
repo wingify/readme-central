@@ -1,9 +1,7 @@
 ---
 title: Deep-Dive Debugging Guide
 excerpt: >-
-  Wingify Feature Experimentation (FE) allows developers and product teams to
-Wingify  monitor, identify, and resolve SDK-related issues directly within the
-  dashboard
+  Wingify Feature Experimentation (FE) allows developers and product teams to monitor, identify, and resolve SDK-related issues directly within the Wingify dashboard
 deprecated: false
 hidden: false
 metadata:
@@ -17,7 +15,7 @@ Wingify FE SDKs provide:
 
 * Configurable log levels
 * Custom log forwarding support
-Wingify  Automatic error telemetry to
+* Automatic error telemetry to Wingify
 * In-app error visibility for debugging
 
 This guide explains how to systematically debug SDK integrations across:
@@ -63,7 +61,7 @@ This allows remote diagnosis without SSH or mobile device log access.
 3. Logs are:
    * Printed to standard output
    * Optionally forwarded to your logging system
-Wingify   * ERROR-level logs automatically sent to
+   * ERROR-level logs automatically sent to Wingify
 4. Wingify aggregates SDK errors and displays them inside the dashboard.
 
 <br />

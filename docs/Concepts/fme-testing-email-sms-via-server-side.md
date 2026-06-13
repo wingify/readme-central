@@ -79,8 +79,8 @@ sequenceDiagram
     participant Msg as Email/SMS Service
 
     App->>Wingify: Call SDK during message processing (userId, attributes)
-   ->>Wingify: Evaluate experiment rules & audience segments
-   -->>App: Return assigned variation
+    Wingify->>Wingify: Evaluate experiment rules & audience segments
+    Wingify-->>App: Return assigned variation
 
     App->>App: Compose Email/SMS content based on variation
     App->>Msg: Send Email/SMS with variation content
@@ -144,7 +144,7 @@ Test two SMS scripts to see which increases click-through rate.
 
 ```python
 # Python example
-from wingifyimport init
+from wingify import init
 
 wingify_client = init({account_id=WINGIFY_ACCOUNT_ID, sdk_key=WINGIFY_SDK_KEY})
 feature_key = ‘sms_script_test’

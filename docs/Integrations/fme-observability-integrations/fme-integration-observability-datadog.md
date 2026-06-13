@@ -63,7 +63,7 @@ Finally, link the webhook to a Monitor.
 4. In the **Notify your team** section, type `@webhook` and select the Wingify webhook you just created.
 5. Click **Create**.
 
-Now, whenever this alert fires, Datadog will hit the trigger and disable the feature flag in.  
+Now, whenever this alert fires, Datadog will hit the trigger and disable the feature flag in Wingify.  
 To learn more about how to configure a Datadog monitor, see <Anchor label="Datadog Notifications" target="_blank" href="https://docs.datadoghq.com/monitors/notify/">Datadog Notifications</Anchor>
 
 <br />

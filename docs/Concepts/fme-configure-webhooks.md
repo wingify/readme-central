@@ -47,7 +47,7 @@ Wingify FE SDKs fetch configuration settings (features, campaigns, variations) f
 
 <br />
 
-## Enabling Webhooks in
+## Enabling Webhooks in Wingify
 
 1. Log in to your Wingify account.
 2. Navigate to `Configurations` → `Website and Apps` from the left-hand panel.
@@ -59,7 +59,7 @@ Wingify FE SDKs fetch configuration settings (features, campaigns, variations) f
 
 <br />
 
-<Image align="center" border={true} caption="Configuring FE Webhooks in" src="https://files.readme.io/c44a29c6f6a6396ceb2690d81878d377f2a1bef0f31d2d3f7688c78ed65f0b33-Screenshot_2025-07-15_at_2.26.38_AM.png" />
+<Image align="center" border={true} caption="Configuring FE Webhooks in Wingify" src="https://files.readme.io/c44a29c6f6a6396ceb2690d81878d377f2a1bef0f31d2d3f7688c78ed65f0b33-Screenshot_2025-07-15_at_2.26.38_AM.png" />
 
 <br />
 
@@ -236,7 +236,7 @@ public void webhook(
 public async Task<string> webhook()
 {
     CustomLogger logger = new CustomLogger();
-    logger.WriteLog(LogLevel.DEBUG, "Post request from wingifyapp");
+    logger.WriteLog(LogLevel.DEBUG, "Post request from wingify app");
 
     string PayLoad;
     using (StreamReader reader = new StreamReader(Request.Body, Encoding.UTF8))

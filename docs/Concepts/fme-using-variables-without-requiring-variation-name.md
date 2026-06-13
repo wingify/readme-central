@@ -69,7 +69,7 @@ While workable, this tightly couples your application logic to _variation names_
 
 Instead of returning or comparing variation strings, define variables for all controlled behavior. For example:
 
-### **Step 1 — Define Variables in**
+### **Step 1 — Define Variables in Wingify**
 
 In the Wingify dashboard for your feature flag:
 
@@ -118,7 +118,7 @@ if (flag.isEnabled()) {
 
 1. **No dependency on variation names** — Your app logic adapts to variable values only.
 2. **Easier experiment evolution** — Add or change variation values without touching code.
-3. **Single source of truth** — All behavioral configuration lives in.
+3. **Single source of truth** — All behavioral configuration lives in Wingify.
 4. **Better telemetry & experimentation** — You can measure metric impact on variables directly.
 
 <br />

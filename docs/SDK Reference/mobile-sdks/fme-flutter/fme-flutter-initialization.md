@@ -60,7 +60,7 @@ final wingifyClient = await Wingify.init(wingifyInitOptions);
 
 ### Logger
 
-Wingify by default logs all ERROR level messages to your mobile console. To gain more control over's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your mobile console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```dart
 // Create a custom logger implementation
@@ -93,7 +93,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-flutter-logging) 
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```dart
 final wingifyInitOptions = WingifyInitOptions(

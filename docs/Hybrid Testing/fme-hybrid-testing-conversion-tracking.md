@@ -143,7 +143,7 @@ Example:
 <script>
 // Do not change anything in the following two lines
 window.VWO = window.VWO || [];
-VWO.event =.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
+VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
 
 // Replace the property values with your actual values
 VWO.event("REPLACE_WITH_ACTUAL_EVENT_API_NAME", {
@@ -224,7 +224,7 @@ sequenceDiagram
     participant SmartCode
     participant Server
     participant FE_SDK as Wingify FE SDK
-Wingify    participant
+    participant Wingify
     participant Data360 as Offline System
 
     User->>Browser: Visit Page
@@ -234,7 +234,7 @@ Wingify    participant
     Browser->>Server: Request (UUID cookie sent)
     Server->>FE_SDK: Evaluate flag using UUID
     FE_SDK->>Wingify: Fetch config & evaluate
-   -->>FE_SDK: Decision
+    Wingify-->>FE_SDK: Decision
     FE_SDK-->>Server: Variation decision
 
     User->>Browser: Click "Buy Now"

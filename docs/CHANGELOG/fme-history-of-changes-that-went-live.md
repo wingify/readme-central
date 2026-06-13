@@ -35,7 +35,7 @@ Click on the SDK card for the up-to-date history of changes that went live.
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET
   </Card>
 
-  <Card title="" href="https://github.com/wingify/vwo-fme-go-sdk/blob/master/CHANGELOG.md" target="_blank">
+  <Card title="" href="https://github.com/wingify/wingify-fme-go-sdk/blob/master/CHANGELOG.md" target="_blank">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" width="24" alt="Go logo" /> Go
   </Card>
 

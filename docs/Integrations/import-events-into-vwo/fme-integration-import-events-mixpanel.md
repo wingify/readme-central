@@ -11,21 +11,21 @@ metadata:
 
 ## **What This Integration Achieves:**
 
-This integration allows you to use Mixpanel-identified users and cohorts for Wingify feature flag targeting. By importing user cohorts from Mixpanel into, you can roll out or test features for specific segments (e.g., Power Users, Premium users, At-Risk users) and personalize product experiences based on actual user behavior tracked in Mixpanel.
+This integration allows you to use Mixpanel-identified users and cohorts for Wingify feature flag targeting. By importing user cohorts from Mixpanel into Wingify, you can roll out or test features for specific segments (e.g., Power Users, Premium users, At-Risk users) and personalize product experiences based on actual user behavior tracked in Mixpanel.
 
 ## **Key Benefits:**
 
 * **Segment-based targeting:** Run feature experiments only for specific Mixpanel cohorts.
 * **Personalized rollouts:** Deliver variations tailored to user properties (e.g., plan, region, engagement level, lifecycle stage).
-* **Cohort-driven A/B testing:** Combine Mixpanel's behavioral analytics with's experimentation engine.
+* **Cohort-driven A/B testing:** Combine Mixpanel's behavioral analytics with Wingify's experimentation engine.
 * **Data-driven decisions:** Leverage Mixpanel's rich user behavior data for more effective feature rollouts.
 
-## **Step 1: Enabling the-Mixpanel Integration for your Wingify Account:**
+## **Step 1: Enabling the Wingify-Mixpanel Integration for your Wingify Account:**
 
-To enable the-Mixpanel integration for your Wingify account:
+To enable the Wingify-Mixpanel integration for your Wingify account:
 
 1. From the main menu of your Wingify dashboard, go to **Configurations** > **Integrations**.
-2. Click on the **Mixpanel** integration and enable it by switching on the toggle. Once   enabled, the Mixpanel screen within the’s Integration section looks like this:
+2. Click on the **Mixpanel** integration and enable it by switching on the toggle. Once   enabled, the Mixpanel screen within the Wingify’s Integration section looks like this:
 
 <Image align="center" border={false} width="750px" src="https://files.readme.io/af3f339c0b6b0df9d6016bbe3d3fb8c1b46eaddeb06fed866569d65c27f8f575-image4.png" />
 
@@ -43,14 +43,14 @@ To enable the-Mixpanel integration for your Wingify account:
 * Click Add a new integration, select.
 * Enter a name for the destination (e.g., “Wingify Production”).
 * Paste the API Key from the previous Wingify step.
-* For the user identification, make sure user profiles in Mixpanel have the $vwo_user_id property set (this must match the User ID in).
+* For the user identification, make sure user profiles in Mixpanel have the $vwo_user_id property set (this must match the User ID in Wingify).
 * Click Save.
 
 ## **Step 3 - Sync Cohorts from Mixpanel to Wingify:**
 
 * In Mixpanel, go to Data Management > Cohorts.
 * Select an existing cohort or create a new one using Mixpanel’s segmentation builder.
-* Click on the cohort’s menu and choose Export to →.
+* Click on the cohort’s menu and choose Export to → Wingify.
 * Choose the sync frequency:
   * Dynamic Sync: Recommended. Syncs automatically every 2 hours, updates targeting as your cohort changes.
   * One-Time Export: Only exports the current cohort list, no updates.
@@ -60,7 +60,7 @@ To enable the-Mixpanel integration for your Wingify account:
 
 ## **Step 4 -  Import & Activate Mixpanel Cohorts in Wingify:**
 
-* Back in, within the Mixpanel integration settings, click Add Cohort.
+* Back in Wingify, within the Mixpanel integration settings, click Add Cohort.
 * Search for or select the Mixpanel cohort(s) you just synced.
 * Click Add.
   * First sync may take up to 2 hours. Subsequent syncs are automatic (every 2 hours by default for dynamic sync).
@@ -102,11 +102,11 @@ const wingifyClient = await init({
 
 ## **Step 6: Setting Up Pre-Segmentation for Mixpanel-Synced Segments**
 
-Once your Mixpanel segments are imported into, configure **pre-segmentation** in your feature flag to target those users.
+Once your Mixpanel segments are imported into Wingify, configure **pre-segmentation** in your feature flag to target those users.
 
 ### Configure Pre-Segmentation in the Feature Flag
 
-1. Navigate to **Feature Experimentation → Feature Flags** in.
+1. Navigate to **Feature Experimentation → Feature Flags** in Wingify.
 
 2. Click **Create Feature Flag** (or open an existing one).
 
@@ -180,9 +180,9 @@ if (featureFlag.isEnabled()) {
 
 ## **Notes & Best Practices**
 
-* Ensure the custom variable key in your SDK context matches the one defined in’s rule configuration.
+* Ensure the custom variable key in your SDK context matches the one defined in Wingify’s rule configuration.
 * Only Mixpanel-identified users (with $vwo_user_id) from the synced cohort will pass the segmentation rule.
 * If you have multiple Mixpanel cohorts, create separate rollout rules for each to maintain clear targeting logic.
-* Always use dynamic sync to keep cohort data updated between Mixpanel and.
+* Always use dynamic sync to keep cohort data updated between Mixpanel and Wingify.
 
 <br />

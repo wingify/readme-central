@@ -138,7 +138,7 @@ This configuration allows you to define when and how events—such as visitor tr
 - For low-frequency tracking, reduce `RequestTimeInterval` to ensure timely dispatch.
 - Use `FlushCallback` for logging, retry logic, or triggering downstream workflows.
 
-By customizing these options, developers gain fine-grained control over how event data flows to, ensuring optimal performance, reliability, and observability across different platforms.
+By customizing these options, developers gain fine-grained control over how event data flows to Wingify, ensuring optimal performance, reliability, and observability across different platforms.
 
 <br />
 

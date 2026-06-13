@@ -97,7 +97,7 @@ fmt.Println("Event tracked:", response)
       </td>
 
       <td>
-        Any properties of this event that you wish to pass to. E.g: for a "purchase" event, some properties could be "cartValue", "currency", "shippingMethod" etc. These must be passed as key-value pairs, and the property name should exactly match what you set while creating the event in Wingify > Data360>Events.
+        Any properties of this event that you wish to pass to Wingify. E.g: for a "purchase" event, some properties could be "cartValue", "currency", "shippingMethod" etc. These must be passed as key-value pairs, and the property name should exactly match what you set while creating the event in Wingify > Data360>Events.
       </td>
     </tr>
   </tbody>

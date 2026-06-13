@@ -14,7 +14,7 @@ next:
       slug: fme-node-storage
       title: Storage Service
 ---
-Wingify by default logs all ERROR level messages to your server's console. To gain more control over's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server's console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ## Logger Properties
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This section serves as a comprehensive guide for developers looking to implement's Feature Experimentation capabilities in their applications. Through a consistent example application implemented across various programming languages, we showcase the versatility and ease of integration of Wingify FE in both server-side and client-side environments.
+This section serves as a comprehensive guide for developers looking to implement Wingify's Feature Experimentation capabilities in their applications. Through a consistent example application implemented across various programming languages, we showcase the versatility and ease of integration of Wingify FE in both server-side and client-side environments.
 
 ## Purpose
 

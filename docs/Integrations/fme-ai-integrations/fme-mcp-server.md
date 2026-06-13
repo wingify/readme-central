@@ -7,7 +7,7 @@ metadata:
 ---
 ## Introduction
 
-The **Wingify FE MCP Server** serves as a seamless bridge between your development environment and’s Feature Experimentation. It enables effortless feature flag management by integrating directly with AI-powered IDEs, allowing you to control and optimize feature releases without disrupting your coding workflow.
+The **Wingify FE MCP Server** serves as a seamless bridge between your development environment and Wingify’s Feature Experimentation. It enables effortless feature flag management by integrating directly with AI-powered IDEs, allowing you to control and optimize feature releases without disrupting your coding workflow.
 
 ### Key Features
 
@@ -48,8 +48,8 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
       "command": "npx",
       "args": ["-y", "vwo-fme-mcp@latest"],
       "env": {
-        "WINGIFY_ACCOUNT_ID": "WINGIFY_ACCOUNT_ID",
-        "VWO_API_KEY": "VWO_API_KEY"
+        "VWO_ACCOUNT_ID": "WINGIFY_ACCOUNT_ID",
+        "VWO_API_KEY": "WINGIFY_API_KEY"
       }
     }
   }
@@ -67,7 +67,7 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 
 <br />
 
-> You can add the Wingify FE MCP Server by simply clicking the button below. Make sure to update the WINGIFY_ACCOUNT_ID and_API_KEY environment variables before you start using it.
+> You can add the Wingify FE MCP Server by simply clicking the button below. Make sure to update the WINGIFY_ACCOUNT_ID and WINGIFY_API_KEY environment variables before you start using it.
 
 <br />
 
@@ -91,8 +91,8 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
       "command": "npx",
       "args": ["-y", "vwo-fme-mcp@latest"],
       "env": {
-        "WINGIFY_ACCOUNT_ID": "WINGIFY_ACCOUNT_ID",
-        "VWO_API_KEY": "VWO_API_KEY"
+        "VWO_ACCOUNT_ID": "WINGIFY_ACCOUNT_ID",
+        "VWO_API_KEY": "WINGIFY_API_KEY"
       }
     }
   }
@@ -118,8 +118,8 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
       "command": "npx",
       "args": ["-y", "vwo-fme-mcp@latest"],
       "env": {
-        "WINGIFY_ACCOUNT_ID": "WINGIFY_ACCOUNT_ID",
-        "VWO_API_KEY": "VWO_API_KEY"
+        "VWO_ACCOUNT_ID": "WINGIFY_ACCOUNT_ID",
+        "VWO_API_KEY": "WINGIFY_API_KEY"
       }
     }
   }
@@ -142,7 +142,7 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 
 Here's what you can do with our feature flag management tools:
 
-## IDE Configuration with
+### IDE Configuration with Wingify
 
 1. **Add Wingify Rules** - Retrieve IDE rules and configuration settings to seamlessly manage feature flags within your project. This enables smooth integration with your SDK and leverages's feature experimentation capabilities.
 

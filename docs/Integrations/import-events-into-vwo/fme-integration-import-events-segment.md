@@ -90,8 +90,8 @@ The Gateway Service is required for real-time flag evaluation against synced seg
 #### **4.3 Initialize the SDK with Gateway Service**
 
 ```javascript
-const wingify= require('wingify-fme-node-sdk');
-const wingifyClient = await vwo.init({
+const wingify = require('wingify-fme-node-sdk');
+const wingifyClient = await wingify.init({
     sdkKey: 'YOUR_SDK_KEY',
     accountId: 'YOUR_ACCOUNT_ID',
     gatewayService: {

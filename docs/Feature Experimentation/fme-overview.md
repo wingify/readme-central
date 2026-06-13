@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-This version of the documentation (v2) is for the new **Feature Experimentation(FE)** product of.
+This version of the documentation (v2) is for the new **Feature Experimentation(FE)** product of Wingify.
 
-**Feature Experimentation** is a full-stack solution that integrates's SDK into your server or mobile codebase, allowing you to run feature tests, rollouts, personalisation, and experimentation campaigns.
+**Feature Experimentation** is a full-stack solution that integrates Wingify's SDK into your server or mobile codebase, allowing you to run feature tests, rollouts, personalisation, and experimentation campaigns.
 
 <Callout icon="🚧">
   Please note that this differs from the **ServerSide** / **FullStack** Testing product that Wingify already offers.
@@ -101,4 +101,4 @@ Consider the following situation. An e-commerce store owner, to optimize for bet
 
 For any other languages or frameworks you want to use FE with or for a demo of the product, please reach out to us at [support@vwo.com](mailto:support@vwo.com).
 
-The Wingify SDKs code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2024-2025.
+The Wingify SDKs code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2024-2026.

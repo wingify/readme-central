@@ -31,9 +31,9 @@ This hook sends data to Wingify whenever a defined user action occurs. The captu
 
 When this hook is executed:
 
-- The application sends the event name and user details to’s platform.
+- The application sends the event name and user details to Wingify’s platform.
 - Wingify logs the event and associates it with ongoing experiments or feature rollouts.
-- The collected data is then available in’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
+- The collected data is then available in Wingify’s dashboard, where it can be analyzed to measure the effectiveness of tests, features, or campaigns.
 
 ### Why It’s Valuable:
 
@@ -118,7 +118,7 @@ The useTrackEvent hook returns an object containing a trackEvent function and an
       </td>
 
       <td>
-        any properties of this event that you wish to pass to. E.g: for a "purchase" event, some properties could be "cartValue", "currency", "shippingMethod" etc. These must be passed as key-value pairs, and the property name should exactly match what you set while creating the event in Wingify > Data360>Events.
+        any properties of this event that you wish to pass to Wingify. E.g: for a "purchase" event, some properties could be "cartValue", "currency", "shippingMethod" etc. These must be passed as key-value pairs, and the property name should exactly match what you set while creating the event in Wingify > Data360>Events.
       </td>
     </tr>
   </tbody>

@@ -11,7 +11,7 @@ Amplitude is a powerful digital analytics platform that helps you understand use
 
 ## **What This Integration Achieves**
 
-This integration allows you to use Amplitude-identified users and cohorts for Wingify feature flag targeting. By importing user cohorts from Amplitude into, you can roll out or test features for specific segments (e.g. Power Users, Premium users, At-Risk users) and personalize product experiences based on actual user behavior tracked in Amplitude.
+This integration allows you to use Amplitude-identified users and cohorts for Wingify feature flag targeting. By importing user cohorts from Amplitude into Wingify, you can roll out or test features for specific segments (e.g. Power Users, Premium users, At-Risk users) and personalize product experiences based on actual user behavior tracked in Amplitude.
 
 ## **Key Benefits**
 
@@ -54,7 +54,7 @@ To enable the-Amplitude integration on your Wingify account, follow this:
 
   <Image align="center" border={true} width="400px" src="https://files.readme.io/3442aab1de98fabaa135820b3a573ff68c2d48c42063bad913e8198d83bc4de3-image3.png" className="border" />
 
-## **Step 3 - Sync Cohorts from Amplitude to**
+## **Step 3 - Sync Cohorts from Amplitude to Wingify**
 
 * In Amplitude, go to Users > Cohorts.
 * Select an existing cohort or create a new one using Amplitude’s segmentation builder.
@@ -67,9 +67,9 @@ To enable the-Amplitude integration on your Wingify account, follow this:
 
 <Image align="center" border={true} width="550px" src="https://files.readme.io/f73e03bbf6e36c496dd11ce5eaf33b766d48b1c2ee8dab6dc9a833013c5d8894-image5.png" className="border" />
 
-## **Step 4 -  Import & Activate Amplitude Cohorts in**
+## **Step 4 -  Import & Activate Amplitude Cohorts in Wingify**
 
-* Back in, within the Amplitude integration settings, click Add Cohort.
+* Back in Wingify, within the Amplitude integration settings, click Add Cohort.
 * Search for or select the Amplitude cohort(s) you just synced.
 * Click Add.
 * First sync may take up to 24 hours depending on the size of cohort. Subsequent syncs are automatic (every 24 hours by default), but you can also trigger manual sync.
@@ -95,9 +95,9 @@ npm install wingify-fme-node-sdk
 **Reference**: [SDK Initialization Doc](https://developers.wingify.com/v2/docs/fme-node-initialization)
 
 ```javascript
-const wingify= require('wingify-fme-node-sdk');
+const wingify = require('wingify-fme-node-sdk');
 
-const wingifyClient = await vwo.init({
+const wingifyClient = await wingify.init({
     sdkKey: 'YOUR_SDK_KEY',
     accountId: 'YOUR_ACCOUNT_ID',
     gatewayService: {
@@ -114,7 +114,7 @@ Once your Amplitude segments are imported into, configure **pre-segmentation** i
 
 ### **Configure Pre-Segmentation in the Feature Flag**
 
-1. Navigate to **Feature Experimentation → Feature Flags** in.
+1. Navigate to **Feature Experimentation → Feature Flags** in Wingify.
 
 2. Click **Create Feature Flag** (or open an existing one).
 
@@ -188,7 +188,7 @@ if (featureFlag.enabled) {
 
 ## **Notes & Best Practices**
 
-* Ensure the **custom variable key** in your SDK context matches the one defined in’s rule configuration.
+* Ensure the **custom variable key** in your SDK context matches the one defined in Wingify’s rule configuration.
 
 * If you have multiple Amplitude Cohorts, create separate rollout rules for each to maintain clear targeting logic.
 

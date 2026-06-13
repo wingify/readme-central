@@ -66,13 +66,13 @@ Because UUID is identical:
 flowchart LR
     Browser -->|UUID Cookie| Server
     Server --> FE_SDK[Wingify FE SDK]
-Wingify    FE_SDK -->
+    FE_SDK --> Wingify
 
     Browser --> SmartCode
-Wingify    SmartCode -->
+    SmartCode --> Wingify
 
     Browser --> WebInsights[Wingify Web Insights]
-Wingify    WebInsights -->
+    WebInsights --> Wingify
 
     FE_SDK -. Shared UUID .- SmartCode
     SmartCode -. Shared UUID .- WebInsights

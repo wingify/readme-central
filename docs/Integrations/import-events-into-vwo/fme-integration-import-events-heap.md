@@ -11,7 +11,7 @@ metadata:
 
 ## **What This Integration Achieves**
 
-This integration allows you to use **Heap-identified users** for **Wingify feature flag targeting**. By importing user segments from Heap into, you can roll out or test features for specific cohorts (e.g., Premium users, Trial users) and personalize product experiences based on real user behavior.
+This integration allows you to use **Heap-identified users** for **Wingify feature flag targeting**. By importing user segments from Heap into Wingify, you can roll out or test features for specific cohorts (e.g., Premium users, Trial users) and personalize product experiences based on real user behavior.
 
 ## **Key Benefits**
 
@@ -21,7 +21,7 @@ This integration allows you to use **Heap-identified users** for **Wingify featu
 
 ## **Step 1: Enabling the Heap Integration for Your Wingify Account**
 
-To enable the-Heap integration for your Wingify account, follow this:
+To enable the Wingify-Heap integration for your Wingify account, follow this:
 
 1. Log in to your Wingify account.
 2. From the left panel of your Wingify dashboard, go to the **Configurations** > **Integrations** tab.
@@ -37,11 +37,11 @@ This option lets you import the segment data from your Heap account to target vi
 
 **NOTE**: Wingify supports only Heap’s identified visitors. Heap visitors can be identified using Heap’s Identity API. To learn more about it, refer to [this article](https://developers.heap.io/docs/using-identify).
 
-Now, you will have to authenticate the data transfer from your Heap account to Wingify by clicking the **Authenticate Wingify on Heap** button. In the Authentication popup that appears, select the Heap environment that you want to use with, carefully read through what Wingify will be able to view in your Heap account with this permission, and if you’re ready to proceed, click **Allow**.
+Now, you will have to authenticate the data transfer from your Heap account to Wingify by clicking the **Authenticate Wingify on Heap** button. In the Authentication popup that appears, select the Heap environment that you want to use with Wingify, carefully read through what Wingify will be able to view in your Heap account with this permission, and if you’re ready to proceed, click **Allow**.
 
-Once done, you will have to enable the Wingify integration in Heap to push the data from Heap to.
+Once done, you will have to enable the Wingify integration in Heap to push the data from Heap to Wingify.
 
-## **Step 3: Syncing a Heap Segment to**
+## **Step 3: Syncing a Heap Segment to Wingify**
 
 To export a segment from Heap to, you need to do the following:
 
@@ -61,7 +61,7 @@ To export a segment from Heap to, you need to do the following:
 
 Now, the Heap segment is imported to your Wingify account. You can log in to your Wingify account to access it.
 
-## **Step 4: Accessing the Heap Segments Imported Into**
+## **Step 4: Accessing the Heap Segments Imported Into Wingify**
 
 To access the Heap Segments imported into, perform the following steps on the **Heap** integration page:
 
@@ -113,11 +113,11 @@ Note: The `gatewayService` is mandatory for Heap integration because the SDK its
 
 ## Step 6: Setting Up Pre-Segmentation for Heap-Synced Segments
 
-Once your Heap segments are imported into, configure **pre-segmentation** in your feature flag to target those users.
+Once your Heap segments are imported into Wingify, configure **pre-segmentation** in your feature flag to target those users.
 
 ### Configure Pre-Segmentation in the Feature Flag
 
-1. Navigate to **Feature Experimentation → Feature Flags** in.
+1. Navigate to **Feature Experimentation → Feature Flags** in Wingify.
 
 2. Click **Create Feature Flag** (or open an existing one).
 
@@ -190,7 +190,7 @@ if (featureFlag.enabled) {
 
 ## **Notes & Best Practices**
 
-* Ensure the **custom variable key** in your SDK context matches the one defined in’s rule configuration.
+* Ensure the **custom variable key** in your SDK context matches the one defined in Wingify’s rule configuration.
 
 * Only **Heap-identified users** from the synced segment will pass the segmentation rule,  
   **Reference**: [Heap’s Identity API](https://developers.heap.io/reference/identify)

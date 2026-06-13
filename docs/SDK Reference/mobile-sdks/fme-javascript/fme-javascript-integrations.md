@@ -10,12 +10,12 @@ metadata:
 next:
   description: ''
 ---
-Wingify FE SDKs help you integrate with several third-party tools, be it analytics, monitoring, customer data platforms, messaging, etc., by implementing a very basic and generic callback capable of receiving-specific properties that can then be pushed to any third-party tool.
+Wingify FE SDKs help you integrate with several third-party tools, be it analytics, monitoring, customer data platforms, messaging, etc., by implementing a very basic and generic callback capable of receiving Wingify-specific properties that can then be pushed to any third-party tool.
 
 ## Usage
 
 ```node
-const wingifyClient = await wingify.init({
+const wingifyClient = await vwo.init({
     sdkKey: '32-alpha-numeric-sdk-key', //replace with the SDK key for your environment
     accountId: '123456', //replace with your Wingify account ID
     integrations: {

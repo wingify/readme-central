@@ -33,8 +33,8 @@ The server will return the settings in JSON format. Example:
 
 ```json
 {
-    "accountId": "123456",                  // Account ID
-    "sdkKey": "32-chars-alphanumeric-key",  // SDK Key
+    "accountId": "123456",                  // Wingify Account ID
+    "sdkKey": "32-chars-alphanumeric-key",  // Wingify SDK Key
     "features": {                           // features configurations here 
         // ...
     },

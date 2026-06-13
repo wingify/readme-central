@@ -1,5 +1,5 @@
 ---
-title: Unifying Server-Side and Client-Side Experimentation in
+title: Unifying Server-Side and Client-Side Experimentation in Wingify
 excerpt: >-
   A Conceptual Guide to Connecting Feature Experimentation, Web Testing, and Web
   Insights
@@ -478,7 +478,7 @@ sequenceDiagram
 #### Server-side Example
 
 ```javascript
-const_WEB_UUID_COOKIE_NAME = '_vwo_uuid';
+const _WEB_UUID_COOKIE_NAME = '_vwo_uuid';
 const uuidFromCookie = req.cookies[VWO_WEB_UUID_COOKIE_NAME];
 
 const userContext = {
@@ -521,7 +521,7 @@ flowchart LR
     SmartCode -->_Web[Wingify Web Testing]
 
     Server --> FE_SDK[Wingify FE SDK]
-    FE_SDK -->_FE[Wingify Feature Experimentation]
+    FE_SDK --> Wingify_FE[Wingify Feature Experimentation]
 
     Browser -. separate identity .- Server
 
@@ -565,7 +565,7 @@ flowchart LR
 The diagram below illustrates:
 
 * FE SDK communicates with Wingify for configuration
-* SmartCode communicates independently with
+* SmartCode communicates independently with Wingify
 * UUID is the shared binding identity
 
 ```mermaid
@@ -785,7 +785,7 @@ Example:
 <script>
 // Do not change anything in the following two lines
 window.VWO = window.VWO || [];
-VWO.event =.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
+VWO.event = VWO.event || function () {VWO.push(["event"].concat([].slice.call(arguments)))};
 
 // Replace the property values with your actual values
 VWO.event("REPLACE_WITH_ACTUAL_EVENT_API_NAME", {
@@ -872,7 +872,7 @@ sequenceDiagram
     participant SmartCode
     participant Server
     participant FE_SDK as Wingify FE SDK
-    participant
+    participant Wingify
     participant Data360 as Offline System
 
     User->>Browser: Visit Page
@@ -882,7 +882,7 @@ sequenceDiagram
     Browser->>Server: Request (UUID cookie sent)
     Server->>FE_SDK: Evaluate flag using UUID
     FE_SDK->>Wingify: Fetch config & evaluate
-   -->>FE_SDK: Decision
+    Wingify-->>FE_SDK: Decision
     FE_SDK-->>Server: Variation decision
 
     User->>Browser: Click "Buy Now"

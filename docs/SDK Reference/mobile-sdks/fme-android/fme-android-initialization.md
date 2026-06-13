@@ -54,7 +54,7 @@ Wingify.init(initOptions, new IWingifyInitCallback() {
 });
 ```
 
-The `init()` method is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object`wingifyClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` method is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object `wingifyClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -116,7 +116,7 @@ Wingify.init(wingifyInitOptions, new IWingifyInitCallback() {
 
 ### Logger
 
-Wingify by default logs all ERROR level messages to your device console. To gain more control over's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your device console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```kotlin
 wingifyInitOptions.logger = mutableMapOf<String, Any>().apply {
@@ -134,7 +134,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-android-logging) 
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```kotlin
 val wingifyInitOptions = WingifyInitOptions()

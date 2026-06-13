@@ -114,7 +114,7 @@ Upon successful import, you can use the Wingify Event template to stream the eve
 
 # **Troubleshooting / Known Issues**
 
-* ### **Issue: Event is not appearing in**
+* ### **Issue: Event is not appearing in Wingify**
 
   * Verify tag firing using GTM Preview mode
   * Ensure Wingify SmartCode loads before the GTM event fires (if Offline Conversion is not enabled)

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Wingify SDKs help you integrate with several third-party destinations. SDKs help you integrate with any kind of tool, be it analytics, monitoring, customer data platforms, messaging, etc. by implementing a very basic and generic callback that is capable of receiving-specific properties.
+Wingify SDKs help you integrate with several third-party destinations. SDKs help you integrate with any kind of tool, be it analytics, monitoring, customer data platforms, messaging, etc. by implementing a very basic and generic callback that is capable of receiving Wingify-specific properties.
 
 ## Usage
 

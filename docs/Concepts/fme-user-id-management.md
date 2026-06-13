@@ -78,7 +78,7 @@ The Wingify UUID:
 * Is generated from the provided User ID
 * Ensures a 1:1 mapping:
   * One unique User ID → One unique Wingify UUID
-Wingify  Is the canonical identity used internally by
+* Is the canonical identity used internally by Wingify
 
 The original User ID is used only for deterministic UUID generation and is not persisted in raw form.
 

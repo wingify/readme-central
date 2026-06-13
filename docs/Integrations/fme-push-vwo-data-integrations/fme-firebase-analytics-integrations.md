@@ -58,7 +58,7 @@ pod 'VWO-FE-iOS'
 Implement a class to handle Firebase Analytics integration and provide methods for tracking events and flag evaluations.
 
 ```swift
-import_FME
+import Wingify_FME
 import FirebaseAnalytics
 
 class FirebaseAnalyticsIntegration: IntegrationCallback {
@@ -72,7 +72,7 @@ class FirebaseAnalyticsIntegration: IntegrationCallback {
                    let userId = properties["userId"] as? String {
 
                      // Log the event to Firebase Analytics
-                    Analytics.logEvent("vwo_fme_flag_evaluation", parameters: [
+                    Analytics.logEvent("wingify_fme_flag_evaluation", parameters: [
                         "featureName": featureName,
                         "userId": userId
                     ])
@@ -102,7 +102,7 @@ Initialize your `FirebaseAnalyticsIntegration` instance and provide an implement
 ```swift
 // Example Integration Callback Setup
 let integration = FirebaseAnalyticsIntegration()
-let options =InitOptions(sdkKey: FME_SDK_KEY, // Replace with your actual Wingify sdk key
+let options = WingifyInitOptions(sdkKey: FME_SDK_KEY, // Replace with your actual Wingify sdk key
                            accountId: FME_ACCOUNT_ID, // Replace with your actual Wingify account ID
                            integrations: integration)
 
@@ -168,7 +168,7 @@ After integrating Firebase Analytics with your app, you can view the tracked dat
 
 2. **View Feature Flag Evaluations:**
 
-   * Look for events named `vwo_fme_flag_evaluation`
+   * Look for events named `wingify_fme_flag_evaluation`
    * These events contain data about the feature flag and the User ID
 
 3. **Track Custom Events:**

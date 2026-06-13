@@ -16,11 +16,11 @@ next:
 ---
 User attributes are specific characteristics or properties assigned to users that help define who they are or how they interact with an application. These attributes can include demographic information (like age, location), behavioral data (such as past purchases), or custom-defined properties relevant to business goals.
 
-For any additional parameters or information about the current user, you can use attributes to pass that data to.
+For any additional parameters or information about the current user, you can use attributes to pass that data to Wingify.
 
 These attributes would typically be any additional user info that you'd like to use in Wingify for post-segmentation (filtering, slicing and dicing of reports).
 
-For example, you might want to analyze the performance of a test based on the user type to see which user type converted better or worse than the other. For this, you can pass on the "user type" as an attribute to, with the relevant values for each user, ie "free", "paid" or whatever internal parameters you'd like to use for post-segmentation.
+For example, you might want to analyze the performance of a test based on the user type to see which user type converted better or worse than the other. For this, you can pass on the "user type" as an attribute to Wingify, with the relevant values for each user, ie "free", "paid" or whatever internal parameters you'd like to use for post-segmentation.
 
 ## _Set Attribute_ API
 

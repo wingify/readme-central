@@ -54,7 +54,7 @@ const settingsFile = await vwoSDK.getSettingsFile(
 );
 
 // Step 2: Launch SDK
-const wingifyClient = vwoSDK.launch({
+const client = vwoSDK.launch({
   settingsFile: settingsFile
 });
 ```
@@ -91,7 +91,7 @@ const vwoSDK = require('vwo-node-sdk');
 
 // Initialize
 const settingsFile = await vwoSDK.getSettingsFile(accountId, sdkKey);
-const wingifyClient = vwoSDK.launch({ settingsFile });
+const client = vwoSDK.launch({ settingsFile });
 
 // Activate user in campaign - returns variation name
 const variation = wingifyClient.activate(
@@ -169,7 +169,7 @@ In FullStack, you typically check which variation a user is in and branch your c
 
 ```javascript
 // FullStack: Variation-name-based logic (NOT recommended)
-const variation = wingifyClient.activate('checkout-experiment', userId);
+const variation = client.activate('checkout-experiment', userId);
 
 if (variation === 'Control') {
   buttonColor = 'blue';
@@ -346,7 +346,7 @@ const { init } = require('wingify-fme-node-sdk');
 ```javascript
 const settingsFile = await vwoSDK.getSettingsFile(accountId, sdkKey);
 
-const wingifyClient = vwoSDK.launch({
+const client = vwoSDK.launch({
   settingsFile,
   isDevelopmentMode: false,
   logging: { level: 'ERROR' }
@@ -374,8 +374,8 @@ const options = {
   userIpAddress: req.ip
 };
 
-wingifyClient.activate(campaignKey, userId, options);
-wingifyClient.track(campaignKey, userId, goalId, options);
+client.activate(campaignKey, userId, options);
+client.track(campaignKey, userId, goalId, options);
 ```
 
 **After (FE) — User context created once and reused:**
@@ -395,7 +395,7 @@ wingifyClient.trackEvent(eventName, userContext);
 
 **Before (FS):**
 ```javascript
-const variation = wingifyClient.activate('button-test', userId, options);
+const variation = client.activate('button-test', userId, options);
 
 if (variation === 'Control') {
   showBlueButton();
@@ -421,13 +421,13 @@ if (flag.isEnabled()) {
 **Before (FS):**
 ```javascript
 // Track requires campaign key
-wingifyClient.track('button-test', userId, 'button-clicked');
+client.track('button-test', userId, 'button-clicked');
 
 // Track across multiple campaigns
-wingifyClient.track(['campaign-1', 'campaign-2'], userId, 'purchase');
+client.track(['campaign-1', 'campaign-2'], userId, 'purchase');
 
 // Revenue tracking
-wingifyClient.track('campaign', userId, 'revenue-goal', {
+client.track('campaign', userId, 'revenue-goal', {
   revenueValue: 99.99
 });
 ```
@@ -451,13 +451,13 @@ wingifyClient.trackEvent('revenue-goal', userContext, {
 **Before (FS):**
 ```javascript
 // Check feature and get variables separately
-const isEnabled = wingifyClient.isFeatureEnabled('new-checkout', userId);
+const isEnabled = client.isFeatureEnabled('new-checkout', userId);
 
 if (isEnabled) {
-  const headerText = wingifyClient.getFeatureVariableValue(
+  const headerText = client.getFeatureVariableValue(
     'new-checkout', 'headerText', userId
   );
-  const showBanner = wingifyClient.getFeatureVariableValue(
+  const showBanner = client.getFeatureVariableValue(
     'new-checkout', 'showBanner', userId
   );
 }

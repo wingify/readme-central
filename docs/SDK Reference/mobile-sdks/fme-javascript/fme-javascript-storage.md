@@ -220,7 +220,7 @@ class StorageConnector extends StorageConnector {
 
 }
 
-wingifySdk.init({
+vwoSdk.init({
   sdkKey: '...',
   accountId: '123456',
   storage: new StorageConnector(),

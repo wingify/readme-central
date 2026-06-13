@@ -161,7 +161,7 @@ interface IFlag {
 
 ## **_useGetFlagVariable_** Hook
 
-If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in, which can then be fetched at your server and used to control the user's experience in your codebase.
+If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in Wingify, which can then be fetched at your server and used to control the user's experience in your codebase.
 
 The _useGetFlagVariable()_ hook retrieves the value of a specific variable associated with a feature flag. If the variable is found, it returns the assigned value; otherwise, it returns the provided default value. This ensures that your application has a fallback value in case the variable is undefined or unavailable.
 

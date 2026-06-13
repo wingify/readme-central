@@ -191,7 +191,7 @@ The `init()` function is called with the `sdk_key`and `account_id`. It initializ
 
 ### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _vwo\_client_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _vwo\_client_ has been initialized in your server, there needs to be some way to update your _vwo\_client_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
+When you initialize the _wingify\_client_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _wingify\_client_ has been initialized in your server, there needs to be some way to update your _wingify\_client_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -206,7 +206,7 @@ wingify_client = Wingify.init({
 
 ### Logger
 
-Wingify by default logs all ERROR level messages to your server console. To gain more control over's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```ruby
 # Init options with logger
@@ -255,7 +255,7 @@ Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to 
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```ruby
 def callback(data)

@@ -54,7 +54,7 @@ Add the following dependencies to your app's `build.gradle` file:
 ```groovy
 dependencies {
     // FE SDK dependency
-    implementation 'com.vwo.sdk:vwo-fme-android-sdk:<latest version>' // Replace with the latest version
+    implementation 'com.wingify.sdk:wingify-fme-android-sdk:<latest version>' // Replace with the latest version
 
     // Mixpanel SDK dependency
     implementation 'com.mixpanel.android:mixpanel-android:7.+'
@@ -114,7 +114,7 @@ Initialize your `MixpanelIntegration` instance and provide an implementation of 
 // Example Integration Callback Setup
 val mixpanelToken = BuildConfig.MIXPANEL_PROJECT_TOKEN
 mixpanelIntegration = MixpanelIntegration.getInstance(context, mixpanelToken)
-val initOptions =InitOptions().apply {
+val initOptions = WingifyInitOptions().apply {
     sdkKey = FME_SDK_KEY // Replace with your actual Wingify sdk key
     accountId = FME_ACCOUNT_ID // Replace with your actual Wingify account ID
 }
@@ -132,7 +132,7 @@ initOptions.integrations = object : IntegrationCallback {
     }
 }
 // Then initialize Wingify SDK with initOptions
-VWO.init(initOptions, object : IVwoInitCallback {
+Wngify.init(initOptions, object : IWingifyInitCallback {
     // Implementation here
 })
 ```

@@ -89,7 +89,7 @@ Wingify FE SDKs are optimized for fast, non-blocking startup. When the init() me
 * **Scenario**: First-time SDK load after process start.
 * **Time Taken**: \~70-80ms
 * **Size of Settings File Fetched**: \~2-3 kB for 10 running feature flags(depends on the number of running feature flags and their configuration).
-* **Network Latency to DaCDN**: \~50ms(Check Uptime and average response time - [here](https://status.vwo.com/#/components/P4CJ5YG_lN8Fh07rnB3KSd3ZTTgIxok46ugVHX49GB0Hy_bMBS9kv3d9fS6iXhzH))
+* **Network Latency to DaCDN**: \~50ms(Check Uptime and average response time - [here](https://status.wingify.com/#/components/P4CJ5YG_lN8Fh07rnB3KSd3ZTTgIxok46ugVHX49GB0Hy_bMBS9kv3d9fS6iXhzH))
 
 ### Warm Start
 

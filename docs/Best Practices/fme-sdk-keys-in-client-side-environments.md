@@ -61,7 +61,7 @@ const wingifyClient = init({
 });
 ```
 ```javascript React.js
-import { VWOProvider } from 'wingify-fme-react-sdk';
+import { WingifyProvider } from 'wingify-fme-react-sdk';
 
 const wingifyConfig = {
   sdkKey: 'your-sdk-key', // Replace with your SDK Key
@@ -73,9 +73,9 @@ const wingifyConfig = {
 
 function App() {
   return (
-    <VWOProvider config={wingifyConfig}>
+    <WingifyProvider config={wingifyConfig}>
       {/* Your application components */}
-    </VWOProvider>
+    </WingifyProvider>
   );
 }
 ```
@@ -97,7 +97,7 @@ const wingifyClient = init({
 });
 ```
 ```javascript React.js
-import { VWOProvider } from 'wingify-fme-react-sdk';
+import { WingifyProvider } from 'wingify-fme-react-sdk';
 
 const wingifyConfig = {
   accountId: process.env.WINGIFY_ACCOUNT_ID,
@@ -106,9 +106,9 @@ const wingifyConfig = {
 
 function App() {
   return (
-    <VWOProvider config={wingifyConfig}>
+    <WingifyProvider config={wingifyConfig}>
       {/* Your application components */}
-    </VWOProvider>
+    </WingifyProvider>
   );
 }
 ```
@@ -173,6 +173,6 @@ Then send that flag result/variable values to the frontend either via `cookies` 
 | Recommendation       | Description                                                                         |
 | -------------------- | ----------------------------------------------------------------------------------- |
 | Rotate SDK Keys      | Regenerate SDK keys periodically or upon suspected misuse                           |
-| Monitor usage        | Use network monitoring tools or’s dashboards to track API calls                 |
+| Monitor usage        | Use network monitoring tools or Wingify’s dashboards to track API calls                 |
 | Rate limit via proxy | If using a server-side proxy, add rate limits and throttling                        |
 | Obfuscate code       | For web apps, consider bundling and obfuscating JS code to make key scraping harder |

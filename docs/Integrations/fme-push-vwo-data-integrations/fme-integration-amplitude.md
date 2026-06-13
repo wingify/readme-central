@@ -171,7 +171,7 @@ The `integrations.callback` receives a `properties` object containing details ab
 
 ## **Sample Screenshots**
 
-#### **Live Events** —_getFlag events with user IDs arriving in real-time
+#### **Live Events** — Wingify_getFlag events with user IDs arriving in real-time
 
 <Image align="center" width="750px" src="https://files.readme.io/1c6a22a340232764e599732ffd299c5901a0aa2b8654e609ad11ad5f70bf2c0a-image2.png" />
 
@@ -179,7 +179,7 @@ The `integrations.callback` receives a `properties` object containing details ab
 
 <Image align="center" width="750px" src="https://files.readme.io/d8eba29365c069c0fa6e6dc1575453381d3c3f439a58ced41539310b50874235-image3.png" />
 
-#### **Event Properties** —_getFlag event with all custom event properties:
+#### **Event Properties** — Wingify_getFlag event with all custom event properties:
 
 <Image align="center" width="750px" src="https://files.readme.io/06153120492f4198b670c78432299578161b89dc96377755a1fdc3bfe58cfe35-image1.png" />
 

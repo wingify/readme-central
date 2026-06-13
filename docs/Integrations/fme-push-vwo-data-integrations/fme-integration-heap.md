@@ -165,7 +165,7 @@ This setup ensures that every time a feature flag is evaluated or an event is tr
 
 ## **Sample Screenshot**
 
-#### **Labeled Events —_getFlag event with custom event properties:**
+#### **Labeled Events Wingify_getFlag event with custom event properties:**
 
 <Image align="center" width="750px" src="https://files.readme.io/c45531f8ec80bdd549ac8f4f00c43517f1d2fba0c6277021ed94889057a877f7-image1.png" />
 
