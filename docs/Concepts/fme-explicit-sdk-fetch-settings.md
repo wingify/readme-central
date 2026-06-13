@@ -17,14 +17,14 @@ https://dev.visualwebsiteoptimizer.com/server-side/v2-settings?i={sdkKey}&a={acc
 
 Where:
 
-* `{sdkKey}`:  VWO SDK key.
-* `{accountId}`: VWO Account ID.
-* `{skdName}`: VWO FE SDK Name
-* `{sdkVersion}`: VWO FE SDK Version
+* `{sdkKey}`:  Wingify SDK key.
+* `{accountId}`: Wingify Account ID.
+* `{skdName}`: Wingify FE SDK Name
+* `{sdkVersion}`: Wingify FE SDK Version
 * `{randomValue}`: A random value used to prevent caching. You can generate a random value using `Math.random()` (or any other suitable method in your environment). For eg: `0.342411122`
 
 <Callout icon="📘" theme="info">
-  The URL provided above is the official VWO endpoint for retrieving the settings of your active feature flags.
+  The URL provided above is the official Wingify endpoint for retrieving the settings of your active feature flags.
 </Callout>
 
 #### Example Response:
@@ -33,8 +33,8 @@ The server will return the settings in JSON format. Example:
 
 ```json
 {
-    "accountId": "123456",                  // VWO Account ID
-    "sdkKey": "32-chars-alphanumeric-key",  // VWO SDK Key
+    "accountId": "123456",                  // Wingify Account ID
+    "sdkKey": "32-chars-alphanumeric-key",  // Wingify SDK Key
     "features": {                           // features configurations here 
         // ...
     },
@@ -50,7 +50,7 @@ The server will return the settings in JSON format. Example:
 Once you have fetched the settings, you can directly pass them to your SDK's `init` method. This allows you to bypass the automatic settings fetching process, significantly improving initialization time.
 
 ```node
-const vwoInstance = await init({
+const wingifyClient = await init({
   settings: settings
 });
 ```

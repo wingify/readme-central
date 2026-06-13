@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-# Storage in VWO FE Android SDK
+# Storage in Wingify FE Android SDK
 
-The VWO FE Android SDK operates in a stateless mode by default, meaning each `getFlag` call triggers a fresh evaluation of the flag against the current user context.
+The Wingify FE Android SDK operates in a stateless mode by default, meaning each `getFlag` call triggers a fresh evaluation of the flag against the current user context.
 
 To optimize performance and maintain consistency, the SDK provides both built-in storage and the ability to implement custom storage through a storage connector. This allows you to persist feature flag decisions in your preferred storage system.
 
@@ -15,8 +15,8 @@ To optimize performance and maintain consistency, the SDK provides both built-in
 
 1. **Improved Performance**: Reduces network calls and latency by caching decisions locally
 2. **Consistent User Experience**: Ensures users get the same experience across app sessions
-3. **Reduced Server Load**: Minimizes the number of requests to VWO servers
-4. **Decision Stability**: Once a decision is made for a user, it remains consistent even if campaign settings are modified in the VWO Application
+3. **Reduced Server Load**: Minimizes the number of requests to Wingify servers
+4. **Decision Stability**: Once a decision is made for a user, it remains consistent even if campaign settings are modified in the Wingify Application
 5. **Offline Functionality**: Allows the SDK to function even when the device is offline
 
 ## How to Implement a Storage Service

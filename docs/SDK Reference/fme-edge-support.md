@@ -1,7 +1,7 @@
 ---
 title: Edge Support
 excerpt: >-
-  Learn how to configure the VWO FE JavaScript SDK for edge computing
+  Learn how to configure the Wingify FE JavaScript SDK for edge computing
   environments like Cloudflare Workers, Vercel Edge Functions, and AWS
   Lambda@Edge.
 deprecated: false
@@ -17,7 +17,7 @@ next:
 
 Modern edge platforms such as Cloudflare Workers, Vercel Edge Functions, and AWS Edge runtimes are optimized for low-latency, short-lived execution. While these environments provide excellent performance, they introduce unique challenges for SDK initialization and configuration management.
 
-The VWO Feature Experimentation (FE) JavaScript SDK is fully compatible with edge environments. However, to achieve optimal performance and avoid unnecessary network calls, settings management must be handled differently than in traditional long-running servers.
+The Wingify Feature Experimentation (FE) JavaScript SDK is fully compatible with edge environments. However, to achieve optimal performance and avoid unnecessary network calls, settings management must be handled differently than in traditional long-running servers.
 
 **Supported edge platforms include:**
 
@@ -41,14 +41,14 @@ This document explains:
 
 <br />
 
-> For further details on the VWO FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [VWO JavaScript SDK Documentation](https://developers.vwo.com/v2/docs/fme-javascript).
+> For further details on the Wingify FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [Wingify JavaScript SDK Documentation](https://developers.wingify.com/v2/docs/fme-javascript).
 
 ## Default SDK Initialization (Not Recommended for Edge)
 
 By default, the SDK fetches settings during initialization:
 
 ```javascript
-await VWO.init({
+await.init({
   sdkKey: 'SDK_KEY',
   accountId: 'ACCOUNT_ID'
 });
@@ -56,7 +56,7 @@ await VWO.init({
 
 **What Happens Internally**
 
-* SDK makes a network request to VWO servers
+* SDK makes a network request to Wingify servers
 * Settings are fetched on every worker execution
 * No reuse unless the runtime keeps the worker warm
 
@@ -89,7 +89,7 @@ Edge platforms introduce several behavioral constraints that impact any SDK perf
 
 ## SDK Configuration for Edge Environments
 
-Use the `edgeConfig` option when initializing the VWO SDK inside any edge runtime.
+Use the `edgeConfig` option when initializing the Wingify SDK inside any edge runtime.
 
 ### Parameter: edgeConfig
 
@@ -106,22 +106,22 @@ With edgeConfig, core methods like `getFlag`, `trackEvent`, and `setAttribute` r
 <Callout icon="🚧" theme="warn">
   **Important Note**
 
-  When using `edgeConfig`, you must call `await flushEvents()` at the end of your code flow to send tracking events to VWO for reporting purposes.
+  When using `edgeConfig`, you must call `await flushEvents()` at the end of your code flow to send tracking events to Wingify for reporting purposes.
 </Callout>
 
 <br />
 
 ### Essential Rule for Edge Environments
 
-Always call **vwoClient.flushEvents()** before your function exits.
+Always call **wingifyClient.flushEvents()** before your function exits.
 
 If events are not flushed, they may be dropped entirely.
 
 Edge platforms provide different mechanisms to wait for async operations:
 
-* Cloudflare Workers: `ctx.waitUntil(vwoClient.flushEvents)`
-* Vercel Edge / Fastly: `waitUntil(vwoClient.flushEvents)`
-* Other platforms: standard `await vwoClient.flushEvents()`
+* Cloudflare Workers: `ctx.waitUntil(wingifyClient.flushEvents)`
+* Vercel Edge / Fastly: `waitUntil(wingifyClient.flushEvents)`
+* Other platforms: standard `await wingifyClient.flushEvents()`
 
 <br />
 
@@ -153,11 +153,11 @@ Looking for platform-specific setup instructions?
 Here's how you can configure the SDK to work properly in an edge environment:
 
 ```javascript
-const { init } = require('vwo-fme-node-sdk');
+const { init } = require('wingify-fme-node-sdk');
 
-// Initialize VWO client with Edge environment support
+// Initialize Wingify client with Edge environment support
 async function main() {
-  const vwoClient = await init({
+  const wingifyClient = await init({
     accountId: '123456',
     sdkKey: '32-alpha-numeric-sdk-key',
     // Edge configuration for serverless environments
@@ -169,7 +169,7 @@ async function main() {
   const userContext = { id: 'unique_user_id' };
 
   // Check if feature is enabled for the user
-  const flag = await vwoClient.getFlag('feature_key', userContext);
+  const flag = await wingifyClient.getFlag('feature_key', userContext);
 
   if (flag.isEnabled()) {
     console.log('Feature is enabled!');
@@ -179,10 +179,10 @@ async function main() {
   }
 
   // Track an event
-  await vwoClient.trackEvent('event_name', userContext);
+  await wingifyClient.trackEvent('event_name', userContext);
 
   // IMPORTANT: Flush events before function exits
-  await vwoClient.flushEvents();
+  await wingifyClient.flushEvents();
 }
 
 main();
@@ -199,13 +199,13 @@ main();
 
 ## Flushing Events in Edge Environments
 
-When using `edgeConfig`, you **must** call `flushEvents()` at the end of your function to send tracking events to VWO.
+When using `edgeConfig`, you **must** call `flushEvents()` at the end of your function to send tracking events to.
 
 ### Basic Usage
 
 ```javascript
 // At the end of your edge function, before returning
-await vwoClient.flushEvents();
+await wingifyClient.flushEvents();
 ```
 
 <br />
@@ -223,9 +223,9 @@ This can be achieved in two ways:
 
 ### Option 1: Explicit SDK Settings Injection
 
-VWO supports initializing the SDK with pre-fetched settings, completely skipping the network call.
+Wingify supports initializing the SDK with pre-fetched settings, completely skipping the network call.
 
-> Reference: [https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings](https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings)
+> Reference: [https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings](https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings)
 
 #### Example
 
@@ -239,13 +239,13 @@ const response = await fetch(
 const settings = await response.json();
 
 // Store in KV, Redis, etc.
-await KV.put(`vwo_settings_${ACCOUNT_ID}_${SDK_KEY}`, JSON.stringify(settings));
+await KV.put(`wingify_settings_${ACCOUNT_ID}_${SDK_KEY}`, JSON.stringify(settings));
 ```
 
 Initialize SDK with Cached Settings
 
 ```javascript
-const cachedSettings = await KV.get(`vwo_settings_${ACCOUNT_ID}_${SDK_KEY}`);
+const cachedSettings = await KV.get(`wingify_settings_${ACCOUNT_ID}_${SDK_KEY}`);
 
 await init({
   accountId: ACCOUNT_ID,
@@ -268,7 +268,7 @@ await init({
 
 #### Lifecycle
 
-* VWO Settings API
+* Wingify Settings API
 * Fetch Once (Background / Cron / First Request)
 * Store in Edge KV / Redis / Durable Store
 * Inject into SDK on init()
@@ -277,7 +277,7 @@ await init({
 
 To simplify settings management, the FE SDK now supports settings **persistence directly via the storage connector**.
 
-> Reference: <Anchor label="[[https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service)](https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service)" target="_blank" href="https://developers.vwo.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service"><Anchor label="[https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)" target="_blank" href="https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector">[https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.vwo.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)</Anchor></Anchor>
+> Reference: <Anchor label="[[https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service)](https://developers.wingify.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service)" target="_blank" href="https://developers.wingify.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service"><Anchor label="[https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)" target="_blank" href="https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector">[https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)</Anchor></Anchor>
 
 #### Why This Is Better
 
@@ -293,7 +293,7 @@ To simplify settings management, the FE SDK now supports settings **persistence 
 * SDK initializes
 * SDK calls `getSettings()`
 * If settings exist → use them
-* If not → fetch from VWO servers
+* If not → fetch from Wingify servers
 * SDK calls `setSettings()` to persist them
 
 <br />
@@ -307,9 +307,9 @@ Cloudflare worker terminates execution immediately after returning a response. U
 ```javascript
 export default {
   async fetch(request, env, ctx) {
-    const vwoClient = await init({
-      accountId: env.VWO_ACCOUNT_ID,
-      sdkKey: env.VWO_SDK_KEY,
+    const wingifyClient = await init({
+      accountId: env.WINGIFY_ACCOUNT_ID,
+      sdkKey: env.WINGIFY_SDK_KEY,
       edgeConfig: {
         shouldWaitForTrackingCalls: true,
       },
@@ -318,11 +318,11 @@ export default {
     const userContext = { id: 'user123' };
     
     // Your application logic
-    const flag = await vwoClient.getFlag('feature_key', userContext);
-    await vwoClient.trackEvent('event_name', userContext);
+    const flag = await wingifyClient.getFlag('feature_key', userContext);
+    await wingifyClient.trackEvent('event_name', userContext);
     
     // CRITICAL: Flush events using ctx.waitUntil in Cloudflare
-    ctx.waitUntil(vwoClient.flushEvents());
+    ctx.waitUntil(wingifyClient.flushEvents());
     
     return new Response('OK');
   }
@@ -336,11 +336,11 @@ export default {
 Similar to Cloudflare, Vercel Edge requires waitUntil(). To know more about `waitUntil()`, check the official docs <Anchor label="here" target="_blank" href="https://vercel.com/docs/functions/functions-api-reference/vercel-functions-package#helper-methods-non-next.js-usage-or-older-next.js-versions">here</Anchor>.
 
 ```javascript
-import { init } from 'vwo-fme-node-sdk';
+import { init } from 'wingify-fme-node-sdk';
 import { waitUntil } from '@vercel/functions';
 
 export default async function handler(req, res) {
-    const vwoClient = await init({
+    const wingifyClient = await init({
       accountId: '123456',
       sdkKey: '32-alpha-numeric-sdk-key',
       edgeConfig: {
@@ -351,11 +351,11 @@ export default async function handler(req, res) {
     const userContext = { id: 'user123' };
     
     // Your application logic
-    const flag = await vwoClient.getFlag('feature_key', userContext);
-    await vwoClient.trackEvent('event_name', userContext);
+    const flag = await wingifyClient.getFlag('feature_key', userContext);
+    await wingifyClient.trackEvent('event_name', userContext);
     
     // CRITICAL: Flush events using waitUntil in vercel
-    waitUntil(vwoClient.flushEvents());
+    waitUntil(wingifyClient.flushEvents());
     
     return res.status(200).json({status: 'success'})
   }
@@ -368,7 +368,7 @@ If the platform does not provide “background work” helpers, simply `await` t
 
 ```javascript
 export default async function handler(request) {
-  const vwoClient = await init({
+  const wingifyClient = await init({
     accountId: '123456',
     sdkKey: '32-alpha-numeric-sdk-key',
     edgeConfig: {
@@ -377,11 +377,11 @@ export default async function handler(request) {
   });
 
   const userContext = { id: 'user123' };
-  const flag = await vwoClient.getFlag('feature_key', userContext);
-  await vwoClient.trackEvent('event_name', userContext);
+  const flag = await wingifyClient.getFlag('feature_key', userContext);
+  await wingifyClient.trackEvent('event_name', userContext);
 
   // REQUIRED: Flush events before returning
-  await vwoClient.flushEvents();
+  await wingifyClient.flushEvents();
 
   return new Response('OK');
 }
@@ -394,13 +394,13 @@ export default async function handler(request) {
 ```javascript
 const storageConnector = {
   async getSettings(accountId, sdkKey) {
-    const key = `vwo_settings_${accountId}_${sdkKey}`;
+    const key = `wingify_settings_${accountId}_${sdkKey}`;
     const cached = await KV.get(key);
     return cached ? JSON.parse(cached) : null;
   },
 
   async setSettings({ settings }) {
-    const key = `vwo_settings_${settings.accountId}_${settings.sdkKey}`;
+    const key = `wingify_settings_${settings.accountId}_${settings.sdkKey}`;
     await KV.put(key, JSON.stringify(settings), {
       expirationTtl: 3600 * 12 // 12 hours
     });
@@ -432,4 +432,4 @@ await init({
 
 <br />
 
-By following this guide, you can confidently deploy the VWO FE JavaScript SDK to distributed, edge platforms while preserving the integrity of your feature flagging and experimentation data.
+By following this guide, you can confidently deploy the Wingify FE JavaScript SDK to distributed, edge platforms while preserving the integrity of your feature flagging and experimentation data.

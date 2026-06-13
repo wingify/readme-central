@@ -7,7 +7,7 @@ metadata:
 ---
 ## **Overview**
 
-By default, VWO assigns variations based on each user's unique ID — meaning different users may see different variations. **Custom Bucketing Seed** lets you override this by passing a shared `bucketingSeed` string, so that all users with the same seed are guaranteed to see the **same variation**.
+By default, Wingify assigns variations based on each user's unique ID — meaning different users may see different variations. **Custom Bucketing Seed** lets you override this by passing a shared `bucketingSeed` string, so that all users with the same seed are guaranteed to see the **same variation**.
 
 This is useful whenever you need a group of users to share a consistent experience, rather than being individually randomized.
 
@@ -45,7 +45,7 @@ When you provide a `bucketingSeed` in the user context, the SDK uses it **instea
 | **No salt, with seed** | `{campaignId}_{bucketingSeed}` |
 | **Salt + seed**        | `{salt}_{bucketingSeed}`       |
 
-**Note:** The salt is managed by the VWO platform — it is not something you set in the SDK context. Your `bucketingSeed` always replaces the `bucketingId` portion of the key, regardless of whether a salt is present.
+**Note:** The salt is managed by the Wingify platform — it is not something you set in the SDK context. Your `bucketingSeed` always replaces the `bucketingId` portion of the key, regardless of whether a salt is present.
 
 ## **Usage Examples**
 
@@ -54,12 +54,12 @@ When you provide a `bucketingSeed` in the user context, the SDK uses it **instea
 Different users are bucketed independently based on their own id.
 
 ```javascript
-import { init } from 'vwo-fme-node-sdk';
+import { init } from 'wingify-fme-node-sdk';
 
-const vwoClient = await init({ accountId: 'YOUR_ACCOUNT_ID', sdkKey: 'YOUR_SDK_KEY' });
+const wingifyClient = await init({ accountId: 'YOUR_ACCOUNT_ID', sdkKey: 'YOUR_SDK_KEY' });
 
-const user1Flag = await vwoClient.getFlag('feature_key', { id: 'user_001' });
-const user2Flag = await vwoClient.getFlag('feature_key', { id: 'user_002' });
+const user1Flag = await wingifyClient.getFlag('feature_key', { id: 'user_001' });
+const user2Flag = await wingifyClient.getFlag('feature_key', { id: 'user_002' });
 
 // user_001 and user_002 may receive different variations
 console.log(user1Flag.getVariables()); // e.g. { color: 'blue' }
@@ -75,11 +75,11 @@ Two different users with the same `bucketingSeed` will always receive the same v
 ```javascript
 const SHARED_SEED = 'household-abc-123';
 
-const user1Flag = await vwoClient.getFlag('feature_key', {
+const user1Flag = await wingifyClient.getFlag('feature_key', {
   id: 'user_001',
   bucketingSeed: SHARED_SEED,
 });
-const user2Flag = await vwoClient.getFlag('feature_key', {
+const user2Flag = await wingifyClient.getFlag('feature_key', {
   id: 'user_002',
   bucketingSeed: SHARED_SEED,
 });
@@ -93,12 +93,12 @@ console.log(user2Flag.getVariables()); // { color: 'blue' }  ← same
 The same user ID, given two different seeds, may bucket into different variations
 
 ```javascript
-const flagA = await vwoClient.getFlag('feature_key', {
+const flagA = await wingifyClient.getFlag('feature_key', {
   id: 'user_001',
   bucketingSeed: 'seed-variant-A',
 });
 
-const flagB = await vwoClient.getFlag('feature_key', {
+const flagB = await wingifyClient.getFlag('feature_key', {
   id: 'user_001',
   bucketingSeed: 'seed-variant-B',
 });
@@ -112,7 +112,7 @@ console.log(flagB.getVariables()); // e.g. { color: 'red' }
 
 ```javascript
 // If 'user-vip' is whitelisted, the seed has no effect
-const flag = await vwoClient.getFlag('checkout-redesign', {
+const flag = await wingifyClient.getFlag('checkout-redesign', {
   id: 'user-vip',
   bucketingSeed: 'org-acme',
 });

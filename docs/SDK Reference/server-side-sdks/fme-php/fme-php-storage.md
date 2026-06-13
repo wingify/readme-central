@@ -20,11 +20,11 @@ Key benefits of implementing storage:
 2. Consistent user experience across sessions
 3. Reduced load on your application
 
-The storage mechanism ensures that once a decision is made for a user, it remains consistent even if campaign settings are modified in the VWO Application. This is particularly useful for maintaining a stable user experience during A/B tests and feature rollouts.
+The storage mechanism ensures that once a decision is made for a user, it remains consistent even if campaign settings are modified in the Wingify Application. This is particularly useful for maintaining a stable user experience during A/B tests and feature rollouts.
 
 ## How to Implement Storage Service
 
-Storage Service is optional while [instantiating](https://developers.vwo.com/docs/nodejs-launch) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing it.
+Storage Service is optional while [instantiating](https://developers.wingify.com/docs/nodejs-launch) the Wingify SDK. However, to ensure sticky variation assignments, we recommend implementing it.
 
 ### Usage
 
@@ -55,7 +55,7 @@ $wingifyClient = Wingify::init([
 ]);
 ```
 
-Storage Service should expose two methods: _get_ and _set_. VWO uses these methods whenever there is a need to read or write from the storage service.
+Storage Service should expose two methods: _get_ and _set_. Wingify uses these methods whenever there is a need to read or write from the storage service.
 
 | Method Name | Params             | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |

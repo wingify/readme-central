@@ -12,7 +12,7 @@ next:
 ---
 ## Overview
 
-The VWO FE Gateway Service is a critical component for VWO's Feature Experimentation (FE) SDKs, particularly essential for pre-segmentation based on user location and user agent (UA). It's designed to be deployed within your infrastructure, ensuring minimal latency and enhanced security for FE operations.
+The Wingify FE Gateway Service is a critical component for's Feature Experimentation (FE) SDKs, particularly essential for pre-segmentation based on user location and user agent (UA). It's designed to be deployed within your infrastructure, ensuring minimal latency and enhanced security for FE operations.
 
 ## When is Gateway Service Needed?
 
@@ -33,14 +33,14 @@ The Gateway Service is designed to be deployed within your backend infrastructur
 ## Key Features
 
 * Handles location and user agent information requests
-* Provides a unified interface for VWO SDK operations
+* Provides a unified interface for Wingify SDK operations
 * Supports caching for improved response times
-* Offers configurable polling for VWO campaign settings updates
+* Offers configurable polling for Wingify campaign settings updates
 * Enables low-latency, internal communication with FE SDKs
 
 ## Flow
 
-Your application calls the VWO FE SDK, which communicates with the locally deployed Gateway Service. The Gateway Service handles complex logic and data management required for Feature Experimentation.
+Your application calls the Wingify FE SDK, which communicates with the locally deployed Gateway Service. The Gateway Service handles complex logic and data management required for Feature Experimentation.
 
 <Image align="center" border={false} src="https://files.readme.io/f983ba3e8432b9bc7e203f76372310430473131856b354b494c6f0930238fa9b-FME_Gateway.drawio.png" />
 
@@ -55,7 +55,7 @@ Whenever you evaluate a feature flag using the `getFlag` API in the SDK with the
 * **User-Agent**
 * **Location**
 
-If any of these conditions are present, the SDK sends the **user-agent** and **IP address** details to the **VWO Gateway Service**, which returns enriched information about the user, including:
+If any of these conditions are present, the SDK sends the **user-agent** and **IP address** details to the **Wingify Gateway Service**, which returns enriched information about the user, including:
 
 1. **Device type**: Information about the user’s device (e.g., mobile, desktop).
 2. **Operating system**: The OS version and type (e.g., Windows, macOS, iOS, Android).
@@ -65,24 +65,24 @@ Once the user details are received from the Gateway Service, they are used to ev
 
 #### Visitor Tracking and Batching
 
-After the flag evaluation, the SDK sends a **visitor tracking call** to the **VWO Gateway Service** to log the event. These tracking calls are batched for optimal performance and efficient network usage.
+After the flag evaluation, the SDK sends a **visitor tracking call** to the **Wingify Gateway Service** to log the event. These tracking calls are batched for optimal performance and efficient network usage.
 
 **Batch Configuration**: The Gateway Service uses the following default batching configuration:
 
 1. **1000 events per request**: The Gateway Service collects up to 1000 tracking calls before sending them in a single batch.
 2. **30 seconds request time interval**: If 1000 events are not collected within 30 seconds, all the collected events are sent as a batch.
 
-Once the batching condition is met (either 1000 events or 30 seconds), all the collected tracking calls are sent in a single batch request from the Gateway Service to the VWO Servers. This batching mechanism helps reduce the overhead of sending tracking calls one by one, making it more efficient by grouping events together and minimizing network requests.
+Once the batching condition is met (either 1000 events or 30 seconds), all the collected tracking calls are sent in a single batch request from the Gateway Service to the Wingify Servers. This batching mechanism helps reduce the overhead of sending tracking calls one by one, making it more efficient by grouping events together and minimizing network requests.
 
 ## Deployment
 
-VWO FE Gateway Service is available on the Docker Hub.  
+Wingify FE Gateway Service is available on the Docker Hub.  
 Docker Image: [https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service](https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service)
 
 ### Prerequisites
 
 * Docker and Docker Compose
-* VWO Account ID and SDK Key
+* Wingify Account ID and SDK Key
 * (Optional) MaxMind GeoIP database credentials
 
 ### Setup
@@ -166,11 +166,11 @@ networks:
 
 ### Configuration Options
 
-* `ACCOUNT_ID` (required): Your VWO account ID. This uniquely identifies your VWO account.
+* `ACCOUNT_ID` (required): Your Wingify account ID. This uniquely identifies your Wingify account.
 
-* `SDK_KEY` (required): Your VWO SDK key. This is used to identify the environment you're running and for authentication.
+* `SDK_KEY` (required): Your Wingify SDK key. This is used to identify the environment you're running and for authentication.
 
-* `POLLING_TIME` (optional, default: 60000): The interval in milliseconds at which the Gateway Service polls VWO servers for updates to campaign settings. Adjust this based on how frequently you update your VWO campaigns.
+* `POLLING_TIME` (optional, default: 60000): The interval in milliseconds at which the Gateway Service polls Wingify servers for updates to campaign settings. Adjust this based on how frequently you update your Wingify campaigns.
 
 * `MAXMIND_USER_ID` and `MAXMIND_LICENSE_KEY` (optional): Credentials for MaxMind GeoIP database. This is mandatory if you want to leverage accurate geolocation-based targeting and segmentation in FE.
 
@@ -205,7 +205,7 @@ Additional environment variables can be set for fine-tuning the Gateway Service:
 
 * `MAX_EVENTS_PER_REQUEST` (optional, default: 5000): The maximum number of events that can be sent in a single batch request.
 
-* `FLUSH_EVENTS_INTERVAL` (optional, default: 600): The interval in seconds at which events are flushed to VWO servers.
+* `FLUSH_EVENTS_INTERVAL` (optional, default: 600): The interval in seconds at which events are flushed to Wingify servers.
 
 * `EVENTS_PER_REQUEST` (optional, default: 100): The number of events to be sent in each request during event flushing.
 
@@ -215,7 +215,7 @@ These configuration options allow you to customize the Gateway Service to fit yo
 
 ## API Endpoints
 
-The Gateway Service exposes these main endpoints. These endpoints should be used when you're directly accessing the Gateway Service without using any of VWO's SDKs:
+The Gateway Service exposes these main endpoints. These endpoints should be used when you're directly accessing the Gateway Service without using any of's SDKs:
 
 ### 1. GetFlag
 
@@ -309,6 +309,6 @@ Note: All three parameters are required. The setAttribute API always returns a 2
 
 ### Conclusion
 
-The VWO FE Gateway Service enhances VWO SDK capabilities by providing advanced pre-segmentation, consistent cross-platform behaviour, and improved performance within your infrastructure. It ensures fast, efficient, and secure Feature Experimentation processes, making it an essential component for applications leveraging VWO's FE capabilities, especially for thin clients and scenarios requiring advanced targeting or segmentation.
+The Wingify FE Gateway Service enhances Wingify SDK capabilities by providing advanced pre-segmentation, consistent cross-platform behaviour, and improved performance within your infrastructure. It ensures fast, efficient, and secure Feature Experimentation processes, making it an essential component for applications leveraging's FE capabilities, especially for thin clients and scenarios requiring advanced targeting or segmentation.
 
 .

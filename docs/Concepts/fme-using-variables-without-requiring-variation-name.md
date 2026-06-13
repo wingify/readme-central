@@ -6,7 +6,7 @@ hidden: false
 metadata:
   robots: index
 ---
-## **Using Variables to Drive Logic Instead of Returning Variation Names in VWO FE**
+## **Using Variables to Drive Logic Instead of Returning Variation Names in Wingify FE**
 
 <br />
 
@@ -14,25 +14,25 @@ metadata:
 
 <br />
 
-When running experiments or feature rollouts with VWO Feature Experimentation (FE), you typically need to change behavior or configuration _based on the variation assigned to a user_. One approach is to check the variation name returned by VWO and hard-code behavior in your application. However, this quickly leads to **tightly coupled logic**, **hard-to-maintain code**, and **rigid experiment evolution**.
+When running experiments or feature rollouts with Wingify Feature Experimentation (FE), you typically need to change behavior or configuration _based on the variation assigned to a user_. One approach is to check the variation name returned by Wingify and hard-code behavior in your application. However, this quickly leads to **tightly coupled logic**, **hard-to-maintain code**, and **rigid experiment evolution**.
 
 <br />
 
 Instead, centralizing configuration via **feature variables** makes your code:
 
 * **Data-driven**: No hard-coded variation names in app logic.
-* **Flexible**: Change behaviour by updating variable values in the VWO dashboard only.
+* **Flexible**: Change behaviour by updating variable values in the Wingify dashboard only.
 * **Extensible**: Add or evolve variations without code changes.
 
-Variables are first-class concepts in VWO FME — they let you attach typed values (Boolean, text, number, JSON) to a feature flag. Each variation then defines _variable values_ for that feature.
+Variables are first-class concepts in Wingify FME — they let you attach typed values (Boolean, text, number, JSON) to a feature flag. Each variation then defines _variable values_ for that feature.
 
 <br />
 
-## How VWO Feature Experimentation Works
+## How Wingify Feature Experimentation Works
 
-In VWO FE:
+In Wingify FE:
 
-1. You **create a feature flag** in the VWO dashboard and define one or more **variables** for it.
+1. You **create a feature flag** in the Wingify dashboard and define one or more **variables** for it.
 2. You create **variations** of that flag, where each variation assigns specific values to those variables.
 3. You configure **rules** (rollouts, experimentation, personalization) that determine which users should see which variation.
 4. In your code, you fetch the flag and then access variable values for the assigned variation.
@@ -46,7 +46,7 @@ This model decouples _what the code does_ from _how it’s configured_.
 Here’s how many teams first implement a feature test:
 
 ```javascript
-const flag = await vwoClient.getFlag('feature_key', userContext);
+const flag = await wingifyClient.getFlag('feature_key', userContext);
 
 // What variation was assigned?
 const variation = flag.isEnabled() ? flag.getVariable('variationName') : null;
@@ -69,9 +69,9 @@ While workable, this tightly couples your application logic to _variation names_
 
 Instead of returning or comparing variation strings, define variables for all controlled behavior. For example:
 
-### **Step 1 — Define Variables in VWO**
+### **Step 1 — Define Variables in Wingify**
 
-In the VWO dashboard for your feature flag:
+In the Wingify dashboard for your feature flag:
 
 |                      |          |                                  |
 | :------------------: | :------: | :------------------------------: |
@@ -94,7 +94,7 @@ Now behavior is driven by _data_, not string matching.
 ## **Step 2 — Access Variables in Code**
 
 ```javascript
-const flag = await vwoClient.getFlag('feature_key', userContext);
+const flag = await wingifyClient.getFlag('feature_key', userContext);
 
 if (flag.isEnabled()) {
     // Fetch individual variables
@@ -118,7 +118,7 @@ if (flag.isEnabled()) {
 
 1. **No dependency on variation names** — Your app logic adapts to variable values only.
 2. **Easier experiment evolution** — Add or change variation values without touching code.
-3. **Single source of truth** — All behavioral configuration lives in VWO.
+3. **Single source of truth** — All behavioral configuration lives in Wingify.
 4. **Better telemetry & experimentation** — You can measure metric impact on variables directly.
 
 <br />
@@ -131,7 +131,7 @@ There are valid scenarios where teams want to **know which variation was assigne
 * Debugging experiment behavior
 * Integrating with downstream systems that expect a label
 
-**VWO FE intentionally avoids exposing variation names as a first-class runtime dependency**, to discourage tight coupling. Instead, the recommended approach is: **Expose the variation name explicitly as a variable.**
+**Wingify FE intentionally avoids exposing variation names as a first-class runtime dependency**, to discourage tight coupling. Instead, the recommended approach is: **Expose the variation name explicitly as a variable.**
 
 <br />
 
@@ -156,7 +156,7 @@ Assign values per variation:
 ### **Accessing It in Code**
 
 ```javascript
-const flag = await vwoClient.getFlag('feature_key', userContext);
+const flag = await wingifyClient.getFlag('feature_key', userContext);
 
 if (flag.isEnabled()) {
     const variationName = flag.getVariable('variation_name', 'control');
@@ -168,9 +168,9 @@ if (flag.isEnabled()) {
 
 ```
 
-### **Why This Is the Right Approach in VWO FE**
+### **Why This Is the Right Approach in Wingify FE**
 
-From a VWO Feature Experimentation product design perspective:
+From a Wingify Feature Experimentation product design perspective:
 
 * Variations are **configuration artifacts**, not runtime contracts
 * Variables are the **explicit API surface** exposed to applications

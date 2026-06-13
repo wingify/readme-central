@@ -1,6 +1,6 @@
 ---
 title: Google Tag Manager (GTM)
-excerpt: Trigger VWO Tracking Events Seamlessly via Google Tag Manager (GTM)
+excerpt: Trigger Wingify Tracking Events Seamlessly via Google Tag Manager (GTM)
 deprecated: false
 hidden: false
 metadata:
@@ -8,37 +8,37 @@ metadata:
 ---
 ## Overview
 
-This guide explains how to integrate **VWO Feature Experimentation** with **Google Tag Manager (GTM)** to trigger custom tracking events, without requiring client-side SDK initialization.
+This guide explains how to integrate **Wingify Feature Experimentation** with **Google Tag Manager (GTM)** to trigger custom tracking events, without requiring client-side SDK initialization.
 
 By following this flow, you can:
 
-* Generate consistent **VWO UUIDs** on your backend
+* Generate consistent **Wingify UUIDs** on your backend
 * Pass them securely to your frontend
-* Use GTM to trigger **VWO tracking events** on clicks, form submissions, or any custom user interaction
+* Use GTM to trigger **Wingify tracking events** on clicks, form submissions, or any custom user interaction
 
 <br />
 
-### Step 1 — Install the VWO SDK
+### Step 1 — Install the Wingify SDK
 
-Install the official VWO Feature Experimentation SDK in your backend:
+Install the official Wingify Feature Experimentation SDK in your backend:
 
 ```shell
-npm install vwo-fme-node-sdk
+npm install wingify-fme-node-sdk
 ```
 
 <br />
 
-### Step 2 — Generate a VWO UUID in Your Backend
+### Step 2 — Generate a Wingify UUID in Your Backend
 
-Use the SDK’s _getUUID()_ method to convert your user’s ID into a **VWO-compatible UUID**. This ensures a consistent identifier across all tracking events.
+Use the SDK’s _getUUID()_ method to convert your user’s ID into a **Wingify-compatible UUID**. This ensures a consistent identifier across all tracking events.
 
 ```javascript
-import { getUUID } from 'vwo-fme-node-sdk';
+import { getUUID } from 'wingify-fme-node-sdk';
 const userId = 'sample_user_id';
 const accountId = 'sample_account_id';
 
-const vwoUuid = getUUID(userId, accountId);
-console.log(vwoUuid); // e.g., "A1B2C3D4E5F6..."
+const wingifyUuid = getUUID(userId, accountId);
+console.log(wingifyUuid); // e.g., "A1B2C3D4E5F6..."
 ```
 
 **Next**: Pass this UUID to your frontend via an API response.
@@ -72,7 +72,7 @@ fetch('/api/user-data')
   .then(res => res.json())
   .then(data => {
     window.VWO_UUID = data.user.vwo_uuid;
-    // GTM tag can now use this UUID for VWO tracking
+    // GTM tag can now use this UUID for Wingify tracking
   });
 ```
 
@@ -82,15 +82,15 @@ fetch('/api/user-data')
 
 * **Trigger Type**: Choose your event trigger (e.g., _Click – All Elements or Form Submission_).
 * **Conditions**: Specify rules (e.g., _Click Text contains "Buy Now"_).
-* **Variables**: Add `VWO UUID` as a GTM variable (from `window.VWO_UUID`).
+* **Variables**: Add `Wingify UUID` as a GTM variable (from `window.VWO_UUID`).
 
-This ensures that the same user UUID is passed to VWO during every event.
+This ensures that the same user UUID is passed to Wingify during every event.
 
 <br />
 
 ### Step 5 — Create an Event Tag in GTM
 
-In Google Tag Manager, create a **Custom HTML Tag**. This tag will trigger a VWO event when an action (e.g., a button click) occurs.
+In Google Tag Manager, create a **Custom HTML Tag**. This tag will trigger a Wingify event when an action (e.g., a button click) occurs.
 
 Paste the following script into your GTM Custom HTML field:
 
@@ -108,12 +108,12 @@ Paste the following script into your GTM Custom HTML field:
     // ------------------------
     // CONFIGURE THESE VALUES
     // ------------------------
-    var VWO_ACCOUNT_ID = "<ACCOUNT_ID>";   // replace with your VWO account ID
+    var WINGIFY_ACCOUNT_ID = "<ACCOUNT_ID>";   // replace with your Wingify account ID
     var EVENT_NAME = "<EVENT_NAME>";       // replace with your custom event name
     var PAGE_TITLE = document.title;
     var PAGE_URL = window.location.href;
     var REFERRED_URL = document.referrer || "";
-    var VWO_UUID = {{VWO UUID}}; // replace if needed
+    var WINGIFY_UUID = {{VWO UUID}}; // replace if needed
 
     // Generate timestamps
     var timestampMs = new Date().getTime();
@@ -122,8 +122,8 @@ Paste the following script into your GTM Custom HTML field:
     // Construct payload
     var payload = {
         d: {
-            msgId: VWO_UUID + "-" + timestampMs,
-            visId: VWO_UUID,
+            msgId: WINGIFY_UUID + "-" + timestampMs,
+            visId: WINGIFY_UUID,
             event: {
                 name: EVENT_NAME,
                 time: timestampMs,
@@ -146,7 +146,7 @@ Paste the following script into your GTM Custom HTML field:
     // Send POST request
     var endpoint = "https://dev.visualwebsiteoptimizer.com/events/t?en="
       + encodeURIComponent(EVENT_NAME)
-      + "&a=" + encodeURIComponent(VWO_ACCOUNT_ID);
+      + "&a=" + encodeURIComponent(WINGIFY_ACCOUNT_ID);
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", endpoint, true);
@@ -154,9 +154,9 @@ Paste the following script into your GTM Custom HTML field:
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             if (xhr.status >= 200 && xhr.status < 300) {
-                console.log("✅ VWO custom event triggered successfully: " + EVENT_NAME);
+                console.log("✅ Wingify custom event triggered successfully: " + EVENT_NAME);
             } else {
-                console.error("❌ Error triggering VWO event", xhr.responseText);
+                console.error("❌ Error triggering Wingify event", xhr.responseText);
             }
         }
     };
@@ -171,20 +171,20 @@ Paste the following script into your GTM Custom HTML field:
 
 1. **Backend**
 
-Generates a unique VWO UUID for each user by calling getUUID(userId, accountId) from the VWO FME SDK (any supported SDK can be used — see [list of all SDKs](https://developers.vwo.com/v2/docs/list-of-fme-sdks#/)). Below is the sample code for Node.js application.
+Generates a unique Wingify UUID for each user by calling getUUID(userId, accountId) from the Wingify FME SDK (any supported SDK can be used — see [list of all SDKs](https://developers.wingify.com/v2/docs/list-of-fme-sdks#/)). Below is the sample code for Node.js application.
 
 ```javascript Node.js
-import { getUUID } from 'vwo-fme-node-sdk';
+import { getUUID } from 'wingify-fme-node-sdk';
 
 app.get('/api/user-data', (req, res) => {
   const userId = req.user.id;
   const accountId = 'sample_account_id';
-  const vwoUuid = getUUID(userId, accountId);
+  const wingifyUuid = getUUID(userId, accountId);
 
   res.json({
     user: {
       id: userId,
-      vwo_uuid: vwoUuid
+      vwo_uuid: wingifyUuid
     }
   });
 });
@@ -192,14 +192,14 @@ app.get('/api/user-data', (req, res) => {
 
 2. **Frontend (JavaScript)**
 
-Fetches the user data from the backend, stores the vwo_uuid in `window.VWO_UUID`, making it available for VWO or GTM tracking.
+Fetches the user data from the backend, stores the vwo_uuid in `window.VWO_UUID`, making it available for Wingify or GTM tracking.
 
 ```javascript
 fetch('/api/user-data')
   .then(res => res.json())
   .then(data => {
     window.VWO_UUID = data.user.vwo_uuid;
-    // GTM tag can now use this UUID for VWO tracking
+    // GTM tag can now use this UUID for Wingify tracking
   });
 ```
 

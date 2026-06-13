@@ -10,11 +10,11 @@ metadata:
 
 Bot traffic is an industry-wide challenge for experimentation and analytics platforms. Automated scripts, crawlers, monitoring agents, and malicious actors can generate non-human interactions that may skew experiment data if not properly filtered.
 
-In VWO Feature Experimentation (FE), multiple mechanisms exist to detect and exclude bot traffic wherever possible. However, like all platforms in the experimentation ecosystem, **100% bot elimination cannot be guaranteed** due to the constantly evolving nature of automation technologies.
+In Wingify Feature Experimentation (FE), multiple mechanisms exist to detect and exclude bot traffic wherever possible. However, like all platforms in the experimentation ecosystem, **100% bot elimination cannot be guaranteed** due to the constantly evolving nature of automation technologies.
 
 This article explains:
 
-* How VWO handles bot detection
+* How Wingify handles bot detection
 * What customers can configure to reduce bot impact
 * Recommended best practices
 * How to audit and validate traffic quality
@@ -22,13 +22,13 @@ This article explains:
 
 <br />
 
-## How VWO Handles Bot Traffic
+## How Wingify Handles Bot Traffic
 
-VWO applies built-in filtering mechanisms on a best-effort basis.
+Wingify applies built-in filtering mechanisms on a best-effort basis.
 
 ### Known Bot User Agent Filtering
 
-VWO identifies and excludes known bot user agents, including:
+Wingify identifies and excludes known bot user agents, including:
 
 * Common search engine crawlers
 * Monitoring tools
@@ -83,7 +83,7 @@ Bot detection is probabilistic across the industry because:
 
 Because of this:
 
-* VWO cannot contractually guarantee complete bot elimination
+* Wingify cannot contractually guarantee complete bot elimination
 * Billing is based on processed traffic after applying available filters
 * Behavioral anomaly definitions vary by business model
 
@@ -109,7 +109,7 @@ This allows:
 
 * Security tools to block obvious bots before experimentation
 * IP intelligence providers to filter traffic
-* Custom validation before firing VWO events
+* Custom validation before firing Wingify events
 
 ### Use CDN or WAF Bot Protection
 
@@ -127,7 +127,7 @@ These systems:
 * Identify automation frameworks
 * Block suspicious IP ranges
 
-VWO then processes only cleaned traffic.
+Wingify then processes only cleaned traffic.
 
 ### Implement Custom Validation Before Sending Events
 
@@ -148,7 +148,7 @@ For example:
 
 ```javascript
 if (isLikelyHuman(session)) {
-  vwoClient.trackEvent(...)
+  wingifyClient.trackEvent(...)
 }
 ```
 
@@ -173,7 +173,7 @@ Instead of counting exposure at page load, refer:
 
 ## Behavioral-Based Mitigation Strategies
 
-Although VWO does not contractually define exclusions based on behavioral anomalies, customers can:
+Although Wingify does not contractually define exclusions based on behavioral anomalies, customers can:
 
 * Detect Suspicious Patterns Such As:
 * 0-second session duration
@@ -193,7 +193,7 @@ These patterns can be:
 
 ## Data Audit & Export for Independent Validation
 
-VWO provides full data export capabilities:
+Wingify provides full data export capabilities:
 
 1. [Detailed Report](https://help.vwo.com/hc/en-us/articles/360019594933-How-to-Email-or-Download-a-Test-Report-in-VWO)
 2. [Analytics Integrations](https://help.vwo.com/hc/en-us/sections/25232262146201-Analytics)
@@ -225,14 +225,14 @@ Customers can:
 
 ## What Is Supported and Guaranteed
 
-VWO consistently supports:
+Wingify consistently supports:
 
 * Exclusion of customer-defined IP addresses
 * Exclusion of known bot user agents
 * Assistance in traffic spike investigation
 * Data export for independent analysis
 
-VWO does not provide:
+Wingify does not provide:
 
 * 100% bot elimination guarantee
 * Contractual definition of behavioral anomaly exclusion
@@ -246,7 +246,7 @@ Bot traffic is an unavoidable reality of modern web infrastructure.
 
 While no experimentation platform can eliminate bot traffic entirely, customers can significantly reduce its impact by combining:
 
-* Built-in VWO bot filtering
+* Built-in Wingify bot filtering
 * IP-based exclusions
 * WAF/CDN bot protection
 * Server-side validation

@@ -22,17 +22,17 @@ By leveraging these attributes, organizations can deliver **precisely targeted f
 
 > 🚧 Current Limitation
 >
-> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
+> Wingify **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of Wingify applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
 
-## Usage with `VWOProvider`
+## Usage with `WingifyProvider`
 
 ```typescript TypeScript
 import React from 'react';
-import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
+import { WingifyProvider, IVWOOptions, IVWOContextModel } from 'wingify-fme-react-sdk';
 
-const vwoConfig: IVWOOptions = {
-  sdkKey: '32-alpha-numeric-sdk-key', // Your VWO SDK Key
-  accountId: '123456', // Your VWO Account ID
+const wingifyConfig: IVWOOptions = {
+  sdkKey: '32-alpha-numeric-sdk-key', // Your Wingify SDK Key
+  accountId: '123456', // Your Wingify Account ID
   logger: {
     level: 'debug', // Optional log level for debugging
   },
@@ -46,14 +46,14 @@ const userContext: IVWOContextModel = {
   ipAddress: '1.1.1.1', // Optional
 };
 
-// Optional: Provide a fallback UI component that will be displayed while VWOProvider initializes.
+// Optional: Provide a fallback UI component that will be displayed whileProvider initializes.
 // This is useful for showing a loading state or placeholder content during SDK initialization.
-const fallbackComponent = <div>Initializing VWO...</div>;
+const fallbackComponent = <div>Initializing...</div>;
 
 const App = () => (
-  <VWOProvider config={vwoConfig} userContext={userContext} fallbackComponent={fallbackComponent}>
+  <WingifyProvider config={wingifyConfig} userContext={userContext} fallbackComponent={fallbackComponent}>
     <YourComponent />
-  </VWOProvider>
+  </WingifyProvider>
 );
 
 export default App;
@@ -90,7 +90,7 @@ export default App;
       </td>
 
       <td>
-        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to VWO. [Read more here](https://developers.vwo.com/v2/docs/user-id-management).
+        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to Wingify. [Read more here](https://developers.wingify.com/v2/docs/user-id-management).
       </td>
     </tr>
 
@@ -135,7 +135,7 @@ export default App;
       </td>
 
       <td>
-        Any additional details of the current user that you want to push to VWO can be added here as key-value pairs and can be used for targeting & pre-segmentation.
+        Any additional details of the current user that you want to push to Wingify can be added here as key-value pairs and can be used for targeting & pre-segmentation.
       </td>
     </tr>
   </tbody>
@@ -144,10 +144,10 @@ export default App;
 ## Usage with `useGetFlag` Hook
 
 ```typescript TypeScript
-import { IVWOContextModel } from 'vwo-fme-react-sdk';
+import { IVWOContextModel } from 'wingify-fme-react-sdk';
 
 const userContext: IVWOContextModel = { id: 'unique_user_id' }
 const { flag, isReady } = useGetFlag('feature_key', userContext);
 ```
 
-[Learn more about useGetFlag](https://developers.vwo.com/v2/docs/feature-flags-variables)
+[Learn more about useGetFlag](https://developers.wingify.com/v2/docs/feature-flags-variables)

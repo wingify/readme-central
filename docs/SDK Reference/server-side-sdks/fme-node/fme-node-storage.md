@@ -14,7 +14,7 @@ next:
 ---
 ## Overview
 
-The VWO SDK operates in a stateless mode by default, meaning each `get_flag` call triggers a fresh evaluation of the flag against the current user context.
+The Wingify SDK operates in a stateless mode by default, meaning each `get_flag` call triggers a fresh evaluation of the flag against the current user context.
 
 To optimize performance and maintain consistency, you can implement a custom storage mechanism by passing a storage parameter during initialization. This allows you to persist feature flag decisions in your preferred database system (like Redis, MongoDB, or any other data store).
 
@@ -25,13 +25,13 @@ Key benefits of implementing storage:
 1. **Improved Performance**: Cache feature flag decisions and SDK settings to reduce API calls
 2. **Consistent User Experience**: Maintain sticky variation assignments across sessions
 3. **Reduced Load**: Decrease network requests and server load
-4. **Faster Initialization**: Load SDK settings from cache instead of fetching from VWO servers
+4. **Faster Initialization**: Load SDK settings from cache instead of fetching from Wingify servers
 
-The storage mechanism ensures that once a decision is made for a user, it remains consistent even if campaign settings are modified in the VWO Application. This is particularly useful for maintaining a stable user experience during A/B tests and feature rollouts.
+The storage mechanism ensures that once a decision is made for a user, it remains consistent even if campaign settings are modified in the Wingify Application. This is particularly useful for maintaining a stable user experience during A/B tests and feature rollouts.
 
 ## How to Implement a Storage Service
 
-Storage Service is optional while [instantiating](https://developers.vwo.com/v2/docs/fme-node-initialization) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing it.
+Storage Service is optional while [instantiating](https://developers.wingify.com/v2/docs/fme-node-initialization) the Wingify SDK. However, to ensure sticky variation assignments, we recommend implementing it.
 
 ### Basic Implementation
 
@@ -94,7 +94,7 @@ wingify.init({
 
 ### Required Methods (Variation Storage)
 
-Storage Service should expose two methods: _get_ and _set_. These methods are used by VWO whenever there is a need to read from or write to the storage service.
+Storage Service should expose two methods: _get_ and _set_. These methods are used by Wingify whenever there is a need to read from or write to the storage service.
 
 | Method Name | Params             | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
@@ -105,12 +105,12 @@ Storage Service should expose two methods: _get_ and _set_. These methods are us
 
 > **Supported from SDK version&#x20;**`1.35.0`**&#x20;onwards**
 
-These methods are **optional** but highly recommended for performance optimization. When implemented, the SDK can load settings from your storage instead of fetching them from VWO servers during initialization.
+These methods are **optional** but highly recommended for performance optimization. When implemented, the SDK can load settings from your storage instead of fetching them from Wingify servers during initialization.
 
 | Method Name   | Params            | Description                                | Returns                                                                                                   |
 | :------------ | :---------------- | :----------------------------------------- | :-------------------------------------------------------------------------------------------------------- |
-| `getSettings` | accountId, sdkKey | Retrieves cached VWO settings              | This function returns an object that includes the settings and a timestamp indicating when it was stored. |
-| `setSettings` | data              | Stores VWO settings along with a timestamp | void                                                                                                      |
+| `getSettings` | accountId, sdkKey | Retrieves cached Wingify settings              | This function returns an object that includes the settings and a timestamp indicating when it was stored. |
+| `setSettings` | data              | Stores Wingify settings along with a timestamp | void                                                                                                      |
 
 **ISettingsData Interface:**
 
@@ -125,7 +125,7 @@ interface ISettingsData {
 
 ### TTL (Time To Live)
 
-**TTL** controls how long cached settings remain valid before the SDK fetches fresh settings from VWO servers.
+**TTL** controls how long cached settings remain valid before the SDK fetches fresh settings from Wingify servers.
 
 - **Type**: `number` (milliseconds)
 - **Default**: `7200000` (2 hours)
@@ -138,7 +138,7 @@ interface ISettingsData {
 2. During SDK initialization, `getSettings` is called
 3. The SDK calculates: `currentTime - storedTimestamp`
 4. If the difference exceeds TTL, settings are considered expired
-5. Expired settings trigger a fresh fetch from VWO servers
+5. Expired settings trigger a fresh fetch from Wingify servers
 
 **Example:**
 
@@ -186,7 +186,7 @@ class CustomStorageConnector extends Connector {
 **Important Notes:**
 
 - Settings storage is completely transparent to variation evaluation logic
-- If `getSettings` or `setSettings` throw errors, SDK falls back to fetching from VWO servers
+- If `getSettings` or `setSettings` throw errors, SDK falls back to fetching from Wingify servers
 - Settings are validated for `accountId` and `sdkKey` match before use
 - Invalid or mismatched settings trigger a fresh fetch
 

@@ -5,11 +5,11 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide details how VWO's Feature Experimentation (FE) SDKs handle segmentation, particularly based on **Location**, **User Agent (UA)**, and **User Attributes** — differently for **client-side** and **server-side** implementations.
+This guide details how Wingify's Feature Experimentation (FE) SDKs handle segmentation, particularly based on **Location**, **User Agent (UA)**, and **User Attributes** — differently for **client-side** and **server-side** implementations.
 
 ## Overview
 
-Segmentation is a critical part of delivering personalized experiences. VWO supports advanced segmentation based on:
+Segmentation is a critical part of delivering personalized experiences. Wingify supports advanced segmentation based on:
 
 * 🌍 Location (derived via IP)
 * 🧭 User Agent (device/browser type)
@@ -26,13 +26,13 @@ flowchart TD
     B --> C2[Server-side SDK]
 
     %% Client-Side SDK Branch
-    C --> D[Communicates with VWO CDN]
+    C --> D[Communicates with Wingify CDN]
     D --> E[DaCDN auto-evaluates IP, UA]
     E --> F[Segments Evaluated at Edge]
     F --> G[Evaluate Feature Flag]
 
     %% Server-Side SDK Branch
-    C2 --> H[Requires VWO Gateway Setup]
+    C2 --> H[Requires Wingify Gateway Setup]
     H --> I[Your Server Extracts IP/UA]
     I --> J[Forwards Context to Gateway]
     J --> K[Gateway Evaluates Segmentation]
@@ -55,7 +55,7 @@ flowchart TD
 
 ### How it Works
 
-VWO’s client-side SDKs leverage the **VWO DaCDN**, an intelligent CDN layer, **to automatically evaluate segments** using the request's IP and User-Agent. These values are implicitly available to DaCDN because it is invoked directly from the user's browser/device.
+Wingify's client-side SDKs leverage the **Wingify DaCDN**, an intelligent CDN layer, **to automatically evaluate segments** using the request's IP and User-Agent. These values are implicitly available to DaCDN because it is invoked directly from the user's browser/device.
 
 > ⚙️ Note
 >
@@ -100,4 +100,4 @@ Server-side SDKs run in a backend context without automatic access to:
 
 > 📘 Note
 >
-> For fast and frictionless implementation of advanced segment targeting (location, user-agent, and more), we strongly recommend using Client-Side SDKs wherever feasible. If you're using server-side SDKs, ensure VWO Gateway is correctly set up for similar capabilities.
+> For fast and frictionless implementation of advanced segment targeting (location, user-agent, and more), we strongly recommend using Client-Side SDKs wherever feasible. If you're using server-side SDKs, ensure Wingify Gateway is correctly set up for similar capabilities.

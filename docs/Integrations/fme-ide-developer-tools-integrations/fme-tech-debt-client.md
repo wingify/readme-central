@@ -10,17 +10,17 @@ metadata:
 next:
   description: ''
 ---
-The **VWO FE Tech Debt Client** is a tool that analyzes your VWO flags usage and provides recommendations based on the source code in your project. This application is configurable using command-line arguments.
+The **Wingify FE Tech Debt Client** is a tool that analyzes your Wingify flags usage and provides recommendations based on the source code in your project. This application is configurable using command-line arguments.
 
 ## Features
 
-* Analyze VWO flag usage in your codebase.
-* Provide recommendations for optimizing VWO flags.
+* Analyze Wingify flag usage in your codebase.
+* Provide recommendations for optimizing Wingify flags.
 
 ## Prerequisites
 
 * Go (if building from source): [Install Go](https://go.dev/doc/install)
-* Ensure you have your *VWO API Token* and *Account ID*.
+* Ensure you have your *Wingify API Token* and *Account ID*.
 
 ## Installation
 
@@ -38,11 +38,11 @@ The **VWO FE Tech Debt Client** is a tool that analyzes your VWO flags usage and
    go build
 
    # Option 1: Using environment variables
-   export VWO_SOURCE_FOLDER=/path/to/source
-   export VWO_ACCOUNT_ID=123456
-   export VWO_API_TOKEN=abcd123
-   export VWO_REPO_BRANCH=main
-   export VWO_REPO_NAME=my-repo
+   export_SOURCE_FOLDER=/path/to/source
+   export WINGIFY_ACCOUNT_ID=123456
+   export_API_TOKEN=abcd123
+   export_REPO_BRANCH=main
+   export_REPO_NAME=my-repo
 
    ./vwo-fme-tech-debt-client
 
@@ -65,8 +65,8 @@ The application accepts the following arguments:
 | Argument         | Description               | Required |
 | ---------------- | ------------------------- | -------- |
 | `--sourceFolder` | Path to the source folder | Yes      |
-| `--accountId`    | VWO Account ID            | Yes      |
-| `--apiToken`     | VWO API Token             | Yes      |
+| `--accountId`    | Wingify Account ID            | Yes      |
+| `--apiToken`     | Wingify API Token             | Yes      |
 | `--repoBranch`   | Branch of the repository  | Yes      |
 | `--repoName`     | Name of the repository    | Yes      |
 

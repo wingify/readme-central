@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The VWO FE React SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within React applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
+The Wingify FE React SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within React applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
 
 ### Source Code Repository
 
@@ -23,11 +23,11 @@ To facilitate a comprehensive understanding and effective implementation of the 
 1. [Installing the SDK](doc:fme-react-install)\
    Learn how to import and reference the SDK in your React.js project.
 2. [Initialization](doc:fme-react-initialization)\
-   Learn how to initialize the VWO client within your application, including configuring essential parameters such as accountId, sdkKey, and optional settings like pollInterval, logger, storage, gatewayService, and integrations.
+   Learn how to initialize the Wingify client within your application, including configuring essential parameters such as accountId, sdkKey, and optional settings like pollInterval, logger, storage, gatewayService, and integrations.
 3. [User Context](doc:fme-react-context)\
    Understand how to define and manage user contexts to enable targeted feature rollouts and personalized user experiences.
 4. [Hooks](doc:fme-react-hooks)\
-   Learn how to use VWO's React SDK hooks to integrate feature flagging, event tracking, and user attribute management seamlessly into your React applications. Also, we have provided an example of how you can write test cases in your application.
+   Learn how to use's React SDK hooks to integrate feature flagging, event tracking, and user attribute management seamlessly into your React applications. Also, we have provided an example of how you can write test cases in your application.
 5. [Feature Flags & Variables](doc:fme-react-flags)\
    Explore how to dynamically create, manage, and evaluate feature flags and variables to control feature availability.
 6. [Metrics Tracking](doc:fme-react-metrics)\
@@ -45,6 +45,6 @@ To facilitate a comprehensive understanding and effective implementation of the 
 12. [Proxy URL / Prevent Ad-blockers](doc:fme-react-proxy-url)\
     Avoid ad-blockers and ensure secure, efficient retrieval of flag configurations using a custom proxy endpoint.
 13. [Testing SDK Hooks and Provider](doc:fme-react-tests-using-mock)\
-    Learn how to run front-end VWO tests in React using mock data for efficient experimentation.
+    Learn how to run front-end Wingify tests in React using mock data for efficient experimentation.
 
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.

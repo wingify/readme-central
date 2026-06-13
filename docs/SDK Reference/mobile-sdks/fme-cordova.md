@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide provides step-by-step instructions to integrate the VWO FE JavaScript SDK into a Cordova-based mobile application.
+This guide provides step-by-step instructions to integrate the Wingify FE JavaScript SDK into a Cordova-based mobile application.
 
 ### What is Cordova?
 
@@ -13,7 +13,7 @@ This guide provides step-by-step instructions to integrate the VWO FE JavaScript
 
 <br />
 
-### Compatibility with VWO FE JavaScript SDK
+### Compatibility with Wingify FE JavaScript SDK
 
 The FE JavaScript SDK integrates seamlessly with Cordova applications through CDN loading and local fallback mechanisms. Since Cordova runs web applications in native containers, the FE JavaScript SDK can be loaded directly via script tags and used throughout your Cordova app.
 
@@ -35,7 +35,7 @@ For detailed instructions, refer to the [Cordova Getting Started Guide](https://
 
 <br />
 
-### 2. Add VWO FE JavaScript SDK via CDN
+### 2. Add Wingify FE JavaScript SDK via CDN
 
 You can add the FE JavaScript SDK to your `www/index.html` within the `<head>` section by:
 
@@ -77,7 +77,7 @@ For reference, we're using `jsDelivr` CDN and local copy as backup:
 
 ### 3. Create Configuration File
 
-Create a `www/js/config.js` file to store your VWO configuration:
+Create a `www/js/config.js` file to store your Wingify configuration:
 
 ```javascript
 const FME_CONFIG = {
@@ -98,7 +98,7 @@ window.FME_CONFIG = FME_CONFIG;
 
 <br />
 
-### 4. Create VWO Setup File
+### 4. Create Wingify Setup File
 
 Create a `www/js/vwo-setup.js` file to handle SDK initialization:
 
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 <br />
 
-### 6. Use VWO FE JavaScript SDK
+### 6. Use Wingify FE JavaScript SDK
 
 Call the FE functions from your application logic:
 
@@ -241,11 +241,11 @@ function displayResponse(content, background) {
 
 <br />
 
-> 💡 The VWO Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
+> 💡 The Wingify Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
 >
-> - [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
-> - [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
-> - [setAttribute()](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/) to send user attributes to VWO
+> - [getFlag()](https://developers.wingify.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
+> - [trackEvent()](https://developers.wingify.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
+Wingify  - [setAttribute()](https://developers.wingify.com/v2/docs/fme-javascript-attributes#/) to send user attributes to
 
 <br />
 

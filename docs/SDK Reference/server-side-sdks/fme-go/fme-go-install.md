@@ -12,7 +12,7 @@ next:
 ---
 ## Go SDK Installation
 
-To integrate the VWO SDK into your Go application, you can install the VWO Go SDK via the go get command:
+To integrate the Wingify SDK into your Go application, you can install the Wingify Go SDK via the go get command:
 
 ```go
 go get github.com/wingify/wingify-fme-go-sdk
@@ -30,6 +30,6 @@ go get github.com/wingify/wingify-fme-go-sdk
 | :------- | :---------------------------------------------------------------------------------------------------------------------------------- |
 | Go       | <Anchor target="_blank" href="https://github.com/wingify/wingify-fme-go-sdk">https://github.com/wingify/wingify-fme-go-sdk</Anchor> |
 
-The FE SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024.
+The FE SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2026.
 
 <br />

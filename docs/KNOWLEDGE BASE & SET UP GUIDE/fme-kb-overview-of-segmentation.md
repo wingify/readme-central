@@ -17,9 +17,9 @@ The feature flag ensures only NYC users see the new reorder option. Next, the te
 
 The analysis shows mobile users in NYC adopt the one-click reorder much more than desktop users. This insight confirms that the feature is most valuable for mobile-heavy contexts, and the team decides to optimize the UI for smaller screens before expanding to other regions.
 
-### Types of Segmentation in VWO Feature Experimentation
+### Types of Segmentation in Wingify Feature Experimentation
 
-VWO Feature Experimentation supports two types of segmentation to enhance experiment precision and analysis:
+Wingify Feature Experimentation supports two types of segmentation to enhance experiment precision and analysis:
 
 * Pre-segmentation is applied during data collection, ensuring that only users who meet specified targeting conditions are exposed to the feature or included in the experiment.
 * Post-segmentation is used during analysis, allowing you to filter and interpret experiment results based on user attributes or behavior, regardless of how the traffic was originally segmented.

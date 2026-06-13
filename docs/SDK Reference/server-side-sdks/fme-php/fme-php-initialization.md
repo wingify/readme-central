@@ -14,7 +14,7 @@ next:
       slug: fme-php-context
       title: User Context
 ---
-To create a VWO Client instance, you need to initialize the VWO FE Php SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
+To create a Wingify Client instance, you need to initialize the Wingify FE Php SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
 
 ## Usage
 
@@ -25,7 +25,7 @@ $wingifyClient = Wingify::init([
 ]);
 ```
 
-The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object `wingifyClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -58,7 +58,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Your VWO application's Account ID.
+        Your Wingify application's Account ID.
       </td>
     </tr>
 
@@ -73,7 +73,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **_Default Project_**.
+        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under **_Default Project_**.
       </td>
     </tr>
 
@@ -88,7 +88,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-php-logging)
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-php-logging)
       </td>
     </tr>
 
@@ -103,7 +103,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-php-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-php-storage)
       </td>
     </tr>
 
@@ -117,7 +117,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.vwo.com/v2/docs/fme-php-initialization#retry-configuration)
+        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.wingify.com/v2/docs/fme-php-initialization#retry-configuration)
       </td>
     </tr>
 
@@ -132,7 +132,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.wingify.com/v2/docs/gateway-service), this object will specify the location and port where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -162,7 +162,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Use these to configure the network call timeout for fetching settings from VWO. Refer [this]().
+        Use these to configure the network call timeout for fetching settings from. Refer [this]().
       </td>
     </tr>
 
@@ -177,7 +177,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Pass the already fetched settings so the SDK can initialize instantly, without waiting to fetch settings from VWO. Refer [this](doc:fme-php-initialization#initialization-with-explicit-settings).
+        Pass the already fetched settings so the SDK can initialize instantly, without waiting to fetch settings from. Refer [this](doc:fme-php-initialization#initialization-with-explicit-settings).
       </td>
     </tr>
   </tbody>
@@ -185,7 +185,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
 
 ### Logger
 
-VWO by default logs all ERROR level messages to your server console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```php
 // Init options with logger
@@ -198,7 +198,7 @@ $wingifyClient = Wingify::init([
 ]);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-php-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v2/docs/fme-php-logging) for more advanced logger options.
 
 ### Storage
 
@@ -213,11 +213,11 @@ $wingifyClient = Wingify::init([
 ]);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-php-storage)  to learn more about storage implementation.
+Please click [here](https://developers.wingify.com/v2/docs/fme-php-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gatewayService parameter during initialization.
+The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gatewayService parameter during initialization.
 
 ```php
 // Init options with gatewayService
@@ -234,7 +234,7 @@ Please click [here]()  to learn more about gateway service.
 
 ### Integrations
 
-VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```php
 // Init options with integrations
@@ -249,11 +249,11 @@ $wingifyClient = Wingify::init([
 ]);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-python-integrations) to learn more about Integrations,.
+Please click [here](https://developers.wingify.com/v2/docs/fme-python-integrations) to learn more about Integrations,.
 
 ### Settings Configuration
 
-Use these options to define and control the timeout duration for the network request made to fetch settings from VWO, ensuring the SDK does not wait indefinitely and behaves predictably under slow or unreliable network conditions.
+Use these options to define and control the timeout duration for the network request made to fetch settings from, ensuring the SDK does not wait indefinitely and behaves predictably under slow or unreliable network conditions.
 
 ```php
 $wingifyClient = Wingify::init([
@@ -268,7 +268,7 @@ $wingifyClient = Wingify::init([
 
 ### Initialization with Explicit Settings
 
-The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.<br />Please refer to <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.<br />Please refer to <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```php
 $settingsStringified = '{
@@ -311,4 +311,4 @@ $wingifyClient = Wingify::init([
 
 > Retry works for synchronous (cURL) calls only, and you should pass 'shouldWaitForTrackingCalls' => true, in the init configration to enable synchronous (cURL) calls and retry.
 
-Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism

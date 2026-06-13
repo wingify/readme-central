@@ -10,14 +10,14 @@ metadata:
 next:
   description: ''
 ---
-VWO by default logs all ERROR level messages to your server's console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server's console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ## Logger Properties
 
 | Parameter  | Type   | Description                                                                            |
 | :--------- | :----- | :------------------------------------------------------------------------------------- |
 | **level**  | String | Level or Type of error. Could be one of the following: DEBUG, INFO, ERROR, TRACE, WARN |
-| **prefix** | String | The text that is prefixed to the error messages when logged. Defaults to 'VWO-SDK'.    |
+| **prefix** | String | The text that is prefixed to the error messages when logged. Defaults to 'WINGIFY-SDK'.    |
 
 **Example 1**: Set log level to control the verbosity of logs
 
@@ -46,4 +46,4 @@ wingify_client = Wingify.init({
 })
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing _vwo\_client_.](https://developers.vwo.com/v2/docs/fme-ruby-initialization)
+This "logger" object can be passed as one of the parameters when [initializing _vwo\_client_.](https://developers.wingify.com/v2/docs/fme-ruby-initialization)
