@@ -12,4 +12,4 @@ next:
 ---
 Click the below recipe to get an overview of the SDK Usage.
 
-<TutorialTile title="Wingify FullStack Java SDK Usage" backgroundColor="#018FF4" slug="vwo-fullstack-java-sdk-usage" id="6075667a254b340022d5d2dd" link="https://developers.vwo.com/v4/recipes/vwo-fullstack-java-sdk-usage" />
+<TutorialTile title="Wingify FullStack Java SDK Usage" backgroundColor="#018FF4" slug="vwo-fullstack-java-sdk-usage" id="6075667a254b340022d5d2dd" link="https://developers.wingify.com/v4/recipes/vwo-fullstack-java-sdk-usage" />

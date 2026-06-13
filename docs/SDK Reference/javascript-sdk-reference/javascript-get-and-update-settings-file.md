@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Once the SDK is launched properly, there might be scenarios later on when you need to fetch the latest settings-file and use that instead of the stale one to sync SDK and Wingify application. You can do this by calling [Get Settings File](https://developers.vwo.com/docs/javascript-get-settings-file) API and passing the fetched settings-file to the [Launch](https://developers.vwo.com/docs/javascript-launch) API to re-instantiate the Wingify SDK. Or, you can simply use the Get and Update Settings File API, available on the Wingify Client Instance that is already available.
+Once the SDK is launched properly, there might be scenarios later on when you need to fetch the latest settings-file and use that instead of the stale one to sync SDK and Wingify application. You can do this by calling [Get Settings File](https://developers.wingify.com/docs/javascript-get-settings-file) API and passing the fetched settings-file to the [Launch](https://developers.wingify.com/docs/javascript-launch) API to re-instantiate the Wingify SDK. Or, you can simply use the Get and Update Settings File API, available on the Wingify Client Instance that is already available.
 
 ## Description
 
@@ -130,7 +130,7 @@ Returns the fetched settings-file. If somehow the latest settings-file could not
 
 ## Usage
 
-Also, please refer to this [section](https://developers.vwo.com/docs/javascript-configure-webhooks) to know how to use this API.
+Also, please refer to this [section](https://developers.wingify.com/docs/javascript-configure-webhooks) to know how to use this API.
 
 > 🚧 SDK Support
 >

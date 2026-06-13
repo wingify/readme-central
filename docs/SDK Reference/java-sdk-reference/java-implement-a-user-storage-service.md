@@ -15,7 +15,7 @@ For example, you can create an implementation that reads and saves user-campaign
 
 ## How to Implement User Storage Service
 
-User Storage Service is optional while [instantiating](https://developers.vwo.com/docs/java-launch) the Wingify SDK. However, to ensure sticky variation assignments, we recommend implementing one.
+User Storage Service is optional while [instantiating](https://developers.wingify.com/docs/java-launch) the Wingify SDK. However, to ensure sticky variation assignments, we recommend implementing one.
 
 User Storage Service should expose two methods: *get* and *set*.
 
@@ -161,4 +161,4 @@ Below is an example:
 > Also, asynchronous behavior is limited to languages like Node.js, JavaScript, and Java as other languages do not natively support them in all the SDK supported versions.
 
 Please check the FAQ [Is User Storage Service synchronous or asynchronous?\
-](https://developers.vwo.com/docs/is-user-storage-service-synchronous-or-asynchronouss) - to know more about how to implement the asynchronous User Storage Service.
+](https://developers.wingify.com/docs/is-user-storage-service-synchronous-or-asynchronouss) - to know more about how to implement the asynchronous User Storage Service.

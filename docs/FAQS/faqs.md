@@ -12,25 +12,25 @@ next:
 ---
 List of Frequently Asked Questions:
 
-* [What should be considered as the User ID?](https://developers.vwo.com/docs/faqs#what-should-be-considered-as-the-user-id)
-* [How does Wingify affect my application speed?](https://developers.vwo.com/docs/faqs#how-does-vwo-affect-my-application-speed)
-* [How does Wingify bucket users across SDKs?](https://developers.vwo.com/docs/faqs#how-does-vwo-bucket-users-across-sdks)
-* [How does Wingify bucket the same users across platforms?](https://developers.vwo.com/docs/faqs#how-does-vwo-bucket-the-same-users-across-platforms)
-* [What's the minimum version supported by each Wingify SDK?](https://developers.vwo.com/docs/faqs#whats-the-minimum-version-supported-by-each-vwo-sdk)
-* [Which programming languages are supported by Wingify FullStack SDKs?](https://developers.vwo.com/docs/faqs#which-programming-languages-are-supported-by-vwo-fullstack-sdks)
-* [Are there any repercussions of changing campaign settings mid-campaign?](https://developers.vwo.com/docs/faqs#are-there-any-repercussions-of-changing-campaign-settings-mid-campaign)
-* [Can we track a goal with the same identifier in multiple campaigns at once?](https://developers.vwo.com/docs/faqs#can-we-track-a-goal-with-the-same-identifier-in-multiple-campaigns-at-once)
-* [Is there any list of features in different SDKs?](https://developers.vwo.com/docs/faqs#is-there-any-list-of-features-in-different-sdks)
-* [Can we batch impression events?](https://developers.vwo.com/docs/faqs#can-we-batch-impression-events)
-* [Is there any history of changes that went live in different SDKs?](https://developers.vwo.com/docs/faqs#is-there-any-history-of-changes-that-went-live-in-different-sdks)
-* [Why data is not reflecting in the campaign report?](https://developers.vwo.com/docs/faqs#why-data-is-not-reflecting-in-the-campaign-report)
-* [Why use Webhooks for updating settings-file and not Polling?](https://developers.vwo.com/docs/faqs#why-use-webhooks-for-updating-settings-file-and-not-polling)
-* [How to make sure you are running the latest version of the SDK?](https://developers.vwo.com/docs/faqs#how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
-* [Why is it important to use Persistent Storage when deploying to Production?](https://developers.vwo.com/docs/faqs#why-is-it-important-to-use-persistent-storage-when-deploying-to-production)
-* [What SDK calls are local and which ones send data to Wingify?](https://developers.vwo.com/docs/faqs#what-sdk-calls-are-local-and-which-ones-send-data-to-vwo)
-* [What latency do activate and track API calls add to my backend?](https://developers.vwo.com/docs/faqs#what-latency-do-activate-isfeatureenabled-and-track-api-calls-add-to-my-backend)
-* [Does Wingify support User aliasing?](https://developers.vwo.com/docs/faqs#does-vwo-support-user-aliasing)
-* [Do I need to modify my firewall when using Wingify FullStack?](https://developers.vwo.com/docs/faqs#do-i-need-to-modify-my-firewall-when-using-vwo-fullstack)
+* [What should be considered as the User ID?](https://developers.wingify.com/docs/faqs#what-should-be-considered-as-the-user-id)
+* [How does Wingify affect my application speed?](https://developers.wingify.com/docs/faqs#how-does-vwo-affect-my-application-speed)
+* [How does Wingify bucket users across SDKs?](https://developers.wingify.com/docs/faqs#how-does-vwo-bucket-users-across-sdks)
+* [How does Wingify bucket the same users across platforms?](https://developers.wingify.com/docs/faqs#how-does-vwo-bucket-the-same-users-across-platforms)
+* [What's the minimum version supported by each Wingify SDK?](https://developers.wingify.com/docs/faqs#whats-the-minimum-version-supported-by-each-vwo-sdk)
+* [Which programming languages are supported by Wingify FullStack SDKs?](https://developers.wingify.com/docs/faqs#which-programming-languages-are-supported-by-vwo-fullstack-sdks)
+* [Are there any repercussions of changing campaign settings mid-campaign?](https://developers.wingify.com/docs/faqs#are-there-any-repercussions-of-changing-campaign-settings-mid-campaign)
+* [Can we track a goal with the same identifier in multiple campaigns at once?](https://developers.wingify.com/docs/faqs#can-we-track-a-goal-with-the-same-identifier-in-multiple-campaigns-at-once)
+* [Is there any list of features in different SDKs?](https://developers.wingify.com/docs/faqs#is-there-any-list-of-features-in-different-sdks)
+* [Can we batch impression events?](https://developers.wingify.com/docs/faqs#can-we-batch-impression-events)
+* [Is there any history of changes that went live in different SDKs?](https://developers.wingify.com/docs/faqs#is-there-any-history-of-changes-that-went-live-in-different-sdks)
+* [Why data is not reflecting in the campaign report?](https://developers.wingify.com/docs/faqs#why-data-is-not-reflecting-in-the-campaign-report)
+* [Why use Webhooks for updating settings-file and not Polling?](https://developers.wingify.com/docs/faqs#why-use-webhooks-for-updating-settings-file-and-not-polling)
+* [How to make sure you are running the latest version of the SDK?](https://developers.wingify.com/docs/faqs#how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
+* [Why is it important to use Persistent Storage when deploying to Production?](https://developers.wingify.com/docs/faqs#why-is-it-important-to-use-persistent-storage-when-deploying-to-production)
+* [What SDK calls are local and which ones send data to Wingify?](https://developers.wingify.com/docs/faqs#what-sdk-calls-are-local-and-which-ones-send-data-to-vwo)
+* [What latency do activate and track API calls add to my backend?](https://developers.wingify.com/docs/faqs#what-latency-do-activate-isfeatureenabled-and-track-api-calls-add-to-my-backend)
+* [Does Wingify support User aliasing?](https://developers.wingify.com/docs/faqs#does-vwo-support-user-aliasing)
+* [Do I need to modify my firewall when using Wingify FullStack?](https://developers.wingify.com/docs/faqs#do-i-need-to-modify-my-firewall-when-using-vwo-fullstack)
 
 ## What should be considered as the User ID?
 
@@ -48,7 +48,7 @@ Choosing an IP address is not recommended as the IP address of a user might chan
 
 ## How does Wingify affect my application speed?
 
-The benefits of using FullStack campaigns are that these are lightning-fast. With the help of our SDKs, you can get the variation assignment without making any blocking requests to Wingify servers. All the computation like deciding user eligibility for a campaign and assigning variation to a user is carried out by our smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.vwo.com/reference#section-how-bucketing-works).
+The benefits of using FullStack campaigns are that these are lightning-fast. With the help of our SDKs, you can get the variation assignment without making any blocking requests to Wingify servers. All the computation like deciding user eligibility for a campaign and assigning variation to a user is carried out by our smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.wingify.com/reference#section-how-bucketing-works).
 
 The only thing that could be blocking is fetching settings-file. The Wingify SDK requires *settings file* for its instantiation. Either you can cache it or fetch it just after the server is up, if possible.
 
@@ -56,7 +56,7 @@ As there is no client-side custom code execution, using a FullStack campaign is 
 
 ## How does Wingify bucket users across SDKs?
 
-All the computations like deciding user eligibility for a campaign and variation assignment to a user are carried out by smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.vwo.com/docs/core-concepts#how-bucketing-works).
+All the computations like deciding user eligibility for a campaign and variation assignment to a user are carried out by smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.wingify.com/docs/core-concepts#how-bucketing-works).
 
 Wingify also ensures that all of our SDKs give the same output. The bucketing user is language-agnostic.
 
@@ -408,7 +408,7 @@ Wingify SDKs provide an API to track a particular goal of a campaign or the same
 
 ## Can we batch impression events?
 
-Yes, it is possible. Please refer to Configure Event Batching in [SDK Reference](https://developers.vwo.com/docs/sdk-quickstart).
+Yes, it is possible. Please refer to Configure Event Batching in [SDK Reference](https://developers.wingify.com/docs/sdk-quickstart).
 
 ## Is there any list of features in different SDKs?
 
@@ -1318,7 +1318,7 @@ The below list displays the list of all features different Wingify SDKs support,
 ## How to make sure you are running the latest version of the SDK?
 
 Please use the latest version of the SDK by periodically checking for the updates and updating the SDK to enjoy new features we keep on shipping time-to-time.\
-Refer to this [section](https://developers.vwo.com/reference#fullstack-is-there-any-list-of-features-in-different-sdks) to know about the changes Wingify ships in different SDKs.
+Refer to this [section](https://developers.wingify.com/reference#fullstack-is-there-any-list-of-features-in-different-sdks) to know about the changes Wingify ships in different SDKs.
 
 ## Why use Webhooks for updating settings-file and not Polling?
 

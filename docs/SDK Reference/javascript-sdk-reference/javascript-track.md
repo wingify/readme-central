@@ -168,7 +168,7 @@ options = {
 vwoClientInstance.track(campaignKey, userId, goalIdentifier, options);
 ```
 
-For passing *userStorageData* in the options, please follow this [doc](https://developers.vwo.com/docs/is-user-storage-service-synchronous-or-asynchronouss).
+For passing *userStorageData* in the options, please follow this [doc](https://developers.wingify.com/docs/is-user-storage-service-synchronous-or-asynchronouss).
 
 > 🚧 Tracking Conversions for PAUSED campaign
 >
@@ -235,7 +235,7 @@ vwoClientInstance.track(null, userId, goalIdentifier, options);
 
 ## Passing meta-information that would be available to User Storage Service
 
-If [User Storage Service](https://developers.vwo.com/docs/javascript-implement-a-user-storage-service) is provided, there could be cases where you would want to store some other details along with the Wingify decision-related data into the storage. It is easily achievable by storing the data at your end asynchronously, while SDK will use the User Storage Service to save the decision-related data.\
+If [User Storage Service](https://developers.wingify.com/docs/javascript-implement-a-user-storage-service) is provided, there could be cases where you would want to store some other details along with the Wingify decision-related data into the storage. It is easily achievable by storing the data at your end asynchronously, while SDK will use the User Storage Service to save the decision-related data.\
 Our SDKs provide a way of passing the meta-information like *browser, os, IP address, location*, etc., along with the decision-related data. The data you will provide in the API call will be available in the ***set*** method of User Storage Service, which you can use to save along with Wingify SDK's decision-related data.
 
 ```javascript Node.js

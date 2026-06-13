@@ -24,8 +24,8 @@ The API method:
 * Assigns a deterministic variation to the qualified user.
 * Does ***not*** send an impression event to the Wingify server.
 
-It takes the same parameters and returns the same value as [Activate API](https://developers.vwo.com/docs/go-activate). The only difference is that this API method does ***not*** send a tracking impression to the Wingify server. This API method is used to get the variation assigned to the *userId*.\
-The behaviour of the two API methods, that is, [activate](https://developers.vwo.com/docs/go-activate) and [getVariationName](https://developers.vwo.com/docs/java-get-variation-name) is identical otherwise.
+It takes the same parameters and returns the same value as [Activate API](https://developers.wingify.com/docs/go-activate). The only difference is that this API method does ***not*** send a tracking impression to the Wingify server. This API method is used to get the variation assigned to the *userId*.\
+The behaviour of the two API methods, that is, [activate](https://developers.wingify.com/docs/go-activate) and [getVariationName](https://developers.wingify.com/docs/java-get-variation-name) is identical otherwise.
 
 Use *Get Variation Name* API if *Activate* API has already been triggered to prevent a user from being tracked again. Also, this API is also helpful in retrieving the variation assignment to a particular User Id, respecting all other factors like segmentation, whitelisting, etc. without sending any impression call to the Wingify servers.
 

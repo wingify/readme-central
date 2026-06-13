@@ -22,7 +22,7 @@ The API method:
 * Validates the parameters passed.
 * Checks whether the user is whitelisted.
 * Checks if User Storage Service is provided to know whether the user is returning. If yes, show the previously assigned variation always.
-* Checks if the campaign is part of [Mutually Exclusive Group](https://developers.vwo.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
+* Checks if the campaign is part of [Mutually Exclusive Group](https://developers.wingify.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
 * Checks whether the user is eligible for the campaign based on pre-segmentation conditions.
 * Checks whether the user qualifies to become a part of the campaign based on traffic allocation.
 * Does not send any impression event to Wingify.
@@ -126,7 +126,7 @@ This method does take care of *UserStorageService*. It first looks into *UserSto
 
         variationTargetingVariables(Object): Custom variation targeting variables to be matched  against Campaign's forced variation/whitelisting conditions.
 
-        userStorageData(Object): Pass this so that SDK uses this data instead of calling the User Storage Service's *get* method to retrieve the stored data. It also helps in implementing the [asynchronous nature of the User Storage Service's get](https://developers.vwo.com/reference#fullstack-is-user-storage-service-synchronous-or-asynchronous) method.
+        userStorageData(Object): Pass this so that SDK uses this data instead of calling the User Storage Service's *get* method to retrieve the stored data. It also helps in implementing the [asynchronous nature of the User Storage Service's get](https://developers.wingify.com/reference#fullstack-is-user-storage-service-synchronous-or-asynchronous) method.
       </td>
     </tr>
   </tbody>
@@ -182,11 +182,11 @@ The value of the variable.
 var value = vwoClientInstance.getFeatureVariableValue(campaignKey, variableKey, userId, options);
 ```
 
-For passing *userStorageData* in the options, please follow this [doc](https://developers.vwo.com/docs/is-user-storage-service-synchronous-or-asynchronous).
+For passing *userStorageData* in the options, please follow this [doc](https://developers.wingify.com/docs/is-user-storage-service-synchronous-or-asynchronous).
 
 ## Campaign Activation with User Storage Service
 
-If [User Storage Service](https://developers.vwo.com/docs/nodejs-implement-a-user-storage-service) is provided, campaign activation is mandatory before tracking any goal, getting a variation of a campaign, and getting the value of the feature's variable.
+If [User Storage Service](https://developers.wingify.com/docs/nodejs-implement-a-user-storage-service) is provided, campaign activation is mandatory before tracking any goal, getting a variation of a campaign, and getting the value of the feature's variable.
 
 **Correct Usage**
 

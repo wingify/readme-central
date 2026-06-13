@@ -14,7 +14,7 @@ next:
       slug: dotnet-get-feature-variable-value
       title: Get Feature Variable Value
 ---
-After successfully [instantiating](https://developers.vwo.com/docs/dotnet-launch) a Wingify class, *isFeatureEnabled API* returns whether a feature is enabled for the campaign(for Feature Rollout) / campaign's variation(for Feature Test) for a specified user and for a running campaign.
+After successfully [instantiating](https://developers.wingify.com/docs/dotnet-launch) a Wingify class, *isFeatureEnabled API* returns whether a feature is enabled for the campaign(for Feature Rollout) / campaign's variation(for Feature Test) for a specified user and for a running campaign.
 
 In the case of a Feature Rollout campaign, a boolean value is returned based on whether a user qualifies for a campaign or not.\
 In the case of a Feature Test campaign, a boolean value is returned based on whether a user qualifies for a campaign or not and also whether the feature is enabled for the variation assigned to that user or not.
@@ -26,7 +26,7 @@ The API method:
 * Validates the parameters passed.
 * Checks whether the user is whitelisted.
 * Checks if User Storage Service is provided to know whether the user is returning. If yes, show the previously assigned variation always.
-* Checks if the campaign is part of [Mutually Exclusive Group](https://developers.vwo.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
+* Checks if the campaign is part of [Mutually Exclusive Group](https://developers.wingify.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
 * Checks whether the user is eligible for the campaign based on pre-segmentation conditions.
 * Checks whether the user qualifies to become a part of the campaign based on traffic allocation.
 * Assigns a deterministic variation to the qualified user.

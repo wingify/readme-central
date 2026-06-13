@@ -220,7 +220,7 @@ Wingify offers an endpoint that you can use to mark a conversion for a particula
 
 > 📘 Retrieving Data for the Endpoint
 >
-> Please refer to the Integrations section inside the [SDK Reference](https://developers.vwo.com/docs/sdk-quickstart) to know how you can get ***u, combination***, and ***experiment\_id***. For example: you can refer [Node.js Integrations](https://developers.vwo.com/docs/nodejs-integrations) section.
+> Please refer to the Integrations section inside the [SDK Reference](https://developers.wingify.com/docs/sdk-quickstart) to know how you can get ***u, combination***, and ***experiment\_id***. For example: you can refer [Node.js Integrations](https://developers.wingify.com/docs/nodejs-integrations) section.
 
 ## Example Usage
 

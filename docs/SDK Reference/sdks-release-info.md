@@ -26,4 +26,4 @@ Below is the list of all server-side supported programming languages.
 | Python               | [vwo-python-sdk](https://github.com/wingify/vwo-python-sdk) | [Changelog](https://github.com/wingify/vwo-python-sdk/blob/master/CHANGELOG.md) |
 | Ruby                 | [vwo-ruby-sdk](https://github.com/wingify/vwo-ruby-sdk)     | [Changelog](https://github.com/wingify/vwo-ruby-sdk/blob/master/CHANGELOG.md)   |
 
-Please refer to the [list of features in different SDKs](https://developers.vwo.com/docs/faqs#is-there-any-list-of-features-in-different-sdks) to know more about the changeset.
+Please refer to the [list of features in different SDKs](https://developers.wingify.com/docs/faqs#is-there-any-list-of-features-in-different-sdks) to know more about the changeset.

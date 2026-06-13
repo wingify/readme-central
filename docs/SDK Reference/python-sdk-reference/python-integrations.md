@@ -32,7 +32,7 @@ vwo_instance = vwo.launch(settings_file, integrations = Integrations())
 
 ## What's the format for the Integration's object?
 
-All Wingify SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever Wingify SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [activate](https://developers.vwo.com/docs/python-activate), [getVariationName](https://developers.vwo.com/docs/python-get-variation-name), [track](https://developers.vwo.com/docs/python-track), [isFeatureEnabled](https://developers.vwo.com/docs/python-is-feature-enabled), and [getFeatureVariableValue](https://developers.vwo.com/docs/python-get-feature-variable-value) APIs.
+All Wingify SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever Wingify SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [activate](https://developers.wingify.com/docs/python-activate), [getVariationName](https://developers.wingify.com/docs/python-get-variation-name), [track](https://developers.wingify.com/docs/python-track), [isFeatureEnabled](https://developers.wingify.com/docs/python-is-feature-enabled), and [getFeatureVariableValue](https://developers.wingify.com/docs/python-get-feature-variable-value) APIs.
 
 ```json
 {

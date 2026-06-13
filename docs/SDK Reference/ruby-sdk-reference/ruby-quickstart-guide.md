@@ -12,4 +12,4 @@ next:
 ---
 Click the below recipe to get an overview of the SDK Usage.
 
-<TutorialTile title="Wingify FullStack Ruby SDK Usage" backgroundColor="#018FF4" slug="vwo-fullstack-ruby-sdk-usage" id="607569fbeafca7003b3f113d" link="https://developers.vwo.com/v4/recipes/vwo-fullstack-ruby-sdk-usage" />
+<TutorialTile title="Wingify FullStack Ruby SDK Usage" backgroundColor="#018FF4" slug="vwo-fullstack-ruby-sdk-usage" id="607569fbeafca7003b3f113d" link="https://developers.wingify.com/v4/recipes/vwo-fullstack-ruby-sdk-usage" />

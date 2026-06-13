@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-[Settings-file](https://developers.vwo.com/reference#fullstack-get-settings) is the representation of the Wingify campaigns settings and is responsible for running campaigns with up-to-date configurations. Fetching the settings-file is an essential step in preventing the network requests to be made every time a user comes. Please refer to [Caching](https://developers.vwo.com/reference#fullstack-best-practices-caching-your-settingsfile) and [Updating](https://developers.vwo.com/reference#fullstack-updating-cached-settings-file) of the settings-file for more information.
+[Settings-file](https://developers.wingify.com/reference#fullstack-get-settings) is the representation of the Wingify campaigns settings and is responsible for running campaigns with up-to-date configurations. Fetching the settings-file is an essential step in preventing the network requests to be made every time a user comes. Please refer to [Caching](https://developers.wingify.com/reference#fullstack-best-practices-caching-your-settingsfile) and [Updating](https://developers.wingify.com/reference#fullstack-updating-cached-settings-file) of the settings-file for more information.
 
 ## Webhooks
 

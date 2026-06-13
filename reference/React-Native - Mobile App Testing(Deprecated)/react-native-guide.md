@@ -230,9 +230,9 @@ You can pass a `config` object during the launch of the Wingify SDK. `Config` is
 
 * `customVariables`: Takes in a javascript object as its value. Check [Targeting Visitor Groups](ref:ios-targeting-visitor-groups) / [Targeting Visitor Groups](ref:android-targeting-visitor-groups) for more details. It defaults to an empty object.
 
-* `customDimensionKey`: String value which is the unique key associated with a particular custom dimension made in the Wingify application. Check [Push Custom Dimension](https://developers.vwo.com/reference#4-push-custom-dimension)  for more details. It defaults to an empty String.
+* `customDimensionKey`: String value which is the unique key associated with a particular custom dimension made in the Wingify application. Check [Push Custom Dimension](https://developers.wingify.com/reference#4-push-custom-dimension)  for more details. It defaults to an empty String.
 
-* `customDimensionValue`: String value which is the value you want to tag a custom dimension with. Check [Push Custom Dimension](https://developers.vwo.com/reference#4-push-custom-dimension)  for more details. It defaults to an empty String.
+* `customDimensionValue`: String value which is the value you want to tag a custom dimension with. Check [Push Custom Dimension](https://developers.wingify.com/reference#4-push-custom-dimension)  for more details. It defaults to an empty String.
 
 If you do not wish to pass any `config` object, you can pass a `null`.
 

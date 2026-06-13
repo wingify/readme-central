@@ -38,7 +38,7 @@ vwo_client_instance = VWO.new(
 
 ## What's the format for the Integration's object?
 
-All Wingify SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever Wingify SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [activate](https://developers.vwo.com/docs/ruby-activate), [getVariationName](https://developers.vwo.com/docs/ruby-get-variation-name), [track](https://developers.vwo.com/docs/ruby-track), [isFeatureEnabled](https://developers.vwo.com/docs/ruby-is-feature-enabled), and [getFeatureVariableValue](https://developers.vwo.com/docs/ruby-get-feature-variable-value) APIs.
+All Wingify SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever Wingify SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [activate](https://developers.wingify.com/docs/ruby-activate), [getVariationName](https://developers.wingify.com/docs/ruby-get-variation-name), [track](https://developers.wingify.com/docs/ruby-track), [isFeatureEnabled](https://developers.wingify.com/docs/ruby-is-feature-enabled), and [getFeatureVariableValue](https://developers.wingify.com/docs/ruby-get-feature-variable-value) APIs.
 
 ```json
 {

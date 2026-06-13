@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-After successfully [instantiating](https://developers.vwo.com/docs/javascript-launch) a Wingify class, *Activate API* activates a FullStack A/B test for a specified user for a running campaign.
+After successfully [instantiating](https://developers.wingify.com/docs/javascript-launch) a Wingify class, *Activate API* activates a FullStack A/B test for a specified user for a running campaign.
 
 > 📘 Note
 >
@@ -23,7 +23,7 @@ The API method:
 * Validates the parameters passed.
 * Checks whether the user is whitelisted.
 * Checks if User Storage Service is provided to know whether the user is returning. If yes, show the previously assigned variation always.
-* Checks if the campaign is part of [Mutually Exclusive Group](https://developers.vwo.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
+* Checks if the campaign is part of [Mutually Exclusive Group](https://developers.wingify.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
 * Checks whether the user is eligible for a campaign based on pre-segmentation conditions.
 * Checks whether the user qualifies to become a part of the campaign based on traffic allocation.
 * Assigns a deterministic variation to the qualified user.
@@ -116,7 +116,7 @@ The API method has various levels of stages and depending on each stage result, 
 
         userIpAddress(String): IpAddress of the visitor  
 
-        userStorageData(Object): Pass this so that SDK uses this data instead of calling the User Storage Service's *get* method to retrieve the stored data. It also helps in implementing the [asynchronous nature of the User Storage Service's get](https://developers.vwo.com/reference#fullstack-is-user-storage-service-synchronous-or-asynchronous) method.  
+        userStorageData(Object): Pass this so that SDK uses this data instead of calling the User Storage Service's *get* method to retrieve the stored data. It also helps in implementing the [asynchronous nature of the User Storage Service's get](https://developers.wingify.com/reference#fullstack-is-user-storage-service-synchronous-or-asynchronous) method.  
 
         * \*Note\*\*: This is only supported in Node.js SDK from *v1.11.0* onwards.
       </td>
@@ -161,7 +161,7 @@ if (variation === 'Control') {
 }
 ```
 
-For passing *userStorageData* in the options, please follow this [doc](https://developers.vwo.com/docs/is-user-storage-service-synchronous-or-asynchronous).
+For passing *userStorageData* in the options, please follow this [doc](https://developers.wingify.com/docs/is-user-storage-service-synchronous-or-asynchronous).
 
 ## Unique Visitors are tracked
 

@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-[Settings-file](https://developers.vwo.com/docs/java-get-settings-file) is the representation of the Wingify campaigns settings and is responsible for running campaigns with up-to-date configurations. Fetching the settings-file is an essential step in preventing the network requests to be made every time a user comes. Please refer to [Caching](https://developers.vwo.com/docs/caching-your-settingsfile) and [Updating](https://developers.vwo.com/docs/updating-cached-settings-file) of the settings-file for more information.
+[Settings-file](https://developers.wingify.com/docs/java-get-settings-file) is the representation of the Wingify campaigns settings and is responsible for running campaigns with up-to-date configurations. Fetching the settings-file is an essential step in preventing the network requests to be made every time a user comes. Please refer to [Caching](https://developers.wingify.com/docs/caching-your-settingsfile) and [Updating](https://developers.wingify.com/docs/updating-cached-settings-file) of the settings-file for more information.
 
 ## Ways of Detecting Changes in Settings File
 
 One way to detect a change in the settings-file is by using Webhooks.
 
-Another way to detect a change in the settings-file is by polling the Wingify servers frequently, and when detected, update the settings file. Refer [Configure Polling](https://developers.vwo.com/docs/java-configure-polling) to know about it.
+Another way to detect a change in the settings-file is by polling the Wingify servers frequently, and when detected, update the settings file. Refer [Configure Polling](https://developers.wingify.com/docs/java-configure-polling) to know about it.
 
 ## Webhooks
 

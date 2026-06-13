@@ -12,19 +12,19 @@ next:
 ---
 List of Frequently Asked Questions:
 
-* [What are Mobile Recordings in Wingify, and how do they work?](https://developers.vwo.com/reference/mobile-insights-faqs#what-are-mobile-recordings-in-vwo-and-how-do-they-work)
-* [What is the maximum duration of the saved recording?](https://developers.vwo.com/reference/mobile-insights-faqs#what-is-the-maximum-duration-of-the-saved-recording)
-* [When does a recording start?](https://developers.vwo.com/reference/mobile-insights-faqs#when-does-a-recording-start)
-* [When does a recording session expire?](https://developers.vwo.com/reference/mobile-insights-faqs#when-does-a-recording-session-expire)
-* [Can I view all the recordings of the previous/next previous session of the user?](https://developers.vwo.com/reference/mobile-insights-faqs#can-i-view-all-the-recordings-of-the-previousnext-previous-session-of-the-user)
-* [Do the recordings involve sensitive data?](https://developers.vwo.com/reference/mobile-insights-faqs#do-the-recordings-involve-sensitive-data)
-* [How to record all the screens of your mobile application?](https://developers.vwo.com/reference/mobile-insights-faqs#how-to-record-all-the-screens-of-your-mobile-application)
-* [How does Wingify affect my application speed?](https://developers.vwo.com/reference/mobile-insights-faqs#how-does-vwo-affect-my-application-speed)
-* [Why data is not reflected in the campaign report?](https://developers.vwo.com/reference/mobile-insights-faqs#why-data-is-not-reflected-in-the-campaign-report)
-* [Which programming languages are supported by Wingify Mobile Insights SDKs?](https://developers.vwo.com/reference/mobile-insights-faqs#which-programming-languages-are-supported-by-vwo-mobile-insights-sdks)
-* [What's the minimum version supported by each Wingify SDK?](https://developers.vwo.com/reference/mobile-insights-faqs#whats-the-minimum-version-supported-by-each-vwo-sdk)
-* [How to make sure you are running the latest version of the SDK?](https://developers.vwo.com/reference/mobile-insights-faqs#how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
-* [Do I need to modify my firewall when using Wingify Mobile Insight?](https://developers.vwo.com/reference/mobile-insights-faqs#do-i-need-to-modify-my-firewall-when-using-vwo-fullstack)
+* [What are Mobile Recordings in Wingify, and how do they work?](https://developers.wingify.com/reference/mobile-insights-faqs#what-are-mobile-recordings-in-vwo-and-how-do-they-work)
+* [What is the maximum duration of the saved recording?](https://developers.wingify.com/reference/mobile-insights-faqs#what-is-the-maximum-duration-of-the-saved-recording)
+* [When does a recording start?](https://developers.wingify.com/reference/mobile-insights-faqs#when-does-a-recording-start)
+* [When does a recording session expire?](https://developers.wingify.com/reference/mobile-insights-faqs#when-does-a-recording-session-expire)
+* [Can I view all the recordings of the previous/next previous session of the user?](https://developers.wingify.com/reference/mobile-insights-faqs#can-i-view-all-the-recordings-of-the-previousnext-previous-session-of-the-user)
+* [Do the recordings involve sensitive data?](https://developers.wingify.com/reference/mobile-insights-faqs#do-the-recordings-involve-sensitive-data)
+* [How to record all the screens of your mobile application?](https://developers.wingify.com/reference/mobile-insights-faqs#how-to-record-all-the-screens-of-your-mobile-application)
+* [How does Wingify affect my application speed?](https://developers.wingify.com/reference/mobile-insights-faqs#how-does-vwo-affect-my-application-speed)
+* [Why data is not reflected in the campaign report?](https://developers.wingify.com/reference/mobile-insights-faqs#why-data-is-not-reflected-in-the-campaign-report)
+* [Which programming languages are supported by Wingify Mobile Insights SDKs?](https://developers.wingify.com/reference/mobile-insights-faqs#which-programming-languages-are-supported-by-vwo-mobile-insights-sdks)
+* [What's the minimum version supported by each Wingify SDK?](https://developers.wingify.com/reference/mobile-insights-faqs#whats-the-minimum-version-supported-by-each-vwo-sdk)
+* [How to make sure you are running the latest version of the SDK?](https://developers.wingify.com/reference/mobile-insights-faqs#how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
+* [Do I need to modify my firewall when using Wingify Mobile Insight?](https://developers.wingify.com/reference/mobile-insights-faqs#do-i-need-to-modify-my-firewall-when-using-vwo-fullstack)
 
 ## What are Mobile Recordings in Wingify, and how do they work?
 
@@ -62,8 +62,8 @@ We have benchmarked our SDKs and below is the impact analysis for different SDKs
 
 | Android | Impact Analysis                                                                                                                                              |
 | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Android | [https://developers.vwo.com/reference/mobile-insights-android-impact-analysis](https://developers.vwo.com/reference/mobile-insights-android-impact-analysis) |
-| iOS     | [https://developers.vwo.com/reference/mobile-insights-ios-impact-analysis](https://developers.vwo.com/reference/mobile-insights-ios-impact-analysis)         |
+| Android | [https://developers.wingify.com/reference/mobile-insights-android-impact-analysis](https://developers.wingify.com/reference/mobile-insights-android-impact-analysis) |
+| iOS     | [https://developers.wingify.com/reference/mobile-insights-ios-impact-analysis](https://developers.wingify.com/reference/mobile-insights-ios-impact-analysis)         |
 
 ## Why data is not reflected in the campaign report?
 

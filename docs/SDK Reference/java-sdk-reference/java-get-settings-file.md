@@ -10,12 +10,12 @@ metadata:
 next:
   description: ''
 ---
-Each Wingify SDK client corresponds to the *settings file* representing the current state of the campaign settings, that is, a list of FullStack running campaign settings. See [Review core concepts](https://developers.vwo.com/docs/core-concepts) for more information.
+Each Wingify SDK client corresponds to the *settings file* representing the current state of the campaign settings, that is, a list of FullStack running campaign settings. See [Review core concepts](https://developers.wingify.com/docs/core-concepts) for more information.
 
 ## Description
 
 Wingify SDK is a helper for executing various FullStack capabilities. It requires a certain set of settings for its work. These settings are related to your FullStack campaigns you create or update in the Wingify application.\
-So, before [instantiating](https://developers.vwo.com/docs/java-launch) the Wingify SDK, *settings file* needs to be fetched.
+So, before [instantiating](https://developers.wingify.com/docs/java-launch) the Wingify SDK, *settings file* needs to be fetched.
 
 The method accepts two parameters:
 
@@ -76,7 +76,7 @@ The method accepts two parameters:
 
 ## Returns
 
-Returns the *settings file* which helps in [Instantiating](https://developers.vwo.com/docs/java-launch) the Wingify SDK. This method handles any error in fetching the settings file. Please follow the best practices to ensure that your app is prevented from crashing.
+Returns the *settings file* which helps in [Instantiating](https://developers.wingify.com/docs/java-launch) the Wingify SDK. This method handles any error in fetching the settings file. Please follow the best practices to ensure that your app is prevented from crashing.
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -122,4 +122,4 @@ String settingsFile = VWO.getSettingsFile(accountId, sdkKey);
 
 ## Syncing changes in Settings File
 
-You can use [polling](https://developers.vwo.com/docs/java-configure-polling) or [webhooks](https://developers.vwo.com/docs/java-configure-webhooks) to keep your settings-file up-to-date with the Wingify Application(changes you made in FullStack campaigns).
+You can use [polling](https://developers.wingify.com/docs/java-configure-polling) or [webhooks](https://developers.wingify.com/docs/java-configure-webhooks) to keep your settings-file up-to-date with the Wingify Application(changes you made in FullStack campaigns).

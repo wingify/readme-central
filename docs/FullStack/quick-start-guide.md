@@ -18,11 +18,11 @@ next:
 
 The Wingify SDK code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2019-2020.
 
-Learn more about how to use [SDK](https://developers.vwo.com/docs/sdk-quickstart).
+Learn more about how to use [SDK](https://developers.wingify.com/docs/sdk-quickstart).
 
 ## Core Concepts
 
-Check out the [end-to-end flow](https://developers.vwo.com/docs/core-concepts#how-vwo-fullstack-sdks-work-end-to-end) of SDK and how [Wingify buckets user to a variation](https://developers.vwo.com/docs/core-concepts#how-bucketing-works).
+Check out the [end-to-end flow](https://developers.wingify.com/docs/core-concepts#how-vwo-fullstack-sdks-work-end-to-end) of SDK and how [Wingify buckets user to a variation](https://developers.wingify.com/docs/core-concepts#how-bucketing-works).
 
 ## Source Code
 
@@ -124,10 +124,10 @@ Inside the Wingify application, click the **FullStack A/B** menu option, select 
 
 ## FAQs
 
-Check out a comprehensive list of [Frequently Asked Questions](https://developers.vwo.com/docs/faqs).
+Check out a comprehensive list of [Frequently Asked Questions](https://developers.wingify.com/docs/faqs).
 
 ## Next Steps
 
-As the next step, look at [SDK Reference](https://developers.vwo.com/docs/sdk-quickstart) to explore more advanced options for configuring and using the SDK.
+As the next step, look at [SDK Reference](https://developers.wingify.com/docs/sdk-quickstart) to explore more advanced options for configuring and using the SDK.
 
 We would look forward to hearing from you about any questions or feedback at [support@vwo.com](mailto:support@vwo.com).
