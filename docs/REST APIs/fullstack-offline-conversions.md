@@ -230,6 +230,6 @@ https://dev.visualwebsiteoptimizer.com/server-side/track-goal?experiment_id=84&c
 
 ## References
 
-1. [Download the detailed report of a campaign](https://help.vwo.com/hc/en-us/articles/360019594933-How-to-Email-or-Download-a-Test-Report-in-VWO-)
-2. [Integrating Wingify with Google Cloud Storage](https://help.vwo.com/hc/en-us/articles/900006484803-Integrating-VWO-with-Google-Cloud-Storage)
-3. [Integrating Wingify with Amazon S3](https://help.vwo.com/hc/en-us/articles/900006485423-Integrating-VWO-with-Amazon-S3)
+1. [Download the detailed report of a campaign](https://help.wingify.com/hc/en-us/articles/360019594933-How-to-Email-or-Download-a-Test-Report-in-VWO-)
+2. [Integrating Wingify with Google Cloud Storage](https://help.wingify.com/hc/en-us/articles/900006484803-Integrating-VWO-with-Google-Cloud-Storage)
+3. [Integrating Wingify with Amazon S3](https://help.wingify.com/hc/en-us/articles/900006485423-Integrating-VWO-with-Amazon-S3)

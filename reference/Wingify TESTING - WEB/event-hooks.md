@@ -112,8 +112,8 @@ window.VWO.event('purchaseCompleted', {
 
 ### Notes
 
-* **Supported:** **Custom events** sent via **`window.VWO.event(eventName, attributes)`** are eligible for hooks and appear in the dashboard as **My Events** / **Unregistered Events**; see [Working with events in Wingify](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO).  
-  **Custom attributes** passed with **`window.VWO.event(eventName, attributes)`** (the `attributes` keys mapped to `payload.d.event.props`) are also hook-eligible, appear as **My Attributes** / **Unregistered Attributes**, and include visitor custom-attribute sync via **`window.VWO.visitor({...})`**; see [Working with attributes in Wingify](https://help.vwo.com/hc/en-us/articles/8681465703705-Working-With-Attributes-in-VWO).
+* **Supported:** **Custom events** sent via **`window.VWO.event(eventName, attributes)`** are eligible for hooks and appear in the dashboard as **My Events** / **Unregistered Events**; see [Working with events in Wingify](https://help.wingify.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO).  
+  **Custom attributes** passed with **`window.VWO.event(eventName, attributes)`** (the `attributes` keys mapped to `payload.d.event.props`) are also hook-eligible, appear as **My Attributes** / **Unregistered Attributes**, and include visitor custom-attribute sync via **`window.VWO.visitor({...})`**; see [Working with attributes in Wingify](https://help.wingify.com/hc/en-us/articles/8681465703705-Working-With-Attributes-in-VWO).
 
 * **Not supported:** **Standard events** are outside this hook surface (for example: **Page visit**, **Click**, **Form submission**).  
   **Standard attributes** are also outside this hook surface; ABM-style identity attributes (for example **`identifyVisitor`**, commonly `POST .../abm/identify...`) do not run through these generic hooks.  

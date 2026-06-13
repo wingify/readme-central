@@ -11,4 +11,4 @@ next:
   description: ''
 ---
 You can manage your Workspaces via the following API Endpoints.\
-To understand workspace resource in depth, read our knowledge base article on [Wingify Workspace](https://help.vwo.com/hc/en-us/articles/360019423094-Understanding-VWO-Account-Hierarchy).
+To understand workspace resource in depth, read our knowledge base article on [Wingify Workspace](https://help.wingify.com/hc/en-us/articles/360019423094-Understanding-VWO-Account-Hierarchy).

@@ -28,7 +28,7 @@ List of Frequently Asked Questions:
 
 ## What are Mobile Recordings in Wingify, and how do they work?
 
-The Mobile Recordings module in Wingify allows you to record visitor interactions with your mobile application in the form of video. These recordings show how the visitors interact with your mobile application by capturing various gestures like single tap, double tap, zoom, fling, scroll, etc. They work based on [sampling](https://help.vwo.com/hc/en-us/articles/360034213994).
+The Mobile Recordings module in Wingify allows you to record visitor interactions with your mobile application in the form of video. These recordings show how the visitors interact with your mobile application by capturing various gestures like single tap, double tap, zoom, fling, scroll, etc. They work based on [sampling](https://help.wingify.com/hc/en-us/articles/360034213994).
 
 ## What is the maximum duration of the saved recording?
 
@@ -48,7 +48,7 @@ Yes. A tile in the player shows the visitor's currently active session and also 
 
 ## Do the recordings involve sensitive data?
 
-By default, Wingify hides all key presses right on the SDK side to avoid storing or transmitting any personal or sensitive data to Wingify servers. Additionally, you can exclude the recording of any screen using the Exclude screens option or specifically exclude texts or UI elements such as fields, buttons, and checkboxes using the Exclude text, Exclude view, and Exclude tag options. To know more about these options, refer to [this article](https://help.vwo.com/hc/en-us/articles/12864264973337-Using-the-Mobile-Recordings-Dashboard-in-VWO).
+By default, Wingify hides all key presses right on the SDK side to avoid storing or transmitting any personal or sensitive data to Wingify servers. Additionally, you can exclude the recording of any screen using the Exclude screens option or specifically exclude texts or UI elements such as fields, buttons, and checkboxes using the Exclude text, Exclude view, and Exclude tag options. To know more about these options, refer to [this article](https://help.wingify.com/hc/en-us/articles/12864264973337-Using-the-Mobile-Recordings-Dashboard-in-VWO).
 
 ## How to record all the screens of your mobile application?
 

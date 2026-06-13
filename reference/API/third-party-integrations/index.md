@@ -20,4 +20,4 @@ Currently, these APIs support:
 
 These APIs help manage external platform connections and maintain integration configurations across Wingify services.
 
-To understand third-party integration supported in Wingify, read our knowledge base articles on [Wingify Integration](https://help.vwo.com/hc/en-us/sections/360003824734-Web-Analytics-Integrations).
+To understand third-party integration supported in Wingify, read our knowledge base articles on [Wingify Integration](https://help.wingify.com/hc/en-us/sections/360003824734-Web-Analytics-Integrations).

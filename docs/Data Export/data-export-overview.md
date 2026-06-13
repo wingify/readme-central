@@ -22,5 +22,5 @@ Wingify has released the capability to set up a permanent export pipeline to the
 
 To find out how you can configure and set up these integrations, please refer to:
 
-* [Google Cloud Storage documentation](https://help.vwo.com/hc/en-us/articles/900006484803-Integrating-VWO-with-Google-Cloud-Storage)
-* [Amazon S3 documentation.](https://help.vwo.com/hc/en-us/articles/900006485423-Integrating-VWO-with-Amazon-S3)
+* [Google Cloud Storage documentation](https://help.wingify.com/hc/en-us/articles/900006484803-Integrating-VWO-with-Google-Cloud-Storage)
+* [Amazon S3 documentation.](https://help.wingify.com/hc/en-us/articles/900006485423-Integrating-VWO-with-Amazon-S3)
