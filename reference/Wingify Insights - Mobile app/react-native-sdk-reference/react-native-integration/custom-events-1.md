@@ -37,7 +37,7 @@ import { customEvent } from 'vwo-insights-react-native-sdk';
 
 <br />
 
-This snippet dispatches a custom event named "addToCart" to VWO using the sendCustomEvent function.
+This snippet dispatches a custom event named "addToCart" to Wingify using the sendCustomEvent function.
 
 <br />
 
