@@ -130,4 +130,4 @@ Check out a comprehensive list of [Frequently Asked Questions](https://developer
 
 As the next step, look at [SDK Reference](https://developers.wingify.com/docs/sdk-quickstart) to explore more advanced options for configuring and using the SDK.
 
-We would look forward to hearing from you about any questions or feedback at [support@vwo.com](mailto:support@vwo.com).
+We would look forward to hearing from you about any questions or feedback at [support@wingify.com](mailto:support@wingify.com).

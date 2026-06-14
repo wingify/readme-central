@@ -26,7 +26,7 @@ Wingify’s Feature Experimentation empowers teams to seamlessly test, release, 
 * Check [this](https://developers.wingify.com/v2/docs/sdks-release-info) for the list of all FE-supported SDKs.
 
 **💡 Need Help?**\
-For migration assistance or any questions, contact us at [support@vwo.com](support@vwo.com).
+For migration assistance or any questions, contact us at [support@wingify.com](support@wingify.com).
 
 ***
 

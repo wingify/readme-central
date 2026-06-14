@@ -29,7 +29,7 @@ Wingify’s Feature Experimentation empowers teams to seamlessly test, release, 
 - Check out Feature Experimentation developer documentation [here](https://developers.wingify.com/v2/docs/fme-overview).
 - Check [this](https://developers.wingify.com/v2/docs/sdks-release-info) for the list of all FE-supported SDKs.
 
-**💡 Need Help?**<br />For migration assistance or any questions, contact us at [support@vwo.com](support@vwo.com)
+**💡 Need Help?**<br />For migration assistance or any questions, contact us at [support@wingify.com](support@wingify.com)
 
 ***
 

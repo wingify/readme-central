@@ -14,8 +14,8 @@ The `setBrowserLanguage` API allows you to manually set the browser language for
 ### Signature
 
 ```javascript
-window.VWO = window.VWO || [];
-window.VWO.push(['setBrowserLanguage', language]);
+window.Wingify = window.Wingify || [];
+window.Wingify.push(['setBrowserLanguage', language]);
 ```
 
 #### Arguments
@@ -27,15 +27,15 @@ window.VWO.push(['setBrowserLanguage', language]);
 ### Example
 
 ```javascript
-window.VWO = window.VWO || [];
+window.Wingify = window.Wingify || [];
 // Set browser language to English
-window.VWO.push(['setBrowserLanguage', 'en']);
+window.Wingify.push(['setBrowserLanguage', 'en']);
 
 // Set browser language to Spanish
-window.VWO.push(['setBrowserLanguage', 'es']);
+window.Wingify.push(['setBrowserLanguage', 'es']);
 
 // Set browser language to French
-window.VWO.push(['setBrowserLanguage', 'fr']);
+window.Wingify.push(['setBrowserLanguage', 'fr']);
 ```
 
 ### Use-cases

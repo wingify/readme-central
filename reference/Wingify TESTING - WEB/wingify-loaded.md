@@ -14,14 +14,14 @@ next:
 
 Wingify loading on a page can be broken down into three main steps:
 
-* **Loading Campaigns**: The Wingify SmartCode retrieves all campaigns eligible for the current URL from the server.
-* **Library Initialization**: The Wingify library is loaded. As it loads, it executes all eligible campaigns for which the relevant page elements have already been loaded.
-* **Loading Remaining Campaigns**: The Wingify library fetches the remaining campaigns in the account. This includes campaigns eligible for other pages and any active Insights campaigns.
+- **Loading Campaigns**: The Wingify SmartCode retrieves all campaigns eligible for the current URL from the server.
+- **Library Initialization**: The Wingify library is loaded. As it loads, it executes all eligible campaigns for which the relevant page elements have already been loaded.
+- **Loading Remaining Campaigns**: The Wingify library fetches the remaining campaigns in the account. This includes campaigns eligible for other pages and any active Insights campaigns.
 
 The following callbacks are triggered on different steps of Wingify loading on the page:
 
-* The `onVWOLoaded` callback is triggered when Step 2 (library initialization and campaign execution) is completed.
-* The `onVWOCampaignsLoaded` callback is triggered when Step 3 (loading of remaining campaigns) is completed.
+- The `onLibLoaded` callback is triggered when Step 2 (library initialization and campaign execution) is completed.
+- The `onCampaignsLoaded` callback is triggered when Step 3 (loading of remaining campaigns) is completed.
 
 Note: This API would work only when there are active campaigns in the account. If there is no active campaign in the account, we would not serve the library on the page.
 
@@ -30,21 +30,21 @@ Note: This API would work only when there are active campaigns in the account. I
 #### Signature
 
 ```javascript
-window.VWO = window.VWO || [];
-window.VWO.push(['onVWOLoaded', function(data) {
+window.Wingify = window.Wingify || [];
+window.Wingify.push(['onLibLoaded', function(data) {
     // Callback logic here
 }]);
 ```
 
 #### Arguments
 
-| Parameter          | Type       | Required | Description                                            |
-| ------------------ | ---------- | -------- | ------------------------------------------------------ |
+| Parameter          | Type       | Required | Description                                                |
+| ------------------ | ---------- | -------- | ---------------------------------------------------------- |
 | callback\_function | `Function` | Yes      | Function executed once the Wingify library is fully loaded |
 
 #### Callback Data
 
-**Type**: `Array` containing two elements: `[executedCampaigns, delayedCampaigns]`  
+**Type**: `Array` containing two elements: `[executedCampaigns, delayedCampaigns]`
 
 | Element             | Type     | Description                                                                                                                       |
 | ------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -72,8 +72,8 @@ window.VWO.push(['onVWOLoaded', function(data) {
 ##### Example
 
 ```javascript
-window.VWO = window.VWO || [];
-window.VWO.push(['onVWOLoaded', function(data) {
+window.Wingify = window.Wingify || [];
+window.Wingify.push(['onLibLoaded', function(data) {
     if (!data) return;
     
     var executedCampaigns = data[0]; 
@@ -97,8 +97,8 @@ window.VWO.push(['onVWOLoaded', function(data) {
 #### Signature
 
 ```javascript
-window.VWO = window.VWO || [];
-window.VWO.push(['onVWOCampaignsLoaded', function (data) {
+window.Wingify = window.Wingify || [];
+window.Wingify.push(['onCampaignsLoaded', function (data) {
     // Your implementation here
 }]);
 ```
@@ -111,13 +111,13 @@ window.VWO.push(['onVWOCampaignsLoaded', function (data) {
 
 #### Callback Data
 
-**Type**: `Object` containing campaign information  
+**Type**: `Object` containing campaign information
 
 | Property             | Type    | Description                                    |
 | -------------------- | ------- | ---------------------------------------------- |
 | `bucketed_campaigns` | `Array` | List of campaigns the visitor is bucketed into |
 
-Each campaign object in `bucketed_campaigns` contains:  
+Each campaign object in `bucketed_campaigns` contains:
 
 | Property        | Type     | Description             |
 | --------------- | -------- | ----------------------- |
@@ -142,8 +142,8 @@ Each campaign object in `bucketed_campaigns` contains:
 ##### Example
 
 ```javascript
-window.VWO = window.VWO || [];
-window.VWO.push(['onVWOCampaignsLoaded', function (data) {
+window.Wingify = window.Wingify || [];
+window.Wingify.push(['onCampaignsLoaded', function (data) {
     for (var campaign of data.bucketed_campaigns) {
         for (var campProps of Object.keys(campaign)) {
             if (parseInt(campProps) == campProps) {
@@ -158,8 +158,8 @@ window.VWO.push(['onVWOCampaignsLoaded', function (data) {
 
 ### Use Cases
 
-* **Analytics Integration**\
-  Sync campaign performance data with platforms like Google Analytics or Mixpanel to measure conversion rates, engagement, and campaign success.
+- **Analytics Integration**<br />Sync campaign performance data with platforms like Google Analytics or Mixpanel to measure conversion rates, engagement, and campaign success.
 
-* **Persistent experience**\
-  Ensure visitors have a uniform experience by opting them out of Wingify if the SmartCode times out, preventing unexpected variations.
+- **Persistent experience**<br />Ensure visitors have a uniform experience by opting them out of Wingify if the SmartCode times out, preventing unexpected variations.
+
+<br />
