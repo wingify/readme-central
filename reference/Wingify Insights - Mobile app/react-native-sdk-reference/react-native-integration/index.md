@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This section is a reference for VWO Insights - Mobile React native SDK. 
+This section is a reference for Wingify Insights - Mobile React native SDK.
 
 <br />
 
