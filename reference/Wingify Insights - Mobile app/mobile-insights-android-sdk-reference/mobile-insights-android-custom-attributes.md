@@ -15,7 +15,7 @@ Custom attributes can be created by creating a map that contains all the key and
 ```java
 HashMap map = new HashMap<String, Object>();
 map.put("email", "abc@xyz.com");
-map.put("name", "VWO Insights");
+map.put("name", "Wingify Insights");
 
 VWOInsights.INSTANCE.sendCustomAttribute(map);
 ```
@@ -26,3 +26,5 @@ map["name"] = "VWO Insights"
   
 VWOInsights.sendCustomAttribute(map)
 ```
+
+<br />
