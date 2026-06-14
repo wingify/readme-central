@@ -18,7 +18,7 @@ After installing the SDK, initialize the app inside your Appdelegate file follow
 
 ```swift
 import UIKit
-import VWO_Insights_ios_flutter_sdk
+import VWO_Insights
  
  
 @main
@@ -39,3 +39,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
+
+<br />
