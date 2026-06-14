@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-## VWO Pulse Approach (After)
+## Wingify Pulse Approach (After)
 
 ```swift
 import VWO_Insights
@@ -112,8 +112,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // User ID is optional during initialization
         // Pass nil or "" for anonymous users, or actual user ID if known
         VWO.configure(
-            accountId: "your_account_id",  // Account ID from VWO dashboard
-            sdkKey: "your_sdk_key",        // SDK Key from VWO dashboard
+            accountId: "your_account_id",  // Account ID from Wingify dashboard
+            sdkKey: "your_sdk_key",        // SDK Key from Wingify dashboard
             userId: nil                    // User ID (optional) - use nil for anonymous, or "user_id" if known
         ) { result in
             switch result {
@@ -139,7 +139,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 1. **No longer extend SDK class** - Your Application class extends `UIResponder` and `UIApplicationDelegate` instead of extending Blitzllama SDK
 2. **User ID is optional at initialization** - User identifier can be passed in `VWO.configure()` (use `nil` or `""` for anonymous users), or set later using `setUserId()`
 3. **Use&#x20;**`setUserId()`**&#x20;to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
-4. **Callback-based initialization** - VWO uses explicit success/failure callbacks
+4. **Callback-based initialization** - Wingify uses explicit success/failure callbacks
 
 ***
 
@@ -159,7 +159,7 @@ let eventProperties: [String: Any] = [
 BlitzLlamaSDKController.getSDKManager().fetchSurvey(triggerName: "trigger_name", properties: eventProperties)
 ```
 
-## VWO Pulse (After)
+## Wingify Pulse (After)
 
 ```swift
 // Get Survey SDK manager
@@ -175,7 +175,7 @@ surveySDK.trackEvent(
 
 ## Method Mapping
 
-| Blitzllama                                   | VWO Pulse                                  |
+| Blitzllama                                   | Wingify Pulse                              |
 | -------------------------------------------- | ------------------------------------------ |
 | `triggerEvent("name")`                       | `trackEvent("name")`                       |
 | `triggerEvent("name", properties)`           | `trackEvent("name", properties)`           |
@@ -194,9 +194,9 @@ BlitzLlamaSDKController.getSDKManager.updateUserEmail("user@example.com")
 BlitzLlamaSDKController.getSDKManager.updateUserName("user_name")
 ```
 
-**VWO Pulse (After):**
+**Wingify Pulse (After):**
 
-In VWO, use `setAttribute()` to set user email and name:
+In Wingify, use `setAttribute()` to set user email and name:
 
 ```swift
 let surveySDK = VWO.getSurveyManager()
@@ -223,7 +223,7 @@ BlitzLlamaSDKController.getSDKManager.updateUserAttributes("user_level", attribu
 BlitzLlamaSDKController.getSDKManager.updateUserAttributes("is_active", attributeValue: "true", dataType: "boolean")
 ```
 
-**VWO Pulse (After):**
+**Wingify Pulse (After):**
 
 ```swift
 let surveySDK = VWO.getSurveyManager()
@@ -238,7 +238,7 @@ let attributes: [String: Any] = [
 surveySDK.setAttribute(attributes: attributes)
 ```
 
-> 📘 **Note:** VWO uses `setAttribute()` instead of `updateUserAttributes()`. Data types are automatically inferred, so you don't need to specify them explicitly. You can pass multiple attributes in a single dictionary. The SDK automatically associates attributes with the current user ID.
+> 📘 **Note:** Wingify uses `setAttribute()` instead of `updateUserAttributes()`. Data types are automatically inferred, so you don't need to specify them explicitly. You can pass multiple attributes in a single dictionary. The SDK automatically associates attributes with the current user ID.
 
 ***
 
@@ -250,7 +250,7 @@ surveySDK.setAttribute(attributes: attributes)
 BlitzLlamaSDKController.getSDKManager.setLanguageCode("en")
 ```
 
-**VWO Pulse (After):**
+**Wingify Pulse (After):**
 
 ```swift
 let surveySDK = VWO.getSurveyManager()
@@ -269,9 +269,9 @@ This API remains largely the same.
 BlitzLlamaSDK.logout()
 ```
 
-## VWO Pulse (After)
+## Wingify Pulse (After)
 
-VWO Pulse does **not have a&#x20;**`logout()`**&#x20;method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+Wingify Pulse does **not have a&#x20;**`logout()`**&#x20;method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
 
 ### Switching to a New User
 
@@ -315,7 +315,7 @@ VWO.setUserId(randomUserId) { result in
 
 ### Key Differences
 
-| Blitzllama                 | VWO Pulse                                        |
+| Blitzllama                 | Wingify Pulse                                    |
 | -------------------------- | ------------------------------------------------ |
 | `BlitzLlamaSDK.logout()`   | No direct logout method                          |
 | N/A                        | `VWO.setUserId(userId, completion)`              |
@@ -326,16 +326,16 @@ VWO.setUserId(randomUserId) { result in
 
 ***
 
-# Step 8: Update Event/Trigger Names in VWO Dashboard
+# Step 8: Update Event/Trigger Names in Wingify Dashboard
 
-If you're using triggers configured in the Blitzllama dashboard, you may need to recreate them in the VWO dashboard:
+If you're using triggers configured in the Blitzllama dashboard, you may need to recreate them in the Wingify dashboard:
 
-1. Log in to your VWO dashboard
+1. Log in to your Wingify dashboard
 2. Navigate to **Data360 → Events → Create**
 3. Create events with the same names you used as trigger names in Blitzllama
 4. Configure these events in **Surveys → Custom Triggers**
 
-> ⚠️ **Important:** Ensure event names match exactly between your code and the VWO dashboard.
+> ⚠️ **Important:** Ensure event names match exactly between your code and the Wingify dashboard.
 
 ***
 
@@ -394,7 +394,7 @@ class ViewController: UIViewController {
 }
 ```
 
-## After (VWO Pulse)
+## After (Wingify Pulse)
 
 ```swift
 import UIKit
@@ -461,8 +461,8 @@ class ViewController: UIViewController {
 ## Survey not showing after migration?
 
 1. **Verify initialization**: Ensure the success callback is received before triggering surveys
-2. **Check event names**: Event names must match exactly with VWO dashboard configuration
-3. **Verify credentials**: Confirm Account ID and SDK Key are correct from VWO dashboard
+2. **Check event names**: Event names must match exactly with Wingify dashboard configuration
+3. **Verify credentials**: Confirm Account ID and SDK Key are correct from Wingify dashboard
 4. **Check initialization timing**: Wait for the initialization callback before calling survey methods
 
 ## Race condition on first screen?
@@ -498,7 +498,7 @@ VWO.configure(
 - [ ] Changed `triggerEvent()` calls to `trackEvent()`
 - [ ] Updated `setUserAttribute()` to `setAttribute()`
 - [ ] Updated import statements
-- [ ] Configured events in VWO dashboard
+- [ ] Configured events in Wingify dashboard
 - [ ] Tested survey triggering in the app
 
 ***
@@ -507,7 +507,7 @@ VWO.configure(
 
 | Component                               | Version |
 | --------------------------------------- | ------- |
-| VWO Pulse SDK Version                   | 2.2.0+  |
+| Wingify Pulse SDK Version               | 2.2.0+  |
 | Minimum iOS Version                     | 12.0    |
 | Swift Version                           | 5.0+    |
 | Blitzllama SDK Version (migrating from) | 1.6.29  |
