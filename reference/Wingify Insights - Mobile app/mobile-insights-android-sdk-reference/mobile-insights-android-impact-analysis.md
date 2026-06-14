@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-This page tracks the impact of Wingify's SDK on different parameters for an app.
+This page tracks the impact of Wingify SDK on different parameters for an app.
 
 ## **Launch Time**
 
