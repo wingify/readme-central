@@ -16,7 +16,7 @@ After installing the SDK, initialize the app inside your _Appdelegate_ file foll
 
 After, add the following Initialization code inside the function ->
 
-_func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)_
+_func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: \[UIApplication.LaunchOptionsKey: Any]?)\_
 
 ```swift
 // From SDK version 2.2.0 and above, If your app is purely and fully written in SwiftUI, then feel free to pass isSwiftUI as true in the function below - 
@@ -35,53 +35,11 @@ VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where account
 
 ## Parameters
 
-<Table align={["left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Key
-      </th>
-
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        **ACCOUNT_ID** _Required_
-      </td>
-
-      <td>
-        VWO Account ID
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **SDK_KEY**  
-        _Required_
-      </td>
-
-      <td>
-        SDK Key
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **USER_ID**  
-        _Optional_
-      </td>
-
-      <td>
-        Unique identifier for the user
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Key                          | Description                    |
+| :--------------------------- | :----------------------------- |
+| **ACCOUNT\_ID** _Required_   | Wingify Account ID             |
+| **SDK\_KEY**<br />_Required_ | SDK Key                        |
+| **USER\_ID**<br />_Optional_ | Unique identifier for the user |
 
 An example implementation is for Swift
 
@@ -109,3 +67,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
+
+<br />
