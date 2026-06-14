@@ -16,4 +16,4 @@ This document will help you understand the basics of Wingify APIs. Wingify API i
 
 **Target Audience**
 
-This document assumes technical proficiency. If you wish to develop a new app or plugin for a new target or have any questions, reach out to us at [api@vwo.com](mailto:api@vwo.com).
+This document assumes technical proficiency. If you wish to develop a new app or plugin for a new target or have any questions, reach out to us at [api@wingify.com](mailto:api@wingify.com).
