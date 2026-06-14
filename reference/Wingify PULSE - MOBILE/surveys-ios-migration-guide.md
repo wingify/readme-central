@@ -5,22 +5,22 @@ hidden: true
 metadata:
   robots: index
 ---
-# Migration Guide: Blitzllama to VWO Pulse iOS SDK
+# Migration Guide: Blitzllama to Wingify Pulse iOS SDK
 
 ## Overview
 
-This guide helps you migrate your application from the **Blitzllama SDK** to the **VWO Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
+This guide helps you migrate your application from the **Blitzllama SDK** to the **Wingify Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
 
 **Minimum Requirements:**
 
-* iOS 12.0 and above
-* VWO dashboard access (to obtain Account ID and SDK Key)
+- iOS 12.0 and above
+- Wingify dashboard access (to obtain Account ID and SDK Key)
 
 ***
 
 ## Migration Summary
 
-| Feature          | Blitzllama SDK                  | VWO Pulse SDK                                                                   |
+| Feature          | Blitzllama SDK                  | Wingify Pulse SDK                                                               |
 | ---------------- | ------------------------------- | ------------------------------------------------------------------------------- |
 | Dependency       | `BlitzLlamaSDK`                 | `VWO_Insights`                                                                  |
 | API Key Location | AppDelegate.swift               | AppDelegate.swift                                                               |
@@ -43,9 +43,9 @@ This guide helps you migrate your application from the **Blitzllama SDK** to the
 pod 'Blitzllama-ios', '1.6.29'
 ```
 
-## Add VWO Pulse Dependency
+## Add Wingify Pulse Dependency
 
-**After (VWO Pulse):**
+**After (Wingify Pulse):**
 
 ```ruby
 # Podfile
@@ -58,9 +58,9 @@ pod 'VWO-Insights', '~> 2.2.0'
 
 ## Remove Blitzllama Configuration
 
-Blitzllama does not use Info.plist for API keys. The API key is set programmatically via `setBlitzLlamaAPIKey()`. VWO Pulse also uses programmatic configuration but passes credentials during initialization.
+Blitzllama does not use Info.plist for API keys. The API key is set programmatically via `setBlitzLlamaAPIKey()`. Wingify Pulse also uses programmatic configuration but passes credentials during initialization.
 
-## VWO Configuration
+## Wingify Configuration
 
 The most significant change is in how the SDK is initialized and how users are identified using `VWO.configure()`.
 
@@ -72,9 +72,9 @@ The most significant change is in how the SDK is initialized and how users are i
 
 **Key Points:**
 
-* User ID can be passed during initialization in `VWO.configure()` (optional)
-* Use `setUserId()` later to switch users or identify users after they log in
-* For anonymous users, you can pass nil, or "" or a random string with `setUserId()`
+- User ID can be passed during initialization in `VWO.configure()` (optional)
+- Use `setUserId()` later to switch users or identify users after they log in
+- For anonymous users, you can pass nil, or "" or a random string with `setUserId()`
 
 ## Blitzllama Approach (Before)
 
@@ -138,7 +138,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 1. **No longer extend SDK class** - Your Application class extends `UIResponder` and `UIApplicationDelegate` instead of extending Blitzllama SDK
 2. **User ID is optional at initialization** - User identifier can be passed in `VWO.configure()` (use `nil` or `""` for anonymous users), or set later using `setUserId()`
-3. **Use `setUserId()` to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
+3. **Use&#x20;**`setUserId()`**&#x20;to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
 4. **Callback-based initialization** - VWO uses explicit success/failure callbacks
 
 ***
@@ -271,7 +271,7 @@ BlitzLlamaSDK.logout()
 
 ## VWO Pulse (After)
 
-VWO Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+VWO Pulse does **not have a&#x20;**`logout()`**&#x20;method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
 
 ### Switching to a New User
 
@@ -492,14 +492,14 @@ VWO.configure(
 
 # Migration Checklist
 
-* [ ] Updated Podfile dependency from `Blitzllama-ios` to `VWO-Insights`
-* [ ] Updated Application class initialization
-* [ ] Replaced `createUser()` with `setUserId()` for user identification
-* [ ] Changed `triggerEvent()` calls to `trackEvent()`
-* [ ] Updated `setUserAttribute()` to `setAttribute()`
-* [ ] Updated import statements
-* [ ] Configured events in VWO dashboard
-* [ ] Tested survey triggering in the app
+- [ ] Updated Podfile dependency from `Blitzllama-ios` to `VWO-Insights`
+- [ ] Updated Application class initialization
+- [ ] Replaced `createUser()` with `setUserId()` for user identification
+- [ ] Changed `triggerEvent()` calls to `trackEvent()`
+- [ ] Updated `setUserAttribute()` to `setAttribute()`
+- [ ] Updated import statements
+- [ ] Configured events in VWO dashboard
+- [ ] Tested survey triggering in the app
 
 ***
 
@@ -511,3 +511,5 @@ VWO.configure(
 | Minimum iOS Version                     | 12.0    |
 | Swift Version                           | 5.0+    |
 | Blitzllama SDK Version (migrating from) | 1.6.29  |
+
+<br />
