@@ -5,24 +5,24 @@ hidden: true
 metadata:
   robots: index
 ---
-# VWO Pulse iOS SDK - Survey Feature
+# Wingify Pulse iOS SDK - Survey Feature
 
-The VWO Pulse iOS SDK enables you to deliver in-app surveys directly inside your iOS application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
+The Wingify Pulse iOS SDK enables you to deliver in-app surveys directly inside your iOS application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
 
 ## Key Features
 
-* **Event-based Triggers** - Trigger surveys based on specific events in your app
-* **User Identification** - Identify and track users to ensure proper survey targeting
-* **Personalization** - Personalize surveys with user attributes
-* **Localization** - Localize surveys by setting different languages
+- **Event-based Triggers** - Trigger surveys based on specific events in your app
+- **User Identification** - Identify and track users to ensure proper survey targeting
+- **Personalization** - Personalize surveys with user attributes
+- **Localization** - Localize surveys by setting different languages
 
 ## Requirements
 
-| Requirement   | Details                                            |
-| ------------- | -------------------------------------------------- |
-| iOS Version   | iOS 12.0 and above                                 |
-| Swift Version | 5.0+                                               |
-| VWO Dashboard | Access required to retrieve Account ID and SDK Key |
+| Requirement       | Details                                            |
+| ----------------- | -------------------------------------------------- |
+| iOS Version       | iOS 12.0 and above                                 |
+| Swift Version     | 5.0+                                               |
+| Wingify Dashboard | Access required to retrieve Account ID and SDK Key |
 
 ***
 
@@ -30,13 +30,9 @@ The VWO Pulse iOS SDK enables you to deliver in-app surveys directly inside your
 
 ## Before You Begin
 
-1. **Obtain Your API Key**  
-   Log in to the VWO dashboard and navigate to:  
-   `Configuration → Websites and apps → Default mobile app → SDK`  
-   Retrieve your API key from this section.
+1. **Obtain Your API Key**<br />Log in to the VWO dashboard and navigate to:<br />`Configuration → Websites and apps → Default mobile app → SDK`<br />Retrieve your API key from this section.
 
-2. **Confirm Minimum iOS Version**  
-   The SDK officially supports iOS 12.0 and above.
+2. **Confirm Minimum iOS Version**<br />The SDK officially supports iOS 12.0 and above.
 
 ***
 
@@ -215,8 +211,8 @@ surveySDK.setLanguageCode("en")
 
 **Why Set Survey Language?**
 
-* Improve user experience by displaying surveys in the user's native language
-* Support better localization for global apps
+- Improve user experience by displaying surveys in the user's native language
+- Support better localization for global apps
 
 ***
 
@@ -284,9 +280,9 @@ VWO.configure(
 
 ## Survey not showing up?
 
-* Ensure VWO SDK is initialized successfully (check for success in the completion callback)
-* Verify that the event name matches **exactly** what's configured in the VWO dashboard
-* Check that surveys are active and properly configured in the dashboard
+- Ensure VWO SDK is initialized successfully (check for success in the completion callback)
+- Verify that the event name matches **exactly** what's configured in the VWO dashboard
+- Check that surveys are active and properly configured in the dashboard
 
 ## Survey not showing on home screen or first view?
 
@@ -315,20 +311,17 @@ VWO.configure(
 
 ## How to create events?
 
-1. **Create in dashboard first:**  
-   Navigate to `Data360 → Events → Create` and create an event with an `event_name`
+1. **Create in dashboard first:**<br />Navigate to `Data360 → Events → Create` and create an event with an `event_name`
 
-2. **Configure in Surveys:**  
-   Go to `Surveys → Custom Triggers` and configure the event
+2. **Configure in Surveys:**<br />Go to `Surveys → Custom Triggers` and configure the event
 
-3. **Use in your app:**  
-   Use the same `event_name` in your app code to launch the Survey
+3. **Use in your app:**<br />Use the same `event_name` in your app code to launch the Survey
 
 ## Network connectivity issues?
 
-* The SDK requires network connectivity for initialization
-* If the completion callback returns failure, check the device's network connection
-* Surveys are fetched from the server when triggered
+- The SDK requires network connectivity for initialization
+- If the completion callback returns failure, check the device's network connection
+- Surveys are fetched from the server when triggered
 
 ***
 
@@ -350,3 +343,5 @@ VWO.configure(
 | SDK Version         | `2.1.0` |
 | Minimum iOS Version | 12.0    |
 | Swift Version       | 5.0+    |
+
+<br />
