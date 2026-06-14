@@ -24,4 +24,4 @@ This API access provides fine-grained control over how features are rolled out a
 
 > 📘 Please Note
 >
-> **These APIs are applicable only to the [Feature Experimentation](https://developers.vwo.com/v2/docs/fme-overview) Product.** Ensure your project is configured accordingly before making API requests.
+> **These APIs are applicable only to the [Feature Experimentation](https://developers.wingify.com/v2/docs/fme-overview) Product.** Ensure your project is configured accordingly before making API requests.
