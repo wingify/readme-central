@@ -19,7 +19,7 @@ The `onSurveyCompleted` API triggers custom functionality when a visitor complet
 ### Signature
 
 ```javascript
-window.Wingify.push(['onSurveyCompleted', function (data) {
+window.VWO.push(['onSurveyCompleted', function (data) {
     // Add your custom code here
 }]);
 ```
@@ -37,8 +37,8 @@ window.Wingify.push(['onSurveyCompleted', function (data) {
 ### Example
 
 ```javascript
-window.Wingify = window.Wingify || [];
-window.Wingify.push(['onSurveyCompleted', function (data) {
+window.VWO = window.VWO || [];
+window.VWO.push(['onSurveyCompleted', function (data) {
     // Add your custom code here
 }]);
 ```
@@ -59,4 +59,4 @@ window.Wingify.push(['onSurveyCompleted', function (data) {
 * **Behavior Analysis**: Send survey response data to analytics tools like Google Analytics to study user behavior, including entry points, time spent, and average page visits.
 * **CRM Integration**: For sales teams, send survey insights into your CRM system to enhance their approach based on customer feedback (e.g., identifying competitors being evaluated).
 
-<!-- You may also refer to the following article: [https://vwo.com/product-updates/vwo-survey-api/](https://vwo.com/product-updates/vwo-survey-api/) -->
+You may also refer to the following article: [https://vwo.com/product-updates/vwo-survey-api/](https://vwo.com/product-updates/vwo-survey-api/)
