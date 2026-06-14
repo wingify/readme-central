@@ -22,7 +22,7 @@ If you selected Kotlin when creating the project, the folder path will be \<proj
 
 <br />
 
-Then, copy the code below and replace the "ACCOUNT_ID" and "SDK_KEY" with the appropriate values from the dashboard.
+Then, copy the code below and replace the "ACCOUNT\_ID" and "SDK\_KEY" with the appropriate values from the dashboard.
 
 <br />
 
@@ -144,7 +144,7 @@ When building a **release** (or **profile**) Android app, ProGuard/R8 can strip 
 -keep class io.flutter.embedding.** { *; }
 -keep class io.flutter.plugin.** { *; }
 
-# VWO Insights SDK
+# Wingify Insights SDK
 -keep class com.vwo.** { *; }
 -keep interface com.vwo.** { *; }
 ```
@@ -158,3 +158,5 @@ When building a **release** (or **profile**) Android app, ProGuard/R8 can strip 
    proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
    ```
 4. Rebuild the release app (e.g. `flutter build apk` or `flutter build appbundle`).
+
+<br />
