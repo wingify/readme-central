@@ -5,23 +5,23 @@ hidden: true
 metadata:
   robots: index
 ---
-# VWO Pulse Android SDK - Survey Feature
+# Wingify Pulse Android SDK - Survey Feature
 
-The VWO Pulse Android SDK enables you to deliver in-app surveys directly inside your Android application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
+The Wingify Pulse Android SDK enables you to deliver in-app surveys directly inside your Android application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
 
 ## Key Features
 
-* **Event-based Triggers** - Trigger surveys based on specific events in your app
-* **User Identification** - Identify and track users to ensure proper survey targeting
-* **Personalization** - Personalize surveys with user attributes
-* **Localization** - Localize surveys by setting different languages
+- **Event-based Triggers** - Trigger surveys based on specific events in your app
+- **User Identification** - Identify and track users to ensure proper survey targeting
+- **Personalization** - Personalize surveys with user attributes
+- **Localization** - Localize surveys by setting different languages
 
 ## Requirements
 
-| Requirement     | Details                                            |
-| --------------- | -------------------------------------------------- |
-| Android Version | Android 5.0 (API level 21) and above               |
-| VWO Dashboard   | Access required to retrieve Account ID and SDK Key |
+| Requirement       | Details                                            |
+| ----------------- | -------------------------------------------------- |
+| Android Version   | Android 5.0 (API level 21) and above               |
+| Wingify Dashboard | Access required to retrieve Account ID and SDK Key |
 
 ***
 
@@ -29,13 +29,9 @@ The VWO Pulse Android SDK enables you to deliver in-app surveys directly inside 
 
 ## Before You Begin
 
-1. **Obtain Your API Key**  
-   Log in to the VWO dashboard and navigate to:  
-   `Configuration → Websites and apps → Default mobile app → SDK`  
-   Retrieve your API key from this section.
+1. **Obtain Your API Key**<br />Log in to the Wingify dashboard and navigate to:<br />`Configuration → Websites and apps → Default mobile app → SDK`<br />Retrieve your API key from this section.
 
-2. **Confirm Minimum SDK**  
-   The SDK officially supports API level 21 and above.
+2. **Confirm Minimum SDK**<br />The SDK officially supports API level 21 and above.
 
 ***
 
@@ -161,7 +157,7 @@ sdkManager.trackEvent("event_name");
 
 ## What are Triggers?
 
-**Triggers** are events in your app (e.g., button presses, screen loads, checkout completion) that prompt a survey if configured in the VWO dashboard.
+**Triggers** are events in your app (e.g., button presses, screen loads, checkout completion) that prompt a survey if configured in the Wingify dashboard.
 
 ## Triggering Surveys
 
@@ -360,8 +356,8 @@ VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
 
 **Why Set Survey Language?**
 
-* Improve user experience by displaying surveys in the user's native language
-* Support better localization for global apps
+- Improve user experience by displaying surveys in the user's native language
+- Support better localization for global apps
 
 ***
 
@@ -371,7 +367,7 @@ VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
 
 | Method                                | Description                                           |
 | ------------------------------------- | ----------------------------------------------------- |
-| `init(application, callback, config)` | Initializes the VWO SDK                               |
+| `init(application, callback, config)` | Initializes the Wingify SDK                           |
 | `getSurveySdkManager(context)`        | Returns the SdkManager instance for survey operations |
 | `setAttribute(extras)`                | Sets custom profile attributes for surveys            |
 
@@ -387,11 +383,11 @@ VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
 
 ## ClientConfiguration
 
-| Parameter   | Type   | Required | Description                     |
-| ----------- | ------ | -------- | ------------------------------- |
-| `accountId` | String | Yes      | Your VWO account ID             |
-| `appId`     | String | Yes      | Your SDK key from VWO dashboard |
-| `userId`    | String | Yes      | Unique identifier for the user  |
+| Parameter   | Type   | Required | Description                         |
+| ----------- | ------ | -------- | ----------------------------------- |
+| `accountId` | String | Yes      | Your Wingify account ID             |
+| `appId`     | String | Yes      | Your SDK key from Wingify dashboard |
+| `userId`    | String | Yes      | Unique identifier for the user      |
 
 ***
 
@@ -399,9 +395,9 @@ VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
 
 ## Survey not showing up?
 
-* Ensure VWO SDK is initialized successfully (check for `vwoInitSuccess` callback)
-* Verify that the trigger name matches **exactly** what's configured in the VWO dashboard
-* Check that surveys are active and properly configured in the dashboard
+- Ensure Wingify SDK is initialized successfully (check for `vwoInitSuccess` callback)
+- Verify that the trigger name matches **exactly** what's configured in the Wingify dashboard
+- Check that surveys are active and properly configured in the dashboard
 
 ## Survey not showing on home screen or first app page?
 
@@ -418,20 +414,17 @@ override fun vwoInitSuccess(message: String) {
 
 ## How to create events?
 
-1. **Create in dashboard first:**  
-   Navigate to `Data360 → Events → Create` and create an event with an `event_name`
+1. **Create in dashboard first:**<br />Navigate to `Data360 → Events → Create` and create an event with an `event_name`
 
-2. **Configure in Surveys:**  
-   Go to `Surveys → Custom Triggers` and configure the event
+2. **Configure in Surveys:**<br />Go to `Surveys → Custom Triggers` and configure the event
 
-3. **Use in your app:**  
-   Use the same `event_name` in your app code to launch the Survey
+3. **Use in your app:**<br />Use the same `event_name` in your app code to launch the Survey
 
 ## Network connectivity issues?
 
-* The SDK requires network connectivity for initialization
-* If `vwoInitFailed` is called, check the device's network connection
-* Surveys are fetched from the server when triggered
+- The SDK requires network connectivity for initialization
+- If `vwoInitFailed` is called, check the device's network connection
+- Surveys are fetched from the server when triggered
 
 ***
 
@@ -451,3 +444,5 @@ override fun vwoInitSuccess(message: String) {
 | ------------------- | ---------------- |
 | SDK Version         | `2.1.0`          |
 | Minimum Android SDK | 21 (Android 5.0) |
+
+<br />
