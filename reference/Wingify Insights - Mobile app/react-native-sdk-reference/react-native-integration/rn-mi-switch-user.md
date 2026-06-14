@@ -8,7 +8,7 @@ hidden: false
 metadata:
   robots: index
 ---
-Sets or updates the current user identifier for VWO Insights.
+Sets or updates the current user identifier for Wingify Insights.
 
 **Method Signature**
 
@@ -18,26 +18,26 @@ setUserId(userId: string): Promise<boolean>
 
 **Parameters**
 
-* `userId` (`string`, required): Unique identifier for the user.
+- `userId` (`string`, required): Unique identifier for the user.
 
 **Returns**
 
 `Promise<boolean>`
 
-* `true`: User ID update succeeded.
-* `false`: SDK did not apply the update.
-* Rejected Promise: Update failed with an error.
+- `true`: User ID update succeeded.
+- `false`: SDK did not apply the update.
+- Rejected Promise: Update failed with an error.
 
 **When to Call**
 
-* After successful user login
-* When switching accounts
-* When you want to associate future session activity with a known user
+- After successful user login
+- When switching accounts
+- When you want to associate future session activity with a known user
 
 **Notes**
 
-* Call only after SDK initialization is complete.
-* If recording was active before calling `setUserId`, it automatically resumes after the user switch completes. If recording was stopped, it remains stopped.
+- Call only after SDK initialization is complete.
+- If recording was active before calling `setUserId`, it automatically resumes after the user switch completes. If recording was stopped, it remains stopped.
 
 **Example**
 
@@ -57,3 +57,5 @@ async function identifyUser(userId: string) {
   }
 }
 ```
+
+<br />
