@@ -14,19 +14,21 @@ The latest SDK version for IOS is **2.2.0** and you can view the changelog [here
 
 <br />
 
-Using _**Swift Package Manager (SPM)**_
+Using **_Swift Package Manager (SPM)_**
 
-**Step 1** - If the integration is being made with SPM (Swift Package Manager), please integrate VWO with the following:
+**Step 1** - If the integration is being made with SPM (Swift Package Manager), please integrate Wingify with the following:
 
 URL: [https://github.com/wingify/ios-mobile-insights-artifacts.git](https://github.com/wingify/ios-mobile-insights-artifacts.git)
 
 <br />
 
-<Image align="center" src="https://files.readme.io/b9be778-Screenshot_2024-03-08_at_10.28.31_AM.png" />
+
+<Image src="https://files.readme.io/b9be778-Screenshot_2024-03-08_at_10.28.31_AM.png" align="center" />
+
 
 <br />
 
-Using _**CocoaPods**_
+Using **_CocoaPods_**
 
 **Step 1** - You can use CocoaPods to install the VWO Insights IOS SDK by adding the below pods to your Pod file.
 
@@ -45,3 +47,5 @@ Run the `pod install` command.
 > 📘 NOTE - SDK version starting from _v0.4.13_ and beyond, it is no longer necessary to include the _VWOPrincipleClass_ entry in the _Info.plist_ file.
 >
 > This change simplifies the setup process and eliminates the need for this manual configuration. Please ensure you're using the latest version of the SDK for the best experience.
+
+<br />
