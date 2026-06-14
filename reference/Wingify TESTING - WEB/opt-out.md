@@ -14,7 +14,7 @@ next:
 
 ### Overview
 
-The Wingify `opt-out` API allows visitors to stop tracking on a specific browser by default, clearing all cookies except for `_vis_opt_out`. This cookie ensures Wingify recognizes that the visitor should not be tracked. The API also provides an option to retain data for previously experienced campaigns. It can be used directly or to generate opt-out links for integration into the website.
+The Wingify `opt-out` API allows visitors to stop tracking on a specific browser by default, clearing all cookies except for `_wingify_out`. This cookie ensures Wingify recognizes that the visitor should not be tracked. The API also provides an option to retain data for previously experienced campaigns. It can be used directly or to generate opt-out links for integration into the website.
 
 ### Signature
 
