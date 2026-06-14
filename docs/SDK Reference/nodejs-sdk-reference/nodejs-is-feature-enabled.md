@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-After successfully [instantiating](https://developers.vwo.com/docs/nodejs-launch) a Wingify class, *isFeatureEnabled API* returns whether a feature is enabled for the campaign(for Feature Rollout) / campaign's variation(for Feature Test) for a specified user and for a running campaign.
+After successfully [instantiating](https://developers.wingify.com/docs/nodejs-launch) a Wingify class, *isFeatureEnabled API* returns whether a feature is enabled for the campaign(for Feature Rollout) / campaign's variation(for Feature Test) for a specified user and for a running campaign.
 
 In the case of a Feature Rollout campaign, a boolean value is returned based on whether a user qualifies for a campaign or not.\
 In the case of a Feature Test campaign, a boolean value is returned based on whether a user qualifies for a campaign or not and also whether the feature is enabled for the variation assigned to that user or not.
@@ -22,7 +22,7 @@ The API method:
 * Validates the parameters passed.
 * Checks whether the user is whitelisted.
 * Checks if User Storage Service is provided to know whether the user is returning. If yes, show the previously assigned variation always.
-* Checks if the campaign is part of [Mutually Exclusive Group](https://developers.vwo.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
+* Checks if the campaign is part of [Mutually Exclusive Group](https://developers.wingify.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
 * Checks whether the user is eligible for the campaign based on pre-segmentation conditions.
 * Checks whether the user qualifies to become a part of the campaign based on traffic allocation.
 * Assigns a deterministic variation to the qualified user.
@@ -113,7 +113,7 @@ This method does take care of *UserStorageService*. It first looks into *UserSto
 
         variationTargetingVariables(Object): Custom variation targeting variables to be matched  against Campaign's forced variation/whitelisting conditions.  
 
-        userStorageData(Object): Pass this so that SDK uses this data instead of calling the User Storage Service's *get* method to retrieve the stored data. It also helps in implementing the [asynchronous nature of the User Storage Service's get](https://developers.vwo.com/docs/is-user-storage-service-synchronous-or-asynchronous) method.  
+        userStorageData(Object): Pass this so that SDK uses this data instead of calling the User Storage Service's *get* method to retrieve the stored data. It also helps in implementing the [asynchronous nature of the User Storage Service's get](https://developers.wingify.com/docs/is-user-storage-service-synchronous-or-asynchronous) method.  
 
         userAgent(String): userAgent of the visitor    
 
@@ -158,7 +158,7 @@ if (isEnabled) {
 }
 ```
 
-For passing *userStorageData* in the options, please follow this [doc](https://developers.vwo.com/docs/is-user-storage-service-synchronous-or-asynchronous).
+For passing *userStorageData* in the options, please follow this [doc](https://developers.wingify.com/docs/is-user-storage-service-synchronous-or-asynchronous).
 
 ## Unique Visitors are tracked
 
@@ -170,7 +170,7 @@ If User Storage Service is provided, SDK will not track the same visitor multipl
 
 ## When is Campaign Activation Mandatory
 
-If [User Storage Service](https://developers.vwo.com/docs/nodejs-implement-a-user-storage-service) is provided, campaign activation is mandatory before tracking any goal, getting a variation of a campaign, and getting the value of the feature's variable.
+If [User Storage Service](https://developers.wingify.com/docs/nodejs-implement-a-user-storage-service) is provided, campaign activation is mandatory before tracking any goal, getting a variation of a campaign, and getting the value of the feature's variable.
 
 > 🚧 Note
 >
@@ -178,7 +178,7 @@ If [User Storage Service](https://developers.vwo.com/docs/nodejs-implement-a-use
 
 ## Passing meta-information that would be available to User Storage Service
 
-If [User Storage Service](https://developers.vwo.com/docs/nodejs-implement-a-user-storage-service) is provided, there could be cases where you would want to store some other details along with the Wingify decision-related data into the storage. It is easily achievable by storing the data at your end asynchronously, while SDK will use the User Storage Service to save the decision-related data.\
+If [User Storage Service](https://developers.wingify.com/docs/nodejs-implement-a-user-storage-service) is provided, there could be cases where you would want to store some other details along with the Wingify decision-related data into the storage. It is easily achievable by storing the data at your end asynchronously, while SDK will use the User Storage Service to save the decision-related data.\
 Our SDKs provide a way of passing the meta-information like *browser, os, IP address, location*, etc., along with the decision-related data. The data you will provide in the API call will be available in the ***set*** method of User Storage Service, which you can use to save along with Wingify SDK's decision-related data.
 
 ```javascript Node.js

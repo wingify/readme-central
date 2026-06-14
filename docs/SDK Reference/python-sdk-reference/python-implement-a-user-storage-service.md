@@ -15,7 +15,7 @@ For example, you can create an implementation that reads and saves user-campaign
 
 ## How to Implement User Storage Service
 
-User Storage Service is optional while [instantiating](https://developers.vwo.com/docs/python-launch) the Wingify SDK. However, to ensure sticky variation assignments, we recommend implementing one.
+User Storage Service is optional while [instantiating](https://developers.wingify.com/docs/python-launch) the Wingify SDK. However, to ensure sticky variation assignments, we recommend implementing one.
 
 User Storage Service should expose two methods: *get* and *set*.
 

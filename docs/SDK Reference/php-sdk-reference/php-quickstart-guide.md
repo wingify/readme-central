@@ -12,4 +12,4 @@ next:
 ---
 Click the below recipe to get an overview of the SDK Usage.
 
-<TutorialTile title="Wingify FullStack PHP SDK Usage" backgroundColor="#018FF4" slug="vwo-fullstack-php-sdk-usage" id="6074a9d103c63e004f7d1681" link="https://developers.vwo.com/v4/recipes/vwo-fullstack-php-sdk-usage" />
+<TutorialTile title="Wingify FullStack PHP SDK Usage" backgroundColor="#018FF4" slug="vwo-fullstack-php-sdk-usage" id="6074a9d103c63e004f7d1681" link="https://developers.wingify.com/v4/recipes/vwo-fullstack-php-sdk-usage" />

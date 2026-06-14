@@ -19,14 +19,14 @@ The API method:
 * Validates the parameters passed.
 * Checks whether the user is whitelisted.
 * Checks if User Storage Service is provided to know whether the user is returning. If yes, show the previously assigned variation always.
-* Checks if the campaign is part of [Mutually Exclusive Group](https://developers.vwo.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
+* Checks if the campaign is part of [Mutually Exclusive Group](https://developers.wingify.com/docs/mutually-exclusive-groups) and evaluates all the grouped campaigns to decide whether the user is eligible for the campaign.
 * Checks whether the user is eligible based on the campaign's pre-segmentation conditions.
 * Checks whether the user qualifies to become a part of the campaign based on traffic allocation.
 * Assigns a deterministic variation to the qualified user.
 * Does ***not*** send an impression event to the Wingify server.
 
-It takes the same parameters and returns the same value as [Activate API](https://developers.vwo.com/docs/javascript-activate). The only difference is that this API method does ***not*** send a tracking impression to the Wingify server. This API method is used to get the variation assigned to the *userId*.\
-The behaviour of the two API methods, that is, [activate](https://developers.vwo.com/docs/javascript-activate) and [getVariationName](https://developers.vwo.com/docs/javascript-get-variation-name) is identical otherwise.
+It takes the same parameters and returns the same value as [Activate API](https://developers.wingify.com/docs/javascript-activate). The only difference is that this API method does ***not*** send a tracking impression to the Wingify server. This API method is used to get the variation assigned to the *userId*.\
+The behaviour of the two API methods, that is, [activate](https://developers.wingify.com/docs/javascript-activate) and [getVariationName](https://developers.wingify.com/docs/javascript-get-variation-name) is identical otherwise.
 
 Use *Get Variation Name* API if *Activate* API has already been triggered to prevent a user from being tracked again. Also, this API is also helpful in retrieving the variation assignment to a particular User Id, respecting all other factors like segmentation, whitelisting, etc. without sending any impression call to the Wingify servers.
 
@@ -97,7 +97,7 @@ Use *Get Variation Name* API if *Activate* API has already been triggered to pre
 
         variationTargetingVariables(Object): Custom variation targeting variables to be matched  against Campaign's forced variation/whitelisting conditions.
 
-        userStorageData(Object): Pass this so that SDK uses this data instead of calling the User Storage Service's *get* method to retrieve the stored data. It also helps in implementing the [asynchronous nature of the User Storage Service's get](https://developers.vwo.com/docs/is-user-storage-service-synchronous-or-asynchronous) method.
+        userStorageData(Object): Pass this so that SDK uses this data instead of calling the User Storage Service's *get* method to retrieve the stored data. It also helps in implementing the [asynchronous nature of the User Storage Service's get](https://developers.wingify.com/docs/is-user-storage-service-synchronous-or-asynchronous) method.
 
         * *Note\*\*: This is only supported in Node.js SDK from*v1.11.0\* onwards.
       </td>
@@ -177,7 +177,7 @@ if (variation === 'Control') {
 }
 ```
 
-For passing *userStorageData* in the options, please follow this [doc](https://developers.vwo.com/docs/is-user-storage-service-synchronous-or-asynchronous).
+For passing *userStorageData* in the options, please follow this [doc](https://developers.wingify.com/docs/is-user-storage-service-synchronous-or-asynchronous).
 
 ## Campaign Activation with User Storage Service
 

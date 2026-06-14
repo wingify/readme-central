@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-The Wingify client class needs to be instantiated as an instance that exposes various API methods like [activate](https://developers.vwo.com/docs/ruby-activate), [getVariationName](https://developers.vwo.com/docs/ruby-get-variation-name) and [track](https://developers.vwo.com/docs/ruby-track).
+The Wingify client class needs to be instantiated as an instance that exposes various API methods like [activate](https://developers.wingify.com/docs/ruby-activate), [getVariationName](https://developers.wingify.com/docs/ruby-get-variation-name) and [track](https://developers.wingify.com/docs/ruby-track).
 
-Each Wingify client represents the state of a project corresponding to the [settingsFile](https://developers.vwo.com/docs/ruby-get-settings-file). *SettingsFile* needs to be fetched before instantiating a Wingify client. Read more on how to get [SettingsFile](https://developers.vwo.com/docs/ruby-get-settings-file).
+Each Wingify client represents the state of a project corresponding to the [settingsFile](https://developers.wingify.com/docs/ruby-get-settings-file). *SettingsFile* needs to be fetched before instantiating a Wingify client. Read more on how to get [SettingsFile](https://developers.wingify.com/docs/ruby-get-settings-file).
 
 ## API Description
 

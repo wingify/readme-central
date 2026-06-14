@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-After successfully [instantiating](https://developers.vwo.com/docs/go-launch) a Wingify class, *isFeatureEnabled API* returns whether a feature is enabled for the campaign(for Feature Rollout) / campaign's variation(for Feature Test) for a specified user and for a running campaign.
+After successfully [instantiating](https://developers.wingify.com/docs/go-launch) a Wingify class, *isFeatureEnabled API* returns whether a feature is enabled for the campaign(for Feature Rollout) / campaign's variation(for Feature Test) for a specified user and for a running campaign.
 
 In the case of a Feature Rollout campaign, a boolean value is returned based on whether a user qualifies for a campaign or not.\
 In the case of a Feature Test campaign, a boolean value is returned based on whether a user qualifies for a campaign or not and also whether the feature is enabled for the variation assigned to that user or not.

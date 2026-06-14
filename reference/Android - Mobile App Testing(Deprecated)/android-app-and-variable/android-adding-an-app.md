@@ -14,7 +14,7 @@ Before you can A/B test your mobile app, register it with Wingify.\
 Registering an app is a one-time process.
 
 From the **Test** menu, select **Mobile App A/B**.\
-([https://app.vwo.com/#/test/mobile-ab](https://app.vwo.com/#/test/mobile-ab))
+([https://app.wingify.com/#/test/mobile-ab](https://app.wingify.com/#/test/mobile-ab))
 
 <Image className="border" border={true} src="https://files.readme.io/9a8617b-Screen_Shot_2017-12-15_at_3.15.46_PM.png" />
 

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-After successfully [instantiating](https://developers.vwo.com/docs/go-launch) a Wingify class, *Activate API* activates a FullStack A/B test for a specified user for a running campaign.
+After successfully [instantiating](https://developers.wingify.com/docs/go-launch) a Wingify class, *Activate API* activates a FullStack A/B test for a specified user for a running campaign.
 
 > 📘 Note
 >
@@ -111,7 +111,7 @@ The API method has various levels of stages and depending on each stage result, 
 
         variationTargetingVariables(Object): Custom variation targeting variables to be matched  against Campaign's forced variation/whitelisting conditions.
 
-        userStorageData(Object): Pass this so that SDK uses this data instead of calling the User Storage Service's *get* method to retrieve the stored data. It also helps in implementing the [asynchronous nature of the User Storage Service's get](https://developers.vwo.com/reference#fullstack-is-user-storage-service-synchronous-or-asynchronous) method.
+        userStorageData(Object): Pass this so that SDK uses this data instead of calling the User Storage Service's *get* method to retrieve the stored data. It also helps in implementing the [asynchronous nature of the User Storage Service's get](https://developers.wingify.com/reference#fullstack-is-user-storage-service-synchronous-or-asynchronous) method.
 
         * *Note\*\*: This is only supported in Node.js SDK from*v1.11.0\* onwards.
       </td>

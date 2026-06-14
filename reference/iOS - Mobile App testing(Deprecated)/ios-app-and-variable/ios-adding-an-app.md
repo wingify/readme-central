@@ -28,11 +28,11 @@ As you add an app, Wingify generates API Keys for both the iOS and Android platf
 **For iOS App**\
 You can use Cocoapods to install the Wingify iOS SDK.\
 For Cocoapod installation, add the `VWO ` pod to your Pod file.\
-Run the `pod install ` command. Click [here](https://developers.vwo.com/reference#ios-sdk-installation) for detailed installation instructions.
+Run the `pod install ` command. Click [here](https://developers.wingify.com/reference#ios-sdk-installation) for detailed installation instructions.
 
 ## Initializing the SDK
 
 **For iOS App**\
 After installing the SDK, you can initialize the app in the `AppDelegate` file by using the `didFinishLaunchingWithOptions` method.\
 Import Wingify, and then call the `launchForAPIKey` method by using your App Key.\
-Click [here](https://developers.vwo.com/reference#ios-launching-sdk) for detailed instructions.
+Click [here](https://developers.wingify.com/reference#ios-launching-sdk) for detailed instructions.

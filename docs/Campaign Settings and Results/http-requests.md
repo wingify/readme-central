@@ -57,7 +57,7 @@ List of all HTTP requests that are made to Wingify server for various purposes.
       </td>
 
       <td style={{ textAlign: "left" }}>
-        This is required for fetching the settingsFile required for [instantiating](https://developers.vwo.com/reference#fullstack-sdk-instantiation) the Wingify SDK.
+        This is required for fetching the settingsFile required for [instantiating](https://developers.wingify.com/reference#fullstack-sdk-instantiation) the Wingify SDK.
       </td>
 
       <td style={{ textAlign: "left" }}>

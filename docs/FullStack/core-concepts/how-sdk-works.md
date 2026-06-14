@@ -12,9 +12,9 @@ next:
   pages:
     - type: link
       title: How User Bucketing works
-      url: https://developers.vwo.com/docs/how-user-bucketing-works
+      url: https://developers.wingify.com/docs/how-user-bucketing-works
 ---
-Assuming that you have successfully [installed Wingify SDK and instantiated](https://developers.vwo.com/docs/sdk-quickstart) it with the settings-fIle, the following process gets executed depending on the API used:
+Assuming that you have successfully [installed Wingify SDK and instantiated](https://developers.wingify.com/docs/sdk-quickstart) it with the settings-fIle, the following process gets executed depending on the API used:
 
 **Activate API** 
 

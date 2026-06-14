@@ -12,4 +12,4 @@ next:
 ---
 Click the below recipe to get an overview of the SDK Usage.
 
-<TutorialTile title="Wingify FullStack Go SDK Usage" backgroundColor="#018FF4" slug="vwo-fullstack-go-sdk-usage" id="60756858b205f500312dfef4" link="https://developers.vwo.com/v4/recipes/vwo-fullstack-go-sdk-usage" />
+<TutorialTile title="Wingify FullStack Go SDK Usage" backgroundColor="#018FF4" slug="vwo-fullstack-go-sdk-usage" id="60756858b205f500312dfef4" link="https://developers.wingify.com/v4/recipes/vwo-fullstack-go-sdk-usage" />

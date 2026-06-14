@@ -14,9 +14,9 @@ next:
       slug: dotnet-activate
       title: Activate
 ---
-The Wingify client class needs to be instantiated as an instance that exposes various API methods like [activate](https://developers.vwo.com/docs/dotnet-activate), [getVariationName](https://developers.vwo.com/docs/dotnet-get-variation-name) and [track](https://developers.vwo.com/docs/dotnet-track).
+The Wingify client class needs to be instantiated as an instance that exposes various API methods like [activate](https://developers.wingify.com/docs/dotnet-activate), [getVariationName](https://developers.wingify.com/docs/dotnet-get-variation-name) and [track](https://developers.wingify.com/docs/dotnet-track).
 
-Each Wingify client represents the state of a project corresponding to the [settingsFile](https://developers.vwo.com/docs/dotnet-get-settings-file). *SettingsFile* needs to be fetched before instantiating a Wingify client. Read more on how to get [SettingsFile](https://developers.vwo.com/docs/dotnet-get-settings-file).
+Each Wingify client represents the state of a project corresponding to the [settingsFile](https://developers.wingify.com/docs/dotnet-get-settings-file). *SettingsFile* needs to be fetched before instantiating a Wingify client. Read more on how to get [SettingsFile](https://developers.wingify.com/docs/dotnet-get-settings-file).
 
 ## API Description
 

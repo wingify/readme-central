@@ -26,7 +26,7 @@ To address these issues, Wingify provides the ability to configure a **proxy URL
 The request flow when using a custom proxy is as follows:
 
 1. **SDK → Proxy Server**\
-   The Wingify SDK sends all API and data collection requests to the proxy server, using the `proxyUrl` specified in `getSettingsFile()` method. Check the <Anchor label="Configuration" target="_blank" href="https://developers.vwo.com/docs/proxy-url-prevent-ad-blockers?isFramePreview=true#configuration-example">Configuration</Anchor> Section for more details
+   The Wingify SDK sends all API and data collection requests to the proxy server, using the `proxyUrl` specified in `getSettingsFile()` method. Check the <Anchor label="Configuration" target="_blank" href="https://developers.wingify.com/docs/proxy-url-prevent-ad-blockers?isFramePreview=true#configuration-example">Configuration</Anchor> Section for more details
 2. **Proxy Server → Wingify Backend**\
    Your proxy server receives the SDK request and forwards it to the appropriate Wingify endpoint.
 3. **Wingify Backend → Proxy Server**\

@@ -123,7 +123,7 @@ The API method requires a campaign unique-key - *campaignKey*, unique user ident
 
         goalTypeToTrack(String): If you want to track a particular goal across multiple campaigns(having the same identifier), use this flag to define which type of goal you would like to track i.e. conversion-only or revenue-only, or both. Defaults to ALL i.e. Conversion as well as Revenue goals.  
 
-        shouldTrackReturningUser(Boolean): Calling track APIs with same user ID will track that user multiple times in the campaign reports. Pass a true value to track only unique conversions of a particular user. This is applicable only if you've implemented a [User Storage Service](https://developers.vwo.com/docs/php-implement-a-user-storage-service) at your end.  
+        shouldTrackReturningUser(Boolean): Calling track APIs with same user ID will track that user multiple times in the campaign reports. Pass a true value to track only unique conversions of a particular user. This is applicable only if you've implemented a [User Storage Service](https://developers.wingify.com/docs/php-implement-a-user-storage-service) at your end.  
 
         userAgent(String): userAgent of the visitor    
 
@@ -215,7 +215,7 @@ $vwoClientInstance->track("campaignKey", $goalIdentifier, $userId, $options);
 $vwoClientInstance->track(["campaignKey1", "campaignKey2"], $goalIdentifier, $userId, $options);
 // it will track goal having `goalIdentifier` of all the campaigns
 $vwoClientInstance->track(null, $goalIdentifier, $userId, $options);
-//Read more about configuration and usage - https://developers.vwo.com/reference#server-side-sdk-track
+//Read more about configuration and usage - https://developers.wingify.com/reference#server-side-sdk-track
 ```
 
 > 🚧 Unique Conversions

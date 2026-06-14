@@ -16,4 +16,4 @@ next:
 ---
 Click the below recipe to get an overview of the SDK Usage.
 
-<TutorialTile title="Wingify FullStack .NET SDK Usage" id="6075675f7eb8a500795ddfa9" slug="vwo-fullstack-net-sdk-usage" backgroundColor="#018FF4" link="https://developers.vwo.com/v4/recipes/vwo-fullstack-net-sdk-usage" />
+<TutorialTile title="Wingify FullStack .NET SDK Usage" id="6075675f7eb8a500795ddfa9" slug="vwo-fullstack-net-sdk-usage" backgroundColor="#018FF4" link="https://developers.wingify.com/v4/recipes/vwo-fullstack-net-sdk-usage" />

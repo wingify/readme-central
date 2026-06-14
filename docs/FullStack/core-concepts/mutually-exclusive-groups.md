@@ -36,7 +36,7 @@ For unrelated campaigns, it does not matter if your users become a part of more 
 
 ## Create a Mutually Exclusive Group
 
-To learn about configuring the mutually exclusive campaign groups in Wingify, refer to [How to Set Up Mutually Exclusive Campaign Groups in Wingify](https://developers.vwo.com/docs/mutually-exclusive-campaigns).
+To learn about configuring the mutually exclusive campaign groups in Wingify, refer to [How to Set Up Mutually Exclusive Campaign Groups in Wingify](https://developers.wingify.com/docs/mutually-exclusive-campaigns).
 
 ## How SDK evaluates
 

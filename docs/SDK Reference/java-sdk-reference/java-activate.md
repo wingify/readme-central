@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-After successfully [instantiating](https://developers.vwo.com/docs/java-launch) a Wingify class, *Activate API* activates a FullStack A/B test for a specified user for a running campaign.
+After successfully [instantiating](https://developers.wingify.com/docs/java-launch) a Wingify class, *Activate API* activates a FullStack A/B test for a specified user for a running campaign.
 
 > 📘 Note
 >
@@ -23,7 +23,7 @@ The API method:
 * Validates the parameters passed.
 * Check whether the user is whitelisted.
 * Check if User Storage Service is provided to know whether the user is returning. If yes, show the previously assigned variation always.
-* Check if the campaign is part of [Mutually Exclusive Group](https://developers.vwo.com/docs/mutually-exclusive-groups) and evaluate all the grouped campaigns to decide whether the user is eligible for the campaign.
+* Check if the campaign is part of [Mutually Exclusive Group](https://developers.wingify.com/docs/mutually-exclusive-groups) and evaluate all the grouped campaigns to decide whether the user is eligible for the campaign.
 * Check whether the user is eligible for a campaign based on pre-segmentation conditions.
 * Check whether the user qualifies to become a part of the campaign based on traffic allocation.
 * Assigns a deterministic variation to the qualified user.

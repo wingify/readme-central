@@ -12,4 +12,4 @@ next:
 ---
 Click the below recipe to get an overview of the SDK Usage.
 
-<TutorialTile title="Wingify FullStack Node.js SDK Usage" id="60584bb181775f002ddee4a9" slug="vwo-fullstack-nodejs-sdk-usage" backgroundColor="#018FF4" link="https://developers.vwo.com/v4/recipes/vwo-fullstack-nodejs-sdk-usage" />
+<TutorialTile title="Wingify FullStack Node.js SDK Usage" id="60584bb181775f002ddee4a9" slug="vwo-fullstack-nodejs-sdk-usage" backgroundColor="#018FF4" link="https://developers.wingify.com/v4/recipes/vwo-fullstack-nodejs-sdk-usage" />
