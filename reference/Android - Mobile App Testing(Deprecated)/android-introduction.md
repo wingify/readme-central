@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To create and run A/B tests, sign in to the Wingify dashboard and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the Wingify A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
+To create and run A/B tests, sign in to the VWO dashboard and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the VWO A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
 
 <Image align="center" className="border" border={true} src="https://files.readme.io/1ac220a-Screen_Shot_2017-12-15_at_3.15.46_PM.png" />
 
@@ -33,11 +33,11 @@ Type the name of the app you want to add, and then click **Create**.
 
 ![](https://files.readme.io/be06a8c-MobileAppAB-1.jpg "MobileAppAB-1.jpg")
 
-As you add an app, Wingify generates API Keys for both the iOS and Android platforms. You can make a note of the API Key under the Settings section and are used during app initialization.
+As you add an app, VWO generates API Keys for both the iOS and Android platforms. You can make a note of the API Key under the Settings section and are used during app initialization.
 
 ## Installing SDK
 
-You can use Gradle to install the Wingify Android SDK by adding Wingify SDK dependency in your `build.gradle` file. Click [here](ref:android-sdk-reference) for detailed installation instructions.
+You can use Gradle to install the VWO Android SDK by adding VWO SDK dependency in your `build.gradle` file. Click [here](ref:android-sdk-reference) for detailed installation instructions.
 
 ```groovy Dependencies
 repositories {
@@ -58,7 +58,7 @@ dependencies {
 
 > 📘 NOTE
 >
-> Please refer [this](https://github.com/wingify/vwo-android/releases) for the latest Wingify Android SDK version.
+> Please refer [this](https://github.com/wingify/vwo-android/releases) for the latest VWO Android SDK version.
 
 Add following permissions to your `AndroidManifest.xml` file
 
@@ -82,15 +82,15 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    // Start Wingify SDK in Async mode with callback
+    // Start VWO SDK in Async mode with callback
     VWO.with(this, VWO_API_KEY).launch(new VWOStatusListener() {
       @Override
       public void onVWOLoaded() {
-        // Wingify loaded successfully
+        // VWO loaded successfully
       }
       @Override
       public void onVWOLoadFailure(String reason) {
-        // Wingify not loaded
+        // VWO not loaded
       }
     });
   }
@@ -107,7 +107,7 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-    // Start Wingify SDK in Async mode with callback
+    // Start VWO SDK in Async mode with callback
     VWO.with(this, VWO_API_KEY).launch(object : VWOStatusListener {
       override fun onVWOLoaded() {
         TODO("not implemented")
@@ -153,7 +153,7 @@ val speed = VWO.getIntegerForKey("speed", 5)
 
 On the **Mobile App A/B** testing screen, go to the **Campaigns** tab, and then click **Create**. 
 
-Choose the App you want to test. All mobile apps you have added to Wingify are listed here.
+Choose the App you want to test. All mobile apps you have added to VWO are listed here.
 
 Select a platform where the app is running.
 
@@ -167,7 +167,7 @@ Select Next and click **Add Variable**. All the variables you have created for t
 
 Select the variable you want to test, and then enter the variation values. You can test multiple variables in one test. In the example above, we have added the speed variable, defined value as 20 for the variation. For control, the value is 10, which is the default value for the variable. 
 
-Based on the campaign key and variation names, Wingify generates the code snippet that you can use in the mobile app.
+Based on the campaign key and variation names, VWO generates the code snippet that you can use in the mobile app.
 
 To continue, click **Next**.
 
@@ -223,7 +223,7 @@ From the Mobile App A/B menu option, select your campaign and click on **DETAILE
 
 ## Source Code
 
-Wingify Android SDK code is available on GitHub:\
+VWO Android SDK code is available on GitHub:\
 [https://github.com/wingify/vwo-android](https://github.com/wingify/vwo-android)
 
 ## Next Steps

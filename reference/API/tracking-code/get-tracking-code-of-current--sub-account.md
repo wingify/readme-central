@@ -1,5 +1,5 @@
 ---
-title: Get Wingify SmartCode of workspace
+title: Get VWO SmartCode of workspace
 excerpt: ''
 api:
   file: api.json
@@ -25,4 +25,4 @@ GET /accounts/8740000/smartcode
 <style></style>
 `}</HTMLBlock>
 
-Get Wingify Synchronous/Asynchronous SmartCode for workspace
+Get VWO Synchronous/Asynchronous SmartCode for workspace

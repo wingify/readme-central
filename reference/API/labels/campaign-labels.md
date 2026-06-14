@@ -8,4 +8,4 @@ metadata:
   description: ''
   robots: noindex
 ---
-Wingify Campaign labels are keywords or tags you associate with your campaigns. Adding a label helps you to easily identify campaigns and eliminates the need to browse the entire list when searching for a specific campaign.
+VWO Campaign labels are keywords or tags you associate with your campaigns. Adding a label helps you to easily identify campaigns and eliminates the need to browse the entire list when searching for a specific campaign.

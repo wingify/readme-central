@@ -10,4 +10,4 @@ metadata:
 next:
   description: ''
 ---
-This section shows details on how to add your mobile app to Wingify for testing.
+This section shows details on how to add your mobile app to VWO for testing.

@@ -14,7 +14,7 @@ next:
 
 iOS SDK supports iOS version 8.0 and later.
 
-### Does Wingify support apps written in Swift?
+### Does VWO support apps written in Swift?
 
 Yes, the SDK works with Swift. This documentation mentions all the Swift methods.
 
@@ -22,15 +22,15 @@ Yes, the SDK works with Swift. This documentation mentions all the Swift methods
 
 A user will become part of a test only if the device has internet connectivity. If there is no connectivity, the user sees the default version (Control) of the app.
 
-If the user is part of the test and connectivity is lost,  the user will see locally cached changes. In this case, the Wingify SDK captures the user data, stores it locally, and resends the data to the Wingify server when the device gets connected to the Internet again.
+If the user is part of the test and connectivity is lost,  the user will see locally cached changes. In this case, the VWO SDK captures the user data, stores it locally, and resends the data to the VWO server when the device gets connected to the Internet again.
 
-### Q. How much size does the Wingify Mobile SDK add to my app size?
+### Q. How much size does the VWO Mobile SDK add to my app size?
 
 Please refer to [iOS Impact Analysis](ref:ios-impact-analysis)  section to see the impact of different parameters on your app.
 
 ### Q. How do I deactivate the SDK?
 
-You can either comment out the SDK initialization function call or remove the Wingify SDK for deactivating the SDK.
+You can either comment out the SDK initialization function call or remove the VWO SDK for deactivating the SDK.
 
 ### Q. Can I run simultaneous tests on the same app?
 

@@ -14,7 +14,7 @@ next:
 
 You can create a free account with us from the [signup page](https://vwo.com/free-trial/).
 
-To create and run A/B tests, sign in to the Wingify dashboard and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the Wingify A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
+To create and run A/B tests, sign in to the VWO dashboard and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the VWO A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
 
 ![348](https://files.readme.io/46bdbbb-Screen_Shot_2017-12-15_at_3.15.46_PM.png "Screen Shot 2017-12-15 at 3.15.46 PM.png")
 
@@ -37,7 +37,7 @@ Type the name of the app you want to add, and then click **Create**.
 
 ![1206](https://files.readme.io/60d5d81-be06a8c-MobileAppAB-1.jpg "be06a8c-MobileAppAB-1.jpg")
 
-As you add an app, Wingify generates API Keys for both the iOS and Android platforms. You can make a note of the API Key under the Settings section and are used during app initialization.
+As you add an app, VWO generates API Keys for both the iOS and Android platforms. You can make a note of the API Key under the Settings section and are used during app initialization.
 
 ## Defining the Variables You Want To Test
 
@@ -59,7 +59,7 @@ To add the variable, click Create. You can add multiple variables to an app.
 
 On the **Mobile App A/B** testing screen, go to the **Campaigns** tab, and then click **Create**. 
 
-Choose the App you want to test. All mobile apps you have added to Wingify are listed here.
+Choose the App you want to test. All mobile apps you have added to VWO are listed here.
 
 Select a platform where the app is running.
 
@@ -73,7 +73,7 @@ Select Next and click **Add Variable**. All the variables you have created for t
 
 Select the variable you want to test, and then enter the variation values. You can test multiple variables in one test. In the example above, we have added speed variable, defined value as 20 for the variation. For control, the value is 10, which is the default value for the variable. 
 
-Based on the test key and variation names, Wingify generates the code snippet that you can use in the mobile app.
+Based on the test key and variation names, VWO generates the code snippet that you can use in the mobile app.
 
 To continue, click **Next**
 
@@ -95,7 +95,7 @@ Click **Finish** and then **Start Now** to run the campaign.
 
 ## Installing the Plug-In
 
-The Wingify Cordova plug-in can be installed using `Edge`.
+The VWO Cordova plug-in can be installed using `Edge`.
 
 ```shell
 cordova plugin add vwo-cordova-plugin
@@ -119,7 +119,7 @@ Add the following permissions to your `AndroidManifest.xml` file in the `/platfo
 After installing the plug-in, you would want to start it.\
 SDK can be initialized in the following ways:
 
-#### I. Launching the Wingify SDK in the Asynchronous mode
+#### I. Launching the VWO SDK in the Asynchronous mode
 
 ```javascript
 var apiKey;
@@ -130,11 +130,11 @@ if (window.device.platform == "Android") {
   apiKey = 'ANDROID_API_KEY';
 }
 var config = {optOut: false, disablePreview: true, customVariables: {user_type: "free"}}
-// Start Wingify SDK in Async mode with callback
+// Start VWO SDK in Async mode with callback
 window.VWOCordovaPlugin.launch(apiKey, config, function(result){
-  // Wingify Loaded Successfully
+  // VWO Loaded Successfully
 }, function(error){
-  // Wingify not loaded
+  // VWO not loaded
 });
 ```
 ```javascript TypeScript
@@ -147,15 +147,15 @@ if ((<any> window).device.platform == "Android") {
 }
 var config = {optOut: false, disablePreview: true, customVariables: {user_type: "free"}}
 
-// Start Wingify SDK in Async mode with callback
+// Start VWO SDK in Async mode with callback
 (<any> window).VWOCordovaPlugin.launchWithCallback(apiKey, config, function(result){
-  // Wingify Loaded Successfully
+  // VWO Loaded Successfully
 }, function(error){
-  // Wingify not loaded
+  // VWO not loaded
 });
 ```
 
-#### II. Launching the Wingify SDK in the synchronous mode
+#### II. Launching the VWO SDK in the synchronous mode
 
 ```javascript
 var apiKey;
@@ -187,9 +187,9 @@ var config = {optOut: false, disablePreview: true, customVariables: {user_type: 
 
 #### Launch configuration
 
-You can pass a `config` object during the launch of the Wingify SDK. `Config` is a javascript object which can have following keys:
+You can pass a `config` object during the launch of the VWO SDK. `Config` is a javascript object which can have following keys:
 
-* `optOut`: it can have a boolean value which tells the Wingify SDK whether to initialize the SDK or not. It defaults to false.
+* `optOut`: it can have a boolean value which tells the VWO SDK whether to initialize the SDK or not. It defaults to false.
 
 * `disablePreview`: Boolean value to turn on or off the preview mode. It defaults to false.
 
@@ -214,16 +214,16 @@ You can set this config object as follows:
 
 ```javascript
 window.VWOCordovaPlugin.launch(<YOUR_VWO_API_KEY>, config, function(result){
-  // Wingify Loaded Successfully
+  // VWO Loaded Successfully
 }, function(error){
-  // Wingify not loaded
+  // VWO not loaded
 });
 ```
 ```javascript TypeScript
 (<any> window).VWOCordovaPlugin.launchWithCallback(<YOUR_VWO_API_KEY>, config, function(result){
- 	// Wingify Loaded Successfully
+ 	// VWO Loaded Successfully
 }, function(error){
-  // Wingify not loaded
+  // VWO not loaded
 });
 ```
 
@@ -310,7 +310,7 @@ window.VWOCordovaPlugin.variationNameForTestKey("campaign_test_key", function(na
 
 We would track the effect of this campaign on our conversion metric.\
 Earlier, we defined ` conversionGoal` as a goal.\
-We need to tell the Wingify SDK when this conversion happens. Use the following code to trigger this goal.
+We need to tell the VWO SDK when this conversion happens. Use the following code to trigger this goal.
 
 > 📘 NOTE
 >
@@ -347,7 +347,7 @@ You can set different log levels depending upon the priority of logging as follo
 * **logLevelError**: Indicates Error
 * **logLevelOff**: No logs are printed
 
-The different methods set the log level of the message. Wingify will only print messages with a log level that is greater to or equal to it's current log level setting. So a logger with a level of Warning will only output log messages with a level of Warning, or Error.
+The different methods set the log level of the message. VWO will only print messages with a log level that is greater to or equal to it's current log level setting. So a logger with a level of Warning will only output log messages with a level of Warning, or Error.
 
 ```javascript
 window.VWOCordovaPlugin.setLogLevel(window.VWOCordovaPlugin.logLevelDebug);
@@ -358,14 +358,14 @@ window.VWOCordovaPlugin.setLogLevel(window.VWOCordovaPlugin.logLevelDebug);
 
 ## 5 Opt-out
 
-To opt out of tracking by Wingify, use `config` object to set OptOut to true or false. This `config` object is passed when `VWOCordovaPlugin.launch` or `VWOCordovaPlugin.launchSynchronously` function is called.
+To opt out of tracking by VWO, use `config` object to set OptOut to true or false. This `config` object is passed when `VWOCordovaPlugin.launch` or `VWOCordovaPlugin.launchSynchronously` function is called.
 
 ```javascript
 var config = {optOut: false}
 window.VWOCordovaPlugin.launch(apiKey, config, function(result){
-  // Wingify Loaded Successfully
+  // VWO Loaded Successfully
 }, function(error){
-  // Wingify not loaded
+  // VWO not loaded
 });
 ```
 ```javascript TypeScript
@@ -373,9 +373,9 @@ VWOCordovaPlugin.setOptOut(true);
 var config = {optOut: false}
 
 (<any> window).VWOCordovaPlugin.launch(apiKey, config, function(result){
-  // Wingify Loaded Successfully
+  // VWO Loaded Successfully
 }, function(error){
-  // Wingify not loaded
+  // VWO not loaded
 });
 ```
 
@@ -385,7 +385,7 @@ From the Mobile App A/B menu option, select your campaign and click **Detailed R
 
 ## Source Code
 
-The Wingify Cordova plug-in code is available on GitHub:\
+The VWO Cordova plug-in code is available on GitHub:\
 [https://github.com/wingify/vwo-cordova-plugin](https://github.com/wingify/vwo-cordova-plugin) 
 
 ## Next Steps

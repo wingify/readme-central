@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Using the Wingify demo app, you can try Mobile App A/B testing.\
+Using the VWO demo app, you can try Mobile App A/B testing.\
 To try the demo app, you will need `ApiKey`.
 
 ## Running the Demo App
@@ -22,7 +22,7 @@ You can download the APK [here](https://github.com/wingify/vwo-android/releases/
 
 ## Enter ApiKey
 
-You need to add an app to your Wingify account. Please refer to [Adding an App](ref:android-adding-an-app) for details.\
+You need to add an app to your VWO account. Please refer to [Adding an App](ref:android-adding-an-app) for details.\
 Copy your `ApiKey`.\
 Run the app from Android Studio. You can choose either a simulator or your USB Android device.
 
@@ -51,7 +51,7 @@ Steps to run Sorting Campaign:
 
 ![1368](https://files.readme.io/2c43147-803d897-Screen_Shot_2018-08-03_at_12.00.45_PM.png "803d897-Screen_Shot_2018-08-03_at_12.00.45_PM.png")
 
-After launching Wingify SDK in your app, click the **Refresh** icon located in the upper-right corner of the navigation bar.\
+After launching VWO SDK in your app, click the **Refresh** icon located in the upper-right corner of the navigation bar.\
 This should change the sequence of items
 
 ![764](https://files.readme.io/3dd7d0f-Screenshot_2018-08-02_at_5.09.07_PM.png "Screenshot 2018-08-02 at 5.09.07 PM.png")

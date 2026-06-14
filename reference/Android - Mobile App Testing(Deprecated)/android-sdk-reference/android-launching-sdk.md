@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-After installing the SDK, we will initialize the Wingify SDK in our mobile app.
+After installing the SDK, we will initialize the VWO SDK in our mobile app.
 
 ## API Key
 
@@ -18,7 +18,7 @@ To initialize the SDK, we will use the API key generated while [Adding an App](r
 
 Initialization of the SDK is to be done in the `onCreate(Bundle)`  function of the Activity or the Application.
 
-Import Wingify in your class first.
+Import VWO in your class first.
 
 ```java
 import com.vwo.mobile.VWO;
@@ -27,10 +27,10 @@ import com.vwo.mobile.VWO;
 import com.vwo.mobile.VWO
 ```
 
-After importing Wingify class, we can initialize the SDK.\
+After importing VWO class, we can initialize the SDK.\
 It can be done in two ways, **asynchronous** and **synchronous**.
 
-Asynchronous initialization does NOT block code execution while SDK fetches settings from the Wingify content distribution network, but synchronous call blocks main thread execution. We recommend asynchronous initialization, as it does not affect the UI of your app.
+Asynchronous initialization does NOT block code execution while SDK fetches settings from the VWO content distribution network, but synchronous call blocks main thread execution. We recommend asynchronous initialization, as it does not affect the UI of your app.
 
 ## Asynchronous Initialization
 
@@ -49,17 +49,17 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    // Start Wingify SDK in Async mode with callback
+    // Start VWO SDK in Async mode with callback
     VWO.with(this, VWO_APP_KEY)
       .launch(new VWOStatusListener() {
         @Override
         public void onVWOLoaded() {
-          // Wingify loaded successfully
+          // VWO loaded successfully
         }
 
         @Override
         public void onVWOLoadFailure(String reason) {
-          // Wingify not loaded
+          // VWO not loaded
         }
       });
   }
@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-    // Start Wingify SDK in Async mode with callback
+    // Start VWO SDK in Async mode with callback
     VWO.with(this, VWO_API_KEY).launch(object : VWOStatusListener {
       override fun onVWOLoaded() {
         TODO("not implemented")
@@ -91,12 +91,12 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-The callback method is called after the SDK fetches settings from the Wingify content distribution network and processes those settings.\
+The callback method is called after the SDK fetches settings from the VWO content distribution network and processes those settings.\
 Callback is used when you want to get notified as soon as the SDK is ready.
 
 ## Synchronous Initialization
 
-Launching Wingify in Synchronous mode requires you to pass a timeout in milliseconds as a parameter.
+Launching VWO in Synchronous mode requires you to pass a timeout in milliseconds as a parameter.
 
 ```java Java
 import android.support.v7.app.AppCompatActivity;
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    // Start Wingify SDK in synchronous mode
+    // Start VWO SDK in synchronous mode
     VWO.with(this, VWO_API_KEY).launchSynchronously(3000);
   }
 }
@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
-    // Start Wingify SDK in Async mode with callback
+    // Start VWO SDK in Async mode with callback
     VWO.with(this, VWO_API_KEY).launchSynchronously(3000)
   }
 }
@@ -143,6 +143,6 @@ Synchronous initialization blocks main thread. If settings couldn't be fetched i
 
 > 📘 Launch the SDK Once
 >
-> For the `launch(VWOStatusListener listener)` and `launchSynchronously(Long timeout)` calls, the SDK fetches campaign settings from the Wingify content distribution network.\
+> For the `launch(VWOStatusListener listener)` and `launchSynchronously(Long timeout)` calls, the SDK fetches campaign settings from the VWO content distribution network.\
 > If the settings cannot be fetched, SDK doesn't retry to fetch the settings during the ongoing app session.\
 > This is done to keep the app behaviour consistent during an app session.

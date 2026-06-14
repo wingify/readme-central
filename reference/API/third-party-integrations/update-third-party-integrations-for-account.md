@@ -1,4 +1,6 @@
 ---
+title: Update integration settings for specific account
+excerpt: ''
 api:
   file: api.json
   operationId: update-third-party-integrations-for-account
@@ -9,21 +11,34 @@ metadata:
   description: ''
   robots: noindex
 ---
-Request URI
+Request URI for Sub Account
 
 ```
-DELETE /api/v2/accounts/{account_id}/connection/{connection_id}
+PATCH /accounts/1/integrations
 ```
 
-<br />
+Request Format
 
-This API endpoint allows you to delete a specific integration connection configured for an account.
+```json
+{
+    "ga": {
+        "enabled": true,
+        "slot": 4,
+        "prefix": ""
+    },
+    "ua": {
+        "enabled": false,
+        "dimension": 1,
+        "prefix": ""
+    },
+    "gtm": {
+        "enabled": false
+    },
+    "clicktale": {
+        "enabled": false
+    },
+    "isGaPremium": false
+}
+```
 
-Use this endpoint when:
-
-* an integration is no longer required
-* a connector needs to be disconnected
-* integration credentials need to be revoked
-* cleanup of unused integrations is required
-
-The endpoint removes the integration connection associated with the provided `connection_id` under the specified account.
+Update Third Party Integrations. Here's an example of the request params:

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To opt out of tracking by Wingify, use the following code:
+To opt out of tracking by VWO, use the following code:
 
 ```java
 VWOConfig vwoConfig = new VWOConfig.Builder()
@@ -44,4 +44,4 @@ val vwoConfig = VWOConfig.Builder()
 VWO.with(Context, VWO_APP_KEY).config(vwoConfig).launch(null)
 ```
 
-A user by default will be tracked by Wingify.
+A user by default will be tracked by VWO.

@@ -10,11 +10,11 @@ metadata:
 next:
   description: ''
 ---
-Wingify SDK allows you to track conversions using [trackConversion](https://developers.vwo.com/reference#ios-trigger-goals) API. There could be scenarios when you would like to track conversions without using the SDK.
+VWO SDK allows you to track conversions using [trackConversion](https://developers.vwo.com/reference#ios-trigger-goals) API. There could be scenarios when you would like to track conversions without using the SDK.
 
-To understand this in detail, let's take an example, where you have your own centralized data-storage service which stores the information of all the events.  Whenever a conversion happens at your application, you store the data in the storage service but the integrated tools like Wingify do not know about this conversion. Let's assume you do not prefer real-time syncing of this data with Wingify and therefore, you run a [cron job](https://en.wikipedia.org/wiki/Cron) at the end of the day to sync conversions data with Wingify. To achieve this,  you would want an HTTP API to send the conversions data of all the users who became part of the campaign back to Wingify.
+To understand this in detail, let's take an example, where you have your own centralized data-storage service which stores the information of all the events.  Whenever a conversion happens at your application, you store the data in the storage service but the integrated tools like VWO do not know about this conversion. Let's assume you do not prefer real-time syncing of this data with VWO and therefore, you run a [cron job](https://en.wikipedia.org/wiki/Cron) at the end of the day to sync conversions data with VWO. To achieve this,  you would want an HTTP API to send the conversions data of all the users who became part of the campaign back to VWO.
 
-Wingify offers an endpoint that you can use to mark a conversion for a particular user who became part of the campaign earlier, by calling it with the required parameters.
+VWO offers an endpoint that you can use to mark a conversion for a particular user who became part of the campaign earlier, by calling it with the required parameters.
 
 ## Endpoint Details
 
@@ -47,7 +47,7 @@ Wingify offers an endpoint that you can use to mark a conversion for a particula
       </td>
 
       <td>
-        Wingify Account ID
+        VWO Account ID
       </td>
 
       <td>
@@ -165,7 +165,7 @@ Wingify offers an endpoint that you can use to mark a conversion for a particula
       </td>
 
       <td>
-        Revenue value. This is only required if the Wingify campaign goal is of Revenue type.
+        Revenue value. This is only required if the VWO campaign goal is of Revenue type.
       </td>
 
       <td>
@@ -178,7 +178,7 @@ Wingify offers an endpoint that you can use to mark a conversion for a particula
 
 > 🚧 Please Note
 >
-> If you pass **user\_id**, then **u** is not required or will not be used by Wingify server.
+> If you pass **user\_id**, then **u** is not required or will not be used by VWO server.
 
 ## Example Usage
 

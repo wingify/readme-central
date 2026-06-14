@@ -10,28 +10,28 @@ metadata:
 next:
   description: ''
 ---
-This page tracks the impact of Wingify iOS SDK for different parameters on your app.
+This page tracks the impact of VWO iOS SDK for different parameters on your app.
 
 ## Launch Time
 
 The SDK can be initialised in two ways: synchronous and asynchronous.
 
 * Asynchronous Initialisation: has no impact on the launch time of your app, as SDK is launched in the background. Asynchronous initialisation is the recommended method.
-* Synchronous Initialisation: In Synchronous initialisation the SDK makes a networking call to fetch settings from Wingify's CDN. This can block the main thread. The thread resumes to normal execution after response from the CDN.
+* Synchronous Initialisation: In Synchronous initialisation the SDK makes a networking call to fetch settings from VWO's CDN. This can block the main thread. The thread resumes to normal execution after response from the CDN.
 
 ## API Calls
 
-Wingify SDK makes three types of API calls to Wingify CDN. 
+VWO SDK makes three types of API calls to VWO CDN. 
 
 * To fetch settings at the time of SDK initialization. The SDK makes only one call to fetch settings. If this call fails, the SDK does not retry to fetch settings during an ongoing app session. This is done to keep the app behaviour consistent during an ongoing session.
-* To inform Wingify when a user becomes part of a campaign. If this call fails, the SDK keeps a track of it and try to send it again after some time.
-* To inform Wingify when a user converts a goal in a campaign.  If this call fails, the SDK keeps a track of it and try to send it again after some time.
+* To inform VWO when a user becomes part of a campaign. If this call fails, the SDK keeps a track of it and try to send it again after some time.
+* To inform VWO when a user converts a goal in a campaign.  If this call fails, the SDK keeps a track of it and try to send it again after some time.
 
 The SDK makes call to CDN every 20 seconds.
 
 ## Disk Space
 
-After adding Wingify to you Xcode project the size of Xcode project changes as follows
+After adding VWO to you Xcode project the size of Xcode project changes as follows
 
 <Table align={["left","left"]}>
   <thead>

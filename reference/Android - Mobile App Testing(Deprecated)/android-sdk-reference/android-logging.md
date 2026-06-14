@@ -20,7 +20,7 @@ You can set different log levels, depending on the priority of logging, as follo
 * **INFO**: A message level for informational messages.
 * **ALL**: A message level indicating that all messages should be logged.
 
-The different methods set the log level of the message. Wingify prints only messages with a log level greater to or equal to its current log level setting. So a logger with a level of WARNING can output only log messages with a level of WARNING or SEVERE.
+The different methods set the log level of the message. VWO prints only messages with a log level greater to or equal to its current log level setting. So a logger with a level of WARNING can output only log messages with a level of WARNING or SEVERE.
 
 ```java
 VWOLog.setLogLevel(VWOLog.ALL);

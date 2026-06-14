@@ -63,7 +63,7 @@ VWO.launch(apiKey: "<your-api-key>", config: config
 })
 ```
 
-If you do not wish to pass the customVariables at the time of Wingify launch, you can pass them using the `setCustomVariable` method after the Wingify SDK is initialized.
+If you do not wish to pass the customVariables at the time of VWO launch, you can pass them using the `setCustomVariable` method after the VWO SDK is initialized.
 
 ```objectivec
 [VWO launchForAPIKey:@"<your-api-key>" config:config completion:^{
@@ -87,6 +87,6 @@ VWO.launch(apiKey: "<your-api-key>", config: config
 
 * If you have specified certain custom variables in the campaign, those values must be set in the code before calling the `objectForKey:defaultValue:` method.
 
-* If you have selected **Make user part of the campaign on app launch**  in the Wingify dashboard, then custom variables should be set before launching the SDK. This is required, because the SDK will try to make the user a part of the campaign on the app launch.
+* If you have selected **Make user part of the campaign on app launch**  in the VWO dashboard, then custom variables should be set before launching the SDK. This is required, because the SDK will try to make the user a part of the campaign on the app launch.
 
 ![1464](https://files.readme.io/9a7e58a-sc.png "sc.png")

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Using the Wingify demo app, you can try Mobile App A/B testing.\
+Using the VWO demo app, you can try Mobile App A/B testing.\
 To try the demo app, you will need `ApiKey`.
 
 ### Installation
@@ -37,7 +37,7 @@ react-native run-android
 
 ## Enter ApiKey
 
-You need to add an app to your Wingify account. Please refer to [Adding an App](ref:android-adding-an-app) for details.\
+You need to add an app to your VWO account. Please refer to [Adding an App](ref:android-adding-an-app) for details.\
 Copy your `ApiKey`.\
 Run the app from Android Studio/Xcode.
 
