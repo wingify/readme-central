@@ -10,22 +10,25 @@ metadata:
 next:
   description: ''
 ---
-After installing the SDK, initialize the app inside your *Appdelegate* file following the below-mentioned steps-
+After installing the SDK, initialize the app inside your _Appdelegate_ file following the below-mentioned steps-
 
 `Import VWO_Insights`
 
-After, add the following Initialization code inside the function -> 
+After, add the following Initialization code inside the function ->
 
-*func application(* application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)\_ 
+_func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)_
 
 ```swift
-VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the Wingify account
+// From SDK version 2.2.0 and above, If your app is purely and fully written in SwiftUI, then feel free to pass isSwiftUI as true in the function below - 
+//eg. VWO.configure(accountId: "", sdkKey: "", userId: "", isSwiftUI: true)
+
+VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the VWO account
       switch result{
       case .success(_):
-        print("Wingify launched successfull")
+        print("VWO launched successfull")
         VWO.startSessionRecording() // For starting recording
       case .failure(let error):
-        print("Wingify launched failed \(error)")
+        print("VWO launched failed \(error)")
       }
    }					
 ```
@@ -48,19 +51,18 @@ VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where account
   <tbody>
     <tr>
       <td>
-        **ACCOUNT\_ID**
-        *Required*
+        **ACCOUNT_ID** _Required_
       </td>
 
       <td>
-        Wingify Account ID
+        VWO Account ID
       </td>
     </tr>
 
     <tr>
       <td>
-        **SDK\_KEY**\
-        *Required*
+        **SDK_KEY**  
+        _Required_
       </td>
 
       <td>
@@ -70,8 +72,8 @@ VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where account
 
     <tr>
       <td>
-        **USER\_ID**\
-        *Optional*
+        **USER_ID**  
+        _Optional_
       </td>
 
       <td>
@@ -93,13 +95,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the Wingify account
+        VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the VWO account
       switch result{
       case .success(_):
-        print("Wingify launched successfull")
+        print("VWO launched successfull")
         VWO.startSessionRecording() // For starting recording
       case .failure(let error):
-        print("Wingify launched failed \(error)")
+        print("VWO launched failed \(error)")
       }
    }		
         
