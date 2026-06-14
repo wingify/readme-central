@@ -14,7 +14,7 @@ next:
 
 You can create a free account with us by accessing the [signup page](https://vwo.com/free-trial/).
 
-To create and run A/B tests, sign in to the VWO dashboard and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the VWO A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
+To create and run A/B tests, sign in to the Wingify dashboard and then select [Mobile App A/B](https://app.wingify.com/#/test/mobile-ab) on the menu. If you are using the Wingify A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
 
 ![](https://files.readme.io/8e6b451-Screen_Shot_2017-12-15_at_3.15.46_PM.png "Screen Shot 2017-12-15 at 3.15.46 PM.png")
 
@@ -28,8 +28,8 @@ Create A/B tests
 
 ## Create an App
 
-Registering your app on VWO is a one-time process.\
-Adding your app generates an `Api Key`, which is used by VWO servers to recognize your app.
+Registering your app on Wingify is a one-time process.\
+Adding your app generates an `Api Key`, which is used by Wingify servers to recognize your app.
 
 Select the **Mobile App A/B** option under the test menu.\
 Click **Create**, and then click **Add App**. Write a name for your app, and in the **Platform** option, select **Android**.
@@ -47,7 +47,7 @@ Type the name of the app you want to add, and then click **Create**.
 
 ![](https://files.readme.io/6c8d833-be06a8c-MobileAppAB-1.jpg "be06a8c-MobileAppAB-1.jpg")
 
-As you add an app, VWO generates API Keys for both the iOS and Android platforms. You can make a note of the API Key under the Settings section and are used during app initialization.
+As you add an app, Wingify generates API Keys for both the iOS and Android platforms. You can make a note of the API Key under the Settings section and are used during app initialization.
 
 ## Defining the Variables You Want To Test
 
@@ -69,7 +69,7 @@ To add the variable, click Create. You can add multiple variables to an app.
 
 On the **Mobile App A/B** testing screen, go to the **Campaigns** tab, and then click **Create**. 
 
-Choose the App you want to test. All mobile apps you have added to VWO are listed here.
+Choose the App you want to test. All mobile apps you have added to Wingify are listed here.
 
 Select a platform where the app is running.
 
@@ -83,7 +83,7 @@ Select Next and click **Add Variable**. All the variables you have created for t
 
 Select the variable you want to test, and then enter the variation values. You can test multiple variables in one test. In the example above, we have added speed variable, defined value as 20 for the variation. For control, the value is 10, which is the default value for the variable. 
 
-Based on the test key and variation names, VWO generates the code snippet that you can use in the mobile app.
+Based on the test key and variation names, Wingify generates the code snippet that you can use in the mobile app.
 
 To continue, click **Next**
 
@@ -152,7 +152,7 @@ import 'package:vwo_flutter/vwo_flutter.dart';
 
 Library can be initialized in the following ways:
 
-#### I. Launching VWO SDK
+#### I. Launching Wingify SDK
 
 ```typescript Dart
 VWOConfig vwoConfig = VWOConfig(userId:"", optOut: false,  disablePreview: true, customVariables: {}, customDimensionKey: "", customDimensionValue: "");
@@ -166,17 +166,17 @@ if (Platform.isIOS) {
 
 #### Launch configuration
 
-You can set up VWO Config while initializing your VWO SDK. `Config` is VWOConfig object which can have following parameters:
+You can set up Wingify Config while initializing your Wingify SDK. `Config` is VWOConfig object which can have following parameters:
 
-* `userId`: You can identify a user in the VWO SDK using a string which identifies that user.
+* `userId`: You can identify a user in the Wingify SDK using a string which identifies that user.
 
-* `optOut`: It can have a boolean value that tells the VWO SDK whether to initialize the SDK or not. It defaults to false.
+* `optOut`: It can have a boolean value that tells the Wingify SDK whether to initialize the SDK or not. It defaults to false.
 
 * `disablePreview`: Boolean value to turn on or off the preview mode. It defaults to false.
 
 * `customVariables`: Takes in a Map as its value. Check [Targeting Visitor Groups](ref:ios-targeting-visitor-groups) / [Targeting Visitor Groups](ref:android-targeting-visitor-groups) for more details. It defaults to an empty object.
 
-* `customDimensionKey`: String value which is the unique key associated with a particular custom dimension made in the VWO application. Check [Push Custom Dimension](ref:android-custom-dimension)  for more details. It defaults to an empty String.
+* `customDimensionKey`: String value which is the unique key associated with a particular custom dimension made in the Wingify application. Check [Push Custom Dimension](ref:android-custom-dimension)  for more details. It defaults to an empty String.
 
 * `customDimensionValue`: String value which is the value you want to tag a custom dimension with. Check [Push Custom Dimension](ref:android-custom-dimension)  for more details. It defaults to an empty String.
 
@@ -227,7 +227,7 @@ await VWO.getVariationNameForTestKey("campaign_key")
 
 We would track the effect of this campaign on our conversion metric.\
 Earlier we defined `conversionGoal` as a goal.\
-We need to tell the VWO SDK when this conversion happens. Use the following code to trigger this goal.
+We need to tell the Wingify SDK when this conversion happens. Use the following code to trigger this goal.
 
 ```typescript Dart
 var goal = "conversionGoal";
@@ -249,13 +249,13 @@ await VWO.trackConversion(goal, revenueValue: REVENUE_VALUE);
 
 ## 4. Push Custom Dimension
 
-Pushes a custom dimension for a particular user to the VWO server. It is used for post-segmenting the data in the campaign reports.
+Pushes a custom dimension for a particular user to the Wingify server. It is used for post-segmenting the data in the campaign reports.
 
-Read [here](https://help.vwo.com/hc/en-us/articles/360038019054-Creating-a-Custom-Dimension-in-VWO) on how to create custom dimension in VWO
+Read [here](https://help.vwo.com/hc/en-us/articles/360038019054-Creating-a-Custom-Dimension-in-VWO) on how to create custom dimension in Wingify
 
 The API method accepts a custom dimension key - *customDimensionKey* and custom dimension value - *customDimensionValue*.
 
-*customDimensionKey* is the unique key associated with a particular custom dimension made in VWO application.
+*customDimensionKey* is the unique key associated with a particular custom dimension made in Wingify application.
 
 *customDimensionValue* is the value you want to tag a custom dimension with.
 
@@ -275,7 +275,7 @@ You can set different log levels depending upon the priority of logging as follo
 * **SEVERE**: Indicates Error
 * **OFF**: No logs are printed
 
-The different methods set the log level of the message. VWO will only print messages with a log level that is greater to or equal to it's current log level setting. So a logger with a level of Warning will only output log messages with a level of WARNING, or SEVERE.
+The different methods set the log level of the message. Wingify will only print messages with a log level that is greater to or equal to it's current log level setting. So a logger with a level of Warning will only output log messages with a level of WARNING, or SEVERE.
 
 ```typescript Dart
 VWO.setLogLevel(VWOLog.ALL);
@@ -287,7 +287,7 @@ VWO.setLogLevel(VWOLog.ALL);
 
 ## Opt out
 
-To opt out of tracking by VWO, use `VWOConfig` object to set OptOut to true or false. This `config` object is passed when `VWO.launch` function is called.
+To opt out of tracking by Wingify, use `VWOConfig` object to set OptOut to true or false. This `config` object is passed when `VWO.launch` function is called.
 
 ```typescript Dart
 VWOConfig vwoConfig = VWOConfig(optOut: true);
@@ -297,11 +297,11 @@ await VWO.launch('YOUR_API_KEY', vwoConfig: config)
 
 ## Integrations
 
-You can send VWO's campaign information to third-party analytics platforms by using Streams. You can then segment the analytics report by using VWO's campaign id, campaign name, variation id, or name.
+You can send Wingify's campaign information to third-party analytics platforms by using Streams. You can then segment the analytics report by using Wingify's campaign id, campaign name, variation id, or name.
 
 ### Stream Listener
 
-The code can listen to a Stream on the VWO instance.
+The code can listen to a Stream on the Wingify instance.
 
 Here is how Stream listeners can be integrated into any dart file.
 
@@ -321,7 +321,7 @@ On listening to a Stream, you can get the campaign data from the vwoProperties o
 
 The data contains the following keys:
 
-* `vwo_campaign_id `: Identifier of the campaign; this is generated by VWO. This is unique for your account.
+* `vwo_campaign_id `: Identifier of the campaign; this is generated by Wingify. This is unique for your account.
 * `vwo_campaign_name `: Name of the campaign, as set by you. This is not necessarily unique.
 * `vwo_variation_id `: Identifier of the variation in the campaign of which the user became a part. Variation Id is unique for its campaign, but it is not unique across different campaigns.
 * `vwo_variation_name `: Name of the variation in the campaign, as set by you. This is not necessarily unique.
@@ -370,7 +370,7 @@ From the **Mobile App A/B** menu, select your campaign and click **Detailed Repo
 
 The plugin is published on pub.dev: [vwo\_flutter](https://pub.dev/packages/vwo_flutter)
 
-VWO Flutter Plugin source code is available on GitHub:\
+Wingify Flutter Plugin source code is available on GitHub:\
 [vwo-flutter-sdk](https://github.com/wingify/vwo-flutter-sdk)
 
 ## Next Steps
@@ -379,4 +379,4 @@ As a next step, take a look at:\
 Detailed iOS documentation: [SDK Reference](ref:ios-sdk-reference)\
 Detailed Android documentation: [SDK Reference](ref:android-sdk-reference) 
 
-We would look forward to hear from you about any question or feedback at [support@vwo.com](mailto:support@vwo.com).
+We would look forward to hear from you about any question or feedback at [support@wingify.com](mailto:support@wingify.com).

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can setup VWO Config while initializing your VWO SDK. This is helpful if you want to do the following:
+You can setup Wingify Config while initializing your Wingify SDK. This is helpful if you want to do the following:
 
 * [Targeting Visitor Groups](ref:android-targeting-visitor-groups).
 * [Opt Out](ref:android-opt-out)
@@ -36,7 +36,7 @@ userSegmentationMapping["key"] = "value"
 val vwoConfig = VWOConfig.Builder()
   .setCustomVariables(userSegmentationMapping)
   .disablePreview()                               // To disable preview mode
-  .setOptOut(true)                                // To opt out of VWO SDK
+  .setOptOut(true)                                // To opt out of Wingify SDK
   .setCustomDimension("CUSTOM_DIMENSION_KEY", "CUSTOM_DIMENSION_VALUE")
   .build()
 ```
@@ -50,9 +50,9 @@ VWO.with(this, VWO_API_KEY).config(vwoConfig).launch(null);
 VWO.with(this, VWO_API_KEY).config(vwoConfig).launch(null)
 ```
 
-## Configure VWO CDN for China
+## Configure Wingify CDN for China
 
-VWO initialization supports VWO Chinese CDN in order to prevent tracking calls being getting blocked in China. This can be achieved by configuring the SDK at the time of instantiating it. 
+Wingify initialization supports Wingify Chinese CDN in order to prevent tracking calls being getting blocked in China. This can be achieved by configuring the SDK at the time of instantiating it. 
 
 ```java
 VWOConfig vwoConfig = new VWOConfig
@@ -64,7 +64,7 @@ VWOConfig vwoConfig = new VWOConfig
 val vwoConfig = VWOConfig.Builder()
   .setCustomVariables(userSegmentationMapping)
   .disablePreview()                               // To disable preview mode
-  .setOptOut(true)                                // To opt out of VWO SDK
+  .setOptOut(true)                                // To opt out of Wingify SDK
   .setCustomDimension("CUSTOM_DIMENSION_KEY", "CUSTOM_DIMENSION_VALUE")
   .build()
 ```

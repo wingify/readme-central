@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To create and run A/B tests, sign in to the VWO dashboard, and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the VWO A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
+To create and run A/B tests, sign in to the Wingify dashboard, and then select [Mobile App A/B](https://app.wingify.com/#/test/mobile-ab) on the menu. If you are using the Wingify A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
 
 ![348](https://files.readme.io/f96e934-MobileAppAB-title.png "MobileAppAB-title.png")
 
@@ -33,11 +33,11 @@ Type the name of the app you want to add, and then click **Create**.
 
 ![1206](https://files.readme.io/9dcd7bb-MobileAppAB-1.jpg "MobileAppAB-1.jpg")
 
-As you add an app, VWO generates API keys for both the iOS and Android platforms. You can make a note of the API key under the **Settings** section and is used during app initialization.
+As you add an app, Wingify generates API keys for both the iOS and Android platforms. You can make a note of the API key under the **Settings** section and is used during app initialization.
 
 ## Installing SDK
 
-You can use CocoaPods to install the VWO iOS SDK. For CocoaPods installation, add `pod 'VWO'` to your Pod file.\
+You can use CocoaPods to install the Wingify iOS SDK. For CocoaPods installation, add `pod 'VWO'` to your Pod file.\
 Run the `pod install` command.
 
 Click [here](ref:ios-sdk-installation) for detailed installation instructions.
@@ -49,7 +49,7 @@ After installing the SDK, you can initialize the app in the `AppDelegate` file b
 Import  `VWO`, and then call the `launchForAPIKey` method with your app key. Click [here](ref:ios-launching-sdk) for detailed instructions.
 
 ```objectivec
-// importing the VWO module
+// importing the Wingify module
 @import VWO;
 
 // initialising the SDK
@@ -104,7 +104,7 @@ int speed = VWO.intFor(key: "speed", defaultValue: 5)
 
 On the **Mobile App A/B** testing screen, go to the Campaigns tab, and then click **Create**. 
 
-Choose the App you want to test. All mobile apps you have added to VWO are listed here.
+Choose the App you want to test. All mobile apps you have added to Wingify are listed here.
 
 Select a platform where the app is running.
 
@@ -118,7 +118,7 @@ Select **Next**, and then click **Add Variable**. All the variables you have cre
 
 Select the variable you want to test, and then enter the variation values. You can test multiple variables in one test. In the above example, we have added the speed variable, and then defined value as 20 for the variation. For control, the value is 10, which is the default value for the variable. 
 
-Based on the campaign key and variation names, VWO generates the code snippet that you can use in the mobile app.
+Based on the campaign key and variation names, Wingify generates the code snippet that you can use in the mobile app.
 
 To continue, click **Next**.
 
@@ -178,10 +178,10 @@ In the mobile app A/B menu option, select your campaign, and then click **DETAIL
 
 ## Source Code
 
-VWO iOS SDK code is available on GitHub:\
+Wingify iOS SDK code is available on GitHub:\
 [https://github.com/wingify/vwo-ios-sdk](https://github.com/wingify/vwo-ios-sdk)
 
 ## Next Steps
 
 As the next step, look at [SDK Reference](ref:ios-sdk-reference)  to explore more advanced options of using the SDK.\
-We would look forward to hear from you about any question or feedback at [support@vwo.com](mailto:support@vwo.com).
+We would look forward to hear from you about any question or feedback at [support@wingify.com](mailto:support@wingify.com).

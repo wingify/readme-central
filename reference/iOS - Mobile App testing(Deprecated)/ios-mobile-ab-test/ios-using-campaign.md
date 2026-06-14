@@ -10,15 +10,15 @@ metadata:
 next:
   description: ''
 ---
-Creating a mobile A/B Test requires starting a campaign on app.vwo.com, and then making corresponding changes to it in the mobile app.
+Creating a mobile A/B Test requires starting a campaign on app.wingify.com, and then making corresponding changes to it in the mobile app.
 
 On the **Mobile App A/B** testing screen, select **Campaigns** **>** **Create**. 
 
 ![2157](https://files.readme.io/6663f8a-mobile-app-ab-4.jpg "mobile-app-ab-4.jpg")
 
-From the **Choose an app** drop-down, choose the app you want to test. All mobile apps you have added to VWO are listed here.\
+From the **Choose an app** drop-down, choose the app you want to test. All mobile apps you have added to Wingify are listed here.\
 Select a platform where the app is running.\
-Enter a unique identifier in the **Define a campaign key** field to filter your tests easily. The campaign key helps you execute the custom logic, as explained in this [Code Blocks](http://developers.vwo.com/reference#code-blocks) section.
+Enter a unique identifier in the **Define a campaign key** field to filter your tests easily. The campaign key helps you execute the custom logic, as explained in this [Code Blocks](http://developers.wingify.com/reference#code-blocks) section.
 
 ![2166](https://files.readme.io/2800102-test-key.png "test-key.png")
 

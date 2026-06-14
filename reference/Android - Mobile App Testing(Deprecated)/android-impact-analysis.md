@@ -10,26 +10,26 @@ metadata:
 next:
   description: ''
 ---
-This page tracks the impact of VWO SDK for different parameters on your app.
+This page tracks the impact of Wingify SDK for different parameters on your app.
 
 ## Launch Time
 
 The SDK can be initialized in two ways: synchronous and asynchronous.
 
 * Asynchronous Initialisation: has no impact on the launch time of your app, as SDK is launched in the background. Asynchronous initialisation is the recommended method.
-* Synchronous Initialisation: In Synchronous initialization, the SDK makes a networking call to fetch settings from VWO's CDN. This can block the main thread for a maximum of three seconds. The thread resumes to normal execution after the response from the CDN.
+* Synchronous Initialisation: In Synchronous initialization, the SDK makes a networking call to fetch settings from Wingify's CDN. This can block the main thread for a maximum of three seconds. The thread resumes to normal execution after the response from the CDN.
 
 ## API Calls
 
-VWO SDK makes three types of API calls to VWO CDN. 
+Wingify SDK makes three types of API calls to Wingify CDN. 
 
 * To fetch settings at the time of SDK initialization. The SDK makes only one call to fetch settings. If this call fails, the SDK does not retry to fetch settings during an ongoing app session. This is done to keep the app behaviour consistent during an ongoing session.
-* To inform VWO when a user becomes part of a campaign. If this call fails, the SDK keeps a track of it and try to send it again after some time.
-* To inform VWO when a user converts a goal in a campaign.  If this call fails, the SDK keeps a track of it and try to send it again after some time.
+* To inform Wingify when a user becomes part of a campaign. If this call fails, the SDK keeps a track of it and try to send it again after some time.
+* To inform Wingify when a user converts a goal in a campaign.  If this call fails, the SDK keeps a track of it and try to send it again after some time.
 
 ## Increase in APK file size
 
-When an Android app is integrated with the VWO SDK, the increase in the size of APK file is around `~300 KB` without Proguard and `~200 KB` with Proguard.
+When an Android app is integrated with the Wingify SDK, the increase in the size of APK file is around `~300 KB` without Proguard and `~200 KB` with Proguard.
 
 <Table align={["left","left","left"]}>
   <thead>
@@ -275,4 +275,4 @@ When an Android app is integrated with the VWO SDK, the increase in the size of 
   </tbody>
 </Table>
 
-If you want to know the impact of any other parameter or if you are interested in detail of any parameter, please reach out to us: [support@vwo.com](mailto:support@vwo.com)
+If you want to know the impact of any other parameter or if you are interested in detail of any parameter, please reach out to us: [support@wingify.com](mailto:support@wingify.com)

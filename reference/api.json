@@ -6,7 +6,7 @@
   },
   "servers": [
     {
-      "url": "https://app.vwo.com/api/v2"
+      "url": "https://app.wingify.com/api/v2"
     }
   ],
   "components": {
@@ -100,7 +100,7 @@
           "code-samples": [
             {
               "language": "python",
-              "code": "import requests\n\nurl = \"https://app.vwo.com/api/v2/accounts?includeCurrent=false&status=all\"\n\nheaders = {\n    'token': \"96ca71826128162811321nnjadsdjnsadkf33c4c03660a2398abd93f60c74ef1b442a434\",\n    'cache-control': \"no-cache\"\n    }\n\nresponse = requests.request(\"GET\", url, headers=headers)\n\nprint(response.text)"
+              "code": "import requests\n\nurl = \"https://app.wingify.com/api/v2/accounts?includeCurrent=false&status=all\"\n\nheaders = {\n    'token': \"96ca71826128162811321nnjadsdjnsadkf33c4c03660a2398abd93f60c74ef1b442a434\",\n    'cache-control': \"no-cache\"\n    }\n\nresponse = requests.request(\"GET\", url, headers=headers)\n\nprint(response.text)"
             }
           ],
           "samples-languages": [
@@ -463,7 +463,7 @@
           "code-samples": [
             {
               "language": "python",
-              "code": "import requests\n\nurl = \"https://app.vwo.com/api/v2/accounts/current/feeds?limit=25&offset=0&startTime=1609459200&endTime=1609545600\"\n\nheaders = {\n    'token': \"96ca71826128162811321nnjadsdjnsadkf33c4c03660a2398abd93f60c74ef1b442a434\",\n    'cache-control': \"no-cache\"\n    }\n\nresponse = requests.request(\"GET\", url, headers=headers)\n\nprint(response.text)"
+              "code": "import requests\n\nurl = \"https://app.wingify.com/api/v2/accounts/current/feeds?limit=25&offset=0&startTime=1609459200&endTime=1609545600\"\n\nheaders = {\n    'token': \"96ca71826128162811321nnjadsdjnsadkf33c4c03660a2398abd93f60c74ef1b442a434\",\n    'cache-control': \"no-cache\"\n    }\n\nresponse = requests.request(\"GET\", url, headers=headers)\n\nprint(response.text)"
             }
           ],
           "samples-languages": [
@@ -1111,7 +1111,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"_data\": {\n        [{\n            \"id\": 7,\n            \"name\": \"Campaign 35\",\n            \"type\": \"ab\",\n            \"platform\": \"website\",\n            \"status\": \"NOT_STARTED\",\n            \"createdOn\": 1417421529,\n            \"isDeleted\": false,\n            \"createdBy\": {\n                \"id\": 44349,\n                \"name\": \"Sample\",\n                \"imageUrl\": \"//gravatar.com/avatar/f4fedd3b67d066bfcce237a11da14825?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new.png\"\n            },\n            \"primaryUrl\": \"http://wingify.com\",\n            \"urls\": [{\n                \"type\": \"url\",\n                \"value\": \"http://wingify.com\"\n            }],\n            \"labels\": [],\n            \"goals\": {\n                \"partialCollection\": [{\n                    \"id\": 2,\n                    \"isPrimary\": true,\n                    \"name\": \"New name\",\n                    \"type\": \"visitPage\",\n                    \"averageData\": []\n                }],\n                \"offset\": 0,\n                \"totalCount\": 3\n            },\n            \"primaryGoal\": 2,\n            \"variations\": {\n                \"partialCollection\": [],\n                \"totalCount\": 3\n            }\n        }]\n    }\n}"
+                    "value": "{\n    \"_data\": {\n        [{\n            \"id\": 7,\n            \"name\": \"Campaign 35\",\n            \"type\": \"ab\",\n            \"platform\": \"website\",\n            \"status\": \"NOT_STARTED\",\n            \"createdOn\": 1417421529,\n            \"isDeleted\": false,\n            \"createdBy\": {\n                \"id\": 44349,\n                \"name\": \"Sample\",\n                \"imageUrl\": \"//gravatar.com/avatar/f4fedd3b67d066bfcce237a11da14825?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new.png\"\n            },\n            \"primaryUrl\": \"http://wingify.com\",\n            \"urls\": [{\n                \"type\": \"url\",\n                \"value\": \"http://wingify.com\"\n            }],\n            \"labels\": [],\n            \"goals\": {\n                \"partialCollection\": [{\n                    \"id\": 2,\n                    \"isPrimary\": true,\n                    \"name\": \"New name\",\n                    \"type\": \"visitPage\",\n                    \"averageData\": []\n                }],\n                \"offset\": 0,\n                \"totalCount\": 3\n            },\n            \"primaryGoal\": 2,\n            \"variations\": {\n                \"partialCollection\": [],\n                \"totalCount\": 3\n            }\n        }]\n    }\n}"
                   }
                 }
               }
@@ -1241,38 +1241,38 @@
                                 "type": "string",
                                 "default": "url"
                               },
-                              "url": {
+                              "value": {
                                 "type": "string",
                                 "default": "http://wingify.com"
                               }
                             },
                             "type": "object",
                             "required": [
-                              "url",
-                              "type"
+                              "type",
+                              "value"
                             ]
                           }
                         }
                       },
                       "type": "object",
                       "required": [
-                        "urls",
+                        "name",
                         "type",
-                        "name"
+                        "urls"
                       ]
                     }
                   }
                 },
                 "required": [
-                  "type",
-                  "urls",
+                  "primaryUrl",
                   "goals",
-                  "primaryUrl"
+                  "type",
+                  "urls"
                 ]
               },
               "examples": {
-                "Request Format": {
-                  "summary": "Request Format",
+                "Request format": {
+                  "summary": "Request format",
                   "value": {
                     "type": "ab",
                     "urls": [
@@ -2077,7 +2077,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"_data\": {\n        \"shareLink\": \"https://app.vwo.com/#/campaign/1/summary?token=token\"\n    }\n}"
+                    "value": "{\n    \"_data\": {\n        \"shareLink\": \"https://app.wingify.com/#/campaign/1/summary?token=token\"\n    }\n}"
                   }
                 },
                 "schema": {
@@ -2088,7 +2088,7 @@
                       "properties": {
                         "shareLink": {
                           "type": "string",
-                          "example": "https://app.vwo.com/#/campaign/1/summary?token=token"
+                          "example": "https://app.wingify.com/#/campaign/1/summary?token=token"
                         }
                       }
                     }
@@ -4330,7 +4330,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"_data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Project One\",\n            \"accountId\": 1,\n            \"createdOn\": 1621232674,\n            \"modifiedOn\": 1621232674,\n            \"createdBy\": {\n                \"name\": \"Backend Testing\",\n                \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n            },\n            \"languages\": [\n                \"NODEJS\",\n                \"PYTHON\",\n                \"PHP\",\n                \"JAVA\",\n                \"DOTNET\",\n                \"RUBY\",\n                \"GO\",\n                \"JAVASCRIPT\"\n            ],\n            \"environments\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"Env1\",\n                    \"isEnabled\": true,\n                    \"token\": \"1111808b7365d71d73477713f3c3XXXX\"\n                },\n                {\n                    \"id\": 2,\n                    \"name\": \"Env2\",\n                    \"isEnabled\": false,\n                    \"token\": \"222267fd9458cd9fe8319be08de1XXXX\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Project Two\",\n            \"accountId\": 1,\n            \"createdOn\": 1621232901,\n            \"modifiedOn\": 1621232901,\n            \"createdBy\": {\n                \"name\": \"Backend Testing\",\n                \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n            },\n            \"languages\": [\n                \"NODEJS\",\n                \"PYTHON\",\n                \"PHP\",\n                \"JAVA\",\n                \"DOTNET\",\n                \"RUBY\",\n                \"GO\",\n                \"JAVASCRIPT\"\n            ],\n            \"environments\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"Env1\",\n                    \"isEnabled\": false,\n                    \"token\": \"333393ae3260395ed5af88d4d60bYYYY\"\n                },\n                {\n                    \"id\": 2,\n                    \"name\": \"Env2\",\n                    \"isEnabled\": true,\n                    \"token\": \"444dcaa6f3a519067d249de3d299ZZZZ\"\n                }\n            ]\n        }\n    ]\n}"
+                    "value": "{\n    \"_data\": [\n        {\n            \"id\": 1,\n            \"name\": \"Project One\",\n            \"accountId\": 1,\n            \"createdOn\": 1621232674,\n            \"modifiedOn\": 1621232674,\n            \"createdBy\": {\n                \"name\": \"Backend Testing\",\n                \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n            },\n            \"languages\": [\n                \"NODEJS\",\n                \"PYTHON\",\n                \"PHP\",\n                \"JAVA\",\n                \"DOTNET\",\n                \"RUBY\",\n                \"GO\",\n                \"JAVASCRIPT\"\n            ],\n            \"environments\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"Env1\",\n                    \"isEnabled\": true,\n                    \"token\": \"1111808b7365d71d73477713f3c3XXXX\"\n                },\n                {\n                    \"id\": 2,\n                    \"name\": \"Env2\",\n                    \"isEnabled\": false,\n                    \"token\": \"222267fd9458cd9fe8319be08de1XXXX\"\n                }\n            ]\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Project Two\",\n            \"accountId\": 1,\n            \"createdOn\": 1621232901,\n            \"modifiedOn\": 1621232901,\n            \"createdBy\": {\n                \"name\": \"Backend Testing\",\n                \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n            },\n            \"languages\": [\n                \"NODEJS\",\n                \"PYTHON\",\n                \"PHP\",\n                \"JAVA\",\n                \"DOTNET\",\n                \"RUBY\",\n                \"GO\",\n                \"JAVASCRIPT\"\n            ],\n            \"environments\": [\n                {\n                    \"id\": 1,\n                    \"name\": \"Env1\",\n                    \"isEnabled\": false,\n                    \"token\": \"333393ae3260395ed5af88d4d60bYYYY\"\n                },\n                {\n                    \"id\": 2,\n                    \"name\": \"Env2\",\n                    \"isEnabled\": true,\n                    \"token\": \"444dcaa6f3a519067d249de3d299ZZZZ\"\n                }\n            ]\n        }\n    ]\n}"
                   }
                 },
                 "schema": {
@@ -4374,7 +4374,7 @@
                               },
                               "imageUrl": {
                                 "type": "string",
-                                "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png"
+                                "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png"
                               }
                             }
                           },
@@ -4461,7 +4461,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"_data\": {\n        \"id\": 1,\n        \"name\": \"projectOne\",\n        \"accountId\": 1,\n        \"createdOn\": 1621265223,\n        \"modifiedOn\": 1621265223,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"languages\": [\n            \"NODEJS\",\n            \"PYTHON\",\n            \"PHP\",\n            \"JAVA\",\n            \"DOTNET\",\n            \"RUBY\",\n            \"GO\",\n            \"JAVASCRIPT\"\n        ],\n        \"environments\": [\n            {\n                \"id\": 1,\n                \"name\": \"Env1\",\n                \"isEnabled\": true,\n                \"token\": \"32ccbd56f7c14b19196475846a4cf745\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Env2\",\n                \"isEnabled\": false,\n                \"token\": \"9d6604ca9eb55c4be3e3385a35829d94\"\n            }\n        ],\n        \"setting\": {\n            \"isEditable\": true,\n            \"associatedCampaigns\": []\n        }\n    }\n}"
+                    "value": "{\n    \"_data\": {\n        \"id\": 1,\n        \"name\": \"projectOne\",\n        \"accountId\": 1,\n        \"createdOn\": 1621265223,\n        \"modifiedOn\": 1621265223,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"languages\": [\n            \"NODEJS\",\n            \"PYTHON\",\n            \"PHP\",\n            \"JAVA\",\n            \"DOTNET\",\n            \"RUBY\",\n            \"GO\",\n            \"JAVASCRIPT\"\n        ],\n        \"environments\": [\n            {\n                \"id\": 1,\n                \"name\": \"Env1\",\n                \"isEnabled\": true,\n                \"token\": \"32ccbd56f7c14b19196475846a4cf745\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Env2\",\n                \"isEnabled\": false,\n                \"token\": \"9d6604ca9eb55c4be3e3385a35829d94\"\n            }\n        ],\n        \"setting\": {\n            \"isEditable\": true,\n            \"associatedCampaigns\": []\n        }\n    }\n}"
                   }
                 },
                 "schema": {
@@ -4503,7 +4503,7 @@
                             },
                             "imageUrl": {
                               "type": "string",
-                              "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png"
+                              "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png"
                             }
                           }
                         },
@@ -4614,7 +4614,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"_data\": {\n        \"id\": 41,\n        \"name\": \"project41\",\n        \"accountId\": 1,\n        \"createdOn\": 1621265223,\n        \"modifiedOn\": 1621265405,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"languages\": [\n            \"DOTNET\",\n            \"RUBY\",\n            \"GO\",\n            \"JAVASCRIPT\"\n        ],\n        \"environments\": [\n            {\n                \"id\": 1,\n                \"name\": \"Env1\",\n                \"isEnabled\": false,\n                \"token\": \"32ccbd56f7c14b19196475846a4cf745\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Env45\",\n                \"isEnabled\": true,\n                \"token\": \"e7f2c7b3690b37b5eb241565cd1e3ed6\"\n            }\n        ],\n        \"setting\": {\n            \"isEditable\": true,\n            \"associatedCampaigns\": []\n        }\n    }\n}"
+                    "value": "{\n    \"_data\": {\n        \"id\": 41,\n        \"name\": \"project41\",\n        \"accountId\": 1,\n        \"createdOn\": 1621265223,\n        \"modifiedOn\": 1621265405,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"languages\": [\n            \"DOTNET\",\n            \"RUBY\",\n            \"GO\",\n            \"JAVASCRIPT\"\n        ],\n        \"environments\": [\n            {\n                \"id\": 1,\n                \"name\": \"Env1\",\n                \"isEnabled\": false,\n                \"token\": \"32ccbd56f7c14b19196475846a4cf745\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Env45\",\n                \"isEnabled\": true,\n                \"token\": \"e7f2c7b3690b37b5eb241565cd1e3ed6\"\n            }\n        ],\n        \"setting\": {\n            \"isEditable\": true,\n            \"associatedCampaigns\": []\n        }\n    }\n}"
                   }
                 },
                 "schema": {
@@ -4656,7 +4656,7 @@
                             },
                             "imageUrl": {
                               "type": "string",
-                              "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png"
+                              "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png"
                             }
                           }
                         },
@@ -4765,7 +4765,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": " Collapse source\n{\n    \"_data\": {\n        \"id\": 1,\n        \"name\": \"projectOne\",\n        \"accountId\": 1,\n        \"createdOn\": 1621265223,\n        \"modifiedOn\": 1621265405,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"languages\": [\n            \"DOTNET\",\n            \"RUBY\",\n            \"GO\",\n            \"JAVASCRIPT\"\n        ],\n        \"environments\": [\n            {\n                \"id\": 1,\n                \"name\": \"Env1\",\n                \"isEnabled\": false,\n                \"token\": \"32ccbd56f7c14b19196475846a4cf745\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Env45\",\n                \"isEnabled\": true,\n                \"token\": \"e7f2c7b3690b37b5eb241565cd1e3ed6\"\n            }\n        ],\n        \"setting\": {\n            \"isEditable\": true,\n            \"associatedCampaigns\": []\n        }\n    }\n}"
+                    "value": " Collapse source\n{\n    \"_data\": {\n        \"id\": 1,\n        \"name\": \"projectOne\",\n        \"accountId\": 1,\n        \"createdOn\": 1621265223,\n        \"modifiedOn\": 1621265405,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"languages\": [\n            \"DOTNET\",\n            \"RUBY\",\n            \"GO\",\n            \"JAVASCRIPT\"\n        ],\n        \"environments\": [\n            {\n                \"id\": 1,\n                \"name\": \"Env1\",\n                \"isEnabled\": false,\n                \"token\": \"32ccbd56f7c14b19196475846a4cf745\"\n            },\n            {\n                \"id\": 2,\n                \"name\": \"Env45\",\n                \"isEnabled\": true,\n                \"token\": \"e7f2c7b3690b37b5eb241565cd1e3ed6\"\n            }\n        ],\n        \"setting\": {\n            \"isEditable\": true,\n            \"associatedCampaigns\": []\n        }\n    }\n}"
                   }
                 }
               }
@@ -4788,61 +4788,7 @@
             }
           }
         },
-        "deprecated": false,
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "description": "Name of the project"
-                  },
-                  "languages": {
-                    "type": "array",
-                    "description": "List of languages",
-                    "default": "",
-                    "items": {
-                      "type": "string"
-                    }
-                  },
-                  "environments": {
-                    "type": "array",
-                    "description": "List of environments",
-                    "items": {
-                      "properties": {
-                        "id": {
-                          "type": "string",
-                          "description": "ID of the environment "
-                        },
-                        "name": {
-                          "type": "string",
-                          "description": "Name of the environment"
-                        },
-                        "isEnabled": {
-                          "type": "boolean",
-                          "default": "false",
-                          "description": "Set the environment as default"
-                        }
-                      },
-                      "type": "object",
-                      "required": [
-                        "id",
-                        "name"
-                      ]
-                    }
-                  }
-                },
-                "type": "object",
-                "required": [
-                  "name",
-                  "environments",
-                  "languages"
-                ]
-              }
-            }
-          }
-        }
+        "deprecated": false
       },
       "delete": {
         "summary": "Delete a project",
@@ -4927,7 +4873,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"_data\": [\n        {\n            \"id\": 1,\n            \"name\": \"FeatureOne\",\n            \"accountId\": 1,\n            \"createdOn\": 1621489759,\n            \"modifiedOn\": 1621489759,\n            \"createdBy\": {\n                \"name\": \"Backend Testing\",\n                \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n            },\n            \"variables\": [\n                {\n                    \"id\": 1,\n                    \"variableName\": \"var1\",\n                    \"dataType\": \"string\",\n                    \"defaultValue\": \"val1\"\n                },\n                {\n                    \"id\": 2,\n                    \"variableName\": \"var2\",\n                    \"dataType\": \"int\",\n                    \"defaultValue\": 32\n                },\n                {\n                    \"id\": 3,\n                    \"variableName\": \"var3\",\n                    \"dataType\": \"float\",\n                    \"defaultValue\": 10.5\n                },\n                {\n                    \"id\": 4,\n                    \"variableName\": \"var4\",\n                    \"dataType\": \"boolean\",\n                    \"defaultValue\": true\n                }\n            ],\n            \"setting\": {\n                \"isEditable\": false,\n                \"associatedCampaigns\": [\n                    {\n                        \"id\": 146,\n                        \"name\": \"Campaign 146\",\n                        \"status\": \"RUNNING\",\n                        \"type\": \"feature-test\"\n                    }\n                ]\n            }\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Feature2\",\n            \"accountId\": 1,\n            \"createdOn\": 1621490667,\n            \"modifiedOn\": 1621490667,\n            \"createdBy\": {\n                \"name\": \"Backend Testing\",\n                \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n            },\n            \"variables\": [\n                {\n                    \"id\": 1,\n                    \"variableName\": \"var1\",\n                    \"dataType\": \"string\",\n                    \"defaultValue\": \"val1\"\n                },\n                {\n                    \"id\": 2,\n                    \"variableName\": \"var2\",\n                    \"dataType\": \"int\",\n                    \"defaultValue\": 32\n                },\n                {\n                    \"id\": 3,\n                    \"variableName\": \"var3\",\n                    \"dataType\": \"float\",\n                    \"defaultValue\": 10.5\n                },\n                {\n                    \"id\": 4,\n                    \"variableName\": \"var4\",\n                    \"dataType\": \"boolean\",\n                    \"defaultValue\": true\n                }\n            ],\n            \"setting\": {\n                \"isEditable\": true,\n                \"associatedCampaigns\": []\n            }\n        }\n    ]\n}"
+                    "value": "{\n    \"_data\": [\n        {\n            \"id\": 1,\n            \"name\": \"FeatureOne\",\n            \"accountId\": 1,\n            \"createdOn\": 1621489759,\n            \"modifiedOn\": 1621489759,\n            \"createdBy\": {\n                \"name\": \"Backend Testing\",\n                \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n            },\n            \"variables\": [\n                {\n                    \"id\": 1,\n                    \"variableName\": \"var1\",\n                    \"dataType\": \"string\",\n                    \"defaultValue\": \"val1\"\n                },\n                {\n                    \"id\": 2,\n                    \"variableName\": \"var2\",\n                    \"dataType\": \"int\",\n                    \"defaultValue\": 32\n                },\n                {\n                    \"id\": 3,\n                    \"variableName\": \"var3\",\n                    \"dataType\": \"float\",\n                    \"defaultValue\": 10.5\n                },\n                {\n                    \"id\": 4,\n                    \"variableName\": \"var4\",\n                    \"dataType\": \"boolean\",\n                    \"defaultValue\": true\n                }\n            ],\n            \"setting\": {\n                \"isEditable\": false,\n                \"associatedCampaigns\": [\n                    {\n                        \"id\": 146,\n                        \"name\": \"Campaign 146\",\n                        \"status\": \"RUNNING\",\n                        \"type\": \"feature-test\"\n                    }\n                ]\n            }\n        },\n        {\n            \"id\": 2,\n            \"name\": \"Feature2\",\n            \"accountId\": 1,\n            \"createdOn\": 1621490667,\n            \"modifiedOn\": 1621490667,\n            \"createdBy\": {\n                \"name\": \"Backend Testing\",\n                \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n            },\n            \"variables\": [\n                {\n                    \"id\": 1,\n                    \"variableName\": \"var1\",\n                    \"dataType\": \"string\",\n                    \"defaultValue\": \"val1\"\n                },\n                {\n                    \"id\": 2,\n                    \"variableName\": \"var2\",\n                    \"dataType\": \"int\",\n                    \"defaultValue\": 32\n                },\n                {\n                    \"id\": 3,\n                    \"variableName\": \"var3\",\n                    \"dataType\": \"float\",\n                    \"defaultValue\": 10.5\n                },\n                {\n                    \"id\": 4,\n                    \"variableName\": \"var4\",\n                    \"dataType\": \"boolean\",\n                    \"defaultValue\": true\n                }\n            ],\n            \"setting\": {\n                \"isEditable\": true,\n                \"associatedCampaigns\": []\n            }\n        }\n    ]\n}"
                   }
                 },
                 "schema": {
@@ -4971,7 +4917,7 @@
                               },
                               "imageUrl": {
                                 "type": "string",
-                                "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png"
+                                "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png"
                               }
                             }
                           },
@@ -5085,7 +5031,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"_data\": {\n        \"id\": 1,\n        \"name\": \"Feature1\",\n        \"accountId\": 1,\n        \"createdOn\": 1621963588,\n        \"modifiedOn\": 1621963588,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"variables\": [\n            {\n                \"id\": 1,\n                \"variableName\": \"var1\",\n                \"dataType\": \"string\",\n                \"defaultValue\": \"strVal\"\n            },\n            {\n                \"id\": 2,\n                \"variableName\": \"var2\",\n                \"dataType\": \"int\",\n                \"defaultValue\": 32\n            },\n            {\n                \"id\": 3,\n                \"variableName\": \"var3\",\n                \"dataType\": \"float\",\n                \"defaultValue\": 22.5\n            },\n            {\n                \"id\": 4,\n                \"variableName\": \"var4\",\n                \"dataType\": \"boolean\",\n                \"defaultValue\": false\n            }\n        ],\n        \"setting\": {\n            \"isEditable\": true,\n            \"associatedCampaigns\": []\n        }\n    }\n}"
+                    "value": "{\n    \"_data\": {\n        \"id\": 1,\n        \"name\": \"Feature1\",\n        \"accountId\": 1,\n        \"createdOn\": 1621963588,\n        \"modifiedOn\": 1621963588,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"variables\": [\n            {\n                \"id\": 1,\n                \"variableName\": \"var1\",\n                \"dataType\": \"string\",\n                \"defaultValue\": \"strVal\"\n            },\n            {\n                \"id\": 2,\n                \"variableName\": \"var2\",\n                \"dataType\": \"int\",\n                \"defaultValue\": 32\n            },\n            {\n                \"id\": 3,\n                \"variableName\": \"var3\",\n                \"dataType\": \"float\",\n                \"defaultValue\": 22.5\n            },\n            {\n                \"id\": 4,\n                \"variableName\": \"var4\",\n                \"dataType\": \"boolean\",\n                \"defaultValue\": false\n            }\n        ],\n        \"setting\": {\n            \"isEditable\": true,\n            \"associatedCampaigns\": []\n        }\n    }\n}"
                   }
                 },
                 "schema": {
@@ -5127,7 +5073,7 @@
                             },
                             "imageUrl": {
                               "type": "string",
-                              "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png"
+                              "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png"
                             }
                           }
                         },
@@ -5230,7 +5176,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"_data\": {\n        \"id\": 1,\n        \"name\": \"FeatureOne\",\n        \"accountId\": 1,\n        \"createdOn\": 1621496864,\n        \"modifiedOn\": 1621952220,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"variables\": [\n            {\n                \"id\": 1,\n                \"variableName\": \"var1\",\n                \"dataType\": \"string\",\n                \"defaultValue\": \"123\"\n            },\n            {\n                \"id\": 2,\n                \"variableName\": \"var2\",\n                \"dataType\": \"int\",\n                \"defaultValue\": 32\n            },\n            {\n                \"id\": 3,\n                \"variableName\": \"var3\",\n                \"dataType\": \"float\",\n                \"defaultValue\": 4\n            },\n            {\n                \"id\": 4,\n                \"variableName\": \"var4\",\n                \"dataType\": \"boolean\",\n                \"defaultValue\": false\n            }\n        ],\n        \"setting\": {\n            \"isEditable\": false,\n            \"associatedCampaigns\": [\n                {\n                    \"id\": 144,\n                    \"name\": \"Campaign 144\",\n                    \"status\": \"RUNNING\",\n                    \"type\": \"feature-rollout\"\n                }\n            ]\n        }\n    }\n}"
+                    "value": "{\n    \"_data\": {\n        \"id\": 1,\n        \"name\": \"FeatureOne\",\n        \"accountId\": 1,\n        \"createdOn\": 1621496864,\n        \"modifiedOn\": 1621952220,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"variables\": [\n            {\n                \"id\": 1,\n                \"variableName\": \"var1\",\n                \"dataType\": \"string\",\n                \"defaultValue\": \"123\"\n            },\n            {\n                \"id\": 2,\n                \"variableName\": \"var2\",\n                \"dataType\": \"int\",\n                \"defaultValue\": 32\n            },\n            {\n                \"id\": 3,\n                \"variableName\": \"var3\",\n                \"dataType\": \"float\",\n                \"defaultValue\": 4\n            },\n            {\n                \"id\": 4,\n                \"variableName\": \"var4\",\n                \"dataType\": \"boolean\",\n                \"defaultValue\": false\n            }\n        ],\n        \"setting\": {\n            \"isEditable\": false,\n            \"associatedCampaigns\": [\n                {\n                    \"id\": 144,\n                    \"name\": \"Campaign 144\",\n                    \"status\": \"RUNNING\",\n                    \"type\": \"feature-rollout\"\n                }\n            ]\n        }\n    }\n}"
                   }
                 },
                 "schema": {
@@ -5272,7 +5218,7 @@
                             },
                             "imageUrl": {
                               "type": "string",
-                              "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png"
+                              "example": "//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png"
                             }
                           }
                         },
@@ -5395,7 +5341,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": " Collapse source\n{\n    \"_data\": {\n        \"id\": 1,\n        \"name\": \"FeatureOne\",\n        \"accountId\": 1,\n        \"createdOn\": 1621496864,\n        \"modifiedOn\": 1621952220,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.vwo.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"variables\": [\n            {\n                \"id\": 1,\n                \"variableName\": \"var1\",\n                \"dataType\": \"string\",\n                \"defaultValue\": \"123\"\n            },\n            {\n                \"id\": 2,\n                \"variableName\": \"var2\",\n                \"dataType\": \"int\",\n                \"defaultValue\": 32\n            },\n            {\n                \"id\": 3,\n                \"variableName\": \"var3\",\n                \"dataType\": \"float\",\n                \"defaultValue\": 4\n            },\n            {\n                \"id\": 4,\n                \"variableName\": \"var4\",\n                \"dataType\": \"boolean\",\n                \"defaultValue\": false\n            }\n        ]\n    }\n}"
+                    "value": " Collapse source\n{\n    \"_data\": {\n        \"id\": 1,\n        \"name\": \"FeatureOne\",\n        \"accountId\": 1,\n        \"createdOn\": 1621496864,\n        \"modifiedOn\": 1621952220,\n        \"createdBy\": {\n            \"name\": \"Backend Testing\",\n            \"imageUrl\": \"//gravatar.com/avatar/5f32891bf0bda2e1c4a931e72f86975b?s=24&d=https%3A%2F%2Fapp.wingify.com%2Fassets%2Fimages%2Favatar-new-3.png\"\n        },\n        \"variables\": [\n            {\n                \"id\": 1,\n                \"variableName\": \"var1\",\n                \"dataType\": \"string\",\n                \"defaultValue\": \"123\"\n            },\n            {\n                \"id\": 2,\n                \"variableName\": \"var2\",\n                \"dataType\": \"int\",\n                \"defaultValue\": 32\n            },\n            {\n                \"id\": 3,\n                \"variableName\": \"var3\",\n                \"dataType\": \"float\",\n                \"defaultValue\": 4\n            },\n            {\n                \"id\": 4,\n                \"variableName\": \"var4\",\n                \"dataType\": \"boolean\",\n                \"defaultValue\": false\n            }\n        ]\n    }\n}"
                   }
                 }
               }
@@ -6723,14 +6669,14 @@
     },
     "/accounts/{account_id}/integrations": {
       "get": {
-        "summary": "Get integration settings of a Workspace",
+        "summary": "Get Integrations of a Workspace",
         "description": "",
         "operationId": "third-party-integrations-of-current--sub-account",
         "parameters": [
           {
             "name": "account_id",
             "in": "path",
-            "description": "Workspace ID",
+            "description": "Use 'current' keyword to refer to the Main Workspace or the Integer Workspace Id",
             "schema": {
               "type": "string"
             },
@@ -6802,207 +6748,6 @@
                           }
                         },
                         "gtm": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": false,
-                              "default": true
-                            }
-                          }
-                        },
-                        "isGaPremium": {
-                          "type": "boolean",
-                          "example": false,
-                          "default": true
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "deprecated": false
-      },
-      "patch": {
-        "summary": "Update integration settings for specific account",
-        "description": "",
-        "operationId": "update-third-party-integrations-for-account",
-        "parameters": [
-          {
-            "name": "account_id",
-            "in": "path",
-            "description": "Use 'current' keyword to refer to the Main Account or the Integer Sub Account Id",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "ga": {
-                    "properties": {
-                      "": {
-                        "type": "array",
-                        "description": "Information regarding Google Analytics",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Google Analytics whether enabled or not"
-                      },
-                      "slot": {
-                        "type": "integer",
-                        "description": "Google Analytics Slot",
-                        "format": "int32"
-                      },
-                      "prefix": {
-                        "type": "string",
-                        "description": "Google Analytics Account prefix"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "ua": {
-                    "properties": {
-                      "": {
-                        "type": "array",
-                        "description": "Universal Analytics Settings",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "enabled": {
-                        "type": "string",
-                        "description": "Universal Analytics whether enabled or not"
-                      },
-                      "dimension": {
-                        "type": "string",
-                        "description": "Custom Dimension used inside Google Analytics"
-                      },
-                      "prefix": {
-                        "type": "string",
-                        "description": "Google Analytics Account prefix"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "gtm": {
-                    "properties": {
-                      "": {
-                        "type": "string",
-                        "description": "Settings for Google Tag Manager"
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Google Tag Manager whether enabled or not"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "clicktale": {
-                    "properties": {
-                      "": {
-                        "type": "array",
-                        "description": "ClickTale Settings",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "enabled": {
-                        "type": "boolean",
-                        "description": "Clicktale whether enabled or not"
-                      }
-                    },
-                    "required": [],
-                    "type": "object"
-                  },
-                  "isGaPremium": {
-                    "type": "boolean",
-                    "description": "Whether Google Analytics is premium"
-                  }
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "200",
-            "content": {
-              "application/json": {
-                "examples": {
-                  "Result": {
-                    "value": "{\n  \"_data\": {\n    \"ga\": {\n      \"enabled\": true,\n      \"slot\": 4,\n      \"prefix\": \"\"\n    },\n    \"ua\": {\n      \"enabled\": false,\n      \"dimension\": 1,\n      \"prefix\": \"\"\n    },\n    \"gtm\": {\n      \"enabled\": false\n    },\n    \"clicktale\": {\n      \"enabled\": false\n    },\n    \"isGaPremium\": false\n  }\n}"
-                  }
-                },
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "_data": {
-                      "type": "object",
-                      "properties": {
-                        "ga": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": true,
-                              "default": true
-                            },
-                            "slot": {
-                              "type": "integer",
-                              "example": 4,
-                              "default": 0
-                            },
-                            "prefix": {
-                              "type": "string",
-                              "example": ""
-                            }
-                          }
-                        },
-                        "ua": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": false,
-                              "default": true
-                            },
-                            "dimension": {
-                              "type": "integer",
-                              "example": 1,
-                              "default": 0
-                            },
-                            "prefix": {
-                              "type": "string",
-                              "example": ""
-                            }
-                          }
-                        },
-                        "gtm": {
-                          "type": "object",
-                          "properties": {
-                            "enabled": {
-                              "type": "boolean",
-                              "example": false,
-                              "default": true
-                            }
-                          }
-                        },
-                        "clicktale": {
                           "type": "object",
                           "properties": {
                             "enabled": {
@@ -7593,7 +7338,7 @@
               "application/json": {
                 "examples": {
                   "Result": {
-                    "value": "{\n    \"_data\": {\n        \"stats\": {\n            \"intervalWise\": [\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 95,\n                    \"frictionScore\": 5,\n                    \"sessionCount\": 35,\n                    \"deadClicks\": 5,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740614400,\n                    \"deadClicksSessionPercent\": 20\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 91,\n                    \"frictionScore\": 9,\n                    \"sessionCount\": 46,\n                    \"deadClicks\": 9,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740528000,\n                    \"deadClicksSessionPercent\": 31\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 92,\n                    \"frictionScore\": 8,\n                    \"sessionCount\": 45,\n                    \"deadClicks\": 8,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740441600,\n                    \"deadClicksSessionPercent\": 27\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 92,\n                    \"frictionScore\": 8,\n                    \"sessionCount\": 52,\n                    \"deadClicks\": 8,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740355200,\n                    \"deadClicksSessionPercent\": 22\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 84,\n                    \"frictionScore\": 16,\n                    \"sessionCount\": 4,\n                    \"deadClicks\": 16,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740268800,\n                    \"deadClicksSessionPercent\": 50\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 33,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740182400,\n                    \"deadClicksSessionPercent\": 61\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 89,\n                    \"frictionScore\": 11,\n                    \"sessionCount\": 48,\n                    \"deadClicks\": 11,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740096000,\n                    \"deadClicksSessionPercent\": 30\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 95,\n                    \"frictionScore\": 5,\n                    \"sessionCount\": 46,\n                    \"deadClicks\": 5,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740009600,\n                    \"deadClicksSessionPercent\": 18\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 88,\n                    \"frictionScore\": 12,\n                    \"sessionCount\": 32,\n                    \"deadClicks\": 12,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739923200,\n                    \"deadClicksSessionPercent\": 29\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 47,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739836800,\n                    \"deadClicksSessionPercent\": 32\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 95,\n                    \"frictionScore\": 5,\n                    \"sessionCount\": 46,\n                    \"deadClicks\": 5,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739750400,\n                    \"deadClicksSessionPercent\": 18\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 100,\n                    \"frictionScore\": 0,\n                    \"sessionCount\": 8,\n                    \"deadClicks\": 0,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739664000,\n                    \"deadClicksSessionPercent\": 13\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 87,\n                    \"frictionScore\": 13,\n                    \"sessionCount\": 21,\n                    \"deadClicks\": 13,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739577600,\n                    \"deadClicksSessionPercent\": 34\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 88,\n                    \"frictionScore\": 12,\n                    \"sessionCount\": 42,\n                    \"deadClicks\": 12,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739491200,\n                    \"deadClicksSessionPercent\": 34\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 91,\n                    \"frictionScore\": 9,\n                    \"sessionCount\": 32,\n                    \"deadClicks\": 9,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739404800,\n                    \"deadClicksSessionPercent\": 29\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 93,\n                    \"frictionScore\": 7,\n                    \"sessionCount\": 40,\n                    \"deadClicks\": 7,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739318400,\n                    \"deadClicksSessionPercent\": 18\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 55,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739232000,\n                    \"deadClicksSessionPercent\": 33\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 68,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739145600,\n                    \"deadClicksSessionPercent\": 34\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 80,\n                    \"frictionScore\": 20,\n                    \"sessionCount\": 11,\n                    \"deadClicks\": 20,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739059200,\n                    \"deadClicksSessionPercent\": 46\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 97,\n                    \"frictionScore\": 3,\n                    \"sessionCount\": 11,\n                    \"deadClicks\": 3,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738972800,\n                    \"deadClicksSessionPercent\": 19\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 93,\n                    \"frictionScore\": 7,\n                    \"sessionCount\": 37,\n                    \"deadClicks\": 7,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738886400,\n                    \"deadClicksSessionPercent\": 19\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 88,\n                    \"frictionScore\": 12,\n                    \"sessionCount\": 64,\n                    \"deadClicks\": 12,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738800000,\n                    \"deadClicksSessionPercent\": 32\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 92,\n                    \"frictionScore\": 8,\n                    \"sessionCount\": 57,\n                    \"deadClicks\": 8,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738713600,\n                    \"deadClicksSessionPercent\": 23\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 55,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738627200,\n                    \"deadClicksSessionPercent\": 28\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 92,\n                    \"frictionScore\": 8,\n                    \"sessionCount\": 32,\n                    \"deadClicks\": 8,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738540800,\n                    \"deadClicksSessionPercent\": 19\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 100,\n                    \"frictionScore\": 0,\n                    \"sessionCount\": 4,\n                    \"deadClicks\": 0,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738454400,\n                    \"deadClicksSessionPercent\": 0\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 99,\n                    \"frictionScore\": 1,\n                    \"sessionCount\": 9,\n                    \"deadClicks\": 1,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738368000,\n                    \"deadClicksSessionPercent\": 12\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 5,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738281600,\n                    \"deadClicksSessionPercent\": 20\n                }\n            ],\n            \"aggregated\": {\n                \"rageClicks\": 0,\n                \"experienceScore\": 91,\n                \"frictionScore\": 9,\n                \"sessionCount\": 985,\n                \"deadClicks\": 9,\n                \"rageClicksSessionPercent\": 0,\n                \"interval\": null,\n                \"deadClicksSessionPercent\": 28\n            },\n            \"metrics\": {\n                \"experienceScore\": {\n                    \"percentageChange\": 0\n                }\n            }\n        },\n        \"topErrors\": [\n            {\n                \"originalErrorMessage\": \"jSecure Error: URL should be absolute with allowed schemas!-c-! relative!-c-! a hash fragment or query strin\",\n                \"originalErrorType\": \"c\",\n                \"errorType\": \"console_error\",\n                \"errorMessage\": \"jSecure Error: URL should be absolute with allowed schemas, relative, a hash fragment or query strin\",\n                \"iconName\": \"icon--console-error\"\n            },\n            {\n                \"originalErrorMessage\": \"script_https://vwo.com/assets/js/Wallet.mlGYZajl.js_404\",\n                \"originalErrorType\": \"n\",\n                \"errorType\": \"network_error\",\n                \"requestType\": \"script\",\n                \"url\": \"https://vwo.com/assets/js/Wallet.mlGYZajl.js\",\n                \"statusCode\": \"404\",\n                \"method\": \"\",\n                \"errorMessage\": \"script: 404https://vwo.com/assets/js/Wallet.mlGYZajl.js\",\n                \"iconName\": \"icon--network-error\"\n            },\n            {\n                \"originalErrorMessage\": \"ex_Uncaught ReferenceError: UET is not defined\",\n                \"originalErrorType\": \"e\",\n                \"errorType\": \"uncaught_error\",\n                \"type\": \"ex\",\n                \"errorMessage\": \"Uncaught ReferenceError: UET is not defined\",\n                \"iconName\": \"icon--exclamation\"\n            },\n            {\n                \"originalErrorMessage\": \"script_https://vwo.com/assets/js/asyncToGenerator.O4pnRyQq.js_404\",\n                \"originalErrorType\": \"n\",\n                \"errorType\": \"network_error\",\n                \"requestType\": \"script\",\n                \"url\": \"https://vwo.com/assets/js/asyncToGenerator.O4pnRyQq.js\",\n                \"statusCode\": \"404\",\n                \"method\": \"\",\n                \"errorMessage\": \"script: 404https://vwo.com/assets/js/asyncToGenerator.O4pnRyQq.js\",\n                \"iconName\": \"icon--network-error\"\n            },\n            {\n                \"originalErrorMessage\": \"script_https://vwo.com/assets/js/index.CucWK6IV.js_404\",\n                \"originalErrorType\": \"n\",\n                \"errorType\": \"network_error\",\n                \"requestType\": \"script\",\n                \"url\": \"https://vwo.com/assets/js/index.CucWK6IV.js\",\n                \"statusCode\": \"404\",\n                \"method\": \"\",\n                \"errorMessage\": \"script: 404https://vwo.com/assets/js/index.CucWK6IV.js\",\n                \"iconName\": \"icon--network-error\"\n            }\n        ],\n        \"topSessionsWithLowestExperienceScore\": [\n            {\n                \"deviceType\": \"desktop\",\n                \"country\": \"United States\",\n                \"numOfPages\": 1,\n                \"cte_0.null\": null,\n                \"os\": \"Windows\",\n                \"city\": null,\n                \"domains\": \"vwo.com\",\n                \"sessionId\": 1740679067,\n                \"uuid\": \"2BE41136FB98CEEDBF98DEBDC60BF28C\",\n                \"platform\": 2,\n                \"duration\": 6.251,\n                \"rc\": 0,\n                \"osVersion\": \"10\",\n                \"null\": null,\n                \"countryCode\": \"US\",\n                \"browser\": \"Chrome\",\n                \"browserVersion\": \"125.0.6422\",\n                \"clicks\": 0,\n                \"region\": null,\n                \"trafficCode\": null,\n                \"dc\": 0,\n                \"sig\": \"NjoyQkU0MTEzNkZCOThDRUVEQkY5OERFQkRDNjBCRjI4Qzo0OTUwMjdkZTA2ZWMyNTVhNGZmNTk2MWM1NWNlMGRjZDgzYjk0MTdkOTMwNGE1MDI2OWUxNWQxNzc4NmQ4NTlm\",\n                \"recordingUrl\": \"https://player.vwo.me/visitor-behavior-analysis/dist/recordings?campaignId=28&account_id=6&uuid=2BE41136FB98CEEDBF98DEBDC60BF28C&sessionId=1740679067&token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyOCwidmlzaXRvclJlY29yZGluZ1Nlc3Npb25JZCI6MTc0MDY3OTA2NywiY3JlYXRlZF9vbiI6MTUwNDI1NzM2MCwidHlwZSI6InZpc2l0b3JSZWNvcmRpbmdzIiwidmVyc2lvbiI6MSwiaGFzaCI6IjZkMzUwNDNkM2NiMzM3NjBmYTIzYTYyMjRiNjgxZjdhIiwic2NvcGUiOnRydWUsImZybiI6ZmFsc2V9&analyze=1&nD=1&fetch_url=r1.visualwebsiteoptimizer.com&sig=NjoyQkU0MTEzNkZCOThDRUVEQkY5OERFQkRDNjBCRjI4Qzo0OTUwMjdkZTA2ZWMyNTVhNGZmNTk2MWM1NWNlMGRjZDgzYjk0MTdkOTMwNGE1MDI2OWUxNWQxNzc4NmQ4NTlm&saved=false&numOfPages=1&countryCode=US\",\n                \"experienceScore\": 0\n            },\n            {\n                \"deviceType\": \"mobile\",\n                \"country\": \"Spain\",\n                \"numOfPages\": 1,\n                \"cte_0.null\": null,\n                \"os\": \"iOS\",\n                \"city\": \"Barcelona\",\n                \"domains\": \"vwo.com\",\n                \"sessionId\": 1740674021,\n                \"uuid\": \"31531CE1EAC6AE76134F42A4EA2BABD1\",\n                \"platform\": 0,\n                \"duration\": 11.87,\n                \"rc\": 0,\n                \"osVersion\": \"18.1.1\",\n                \"null\": null,\n                \"countryCode\": \"ES\",\n                \"browser\": \"Safari\",\n                \"browserVersion\": \"18.1.1\",\n                \"clicks\": 0,\n                \"region\": \"Catalonia\",\n                \"trafficCode\": null,\n                \"dc\": 0,\n                \"sig\": \"NjozMTUzMUNFMUVBQzZBRTc2MTM0RjQyQTRFQTJCQUJEMTo5ZDE5YjQ1MjEyMTIwMWM1OTJkYmVlODY3N2Q5MjBlMWIyNTExNTg1YjdmNWM0NTE5ZDUyNmY2MDNlMWFlNmI3\",\n                \"recordingUrl\": \"https://player.vwo.me/visitor-behavior-analysis/dist/recordings?campaignId=28&account_id=6&uuid=31531CE1EAC6AE76134F42A4EA2BABD1&sessionId=1740674021&token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyOCwidmlzaXRvclJlY29yZGluZ1Nlc3Npb25JZCI6MTc0MDY3NDAyMSwiY3JlYXRlZF9vbiI6MTUwNDI1NzM2MCwidHlwZSI6InZpc2l0b3JSZWNvcmRpbmdzIiwidmVyc2lvbiI6MSwiaGFzaCI6IjdjN2YzYzFlNTUyMDliNmU5ODE5ZTU2Zjc2MGE4OWQ3Iiwic2NvcGUiOnRydWUsImZybiI6ZmFsc2V9&analyze=1&nD=1&fetch_url=r1.visualwebsiteoptimizer.com&sig=NjozMTUzMUNFMUVBQzZBRTc2MTM0RjQyQTRFQTJCQUJEMTo5ZDE5YjQ1MjEyMTIwMWM1OTJkYmVlODY3N2Q5MjBlMWIyNTExNTg1YjdmNWM0NTE5ZDUyNmY2MDNlMWFlNmI3&saved=false&numOfPages=1&countryCode=ES\",\n                \"experienceScore\": 0\n            },\n            {\n                \"deviceType\": \"desktop\",\n                \"country\": \"Spain\",\n                \"numOfPages\": 1,\n                \"cte_0.null\": null,\n                \"os\": \"Mac OS X\",\n                \"city\": \"Barcelona\",\n                \"domains\": \"vwo.com\",\n                \"sessionId\": 1740673194,\n                \"uuid\": \"134C240530066B8EC626CCA3751F6981\",\n                \"platform\": 2,\n                \"duration\": 29.203,\n                \"rc\": 0,\n                \"osVersion\": \"10.15.7\",\n                \"null\": null,\n                \"countryCode\": \"ES\",\n                \"browser\": \"Safari\",\n                \"browserVersion\": \"18.2\",\n                \"clicks\": 0,\n                \"region\": \"Catalonia\",\n                \"trafficCode\": null,\n                \"dc\": 0,\n                \"sig\": \"NjoxMzRDMjQwNTMwMDY2QjhFQzYyNkNDQTM3NTFGNjk4MTo3MGJkM2JlYzVmMzZjNWI3YzM3NjIyMmQyZWNjZGZkNTI3OTk5ZTQ2NDExOWNkYzBkZjNiNzk0ZmIyZGMwYTc4\",\n                \"recordingUrl\": \"https://player.vwo.me/visitor-behavior-analysis/dist/recordings?campaignId=28&account_id=6&uuid=134C240530066B8EC626CCA3751F6981&sessionId=1740673194&token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyOCwidmlzaXRvclJlY29yZGluZ1Nlc3Npb25JZCI6MTc0MDY3MzE5NCwiY3JlYXRlZF9vbiI6MTUwNDI1NzM2MCwidHlwZSI6InZpc2l0b3JSZWNvcmRpbmdzIiwidmVyc2lvbiI6MSwiaGFzaCI6ImUzODIxYzk5ZDE0OWNiYjYxZmI1ZWRhZDVhODdiZmU0Iiwic2NvcGUiOnRydWUsImZybiI6ZmFsc2V9&analyze=1&nD=1&fetch_url=r1.visualwebsiteoptimizer.com&sig=NjoxMzRDMjQwNTMwMDY2QjhFQzYyNkNDQTM3NTFGNjk4MTo3MGJkM2JlYzVmMzZjNWI3YzM3NjIyMmQyZWNjZGZkNTI3OTk5ZTQ2NDExOWNkYzBkZjNiNzk0ZmIyZGMwYTc4&saved=false&numOfPages=1&countryCode=ES\",\n                \"experienceScore\": 0\n            },\n            {\n                \"deviceType\": \"desktop\",\n                \"country\": \"Spain\",\n                \"numOfPages\": 1,\n                \"cte_0.null\": null,\n                \"os\": \"Windows\",\n                \"city\": \"Madrid\",\n                \"domains\": \"vwo.com\",\n                \"sessionId\": 1740673076,\n                \"uuid\": \"A7D167E548E2E34A7E33846D6BE30D58\",\n                \"platform\": 2,\n                \"duration\": 13.341,\n                \"rc\": 0,\n                \"osVersion\": \"10\",\n                \"null\": null,\n                \"countryCode\": \"ES\",\n                \"browser\": \"Chrome\",\n                \"browserVersion\": \"133\",\n                \"clicks\": 1,\n                \"region\": \"Madrid\",\n                \"trafficCode\": null,\n                \"dc\": 0,\n                \"sig\": \"NjpBN0QxNjdFNTQ4RTJFMzRBN0UzMzg0NkQ2QkUzMEQ1ODpiMWQzNTNiNjBmODg3NmMwN2Q3YjgxYTk1NmY0YzE1M2M4Mzc0MDY0YmM1ZGY3NDgyZGVjMTczOWY5OTU4ZDk1\",\n                \"recordingUrl\": \"https://player.vwo.me/visitor-behavior-analysis/dist/recordings?campaignId=28&account_id=6&uuid=A7D167E548E2E34A7E33846D6BE30D58&sessionId=1740673076&token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyOCwidmlzaXRvclJlY29yZGluZ1Nlc3Npb25JZCI6MTc0MDY3MzA3NiwiY3JlYXRlZF9vbiI6MTUwNDI1NzM2MCwidHlwZSI6InZpc2l0b3JSZWNvcmRpbmdzIiwidmVyc2lvbiI6MSwiaGFzaCI6ImFjZGQ1ZGE4MjA1NjA5NzI0MzU2OTJlZjk5YjRkMDE5Iiwic2NvcGUiOnRydWUsImZybiI6ZmFsc2V9&analyze=1&nD=1&fetch_url=r1.visualwebsiteoptimizer.com&sig=NjpBN0QxNjdFNTQ4RTJFMzRBN0UzMzg0NkQ2QkUzMEQ1ODpiMWQzNTNiNjBmODg3NmMwN2Q3YjgxYTk1NmY0YzE1M2M4Mzc0MDY0YmM1ZGY3NDgyZGVjMTczOWY5OTU4ZDk1&saved=false&numOfPages=1&countryCode=ES\",\n                \"experienceScore\": 100\n            },\n            {\n                \"deviceType\": \"desktop\",\n                \"country\": \"Mexico\",\n                \"numOfPages\": 1,\n                \"cte_0.null\": null,\n                \"os\": \"Windows\",\n                \"city\": \"Mexico City\",\n                \"domains\": \"vwo.com\",\n                \"sessionId\": 1740672470,\n                \"uuid\": \"E819768D3934B7192BA3F54E8176D1FE\",\n                \"platform\": 2,\n                \"duration\": 5.61,\n                \"rc\": 0,\n                \"osVersion\": \"10\",\n                \"null\": null,\n                \"countryCode\": \"MX\",\n                \"browser\": \"Chrome\",\n                \"browserVersion\": \"132\",\n                \"clicks\": 0,\n                \"region\": \"Distrito Federal\",\n                \"trafficCode\": null,\n                \"dc\": 0,\n                \"sig\": \"NjpFODE5NzY4RDM5MzRCNzE5MkJBM0Y1NEU4MTc2RDFGRTplNTEyZjkzNWYyYWFhMTI0ZDYwNTIzYTdkYTZiZTU3YzcxMDYyNWU0NjFmOTg1ZmEwOTRlNzRkNzM2MTRiODVi\",\n                \"recordingUrl\": \"https://player.vwo.me/visitor-behavior-analysis/dist/recordings?campaignId=28&account_id=6&uuid=E819768D3934B7192BA3F54E8176D1FE&sessionId=1740672470&token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyOCwidmlzaXRvclJlY29yZGluZ1Nlc3Npb25JZCI6MTc0MDY3MjQ3MCwiY3JlYXRlZF9vbiI6MTUwNDI1NzM2MCwidHlwZSI6InZpc2l0b3JSZWNvcmRpbmdzIiwidmVyc2lvbiI6MSwiaGFzaCI6Ijk4NTMxMTdkYWJjNGVkYWZmNDAxM2I3ZjhhM2I3ZGFjIiwic2NvcGUiOnRydWUsImZybiI6ZmFsc2V9&analyze=1&nD=1&fetch_url=r1.visualwebsiteoptimizer.com&sig=NjpFODE5NzY4RDM5MzRCNzE5MkJBM0Y1NEU4MTc2RDFGRTplNTEyZjkzNWYyYWFhMTI0ZDYwNTIzYTdkYTZiZTU3YzcxMDYyNWU0NjFmOTg1ZmEwOTRlNzRkNzM2MTRiODVi&saved=false&numOfPages=1&countryCode=MX\",\n                \"experienceScore\": 0\n            }\n        ],\n        \"topElementsWithMostDeadClicks\": [\n            {\n                \"experienceScore\": 62,\n                \"textDataType\": \"innerText\",\n                \"textDataSessionPercent\": 1,\n                \"text\": \"We use cookies to ensure you get the best experience on our website. You can control how we use cook\"\n            },\n            {\n                \"experienceScore\": 50,\n                \"textDataType\": \"innerText\",\n                \"textDataSessionPercent\": 1,\n                \"text\": \"Web Testing\"\n            },\n            {\n                \"experienceScore\": 66,\n                \"textDataType\": \"innerText\",\n                \"textDataSessionPercent\": 1,\n                \"text\": \"Recursos\"\n            },\n            {\n                \"experienceScore\": 66,\n                \"textDataType\": \"innerText\",\n                \"textDataSessionPercent\": 2,\n                \"text\": \"Capacidades\\nPrecios\\nSoluciones\\n¿Por qué VWO?\\nRecursos\\nContacto\\nIniciar sesión\\nES\\nOptimiza tus experi\"\n            },\n            {\n                \"experienceScore\": 67,\n                \"textDataType\": \"innerText\",\n                \"textDataSessionPercent\": 1,\n                \"text\": \"Personaliza\\nCrea experiencias a medida para segmentos de usuarios específicos utilizando los datos d\"\n            }\n        ],\n        \"topElementsWithMostRageClicks\": null,\n        \"segmentsWithLowestExperienceScore\": {\n            \"result\": {\n                \"goalMetric\": \"session_experience\",\n                \"negativeUplift\": {\n                    \"count\": 5,\n                    \"segmentFound\": true,\n                    \"segments\": [\n                        {\n                            \"ctbc\": 0.9963509969866882,\n                            \"mean\": 85,\n                            \"meanOverall\": 91,\n                            \"rule\": \"1000 + es-es\",\n                            \"segment\": [\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_traffic\",\n                                    \"value\": \"1000\"\n                                },\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_language\",\n                                    \"value\": \"es-es\"\n                                }\n                            ],\n                            \"segmentVisitors\": 108,\n                            \"totalVisitors\": 945,\n                            \"uplift\": 0,\n                            \"applySegments\": [\n                                \"visit_traffic:1000\",\n                                \"visit_language:es-es\"\n                            ],\n                            \"experienceScore\": 85,\n                            \"segmentDisplayText\": \"Traffic Source = Direct + Language = Spanish - Spain (Traditional)\"\n                        },\n                        {\n                            \"ctbc\": 0.997609415210061,\n                            \"mean\": 86,\n                            \"meanOverall\": 91,\n                            \"rule\": \"True + 1000\",\n                            \"segment\": [\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_is_returning\",\n                                    \"value\": \"True\"\n                                },\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_traffic\",\n                                    \"value\": \"1000\"\n                                }\n                            ],\n                            \"segmentVisitors\": 149,\n                            \"totalVisitors\": 945,\n                            \"uplift\": 0,\n                            \"applySegments\": [\n                                \"visit_is_returning:True\",\n                                \"visit_traffic:1000\"\n                            ],\n                            \"experienceScore\": 86,\n                            \"segmentDisplayText\": \"Visitor Type = Returning + Traffic Source = Direct\"\n                        },\n                        {\n                            \"ctbc\": 0.9874583699773058,\n                            \"mean\": 87,\n                            \"meanOverall\": 91,\n                            \"rule\": \"Mac OS X + True\",\n                            \"segment\": [\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_os\",\n                                    \"value\": \"Mac OS X\"\n                                },\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_is_returning\",\n                                    \"value\": \"True\"\n                                }\n                            ],\n                            \"segmentVisitors\": 187,\n                            \"totalVisitors\": 945,\n                            \"uplift\": 0,\n                            \"applySegments\": [\n                                \"visit_os:Mac OS X\",\n                                \"visit_is_returning:True\"\n                            ],\n                            \"experienceScore\": 87,\n                            \"segmentDisplayText\": \"OperatingSystem = Mac OS X + Visitor Type = Returning\"\n                        },\n                        {\n                            \"ctbc\": 0.9889875232950452,\n                            \"mean\": 88,\n                            \"meanOverall\": 91,\n                            \"rule\": \"1000\",\n                            \"segment\": [\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_traffic\",\n                                    \"value\": \"1000\"\n                                }\n                            ],\n                            \"segmentVisitors\": 210,\n                            \"totalVisitors\": 945,\n                            \"uplift\": 0,\n                            \"applySegments\": [\n                                \"visit_traffic:1000\"\n                            ],\n                            \"experienceScore\": 88,\n                            \"segmentDisplayText\": \"Traffic Source = Direct\"\n                        },\n                        {\n                            \"ctbc\": 0.9741916598143234,\n                            \"mean\": 89,\n                            \"meanOverall\": 91,\n                            \"rule\": \"True\",\n                            \"segment\": [\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_is_returning\",\n                                    \"value\": \"True\"\n                                }\n                            ],\n                            \"segmentVisitors\": 397,\n                            \"totalVisitors\": 945,\n                            \"uplift\": 0,\n                            \"applySegments\": [\n                                \"visit_is_returning:True\"\n                            ],\n                            \"experienceScore\": 89,\n                            \"segmentDisplayText\": \"Visitor Type = Returning\"\n                        }\n                    ]\n                }\n            },\n            \"status\": \"completed\"\n        },\n        \"heatmapUrl\": \"https://app.vwo.com/#/analyze/heatmap/23/reports?token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyMywiY3JlYXRlZF9vbiI6MTUwNDI1NTY1NiwidHlwZSI6ImNhbXBhaWduIiwidmVyc2lvbiI6MSwiaGFzaCI6IjliOGQwM2RiMGNiMmQwZmE2NzNiOWQ4MWIwN2U0YTNlIiwic2NvcGUiOiIiLCJmcm4iOmZhbHNlfQ==&isHttpsOnly=1\"\n    }\n}"
+                    "value": "{\n    \"_data\": {\n        \"stats\": {\n            \"intervalWise\": [\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 95,\n                    \"frictionScore\": 5,\n                    \"sessionCount\": 35,\n                    \"deadClicks\": 5,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740614400,\n                    \"deadClicksSessionPercent\": 20\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 91,\n                    \"frictionScore\": 9,\n                    \"sessionCount\": 46,\n                    \"deadClicks\": 9,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740528000,\n                    \"deadClicksSessionPercent\": 31\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 92,\n                    \"frictionScore\": 8,\n                    \"sessionCount\": 45,\n                    \"deadClicks\": 8,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740441600,\n                    \"deadClicksSessionPercent\": 27\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 92,\n                    \"frictionScore\": 8,\n                    \"sessionCount\": 52,\n                    \"deadClicks\": 8,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740355200,\n                    \"deadClicksSessionPercent\": 22\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 84,\n                    \"frictionScore\": 16,\n                    \"sessionCount\": 4,\n                    \"deadClicks\": 16,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740268800,\n                    \"deadClicksSessionPercent\": 50\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 33,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740182400,\n                    \"deadClicksSessionPercent\": 61\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 89,\n                    \"frictionScore\": 11,\n                    \"sessionCount\": 48,\n                    \"deadClicks\": 11,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740096000,\n                    \"deadClicksSessionPercent\": 30\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 95,\n                    \"frictionScore\": 5,\n                    \"sessionCount\": 46,\n                    \"deadClicks\": 5,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1740009600,\n                    \"deadClicksSessionPercent\": 18\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 88,\n                    \"frictionScore\": 12,\n                    \"sessionCount\": 32,\n                    \"deadClicks\": 12,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739923200,\n                    \"deadClicksSessionPercent\": 29\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 47,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739836800,\n                    \"deadClicksSessionPercent\": 32\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 95,\n                    \"frictionScore\": 5,\n                    \"sessionCount\": 46,\n                    \"deadClicks\": 5,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739750400,\n                    \"deadClicksSessionPercent\": 18\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 100,\n                    \"frictionScore\": 0,\n                    \"sessionCount\": 8,\n                    \"deadClicks\": 0,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739664000,\n                    \"deadClicksSessionPercent\": 13\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 87,\n                    \"frictionScore\": 13,\n                    \"sessionCount\": 21,\n                    \"deadClicks\": 13,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739577600,\n                    \"deadClicksSessionPercent\": 34\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 88,\n                    \"frictionScore\": 12,\n                    \"sessionCount\": 42,\n                    \"deadClicks\": 12,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739491200,\n                    \"deadClicksSessionPercent\": 34\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 91,\n                    \"frictionScore\": 9,\n                    \"sessionCount\": 32,\n                    \"deadClicks\": 9,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739404800,\n                    \"deadClicksSessionPercent\": 29\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 93,\n                    \"frictionScore\": 7,\n                    \"sessionCount\": 40,\n                    \"deadClicks\": 7,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739318400,\n                    \"deadClicksSessionPercent\": 18\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 55,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739232000,\n                    \"deadClicksSessionPercent\": 33\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 68,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739145600,\n                    \"deadClicksSessionPercent\": 34\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 80,\n                    \"frictionScore\": 20,\n                    \"sessionCount\": 11,\n                    \"deadClicks\": 20,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1739059200,\n                    \"deadClicksSessionPercent\": 46\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 97,\n                    \"frictionScore\": 3,\n                    \"sessionCount\": 11,\n                    \"deadClicks\": 3,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738972800,\n                    \"deadClicksSessionPercent\": 19\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 93,\n                    \"frictionScore\": 7,\n                    \"sessionCount\": 37,\n                    \"deadClicks\": 7,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738886400,\n                    \"deadClicksSessionPercent\": 19\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 88,\n                    \"frictionScore\": 12,\n                    \"sessionCount\": 64,\n                    \"deadClicks\": 12,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738800000,\n                    \"deadClicksSessionPercent\": 32\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 92,\n                    \"frictionScore\": 8,\n                    \"sessionCount\": 57,\n                    \"deadClicks\": 8,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738713600,\n                    \"deadClicksSessionPercent\": 23\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 55,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738627200,\n                    \"deadClicksSessionPercent\": 28\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 92,\n                    \"frictionScore\": 8,\n                    \"sessionCount\": 32,\n                    \"deadClicks\": 8,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738540800,\n                    \"deadClicksSessionPercent\": 19\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 100,\n                    \"frictionScore\": 0,\n                    \"sessionCount\": 4,\n                    \"deadClicks\": 0,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738454400,\n                    \"deadClicksSessionPercent\": 0\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 99,\n                    \"frictionScore\": 1,\n                    \"sessionCount\": 9,\n                    \"deadClicks\": 1,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738368000,\n                    \"deadClicksSessionPercent\": 12\n                },\n                {\n                    \"rageClicks\": 0,\n                    \"experienceScore\": 90,\n                    \"frictionScore\": 10,\n                    \"sessionCount\": 5,\n                    \"deadClicks\": 10,\n                    \"rageClicksSessionPercent\": 0,\n                    \"interval\": 1738281600,\n                    \"deadClicksSessionPercent\": 20\n                }\n            ],\n            \"aggregated\": {\n                \"rageClicks\": 0,\n                \"experienceScore\": 91,\n                \"frictionScore\": 9,\n                \"sessionCount\": 985,\n                \"deadClicks\": 9,\n                \"rageClicksSessionPercent\": 0,\n                \"interval\": null,\n                \"deadClicksSessionPercent\": 28\n            },\n            \"metrics\": {\n                \"experienceScore\": {\n                    \"percentageChange\": 0\n                }\n            }\n        },\n        \"topErrors\": [\n            {\n                \"originalErrorMessage\": \"jSecure Error: URL should be absolute with allowed schemas!-c-! relative!-c-! a hash fragment or query strin\",\n                \"originalErrorType\": \"c\",\n                \"errorType\": \"console_error\",\n                \"errorMessage\": \"jSecure Error: URL should be absolute with allowed schemas, relative, a hash fragment or query strin\",\n                \"iconName\": \"icon--console-error\"\n            },\n            {\n                \"originalErrorMessage\": \"script_https://vwo.com/assets/js/Wallet.mlGYZajl.js_404\",\n                \"originalErrorType\": \"n\",\n                \"errorType\": \"network_error\",\n                \"requestType\": \"script\",\n                \"url\": \"https://vwo.com/assets/js/Wallet.mlGYZajl.js\",\n                \"statusCode\": \"404\",\n                \"method\": \"\",\n                \"errorMessage\": \"script: 404https://vwo.com/assets/js/Wallet.mlGYZajl.js\",\n                \"iconName\": \"icon--network-error\"\n            },\n            {\n                \"originalErrorMessage\": \"ex_Uncaught ReferenceError: UET is not defined\",\n                \"originalErrorType\": \"e\",\n                \"errorType\": \"uncaught_error\",\n                \"type\": \"ex\",\n                \"errorMessage\": \"Uncaught ReferenceError: UET is not defined\",\n                \"iconName\": \"icon--exclamation\"\n            },\n            {\n                \"originalErrorMessage\": \"script_https://vwo.com/assets/js/asyncToGenerator.O4pnRyQq.js_404\",\n                \"originalErrorType\": \"n\",\n                \"errorType\": \"network_error\",\n                \"requestType\": \"script\",\n                \"url\": \"https://vwo.com/assets/js/asyncToGenerator.O4pnRyQq.js\",\n                \"statusCode\": \"404\",\n                \"method\": \"\",\n                \"errorMessage\": \"script: 404https://vwo.com/assets/js/asyncToGenerator.O4pnRyQq.js\",\n                \"iconName\": \"icon--network-error\"\n            },\n            {\n                \"originalErrorMessage\": \"script_https://vwo.com/assets/js/index.CucWK6IV.js_404\",\n                \"originalErrorType\": \"n\",\n                \"errorType\": \"network_error\",\n                \"requestType\": \"script\",\n                \"url\": \"https://vwo.com/assets/js/index.CucWK6IV.js\",\n                \"statusCode\": \"404\",\n                \"method\": \"\",\n                \"errorMessage\": \"script: 404https://vwo.com/assets/js/index.CucWK6IV.js\",\n                \"iconName\": \"icon--network-error\"\n            }\n        ],\n        \"topSessionsWithLowestExperienceScore\": [\n            {\n                \"deviceType\": \"desktop\",\n                \"country\": \"United States\",\n                \"numOfPages\": 1,\n                \"cte_0.null\": null,\n                \"os\": \"Windows\",\n                \"city\": null,\n                \"domains\": \"vwo.com\",\n                \"sessionId\": 1740679067,\n                \"uuid\": \"2BE41136FB98CEEDBF98DEBDC60BF28C\",\n                \"platform\": 2,\n                \"duration\": 6.251,\n                \"rc\": 0,\n                \"osVersion\": \"10\",\n                \"null\": null,\n                \"countryCode\": \"US\",\n                \"browser\": \"Chrome\",\n                \"browserVersion\": \"125.0.6422\",\n                \"clicks\": 0,\n                \"region\": null,\n                \"trafficCode\": null,\n                \"dc\": 0,\n                \"sig\": \"NjoyQkU0MTEzNkZCOThDRUVEQkY5OERFQkRDNjBCRjI4Qzo0OTUwMjdkZTA2ZWMyNTVhNGZmNTk2MWM1NWNlMGRjZDgzYjk0MTdkOTMwNGE1MDI2OWUxNWQxNzc4NmQ4NTlm\",\n                \"recordingUrl\": \"https://player.vwo.me/visitor-behavior-analysis/dist/recordings?campaignId=28&account_id=6&uuid=2BE41136FB98CEEDBF98DEBDC60BF28C&sessionId=1740679067&token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyOCwidmlzaXRvclJlY29yZGluZ1Nlc3Npb25JZCI6MTc0MDY3OTA2NywiY3JlYXRlZF9vbiI6MTUwNDI1NzM2MCwidHlwZSI6InZpc2l0b3JSZWNvcmRpbmdzIiwidmVyc2lvbiI6MSwiaGFzaCI6IjZkMzUwNDNkM2NiMzM3NjBmYTIzYTYyMjRiNjgxZjdhIiwic2NvcGUiOnRydWUsImZybiI6ZmFsc2V9&analyze=1&nD=1&fetch_url=r1.visualwebsiteoptimizer.com&sig=NjoyQkU0MTEzNkZCOThDRUVEQkY5OERFQkRDNjBCRjI4Qzo0OTUwMjdkZTA2ZWMyNTVhNGZmNTk2MWM1NWNlMGRjZDgzYjk0MTdkOTMwNGE1MDI2OWUxNWQxNzc4NmQ4NTlm&saved=false&numOfPages=1&countryCode=US\",\n                \"experienceScore\": 0\n            },\n            {\n                \"deviceType\": \"mobile\",\n                \"country\": \"Spain\",\n                \"numOfPages\": 1,\n                \"cte_0.null\": null,\n                \"os\": \"iOS\",\n                \"city\": \"Barcelona\",\n                \"domains\": \"vwo.com\",\n                \"sessionId\": 1740674021,\n                \"uuid\": \"31531CE1EAC6AE76134F42A4EA2BABD1\",\n                \"platform\": 0,\n                \"duration\": 11.87,\n                \"rc\": 0,\n                \"osVersion\": \"18.1.1\",\n                \"null\": null,\n                \"countryCode\": \"ES\",\n                \"browser\": \"Safari\",\n                \"browserVersion\": \"18.1.1\",\n                \"clicks\": 0,\n                \"region\": \"Catalonia\",\n                \"trafficCode\": null,\n                \"dc\": 0,\n                \"sig\": \"NjozMTUzMUNFMUVBQzZBRTc2MTM0RjQyQTRFQTJCQUJEMTo5ZDE5YjQ1MjEyMTIwMWM1OTJkYmVlODY3N2Q5MjBlMWIyNTExNTg1YjdmNWM0NTE5ZDUyNmY2MDNlMWFlNmI3\",\n                \"recordingUrl\": \"https://player.vwo.me/visitor-behavior-analysis/dist/recordings?campaignId=28&account_id=6&uuid=31531CE1EAC6AE76134F42A4EA2BABD1&sessionId=1740674021&token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyOCwidmlzaXRvclJlY29yZGluZ1Nlc3Npb25JZCI6MTc0MDY3NDAyMSwiY3JlYXRlZF9vbiI6MTUwNDI1NzM2MCwidHlwZSI6InZpc2l0b3JSZWNvcmRpbmdzIiwidmVyc2lvbiI6MSwiaGFzaCI6IjdjN2YzYzFlNTUyMDliNmU5ODE5ZTU2Zjc2MGE4OWQ3Iiwic2NvcGUiOnRydWUsImZybiI6ZmFsc2V9&analyze=1&nD=1&fetch_url=r1.visualwebsiteoptimizer.com&sig=NjozMTUzMUNFMUVBQzZBRTc2MTM0RjQyQTRFQTJCQUJEMTo5ZDE5YjQ1MjEyMTIwMWM1OTJkYmVlODY3N2Q5MjBlMWIyNTExNTg1YjdmNWM0NTE5ZDUyNmY2MDNlMWFlNmI3&saved=false&numOfPages=1&countryCode=ES\",\n                \"experienceScore\": 0\n            },\n            {\n                \"deviceType\": \"desktop\",\n                \"country\": \"Spain\",\n                \"numOfPages\": 1,\n                \"cte_0.null\": null,\n                \"os\": \"Mac OS X\",\n                \"city\": \"Barcelona\",\n                \"domains\": \"vwo.com\",\n                \"sessionId\": 1740673194,\n                \"uuid\": \"134C240530066B8EC626CCA3751F6981\",\n                \"platform\": 2,\n                \"duration\": 29.203,\n                \"rc\": 0,\n                \"osVersion\": \"10.15.7\",\n                \"null\": null,\n                \"countryCode\": \"ES\",\n                \"browser\": \"Safari\",\n                \"browserVersion\": \"18.2\",\n                \"clicks\": 0,\n                \"region\": \"Catalonia\",\n                \"trafficCode\": null,\n                \"dc\": 0,\n                \"sig\": \"NjoxMzRDMjQwNTMwMDY2QjhFQzYyNkNDQTM3NTFGNjk4MTo3MGJkM2JlYzVmMzZjNWI3YzM3NjIyMmQyZWNjZGZkNTI3OTk5ZTQ2NDExOWNkYzBkZjNiNzk0ZmIyZGMwYTc4\",\n                \"recordingUrl\": \"https://player.vwo.me/visitor-behavior-analysis/dist/recordings?campaignId=28&account_id=6&uuid=134C240530066B8EC626CCA3751F6981&sessionId=1740673194&token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyOCwidmlzaXRvclJlY29yZGluZ1Nlc3Npb25JZCI6MTc0MDY3MzE5NCwiY3JlYXRlZF9vbiI6MTUwNDI1NzM2MCwidHlwZSI6InZpc2l0b3JSZWNvcmRpbmdzIiwidmVyc2lvbiI6MSwiaGFzaCI6ImUzODIxYzk5ZDE0OWNiYjYxZmI1ZWRhZDVhODdiZmU0Iiwic2NvcGUiOnRydWUsImZybiI6ZmFsc2V9&analyze=1&nD=1&fetch_url=r1.visualwebsiteoptimizer.com&sig=NjoxMzRDMjQwNTMwMDY2QjhFQzYyNkNDQTM3NTFGNjk4MTo3MGJkM2JlYzVmMzZjNWI3YzM3NjIyMmQyZWNjZGZkNTI3OTk5ZTQ2NDExOWNkYzBkZjNiNzk0ZmIyZGMwYTc4&saved=false&numOfPages=1&countryCode=ES\",\n                \"experienceScore\": 0\n            },\n            {\n                \"deviceType\": \"desktop\",\n                \"country\": \"Spain\",\n                \"numOfPages\": 1,\n                \"cte_0.null\": null,\n                \"os\": \"Windows\",\n                \"city\": \"Madrid\",\n                \"domains\": \"vwo.com\",\n                \"sessionId\": 1740673076,\n                \"uuid\": \"A7D167E548E2E34A7E33846D6BE30D58\",\n                \"platform\": 2,\n                \"duration\": 13.341,\n                \"rc\": 0,\n                \"osVersion\": \"10\",\n                \"null\": null,\n                \"countryCode\": \"ES\",\n                \"browser\": \"Chrome\",\n                \"browserVersion\": \"133\",\n                \"clicks\": 1,\n                \"region\": \"Madrid\",\n                \"trafficCode\": null,\n                \"dc\": 0,\n                \"sig\": \"NjpBN0QxNjdFNTQ4RTJFMzRBN0UzMzg0NkQ2QkUzMEQ1ODpiMWQzNTNiNjBmODg3NmMwN2Q3YjgxYTk1NmY0YzE1M2M4Mzc0MDY0YmM1ZGY3NDgyZGVjMTczOWY5OTU4ZDk1\",\n                \"recordingUrl\": \"https://player.vwo.me/visitor-behavior-analysis/dist/recordings?campaignId=28&account_id=6&uuid=A7D167E548E2E34A7E33846D6BE30D58&sessionId=1740673076&token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyOCwidmlzaXRvclJlY29yZGluZ1Nlc3Npb25JZCI6MTc0MDY3MzA3NiwiY3JlYXRlZF9vbiI6MTUwNDI1NzM2MCwidHlwZSI6InZpc2l0b3JSZWNvcmRpbmdzIiwidmVyc2lvbiI6MSwiaGFzaCI6ImFjZGQ1ZGE4MjA1NjA5NzI0MzU2OTJlZjk5YjRkMDE5Iiwic2NvcGUiOnRydWUsImZybiI6ZmFsc2V9&analyze=1&nD=1&fetch_url=r1.visualwebsiteoptimizer.com&sig=NjpBN0QxNjdFNTQ4RTJFMzRBN0UzMzg0NkQ2QkUzMEQ1ODpiMWQzNTNiNjBmODg3NmMwN2Q3YjgxYTk1NmY0YzE1M2M4Mzc0MDY0YmM1ZGY3NDgyZGVjMTczOWY5OTU4ZDk1&saved=false&numOfPages=1&countryCode=ES\",\n                \"experienceScore\": 100\n            },\n            {\n                \"deviceType\": \"desktop\",\n                \"country\": \"Mexico\",\n                \"numOfPages\": 1,\n                \"cte_0.null\": null,\n                \"os\": \"Windows\",\n                \"city\": \"Mexico City\",\n                \"domains\": \"vwo.com\",\n                \"sessionId\": 1740672470,\n                \"uuid\": \"E819768D3934B7192BA3F54E8176D1FE\",\n                \"platform\": 2,\n                \"duration\": 5.61,\n                \"rc\": 0,\n                \"osVersion\": \"10\",\n                \"null\": null,\n                \"countryCode\": \"MX\",\n                \"browser\": \"Chrome\",\n                \"browserVersion\": \"132\",\n                \"clicks\": 0,\n                \"region\": \"Distrito Federal\",\n                \"trafficCode\": null,\n                \"dc\": 0,\n                \"sig\": \"NjpFODE5NzY4RDM5MzRCNzE5MkJBM0Y1NEU4MTc2RDFGRTplNTEyZjkzNWYyYWFhMTI0ZDYwNTIzYTdkYTZiZTU3YzcxMDYyNWU0NjFmOTg1ZmEwOTRlNzRkNzM2MTRiODVi\",\n                \"recordingUrl\": \"https://player.vwo.me/visitor-behavior-analysis/dist/recordings?campaignId=28&account_id=6&uuid=E819768D3934B7192BA3F54E8176D1FE&sessionId=1740672470&token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyOCwidmlzaXRvclJlY29yZGluZ1Nlc3Npb25JZCI6MTc0MDY3MjQ3MCwiY3JlYXRlZF9vbiI6MTUwNDI1NzM2MCwidHlwZSI6InZpc2l0b3JSZWNvcmRpbmdzIiwidmVyc2lvbiI6MSwiaGFzaCI6Ijk4NTMxMTdkYWJjNGVkYWZmNDAxM2I3ZjhhM2I3ZGFjIiwic2NvcGUiOnRydWUsImZybiI6ZmFsc2V9&analyze=1&nD=1&fetch_url=r1.visualwebsiteoptimizer.com&sig=NjpFODE5NzY4RDM5MzRCNzE5MkJBM0Y1NEU4MTc2RDFGRTplNTEyZjkzNWYyYWFhMTI0ZDYwNTIzYTdkYTZiZTU3YzcxMDYyNWU0NjFmOTg1ZmEwOTRlNzRkNzM2MTRiODVi&saved=false&numOfPages=1&countryCode=MX\",\n                \"experienceScore\": 0\n            }\n        ],\n        \"topElementsWithMostDeadClicks\": [\n            {\n                \"experienceScore\": 62,\n                \"textDataType\": \"innerText\",\n                \"textDataSessionPercent\": 1,\n                \"text\": \"We use cookies to ensure you get the best experience on our website. You can control how we use cook\"\n            },\n            {\n                \"experienceScore\": 50,\n                \"textDataType\": \"innerText\",\n                \"textDataSessionPercent\": 1,\n                \"text\": \"Web Testing\"\n            },\n            {\n                \"experienceScore\": 66,\n                \"textDataType\": \"innerText\",\n                \"textDataSessionPercent\": 1,\n                \"text\": \"Recursos\"\n            },\n            {\n                \"experienceScore\": 66,\n                \"textDataType\": \"innerText\",\n                \"textDataSessionPercent\": 2,\n                \"text\": \"Capacidades\\nPrecios\\nSoluciones\\n¿Por qué VWO?\\nRecursos\\nContacto\\nIniciar sesión\\nES\\nOptimiza tus experi\"\n            },\n            {\n                \"experienceScore\": 67,\n                \"textDataType\": \"innerText\",\n                \"textDataSessionPercent\": 1,\n                \"text\": \"Personaliza\\nCrea experiencias a medida para segmentos de usuarios específicos utilizando los datos d\"\n            }\n        ],\n        \"topElementsWithMostRageClicks\": null,\n        \"segmentsWithLowestExperienceScore\": {\n            \"result\": {\n                \"goalMetric\": \"session_experience\",\n                \"negativeUplift\": {\n                    \"count\": 5,\n                    \"segmentFound\": true,\n                    \"segments\": [\n                        {\n                            \"ctbc\": 0.9963509969866882,\n                            \"mean\": 85,\n                            \"meanOverall\": 91,\n                            \"rule\": \"1000 + es-es\",\n                            \"segment\": [\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_traffic\",\n                                    \"value\": \"1000\"\n                                },\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_language\",\n                                    \"value\": \"es-es\"\n                                }\n                            ],\n                            \"segmentVisitors\": 108,\n                            \"totalVisitors\": 945,\n                            \"uplift\": 0,\n                            \"applySegments\": [\n                                \"visit_traffic:1000\",\n                                \"visit_language:es-es\"\n                            ],\n                            \"experienceScore\": 85,\n                            \"segmentDisplayText\": \"Traffic Source = Direct + Language = Spanish - Spain (Traditional)\"\n                        },\n                        {\n                            \"ctbc\": 0.997609415210061,\n                            \"mean\": 86,\n                            \"meanOverall\": 91,\n                            \"rule\": \"True + 1000\",\n                            \"segment\": [\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_is_returning\",\n                                    \"value\": \"True\"\n                                },\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_traffic\",\n                                    \"value\": \"1000\"\n                                }\n                            ],\n                            \"segmentVisitors\": 149,\n                            \"totalVisitors\": 945,\n                            \"uplift\": 0,\n                            \"applySegments\": [\n                                \"visit_is_returning:True\",\n                                \"visit_traffic:1000\"\n                            ],\n                            \"experienceScore\": 86,\n                            \"segmentDisplayText\": \"Visitor Type = Returning + Traffic Source = Direct\"\n                        },\n                        {\n                            \"ctbc\": 0.9874583699773058,\n                            \"mean\": 87,\n                            \"meanOverall\": 91,\n                            \"rule\": \"Mac OS X + True\",\n                            \"segment\": [\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_os\",\n                                    \"value\": \"Mac OS X\"\n                                },\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_is_returning\",\n                                    \"value\": \"True\"\n                                }\n                            ],\n                            \"segmentVisitors\": 187,\n                            \"totalVisitors\": 945,\n                            \"uplift\": 0,\n                            \"applySegments\": [\n                                \"visit_os:Mac OS X\",\n                                \"visit_is_returning:True\"\n                            ],\n                            \"experienceScore\": 87,\n                            \"segmentDisplayText\": \"OperatingSystem = Mac OS X + Visitor Type = Returning\"\n                        },\n                        {\n                            \"ctbc\": 0.9889875232950452,\n                            \"mean\": 88,\n                            \"meanOverall\": 91,\n                            \"rule\": \"1000\",\n                            \"segment\": [\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_traffic\",\n                                    \"value\": \"1000\"\n                                }\n                            ],\n                            \"segmentVisitors\": 210,\n                            \"totalVisitors\": 945,\n                            \"uplift\": 0,\n                            \"applySegments\": [\n                                \"visit_traffic:1000\"\n                            ],\n                            \"experienceScore\": 88,\n                            \"segmentDisplayText\": \"Traffic Source = Direct\"\n                        },\n                        {\n                            \"ctbc\": 0.9741916598143234,\n                            \"mean\": 89,\n                            \"meanOverall\": 91,\n                            \"rule\": \"True\",\n                            \"segment\": [\n                                {\n                                    \"custom\": false,\n                                    \"dimension\": \"visit_is_returning\",\n                                    \"value\": \"True\"\n                                }\n                            ],\n                            \"segmentVisitors\": 397,\n                            \"totalVisitors\": 945,\n                            \"uplift\": 0,\n                            \"applySegments\": [\n                                \"visit_is_returning:True\"\n                            ],\n                            \"experienceScore\": 89,\n                            \"segmentDisplayText\": \"Visitor Type = Returning\"\n                        }\n                    ]\n                }\n            },\n            \"status\": \"completed\"\n        },\n        \"heatmapUrl\": \"https://app.wingify.com/#/analyze/heatmap/23/reports?token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyMywiY3JlYXRlZF9vbiI6MTUwNDI1NTY1NiwidHlwZSI6ImNhbXBhaWduIiwidmVyc2lvbiI6MSwiaGFzaCI6IjliOGQwM2RiMGNiMmQwZmE2NzNiOWQ4MWIwN2U0YTNlIiwic2NvcGUiOiIiLCJmcm4iOmZhbHNlfQ==&isHttpsOnly=1\"\n    }\n}"
                   }
                 },
                 "schema": {
@@ -7977,7 +7722,7 @@
                         },
                         "heatmapUrl": {
                           "type": "string",
-                          "example": "https://app.vwo.com/#/analyze/heatmap/23/reports?token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyMywiY3JlYXRlZF9vbiI6MTUwNDI1NTY1NiwidHlwZSI6ImNhbXBhaWduIiwidmVyc2lvbiI6MSwiaGFzaCI6IjliOGQwM2RiMGNiMmQwZmE2NzNiOWQ4MWIwN2U0YTNlIiwic2NvcGUiOiIiLCJmcm4iOmZhbHNlfQ==&isHttpsOnly=1"
+                          "example": "https://app.wingify.com/#/analyze/heatmap/23/reports?token=eyJhY2NvdW50X2lkIjo2LCJleHBlcmltZW50X2lkIjoyMywiY3JlYXRlZF9vbiI6MTUwNDI1NTY1NiwidHlwZSI6ImNhbXBhaWduIiwidmVyc2lvbiI6MSwiaGFzaCI6IjliOGQwM2RiMGNiMmQwZmE2NzNiOWQ4MWIwN2U0YTNlIiwic2NvcGUiOiIiLCJmcm4iOmZhbHNlfQ==&isHttpsOnly=1"
                         }
                       }
                     }
@@ -8006,7 +7751,218 @@
         "deprecated": false
       }
     },
-    "/new-endpoint": {
+    "/accounts/{account_id}/attribute-list": {
+      "post": {
+        "description": "",
+        "operationId": "post_accounts{account_id}attribute-list",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "New Example": {
+                    "summary": "New Example",
+                    "value": ""
+                  },
+                  "response": {
+                    "summary": "response",
+                    "value": {
+                      "_data": {
+                        "id": 880,
+                        "name": "Sample Attributes List",
+                        "fileName": 1705490596,
+                        "description": "This is a sample attributes list",
+                        "filePath": "65a7b8a4cf3ff",
+                        "createdBy": "test12",
+                        "createdOn": 1705490596,
+                        "updatedOn": 1705490596,
+                        "source": "Api",
+                        "entityId": null,
+                        "status": "Synced",
+                        "accountInfo": {
+                          "id": 8000398,
+                          "name": "testdemo",
+                          "isMainAccount": false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "required": true,
+            "description": "Your VWO account ID",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": true,
+            "description": "Your API token (see auth guide)",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": true,
+            "description": "Name of the list attribute",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "description": "Short description for the attribute",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "description": "Content type must be text/plain",
+            "schema": {
+              "type": "string",
+              "default": "text/plain"
+            }
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "required": true,
+            "description": "API response type",
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {},
+                "type": "object"
+              }
+            }
+          }
+        },
+        "x-readme": {
+          "code-samples": [
+            {
+              "code": "curl --location 'https://app.wingify.com/api/v2/accounts/{account_id}/attribute-list?name=myList&description=testList' \\\n--header 'accept: application/json' \\\n--header 'token: {authenticationToken}' \\\n--header 'Content-Type: text/plain' \\\n--data 'user_1\nuser_2\nuser_3'",
+              "language": "shell",
+              "name": ""
+            }
+          ],
+          "samples-languages": [
+            "shell"
+          ]
+        }
+      }
+    },
+    "/accounts/{account_id}/attribute-list/{id}": {
+      "post": {
+        "description": "",
+        "operationId": "get_new-endpoint",
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "required": true,
+            "description": "Your VWO account ID",
+            "schema": {
+              "type": "string",
+              "default": "current"
+            }
+          },
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "The ID of the attributes list to update",
+            "schema": {
+              "type": "integer",
+              "default": ""
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "required": false,
+            "description": "Name of the list attribute (max 25 characters)",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "required": false,
+            "description": "Description of the list (max 50 characters)",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": true,
+            "description": "Your VWO API authentication token",
+            "schema": {
+              "type": "string",
+              "default": ""
+            }
+          },
+          {
+            "name": "accept",
+            "in": "header",
+            "required": true,
+            "description": "Must be application/json",
+            "schema": {
+              "type": "string",
+              "default": "application/json"
+            }
+          },
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "description": "Must be text/plain",
+            "schema": {
+              "type": "string",
+              "default": "text/plain"
+            }
+          }
+        ]
+      }
+    },
+    "//accounts/{account_id}/attribute-list/{id}": {
       "get": {
         "description": "",
         "operationId": "get_new-endpoint",
@@ -8015,10 +7971,408 @@
             "description": ""
           }
         },
-        "parameters": []
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ]
       }
     },
-    "/accounts/{account_id}/campaigns/status-1": {}
+    "/accounts/{account_id}/insights-metrics": {
+      "get": {
+        "description": "",
+        "operationId": "get_accounts{account_id}insights-metrics",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "_data": {
+                      "type": "object",
+                      "description": "",
+                      "properties": {
+                        "partialCollection": {
+                          "type": "array",
+                          "items": {
+                            "properties": {},
+                            "type": "object"
+                          }
+                        },
+                        "totalCount": {
+                          "type": "number"
+                        },
+                        "offset": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "New Example": {
+                    "summary": "New Example",
+                    "value": {
+                      "_data": {
+                        "partialCollection": [
+                          {
+                            "id": 27,
+                            "name": "new Report",
+                            "status": "RUNNING",
+                            "createdOn": 1758607258,
+                            "modifiedOn": 1758607258,
+                            "isDeleted": false,
+                            "createdBy": {
+                              "name": "VWO Support",
+                              "imageUrl": "/assets/images/vwo-support.svg"
+                            },
+                            "startedOn": "2025-09-23 06:00:58",
+                            "dataIntervalRange": {
+                              "intervalSize": 86400,
+                              "startTime": 1758585600,
+                              "endTime": 1758671999,
+                              "limitingStartTime": 1758585600,
+                              "limitingEndTime": 1758671999
+                            },
+                            "goals": [
+                              {
+                                "id": 1,
+                                "name": "new Report",
+                                "type": "custom-conversion",
+                                "description": "",
+                                "createdAt": 1758607258,
+                                "metricId": 1274,
+                                "isArchived": false,
+                                "attributionTime": "",
+                                "calcLogic": {
+                                  "logic": "triggered"
+                                },
+                                "events": [
+                                  {
+                                    "props": [
+                                      {
+                                        "id": "112-Property",
+                                        "include": [
+                                          {
+                                            "queryElementType": "partialQuery",
+                                            "id": "90-VwoPageGroup",
+                                            "operator": 11,
+                                            "rOperandValue": "https://bla.com",
+                                            "configurations": {
+                                              "ignoreOnlyQueryParams": true,
+                                              "ignoreOnlyHashFrag": true,
+                                              "caseInsensitive": true
+                                            }
+                                          }
+                                        ],
+                                        "exclude": [],
+                                        "apiName": "event.targetUrl"
+                                      }
+                                    ],
+                                    "id": "58-Event",
+                                    "eventDefinitionType": "STANDARD",
+                                    "apiName": "vwo_dom_click",
+                                    "name": "Click",
+                                    "isComputed": false,
+                                    "queryElementType": "partialQuery"
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ],
+                        "totalCount": "5",
+                        "offset": ""
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "number",
+              "default": "25"
+            }
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "in": "query",
+            "name": "status",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "order",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/accounts/{account_id}/insights-metrics/{report_id}": {
+      "get": {
+        "description": "",
+        "operationId": "get_accounts{account_id}insights-metrics{metrics_report_id}",
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "examples": {
+                  "New Example": {
+                    "summary": "New Example",
+                    "value": {
+                      "_data": {
+                        "id": 30,
+                        "name": "Revenue Report",
+                        "platform": "website",
+                        "type": "insights-metric",
+                        "status": "RUNNING",
+                        "createdOn": 1758697912,
+                        "modifiedOn": 1758697912,
+                        "isDeleted": false,
+                        "createdBy": {
+                          "name": "VWO Support",
+                          "imageUrl": "/assets/images/vwo-support.svg"
+                        },
+                        "startedOn": "2025-09-24 07:11:54",
+                        "dataIntervalRange": {
+                          "intervalSize": 86400,
+                          "startTime": 1758672000,
+                          "endTime": 1758758399,
+                          "limitingStartTime": 1758672000,
+                          "limitingEndTime": 1758758399
+                        },
+                        "goals": [
+                          {
+                            "id": 1,
+                            "name": "Revenue Report",
+                            "type": "revenue",
+                            "description": "",
+                            "createdAt": 1758697912,
+                            "metricId": 1290,
+                            "isArchived": false,
+                            "attributionTime": "",
+                            "calcLogic": {
+                              "logic": "function",
+                              "function": "sum",
+                              "property": 101764,
+                              "unit": "revenue",
+                              "apiName": "price"
+                            },
+                            "events": [
+                              {
+                                "props": [],
+                                "id": "100327-Event",
+                                "eventDefinitionType": "CUSTOM",
+                                "apiName": "revenue",
+                                "name": "revenue",
+                                "isComputed": false,
+                                "queryElementType": "partialQuery"
+                              }
+                            ]
+                          }
+                        ],
+                        "visitorData": [
+                          {
+                            "aggregated": {
+                              "totalRevenue": 450,
+                              "conversionCount": 1
+                            },
+                            "intervalWise": [
+                              {
+                                "totalRevenue": 450,
+                                "conversionCount": 1,
+                                "interval": 1758672000
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "in": "path",
+            "name": "account_id",
+            "schema": {
+              "type": "number"
+            },
+            "required": true
+          },
+          {
+            "in": "path",
+            "name": "report_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true
+          }
+        ]
+      }
+    },
+    "/accounts/{account_id}/connection/{connection_id}": {
+      "delete": {
+        "summary": "Delete Integration Connection for a Specific Account Integration",
+        "description": "Deletes an existing integration connection for the specified account and connection ID.",
+        "operationId": "update-third-party-integrations-for-account",
+        "parameters": [
+          {
+            "name": "account_id",
+            "in": "path",
+            "description": "Use 'current' keyword to refer to the Main Account or the Integer Sub Account Id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "connection_id",
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "description": "Unique identifier of the integration connection that should be deleted."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200",
+            "content": {
+              "application/json": {
+                "examples": {
+                  "Result": {
+                    "value": "{\n  \"_data\": {\n    \"ga\": {\n      \"enabled\": true,\n      \"slot\": 4,\n      \"prefix\": \"\"\n    },\n    \"ua\": {\n      \"enabled\": false,\n      \"dimension\": 1,\n      \"prefix\": \"\"\n    },\n    \"gtm\": {\n      \"enabled\": false\n    },\n    \"clicktale\": {\n      \"enabled\": false\n    },\n    \"isGaPremium\": false\n  }\n}"
+                  }
+                },
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "_data": {
+                      "type": "object",
+                      "properties": {
+                        "ga": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": true,
+                              "default": true
+                            },
+                            "slot": {
+                              "type": "integer",
+                              "example": 4,
+                              "default": 0
+                            },
+                            "prefix": {
+                              "type": "string",
+                              "example": ""
+                            }
+                          }
+                        },
+                        "ua": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": false,
+                              "default": true
+                            },
+                            "dimension": {
+                              "type": "integer",
+                              "example": 1,
+                              "default": 0
+                            },
+                            "prefix": {
+                              "type": "string",
+                              "example": ""
+                            }
+                          }
+                        },
+                        "gtm": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": false,
+                              "default": true
+                            }
+                          }
+                        },
+                        "clicktale": {
+                          "type": "object",
+                          "properties": {
+                            "enabled": {
+                              "type": "boolean",
+                              "example": false,
+                              "default": true
+                            }
+                          }
+                        },
+                        "isGaPremium": {
+                          "type": "boolean",
+                          "example": false,
+                          "default": true
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
   },
   "x-readme": {
     "headers": [],

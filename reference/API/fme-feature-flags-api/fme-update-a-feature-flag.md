@@ -45,7 +45,7 @@ PATCH /accounts/123456/features/1
             "variableName": "variable3",
             "dataType": "json",
             "defaultValue": {
-                "name": "VWO",
+                "name": "Wingify",
                 "product": "FE"
             }
         }

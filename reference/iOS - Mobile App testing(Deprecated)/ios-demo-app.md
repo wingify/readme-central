@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Using the VWO demo app, you can try Mobile App A/B testing.\
+Using the Wingify demo app, you can try Mobile App A/B testing.\
 To try the demo app, you will need `ApiKey`.
 
 ## Running the Demo App
@@ -21,7 +21,7 @@ Run `pod install`
 
 ## Enter ApiKey
 
-You need to add an app to your VWO account. Please refer to [Adding an App](ref:ios-adding-an-app) for details.\
+You need to add an app to your Wingify account. Please refer to [Adding an App](ref:ios-adding-an-app) for details.\
 Copy your `ApiKey`.\
 Run the app from Xcode. You can choose either a simulator or your iPhone.
 
@@ -48,7 +48,7 @@ When you run your app after setting launch argument, it should appear pre filled
 
 ![750](https://files.readme.io/630406e-Simulator_Screen_Shot_-_iPhone_7_-_2018-07-30_at_15.07.31.png "Simulator Screen Shot - iPhone 7 - 2018-07-30 at 15.07.31.png")
 
-> 🚧 APIKey in launch will not launch VWO
+> 🚧 APIKey in launch will not launch Wingify
 >
 > Adding your API Key to the launch parameter will only make your work easy by automatically adding the API key to the input text field. Developer will have to manually launch the app separately.
 

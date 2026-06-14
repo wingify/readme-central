@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To opt out of tracking by VWO, use `setOptOut:YES` method on users you don’t want to be tracked.
+To opt out of tracking by Wingify, use `setOptOut:YES` method on users you don’t want to be tracked.
 
 ```objectivec
 VWOConfig *config = [VWOConfig new];
@@ -34,4 +34,4 @@ VWO.launch(apiKey: "<your-api-key>", config: config
 })
 ```
 
-A user by default will be tracked by VWO.
+A user by default will be tracked by Wingify.
