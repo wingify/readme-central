@@ -275,4 +275,4 @@ When an Android app is integrated with the Wingify SDK, the increase in the size
   </tbody>
 </Table>
 
-If you want to know the impact of any other parameter or if you are interested in detail of any parameter, please reach out to us: [support@wingify.com](mailto:support@wingify.com)
+If you want to know the impact of any other parameter or if you are interested in detail of any parameter, please reach out to us: [support@vwo.com](mailto:support@vwo.com)

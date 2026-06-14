@@ -19,8 +19,8 @@ The `onEventReceive` API enables listening to key Wingify lifecycle events and e
 ### API Signature
 
 ```javascript
-window.Wingify = window.Wingify || [];
-Wingify.push(['onEventReceive', <event_name>, <callback_function>]);
+window.VWO = window.VWO || [];
+VWO.push(['onEventReceive', <event_name>, <callback_function>]);
 ```
 
 ### Parameters
@@ -65,7 +65,7 @@ Wingify.push(['onEventReceive', <event_name>, <callback_function>]);
 #### Example 1: Handle URL Changes in an SPA
 
 ```javascript
-window.Wingify.push(['onEventReceive', 'uC', function () {
+window.VWO.push(['onEventReceive', 'uC', function () {
     window._vis_opt_url = ''; // Reset custom URL
 }]);
 ```
@@ -73,7 +73,7 @@ window.Wingify.push(['onEventReceive', 'uC', function () {
 #### Example 2: Track Goal Conversions
 
 ```javascript
-window.Wingify.push(['onEventReceive', 'rC', function (data) {
+window.VWO.push(['onEventReceive', 'rC', function (data) {
     const [eventName, experimentId, goalId] = data;
     console.log(`Goal ${goalId} triggered in Experiment ${experimentId}`);
 }]);
@@ -82,7 +82,7 @@ window.Wingify.push(['onEventReceive', 'rC', function (data) {
 #### Example 3: Preemptive Variation Bucketing
 
 ```javascript
-window.Wingify.push(['onEventReceive', 'cC', function (data) {
+window.VWO.push(['onEventReceive', 'cC', function (data) {
     const [eventName, experimentId] = data;
     console.log(`User bucketed in Experiment ${experimentId} before applying changes.`);
 }]);
@@ -91,7 +91,7 @@ window.Wingify.push(['onEventReceive', 'cC', function (data) {
 #### Example 4: Ensure Variation is Applied
 
 ```javascript
-window.Wingify.push(['onEventReceive', 'vA', function (data) {
+window.VWO.push(['onEventReceive', 'vA', function (data) {
     const [eventName, experimentId] = data;
     console.log(`Variation applied for Experiment ${experimentId}`);
 }]);
@@ -100,14 +100,14 @@ window.Wingify.push(['onEventReceive', 'vA', function (data) {
 #### Example 5: Track errors when variation changes are applied
 
 ```javascript
-window.Wingify.push(['onEventReceive', 'vAE', function (data) {
+window.VWO.push(['onEventReceive', 'vAE', function (data) {
     const [eventName, experimentId, variationId, error] = data;
     console.log(`${error.toString()} occured in ${variationId} variation of campaign id ${experimentId}`);
 }]);
 ```
 
 ```javascript
-window.Wingify.push(['onEventReceive', 'vA', function (data) {
+window.VWO.push(['onEventReceive', 'vA', function (data) {
     const [eventName, experimentId] = data;
     console.log(`Variation applied for Experiment ${experimentId}`);
 }]);
@@ -116,7 +116,7 @@ window.Wingify.push(['onEventReceive', 'vA', function (data) {
 #### Example 5: Track errors when variation changes are applied
 
 ```javascript
-window.Wingify.push(['onEventReceive', 'vAE', function (data) {
+window.VWO.push(['onEventReceive', 'vAE', function (data) {
     const [eventName, experimentId, variationId, error] = data;
     console.log(`${error.toString()} occured in ${variationId} variation of campaign id ${experimentId}`);
 }]);

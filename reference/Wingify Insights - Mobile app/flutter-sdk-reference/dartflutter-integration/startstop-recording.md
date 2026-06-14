@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-If you want to start recording as soon as the application launches, start the session recording during the SDK initialization. Refer to the instructions here for [Android](https://developers.wingify.com/reference/android-integration) & [IOS](https://developers.wingify.com/reference/ios-integration).
+If you want to start recording as soon as the application launches, start the session recording during the SDK initialization. Refer to the instructions here for [Android](https://developers.vwo.com/reference/android-integration) & [IOS](https://developers.vwo.com/reference/ios-integration).
 
 <br />
 

@@ -35,4 +35,4 @@ VWOInsights.sendCustomEvent("addToCart", addToCartEvent)
 
 This snippet dispatches a custom event named "addToCart" to Wingify using the sendCustomEvent function. 
 
-Ensure that the event name (e.g., "addToCart") and the event property names (e.g., "productQuantity") are the same as defined by you in Wingify under the [Data360](https://app.wingify.com/#/data360/events) module.
+Ensure that the event name (e.g., "addToCart") and the event property names (e.g., "productQuantity") are the same as defined by you in Wingify under the [Data360](https://app.vwo.com/#/data360/events) module.

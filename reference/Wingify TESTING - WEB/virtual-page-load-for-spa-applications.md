@@ -17,8 +17,8 @@ The `activate` API triggers virtual page loads in SPAs, re-running campaigns bas
 ### Signature
 
 ```javascript
-window.Wingify = window.Wingify || [];
-window.Wingify.push(['activate', {
+window.VWO = window.VWO || [];
+window.VWO.push(['activate', {
     virtualPageUrl: <NEW_VIRTUAL_PAGE_URL>
 }]);
 ```
@@ -32,8 +32,8 @@ window.Wingify.push(['activate', {
 ### Examples
 
 ```javascript
-window.Wingify = window.Wingify || [];
-window.Wingify.push(['activate', {
+window.VWO = window.VWO || [];
+window.VWO.push(['activate', {
     virtualPageUrl: '/new-page'
 }]);
 ```

@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-Wingify SDK allows you to track conversions using [trackConversion](https://developers.wingify.com/reference#android-trigger-goals) API. There could be scenarios when you would like to track conversions without using the SDK.
+Wingify SDK allows you to track conversions using [trackConversion](https://developers.vwo.com/reference#android-trigger-goals) API. There could be scenarios when you would like to track conversions without using the SDK.
 
 To understand this in detail, let's take an example, where you have your own centralized data-storage service which stores the information of all the events.  Whenever a conversion happens at your application, you store the data in the storage service but the integrated tools like Wingify do not know about this conversion. Let's assume you do not prefer real-time syncing of this data with Wingify and therefore, you run a [cron job](https://en.wikipedia.org/wiki/Cron) at the end of the day to sync conversions data with Wingify. To achieve this,  you would want an HTTP API to send the conversions data of all the users who became part of the campaign back to Wingify.
 
