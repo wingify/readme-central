@@ -20,12 +20,12 @@ ArrayList<View> views = new ArrayList<>();
 views.add(view1);
 views.add(view2);
 // .. and so on
-VWOInsights.hideViews(views);
+WingifyInsights.hideViews(views);
 
 
 // or simply pass each view separately
-VWOInsights.hideView(view1)
-VWOInsights.hideView(view2)
+WingifyInsights.hideView(view1)
+WingifyInsights.hideView(view2)
 // .. and so on
 ```
 ```kotlin
@@ -34,11 +34,11 @@ val views = ArrayList<View>()
 views.add(view1)
 views.add(view2)
 // .. and so on
-VWOInsights.hideViews(views)
+WingifyInsights.hideViews(views)
 
 
 // or simply pass each view separately
-VWOInsights.hideView(view1)
-VWOInsights.hideView(view2)
+WingifyInsights.hideView(view1)
+WingifyInsights.hideView(view2)
 // .. and so on
 ```

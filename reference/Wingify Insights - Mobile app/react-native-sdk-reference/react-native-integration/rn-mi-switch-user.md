@@ -1,14 +1,14 @@
 ---
 title: Switch User
 excerpt: >-
-  Set or update the current user identifier for VWO Insights. - Available from
+  Set or update the current user identifier for Wingify Insights. - Available from
   SDK version 2.2.0
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Sets or updates the current user identifier for VWO Insights.
+Sets or updates the current user identifier for Wingify Insights.
 
 **Method Signature**
 
@@ -42,7 +42,7 @@ setUserId(userId: string): Promise<boolean>
 **Example**
 
 ```typescript
-import { setUserId } from 'vwo-insights-react-native-sdk';
+import { setUserId } from 'wingify-insights-react-native-sdk';
 
 async function identifyUser(userId: string) {
   try {

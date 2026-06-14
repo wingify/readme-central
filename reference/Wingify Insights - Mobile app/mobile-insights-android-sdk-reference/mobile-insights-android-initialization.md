@@ -35,7 +35,7 @@ After installing the SDK, initialize the app in the *onCreate* function of the A
       </td>
 
       <td>
-        VWO Account ID
+        Wingify Account ID
       </td>
     </tr>
 
@@ -63,7 +63,7 @@ After installing the SDK, initialize the app in the *onCreate* function of the A
 
     <tr>
       <td>
-        **IVwoInitCallback**\
+        **IWingifyInitCallback**\
         *Optional*
       </td>
 
@@ -78,25 +78,25 @@ After installing the SDK, initialize the app in the *onCreate* function of the A
 package com.wingify.screenshotsample
 
 import android.app.Application
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.core.models.ClientConfiguration
-import com.vwo.insights.exposed.IVwoInitCallback
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.core.models.ClientConfiguration
+import com.wingify.insights.exposed.IWingifyInitCallback
 
-class VWOApplication : Application() {
+class WingifyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
 
         ClientConfiguration configuration = new ClientConfiguration("ACCOUNT_ID", "SDK_KEY", "USER_ID");
-        VWOInsights.init(this, new IVwoInitCallback() { 
+        WingifyInsights.init(this, new IWingifyInitCallback() { 
                 @Override  
-                public void vwoInitSuccess(@NonNull String s) {
+                public void wingifyInitSuccess(@NonNull String s) {
                      // Insights SDK Initialized successfully 
                 }
      
                 @Override
-                public void vwoInitFailed(@NonNull String s) {
+                public void wingifyInitFailed(@NonNull String s) {
                      // Insights SDK NOT Initialized successfully
                 }
          }, configuration, null);
@@ -108,24 +108,24 @@ class VWOApplication : Application() {
 package com.wingify.screenshotsample
 
 import android.app.Application
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.core.models.ClientConfiguration
-import com.vwo.insights.exposed.IVwoInitCallback
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.core.models.ClientConfiguration
+import com.wingify.insights.exposed.IWingifyInitCallback
 
-class VWOApplication : Application() {
+class WingifyApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
 
         val configuration = ClientConfiguration("ACCOUNT_ID","APPLICATION_ID", "USER_ID")
 
-        VWOInsights.init(this, object : IVwoInitCallback {
-              override fun vwoInitSuccess(message: String) {  
+        WingifyInsights.init(this, object : IWingifyInitCallback {
+              override fun wingifyInitSuccess(message: String) {  
                     // Insights SDK Initialized successfully 
               }
 
 
-              override fun vwoInitFailed(message: String) {
+              override fun wingifyInitFailed(message: String) {
                     // Insights SDK NOT Initialized successfully
               }
 

@@ -15,6 +15,6 @@ Custom attributes can be created by creating a map that contains key and value p
 ```javascript Dart
 final Map<String, dynamic> attributes = {};
 attributes["email"] = "abc@xyz.com";
-attributes["name"] = "VWO Insights";
-VwoFlutter.sendCustomAttribute(attributes);
+attributes["name"] = "Wingify Insights";
+WingifyFlutter.sendCustomAttribute(attributes);
 ```

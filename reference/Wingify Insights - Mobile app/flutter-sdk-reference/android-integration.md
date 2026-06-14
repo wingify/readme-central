@@ -28,9 +28,9 @@ Then, copy the code below and replace the "ACCOUNT_ID" and "SDK_KEY" with the ap
 
 ```java
 import android.util.Log;
-import com.vwo.insights.VWOInsights;
-import com.vwo.insights.exposed.IVwoInitCallback;
-import com.vwo.insights.exposed.models.ClientConfiguration;
+import com.wingify.insights.WingifyInsights;
+import com.wingify.insights.exposed.IWingifyInitCallback;
+import com.wingify.insights.exposed.models.ClientConfiguration;
 import io.flutter.app.FlutterApplication;
  
 public class MyApp extends FlutterApplication {
@@ -39,25 +39,25 @@ public class MyApp extends FlutterApplication {
     public void onCreate() {
         super.onCreate();
 
-        initVWO();
+        initWingify();
     }
 
-    private void initVWO() {
+    private void initWingify() {
       ClientConfiguration config = new ClientConfiguration("ACCOUNT_ID", "SDK_KEY", null);
 
         // Required for Flutter Impeller (default from Flutter 3.27 on Android). Call before init().
-        VWOInsights.enableFlutterPerformanceMode();
+        WingifyInsights.enableFlutterPerformanceMode();
 
-        VWOInsights.init(this, new IVwoInitCallback() {
+        WingifyInsights.init(this, new IWingifyInitCallback() {
  
           @Override
-            public void vwoInitSuccess(String message) {
+            public void wingifyInitSuccess(String message) {
                 //Insights SDK Initialized successfully, log it as desired
             }
           
             @Override
-            public void vwoInitFailed(String message) {
-                //Could not initialise VWO, log it as desired
+            public void wingifyInitFailed(String message) {
+                //Could not initialise Wingify, log it as desired
             }
           
         }, config);
@@ -66,30 +66,30 @@ public class MyApp extends FlutterApplication {
 ```
 ```kotlin
 import android.util.Log
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.exposed.IVwoInitCallback
-import com.vwo.insights.exposed.models.ClientConfiguration
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.exposed.IWingifyInitCallback
+import com.wingify.insights.exposed.models.ClientConfiguration
 import io.flutter.app.FlutterApplication
  
 class MyApp : FlutterApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        initVwo()
+        initWingify()
     }
 
-    fun initVwo() {
+    fun initWingify() {
         val configuration = ClientConfiguration("ACCOUNT_ID", "SDK_KEY", null);
         // Required for Flutter Impeller (default from Flutter 3.27 on Android). Call before init().
-        VWOInsights.enableFlutterPerformanceMode()
+        WingifyInsights.enableFlutterPerformanceMode()
 
-        VWOInsights.init(this, object : IVwoInitCallback {
-            override fun vwoInitSuccess(s: String) {
+        WingifyInsights.init(this, object : IWingifyInitCallback {
+            override fun wingifyInitSuccess(s: String) {
                 //Insights SDK Initialized successfully, log it as desired
             }
  
-            override fun vwoInitFailed(s: String) {
-                //Could not initialise VWO, log it as desired
+            override fun wingifyInitFailed(s: String) {
+                //Could not initialise Wingify, log it as desired
             }
         }, configuration)
     }
@@ -103,11 +103,11 @@ If you want to start recording as soon as the application launches, add the foll
 ```java
 ...rest of the code
 
-    VWOInsights.init(this, new IVwoInitCallback() {
+    WingifyInsights.init(this, new IWingifyInitCallback() {
             @Override
-            public void vwoInitSuccess(String message) {
+            public void wingifyInitSuccess(String message) {
                 //Insights SDK Initialized successfully, log it as desired
-              VWOInsights.INSTANCE.startSessionRecording(); // If you have enabled performance mode and face any crash / issue with this, Please call startSession() from Dart Method, refer https://developers.vwo.com/reference/startstop-recording
+              WingifyInsights.INSTANCE.startSessionRecording(); // If you have enabled performance mode and face any crash / issue with this, Please call startSession() from Dart Method, refer https://developers.wingify.com/reference/startstop-recording
 
 // Also if you are using dart implementation to start stop recordings, Please do not call startSessionRecording() from here
             }
@@ -117,9 +117,9 @@ If you want to start recording as soon as the application launches, add the foll
 ```kotlin
 ...rest of the code
 
-    VWOInsights.init(this, object : IVwoInitCallback {
-        override fun vwoInitSuccess(s: String) {
-            VWOInsights.startSessionRecording() // If you have enabled performance mode and face any crash / issue with this, Please call startSession() from Dart Method, refer https://developers.vwo.com/reference/startstop-recording)
+    WingifyInsights.init(this, object : IWingifyInitCallback {
+        override fun wingifyInitSuccess(s: String) {
+            WingifyInsights.startSessionRecording() // If you have enabled performance mode and face any crash / issue with this, Please call startSession() from Dart Method, refer https://developers.wingify.com/reference/startstop-recording)
 
 // Also ff you are using dart implementation to start stop recordings, Please do not call startSessionRecording() from here
         }
@@ -137,16 +137,16 @@ If you want to start recording as soon as the application launches, add the foll
 
 ## ProGuard (release builds)
 
-When building a **release** (or **profile**) Android app, ProGuard/R8 can strip or obfuscate classes needed by Flutter and the VWO Insights SDK. Add the following rules to your app’s ProGuard file (e.g. `android/app/proguard-rules.pro`) and ensure that file is referenced from `build.gradle` (e.g. `proguardFiles` in the release buildType).
+When building a **release** (or **profile**) Android app, ProGuard/R8 can strip or obfuscate classes needed by Flutter and the Wingify Insights SDK. Add the following rules to your app’s ProGuard file (e.g. `android/app/proguard-rules.pro`) and ensure that file is referenced from `build.gradle` (e.g. `proguardFiles` in the release buildType).
 
 ```proguard
 # Flutter
 -keep class io.flutter.embedding.** { *; }
 -keep class io.flutter.plugin.** { *; }
 
-# VWO Insights SDK
--keep class com.vwo.** { *; }
--keep interface com.vwo.** { *; }
+# Wingify Insights SDK
+-keep class com.wingify.** { *; }
+-keep interface com.wingify.** { *; }
 ```
 
 **Steps:**

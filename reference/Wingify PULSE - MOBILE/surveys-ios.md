@@ -5,9 +5,9 @@ hidden: true
 metadata:
   robots: index
 ---
-# VWO Pulse iOS SDK - Survey Feature
+# Wingify Pulse iOS SDK - Survey Feature
 
-The VWO Pulse iOS SDK enables you to deliver in-app surveys directly inside your iOS application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
+The Wingify Pulse iOS SDK enables you to deliver in-app surveys directly inside your iOS application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
 
 ## Key Features
 
@@ -22,7 +22,7 @@ The VWO Pulse iOS SDK enables you to deliver in-app surveys directly inside your
 | ------------- | -------------------------------------------------- |
 | iOS Version   | iOS 12.0 and above                                 |
 | Swift Version | 5.0+                                               |
-| VWO Dashboard | Access required to retrieve Account ID and SDK Key |
+| Wingify Dashboard | Access required to retrieve Account ID and SDK Key |
 
 ***
 
@@ -31,7 +31,7 @@ The VWO Pulse iOS SDK enables you to deliver in-app surveys directly inside your
 ## Before You Begin
 
 1. **Obtain Your API Key**  
-   Log in to the VWO dashboard and navigate to:  
+   Log in to the Wingify dashboard and navigate to:  
    `Configuration → Websites and apps → Default mobile app → SDK`  
    Retrieve your API key from this section.
 
@@ -48,7 +48,7 @@ Add the SDK dependency to your `Podfile`:
 
 ```ruby
 # Podfile
-pod 'VWO-Insights', '~> 2.1.0'
+pod 'Wingify-Insights', '~> 2.1.0'
 pod 'SwiftyJSON', '~> 5.0.2'
 ```
 
@@ -63,26 +63,26 @@ pod install
 Initialize the SDK in your AppDelegate's `application(_:didFinishLaunchingWithOptions:)` method.
 
 ```swift
-import VWO_Insights
+import Wingify_Insights
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, 
                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        VWO.configure(
-            accountId: "your_account_id",  // Account ID from VWO dashboard
-            sdkKey: "your_sdk_key",        // SDK Key from VWO dashboard
+        Wingify.configure(
+            accountId: "your_account_id",  // Account ID from Wingify dashboard
+            sdkKey: "your_sdk_key",        // SDK Key from Wingify dashboard
             userId: "user_id"              // Unique user identifier
         ) { result in
             switch result {
             case .success(_):
-                print("VWO SDK initialized successfully")
+                print("Wingify SDK initialized successfully")
                 // Safe to trigger surveys now
-                VWO.startSessionRecording()
+                Wingify.startSessionRecording()
                 
             case .failure(let error):
-                print("VWO SDK initialization failed: \(error)")
+                print("Wingify SDK initialization failed: \(error)")
             }
         }
         
@@ -96,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 Add a trigger event to display surveys at specific points in your app:
 
 ```swift
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 surveySDK.trackEvent(
     eventName: "event_name",
     properties: nil,           // Optional event properties
@@ -110,7 +110,7 @@ surveySDK.trackEvent(
 
 ## What are Triggers?
 
-**Triggers** are events in your app (e.g., button presses, screen loads, checkout completion) that prompt a survey if configured in the VWO dashboard.
+**Triggers** are events in your app (e.g., button presses, screen loads, checkout completion) that prompt a survey if configured in the Wingify dashboard.
 
 ## Triggering Surveys
 
@@ -119,14 +119,14 @@ You can trigger surveys using the `trackEvent` method:
 ### Basic Trigger
 
 ```swift
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 surveySDK.trackEvent(eventName: "event_name")
 ```
 
 ### Trigger with Properties
 
 ```swift
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 surveySDK.trackEvent(
     eventName: "purchase_completed",
     properties: [
@@ -153,7 +153,7 @@ You can set profile attributes using `setAttribute()`. This method supports diff
 | Date    | Timestamp in milliseconds |
 
 ```swift
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 
 let attributes: [String: Any] = [
     "account_status": "active",
@@ -170,7 +170,7 @@ surveySDK.setAttribute(attributes: attributes)
 You can also use dedicated methods for email and name:
 
 ```swift
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 surveySDK.updateUserEmail("user@example.com")
 surveySDK.updateUserName("John Doe")
 ```
@@ -180,7 +180,7 @@ surveySDK.updateUserName("John Doe")
 For date values, use timestamp in milliseconds:
 
 ```swift
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 
 let attributes: [String: Any] = [
     // Use current time in milliseconds
@@ -199,7 +199,7 @@ surveySDK.setAttribute(attributes: attributes)
 To display surveys in the user's preferred language, set the survey language using an ISO 639-1 code.
 
 ```swift
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 surveySDK.setLanguageCode("en")
 ```
 
@@ -228,18 +228,18 @@ When a user logs out and a new user logs in, clear the survey data and re-initia
 
 ```swift
 // When user logs out
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 surveySDK.logout()  // Clears survey-related data
 
 // Re-initialize with new user
-VWO.configure(
+Wingify.configure(
     accountId: "your_account_id",
     sdkKey: "your_sdk_key",
     userId: "new_user_id"
 ) { result in
     switch result {
     case .success(_):
-        VWO.startSessionRecording()
+        Wingify.startSessionRecording()
     case .failure(let error):
         print("Re-initialization failed: \(error)")
     }
@@ -250,11 +250,11 @@ VWO.configure(
 
 # API Reference
 
-## VWO
+## Wingify
 
 | Method                                           | Description                             |
 | ------------------------------------------------ | --------------------------------------- |
-| `configure(accountId:sdkKey:userId:completion:)` | Initializes the VWO SDK                 |
+| `configure(accountId:sdkKey:userId:completion:)` | Initializes the Wingify SDK                 |
 | `getSurveyManager()`                             | Returns the Survey SDK manager instance |
 | `startSessionRecording()`                        | Starts session recording                |
 
@@ -274,8 +274,8 @@ VWO.configure(
 
 | Parameter   | Type   | Required | Description                     |
 | ----------- | ------ | -------- | ------------------------------- |
-| `accountId` | String | Yes      | Your VWO account ID             |
-| `sdkKey`    | String | Yes      | Your SDK key from VWO dashboard |
+| `accountId` | String | Yes      | Your Wingify account ID             |
+| `sdkKey`    | String | Yes      | Your SDK key from Wingify dashboard |
 | `userId`    | String | Yes      | Unique identifier for the user  |
 
 ***
@@ -284,8 +284,8 @@ VWO.configure(
 
 ## Survey not showing up?
 
-* Ensure VWO SDK is initialized successfully (check for success in the completion callback)
-* Verify that the event name matches **exactly** what's configured in the VWO dashboard
+* Ensure Wingify SDK is initialized successfully (check for success in the completion callback)
+* Verify that the event name matches **exactly** what's configured in the Wingify dashboard
 * Check that surveys are active and properly configured in the dashboard
 
 ## Survey not showing on home screen or first view?
@@ -295,7 +295,7 @@ This might be a **race condition**. The SDK may not be fully initialized before 
 **Solution:** Use the initialization callback to trigger surveys after successful initialization.
 
 ```swift
-VWO.configure(
+Wingify.configure(
     accountId: "your_account_id",
     sdkKey: "your_sdk_key",
     userId: "user_id"
@@ -304,7 +304,7 @@ VWO.configure(
     case .success(_):
         // Safe to trigger survey here
         DispatchQueue.main.async {
-            let surveySDK = VWO.getSurveyManager()
+            let surveySDK = Wingify.getSurveyManager()
             surveySDK.trackEvent(eventName: "app_launched")
         }
     case .failure(let error):
@@ -336,7 +336,7 @@ VWO.configure(
 
 | Practice                      | Description                                                                                         |
 | ----------------------------- | --------------------------------------------------------------------------------------------------- |
-| **Initialize early**          | Call `VWO.configure()` in your AppDelegate's `application(_:didFinishLaunchingWithOptions:)` method |
+| **Initialize early**          | Call `Wingify.configure()` in your AppDelegate's `application(_:didFinishLaunchingWithOptions:)` method |
 | **Wait for initialization**   | Always wait for the success callback before triggering surveys                                      |
 | **Set user attributes early** | Configure user attributes before triggering surveys for better targeting                            |
 | **Use main thread for UI**    | Wrap survey triggers in `DispatchQueue.main.async` when called from background threads              |

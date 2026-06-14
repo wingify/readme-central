@@ -1,14 +1,14 @@
 ---
 title: Switch User
 excerpt: >-
-  Set or update the current user identifier for VWO Insights. - Available from
+  Set or update the current user identifier for Wingify Insights. - Available from
   SDK version 2.2.0
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-`VWO.setUserId` switches identity when the logged-in user changes in the same app session. Call it only after `VWO.configure` has completed successfully.
+`Wingify.setUserId` switches identity when the logged-in user changes in the same app session. Call it only after `Wingify.configure` has completed successfully.
 
 **Signature**
 
@@ -36,10 +36,10 @@ public static func setUserId(_ newUserId: String,
 **Example**
 
 ```swift
-import VWO
+import Wingify
 
 func handleUserLogin(userId: String) {
-    VWO.setUserId(userId) { result in
+    Wingify.setUserId(userId) { result in
         switch result {
         case .success(let message):
             print("User switch complete: \(message)")
@@ -58,7 +58,7 @@ func handleUserLogin(userId: String) {
 // After user authentication
 let user = try await authenticateUser(email: email, password: password)
 
-VWO.setUserId(user.id) { result in
+Wingify.setUserId(user.id) { result in
     if case .success = result {
         // User identity updated successfully
         // No need to call startSessionRecording() manually

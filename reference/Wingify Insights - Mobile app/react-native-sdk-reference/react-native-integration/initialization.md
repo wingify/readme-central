@@ -17,7 +17,7 @@ After installing the SDK, initialize it in App.tsx file
 Copy the code below and replace the "ACCOUNT\_ID" and "SDK\_KEY" with the appropriate values from the dashboard.
 
 ```javascript
-import {config} from 'vwo-insights-react-native-sdk';
+import {config} from 'wingify-insights-react-native-sdk';
 
 React.useEffect(() => {
     config(ACCOUNT_ID, SDK_KEY, '')

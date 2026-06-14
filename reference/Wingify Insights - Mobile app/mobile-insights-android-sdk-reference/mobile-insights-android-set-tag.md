@@ -16,11 +16,11 @@ A developer can set the same/multiple tags to multiple views for dynamic view hi
 
 ```java
 
-viewObject.setTag(com.vwo.insights.R.id.hideViewId, "Tag Name");
+viewObject.setTag(com.wingify.insights.R.id.hideViewId, "Tag Name");
 
 ```
 ```kotlin
 
-viewObject.setTag(com.vwo.insights.R.id.hideViewId, "Tag Name");
+viewObject.setTag(com.wingify.insights.R.id.hideViewId, "Tag Name");
 
 ```

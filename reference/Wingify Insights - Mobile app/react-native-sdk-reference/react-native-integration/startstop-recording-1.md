@@ -15,7 +15,7 @@ If you want to start recording when the application launches, start recording du
 <br />
 
 ```javascript
-import {config, startRecording } from 'vwo-insights-react-native-sdk';
+import {config, startRecording } from 'wingify-insights-react-native-sdk';
 
 React.useEffect(() => {
  
@@ -31,7 +31,7 @@ React.useEffect(() => {
 If you want to start recording based on a user action, such as tapping a button, use the following code snippet:
 
 ```javascript
-import {startRecording } from 'vwo-insights-react-native-sdk';
+import {startRecording } from 'wingify-insights-react-native-sdk';
 
 // on button Click Event
 onPress =() => {
@@ -47,7 +47,7 @@ onPress =() => {
 If you want to stop recording based on a user action, such as tapping a button, use the following code snippet:
 
 ```javascript
-import { stopRecording } from 'vwo-insights-react-native-sdk';
+import { stopRecording } from 'wingify-insights-react-native-sdk';
 
 // on button Click Event
 onPress =() => {

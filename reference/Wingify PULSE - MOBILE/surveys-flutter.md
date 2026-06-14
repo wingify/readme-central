@@ -5,9 +5,9 @@ hidden: true
 metadata:
   robots: index
 ---
-# VWO Pulse Flutter SDK - Survey Feature
+# Wingify Pulse Flutter SDK - Survey Feature
 
-The VWO Pulse Flutter SDK allows you to deliver in-app surveys seamlessly within your Flutter application. VWO's survey integration enables you to collect targeted user feedback during critical moments in the user journey.
+The Wingify Pulse Flutter SDK allows you to deliver in-app surveys seamlessly within your Flutter application. Wingify's survey integration enables you to collect targeted user feedback during critical moments in the user journey.
 
 ## Key Features
 
@@ -23,7 +23,7 @@ The VWO Pulse Flutter SDK allows you to deliver in-app surveys seamlessly within
 | Flutter | 2.0+ |
 | iOS | 12.0+ |
 | Android | API level 21+ (Android 5.0) |
-| VWO Dashboard | Access required to retrieve Account ID and SDK Key |
+| Wingify Dashboard | Access required to retrieve Account ID and SDK Key |
 
 ---
 
@@ -32,12 +32,12 @@ The VWO Pulse Flutter SDK allows you to deliver in-app surveys seamlessly within
 ## Before You Begin
 
 1. **Obtain Your API Key**  
-   Log in to the VWO dashboard and navigate to:  
+   Log in to the Wingify dashboard and navigate to:  
    Configuration > Websites and apps > Default mobile app > SDK  
    Retrieve your API key from this section.
 
-2. **Setup VWO Pulse**  
-   Ensure you have the VWO Pulse SDK integrated into your Flutter project.
+2. **Setup Wingify Pulse**  
+   Ensure you have the Wingify Pulse SDK integrated into your Flutter project.
 
 ---
 
@@ -49,7 +49,7 @@ Open your pubspec.yaml file and add the following dependency:
 
 ```yaml
 dependencies:
-  vwo_insights_flutter_sdk: ^2.1.0
+  wingify_insights_flutter_sdk: ^2.1.0
 ```
 
 ## Step 2: Install Package
@@ -60,26 +60,26 @@ Run the command:
 flutter pub get
 ```
 
-## Step 3: Import VWO
+## Step 3: Import Wingify
 
-Import VWO in your Dart code:
+Import Wingify in your Dart code:
 
 ```dart
-import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
+import 'package:wingify_insights_flutter_sdk/wingify_insights_flutter_sdk.dart';
 ```
 
 ## Step 4: Native Configuration
 
 ### Android Initialization
 
-Initialize the VWO SDK in your Application class (e.g., FlutterVwoApp.kt):
+Initialize the Wingify SDK in your Application class (e.g., FlutterWingifyApp.kt):
 
 ```kotlin
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.exposed.IVwoInitCallback
-import com.vwo.insights.exposed.models.ClientConfiguration
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.exposed.IWingifyInitCallback
+import com.wingify.insights.exposed.models.ClientConfiguration
 
-class FlutterVwoApp : Application() {
+class FlutterWingifyApp : Application() {
     override fun onCreate() {
         super.onCreate()
         
@@ -89,14 +89,14 @@ class FlutterVwoApp : Application() {
             "USER_ID"
         )
         
-        VWOInsights.init(this, object : IVwoInitCallback {
-            override fun vwoInitSuccess(s: String) {
-                // VWO initialized successfully
+        WingifyInsights.init(this, object : IWingifyInitCallback {
+            override fun wingifyInitSuccess(s: String) {
+                // Wingify initialized successfully
                 // Safe to trigger surveys now
             }
 
-            override fun vwoInitFailed(s: String) {
-                // VWO initialization failed
+            override fun wingifyInitFailed(s: String) {
+                // Wingify initialization failed
             }
         }, configuration)
     }
@@ -107,17 +107,17 @@ Register your Application class in AndroidManifest.xml:
 
 ```xml
 <application
-    android:name=".FlutterVwoApp"
+    android:name=".FlutterWingifyApp"
     ... >
 </application>
 ```
 
 ### iOS Initialization
 
-Initialize the VWO SDK in your AppDelegate.swift:
+Initialize the Wingify SDK in your AppDelegate.swift:
 
 ```swift
-import VWO_Insights
+import Wingify_Insights
 
 @UIApplicationMain
 class AppDelegate: FlutterAppDelegate {
@@ -126,16 +126,16 @@ class AppDelegate: FlutterAppDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
     ) -> Bool {
         
-        VWO.configure(
+        Wingify.configure(
             accountId: "YOUR_ACCOUNT_ID",
             sdkKey: "YOUR_SDK_KEY",
             userId: "USER_ID"
         ) { result in
             switch result {
             case .success(_):
-                print("VWO launch Success")
+                print("Wingify launch Success")
             case .failure(_):
-                print("VWO launch Failure")
+                print("Wingify launch Failure")
             }
         }
         
@@ -148,7 +148,7 @@ class AppDelegate: FlutterAppDelegate {
 ## Step 5: Trigger a Survey
 
 ```dart
-VwoFlutter.trackEvent("event_name");
+WingifyFlutter.trackEvent("event_name");
 ```
 
 ---
@@ -159,8 +159,8 @@ VwoFlutter.trackEvent("event_name");
 
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| accountId | String | Yes | Your VWO account ID |
-| sdkKey | String | Yes | Your SDK key from VWO dashboard |
+| accountId | String | Yes | Your Wingify account ID |
+| sdkKey | String | Yes | Your SDK key from Wingify dashboard |
 | userId | String | Yes | Unique identifier for the user |
 
 ---
@@ -174,7 +174,7 @@ Surveys can be triggered based on events that occur in your application.
 Add events to initiate surveys at key moments (e.g., button press or page load):
 
 ```dart
-VwoFlutter.trackEvent("purchase_completed");
+WingifyFlutter.trackEvent("purchase_completed");
 ```
 
 ## Trigger with Event Properties
@@ -182,7 +182,7 @@ VwoFlutter.trackEvent("purchase_completed");
 Attach properties to a trigger for advanced targeting. You can pass a map of key-value pairs as properties:
 
 ```dart
-VwoFlutter.trackEvent("product_viewed", {
+WingifyFlutter.trackEvent("product_viewed", {
     "product_category": "electronics",
     "price_range": "high",
     "product_id": "SKU123"
@@ -193,26 +193,26 @@ VwoFlutter.trackEvent("product_viewed", {
 
 ```dart
 // Purchase completed
-VwoFlutter.trackEvent("purchase_completed", {
+WingifyFlutter.trackEvent("purchase_completed", {
     "amount": 99.99,
     "currency": "USD",
     "payment_method": "credit_card"
 });
 
 // Feature usage
-VwoFlutter.trackEvent("feature_used", {
+WingifyFlutter.trackEvent("feature_used", {
     "feature_name": "dark_mode",
     "duration_seconds": 120
 });
 
 // Screen view
-VwoFlutter.trackEvent("screen_viewed", {
+WingifyFlutter.trackEvent("screen_viewed", {
     "screen_name": "checkout",
     "previous_screen": "cart"
 });
 ```
 
-These properties help segment and target users based on context, and they can be configured in the VWO dashboard.
+These properties help segment and target users based on context, and they can be configured in the Wingify dashboard.
 
 ---
 
@@ -223,7 +223,7 @@ Add user attributes for targeting specific cohorts.
 ## Basic Usage
 
 ```dart
-VwoFlutter.setAttribute({
+WingifyFlutter.setAttribute({
     "user_type": "premium",
     "plan": "annual",
     "user_name": "John Doe",
@@ -245,7 +245,7 @@ VwoFlutter.setAttribute({
 For date attributes, use timestamp in milliseconds:
 
 ```dart
-VwoFlutter.setAttribute({
+WingifyFlutter.setAttribute({
     "signup_date": 1704067200000,
     "subscription_expiry": 1735689600000
 });
@@ -260,7 +260,7 @@ VwoFlutter.setAttribute({
 Define the preferred survey language using ISO 639-1 codes.
 
 ```dart
-VwoFlutter.setSurveyLanguage("en");
+WingifyFlutter.setSurveyLanguage("en");
 ```
 
 **Common Language Codes:**
@@ -277,14 +277,14 @@ VwoFlutter.setSurveyLanguage("en");
 
 # API Reference
 
-## VwoFlutter Methods
+## WingifyFlutter Methods
 
 **setAttribute(attributes)**
 
 Sets custom profile attributes for survey targeting. Use timestamp in milliseconds for date values.
 
 ```dart
-VwoFlutter.setAttribute({
+WingifyFlutter.setAttribute({
     "user_type": "premium",
     "user_email": "user@example.com"
 });
@@ -295,7 +295,7 @@ VwoFlutter.setAttribute({
 Sets the preferred survey language using ISO 639-1 code.
 
 ```dart
-VwoFlutter.setSurveyLanguage("en");
+WingifyFlutter.setSurveyLanguage("en");
 ```
 
 **trackEvent(triggerName, eventProperties)**
@@ -303,7 +303,7 @@ VwoFlutter.setSurveyLanguage("en");
 Launches a survey based on the event name. Event properties are optional.
 
 ```dart
-VwoFlutter.trackEvent("purchase_completed", {
+WingifyFlutter.trackEvent("purchase_completed", {
     "amount": 99.99
 });
 ```
@@ -317,23 +317,23 @@ VwoFlutter.trackEvent("purchase_completed", {
 | Initialize early | Initialize the SDK in Application class (Android) or AppDelegate (iOS) |
 | Wait for initialization | Ensure SDK is fully initialized before triggering surveys |
 | Set attributes first | Configure user attributes before triggering surveys for better targeting |
-| Use meaningful events | Use descriptive event names that match VWO dashboard configuration |
+| Use meaningful events | Use descriptive event names that match Wingify dashboard configuration |
 
 ## Recommended Flow
 
 ```dart
 // 1. Set user attributes first
-VwoFlutter.setAttribute({
+WingifyFlutter.setAttribute({
     "user_type": "premium",
     "user_name": "John Doe",
     "user_email": "john@example.com"
 });
 
 // 2. Set language (optional)
-VwoFlutter.setSurveyLanguage("en");
+WingifyFlutter.setSurveyLanguage("en");
 
 // 3. Then trigger events
-VwoFlutter.trackEvent("home_screen_loaded");
+WingifyFlutter.trackEvent("home_screen_loaded");
 ```
 
 ---
@@ -343,8 +343,8 @@ VwoFlutter.trackEvent("home_screen_loaded");
 ## Survey not showing up?
 
 1. **Check SDK Initialization**: Ensure the SDK is correctly initialized in your Application class (Android) or AppDelegate (iOS) with the correct Account ID, SDK Key, and User ID
-2. **Verify Event Name**: Make sure the event name matches exactly with the VWO dashboard configuration
-3. **Check Targeting Rules**: Verify that targeting rules in the VWO dashboard are satisfied
+2. **Verify Event Name**: Make sure the event name matches exactly with the Wingify dashboard configuration
+3. **Check Targeting Rules**: Verify that targeting rules in the Wingify dashboard are satisfied
 
 ## Survey not appearing on app launch?
 
@@ -353,7 +353,7 @@ If you trigger an event on launch, ensure the SDK is fully initialized. You migh
 ```dart
 // Add a delay after initialization
 Future.delayed(Duration(milliseconds: 500), () {
-    VwoFlutter.trackEvent("app_launched");
+    WingifyFlutter.trackEvent("app_launched");
 });
 ```
 
@@ -375,8 +375,8 @@ Re-initialize the SDK with the new user's credentials before tracking events for
 
 For additional support or questions:
 
-- **Documentation**: https://developers.vwo.com/reference/mobile-insights-introduction
-- **Support Email**: support@vwo.com
+- **Documentation**: https://developers.wingify.com/reference/mobile-insights-introduction
+- **Support Email**: support@wingify.com
 
 ---
 
@@ -384,7 +384,7 @@ For additional support or questions:
 
 | Component | Version |
 |-----------|---------|
-| Flutter Package | vwo_insights_flutter_sdk ^2.1.0 |
+| Flutter Package | wingify_insights_flutter_sdk ^2.1.0 |
 | Native Android SDK | 2.1.0 |
 | Native iOS SDK | 2.1.0 |
 | Minimum iOS Version | 12.0 |

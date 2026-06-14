@@ -1,14 +1,14 @@
 ---
 title: Switch User
 excerpt: >-
-  Set or update the current user identifier for VWO Insights. - Available from
+  Set or update the current user identifier for Wingify Insights. - Available from
   SDK version 2.2.0
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-`VwoFlutter.setUserId` switches identity when the logged-in user changes in the same app session. Call it only after VWO Insights initialization is complete.
+`WingifyFlutter.setUserId` switches identity when the logged-in user changes in the same app session. Call it only after Wingify Insights initialization is complete.
 
 **Signature**
 
@@ -36,10 +36,10 @@ static Future<bool> setUserId(String userId)
 **Example**
 
 ```dart
-import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
+import 'package:wingify_insights_flutter_sdk/wingify_insights_flutter_sdk.dart';
 
 Future<void> handleLogin(String userId) async {
-  final success = await VwoFlutter.setUserId(userId);
+  final success = await WingifyFlutter.setUserId(userId);
   
   if (success) {
     // User switch complete
@@ -57,7 +57,7 @@ Future<void> handleLogin(String userId) async {
 // After user authentication
 final user = await authenticateUser(email, password);
 if (user != null) {
-  await VwoFlutter.setUserId(user.id);
+  await WingifyFlutter.setUserId(user.id);
   // Recording resumes automatically if it was active before
 }
 ```

@@ -10,13 +10,13 @@ metadata:
 next:
   description: ''
 ---
-The library is published in npm. You can check it [here](https://www.npmjs.com/package/vwo-insights-react-native-sdk).
+The library is published in npm. You can check it [here](https://www.npmjs.com/package/wingify-insights-react-native-sdk).
 
 To install it, run the command below.
 
 ```shell
 
-npm install vwo-insights-react-native-sdk 
+npm install wingify-insights-react-native-sdk 
 
 ```
 
@@ -24,7 +24,7 @@ Or,
 
 ```shell
 
-npm install vwo-insights-react-native-sdk —force
+npm install wingify-insights-react-native-sdk —force
 
 ```
 
@@ -36,7 +36,7 @@ This will add a line like the one below to your package.json file.
 
 "dependencies": {
 	// other code
-	"vwo-insights-react-native-sdk": "2.2.0"
+	"wingify-insights-react-native-sdk": "2.2.0"
 	// other code
 }
 

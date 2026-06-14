@@ -15,11 +15,11 @@ After initializing the SDK successfully, a developer can start/stop the session 
 **To start the session recording** 
 
 ```swift
-VWO.startSessionRecording()
+Wingify.startSessionRecording()
 ```
 
 **To stop the session recording** 
 
 ```swift
-VWO.stopSessionRecording()
+Wingify.stopSessionRecording()
 ```
