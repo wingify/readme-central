@@ -19,7 +19,7 @@ The `survey.setThankyouTimeout` API allows you to modify the default timeout for
 ### Signature
 
 ```javascript
-window.Wingify.push(['survey.setThankyouTimeout', <time_in_ms>]);
+window.VWO.push(['survey.setThankyouTimeout', <time_in_ms>]);
 ```
 
 #### Callback Data
@@ -34,8 +34,8 @@ window.Wingify.push(['survey.setThankyouTimeout', <time_in_ms>]);
 
 ```javascript
 // Example: Set thank you page timeout to 10 seconds
-window.Wingify = window.Wingify || [];
-window.Wingify.push(['survey.setThankyouTimeout', 10000]);
+window.VWO = window.VWO || [];
+window.VWO.push(['survey.setThankyouTimeout', 10000]);
 ```
 
 ### Use-cases

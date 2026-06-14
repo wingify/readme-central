@@ -19,7 +19,7 @@ The `onSurveyAnswerSubmitted` API triggers custom functionality when a survey an
 ### Signature
 
 ```javascript
-window.Wingify.push(['onSurveyAnswerSubmitted', function(data) {
+window.VWO.push(['onSurveyAnswerSubmitted', function(data) {
     // Add your custom code here
 }]);
 ```
@@ -30,7 +30,7 @@ window.Wingify.push(['onSurveyAnswerSubmitted', function(data) {
 
 | Parameter    | Data Type | Required | Description                                                                            |
 | ------------ | --------- | -------- | -------------------------------------------------------------------------------------- |
-| accountId    | number    | Yes      | The Wingify account ID.                                                                |
+| accountId    | number    | Yes      | The Wingify account ID.                                                                    |
 | surveyId     | number    | Yes      | The survey campaign ID of the survey being answered.                                   |
 | uuid         | string    | Yes      | The unique identifier for the visitor.                                                 |
 | questionId   | number    | Yes      | The unique ID of the question being answered.                                          |
@@ -42,8 +42,8 @@ window.Wingify.push(['onSurveyAnswerSubmitted', function(data) {
 ### Example
 
 ```javascript
-window.Wingify = window.Wingify || [];
-window.Wingify.push(['onSurveyAnswerSubmitted', function(data) {
+window.VWO = window.VWO || [];
+window.VWO.push(['onSurveyAnswerSubmitted', function(data) {
     // Custom functionality for survey answer submission
     console.log("Survey answer submitted:", data);
 }]);
@@ -72,8 +72,8 @@ window.Wingify.push(['onSurveyAnswerSubmitted', function(data) {
 
 ### Use-cases
 
-- **Customer Data Integration**: Use this callback to tag survey answers with visitor data and send it to your Customer Data Platform (CDP) or data warehouse for deeper analysis.
-- **Behavior Analysis**: Push survey response data to analytics tools like Google Analytics to track visitor behavior, such as response patterns and survey interactions.
-- **CRM Integration**: For sales teams, integrate survey responses into your CRM system to refine strategies based on customer feedback, such as identifying competitors being evaluated.
+* **Customer Data Integration**: Use this callback to tag survey answers with visitor data and send it to your Customer Data Platform (CDP) or data warehouse for deeper analysis.
+* **Behavior Analysis**: Push survey response data to analytics tools like Google Analytics to track visitor behavior, such as response patterns and survey interactions.
+* **CRM Integration**: For sales teams, integrate survey responses into your CRM system to refine strategies based on customer feedback, such as identifying competitors being evaluated.
 
-<!-- You may also refer to the following article: [https://vwo.com/product-updates/vwo-survey-api/](https://vwo.com/product-updates/vwo-survey-api/) -->
+You may also refer to the following article: [https://vwo.com/product-updates/vwo-survey-api/](https://vwo.com/product-updates/vwo-survey-api/)
