@@ -5,9 +5,9 @@ hidden: true
 metadata:
   robots: index
 ---
-# VWO Pulse Flutter SDK - Survey Feature
+# Wingify Pulse Flutter SDK - Survey Feature
 
-The VWO Pulse Flutter SDK allows you to deliver in-app surveys seamlessly within your Flutter application. VWO's survey integration enables you to collect targeted user feedback during critical moments in the user journey.
+The Wingify Pulse Flutter SDK allows you to deliver in-app surveys seamlessly within your Flutter application. Wingify's survey integration enables you to collect targeted user feedback during critical moments in the user journey.
 
 ## Key Features
 
@@ -18,28 +18,24 @@ The VWO Pulse Flutter SDK allows you to deliver in-app surveys seamlessly within
 
 ## Requirements
 
-| Requirement | Details |
-|-------------|---------|
-| Flutter | 2.0+ |
-| iOS | 12.0+ |
-| Android | API level 21+ (Android 5.0) |
-| VWO Dashboard | Access required to retrieve Account ID and SDK Key |
+| Requirement       | Details                                            |
+| ----------------- | -------------------------------------------------- |
+| Flutter           | 2.0+                                               |
+| iOS               | 12.0+                                              |
+| Android           | API level 21+ (Android 5.0)                        |
+| Wingify Dashboard | Access required to retrieve Account ID and SDK Key |
 
----
+***
 
 # Getting Started
 
 ## Before You Begin
 
-1. **Obtain Your API Key**  
-   Log in to the VWO dashboard and navigate to:  
-   Configuration > Websites and apps > Default mobile app > SDK  
-   Retrieve your API key from this section.
+1. **Obtain Your API Key**<br />Log in to the Wingify dashboard and navigate to:<br />Configuration > Websites and apps > Default mobile app > SDK<br />Retrieve your API key from this section.
 
-2. **Setup VWO Pulse**  
-   Ensure you have the VWO Pulse SDK integrated into your Flutter project.
+2. **Setup&#x20;**&#x57;ingif&#x79;**&#x20;Pulse**<br />Ensure you have the Wingify Pulse SDK integrated into your Flutter project.
 
----
+***
 
 # Quick Start
 
@@ -72,7 +68,7 @@ import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
 
 ### Android Initialization
 
-Initialize the VWO SDK in your Application class (e.g., FlutterVwoApp.kt):
+Initialize the Wingify SDK in your Application class (e.g., FlutterVwoApp.kt):
 
 ```kotlin
 import com.vwo.insights.VWOInsights
@@ -114,7 +110,7 @@ Register your Application class in AndroidManifest.xml:
 
 ### iOS Initialization
 
-Initialize the VWO SDK in your AppDelegate.swift:
+Initialize the Wingify SDK in your AppDelegate.swift:
 
 ```swift
 import VWO_Insights
@@ -151,19 +147,19 @@ class AppDelegate: FlutterAppDelegate {
 VwoFlutter.trackEvent("event_name");
 ```
 
----
+***
 
 # Configuration Parameters
 
 ## ClientConfiguration
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| accountId | String | Yes | Your VWO account ID |
-| sdkKey | String | Yes | Your SDK key from VWO dashboard |
-| userId | String | Yes | Unique identifier for the user |
+| Parameter | Type   | Required | Description                         |
+| --------- | ------ | -------- | ----------------------------------- |
+| accountId | String | Yes      | Your Wingify account ID             |
+| sdkKey    | String | Yes      | Your SDK key from Wingify dashboard |
+| userId    | String | Yes      | Unique identifier for the user      |
 
----
+***
 
 # Triggering Surveys
 
@@ -212,9 +208,9 @@ VwoFlutter.trackEvent("screen_viewed", {
 });
 ```
 
-These properties help segment and target users based on context, and they can be configured in the VWO dashboard.
+These properties help segment and target users based on context, and they can be configured in the Wingify dashboard.
 
----
+***
 
 # Setting User Attributes
 
@@ -233,12 +229,12 @@ VwoFlutter.setAttribute({
 
 ## Supported Attribute Types
 
-| Type | Example |
-|------|---------|
-| String | "premium" |
-| Number | 99.99 |
-| Boolean | true |
-| Date | Timestamp in milliseconds |
+| Type    | Example                   |
+| ------- | ------------------------- |
+| String  | "premium"                 |
+| Number  | 99.99                     |
+| Boolean | true                      |
+| Date    | Timestamp in milliseconds |
 
 ## Setting Date Attributes
 
@@ -253,7 +249,7 @@ VwoFlutter.setAttribute({
 
 **Note:** Always use milliseconds for date values, not epoch seconds.
 
----
+***
 
 # Language Settings
 
@@ -266,14 +262,14 @@ VwoFlutter.setSurveyLanguage("en");
 **Common Language Codes:**
 
 | Code | Language |
-|------|----------|
-| en | English |
-| es | Spanish |
-| fr | French |
-| de | German |
-| ja | Japanese |
+| ---- | -------- |
+| en   | English  |
+| es   | Spanish  |
+| fr   | French   |
+| de   | German   |
+| ja   | Japanese |
 
----
+***
 
 # API Reference
 
@@ -308,16 +304,16 @@ VwoFlutter.trackEvent("purchase_completed", {
 });
 ```
 
----
+***
 
 # Best Practices
 
-| Practice | Description |
-|----------|-------------|
-| Initialize early | Initialize the SDK in Application class (Android) or AppDelegate (iOS) |
-| Wait for initialization | Ensure SDK is fully initialized before triggering surveys |
-| Set attributes first | Configure user attributes before triggering surveys for better targeting |
-| Use meaningful events | Use descriptive event names that match VWO dashboard configuration |
+| Practice                | Description                                                              |
+| ----------------------- | ------------------------------------------------------------------------ |
+| Initialize early        | Initialize the SDK in Application class (Android) or AppDelegate (iOS)   |
+| Wait for initialization | Ensure SDK is fully initialized before triggering surveys                |
+| Set attributes first    | Configure user attributes before triggering surveys for better targeting |
+| Use meaningful events   | Use descriptive event names that match Wingify dashboard configuration   |
 
 ## Recommended Flow
 
@@ -336,15 +332,15 @@ VwoFlutter.setSurveyLanguage("en");
 VwoFlutter.trackEvent("home_screen_loaded");
 ```
 
----
+***
 
 # FAQ and Troubleshooting
 
 ## Survey not showing up?
 
 1. **Check SDK Initialization**: Ensure the SDK is correctly initialized in your Application class (Android) or AppDelegate (iOS) with the correct Account ID, SDK Key, and User ID
-2. **Verify Event Name**: Make sure the event name matches exactly with the VWO dashboard configuration
-3. **Check Targeting Rules**: Verify that targeting rules in the VWO dashboard are satisfied
+2. **Verify Event Name**: Make sure the event name matches exactly with the Wingify dashboard configuration
+3. **Check Targeting Rules**: Verify that targeting rules in the Wingify dashboard are satisfied
 
 ## Survey not appearing on app launch?
 
@@ -369,23 +365,25 @@ Re-initialize the SDK with the new user's credentials before tracking events for
 
 3. **Use in your app:** Use the same event name in your Flutter code
 
----
+***
 
 # Support
 
 For additional support or questions:
 
-- **Documentation**: https://developers.vwo.com/reference/mobile-insights-introduction
-- **Support Email**: support@vwo.com
+- **Documentation**: [https://developers.wingify.com/reference/mobile-insights-introduction](https://developers.wingify.com/reference/mobile-insights-introduction)
+- **Support Email**: [support@wingify.com](mailto:support@wingify.com)
 
----
+***
 
 # Version Information
 
-| Component | Version |
-|-----------|---------|
-| Flutter Package | vwo_insights_flutter_sdk ^2.1.0 |
-| Native Android SDK | 2.1.0 |
-| Native iOS SDK | 2.1.0 |
-| Minimum iOS Version | 12.0 |
-| Minimum Android SDK | 21 (Android 5.0) |
+| Component           | Version                            |
+| ------------------- | ---------------------------------- |
+| Flutter Package     | vwo\_insights\_flutter\_sdk ^2.1.0 |
+| Native Android SDK  | 2.1.0                              |
+| Native iOS SDK      | 2.1.0                              |
+| Minimum iOS Version | 12.0                               |
+| Minimum Android SDK | 21 (Android 5.0)                   |
+
+<br />
