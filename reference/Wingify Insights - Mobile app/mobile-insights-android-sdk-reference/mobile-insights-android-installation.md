@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-You can use Gradle to install the VWO Insights Android SDK by adding VWO Insights SDK dependency in your _build.gradle_ file.
+You can use Gradle to install the Wingify Insights Android SDK by adding Wingify Insights SDK dependency in your _build.gradle_ file.
 
 ```java
 repositories {
@@ -29,3 +29,5 @@ Add the following permissions to your _AndroidManifest.xml_ file
 
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
+
+<br />
