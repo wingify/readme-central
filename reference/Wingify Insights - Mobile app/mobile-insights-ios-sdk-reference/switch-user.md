@@ -1,8 +1,8 @@
 ---
 title: Switch User
 excerpt: >-
-  Set or update the current user identifier for VWO Insights. - Available from
-  SDK version 2.2.0
+  Set or update the current user identifier for Wingify Insights. - Available
+  from SDK version 2.2.0
 deprecated: false
 hidden: false
 metadata:
@@ -36,7 +36,7 @@ public static func setUserId(_ newUserId: String,
 **Example**
 
 ```swift
-import VWO
+import VWO_Insights
 
 func handleUserLogin(userId: String) {
     VWO.setUserId(userId) { result in
@@ -65,3 +65,5 @@ VWO.setUserId(user.id) { result in
     }
 }
 ```
+
+<br />
