@@ -5,22 +5,22 @@ hidden: true
 metadata:
   robots: index
 ---
-# Migration Guide: Blitzllama to VWO Pulse Android SDK
+# Migration Guide: Blitzllama to Wingify Pulse Android SDK
 
 ## Overview
 
-This guide helps you migrate your Android application from the **Blitzllama SDK** to the **VWO Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
+This guide helps you migrate your Android application from the **Blitzllama SDK** to the Wingif&#x79;**&#x20;Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
 
 **Minimum Requirements:**
 
-* Android 5.0 (API level 21) and above
-* VWO dashboard access (to obtain Account ID and SDK Key)
+- Android 5.0 (API level 21) and above
+- Wingify dashboard access (to obtain Account ID and SDK Key)
 
 ***
 
 ## Migration Summary
 
-| Feature          | Blitzllama SDK                    | VWO Pulse SDK                                                                   |
+| Feature          | Blitzllama SDK                    | Wingify Pulse SDK                                                               |
 | ---------------- | --------------------------------- | ------------------------------------------------------------------------------- |
 | Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.2.0`                                                        |
 | API Key Location | AndroidManifest.xml               | ClientConfiguration object                                                      |
@@ -45,9 +45,9 @@ dependencies {
 }
 ```
 
-## Add VWO Pulse Dependency
+## Add Wingify Pulse Dependency
 
-**After (VWO Pulse):**
+**After (**&#x57;ingif&#x79;**&#x20;Pulse):**
 
 ```groovy
 // app/build.gradle
@@ -71,9 +71,9 @@ Remove the following from `AndroidManifest.xml`:
     android:value="YOUR_BLITZLLAMA_API_KEY" />
 ```
 
-## VWO Configuration
+## Wingify Configuration
 
-VWO Pulse does not require manifest configuration. Credentials are passed programmatically during SDK initialization.
+Wingify Pulse does not require manifest configuration. Credentials are passed programmatically during SDK initialization.
 
 > 📘 **Note:** If you had `<uses-sdk tools:overrideLibrary="com.blitzllama.androidSDK" />`, you can remove it as well.
 
@@ -85,9 +85,9 @@ The most significant change is in how the SDK is initialized and how users are i
 
 **Key Points:**
 
-* User ID can be passed during initialization in `ClientConfiguration` (optional)
-* Use `setUserId()` later to switch users or identify users after they log in
-* For anonymous users, you can pass an empty string (`""`) during initialization or use a random string with `setUserId()`
+- User ID can be passed during initialization in `ClientConfiguration` (optional)
+- Use `setUserId()` later to switch users or identify users after they log in
+- For anonymous users, you can pass an empty string (`""`) during initialization or use a random string with `setUserId()`
 
 ## Blitzllama Approach (Before)
 
@@ -121,7 +121,7 @@ class MyApplication : BlitzLlamaSDK() {
 BlitzLlamaSDK.getSdkManager(this).createUser("user_id")
 ```
 
-## VWO Pulse Approach (After)
+## Wingify Pulse Approach (After)
 
 ### Java
 
@@ -138,8 +138,8 @@ public class MyApplication extends Application {
         // User ID is optional during initialization
         // Pass empty string ("") for anonymous users, or actual user ID if known
         ClientConfiguration clientConfig = new ClientConfiguration(
-            "your_account_id",    // Account ID from VWO dashboard
-            "your_sdk_key",       // SDK Key from VWO dashboard
+            "your_account_id",    // Account ID from Wingify dashboard
+            "your_sdk_key",       // SDK Key from Wingify dashboard
             ""                    // User ID (optional) - use "" for anonymous, or "user_id" if known
         );
 
@@ -178,8 +178,8 @@ class MyApplication : Application() {
         // User ID is optional during initialization
         // Pass empty string ("") for anonymous users, or actual user ID if known
         val clientConfig = ClientConfiguration(
-            "your_account_id",    // Account ID from VWO dashboard
-            "your_sdk_key",       // SDK Key (App ID) from VWO dashboard
+            "your_account_id",    // Account ID from Wingify dashboard
+            "your_sdk_key",       // SDK Key (App ID) from Wingify dashboard
             ""                    // User ID (optional) - use "" for anonymous, or "user_id" if known
         )
 
@@ -206,8 +206,8 @@ class MyApplication : Application() {
 
 1. **No longer extend SDK class** - Your Application class extends `Application` instead of `BlitzLlamaSDK`
 2. **User ID is optional at initialization** - User identifier can be passed in `ClientConfiguration` (use `""` for anonymous users), or set later using `setUserId()`
-3. **Use `setUserId()` to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
-4. **Callback-based initialization** - VWO uses explicit success/failure callbacks
+3. **Use&#x20;**`setUserId()`**&#x20;to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
+4. **Callback-based initialization** - Wingify uses explicit success/failure callbacks
 
 ***
 
@@ -229,7 +229,7 @@ BlitzLlamaSDK.getSdkManager(context).triggerEvent("trigger_name");
 BlitzLlamaSDK.getSdkManager(context).triggerEvent("trigger_name")
 ```
 
-**VWO Pulse (After):**
+**Wingify Pulse (After):**
 
 ### Java
 
@@ -270,7 +270,7 @@ val properties = mapOf(
 BlitzLlamaSDK.getSdkManager(context).triggerEvent("purchase_completed", properties)
 ```
 
-**VWO Pulse (After):**
+**Wingify Pulse (After):**
 
 ### Java
 
@@ -314,7 +314,7 @@ BlitzLlamaSDK.getSdkManager(context).triggerEvent("event_name", properties, new 
 });
 ```
 
-**VWO Pulse (After):**
+**Wingify Pulse (After):**
 
 ### Java
 
@@ -363,7 +363,7 @@ sdkManager.trackEventWithActivity(this, "checkout_screen")
 
 ## Method Mapping
 
-| Blitzllama                                   | VWO Pulse                                  |
+| Blitzllama                                   | Wingify Pulse                              |
 | -------------------------------------------- | ------------------------------------------ |
 | `triggerEvent("name")`                       | `trackEvent("name")`                       |
 | `triggerEvent("name", properties)`           | `trackEvent("name", properties)`           |
@@ -383,9 +383,9 @@ BlitzLlamaSDK.getSdkManager(context).setUserEmail("user@example.com");
 BlitzLlamaSDK.getSdkManager(context).setUserName("John Doe");
 ```
 
-**VWO Pulse (After):**
+**Wingify Pulse (After):**
 
-In VWO, use `setAttribute()` to set user email and name:
+In Wingify, use `setAttribute()` to set user email and name:
 
 ### Java
 
@@ -420,7 +420,7 @@ BlitzLlamaSDK.getSdkManager(context).setUserAttribute("plan_type", "premium", "s
 BlitzLlamaSDK.getSdkManager(context).setUserAttribute("user_level", "5", "number");
 ```
 
-**VWO Pulse (After):**
+**Wingify Pulse (After):**
 
 ### Java
 
@@ -446,7 +446,7 @@ val attributes = mapOf(
 VWOInsights.setAttribute(attributes)
 ```
 
-> 📘 **Note:** VWO uses `setAttribute()` instead of `setUserAttribute()`. Data types are automatically inferred, so you don't need to specify them explicitly. The SDK automatically associates attributes with the current user ID.
+> 📘 **Note:** Wingify uses `setAttribute()` instead of `setUserAttribute()`. Data types are automatically inferred, so you don't need to specify them explicitly. The SDK automatically associates attributes with the current user ID.
 
 ***
 
@@ -458,7 +458,7 @@ VWOInsights.setAttribute(attributes)
 BlitzLlamaSDK.getSdkManager(context).setSurveyLanguage("en");
 ```
 
-**VWO Pulse (After):**
+**Wingify Pulse (After):**
 
 ```java
 VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
@@ -476,9 +476,9 @@ This API remains largely the same.
 BlitzLlamaSDK.logout();
 ```
 
-## VWO Pulse (After)
+## Wingify Pulse (After)
 
-VWO Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+Wingify Pulse does **not have a&#x20;**`logout()`**&#x20;method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
 
 ### Switching to a New User
 
@@ -563,7 +563,7 @@ VWOInsights.setUserId(randomUserId, object : IVwoInitCallback {
 
 ### Key Differences
 
-| Blitzllama                 | VWO Pulse                                        |
+| Blitzllama                 | Wingify Pulse                                    |
 | -------------------------- | ------------------------------------------------ |
 | `BlitzLlamaSDK.logout()`   | No direct logout method                          |
 | N/A                        | `VWOInsights.setUserId(userId, callback)`        |
@@ -574,16 +574,16 @@ VWOInsights.setUserId(randomUserId, object : IVwoInitCallback {
 
 ***
 
-# Step 8: Update Event/Trigger Names in VWO Dashboard
+# Step 8: Update Event/Trigger Names in Wingify Dashboard
 
-If you're using triggers configured in the Blitzllama dashboard, you may need to recreate them in the VWO dashboard:
+If you're using triggers configured in the Blitzllama dashboard, you may need to recreate them in the Wingify dashboard:
 
-1. Log in to your VWO dashboard
+1. Log in to your Wingify dashboard
 2. Navigate to **Data360 → Events → Create**
 3. Create events with the same names you used as trigger names in Blitzllama
 4. Configure these events in **Surveys → Custom Triggers**
 
-> ⚠️ **Important:** Ensure event names match exactly between your code and the VWO dashboard.
+> ⚠️ **Important:** Ensure event names match exactly between your code and the Wingify dashboard.
 
 ***
 
@@ -591,7 +591,7 @@ If you're using triggers configured in the Blitzllama dashboard, you may need to
 
 Update all your import statements:
 
-| Blitzllama Import                                            | VWO Pulse Import                            |
+| Blitzllama Import                                            | Wingify Pulse Import                        |
 | ------------------------------------------------------------ | ------------------------------------------- |
 | `com.blitzllama.androidSDK.*`                                | `com.vwo.insights.*`                        |
 | `com.blitzllama.androidSDK.BlitzLlamaSDK`                    | `com.vwo.insights.VWOInsights`              |
@@ -631,7 +631,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-## After (VWO Pulse)
+## After (Wingify Pulse)
 
 ```kotlin
 // MyApplication.kt
@@ -712,15 +712,15 @@ val callback = object : IVwoInitCallback {
 
 # Migration Checklist
 
-* [ ] Updated `build.gradle` dependency from Blitzllama to VWO Pulse
-* [ ] Removed Blitzllama meta-data from `AndroidManifest.xml`
-* [ ] Updated Application class initialization
-* [ ] Replaced `createUser()` with `setUserId()` for user identification
-* [ ] Changed `triggerEvent()` calls to `trackEvent()`
-* [ ] Updated `setUserAttribute()` to `setAttribute()`
-* [ ] Updated import statements
-* [ ] Configured events in VWO dashboard
-* [ ] Tested survey triggering in the app
+- [ ] Updated `build.gradle` dependency from Blitzllama to Wingify Pulse
+- [ ] Removed Blitzllama meta-data from `AndroidManifest.xml`
+- [ ] Updated Application class initialization
+- [ ] Replaced `createUser()` with `setUserId()` for user identification
+- [ ] Changed `triggerEvent()` calls to `trackEvent()`
+- [ ] Updated `setUserAttribute()` to `setAttribute()`
+- [ ] Updated import statements
+- [ ] Configured events in Wingify dashboard
+- [ ] Tested survey triggering in the app
 
 ***
 
@@ -728,6 +728,8 @@ val callback = object : IVwoInitCallback {
 
 | Component                               | Version          |
 | --------------------------------------- | ---------------- |
-| VWO Pulse SDK Version                   | `2.2.0`          |
+| Wingify Pulse SDK Version               | `2.2.0`          |
 | Minimum Android SDK                     | 21 (Android 5.0) |
 | Blitzllama SDK Version (migrating from) | `1.9.1`          |
+
+<br />
