@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To create and run A/B tests, sign in to the Wingify dashboard, and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the Wingify A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
+To create and run A/B tests, sign in to the Wingify dashboard, and then select [Mobile App A/B](https://app.wingify.com/#/test/mobile-ab) on the menu. If you are using the Wingify A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
 
 ![348](https://files.readme.io/f96e934-MobileAppAB-title.png "MobileAppAB-title.png")
 
@@ -184,4 +184,4 @@ Wingify iOS SDK code is available on GitHub:\
 ## Next Steps
 
 As the next step, look at [SDK Reference](ref:ios-sdk-reference)  to explore more advanced options of using the SDK.\
-We would look forward to hear from you about any question or feedback at [support@vwo.com](mailto:support@vwo.com).
+We would look forward to hear from you about any question or feedback at [support@wingify.com](mailto:support@wingify.com).

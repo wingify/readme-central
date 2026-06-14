@@ -178,4 +178,4 @@ After adding Wingify to you Xcode project the size of Xcode project changes as f
   </tbody>
 </Table>
 
-If you want to know the impact of any other parameter or if you want to understand anything around it, please reach out to us: [support@vwo.com](mailto:support@vwo.com)
+If you want to know the impact of any other parameter or if you want to understand anything around it, please reach out to us: [support@wingify.com](mailto:support@wingify.com)

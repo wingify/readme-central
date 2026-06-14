@@ -19,7 +19,7 @@ The `onSurveyShown` API allows you to trigger custom functionality when a survey
 ### Signature
 
 ```javascript
-window.VWO.push(['onSurveyShown', function (data) {
+window.Wingify.push(['onSurveyShown', function (data) {
     // Add your custom code here
 }]);
 ```
@@ -37,8 +37,8 @@ window.VWO.push(['onSurveyShown', function (data) {
 ### Example
 
 ```javascript
-window.VWO = window.VWO || [];
-window.VWO.push(['onSurveyShown', function (data) {
+window.Wingify = window.Wingify || [];
+window.Wingify.push(['onSurveyShown', function (data) {
     // Custom functionality when the survey is shown
 }]);
 ```
@@ -59,4 +59,4 @@ window.VWO.push(['onSurveyShown', function (data) {
 * **Behavior Analysis**: Send data to analytics tools like Google Analytics to study visitor behavior, such as survey entry points, time spent, and interactions.
 * **CRM Integration**: For sales teams, integrate survey insights into your CRM system, including competitor evaluations, to refine sales strategies.
 
-You may also refer to the following article: [https://vwo.com/product-updates/vwo-survey-api/](https://vwo.com/product-updates/vwo-survey-api/)
+<!-- You may also refer to the following article: [https://help.wingify.com/hc/en-us/articles/5679289101593-Survey-APIs-to-Trigger-Custom-Events-in-Wingify](https://help.wingify.com/hc/en-us/articles/5679289101593-Survey-APIs-to-Trigger-Custom-Events-in-Wingify) -->

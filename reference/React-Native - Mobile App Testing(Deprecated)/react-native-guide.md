@@ -14,7 +14,7 @@ next:
 
 You can create a free account with us by accessing the [signup page](https://vwo.com/free-trial/).
 
-To create and run A/B tests, sign in to the Wingify dashboard and then select [Mobile App A/B](https://app.vwo.com/#/test/mobile-ab) on the menu. If you are using the Wingify A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
+To create and run A/B tests, sign in to the Wingify dashboard and then select [Mobile App A/B](https://app.wingify.com/#/test/mobile-ab) on the menu. If you are using the Wingify A/B testing feature for the first time, click **Start Mobile App A/B Testing** to begin.
 
 ![](https://files.readme.io/8e6b451-Screen_Shot_2017-12-15_at_3.15.46_PM.png "Screen Shot 2017-12-15 at 3.15.46 PM.png")
 
@@ -230,9 +230,9 @@ You can pass a `config` object during the launch of the Wingify SDK. `Config` is
 
 * `customVariables`: Takes in a javascript object as its value. Check [Targeting Visitor Groups](ref:ios-targeting-visitor-groups) / [Targeting Visitor Groups](ref:android-targeting-visitor-groups) for more details. It defaults to an empty object.
 
-* `customDimensionKey`: String value which is the unique key associated with a particular custom dimension made in the Wingify application. Check [Push Custom Dimension](https://developers.vwo.com/reference#4-push-custom-dimension)  for more details. It defaults to an empty String.
+* `customDimensionKey`: String value which is the unique key associated with a particular custom dimension made in the Wingify application. Check [Push Custom Dimension](https://developers.wingify.com/reference#4-push-custom-dimension)  for more details. It defaults to an empty String.
 
-* `customDimensionValue`: String value which is the value you want to tag a custom dimension with. Check [Push Custom Dimension](https://developers.vwo.com/reference#4-push-custom-dimension)  for more details. It defaults to an empty String.
+* `customDimensionValue`: String value which is the value you want to tag a custom dimension with. Check [Push Custom Dimension](https://developers.wingify.com/reference#4-push-custom-dimension)  for more details. It defaults to an empty String.
 
 If you do not wish to pass any `config` object, you can pass a `null`.
 
@@ -386,4 +386,4 @@ As a next step, take a look at:\
 Detailed iOS documentation: [SDK Reference](ref:ios-sdk-reference)\
 Detailed Android documentation: [SDK Reference](ref:android-sdk-reference) 
 
-We would look forward to hear from you about any question or feedback at [support@vwo.com](mailto:support@vwo.com).
+We would look forward to hear from you about any question or feedback at [support@wingify.com](mailto:support@wingify.com).

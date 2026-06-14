@@ -25,8 +25,8 @@ The `destroySession` API clears all session data for the visitor, including cook
 #### Signature
 
 ```javascript
-window.VWO = window.VWO || [];
-window.VWO.push(['destroy']);
+window.Wingify = window.Wingify || [];
+window.Wingify.push(['destroy']);
 ```
 
 #### Arguments
@@ -38,9 +38,9 @@ window.VWO.push(['destroy']);
 #### Example
 
 ```javascript
-// Destroy the VWO instance, stop all timers, and remove callback listeners
-window.VWO = window.VWO || [];
-window.VWO.push(['destroy']);
+// Destroy the Wingify instance, stop all timers, and remove callback listeners
+window.Wingify = window.Wingify || [];
+window.Wingify.push(['destroy']);
 ```
 
 #### Use-cases
@@ -54,7 +54,7 @@ window.VWO.push(['destroy']);
 #### Signature
 
 ```javascript
-window.VWO.visitorConfig.destroySession();
+window.Wingify.visitorConfig.destroySession();
 ```
 
 #### Arguments
@@ -66,8 +66,8 @@ window.VWO.visitorConfig.destroySession();
 #### Example
 
 ```javascript
-window.VWO.push(['onVWOCampaignsLoaded', () => {
-    window.VWO.visitorConfig.destroySession();
+window.Wingify.push(['onCampaignsLoaded', () => {
+    window.Wingify.visitorConfig.destroySession();
 }, { count: 1 }]);
 ```
 
@@ -79,4 +79,4 @@ window.VWO.push(['onVWOCampaignsLoaded', () => {
 
 ### Notes
 
-* Invoke `destroySession` API only after the Wingify library has finished processing. Use the `onVWOCampaignsLoaded` callback to ensure all dependencies are ready before destroying the session. Set the `count` configuration to execute the callback only once, avoiding repeated triggers during SPA navigation.
+* Invoke `destroySession` API only after the Wingify library has finished processing. Use the `onCampaignsLoaded` callback to ensure all dependencies are ready before destroying the session. Set the `count` configuration to execute the callback only once, avoiding repeated triggers during SPA navigation.
