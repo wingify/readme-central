@@ -8,7 +8,7 @@ hidden: false
 metadata:
   robots: index
 ---
-`VwoFlutter.setUserId` switches identity when the logged-in user changes in the same app session. Call it only after VWO Insights initialization is complete.
+`VwoFlutter.setUserId` switches identity when the logged-in user changes in the same app session. Call it only after Wingify Insights initialization is complete.
 
 **Signature**
 
@@ -18,20 +18,20 @@ static Future<bool> setUserId(String userId)
 
 **Parameters**
 
-* `userId` — Non-blank string. Blank values return `false`.
+- `userId` — Non-blank string. Blank values return `false`.
 
 **Returns**
 
 `Future<bool>`
 
-* `true` — User switch and configuration refresh succeeded.
-* `false` — Request rejected (blank `userId`, SDK not initialized) or refresh failed.
+- `true` — User switch and configuration refresh succeeded.
+- `false` — Request rejected (blank `userId`, SDK not initialized) or refresh failed.
 
 **Behavior**
 
-* Stops the current recording/session for the previous user.
-* Updates client identity and refreshes server configuration for the new `userId`.
-* If recording was active before the switch, it automatically resumes after configuration refresh completes. If recording was stopped, it remains stopped.
+- Stops the current recording/session for the previous user.
+- Updates client identity and refreshes server configuration for the new `userId`.
+- If recording was active before the switch, it automatically resumes after configuration refresh completes. If recording was stopped, it remains stopped.
 
 **Example**
 
@@ -61,3 +61,5 @@ if (user != null) {
   // Recording resumes automatically if it was active before
 }
 ```
+
+<br />
