@@ -6,28 +6,28 @@ hidden: true
 metadata:
   robots: index
 ---
-# Migration Guide: Blitzllama to VWO Pulse Flutter SDK
+# Migration Guide: Blitzllama to Wingify Pulse Flutter SDK
 
-This guide provides step-by-step instructions for migrating your Flutter application from Blitzllama's Survey SDK to VWO Pulse Survey SDK.
+This guide provides step-by-step instructions for migrating your Flutter application from Blitzllama's Survey SDK to Wingify Pulse Survey SDK.
 
 ***
 
 ## Overview
 
-VWO Pulse SDK provides the same core functionality as Blitzllama with some key architectural differences. The most significant change is that SDK initialization now happens in native code (Android/iOS) rather than in Dart.
+Wingify Pulse SDK provides the same core functionality as Blitzllama with some key architectural differences. The most significant change is that SDK initialization now happens in native code (Android/iOS) rather than in Dart.
 
 ### Key Differences at a Glance
 
-| Aspect          | Blitzllama              | VWO Pulse                                                     |
-| --------------- | ----------------------- | ------------------------------------------------------------- |
-| Package         | blitzllama_flutter      | vwo_insights_flutter_sdk                                      |
-| Class Name      | BlitzllamaFlutter       | VwoFlutter                                                    |
-| Initialization  | Dart code               | Native code (Android/iOS)                                     |
+| Aspect          | Blitzllama              | Wingify Pulse                                                    |
+| --------------- | ----------------------- | ---------------------------------------------------------------- |
+| Package         | blitzllama\_flutter     | vwo\_insights\_flutter\_sdk                                      |
+| Class Name      | BlitzllamaFlutter       | VwoFlutter                                                       |
+| Initialization  | Dart code               | Native code (Android/iOS)                                        |
 | User Creation   | createUser() in Dart    | userId in native initialization (optional), then use setUserId() |
-| User Switching  | logout()                | setUserId(newUserId)                                          |
-| Trigger Method  | triggerEvent()          | trackEvent()                                                  |
-| User Attributes | Individual method calls | Single map-based method                                       |
-| User Email/Name | Dedicated methods       | Use setAttribute()                                            |
+| User Switching  | logout()                | setUserId(newUserId)                                             |
+| Trigger Method  | triggerEvent()          | trackEvent()                                                     |
+| User Attributes | Individual method calls | Single map-based method                                          |
+| User Email/Name | Dedicated methods       | Use setAttribute()                                               |
 
 ***
 
@@ -42,9 +42,9 @@ dependencies:
   blitzllama_flutter: ^0.6.3
 ```
 
-## Add VWO Pulse SDK
+## Add Wingify Pulse SDK
 
-Add the VWO Pulse Flutter SDK:
+Add the Wingify Pulse Flutter SDK:
 
 ```yaml
 dependencies:
@@ -61,7 +61,7 @@ flutter pub get
 
 # Step 2: Update Imports
 
-Replace Blitzllama imports with VWO imports in your Dart files.
+Replace Blitzllama imports with Wingify imports in your Dart files.
 
 **Before (Blitzllama):**
 
@@ -69,7 +69,7 @@ Replace Blitzllama imports with VWO imports in your Dart files.
 import 'package:blitzllama_flutter/blitzllama_flutter.dart';
 ```
 
-**After (VWO Pulse):**
+**After (Wingify Pulse):**
 
 ```dart
 import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
@@ -79,9 +79,10 @@ import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
 
 # Step 3: Update Initialization
 
-This is the most significant change. VWO SDK requires native initialization instead of Dart initialization.
+This is the most significant change. Wingify SDK requires native initialization instead of Dart initialization.
 
 **Key Points:**
+
 - User ID can be passed during native initialization (optional)
 - Use `setUserId()` later to switch users or identify users after they log in
 - For anonymous users, you can pass an empty string or `null` during initialization, or use a random string with `setUserId()`
@@ -95,7 +96,7 @@ Remove the following from your Dart code:
 BlitzllamaFlutter.init("<api_key>");
 ```
 
-## Add VWO Native Initialization
+## Add Wingify Native Initialization
 
 ### Android
 
@@ -187,10 +188,10 @@ import vwo_insights_ios_flutter_sdk
 
 ## Configuration Parameters
 
-| Parameter | Type   | Required | Description                                          |
-| --------- | ------ | -------- | ---------------------------------------------------- |
-| accountId | String | Yes      | Your VWO account ID                                  |
-| sdkKey    | String | Yes      | Your SDK key from VWO dashboard                      |
+| Parameter | Type   | Required | Description                                                  |
+| --------- | ------ | -------- | ------------------------------------------------------------ |
+| accountId | String | Yes      | Your Wingify account ID                                      |
+| sdkKey    | String | Yes      | Your SDK key from Wingify dashboard                          |
 | userId    | String | Optional | Unique identifier for the user (use "" or nil for anonymous) |
 
 ***
@@ -207,7 +208,7 @@ Blitzllama's createUser() is no longer needed. The user ID can be passed during 
 BlitzllamaFlutter.createUser(user_id);
 ```
 
-**After (VWO Pulse):**
+**After (**&#x57;ingif&#x79;**&#x20;Pulse):**
 
 User ID is passed in native initialization (optional), or use `setUserId()` in Dart:
 
@@ -231,7 +232,7 @@ BlitzllamaFlutter.setUserAttribute("age", "25", "number");
 BlitzllamaFlutter.setUserAttribute("is_active", "true", "boolean");
 ```
 
-**After (VWO Pulse):**
+**After (Wingify Pulse):**
 
 ```dart
 VwoFlutter.setAttribute({
@@ -254,7 +255,7 @@ BlitzllamaFlutter.setUserEmail(email);
 BlitzllamaFlutter.setUserName(username);
 ```
 
-**After (VWO Pulse):**
+**After (Wingify Pulse):**
 
 ```dart
 VwoFlutter.setAttribute({
@@ -271,7 +272,7 @@ VwoFlutter.setAttribute({
 BlitzllamaFlutter.setSurveyLanguage("en");
 ```
 
-**After (VWO Pulse):**
+**After (Wingify Pulse):**
 
 ```dart
 VwoFlutter.setSurveyLanguage("en");
@@ -291,7 +292,7 @@ The method name for triggering surveys has changed from triggerEvent to trackEve
 BlitzllamaFlutter.triggerEvent("purchase_completed");
 ```
 
-**After (VWO Pulse):**
+**After (Wingify Pulse):**
 
 ```dart
 VwoFlutter.trackEvent("purchase_completed");
@@ -308,7 +309,7 @@ BlitzllamaFlutter.triggerEvent("HomeActivity", {
 });
 ```
 
-**After (VWO Pulse):**
+**After (Wingify Pulse):**
 
 ```dart
 VwoFlutter.trackEvent("HomeActivity", {
@@ -323,7 +324,7 @@ VwoFlutter.trackEvent("HomeActivity", {
 
 ## Custom Fonts
 
-The setCustomFont() method is not available in VWO SDK.
+The setCustomFont() method is not available in Wingify SDK.
 
 **Before (Blitzllama):**
 
@@ -331,13 +332,13 @@ The setCustomFont() method is not available in VWO SDK.
 BlitzllamaFlutter.setCustomFont("Roboto-Regular", "Roboto-Bold");
 ```
 
-**After (VWO Pulse):**
+**After (Wingify Pulse):**
 
 Not available - remove this call.
 
 ## User Switching
 
-VWO Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+Wingify Pulse does **not have a&#x20;**`logout()`**&#x20;method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
 
 **Before (Blitzllama):**
 
@@ -345,7 +346,7 @@ VWO Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to s
 BlitzllamaFlutter.logout();
 ```
 
-**After (VWO Pulse):**
+**After (Wingify Pulse):**
 
 ### Switching to a New User
 
@@ -377,38 +378,38 @@ if (success) {
 
 # API Reference Mapping
 
-| Blitzllama Method         | VWO Pulse Equivalent    | Notes                                |
-| ------------------------- | ----------------------- | ------------------------------------ |
-| init(apiKey)              | Native initialization   | See Step 3                           |
-| createUser(userId)        | setUserId(userId)       | Use after initialization             |
-| setUserEmail(email)       | setAttribute()          | Pass user_email in map               |
-| setUserName(name)         | setAttribute()          | Pass user_name in map                |
-| setUserAttribute()        | setAttribute()          | Now accepts a map                    |
-| setSurveyLanguage(code)   | setSurveyLanguage(code) | Same signature                       |
-| triggerEvent(name)        | trackEvent(name)        | Method renamed                       |
-| triggerEvent(name, props) | trackEvent(name, props) | Method renamed                       |
-| logout()                  | setUserId(randomString) | Use random string for anonymous      |
-| setCustomFont()           | Not available           | Feature removed                      |
+| Blitzllama Method         | Wingify Pulse Equivalent | Notes                           |
+| ------------------------- | ------------------------ | ------------------------------- |
+| init(apiKey)              | Native initialization    | See Step 3                      |
+| createUser(userId)        | setUserId(userId)        | Use after initialization        |
+| setUserEmail(email)       | setAttribute()           | Pass user\_email in map         |
+| setUserName(name)         | setAttribute()           | Pass user\_name in map          |
+| setUserAttribute()        | setAttribute()           | Now accepts a map               |
+| setSurveyLanguage(code)   | setSurveyLanguage(code)  | Same signature                  |
+| triggerEvent(name)        | trackEvent(name)         | Method renamed                  |
+| triggerEvent(name, props) | trackEvent(name, props)  | Method renamed                  |
+| logout()                  | setUserId(randomString)  | Use random string for anonymous |
+| setCustomFont()           | Not available            | Feature removed                 |
 
 ***
 
 # Migration Checklist
 
-* [ ] Update pubspec.yaml to use vwo_insights_flutter_sdk ^2.1.0
-* [ ] Run flutter pub get
-* [ ] Update all import statements
-* [ ] Remove Dart-based init() calls
-* [ ] Add native initialization for Android (FlutterVwoApp.kt)
-* [ ] Register Application class in AndroidManifest.xml
-* [ ] Add native initialization for iOS (AppDelegate.swift)
-* [ ] Replace createUser() with setUserId() for user identification
-* [ ] Replace BlitzllamaFlutter with VwoFlutter
-* [ ] Replace triggerEvent() with trackEvent()
-* [ ] Update setUserAttribute() to use setAttribute() with a map
-* [ ] Replace setUserEmail() and setUserName() with setAttribute()
-* [ ] Remove setCustomFont() calls if present
-* [ ] Replace logout() with setUserId() for user switching
-* [ ] Test survey triggering in the app
+- [ ] Update pubspec.yaml to use vwo\_insights\_flutter\_sdk ^2.1.0
+- [ ] Run flutter pub get
+- [ ] Update all import statements
+- [ ] Remove Dart-based init() calls
+- [ ] Add native initialization for Android (FlutterVwoApp.kt)
+- [ ] Register Application class in AndroidManifest.xml
+- [ ] Add native initialization for iOS (AppDelegate.swift)
+- [ ] Replace createUser() with setUserId() for user identification
+- [ ] Replace BlitzllamaFlutter with VwoFlutter
+- [ ] Replace triggerEvent() with trackEvent()
+- [ ] Update setUserAttribute() to use setAttribute() with a map
+- [ ] Replace setUserEmail() and setUserName() with setAttribute()
+- [ ] Remove setCustomFont() calls if present
+- [ ] Replace logout() with setUserId() for user switching
+- [ ] Test survey triggering in the app
 
 ***
 
@@ -418,12 +419,12 @@ if (success) {
 
 1. Verify Account ID and SDK Key are correct in native initialization
 2. Ensure the Application class is registered in AndroidManifest.xml
-3. Check that event names match those configured in the VWO dashboard
+3. Check that event names match those configured in the Wingify dashboard
 4. Verify the SDK initialization completes successfully before triggering events
 
 ## Build errors on iOS?
 
-Ensure you have imported the VWO SDK in your AppDelegate.swift:
+Ensure you have imported the Wingify SDK in your AppDelegate.swift:
 
 ```swift
 import vwo_insights_ios_flutter_sdk
@@ -446,8 +447,8 @@ import io.flutter.app.FlutterApplication
 
 For additional support or questions:
 
-* Documentation: [https://developers.vwo.com/reference/mobile-insights-introduction](https://developers.vwo.com/reference/mobile-insights-introduction)
-* Support Email: [support@vwo.com](mailto:support@vwo.com)
+- Documentation: [https://developers.wingify.com/reference/mobile-insights-introduction](https://developers.wingify.com/reference/mobile-insights-introduction)
+- Support Email: [support@wingify.com](mailto:support@wingify.com)
 
 ***
 
@@ -455,9 +456,11 @@ For additional support or questions:
 
 | Component                       | Version          |
 | ------------------------------- | ---------------- |
-| VWO Pulse Flutter SDK           | ^2.2.1           |
+| Wingify Pulse Flutter SDK       | ^2.2.1           |
 | Native Android SDK              | 2.2.0            |
 | Native iOS SDK                  | 2.2.0            |
 | Minimum iOS Version             | 12.0             |
 | Minimum Android SDK             | 21 (Android 5.0) |
 | Blitzllama SDK (migrating from) | 0.6.3            |
+
+<br />
