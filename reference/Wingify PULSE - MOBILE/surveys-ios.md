@@ -30,7 +30,7 @@ The Wingify Pulse iOS SDK enables you to deliver in-app surveys directly inside 
 
 ## Before You Begin
 
-1. **Obtain Your API Key**<br />Log in to the VWO dashboard and navigate to:<br />`Configuration → Websites and apps → Default mobile app → SDK`<br />Retrieve your API key from this section.
+1. **Obtain Your API Key**<br />Log in to the Wingify dashboard and navigate to:<br />`Configuration → Websites and apps → Default mobile app → SDK`<br />Retrieve your API key from this section.
 
 2. **Confirm Minimum iOS Version**<br />The SDK officially supports iOS 12.0 and above.
 
@@ -67,8 +67,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         VWO.configure(
-            accountId: "your_account_id",  // Account ID from VWO dashboard
-            sdkKey: "your_sdk_key",        // SDK Key from VWO dashboard
+            accountId: "your_account_id",  // Account ID from Wingify dashboard
+            sdkKey: "your_sdk_key",        // SDK Key from Wingify dashboard
             userId: "user_id"              // Unique user identifier
         ) { result in
             switch result {
@@ -106,7 +106,7 @@ surveySDK.trackEvent(
 
 ## What are Triggers?
 
-**Triggers** are events in your app (e.g., button presses, screen loads, checkout completion) that prompt a survey if configured in the VWO dashboard.
+**Triggers** are events in your app (e.g., button presses, screen loads, checkout completion) that prompt a survey if configured in the Wingify dashboard.
 
 ## Triggering Surveys
 
@@ -246,11 +246,11 @@ VWO.configure(
 
 # API Reference
 
-## VWO
+## Wingify
 
 | Method                                           | Description                             |
 | ------------------------------------------------ | --------------------------------------- |
-| `configure(accountId:sdkKey:userId:completion:)` | Initializes the VWO SDK                 |
+| `configure(accountId:sdkKey:userId:completion:)` | Initializes the Wingify SDK             |
 | `getSurveyManager()`                             | Returns the Survey SDK manager instance |
 | `startSessionRecording()`                        | Starts session recording                |
 
@@ -268,11 +268,11 @@ VWO.configure(
 
 ## Configuration Parameters
 
-| Parameter   | Type   | Required | Description                     |
-| ----------- | ------ | -------- | ------------------------------- |
-| `accountId` | String | Yes      | Your VWO account ID             |
-| `sdkKey`    | String | Yes      | Your SDK key from VWO dashboard |
-| `userId`    | String | Yes      | Unique identifier for the user  |
+| Parameter   | Type   | Required | Description                         |
+| ----------- | ------ | -------- | ----------------------------------- |
+| `accountId` | String | Yes      | Your Wingify account ID             |
+| `sdkKey`    | String | Yes      | Your SDK key from Wingify dashboard |
+| `userId`    | String | Yes      | Unique identifier for the user      |
 
 ***
 
@@ -280,8 +280,8 @@ VWO.configure(
 
 ## Survey not showing up?
 
-- Ensure VWO SDK is initialized successfully (check for success in the completion callback)
-- Verify that the event name matches **exactly** what's configured in the VWO dashboard
+- Ensure Wingify SDK is initialized successfully (check for success in the completion callback)
+- Verify that the event name matches **exactly** what's configured in the Wingify dashboard
 - Check that surveys are active and properly configured in the dashboard
 
 ## Survey not showing on home screen or first view?
