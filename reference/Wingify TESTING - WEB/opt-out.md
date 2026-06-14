@@ -20,8 +20,8 @@ The Wingify `opt-out` API allows visitors to stop tracking on a specific browser
 
 ```javascript
 // Opt-Out with Experiences Maintained: Retains the visitor's previous campaign experience while stopping new tracking.
-window.VWO = window.VWO || [];
-VWO.push(['optOutVisitor', options]);
+window.Wingify = window.Wingify || [];
+Wingify.push(['optOutVisitor', options]);
 ```
 
 #### Arguments
@@ -35,16 +35,16 @@ VWO.push(['optOutVisitor', options]);
 
 ```javascript
 // Basic Opt-Out: Immediately stops tracking for the visitor.
-window.VWO = window.VWO || [];
-VWO.push(['optOutVisitor']);
+window.Wingify = window.Wingify || [];
+Wingify.push(['optOutVisitor']);
 ```
 
 Use this API when you want to opt a visitor out of Wingify tracking and stop all campaign changes. This deletes all Wingify cookies and halts tracking. If the visitor returns, they will not be tracked, and no campaign changes will be applied on subsequent visits.
 
 ```javascript
 // Opt-Out with Experiences Maintained: Retains the visitor's previous campaign experience while stopping new tracking.
-window.VWO = window.VWO || [];
-VWO.push(['optOutVisitor', { maintainExperiences: true }]);
+window.Wingify = window.Wingify || [];
+Wingify.push(['optOutVisitor', { maintainExperiences: true }]);
 ```
 
 Use this API when you want to stop new tracking but still show the campaign variation previously seen by the visitor. For example, if a visitor viewed a specific campaign variation, they will continue seeing the same variation after opting out.
