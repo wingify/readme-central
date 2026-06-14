@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To transmit custom events to VWO via React Native, create key-value pairs using the subsequent code. The keys should correspond to the event properties of the custom event you intend to dispatch.
+To transmit custom events to Wingify via React Native, create key-value pairs using the subsequent code. The keys should correspond to the event properties of the custom event you intend to dispatch.
 
 <br />
 
