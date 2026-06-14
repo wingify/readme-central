@@ -19,17 +19,17 @@ The `onVariationApplied` callback is triggered when a campaign is applied to the
 ### Signature
 
 ```javascript
-window.VWO = window.VWO || [];
-window.VWO.push(['onVariationApplied',
+window.Wingify = window.Wingify || [];
+window.Wingify.push(['onVariationApplied',
     <callback_function>                   // Callback function to be called when any campaign runs on the page.
 ]);
 ```
 
 #### Arguments
 
-| Parameter         | Data Type  | Required | Description                                          |
-| ----------------- | ---------- | -------- | ---------------------------------------------------- |
-| callback_function | `Function` | Yes      | The callback function executes when a campaign runs. |
+| Parameter          | Data Type  | Required | Description                                          |
+| ------------------ | ---------- | -------- | ---------------------------------------------------- |
+| callback\_function | `Function` | Yes      | The callback function executes when a campaign runs. |
 
 ### Callback Data
 
@@ -58,28 +58,30 @@ This array structure ensures that the callback function can easily access the sp
 ### Basic Example
 
 ```javascript
-window.VWO = window.VWO || [];
-window.VWO.push(['onVariationApplied', function (data) {
+window.Wingify = window.Wingify || [];
+window.Wingify.push(['onVariationApplied', function (data) {
     if (!data) { // data will be an array, [<callback_name>, <exp_id>, <variation_id>]
         return;
     }
     var expId = data[1],                 // Index 1 of data contains experiment ID
         variationId = data[2];           // Index 2 of data contains variation ID
-    if (typeof(_vwo_exp[expId].comb_n[variationId]) !== 'undefined') {
+    if (typeof(Wingify.campaigns[expId].comb_n[variationId]) !== 'undefined') {
         // This is an example for pushing data into GA4.
         window.dataLayer.push({
             "CampaignId": expId,
-            "CampaignName": _vwo_exp[expId].name,
+            "CampaignName": window.Wingify.campaigns[expId].name,
             "VariationId": variationId,
-            "VariationName": _vwo_exp[expId].comb_n[variationId]
+            "VariationName": window.Wingify.campaigns[expId].comb_n[variationId]
         });
-        window.dataLayer.push({event: 'VWO-data-push'});
+        window.dataLayer.push({event: 'data-push'});
     }
 }]);
 ```
 
 ### Use-case
 
-* **Analytics Integration**: Automatically push variation data to Google Tag Manager or other analytics platforms to track which variations visitors are exposed to and how they affect their behavior.
-* **CRM Integration**: Sync variation data with CRM systems to tailor follow-up communications based on the variations visitors have seen, enhancing the personalization of marketing efforts.
-* **Feature Flag Management**: Use the variation data to toggle features on or off in your application based on the variation a visitor is bucketed into.
+- **Analytics Integration**: Automatically push variation data to Google Tag Manager or other analytics platforms to track which variations visitors are exposed to and how they affect their behavior.
+- **CRM Integration**: Sync variation data with CRM systems to tailor follow-up communications based on the variations visitors have seen, enhancing the personalization of marketing efforts.
+- **Feature Flag Management**: Use the variation data to toggle features on or off in your application based on the variation a visitor is bucketed into.
+
+<br />

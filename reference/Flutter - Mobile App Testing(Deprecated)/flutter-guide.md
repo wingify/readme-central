@@ -379,4 +379,4 @@ As a next step, take a look at:\
 Detailed iOS documentation: [SDK Reference](ref:ios-sdk-reference)\
 Detailed Android documentation: [SDK Reference](ref:android-sdk-reference) 
 
-We would look forward to hear from you about any question or feedback at [support@vwo.com](mailto:support@vwo.com).
+We would look forward to hear from you about any question or feedback at [support@wingify.com](mailto:support@wingify.com).
