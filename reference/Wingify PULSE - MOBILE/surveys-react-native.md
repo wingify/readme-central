@@ -5,25 +5,25 @@ hidden: true
 metadata:
   robots: index
 ---
-# VWO Pulse React Native SDK - Survey Feature
+# Wingify Pulse React Native SDK - Survey Feature
 
-The VWO Pulse React Native SDK provides comprehensive survey functionality that allows you to trigger surveys based on user events, set user attributes for targeting, and manage user identification. Surveys help you collect feedback directly from users within your React Native application.
+The Wingify Pulse React Native SDK provides comprehensive survey functionality that allows you to trigger surveys based on user events, set user attributes for targeting, and manage user identification. Surveys help you collect feedback directly from users within your React Native application.
 
 ## Key Features
 
-* **Event-based Triggers** - Trigger surveys based on specific events in your app
-* **User Identification** - Identify and track users to ensure proper survey targeting
-* **Personalization** - Personalize surveys with user attributes
-* **Localization** - Localize surveys by setting different languages
+- **Event-based Triggers** - Trigger surveys based on specific events in your app
+- **User Identification** - Identify and track users to ensure proper survey targeting
+- **Personalization** - Personalize surveys with user attributes
+- **Localization** - Localize surveys by setting different languages
 
 ## Requirements
 
-| Requirement   | Details                                            |
-| ------------- | -------------------------------------------------- |
-| React Native  | 0.60+                                              |
-| iOS           | 12.0+                                              |
-| Android       | API level 21+ (Android 5.0)                        |
-| VWO Dashboard | Access required to retrieve Account ID and SDK Key |
+| Requirement       | Details                                            |
+| ----------------- | -------------------------------------------------- |
+| React Native      | 0.60+                                              |
+| iOS               | 12.0+                                              |
+| Android           | API level 21+ (Android 5.0)                        |
+| Wingify Dashboard | Access required to retrieve Account ID and SDK Key |
 
 ***
 
@@ -31,13 +31,9 @@ The VWO Pulse React Native SDK provides comprehensive survey functionality that 
 
 ## Before You Begin
 
-1. **Obtain Your API Key**  
-   Log in to the VWO dashboard and navigate to:  
-   `Configuration → Websites and apps → Default mobile app → SDK`  
-   Retrieve your API key from this section.
+1. **Obtain Your API Key**<br />Log in to the Wingify dashboard and navigate to:<br />`Configuration → Websites and apps → Default mobile app → SDK`<br />Retrieve your API key from this section.
 
-2. **Create a Survey**  
-   A survey should be created in your VWO dashboard with appropriate trigger events.
+2. **Create a Survey**<br />A survey should be created in your Wingify dashboard with appropriate trigger events.
 
 ***
 
@@ -63,7 +59,7 @@ cd ios && pod install && cd ..
 
 ### Android Initialization
 
-Initialize VWO SDK in your Application class (`ReactNativeVwoApp.kt`):
+Initialize Wingify SDK in your Application class (`ReactNativeVwoApp.kt`):
 
 ```kotlin
 // ReactNativeVwoApp.kt
@@ -322,11 +318,11 @@ Initializes the SDK on iOS.
 config(accountId: string, sdkKey: string, userId: string): void
 ```
 
-| Parameter   | Type   | Required | Description                     |
-| ----------- | ------ | -------- | ------------------------------- |
-| `accountId` | string | Yes      | Your VWO account ID             |
-| `sdkKey`    | string | Yes      | Your SDK key from VWO dashboard |
-| `userId`    | string | Yes      | Unique identifier for the user  |
+| Parameter   | Type   | Required | Description                         |
+| ----------- | ------ | -------- | ----------------------------------- |
+| `accountId` | string | Yes      | Your Wingify account ID             |
+| `sdkKey`    | string | Yes      | Your SDK key from Wingify dashboard |
+| `userId`    | string | Yes      | Unique identifier for the user      |
 
 **Example:**
 
@@ -433,9 +429,9 @@ React.useEffect(() => {
 ## Survey Not Appearing
 
 1. **Check SDK Initialization**: Ensure the SDK is properly initialized before triggering surveys
-2. **Verify Event Name**: Make sure the event name matches exactly with the trigger configured in your VWO dashboard
+2. **Verify Event Name**: Make sure the event name matches exactly with the trigger configured in your Wingify dashboard
 3. **Check User Attributes**: Verify that user attributes match the targeting criteria set in your survey
-4. **Review Survey Status**: Ensure the survey is active in your VWO dashboard
+4. **Review Survey Status**: Ensure the survey is active in your Wingify dashboard
 
 ## Attributes Not Working
 
@@ -473,3 +469,5 @@ React.useEffect(() => {
 | SDK Package         | `vwo-insights-react-native-sdk` |
 | Minimum iOS Version | 12.0                            |
 | Minimum Android SDK | 21 (Android 5.0)                |
+
+<br />
