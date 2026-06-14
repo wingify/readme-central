@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-      implementation 'com.wingify:insights:2.2.0'
+      implementation 'com.wingify:insights:2.5.1'
 }
 ```
 

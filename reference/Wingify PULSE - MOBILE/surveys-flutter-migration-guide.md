@@ -455,9 +455,9 @@ For additional support or questions:
 
 | Component                       | Version          |
 | ------------------------------- | ---------------- |
-| Wingify Pulse Flutter SDK           | ^2.2.1           |
-| Native Android SDK              | 2.2.0            |
-| Native iOS SDK                  | 2.2.0            |
+| Wingify Pulse Flutter SDK           | ^2.5.0           |
+| Native Android SDK              | 2.5.1            |
+| Native iOS SDK                  | 2.5.0            |
 | Minimum iOS Version             | 12.0             |
 | Minimum Android SDK             | 21 (Android 5.0) |
 | Blitzllama SDK (migrating from) | 0.6.3            |
