@@ -16,9 +16,9 @@ next:
 
 The `addPreHook` and `addPostHook` APIs register callbacks that run **before and after certain event sync requests** are sent. They are **not** a single global wrapper around every `window.Wingify.*` call or every outbound HTTP request.
 
-* **Pre-hook (`addPreHook`)**: Runs before the eligible sync request is sent. You can read or change the outgoing payload for that sync. If you register more than one pre-hook, they run in **registration order**. Return **`-1`** to cancel that sync (see **example 3**).
+- **Pre-hook (**`addPreHook`**)**: Runs before the eligible sync request is sent. You can read or change the outgoing payload for that sync. If you register more than one pre-hook, they run in **registration order**. Return `-1` to cancel that sync (see **example 3**).
 
-* **Post-hook (`addPostHook`)**: Runs **after the network request completes** for that sync. The callback's **return value does not change** what was already sent; use post-hooks for side effects (tags, logging, forwarding).
+- **Post-hook (**`addPostHook`**)**: Runs **after the network request completes** for that sync. The callback's **return value does not change** what was already sent; use post-hooks for side effects (tags, logging, forwarding).
 
 Scope details are summarized under **Notes** below.
 
@@ -39,14 +39,14 @@ window.Wingify.push(['addPostHook', <callback_function>]);
 
 ### Callback Data
 
-Hooks receive the **outgoing event sync payload** (the object that will be sent on the wire). Read **`payload.d.event.name`** and **`payload.d.event.props`**. For eligible custom-event syncs, keys from the `attributes` argument of **`window.Wingify.event(eventName, attributes)`** appear under **`props`**. Which syncs qualify is summarized under **Notes** below.
+Hooks receive the **outgoing event sync payload** (the object that will be sent on the wire). Read `payload.d.event.name` and `payload.d.event.props`. For eligible custom-event syncs, keys from the `attributes` argument of `window.Wingify.event(eventName, attributes)` appear under `props`. Which syncs qualify is summarized under **Notes** below.
 
 | Location                | Type   | Description                    |
 | ----------------------- | ------ | ------------------------------ |
 | `payload.d.event.name`  | String | Event name for this sync.      |
 | `payload.d.event.props` | Object | Event properties on this sync. |
 
-Older snippets may refer to top-level `event` / `props`; prefer **`payload.d.event`** as above.
+Older snippets may refer to top-level `event` / `props`; prefer `payload.d.event` as above.
 
 ### Examples
 
@@ -106,19 +106,18 @@ window.Wingify.event('purchaseCompleted', {
 
 ### Use Cases
 
-* **Custom Data Capture**: Enhance event payloads by dynamically adding properties such as user segments, session attributes, or experiment metadata. This can improve reporting and analytics accuracy by including business-specific data points.
+- **Custom Data Capture**: Enhance event payloads by dynamically adding properties such as user segments, session attributes, or experiment metadata. This can improve reporting and analytics accuracy by including business-specific data points.
 
-* **Cross-Platform Integration**: Extend event tracking by forwarding Wingify events to external marketing and analytics platforms such as Google Analytics, Segment, or Mixpanel. This ensures a unified view of user behavior across multiple tools.
+- **Cross-Platform Integration**: Extend event tracking by forwarding Wingify events to external marketing and analytics platforms such as Google Analytics, Segment, or Mixpanel. This ensures a unified view of user behavior across multiple tools.
 
 ### Notes
 
-* **Supported:** **Custom events** sent via **`window.Wingify.event(eventName, attributes)`** are eligible for hooks and appear in the dashboard as **My Events** / **Unregistered Events**; see [Working with events in Wingify](https://help.wingify.com/hc/en-us/articles/8676443712537-Working-With-Events-in-Wingify).  
-  **Custom attributes** passed with **`window.Wingify.event(eventName, attributes)`** (the `attributes` keys mapped to `payload.d.event.props`) are also hook-eligible, appear as **My Attributes** / **Unregistered Attributes**, and include visitor custom-attribute sync via **`window.Wingify.visitor({...})`**; see [Working with attributes in Wingify](https://help.wingify.com/hc/en-us/articles/8681465703705-Working-With-Attributes-in-Wingify).
+- **Supported:** **Custom events** sent via `window.Wingify.event(eventName, attributes)` are eligible for hooks and appear in the dashboard as **My Events** / **Unregistered Events**; see [Working with events in Wingify](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO).<br />**Custom attributes** passed with `window.Wingify.event(eventName, attributes)` (the `attributes` keys mapped to `payload.d.event.props`) are also hook-eligible, appear as **My Attributes** / **Unregistered Attributes**, and include visitor custom-attribute sync via `window.Wingify.visitor({...})`; see [Working with attributes in Wingify](https://help.wingify.com/hc/en-us/articles/8681465703705-Working-With-Attributes-in-Wingify).
 
-* **Not supported:** **Standard events** are outside this hook surface (for example: **Page visit**, **Click**, **Form submission**).  
-  **Standard attributes** are also outside this hook surface; ABM-style identity attributes (for example **`identifyVisitor`**, commonly `POST .../abm/identify...`) do not run through these generic hooks.  
-  Other lifecycle/identity flows also bypass generic hooks in typical setups, such as **`setVisitorId`**, **`setSessionId`**, **`visitorConfig.destroySession()`**, and **`listenTo`** names like **`newSessionCreated`**.
+- **Not supported:** **Standard events** are outside this hook surface (for example: **Page visit**, **Click**, **Form submission**).<br />**Standard attributes** are also outside this hook surface; ABM-style identity attributes (for example `identifyVisitor`, commonly `POST .../abm/identify...`) do not run through these generic hooks.<br />Other lifecycle/identity flows also bypass generic hooks in typical setups, such as `setVisitorId`, `setSessionId`, `visitorConfig.destroySession()`, and `listenTo` names like `newSessionCreated`.
 
-* If the payload after all pre-hooks is an empty object (`{}` with no enumerable keys at the top level), the request may still be sent with an **empty body**; avoid returning `{}` unless you intend that behavior.
+- If the payload after all pre-hooks is an empty object (`{}` with no enumerable keys at the top level), the request may still be sent with an **empty body**; avoid returning `{}` unless you intend that behavior.
 
-* If a hook callback **throws**, the runtime catches it, skips applying that hook's return value, and **continues** with the next hook.
+- If a hook callback **throws**, the runtime catches it, skips applying that hook's return value, and **continues** with the next hook.
+
+<br />
