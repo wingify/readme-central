@@ -30,7 +30,7 @@ URL: [https://github.com/wingify/ios-mobile-insights-artifacts.git](https://gith
 
 Using **_CocoaPods_**
 
-**Step 1** - You can use CocoaPods to install the VWO Insights IOS SDK by adding the below pods to your Pod file.
+**Step 1** - You can use CocoaPods to install the Wingify Insights IOS SDK by adding the below pods to your Pod file.
 
 ```swift
 
