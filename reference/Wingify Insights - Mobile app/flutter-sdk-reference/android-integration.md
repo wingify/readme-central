@@ -137,7 +137,7 @@ If you want to start recording as soon as the application launches, add the foll
 
 ## ProGuard (release builds)
 
-When building a **release** (or **profile**) Android app, ProGuard/R8 can strip or obfuscate classes needed by Flutter and the VWO Insights SDK. Add the following rules to your app’s ProGuard file (e.g. `android/app/proguard-rules.pro`) and ensure that file is referenced from `build.gradle` (e.g. `proguardFiles` in the release buildType).
+When building a **release** (or **profile**) Android app, ProGuard/R8 can strip or obfuscate classes needed by Flutter and the Wingify Insights SDK. Add the following rules to your app’s ProGuard file (e.g. `android/app/proguard-rules.pro`) and ensure that file is referenced from `build.gradle` (e.g. `proguardFiles` in the release buildType).
 
 ```proguard
 # Flutter
