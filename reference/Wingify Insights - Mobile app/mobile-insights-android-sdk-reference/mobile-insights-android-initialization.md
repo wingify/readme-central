@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-After installing the SDK, initialize the app in the *onCreate* function of the Application class. 
+After installing the SDK, initialize the app in the _onCreate_ function of the Application class.
 
 ## Parameters
 
@@ -31,7 +31,7 @@ After installing the SDK, initialize the app in the *onCreate* function of the A
     <tr>
       <td>
         **ACCOUNT\_ID**
-        *Required* 
+        _Required_
       </td>
 
       <td>
@@ -41,8 +41,7 @@ After installing the SDK, initialize the app in the *onCreate* function of the A
 
     <tr>
       <td>
-        **SDK\_KEY**\
-        *Required*
+        **SDK\_KEY**<br />_Required_
       </td>
 
       <td>
@@ -52,8 +51,7 @@ After installing the SDK, initialize the app in the *onCreate* function of the A
 
     <tr>
       <td>
-        **USER\_ID**\
-        *Optional*
+        **USER\_ID**<br />_Optional_
       </td>
 
       <td>
@@ -63,8 +61,7 @@ After installing the SDK, initialize the app in the *onCreate* function of the A
 
     <tr>
       <td>
-        **IVwoInitCallback**\
-        *Optional*
+        **IVwoInitCallback**<br />_Optional_
       </td>
 
       <td>
@@ -134,3 +131,5 @@ class VWOApplication : Application() {
 
 }
 ```
+
+<br />

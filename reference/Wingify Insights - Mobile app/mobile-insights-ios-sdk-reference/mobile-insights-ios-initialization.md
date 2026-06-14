@@ -10,76 +10,36 @@ metadata:
 next:
   description: ''
 ---
-After installing the SDK, initialize the app inside your *Appdelegate* file following the below-mentioned steps-
+After installing the SDK, initialize the app inside your _Appdelegate_ file following the below-mentioned steps-
 
 `Import VWO_Insights`
 
-After, add the following Initialization code inside the function -> 
+After, add the following Initialization code inside the function ->
 
-*func application(* application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?)\_ 
+_func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: \[UIApplication.LaunchOptionsKey: Any]?)\_
 
 ```swift
+// From SDK version 2.2.0 and above, If your app is purely and fully written in SwiftUI, then feel free to pass isSwiftUI as true in the function below - 
+//eg. VWO.configure(accountId: "", sdkKey: "", userId: "", isSwiftUI: true)
+
 VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the Wingify account
       switch result{
       case .success(_):
-        print("Wingify launched successfull")
+        print("VWO launched successfull")
         VWO.startSessionRecording() // For starting recording
       case .failure(let error):
-        print("Wingify launched failed \(error)")
+        print("VWO launched failed \(error)")
       }
    }					
 ```
 
 ## Parameters
 
-<Table align={["left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Key
-      </th>
-
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        **ACCOUNT\_ID**
-        *Required*
-      </td>
-
-      <td>
-        Wingify Account ID
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **SDK\_KEY**\
-        *Required*
-      </td>
-
-      <td>
-        SDK Key
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **USER\_ID**\
-        *Optional*
-      </td>
-
-      <td>
-        Unique identifier for the user
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Key                          | Description                    |
+| :--------------------------- | :----------------------------- |
+| **ACCOUNT\_ID** _Required_   | Wingify Account ID             |
+| **SDK\_KEY**<br />_Required_ | SDK Key                        |
+| **USER\_ID**<br />_Optional_ | Unique identifier for the user |
 
 An example implementation is for Swift
 
@@ -96,10 +56,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         VWO.configure(accountId: "", sdkKey: "", userId: ""){ result in // where accountID and sdkKey are provided on the Wingify account
       switch result{
       case .success(_):
-        print("Wingify launched successfull")
+        print("VWO launched successfull")
         VWO.startSessionRecording() // For starting recording
       case .failure(let error):
-        print("Wingify launched failed \(error)")
+        print("VWO launched failed \(error)")
       }
    }		
         
@@ -107,3 +67,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 }
 ```
+
+<br />

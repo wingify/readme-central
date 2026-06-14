@@ -37,7 +37,7 @@ Here is a summary of the IOS application analysis. This analysis includes a samp
       </th>
 
       <th>
-        Size                                   
+        Size
       </th>
     </tr>
   </thead>
@@ -89,147 +89,20 @@ Here is a summary of the IOS application analysis. This analysis includes a samp
 
 Wingify SDK makes two types of API calls to Wingify CDN.
 
-1. ***AppSettings***-  During SDK initialization, a single request is made to fetch settings, with two retry attempts. If this initial request fails, the SDK does not make any further attempts to fetch settings. This approach ensures consistent app behavior throughout an ongoing session.
-2. ***DataSync*** - Data synchronization for session recording and heatmaps is facilitated through a dedicated request. In the event of a failure, the SDK keeps track of the issue and will attempt to resend the data after a specified interval.
+1. **_AppSettings_**-  During SDK initialization, a single request is made to fetch settings, with two retry attempts. If this initial request fails, the SDK does not make any further attempts to fetch settings. This approach ensures consistent app behavior throughout an ongoing session.
+2. **_DataSync_** - Data synchronization for session recording and heatmaps is facilitated through a dedicated request. In the event of a failure, the SDK keeps track of the issue and will attempt to resend the data after a specified interval.
 
 Please note that these mechanisms are implemented to maintain the stability and reliability of the SDK's functionality.
 
 ## Network Usage & Response time
 
-<Table align={["left","left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        API
-      </th>
+| API                       | Network Type | Bandwidth(Usage)                                       | Time Taken |
+| :------------------------ | :----------- | :----------------------------------------------------- | :--------- |
+| AppSettings               | 3G           | \~1KB                                                  | \< 0.5 sec |
+| AppSettings               | 4G / 5G      | \~1KB                                                  | \< 0.5 sec |
+| AppSettings               | WiFi         | \~1KB                                                  | \< 0.5 sec |
+| DataSync(per API-request) | 3G           | min:- \~50KB<br />average:- \~130KB<br />max:- \~180KB | \< 2 sec   |
+| DataSync(per API-request) | 4G / 5G      | min:- \~50KB<br />average:- \~130KB<br />max:- \~180KB | \< 1 sec   |
+| DataSync(per API-request) | WiFi         | min:- \~50KB<br />average:- \~130KB<br />max:- \~180KB | \< 1 sec   |
 
-      <th>
-        Network Type
-      </th>
-
-      <th>
-        Bandwidth(Usage)
-      </th>
-
-      <th>
-        Time Taken
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        AppSettings
-      </td>
-
-      <td>
-        3G
-      </td>
-
-      <td>
-        \~1KB
-      </td>
-
-      <td>
-        \< 0.5 sec
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        AppSettings
-      </td>
-
-      <td>
-        4G / 5G
-      </td>
-
-      <td>
-        \~1KB
-      </td>
-
-      <td>
-        \< 0.5 sec
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        AppSettings
-      </td>
-
-      <td>
-        WiFi
-      </td>
-
-      <td>
-        \~1KB
-      </td>
-
-      <td>
-        \< 0.5 sec
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        DataSync(per API-request)
-      </td>
-
-      <td>
-        3G
-      </td>
-
-      <td>
-        min:- \~50KB\
-        average:- \~130KB\
-        max:- \~180KB
-      </td>
-
-      <td>
-        \< 2 sec
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        DataSync(per API-request)
-      </td>
-
-      <td>
-        4G / 5G
-      </td>
-
-      <td>
-        min:- \~50KB\
-        average:- \~130KB\
-        max:- \~180KB
-      </td>
-
-      <td>
-        \< 1 sec
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        DataSync(per API-request)
-      </td>
-
-      <td>
-        WiFi
-      </td>
-
-      <td>
-        min:- \~50KB\
-        average:- \~130KB\
-        max:- \~180KB
-      </td>
-
-      <td>
-        \< 1 sec
-      </td>
-    </tr>
-  </tbody>
-</Table>
+<br />

@@ -22,7 +22,9 @@ VWOInsights.INSTANCE.sendCustomAttribute(map);
 ```kotlin
 val map = mutableMapOf<String, Any>()
 map["email"] = "abc@xyz.com"
-map["name"] = "Wingify Insights"
+map["name"] = "VWO Insights"
   
 VWOInsights.sendCustomAttribute(map)
 ```
+
+<br />
