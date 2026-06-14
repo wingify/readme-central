@@ -14,4 +14,4 @@ Wingify’s Mobile Recordings enable you to capture your visitors’ interaction
 NOTE: This feature is currently available on request only.\
 These recordings give you a more vivid picture of what your visitors are looking for in your application, which function they use the most, where they are stuck in the process of purchase, why they drop off midway, how long they spend time on your application, and many more insights.
 
-Please visit [here](https://help.wingify.com/hc/en-us/articles/12860664688409-What-are-Mobile-Recordings-in-VWO-) for more information.
+Please visit [here](https://help.vwo.com/hc/en-us/articles/12860664688409-What-are-Mobile-Recordings-in-VWO-) for more information.

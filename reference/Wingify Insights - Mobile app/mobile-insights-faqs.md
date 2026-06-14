@@ -28,7 +28,7 @@ List of Frequently Asked Questions:
 
 ## What are Mobile Recordings in Wingify, and how do they work?
 
-The Mobile Recordings module in Wingify allows you to record visitor interactions with your mobile application in the form of video. These recordings show how the visitors interact with your mobile application by capturing various gestures like single tap, double tap, zoom, fling, scroll, etc. They work based on [sampling](https://help.wingify.com/hc/en-us/articles/360034213994).
+The Mobile Recordings module in Wingify allows you to record visitor interactions with your mobile application in the form of video. These recordings show how the visitors interact with your mobile application by capturing various gestures like single tap, double tap, zoom, fling, scroll, etc. They work based on [sampling](https://help.vwo.com/hc/en-us/articles/360034213994).
 
 ## What is the maximum duration of the saved recording?
 
