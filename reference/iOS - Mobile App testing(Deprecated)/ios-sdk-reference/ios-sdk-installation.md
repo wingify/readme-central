@@ -21,7 +21,7 @@ If you are new to CocoaPods, refer to the CocoaPods [instruction guide](https://
 
 ```text Podfile
 target 'Your App' do
-     pod 'VWO'
+     pod 'Wingfiy'
  end
 ```
 
