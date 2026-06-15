@@ -103,7 +103,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling)
       </td>
     </tr>
 
@@ -118,7 +118,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-go-logging)
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-go-logging)
       </td>
     </tr>
 
@@ -133,7 +133,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-go-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-go-storage)
       </td>
     </tr>
 
@@ -148,7 +148,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.wingify.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -163,7 +163,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-go-integrations)
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-go-integrations)
       </td>
     </tr>
 
@@ -178,7 +178,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Configuration for network request retry behavior and exponential backoff strategy. For more details, please check - [Retry Config](https://developers.vwo.com/v2/docs/fme-go-initialization#/retry-config)
+        Configuration for network request retry behavior and exponential backoff strategy. For more details, please check - [Retry Config](https://developers.wingify.com/v2/docs/fme-go-initialization#/retry-config)
       </td>
     </tr>
 
@@ -193,7 +193,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Custom proxy URL for redirecting all SDK network requests through a proxy server. Please check - [ProxyUrl](https://developers.vwo.com/v2/docs/fme-go-initialization#proxyurl)
+        Custom proxy URL for redirecting all SDK network requests through a proxy server. Please check - [ProxyUrl](https://developers.wingify.com/v2/docs/fme-go-initialization#proxyurl)
       </td>
     </tr>
   </tbody>
@@ -202,7 +202,7 @@ This client object allows you to run experiments, track events, and enable/disab
 ### Poll Interval (Keeping VWO client up-to-date)
 
 When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -218,7 +218,7 @@ vwoInstance, err := vwo.Init(options)
 
 ### Logger
 
-VWO by default logs all ERROR level messages to your server console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+VWO by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```go
 options := map[string]interface{}{
@@ -232,7 +232,7 @@ options := map[string]interface{}{
 vwoInstance, err := vwo.Init(options)
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-go-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v2/docs/fme-go-logging) for more advanced logger options.
 
 ### Storage
 
@@ -249,7 +249,7 @@ options := map[string]interface{}{
 vwoInstance, err := vwo.Init(options)
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-go-storage)  to learn more about storage implementation.
+Please click [here](https://developers.wingify.com/v2/docs/fme-go-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
@@ -267,7 +267,7 @@ options := map[string]interface{}{
 vwoInstance, err := vwo.Init(options)
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/gateway-service)  to learn more about the VWO Gateway service.
+Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about the VWO Gateway service.
 
 ### Integrations
 
@@ -288,12 +288,12 @@ options := map[string]interface{}{
 vwoInstance, err := vwo.Init(options)
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-go-integrations) to learn more about Integrations,.
+Please click [here](https://developers.wingify.com/v2/docs/fme-go-integrations) to learn more about Integrations,.
 
 ### Initialization with Explicit Settings
 
 The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.  
-Please refer to <Anchor label="this" target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
+Please refer to <Anchor label="this" target="_blank" href="https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```go
 var localSettings = '{
@@ -336,7 +336,7 @@ options := map[string]interface{}{
 vwoInstance, err := vwo.Init(options)
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism) to learn more about retry configuration.
+Please click [here](https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism) to learn more about retry configuration.
 
 ### ProxyUrl
 
@@ -356,6 +356,6 @@ options := map[string]interface{}{
 vwoInstance, err := vwo.Init(options)
 ```
 
-Please <Anchor label="click" target="_blank" href="https://developers.vwo.com/v2/docs/fme-go-proxy-url">click</Anchor> here to learn more about Proxy URL.
+Please <Anchor label="click" target="_blank" href="https://developers.wingify.com/v2/docs/fme-go-proxy-url">click</Anchor> here to learn more about Proxy URL.
 
 <br />

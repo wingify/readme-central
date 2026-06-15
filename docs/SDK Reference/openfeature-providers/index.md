@@ -23,27 +23,27 @@ OpenFeature is an open standard that provides a unified, vendor-agnostic API for
 Click on the cards below to view the OpenFeature provider documentation for your chosen programming language.
 
 <Cards columns={4}>
-  <Card title="" href="https://developers.vwo.com/v2/docs/dotnet-openfeature-provider">
+  <Card title="" href="https://developers.wingify.com/v2/docs/dotnet-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original.svg" width="24" alt=".NET logo" /> .NET
   </Card>
 
-  <Card title="" href="https://developers.vwo.com/v2/docs/java-openfeature-provider">
+  <Card title="" href="https://developers.wingify.com/v2/docs/java-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="24" alt="Java logo" /> Java
   </Card>
 
-  <Card title="" href="https://developers.vwo.com/v2/docs/node-openfeature-provider">
+  <Card title="" href="https://developers.wingify.com/v2/docs/node-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" width="24" alt="Node.js logo" /> Node.js
   </Card>
 
-  <Card title="" href="https://developers.vwo.com/v2/docs/php-openfeature-provider">
+  <Card title="" href="https://developers.wingify.com/v2/docs/php-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" width="24" alt="PHP logo" /> PHP
   </Card>
 
-  <Card title="" href="https://developers.vwo.com/v2/docs/python-openfeature-provider">
+  <Card title="" href="https://developers.wingify.com/v2/docs/python-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="24" alt="Python logo" /> Python
   </Card>
 
-  <Card title="" href="https://developers.vwo.com/v2/docs/go-openfeature-provider">
+  <Card title="" href="https://developers.wingify.com/v2/docs/go-openfeature-provider">
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/go/go-original.svg" width="24" alt="Go logo" /> Go
   </Card>
 </Cards>

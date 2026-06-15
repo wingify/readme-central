@@ -89,7 +89,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-php-logging)
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-php-logging)
       </td>
     </tr>
 
@@ -104,7 +104,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-php-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-php-storage)
       </td>
     </tr>
 
@@ -119,7 +119,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.vwo.com/v2/docs/fme-php-initialization#retry-configuration)
+        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.wingify.com/v2/docs/fme-php-initialization#retry-configuration)
       </td>
     </tr>
 
@@ -134,7 +134,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.wingify.com/v2/docs/gateway-service), this object will specify the location and port where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -187,7 +187,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Logger
 
-VWO by default logs all ERROR level messages to your server console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+VWO by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```php
 // Init options with logger
@@ -200,7 +200,7 @@ $vwoClient1 = VWO::init([
 ]);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-php-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v2/docs/fme-php-logging) for more advanced logger options.
 
 ### Storage
 
@@ -215,7 +215,7 @@ $vwoClient = VWO::init([
 ]);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-php-storage)  to learn more about storage implementation.
+Please click [here](https://developers.wingify.com/v2/docs/fme-php-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
@@ -251,7 +251,7 @@ $vwoClient = VWO::init([
 ]);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-python-integrations) to learn more about Integrations,.
+Please click [here](https://developers.wingify.com/v2/docs/fme-python-integrations) to learn more about Integrations,.
 
 ### Settings Configuration
 
@@ -271,7 +271,7 @@ $vwoClient = VWO::init([
 ### Initialization with Explicit Settings
 
 The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.  
-Please refer to <Anchor label="this" target="_blank" href="https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
+Please refer to <Anchor label="this" target="_blank" href="https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```php
 $settingsStringified = '{
@@ -314,4 +314,4 @@ $vwoClient = VWO::init([
 
 > Retry works for synchronous (cURL) calls only, and you should pass 'shouldWaitForTrackingCalls' => true, in the init configration to enable synchronous (cURL) calls and retry.
 
-Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor label="here" target="_blank" href="https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism

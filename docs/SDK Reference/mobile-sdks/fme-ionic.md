@@ -172,9 +172,9 @@ export class HomePage implements OnInit {
 <Callout icon="💡" theme="default">
   ### The VWO Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
 
-  * [getFlag()](https://developers.vwo.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
-  * [trackEvent()](https://developers.vwo.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
-  * [setAttribute()](https://developers.vwo.com/v2/docs/fme-javascript-attributes#/) to send user attributes to VWO
+  * [getFlag()](https://developers.wingify.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
+  * [trackEvent()](https://developers.wingify.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
+  * [setAttribute()](https://developers.wingify.com/v2/docs/fme-javascript-attributes#/) to send user attributes to VWO
 </Callout>
 
 <br />

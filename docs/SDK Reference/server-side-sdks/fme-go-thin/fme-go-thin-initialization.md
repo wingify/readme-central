@@ -100,7 +100,7 @@ func main() {
       </td>
 
       <td>
-        URL of your [Gateway Service](https://developers.vwo.com/v2/docs/gateway-service).
+        URL of your [Gateway Service](https://developers.wingify.com/v2/docs/gateway-service).
       </td>
     </tr>
   </tbody>
@@ -108,6 +108,6 @@ func main() {
 
 <br />
 
-Please note that all three parameters are mandatory for initializing the Go SDK. Make sure you have set up the Gateway Service before initializing the SDK. For more information on the Gateway Service, refer to our [Gateway Service documentation](https://developers.vwo.com/v2/docs/gateway-service).
+Please note that all three parameters are mandatory for initializing the Go SDK. Make sure you have set up the Gateway Service before initializing the SDK. For more information on the Gateway Service, refer to our [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service).
 
 After successful initialization, you can use the instance to access all SDK functionalities.

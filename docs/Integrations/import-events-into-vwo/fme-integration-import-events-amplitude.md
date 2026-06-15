@@ -17,7 +17,7 @@ This integration allows you to use Amplitude-identified users and cohorts for VW
 
 * **Segment-based targeting:** Run feature experiments only for specific Amplitude cohorts
 * **Personalized rollouts:** Deliver variations tailored to user properties (e.g., plan, region, engagement level, lifecycle stage)
-* **Cohort-driven A/B testing:** Combine Amplitude's behavioral analytics with VWO's experimentation engine
+* **Cohort-driven A/B testing:** Combine Amplitude's behavioral analytics with Wingify's experimentation engine
 * **Data-driven decisions:** Leverage Amplitude's rich user behavior data for more effective feature rollouts
 
 ## **Step 1: Enabling the Amplitude Integration for Your VWO Account**
@@ -88,11 +88,11 @@ npm install vwo-fme-node-sdk
 
 ### 5.2 Setup Gateway Service :
 
-**Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
+**Reference**: [VWO Gateway Service Doc](https://developers.wingify.com/v2/docs/gateway-service)
 
 ### 5.3 Initialize the SDK in your application with gateway service:
 
-**Reference**: [SDK Initialization Doc](https://developers.vwo.com/v2/docs/fme-node-initialization)
+**Reference**: [SDK Initialization Doc](https://developers.wingify.com/v2/docs/fme-node-initialization)
 
 ```javascript
 const vwo = require('vwo-fme-node-sdk');

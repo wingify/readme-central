@@ -110,7 +110,7 @@ vwoClient.trackEvent("eventName", context, eventProperties);
       </td>
 
       <td>
-        Same as the userContext object passed with the getFlag() function call (link). Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-java-context).
+        Same as the userContext object passed with the getFlag() function call (link). Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-java-context).
       </td>
     </tr>
 

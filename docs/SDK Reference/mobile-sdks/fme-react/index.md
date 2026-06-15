@@ -27,7 +27,7 @@ To facilitate a comprehensive understanding and effective implementation of the 
 3. [User Context](doc:fme-react-context)\
    Understand how to define and manage user contexts to enable targeted feature rollouts and personalized user experiences.
 4. [Hooks](doc:fme-react-hooks)\
-   Learn how to use VWO's React SDK hooks to integrate feature flagging, event tracking, and user attribute management seamlessly into your React applications. Also, we have provided an example of how you can write test cases in your application.
+   Learn how to use Wingify's React SDK hooks to integrate feature flagging, event tracking, and user attribute management seamlessly into your React applications. Also, we have provided an example of how you can write test cases in your application.
 5. [Feature Flags & Variables](doc:fme-react-flags)\
    Explore how to dynamically create, manage, and evaluate feature flags and variables to control feature availability.
 6. [Metrics Tracking](doc:fme-react-metrics)\

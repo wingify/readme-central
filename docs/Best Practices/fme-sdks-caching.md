@@ -95,7 +95,7 @@ const VwoClient = init({
 });
 ```
 
-For more information, see our reference on Edge Support: [https://developers.vwo.com/v2/docs/fme-edge-support#/](https://developers.vwo.com/v2/docs/fme-edge-support#/)
+For more information, see our reference on Edge Support: [https://developers.wingify.com/v2/docs/fme-edge-support#/](https://developers.wingify.com/v2/docs/fme-edge-support#/)
 
 <br />
 

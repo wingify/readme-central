@@ -85,7 +85,7 @@ The `init()` function is called with the `sdk_key`and `account_id`. It initializ
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling)
       </td>
     </tr>
 
@@ -99,7 +99,7 @@ The `init()` function is called with the `sdk_key`and `account_id`. It initializ
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logging](https://developers.vwo.com/v2/docs/fme-ruby-logging)
+        An optional logger object that defines the logging behavior. For more details, please check - [Logging](https://developers.wingify.com/v2/docs/fme-ruby-logging)
       </td>
     </tr>
 
@@ -113,7 +113,7 @@ The `init()` function is called with the `sdk_key`and `account_id`. It initializ
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-ruby-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-ruby-storage)
       </td>
     </tr>
 
@@ -127,7 +127,7 @@ The `init()` function is called with the `sdk_key`and `account_id`. It initializ
       </td>
 
       <td>
-        Customize retry behavior by passing a **retry\_config** in the init options. For more details, please check - [Retry Configuration](https://developers.vwo.com/v2/docs/fme-ruby-initialization#retry-configuration)
+        Customize retry behavior by passing a **retry\_config** in the init options. For more details, please check - [Retry Configuration](https://developers.wingify.com/v2/docs/fme-ruby-initialization#retry-configuration)
       </td>
     </tr>
 
@@ -141,7 +141,7 @@ The `init()` function is called with the `sdk_key`and `account_id`. It initializ
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.wingify.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -155,7 +155,7 @@ The `init()` function is called with the `sdk_key`and `account_id`. It initializ
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-ruby-integrations)
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-ruby-integrations)
       </td>
     </tr>
 
@@ -183,7 +183,7 @@ The `init()` function is called with the `sdk_key`and `account_id`. It initializ
       </td>
 
       <td>
-        Custom proxy URL for redirecting all SDK network requests through a proxy server. Please check - [Proxy URL](https://developers.vwo.com/v2/docs/fme-ruby-initialization#proxy-url)
+        Custom proxy URL for redirecting all SDK network requests through a proxy server. Please check - [Proxy URL](https://developers.wingify.com/v2/docs/fme-ruby-initialization#proxy-url)
       </td>
     </tr>
   </tbody>
@@ -191,7 +191,7 @@ The `init()` function is called with the `sdk_key`and `account_id`. It initializ
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
-When you initialize the _vwo\_client_ on your server, it pulls the latest configurations you've done in the VWO application.<br />If/when you make any changes to the feature flags or rules within VWO after the _vwo\_client_ has been initialized in your server, there needs to be some way to update your _vwo\_client_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+When you initialize the _vwo\_client_ on your server, it pulls the latest configurations you've done in the VWO application.<br />If/when you make any changes to the feature flags or rules within VWO after the _vwo\_client_ has been initialized in your server, there needs to be some way to update your _vwo\_client_ with the latest settings from VWO. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -206,7 +206,7 @@ vwo_client = VWO.init({
 
 ### Logger
 
-VWO by default logs all ERROR level messages to your server console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+VWO by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```ruby
 # Init options with logger
@@ -219,7 +219,7 @@ vwo_client = VWO.init({
 })
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-ruby-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v2/docs/fme-ruby-logging) for more advanced logger options.
 
 ### Storage
 
@@ -234,7 +234,7 @@ vwo_client = VWO.init({
 })
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-ruby-storage)  to learn more about storage implementation.
+Please click [here](https://developers.wingify.com/v2/docs/fme-ruby-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
@@ -251,7 +251,7 @@ vwo_client = VWO.init({
 });
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/gateway-service)  to learn more about gateway service.
+Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about gateway service.
 
 ### Integrations
 
@@ -272,7 +272,7 @@ vwo_client = VWO.init({
 })
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-ruby-integrations) to learn more about Integrations,.
+Please click [here](https://developers.wingify.com/v2/docs/fme-ruby-integrations) to learn more about Integrations,.
 
 ### Threading
 
@@ -320,7 +320,7 @@ vwo_client = VWO.init({
 })
 ```
 
-Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
 
 ### Proxy URL
 
@@ -337,4 +337,4 @@ vwo_client = VWO.init({
 })
 ```
 
-Please click <Anchor target="_blank" href="https://developers.vwo.com/v2/docs/fme-ruby-proxy-url">here</Anchor> to learn more about Proxy URL.
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-ruby-proxy-url">here</Anchor> to learn more about Proxy URL.

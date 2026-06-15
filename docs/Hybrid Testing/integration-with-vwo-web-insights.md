@@ -93,5 +93,5 @@ This architecture enables system-wide experimentation, not just UI testing.
 ## Integration with VWO Mobile Insights
 
 <Callout icon="📘" theme="info">
-  Refer this [article](https://developers.vwo.com/v2/docs/fme-integrations-vwo-insights-mobile)  to know the details.
+  Refer this [article](https://developers.wingify.com/v2/docs/fme-integrations-vwo-insights-mobile)  to know the details.
 </Callout>

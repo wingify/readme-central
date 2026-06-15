@@ -37,7 +37,7 @@ VWOFme.initialize(options: options) { result in
 
 ## Properties available to use for integrations
 
-All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.vwo.com/v2/docs/fme-ios-flags) and [trackEvent](https://developers.vwo.com/v2/docs/fme-ios-metrics) APIs.
+All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.wingify.com/v2/docs/fme-ios-flags) and [trackEvent](https://developers.wingify.com/v2/docs/fme-ios-metrics) APIs.
 
 ```json
 {

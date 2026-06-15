@@ -12,23 +12,23 @@ next:
 ---
 List of Frequently Asked Questions:
 
-* [What should be considered as the User ID?](https://developers.vwo.com/v2/docs/fme-faqs#/what-should-be-considered-as-the-user-id)
-* [How does VWO affect my application speed?](https://developers.vwo.com/v2/docs/fme-faqs#/how-does-vwo-affect-my-application-speed)
-* [How do VWO bucket users across SDKs?](https://developers.vwo.com/v2/docs/fme-faqs#/how-do-vwo-bucket-users-across-sdks)
-* [How does VWO bucket the same users across platforms?](https://developers.vwo.com/v2/docs/fme-faqs#/how-does-vwo-bucket-the-same-users-across-platforms)
-* [Why is it important to use Persistent Storage when deploying to Production?](https://developers.vwo.com/v2/docs/fme-faqs#/why-is-it-important-to-use-persistent-storage-when-deploying-to-production)
-* [Why isn't data reflecting in the campaign report](https://developers.vwo.com/v2/docs/fme-faqs#/why-isnt-data-reflecting-in-the-campaign-report)
-* [[Why aren't conversions reflecting in the campaign report](https://developers.vwo.com/v2/docs/fme-faqs#/why-arent-conversions-reflecting-in-the-campaign-report)]
-* [Are there any repercussions of changing campaign settings mid-campaign?](https://developers.vwo.com/v2/docs/fme-faqs#/are-there-any-repercussions-of-changing-campaign-settings-mid-campaign)
-* [What latency do getFlag, trackEvent, and setAttribute APIs calls add to my backend?](https://developers.vwo.com/v2/docs/fme-faqs#/what-latency-do-getflag-trackevent-and-setattribute-apis-calls-add-to-my-backend)
-* [Which programming languages are supported by VWO FE SDKs?](https://developers.vwo.com/v2/docs/fme-faqs#/which-programming-languages-are-supported-by-vwo-fe-sdks)
-* [What's the minimum version supported by each VWO SDK?](https://developers.vwo.com/v2/docs/fme-faqs#/whats-the-minimum-version-supported-by-each-vwo-sdk)
-* [Is there any history of changes that went live in different SDKs?](https://developers.vwo.com/v2/docs/fme-faqs#/is-there-any-history-of-changes-that-went-live-in-different-sdks)
-* [Can we track a goal with the same identifier in multiple campaigns at once?](https://developers.vwo.com/v2/docs/fme-faqs#/can-we-track-a-goal-with-the-same-identifier-in-multiple-campaigns-at-once)
-* [How to make sure you are running the latest version of the SDK?](https://developers.vwo.com/v2/docs/fme-faqs#/how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
-* [Why use Webhooks for updating settings and not Polling?](https://developers.vwo.com/v2/docs/fme-faqs#/why-use-webhooks-for-updating-settings-and-not-polling)
-* [Does VWO support User aliasing?](https://developers.vwo.com/v2/docs/fme-faqs#/does-vwo-support-user-aliasing)
-* [Do I need to modify my firewall when using VWO FE?](https://developers.vwo.com/v2/docs/fme-faqs#/do-i-need-to-modify-my-firewall-when-using-vwo-fe)
+* [What should be considered as the User ID?](https://developers.wingify.com/v2/docs/fme-faqs#/what-should-be-considered-as-the-user-id)
+* [How does VWO affect my application speed?](https://developers.wingify.com/v2/docs/fme-faqs#/how-does-vwo-affect-my-application-speed)
+* [How do VWO bucket users across SDKs?](https://developers.wingify.com/v2/docs/fme-faqs#/how-do-vwo-bucket-users-across-sdks)
+* [How does VWO bucket the same users across platforms?](https://developers.wingify.com/v2/docs/fme-faqs#/how-does-vwo-bucket-the-same-users-across-platforms)
+* [Why is it important to use Persistent Storage when deploying to Production?](https://developers.wingify.com/v2/docs/fme-faqs#/why-is-it-important-to-use-persistent-storage-when-deploying-to-production)
+* [Why isn't data reflecting in the campaign report](https://developers.wingify.com/v2/docs/fme-faqs#/why-isnt-data-reflecting-in-the-campaign-report)
+* [[Why aren't conversions reflecting in the campaign report](https://developers.wingify.com/v2/docs/fme-faqs#/why-arent-conversions-reflecting-in-the-campaign-report)]
+* [Are there any repercussions of changing campaign settings mid-campaign?](https://developers.wingify.com/v2/docs/fme-faqs#/are-there-any-repercussions-of-changing-campaign-settings-mid-campaign)
+* [What latency do getFlag, trackEvent, and setAttribute APIs calls add to my backend?](https://developers.wingify.com/v2/docs/fme-faqs#/what-latency-do-getflag-trackevent-and-setattribute-apis-calls-add-to-my-backend)
+* [Which programming languages are supported by VWO FE SDKs?](https://developers.wingify.com/v2/docs/fme-faqs#/which-programming-languages-are-supported-by-vwo-fe-sdks)
+* [What's the minimum version supported by each VWO SDK?](https://developers.wingify.com/v2/docs/fme-faqs#/whats-the-minimum-version-supported-by-each-vwo-sdk)
+* [Is there any history of changes that went live in different SDKs?](https://developers.wingify.com/v2/docs/fme-faqs#/is-there-any-history-of-changes-that-went-live-in-different-sdks)
+* [Can we track a goal with the same identifier in multiple campaigns at once?](https://developers.wingify.com/v2/docs/fme-faqs#/can-we-track-a-goal-with-the-same-identifier-in-multiple-campaigns-at-once)
+* [How to make sure you are running the latest version of the SDK?](https://developers.wingify.com/v2/docs/fme-faqs#/how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
+* [Why use Webhooks for updating settings and not Polling?](https://developers.wingify.com/v2/docs/fme-faqs#/why-use-webhooks-for-updating-settings-and-not-polling)
+* [Does VWO support User aliasing?](https://developers.wingify.com/v2/docs/fme-faqs#/does-vwo-support-user-aliasing)
+* [Do I need to modify my firewall when using VWO FE?](https://developers.wingify.com/v2/docs/fme-faqs#/do-i-need-to-modify-my-firewall-when-using-vwo-fe)
 
 ## What should be considered as the User ID?
 
@@ -62,7 +62,7 @@ To ensure deterministic bucketing and a consistent user experience, always use a
 
 ## How does VWO affect my application speed?
 
-The benefit of using VWO FE feature flags is that these are lightning-fast. With the help of our SDKs, you can get the variation assignment without making any blocking requests to VWO servers. All the computation, like deciding user eligibility for a campaign and assigning variation to a user is carried out by our smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.vwo.com/reference#section-how-bucketing-works).
+The benefit of using VWO FE feature flags is that these are lightning-fast. With the help of our SDKs, you can get the variation assignment without making any blocking requests to VWO servers. All the computation, like deciding user eligibility for a campaign and assigning variation to a user is carried out by our smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.wingify.com/reference#section-how-bucketing-works).
 
 The only thing that could be blocking it is fetching settings. The VWO SDK requires a _settings_ for its instantiation. Either you can cache it or fetch it just after the server is up, if possible.
 
@@ -70,7 +70,7 @@ As there is no client-side custom code execution, using a FE feature flag is muc
 
 ## How do VWO bucket users across SDKs?
 
-All the computations, like deciding user eligibility for a campaign and variation assignment to a user are carried out by smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.vwo.com/docs/core-concepts#how-bucketing-works).
+All the computations, like deciding user eligibility for a campaign and variation assignment to a user are carried out by smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.wingify.com/docs/core-concepts#how-bucketing-works).
 
 VWO also ensures that all of our SDKs give the same output. The bucketing user is language-agnostic.
 
@@ -80,7 +80,7 @@ We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash
 
 ## Why is it important to use Persistent Storage when deploying to Production?
 
-VWO Feature Experimentation offers multi-platform testing, i.e. you can run omnichannel tests to track and boost conversions. For this, VWO SDKs only require a unique identifier for the user using your application. As long as the identifier is the same, SDKs will provide consistent results without any need for storing anything either at your end or VWO's end.
+VWO Feature Experimentation offers multi-platform testing, i.e. you can run omnichannel tests to track and boost conversions. For this, VWO SDKs only require a unique identifier for the user using your application. As long as the identifier is the same, SDKs will provide consistent results without any need for storing anything either at your end or Wingify's end.
 
 We recommend using a Persistent Storage Service at your end in the following scenarios:
 
@@ -398,7 +398,7 @@ VWO SDKs provide an API to track an event; that event can be associated with _n_
 ## How to make sure you are running the latest version of the SDK?
 
 Please use the latest version of the SDK by periodically checking for updates and updating the SDK to enjoy new features we keep on shipping from time to time.  
-Refer to this [section](https://developers.vwo.com/reference#fullstack-is-there-any-list-of-features-in-different-sdks) to know about the changes VWO ships in different SDKs.
+Refer to this [section](https://developers.wingify.com/reference#fullstack-is-there-any-list-of-features-in-different-sdks) to know about the changes VWO ships in different SDKs.
 
 ## Why use Webhooks for updating settings and not Polling?
 

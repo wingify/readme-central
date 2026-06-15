@@ -17,7 +17,7 @@ This integration allows you to use Mixpanel-identified users and cohorts for VWO
 
 * **Segment-based targeting:** Run feature experiments only for specific Mixpanel cohorts.
 * **Personalized rollouts:** Deliver variations tailored to user properties (e.g., plan, region, engagement level, lifecycle stage).
-* **Cohort-driven A/B testing:** Combine Mixpanel's behavioral analytics with VWO's experimentation engine.
+* **Cohort-driven A/B testing:** Combine Mixpanel's behavioral analytics with Wingify's experimentation engine.
 * **Data-driven decisions:** Leverage Mixpanel's rich user behavior data for more effective feature rollouts.
 
 ## **Step 1: Enabling the VWO-Mixpanel Integration for your VWO Account:**
@@ -80,11 +80,11 @@ npm install vwo-fme-node-sdk
 
 ### **Setup Gateway Service**:
 
-**Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
+**Reference**: [VWO Gateway Service Doc](https://developers.wingify.com/v2/docs/gateway-service)
 
 ### Initialize the SDK in your application with the VWO Gateway service:
 
-**Reference**: [SDK Initialization Doc](https://developers.vwo.com/v2/docs/fme-node-initialization)
+**Reference**: [SDK Initialization Doc](https://developers.wingify.com/v2/docs/fme-node-initialization)
 
 ```javascript
 const { init } = require('vwo-fme-node-sdk');

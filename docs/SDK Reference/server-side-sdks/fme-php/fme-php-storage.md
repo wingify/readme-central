@@ -24,7 +24,7 @@ The storage mechanism ensures that once a decision is made for a user, it remain
 
 ## How to Implement Storage Service
 
-Storage Service is optional while [instantiating](https://developers.vwo.com/docs/nodejs-launch) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing it.
+Storage Service is optional while [instantiating](https://developers.wingify.com/docs/nodejs-launch) the VWO SDK. However, to ensure sticky variation assignments, we recommend implementing it.
 
 ### Usage
 

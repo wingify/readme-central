@@ -15,7 +15,7 @@ Model Context Protocol (MCP) is an open standard that allows AI applications to 
 
 ## APIs, Integrations & Implementation Docs | VWO Developer Hub MCP Server Setup
 
-APIs, Integrations & Implementation Docs | VWO Developer Hub hosts a remote MCP server at `https://developers.vwo.com/mcp`. Configure your AI development tools to connect to this server. If your APIs require authentication, you can pass in headers via query parameters or however headers are configured in your MCP client.
+APIs, Integrations & Implementation Docs | VWO Developer Hub hosts a remote MCP server at `https://developers.wingify.com/mcp`. Configure your AI development tools to connect to this server. If your APIs require authentication, you can pass in headers via query parameters or however headers are configured in your MCP client.
 
 <Tabs>
   <Tab title="Cursor">
@@ -25,7 +25,7 @@ APIs, Integrations & Implementation Docs | VWO Developer Hub hosts a remote MCP 
     {
       "mcpServers": {
         "vwo": {
-          "url": "https://developers.vwo.com/mcp"
+          "url": "https://developers.wingify.com/mcp"
         }
       }
     }
@@ -39,7 +39,7 @@ APIs, Integrations & Implementation Docs | VWO Developer Hub hosts a remote MCP 
     {
       "mcpServers": {
         "vwo": {
-          "url": "https://developers.vwo.com/mcp"
+          "url": "https://developers.wingify.com/mcp"
         }
       }
     }
@@ -53,7 +53,7 @@ APIs, Integrations & Implementation Docs | VWO Developer Hub hosts a remote MCP 
     {
       "mcpServers": {
         "vwo": {
-          "url": "https://developers.vwo.com/mcp"
+          "url": "https://developers.wingify.com/mcp"
         }
       }
     }
