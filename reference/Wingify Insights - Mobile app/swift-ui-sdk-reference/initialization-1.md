@@ -12,7 +12,7 @@ After installing the SDK, initialize Wingify Insights in your AppDelegate file b
 **Step 1: Import the SDK**
 
 ```swift
-import VWO_Insights
+import Wingify_Insights
 ```
 
 <br />
@@ -25,16 +25,16 @@ func application(
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
 ) -> Bool {
 
-    VWO.configure(
+    Wingify.configure(
         accountId: "<YOUR_ACCOUNT_ID>",
         sdkKey: "<YOUR_SDK_KEY>",
-        isSwiftUI: true, // Set to true if your app supports SwiftUI
+        isSwiftUI: true, // Set to true if your app is fully built with SwiftUI
         userId: "<USER_ID>" // Optional: Pass a unique identifier if available
     ) { result in
         switch result {
         case .success(_):
             print("Wingify launched successfully")
-            VWO.startSessionRecording()
+            Wingify.startSessionRecording()
         case .failure(let error):
             print("Wingify launch failed: \(error)")
         }

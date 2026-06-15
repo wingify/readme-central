@@ -18,7 +18,7 @@ var body: some View {
     ZStack {
         // Your view content
     }
-    .vwoTagScreenName(screenName: "ScreenName")
+    .wingifyTagScreenName(screenName: "ScreenName")
 }
 ```
 

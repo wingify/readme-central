@@ -1,6 +1,6 @@
 ---
 title: Installation
-excerpt: Latest SDK version is 2.2.1
+excerpt: Latest SDK version is 2.5.0
 deprecated: false
 hidden: false
 link:
@@ -25,7 +25,7 @@ $ flutter pub add wingify_insights_flutter_sdk
 This will add a line like the one below to your package's pubspec.yaml file. Use the latest SDK version for new features and improvements.
 
 > dependencies:  
-> wingify_insights_flutter_sdk: 2.2.1
+> wingify_insights_flutter_sdk: 2.5.0
 
 <br />
 
