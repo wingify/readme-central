@@ -14,7 +14,7 @@ After initializing the SDK successfully, you can manage the session recording fe
 **To start session recording:**
 
 ```swift
-VWO.startSessionRecording()
+Wingify.startSessionRecording()
 ```
 
 <br />
@@ -22,7 +22,7 @@ VWO.startSessionRecording()
 **To stop session recording:**
 
 ```swift
-VWO.stopSessionRecording()
+Wingify.stopSessionRecording()
 ```
 
 <br />

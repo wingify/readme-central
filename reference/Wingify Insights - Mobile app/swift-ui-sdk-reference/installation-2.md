@@ -11,7 +11,7 @@ The latest SDK version for IOS is **v1.0.6** and you can view the changelog <Anc
 
 ## Using Swift Package Manager (SPM)
 
-> **Note: - SDK supports SwiftUI VWO-Insights v0.5.1 and above**
+> **Note: - SDK supports SwiftUI Wingify-Insights v0.5.1 and above**
 
 <br />
 
@@ -34,7 +34,7 @@ URL: [https://github.com/wingify/ios-mobile-insights-artifacts.git](https://gith
 You can use CocoaPods to install the Wingify Insights IOS SDK by adding the below pods to your Pod file.
 
 ```shell
-pod 'VWO-Insights'
+pod 'Wingify-Insights'
 ```
 
 <br />

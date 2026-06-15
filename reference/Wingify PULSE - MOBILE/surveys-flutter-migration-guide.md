@@ -1,6 +1,6 @@
 ---
 title: Surveys - Flutter - Migration Guide
-excerpt: Latest SDK version is 2.2.1
+excerpt: Latest SDK version is 2.5.0
 deprecated: false
 hidden: true
 metadata:
@@ -48,7 +48,7 @@ Add the Wingify Pulse Flutter SDK:
 
 ```yaml
 dependencies:
-  wingify_insights_flutter_sdk: ^2.2.1
+  wingify_insights_flutter_sdk: ^2.5.0
 ```
 
 Run the following command to update dependencies:
