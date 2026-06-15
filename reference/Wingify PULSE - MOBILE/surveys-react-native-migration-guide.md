@@ -1,6 +1,6 @@
 ---
 title: Surveys - React Native - Migration Guide
-excerpt: Latest SDK version is 2.2.0
+excerpt: Latest SDK version is 2.5.1
 deprecated: false
 hidden: true
 metadata:
@@ -10,25 +10,25 @@ metadata:
 
 ## Overview
 
-This guide helps you migrate your application from the **Blitzllama SDK** to the Wingif&#x79;**&#x20;Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
+This guide helps you migrate your application from the **Blitzllama SDK** to the **Wingify Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
 
 **Minimum Requirements:**
 
-- iOS 12.0 and above
-- Wingify dashboard access (to obtain Account ID and SDK Key)
+* iOS 12.0 and above
+* Wingify dashboard access (to obtain Account ID and SDK Key)
 
 ***
 
 ## Migration Summary
 
-| Feature          | Blitzllama SDK                  | Wingify Pulse SDK                                                               |
+| Feature          | Blitzllama SDK                  | Wingify Pulse SDK                                                                   |
 | ---------------- | ------------------------------- | ------------------------------------------------------------------------------- |
-| Dependency       | `BlitzLlamaSDK`                 | `VWO_Insights`                                                                  |
+| Dependency       | `BlitzLlamaSDK`                 | `Wingify_Insights`                                                                  |
 | API Key Location | AppDelegate.swift               | AppDelegate.swift                                                               |
 | User Creation    | Separate `createUser()` call    | Passed during initialization (optional), then use `setUserId()` to switch users |
 | User Switching   | `logout()`                      | `setUserId(randomString, completion)`                                           |
 | Trigger Method   | `triggerEvent()`                | `trackEvent()`                                                                  |
-| SDK Manager      | `BlitzLlamaSDK.getSdkManager()` | `VWO.getSurveyManager()`                                                        |
+| SDK Manager      | `BlitzLlamaSDK.getSdkManager()` | `Wingify.getSurveyManager()`                                                        |
 | User Attributes  | `setUserAttribute()`            | `setAttribute()`                                                                |
 
 ***
@@ -50,7 +50,7 @@ pod 'Blitzllama-ios', '1.6.29'
 
 ```ruby
 # Podfile
-pod 'VWO-Insights', '~> 2.2.0'
+pod 'Wingify-Insights', '~> 2.5.0'
 ```
 
 ***
@@ -63,7 +63,7 @@ Blitzllama does not use Info.plist for API keys. The API key is set programmatic
 
 ## Wingify Configuration
 
-The most significant change is in how the SDK is initialized and how users are identified using `VWO.configure()`.
+The most significant change is in how the SDK is initialized and how users are identified using `Wingify.configure()`.
 
 ***
 
@@ -73,9 +73,9 @@ The most significant change is in how the SDK is initialized and how users are i
 
 **Key Points:**
 
-- User ID can be passed during initialization in `VWO.configure()` (optional)
-- Use `setUserId()` later to switch users or identify users after they log in
-- For anonymous users, you can pass nil, or "" or a random string with `setUserId()`
+* User ID can be passed during initialization in `Wingify.configure()` (optional)
+* Use `setUserId()` later to switch users or identify users after they log in
+* For anonymous users, you can pass nil, or "" or a random string with `setUserId()`
 
 ## Blitzllama Approach (Before)
 
@@ -103,7 +103,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ## Wingify Pulse Approach (After)
 
 ```swift
-import VWO_Insights
+import Wingify_Insights
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -112,21 +112,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // User ID is optional during initialization
         // Pass nil or "" for anonymous users, or actual user ID if known
-        VWO.configure(
+        Wingify.configure(
             accountId: "your_account_id",  // Account ID from Wingify dashboard
             sdkKey: "your_sdk_key",        // SDK Key from Wingify dashboard
             userId: nil                    // User ID (optional) - use nil for anonymous, or "user_id" if known
         ) { result in
             switch result {
             case .success(_):
-                print("VWO SDK initialized successfully")
+                print("Wingify SDK initialized successfully")
                 // Safe to trigger surveys now
-                VWO.startSessionRecording()
+                Wingify.startSessionRecording()
                 
                 // If user logs in later, use setUserId() to identify them:
-                // VWO.setUserId("user_id") { result in ... }
+                // Wingify.setUserId("user_id") { result in ... }
             case .failure(let error):
-                print("VWO SDK initialization failed: \(error)")
+                print("Wingify SDK initialization failed: \(error)")
             }
         }
         
@@ -138,8 +138,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ## Key Changes
 
 1. **No longer extend SDK class** - Your Application class extends `UIResponder` and `UIApplicationDelegate` instead of extending Blitzllama SDK
-2. **User ID is optional at initialization** - User identifier can be passed in `VWO.configure()` (use `nil` or `""` for anonymous users), or set later using `setUserId()`
-3. **Use&#x20;**`setUserId()`**&#x20;to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
+2. **User ID is optional at initialization** - User identifier can be passed in `Wingify.configure()` (use `nil` or `""` for anonymous users), or set later using `setUserId()`
+3. **Use `setUserId()` to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
 4. **Callback-based initialization** - Wingify uses explicit success/failure callbacks
 
 ***
@@ -164,7 +164,7 @@ BlitzLlamaSDKController.getSDKManager().fetchSurvey(triggerName: "trigger_name",
 
 ```swift
 // Get Survey SDK manager
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 
 // Track event (trigger survey)
 surveySDK.trackEvent(
@@ -176,7 +176,7 @@ surveySDK.trackEvent(
 
 ## Method Mapping
 
-| Blitzllama                                   | Wingify Pulse                              |
+| Blitzllama                                   | Wingify Pulse                                  |
 | -------------------------------------------- | ------------------------------------------ |
 | `triggerEvent("name")`                       | `trackEvent("name")`                       |
 | `triggerEvent("name", properties)`           | `trackEvent("name", properties)`           |
@@ -200,7 +200,7 @@ BlitzLlamaSDKController.getSDKManager.updateUserName("user_name")
 In Wingify, use `setAttribute()` to set user email and name:
 
 ```swift
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 
 // Supports different value types (String, Int, Bool, etc.)
 let attributes: [String: Any] = [
@@ -227,7 +227,7 @@ BlitzLlamaSDKController.getSDKManager.updateUserAttributes("is_active", attribut
 **Wingify Pulse (After):**
 
 ```swift
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 
 // Supports different value types (String, Int, Bool, etc.)
 let attributes: [String: Any] = [
@@ -254,7 +254,7 @@ BlitzLlamaSDKController.getSDKManager.setLanguageCode("en")
 **Wingify Pulse (After):**
 
 ```swift
-let surveySDK = VWO.getSurveyManager()
+let surveySDK = Wingify.getSurveyManager()
 surveySDK.setLanguageCode("en")
 ```
 
@@ -272,17 +272,17 @@ BlitzLlamaSDK.logout()
 
 ## Wingify Pulse (After)
 
-Wingify Pulse does **not have a&#x20;**`logout()`**&#x20;method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+Wingify Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
 
 ### Switching to a New User
 
 Use `setUserId()` when your user logs in or switches accounts:
 
 ```swift
-import VWO_Insights
+import Wingify_Insights
 
 // When user logs in or switches account
-VWO.setUserId("new_user_id") { result in
+Wingify.setUserId("new_user_id") { result in
     switch result {
     case .success(let message):
         print("User switch complete: \(message)")
@@ -303,7 +303,7 @@ import Foundation
 
 // When user logs out
 let randomUserId = UUID().uuidString
-VWO.setUserId(randomUserId) { result in
+Wingify.setUserId(randomUserId) { result in
     switch result {
     case .success(let message):
         print("Now tracking as anonymous user")
@@ -316,10 +316,10 @@ VWO.setUserId(randomUserId) { result in
 
 ### Key Differences
 
-| Blitzllama                 | Wingify Pulse                                    |
+| Blitzllama                 | Wingify Pulse                                        |
 | -------------------------- | ------------------------------------------------ |
 | `BlitzLlamaSDK.logout()`   | No direct logout method                          |
-| -                          | `VWO.setUserId(userId, completion)`              |
+| -                          | `Wingify.setUserId(userId, completion)`              |
 | Logout clears session      | Use random string for anonymous tracking         |
 | Requires re-initialization | `setUserId()` handles session refresh internally |
 
@@ -346,8 +346,8 @@ Update all your import statements:
 
 | Before                                  | After                    |
 | --------------------------------------- | ------------------------ |
-| `import BlitzLlamaSDK`                  | `import VWO_Insights`    |
-| `BlitzLlamaSDKController.getSDKManager` | `VWO.getSurveyManager()` |
+| `import BlitzLlamaSDK`                  | `import Wingify_Insights`    |
+| `BlitzLlamaSDKController.getSDKManager` | `Wingify.getSurveyManager()` |
 
 ***
 
@@ -399,7 +399,7 @@ class ViewController: UIViewController {
 
 ```swift
 import UIKit
-import VWO_Insights
+import Wingify_Insights
 
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -407,18 +407,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         // Initialize SDK with user ID
-        VWO.configure(
+        Wingify.configure(
             accountId: "your_account_id",
             sdkKey: "your_sdk_key",
             userId: "user_123"  // User ID now here
         ) { result in
             switch result {
             case .success(_):
-                print("VWO SDK initialized")
-                VWO.startSessionRecording()
+                print("Wingify SDK initialized")
+                Wingify.startSessionRecording()
                 
                 // Set attributes after initialization
-                let surveySDK = VWO.getSurveyManager()
+                let surveySDK = Wingify.getSurveyManager()
                 surveySDK.setAttribute(attributes: ["plan": "premium"])
                 surveySDK.setLanguageCode("en")
                 
@@ -445,7 +445,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         // Trigger survey
-        let surveySDK = VWO.getSurveyManager()
+        let surveySDK = Wingify.getSurveyManager()
         surveySDK.trackEvent(
             triggerName: "home_screen_loaded",
             properties: ["screen": "home"],
@@ -471,7 +471,7 @@ class ViewController: UIViewController {
 Use the initialization callback to trigger surveys:
 
 ```swift
-VWO.configure(
+Wingify.configure(
     accountId: "your_account_id",
     sdkKey: "your_sdk_key",
     userId: "user_id"
@@ -480,7 +480,7 @@ VWO.configure(
     case .success(_):
         // Safe to trigger survey here
         DispatchQueue.main.async {
-            let surveySDK = VWO.getSurveyManager()
+            let surveySDK = Wingify.getSurveyManager()
             surveySDK.trackEvent(triggerName: "app_launched")
         }
     case .failure(let error):
@@ -493,14 +493,14 @@ VWO.configure(
 
 # Migration Checklist
 
-- [ ] Updated Podfile dependency from `Blitzllama-ios` to `VWO-Insights`
-- [ ] Updated Application class initialization
-- [ ] Replaced `createUser()` with `setUserId()` for user identification
-- [ ] Changed `triggerEvent()` calls to `trackEvent()`
-- [ ] Updated `setUserAttribute()` to `setAttribute()`
-- [ ] Updated import statements
-- [ ] Configured events in Wingify dashboard
-- [ ] Tested survey triggering in the app
+* [ ] Updated Podfile dependency from `Blitzllama-ios` to `Wingify-Insights`
+* [ ] Updated Application class initialization
+* [ ] Replaced `createUser()` with `setUserId()` for user identification
+* [ ] Changed `triggerEvent()` calls to `trackEvent()`
+* [ ] Updated `setUserAttribute()` to `setAttribute()`
+* [ ] Updated import statements
+* [ ] Configured events in Wingify dashboard
+* [ ] Tested survey triggering in the app
 
 ***
 
@@ -508,9 +508,7 @@ VWO.configure(
 
 | Component                               | Version |
 | --------------------------------------- | ------- |
-| Wingify Pulse SDK Version               | 2.2.0+  |
+| Wingify Pulse SDK Version                   | 2.5.1+  |
 | Minimum iOS Version                     | 12.0    |
 | Swift Version                           | 5.0+    |
 | Blitzllama SDK Version (migrating from) | 1.6.29  |
-
-<br />

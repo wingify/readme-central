@@ -16,7 +16,7 @@ Inform screen changes in your application using setScreenName() in the App.tsx o
 
 ```javascript
 import { NavigationContainer } from '@react-navigation/native';
-import { setScreenName } from 'vwo-insights-react-native-sdk';
+import { setScreenName } from 'wingify-insights-react-native-sdk';
 
 <NavigationContainer
           onStateChange={(state) => {

@@ -19,12 +19,12 @@ Copy the code below and replace the "ACCOUNT\_ID" and "SDK\_KEY" with the approp
 <br />
 
 ```java
-import com.vwo.insights.VWOInsights;
-import com.vwo.insights.events.VWOLog;
-import com.vwo.insights.exposed.Integrations;
-import com.vwo.insights.exposed.models.ClientConfiguration;
-import com.vwo.insights.exposed.IVwoInitCallback;
-import com.vwoinsightsreactnativesdk.VwoInsightsReactNativeSdkModule;
+import com.wingify.insights.WingifyInsights;
+import com.wingify.insights.events.WingifyLog;
+import com.wingify.insights.exposed.Integrations;
+import com.wingify.insights.exposed.models.ClientConfiguration;
+import com.wingify.insights.exposed.IWingifyInitCallback;
+import com.wingifyinsightsreactnativesdk.WingifyInsightsReactNativeSdkModule;
 
 
 public class MainApplication extends Application implements ReactApplication {
@@ -33,8 +33,8 @@ public class MainApplication extends Application implements ReactApplication {
     public void onCreate() {
         super.onCreate();
         // Other Code
-        VWOLog.INSTANCE.setLogLevel(VWOLog.ALL);
-        VwoInsightsReactNativeSdkModule.init(this, ACCOUNT_ID, SDK_KEY, "");
+        WingifyLog.INSTANCE.setLogLevel(WingifyLog.ALL);
+        WingifyInsightsReactNativeSdkModule.init(this, ACCOUNT_ID, SDK_KEY, "");
         // Other Code
     }
     // Other Code
@@ -42,12 +42,12 @@ public class MainApplication extends Application implements ReactApplication {
 
 ```
 ```kotlin
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.events.VWOLog
-import com.vwo.insights.exposed.Integrations
-import com.vwo.insights.exposed.models.ClientConfiguration
-import com.vwo.insights.exposed.IVwoInitCallback
-import com.vwoinsightsreactnativesdk.VwoInsightsReactNativeSdkModule
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.events.WingifyLog
+import com.wingify.insights.exposed.Integrations
+import com.wingify.insights.exposed.models.ClientConfiguration
+import com.wingify.insights.exposed.IWingifyInitCallback
+import com.wingifyinsightsreactnativesdk.WingifyInsightsReactNativeSdkModule
 
 class MainApplication : Application(), ReactApplication {
  
@@ -55,8 +55,8 @@ class MainApplication : Application(), ReactApplication {
   override fun onCreate() {
       super.onCreate()
  	// Other Code
-      	VWOLog.setLogLevel(VWOLog.ALL)
-      	VwoInsightsReactNativeSdkModule.init(this@MainApplication, ACCOUNT_ID, SDK_KEY, "")
+      	WingifyLog.setLogLevel(WingifyLog.ALL)
+      	WingifyInsightsReactNativeSdkModule.init(this@MainApplication, ACCOUNT_ID, SDK_KEY, "")
     	// Other Code
   }
   // Other Code

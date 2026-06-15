@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-If you want to start recording as soon as the application launches, start the session recording during the SDK initialization. Refer to the instructions here for [Android](https://developers.vwo.com/reference/android-integration) & [IOS](https://developers.vwo.com/reference/ios-integration).
+If you want to start recording as soon as the application launches, start the session recording during the SDK initialization. Refer to the instructions here for [Android](https://developers.wingify.com/reference/android-integration) & [IOS](https://developers.wingify.com/reference/ios-integration).
 
 If you have enabled performance mode and face any crash or issues with Android / iOS Native implementation, You can control the recording manually using the methods below.
 
@@ -19,9 +19,9 @@ If you have enabled performance mode and face any crash or issues with Android /
 ### Start Recording Manually
 
 ```javascript Dart
-import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
+import 'package:wingify_insights_flutter_sdk/wingify_insights_flutter_sdk.dart';
  
-VwoFlutter.startRecording();
+WingifyFlutter.startRecording();
 ```
 
 > _**startRecording()**_ is not required in Flutter web.
@@ -33,9 +33,9 @@ You can also start recording in response to any user action (for example, when a
 ### Stop Recording Manually
 
 ```javascript Dart
-import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
+import 'package:wingify_insights_flutter_sdk/wingify_insights_flutter_sdk.dart';
  
-VwoFlutter.stopRecording();
+WingifyFlutter.stopRecording();
 ```
 
 > _**stopRecording()**_ is not required in Flutter web.

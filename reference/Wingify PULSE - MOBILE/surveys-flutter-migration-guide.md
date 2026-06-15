@@ -18,16 +18,16 @@ Wingify Pulse SDK provides the same core functionality as Blitzllama with some k
 
 ### Key Differences at a Glance
 
-| Aspect          | Blitzllama              | Wingify Pulse                                                    |
-| --------------- | ----------------------- | ---------------------------------------------------------------- |
-| Package         | blitzllama\_flutter     | vwo\_insights\_flutter\_sdk                                      |
-| Class Name      | BlitzllamaFlutter       | VwoFlutter                                                       |
-| Initialization  | Dart code               | Native code (Android/iOS)                                        |
+| Aspect          | Blitzllama              | Wingify Pulse                                                     |
+| --------------- | ----------------------- | ------------------------------------------------------------- |
+| Package         | blitzllama_flutter      | wingify_insights_flutter_sdk                                      |
+| Class Name      | BlitzllamaFlutter       | WingifyFlutter                                                    |
+| Initialization  | Dart code               | Native code (Android/iOS)                                     |
 | User Creation   | createUser() in Dart    | userId in native initialization (optional), then use setUserId() |
-| User Switching  | logout()                | setUserId(newUserId)                                             |
-| Trigger Method  | triggerEvent()          | trackEvent()                                                     |
-| User Attributes | Individual method calls | Single map-based method                                          |
-| User Email/Name | Dedicated methods       | Use setAttribute()                                               |
+| User Switching  | logout()                | setUserId(newUserId)                                          |
+| Trigger Method  | triggerEvent()          | trackEvent()                                                  |
+| User Attributes | Individual method calls | Single map-based method                                       |
+| User Email/Name | Dedicated methods       | Use setAttribute()                                            |
 
 ***
 
@@ -48,7 +48,7 @@ Add the Wingify Pulse Flutter SDK:
 
 ```yaml
 dependencies:
-  vwo_insights_flutter_sdk: ^2.2.1
+  wingify_insights_flutter_sdk: ^2.2.1
 ```
 
 Run the following command to update dependencies:
@@ -72,7 +72,7 @@ import 'package:blitzllama_flutter/blitzllama_flutter.dart';
 **After (Wingify Pulse):**
 
 ```dart
-import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
+import 'package:wingify_insights_flutter_sdk/wingify_insights_flutter_sdk.dart';
 ```
 
 ***
@@ -82,7 +82,6 @@ import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
 This is the most significant change. Wingify SDK requires native initialization instead of Dart initialization.
 
 **Key Points:**
-
 - User ID can be passed during native initialization (optional)
 - Use `setUserId()` later to switch users or identify users after they log in
 - For anonymous users, you can pass an empty string or `null` during initialization, or use a random string with `setUserId()`
@@ -100,18 +99,18 @@ BlitzllamaFlutter.init("<api_key>");
 
 ### Android
 
-1. Create an Application class (e.g., FlutterVwoApp.kt) in your Android project:
+1. Create an Application class (e.g., FlutterWingifyApp.kt) in your Android project:
 
 ```kotlin
 package com.your.package.name
 
 import android.util.Log
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.exposed.IVwoInitCallback
-import com.vwo.insights.exposed.models.ClientConfiguration
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.exposed.IWingifyInitCallback
+import com.wingify.insights.exposed.models.ClientConfiguration
 import io.flutter.app.FlutterApplication
 
-class FlutterVwoApp : FlutterApplication() {
+class FlutterWingifyApp : FlutterApplication() {
     override fun onCreate() {
         super.onCreate()
 
@@ -122,17 +121,17 @@ class FlutterVwoApp : FlutterApplication() {
             ""  // User ID (optional) - use "" for anonymous, or "user_id" if known
         )
         
-        VWOInsights.init(this, object : IVwoInitCallback {
-            override fun vwoInitSuccess(s: String) {
-                Log.d("VWO", "VWO initialized successfully")
+        WingifyInsights.init(this, object : IWingifyInitCallback {
+            override fun wingifyInitSuccess(s: String) {
+                Log.d("Wingify", "Wingify initialized successfully")
                 // Safe to trigger surveys now
                 
                 // If user logs in later in Flutter, use setUserId():
-                // VwoFlutter.setUserId("user_id");
+                // WingifyFlutter.setUserId("user_id");
             }
 
-            override fun vwoInitFailed(s: String) {
-                Log.e("VWO", "VWO initialization failed: $s")
+            override fun wingifyInitFailed(s: String) {
+                Log.e("Wingify", "Wingify initialization failed: $s")
             }
         }, configuration)
     }
@@ -143,7 +142,7 @@ class FlutterVwoApp : FlutterApplication() {
 
 ```xml
 <application
-    android:name=".FlutterVwoApp"
+    android:name=".FlutterWingifyApp"
     ... >
 </application>
 ```
@@ -155,7 +154,7 @@ Update your AppDelegate.swift:
 ```swift
 import UIKit
 import Flutter
-import vwo_insights_ios_flutter_sdk
+import wingify_insights_ios_flutter_sdk
 
 @UIApplicationMain
 @objc class AppDelegate: FlutterAppDelegate {
@@ -165,18 +164,18 @@ import vwo_insights_ios_flutter_sdk
     ) -> Bool {
         
         // User ID is optional - use nil for anonymous users
-        VWO.configure(
+        Wingify.configure(
             accountId: "YOUR_ACCOUNT_ID",
             sdkKey: "YOUR_SDK_KEY",
             userId: nil  // User ID (optional) - use nil for anonymous, or "user_id" if known
         ) { result in
             switch result {
             case .success(_):
-                print("VWO launch Success")
+                print("Wingify launch Success")
                 // If user logs in later in Flutter, use setUserId():
-                // VwoFlutter.setUserId("user_id");
+                // WingifyFlutter.setUserId("user_id");
             case .failure(_):
-                print("VWO launch Failure")
+                print("Wingify launch Failure")
             }
         }
         
@@ -188,10 +187,10 @@ import vwo_insights_ios_flutter_sdk
 
 ## Configuration Parameters
 
-| Parameter | Type   | Required | Description                                                  |
-| --------- | ------ | -------- | ------------------------------------------------------------ |
-| accountId | String | Yes      | Your Wingify account ID                                      |
-| sdkKey    | String | Yes      | Your SDK key from Wingify dashboard                          |
+| Parameter | Type   | Required | Description                                          |
+| --------- | ------ | -------- | ---------------------------------------------------- |
+| accountId | String | Yes      | Your Wingify account ID                                  |
+| sdkKey    | String | Yes      | Your SDK key from Wingify dashboard                      |
 | userId    | String | Optional | Unique identifier for the user (use "" or nil for anonymous) |
 
 ***
@@ -208,13 +207,13 @@ Blitzllama's createUser() is no longer needed. The user ID can be passed during 
 BlitzllamaFlutter.createUser(user_id);
 ```
 
-**After (**&#x57;ingif&#x79;**&#x20;Pulse):**
+**After (Wingify Pulse):**
 
 User ID is passed in native initialization (optional), or use `setUserId()` in Dart:
 
 ```dart
 // When user logs in
-final success = await VwoFlutter.setUserId('user_123');
+final success = await WingifyFlutter.setUserId('user_123');
 if (success) {
   print('User identified successfully');
 }
@@ -235,7 +234,7 @@ BlitzllamaFlutter.setUserAttribute("is_active", "true", "boolean");
 **After (Wingify Pulse):**
 
 ```dart
-VwoFlutter.setAttribute({
+WingifyFlutter.setAttribute({
     "plan": "premium",
     "age": 25,
     "is_active": true
@@ -258,7 +257,7 @@ BlitzllamaFlutter.setUserName(username);
 **After (Wingify Pulse):**
 
 ```dart
-VwoFlutter.setAttribute({
+WingifyFlutter.setAttribute({
     "user_email": "user@example.com",
     "user_name": "John Doe"
 });
@@ -275,7 +274,7 @@ BlitzllamaFlutter.setSurveyLanguage("en");
 **After (Wingify Pulse):**
 
 ```dart
-VwoFlutter.setSurveyLanguage("en");
+WingifyFlutter.setSurveyLanguage("en");
 ```
 
 ***
@@ -295,7 +294,7 @@ BlitzllamaFlutter.triggerEvent("purchase_completed");
 **After (Wingify Pulse):**
 
 ```dart
-VwoFlutter.trackEvent("purchase_completed");
+WingifyFlutter.trackEvent("purchase_completed");
 ```
 
 ## Trigger with Event Properties
@@ -312,7 +311,7 @@ BlitzllamaFlutter.triggerEvent("HomeActivity", {
 **After (Wingify Pulse):**
 
 ```dart
-VwoFlutter.trackEvent("HomeActivity", {
+WingifyFlutter.trackEvent("HomeActivity", {
     "age": 10,
     "name": "John"
 });
@@ -338,7 +337,7 @@ Not available - remove this call.
 
 ## User Switching
 
-Wingify Pulse does **not have a&#x20;**`logout()`**&#x20;method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+Wingify Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
 
 **Before (Blitzllama):**
 
@@ -352,7 +351,7 @@ BlitzllamaFlutter.logout();
 
 ```dart
 // When user logs in or switches account
-final success = await VwoFlutter.setUserId('new_user_id');
+final success = await WingifyFlutter.setUserId('new_user_id');
 if (success) {
   print('User switch complete');
   // Recording resumes automatically if it was active before
@@ -366,7 +365,7 @@ import 'dart:math';
 
 // When user logs out - generate random ID for anonymous tracking
 final randomUserId = 'anon_${Random().nextInt(999999)}';
-final success = await VwoFlutter.setUserId(randomUserId);
+final success = await WingifyFlutter.setUserId(randomUserId);
 if (success) {
   print('Now tracking as anonymous user');
 }
@@ -378,38 +377,38 @@ if (success) {
 
 # API Reference Mapping
 
-| Blitzllama Method         | Wingify Pulse Equivalent | Notes                           |
-| ------------------------- | ------------------------ | ------------------------------- |
-| init(apiKey)              | Native initialization    | See Step 3                      |
-| createUser(userId)        | setUserId(userId)        | Use after initialization        |
-| setUserEmail(email)       | setAttribute()           | Pass user\_email in map         |
-| setUserName(name)         | setAttribute()           | Pass user\_name in map          |
-| setUserAttribute()        | setAttribute()           | Now accepts a map               |
-| setSurveyLanguage(code)   | setSurveyLanguage(code)  | Same signature                  |
-| triggerEvent(name)        | trackEvent(name)         | Method renamed                  |
-| triggerEvent(name, props) | trackEvent(name, props)  | Method renamed                  |
-| logout()                  | setUserId(randomString)  | Use random string for anonymous |
-| setCustomFont()           | Not available            | Feature removed                 |
+| Blitzllama Method         | Wingify Pulse Equivalent    | Notes                                |
+| ------------------------- | ----------------------- | ------------------------------------ |
+| init(apiKey)              | Native initialization   | See Step 3                           |
+| createUser(userId)        | setUserId(userId)       | Use after initialization             |
+| setUserEmail(email)       | setAttribute()          | Pass user_email in map               |
+| setUserName(name)         | setAttribute()          | Pass user_name in map                |
+| setUserAttribute()        | setAttribute()          | Now accepts a map                    |
+| setSurveyLanguage(code)   | setSurveyLanguage(code) | Same signature                       |
+| triggerEvent(name)        | trackEvent(name)        | Method renamed                       |
+| triggerEvent(name, props) | trackEvent(name, props) | Method renamed                       |
+| logout()                  | setUserId(randomString) | Use random string for anonymous      |
+| setCustomFont()           | Not available           | Feature removed                      |
 
 ***
 
 # Migration Checklist
 
-- [ ] Update pubspec.yaml to use vwo\_insights\_flutter\_sdk ^2.1.0
-- [ ] Run flutter pub get
-- [ ] Update all import statements
-- [ ] Remove Dart-based init() calls
-- [ ] Add native initialization for Android (FlutterVwoApp.kt)
-- [ ] Register Application class in AndroidManifest.xml
-- [ ] Add native initialization for iOS (AppDelegate.swift)
-- [ ] Replace createUser() with setUserId() for user identification
-- [ ] Replace BlitzllamaFlutter with VwoFlutter
-- [ ] Replace triggerEvent() with trackEvent()
-- [ ] Update setUserAttribute() to use setAttribute() with a map
-- [ ] Replace setUserEmail() and setUserName() with setAttribute()
-- [ ] Remove setCustomFont() calls if present
-- [ ] Replace logout() with setUserId() for user switching
-- [ ] Test survey triggering in the app
+* [ ] Update pubspec.yaml to use wingify_insights_flutter_sdk ^2.1.0
+* [ ] Run flutter pub get
+* [ ] Update all import statements
+* [ ] Remove Dart-based init() calls
+* [ ] Add native initialization for Android (FlutterWingifyApp.kt)
+* [ ] Register Application class in AndroidManifest.xml
+* [ ] Add native initialization for iOS (AppDelegate.swift)
+* [ ] Replace createUser() with setUserId() for user identification
+* [ ] Replace BlitzllamaFlutter with WingifyFlutter
+* [ ] Replace triggerEvent() with trackEvent()
+* [ ] Update setUserAttribute() to use setAttribute() with a map
+* [ ] Replace setUserEmail() and setUserName() with setAttribute()
+* [ ] Remove setCustomFont() calls if present
+* [ ] Replace logout() with setUserId() for user switching
+* [ ] Test survey triggering in the app
 
 ***
 
@@ -427,7 +426,7 @@ if (success) {
 Ensure you have imported the Wingify SDK in your AppDelegate.swift:
 
 ```swift
-import vwo_insights_ios_flutter_sdk
+import wingify_insights_ios_flutter_sdk
 ```
 
 ## Build errors on Android?
@@ -435,9 +434,9 @@ import vwo_insights_ios_flutter_sdk
 Verify your Application class extends FlutterApplication and imports the correct packages:
 
 ```kotlin
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.exposed.IVwoInitCallback
-import com.vwo.insights.exposed.models.ClientConfiguration
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.exposed.IWingifyInitCallback
+import com.wingify.insights.exposed.models.ClientConfiguration
 import io.flutter.app.FlutterApplication
 ```
 
@@ -447,8 +446,8 @@ import io.flutter.app.FlutterApplication
 
 For additional support or questions:
 
-- Documentation: [https://developers.wingify.com/reference/mobile-insights-introduction](https://developers.wingify.com/reference/mobile-insights-introduction)
-- Support Email: [support@wingify.com](mailto:support@wingify.com)
+* Documentation: [https://developers.wingify.com/reference/mobile-insights-introduction](https://developers.wingify.com/reference/mobile-insights-introduction)
+* Support Email: [support@wingify.com](mailto:support@wingify.com)
 
 ***
 
@@ -456,11 +455,9 @@ For additional support or questions:
 
 | Component                       | Version          |
 | ------------------------------- | ---------------- |
-| Wingify Pulse Flutter SDK       | ^2.2.1           |
-| Native Android SDK              | 2.2.0            |
-| Native iOS SDK                  | 2.2.0            |
+| Wingify Pulse Flutter SDK           | ^2.5.0           |
+| Native Android SDK              | 2.5.1            |
+| Native iOS SDK                  | 2.5.0            |
 | Minimum iOS Version             | 12.0             |
 | Minimum Android SDK             | 21 (Android 5.0) |
 | Blitzllama SDK (migrating from) | 0.6.3            |
-
-<br />

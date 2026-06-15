@@ -1,8 +1,8 @@
 ---
 title: Switch User
 excerpt: >-
-  Set or update the current user identifier for Wingify Insights. - Available
-  from SDK version 2.2.0
+  Set or update the current user identifier for Wingify Insights. - Available from
+  SDK version 2.2.0
 deprecated: false
 hidden: false
 metadata:
@@ -18,31 +18,31 @@ setUserId(userId: string): Promise<boolean>
 
 **Parameters**
 
-- `userId` (`string`, required): Unique identifier for the user.
+* `userId` (`string`, required): Unique identifier for the user.
 
 **Returns**
 
 `Promise<boolean>`
 
-- `true`: User ID update succeeded.
-- `false`: SDK did not apply the update.
-- Rejected Promise: Update failed with an error.
+* `true`: User ID update succeeded.
+* `false`: SDK did not apply the update.
+* Rejected Promise: Update failed with an error.
 
 **When to Call**
 
-- After successful user login
-- When switching accounts
-- When you want to associate future session activity with a known user
+* After successful user login
+* When switching accounts
+* When you want to associate future session activity with a known user
 
 **Notes**
 
-- Call only after SDK initialization is complete.
-- If recording was active before calling `setUserId`, it automatically resumes after the user switch completes. If recording was stopped, it remains stopped.
+* Call only after SDK initialization is complete.
+* If recording was active before calling `setUserId`, it automatically resumes after the user switch completes. If recording was stopped, it remains stopped.
 
 **Example**
 
 ```typescript
-import { setUserId } from 'vwo-insights-react-native-sdk';
+import { setUserId } from 'wingify-insights-react-native-sdk';
 
 async function identifyUser(userId: string) {
   try {
@@ -57,5 +57,3 @@ async function identifyUser(userId: string) {
   }
 }
 ```
-
-<br />

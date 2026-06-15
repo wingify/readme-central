@@ -15,7 +15,7 @@ To transmit custom events to Wingify via React Native, create key-value pairs us
 <br />
 
 ```javascript
-import { customEvent } from 'vwo-insights-react-native-sdk';
+import { customEvent } from 'wingify-insights-react-native-sdk';
   
 <Button
             title="Event"
@@ -24,7 +24,7 @@ import { customEvent } from 'vwo-insights-react-native-sdk';
 		 
             eventName: “addToCart”,
               const addToCartEventData: { [key: string]: any } = {
-                productName: 'VWO Insights',
+                productName: 'Wingify Insights',
                 productQuantity: '1',
               }
               customEvent(eventName, addToCartEventData)
@@ -41,4 +41,4 @@ This snippet dispatches a custom event named "addToCart" to Wingify using the se
 
 <br />
 
-Ensure that the event name (e.g., "addToCart") and the event property names (e.g., "productQuantity") are the same as defined by you in Wingify under the [Data360](https://app.vwo.com/#/data360/events) module.
+Ensure that the event name (e.g., "addToCart") and the event property names (e.g., "productQuantity") are the same as defined by you in Wingify under the [Data360](https://app.wingify.com/#/data360/events) module.

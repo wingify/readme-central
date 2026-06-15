@@ -9,25 +9,25 @@ metadata:
 
 ## Overview
 
-This guide helps you migrate your Android application from the **Blitzllama SDK** to the Wingif&#x79;**&#x20;Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
+This guide helps you migrate your Android application from the **Blitzllama SDK** to the **Wingify Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
 
 **Minimum Requirements:**
 
-- Android 5.0 (API level 21) and above
-- Wingify dashboard access (to obtain Account ID and SDK Key)
+* Android 5.0 (API level 21) and above
+* Wingify dashboard access (to obtain Account ID and SDK Key)
 
 ***
 
 ## Migration Summary
 
-| Feature          | Blitzllama SDK                    | Wingify Pulse SDK                                                               |
+| Feature          | Blitzllama SDK                    | Wingify Pulse SDK                                                                   |
 | ---------------- | --------------------------------- | ------------------------------------------------------------------------------- |
-| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.2.0`                                                        |
+| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.wingify:insights:2.5.1`                                                        |
 | API Key Location | AndroidManifest.xml               | ClientConfiguration object                                                      |
 | User Creation    | Separate `createUser()` call      | Passed during initialization (optional), then use `setUserId()` to switch users |
 | User Switching   | `logout()`                        | `setUserId(randomString, callback)`                                             |
 | Trigger Method   | `triggerEvent()`                  | `trackEvent()`                                                                  |
-| SDK Manager      | `BlitzLlamaSDK.getSdkManager()`   | `VWOInsights.getSurveySdkManager()`                                             |
+| SDK Manager      | `BlitzLlamaSDK.getSdkManager()`   | `WingifyInsights.getSurveySdkManager()`                                             |
 | User Attributes  | `setUserAttribute()`              | `setAttribute()`                                                                |
 
 ***
@@ -47,12 +47,12 @@ dependencies {
 
 ## Add Wingify Pulse Dependency
 
-**After (**&#x57;ingif&#x79;**&#x20;Pulse):**
+**After (Wingify Pulse):**
 
 ```groovy
 // app/build.gradle
 dependencies {
-    implementation 'com.vwo:insights:2.2.0'
+    implementation 'com.wingify:insights:2.5.1'
 }
 ```
 
@@ -85,9 +85,9 @@ The most significant change is in how the SDK is initialized and how users are i
 
 **Key Points:**
 
-- User ID can be passed during initialization in `ClientConfiguration` (optional)
-- Use `setUserId()` later to switch users or identify users after they log in
-- For anonymous users, you can pass an empty string (`""`) during initialization or use a random string with `setUserId()`
+* User ID can be passed during initialization in `ClientConfiguration` (optional)
+* Use `setUserId()` later to switch users or identify users after they log in
+* For anonymous users, you can pass an empty string (`""`) during initialization or use a random string with `setUserId()`
 
 ## Blitzllama Approach (Before)
 
@@ -126,9 +126,9 @@ BlitzLlamaSDK.getSdkManager(this).createUser("user_id")
 ### Java
 
 ```java
-import com.vwo.insights.VWOInsights;
-import com.vwo.insights.exposed.IVwoInitCallback;
-import com.vwo.insights.exposed.models.ClientConfiguration;
+import com.wingify.insights.WingifyInsights;
+import com.wingify.insights.exposed.IWingifyInitCallback;
+import com.wingify.insights.exposed.models.ClientConfiguration;
 
 public class MyApplication extends Application {
     @Override
@@ -143,23 +143,23 @@ public class MyApplication extends Application {
             ""                    // User ID (optional) - use "" for anonymous, or "user_id" if known
         );
 
-        IVwoInitCallback callback = new IVwoInitCallback() {
+        IWingifyInitCallback callback = new IWingifyInitCallback() {
             @Override
-            public void vwoInitSuccess(@NotNull String message) {
+            public void wingifyInitSuccess(@NotNull String message) {
                 // SDK initialized successfully
                 // Safe to trigger surveys now
                 
                 // If user logs in later, use setUserId() to identify them:
-                // VWOInsights.setUserId("user_id", callback);
+                // WingifyInsights.setUserId("user_id", callback);
             }
 
             @Override
-            public void vwoInitFailed(@NotNull String message) {
+            public void wingifyInitFailed(@NotNull String message) {
                 // Handle initialization failure
             }
         };
 
-        VWOInsights.init(this, callback, clientConfig);
+        WingifyInsights.init(this, callback, clientConfig);
     }
 }
 ```
@@ -167,9 +167,9 @@ public class MyApplication extends Application {
 ### Kotlin
 
 ```kotlin
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.exposed.IVwoInitCallback
-import com.vwo.insights.exposed.models.ClientConfiguration
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.exposed.IWingifyInitCallback
+import com.wingify.insights.exposed.models.ClientConfiguration
 
 class MyApplication : Application() {
     override fun onCreate() {
@@ -183,21 +183,21 @@ class MyApplication : Application() {
             ""                    // User ID (optional) - use "" for anonymous, or "user_id" if known
         )
 
-        val callback = object : IVwoInitCallback {
-            override fun vwoInitSuccess(message: String) {
+        val callback = object : IWingifyInitCallback {
+            override fun wingifyInitSuccess(message: String) {
                 // SDK initialized successfully
                 // Safe to trigger surveys now
                 
                 // If user logs in later, use setUserId() to identify them:
-                // VWOInsights.setUserId("user_id", callback)
+                // WingifyInsights.setUserId("user_id", callback)
             }
 
-            override fun vwoInitFailed(message: String) {
+            override fun wingifyInitFailed(message: String) {
                 // Handle initialization failure
             }
         }
 
-        VWOInsights.init(this, callback, clientConfig)
+        WingifyInsights.init(this, callback, clientConfig)
     }
 }
 ```
@@ -206,7 +206,7 @@ class MyApplication : Application() {
 
 1. **No longer extend SDK class** - Your Application class extends `Application` instead of `BlitzLlamaSDK`
 2. **User ID is optional at initialization** - User identifier can be passed in `ClientConfiguration` (use `""` for anonymous users), or set later using `setUserId()`
-3. **Use&#x20;**`setUserId()`**&#x20;to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
+3. **Use `setUserId()` to switch users** - Call `setUserId()` when user logs in or switches accounts (no separate `createUser()` or `logout()` methods)
 4. **Callback-based initialization** - Wingify uses explicit success/failure callbacks
 
 ***
@@ -234,14 +234,14 @@ BlitzLlamaSDK.getSdkManager(context).triggerEvent("trigger_name")
 ### Java
 
 ```java
-SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+SdkManager sdkManager = WingifyInsights.getSurveySdkManager(context);
 sdkManager.trackEvent("event_name");
 ```
 
 ### Kotlin
 
 ```kotlin
-val sdkManager = VWOInsights.getSurveySdkManager(context)
+val sdkManager = WingifyInsights.getSurveySdkManager(context)
 sdkManager.trackEvent("event_name")
 ```
 
@@ -275,7 +275,7 @@ BlitzLlamaSDK.getSdkManager(context).triggerEvent("purchase_completed", properti
 ### Java
 
 ```java
-SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+SdkManager sdkManager = WingifyInsights.getSurveySdkManager(context);
 
 Map<String, Object> properties = new HashMap<>();
 properties.put("product_id", "SKU123");
@@ -288,7 +288,7 @@ sdkManager.trackEvent("purchase_completed", properties);
 ### Kotlin
 
 ```kotlin
-val sdkManager = VWOInsights.getSurveySdkManager(context)
+val sdkManager = WingifyInsights.getSurveySdkManager(context)
 
 val properties = mapOf(
     "product_id" to "SKU123",
@@ -319,7 +319,7 @@ BlitzLlamaSDK.getSdkManager(context).triggerEvent("event_name", properties, new 
 ### Java
 
 ```java
-SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+SdkManager sdkManager = WingifyInsights.getSurveySdkManager(context);
 
 Map<String, Object> properties = new HashMap<>();
 properties.put("screen", "home");
@@ -333,7 +333,7 @@ sdkManager.trackEvent("home_screen_loaded", properties, result -> {
 ### Kotlin
 
 ```kotlin
-val sdkManager = VWOInsights.getSurveySdkManager(context)
+val sdkManager = WingifyInsights.getSurveySdkManager(context)
 
 val properties = mapOf("screen" to "home")
 
@@ -350,20 +350,20 @@ For better context when displaying surveys, you can pass an Activity reference:
 ### Java
 
 ```java
-SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+SdkManager sdkManager = WingifyInsights.getSurveySdkManager(context);
 sdkManager.trackEventWithActivity(this, "checkout_screen");
 ```
 
 ### Kotlin
 
 ```kotlin
-val sdkManager = VWOInsights.getSurveySdkManager(context)
+val sdkManager = WingifyInsights.getSurveySdkManager(context)
 sdkManager.trackEventWithActivity(this, "checkout_screen")
 ```
 
 ## Method Mapping
 
-| Blitzllama                                   | Wingify Pulse                              |
+| Blitzllama                                   | Wingify Pulse                                  |
 | -------------------------------------------- | ------------------------------------------ |
 | `triggerEvent("name")`                       | `trackEvent("name")`                       |
 | `triggerEvent("name", properties)`           | `trackEvent("name", properties)`           |
@@ -394,7 +394,7 @@ Map<String, Object> attributes = new HashMap<>();
 attributes.put("user_email", "user@example.com");
 attributes.put("user_name", "John Doe");
 
-VWOInsights.setAttribute(attributes);
+WingifyInsights.setAttribute(attributes);
 ```
 
 ### Kotlin
@@ -405,7 +405,7 @@ val attributes = mapOf(
     "user_name" to "John Doe"
 )
 
-VWOInsights.setAttribute(attributes)
+WingifyInsights.setAttribute(attributes)
 ```
 
 > 📘 **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
@@ -431,7 +431,7 @@ attributes.put("plan_type", "premium");
 attributes.put("user_level", 5);      // Can use actual number type
 attributes.put("is_active", true);    // Can use boolean
 
-VWOInsights.setAttribute(attributes);
+WingifyInsights.setAttribute(attributes);
 ```
 
 ### Kotlin
@@ -443,7 +443,7 @@ val attributes = mapOf(
     "is_active" to true
 )
 
-VWOInsights.setAttribute(attributes)
+WingifyInsights.setAttribute(attributes)
 ```
 
 > 📘 **Note:** Wingify uses `setAttribute()` instead of `setUserAttribute()`. Data types are automatically inferred, so you don't need to specify them explicitly. The SDK automatically associates attributes with the current user ID.
@@ -461,7 +461,7 @@ BlitzLlamaSDK.getSdkManager(context).setSurveyLanguage("en");
 **Wingify Pulse (After):**
 
 ```java
-VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
+WingifyInsights.getSurveySdkManager(context).setSurveyLanguage("en");
 ```
 
 This API remains largely the same.
@@ -478,42 +478,42 @@ BlitzLlamaSDK.logout();
 
 ## Wingify Pulse (After)
 
-Wingify Pulse does **not have a&#x20;**`logout()`**&#x20;method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+Wingify Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
 
 ### Switching to a New User
 
 Use `setUserId()` when your user logs in or switches accounts:
 
 ```java
-import com.vwo.insights.VWOInsights;
-import com.vwo.insights.exposed.IVwoInitCallback;
+import com.wingify.insights.WingifyInsights;
+import com.wingify.insights.exposed.IWingifyInitCallback;
 
 // When user logs in or switches account
-VWOInsights.setUserId("new_user_id", new IVwoInitCallback() {
+WingifyInsights.setUserId("new_user_id", new IWingifyInitCallback() {
     @Override
-    public void vwoInitSuccess(String message) {
+    public void wingifyInitSuccess(String message) {
         // User switch complete
         // Recording resumes automatically if it was active before
     }
 
     @Override
-    public void vwoInitFailed(String message) {
+    public void wingifyInitFailed(String message) {
         // Handle failure
     }
 });
 ```
 ```kotlin
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.exposed.IVwoInitCallback
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.exposed.IWingifyInitCallback
 
 // When user logs in or switches account
-VWOInsights.setUserId("new_user_id", object : IVwoInitCallback {
-    override fun vwoInitSuccess(message: String) {
+WingifyInsights.setUserId("new_user_id", object : IWingifyInitCallback {
+    override fun wingifyInitSuccess(message: String) {
         // User switch complete
         // Recording resumes automatically if it was active before
     }
 
-    override fun vwoInitFailed(message: String) {
+    override fun wingifyInitFailed(message: String) {
         // Handle failure
     }
 })
@@ -530,14 +530,14 @@ import java.util.UUID;
 
 // When user logs out
 String randomUserId = UUID.randomUUID().toString();
-VWOInsights.setUserId(randomUserId, new IVwoInitCallback() {
+WingifyInsights.setUserId(randomUserId, new IWingifyInitCallback() {
     @Override
-    public void vwoInitSuccess(String message) {
+    public void wingifyInitSuccess(String message) {
         // Now tracking as anonymous user
     }
 
     @Override
-    public void vwoInitFailed(String message) {
+    public void wingifyInitFailed(String message) {
         // Handle failure
     }
 });
@@ -550,12 +550,12 @@ import java.util.UUID
 
 // When user logs out
 val randomUserId = UUID.randomUUID().toString()
-VWOInsights.setUserId(randomUserId, object : IVwoInitCallback {
-    override fun vwoInitSuccess(message: String) {
+WingifyInsights.setUserId(randomUserId, object : IWingifyInitCallback {
+    override fun wingifyInitSuccess(message: String) {
         // Now tracking as anonymous user
     }
 
-    override fun vwoInitFailed(message: String) {
+    override fun wingifyInitFailed(message: String) {
         // Handle failure
     }
 })
@@ -563,10 +563,10 @@ VWOInsights.setUserId(randomUserId, object : IVwoInitCallback {
 
 ### Key Differences
 
-| Blitzllama                 | Wingify Pulse                                    |
+| Blitzllama                 | Wingify Pulse                                        |
 | -------------------------- | ------------------------------------------------ |
 | `BlitzLlamaSDK.logout()`   | No direct logout method                          |
-| N/A                        | `VWOInsights.setUserId(userId, callback)`        |
+| N/A                        | `WingifyInsights.setUserId(userId, callback)`        |
 | Logout clears session      | Use random string for anonymous tracking         |
 | Requires re-initialization | `setUserId()` handles session refresh internally |
 
@@ -591,11 +591,11 @@ If you're using triggers configured in the Blitzllama dashboard, you may need to
 
 Update all your import statements:
 
-| Blitzllama Import                                            | Wingify Pulse Import                        |
+| Blitzllama Import                                            | Wingify Pulse Import                            |
 | ------------------------------------------------------------ | ------------------------------------------- |
-| `com.blitzllama.androidSDK.*`                                | `com.vwo.insights.*`                        |
-| `com.blitzllama.androidSDK.BlitzLlamaSDK`                    | `com.vwo.insights.VWOInsights`              |
-| `com.blitzllama.androidSDK.SdkInitialisationSuccessCallback` | `com.vwo.insights.exposed.IVwoInitCallback` |
+| `com.blitzllama.androidSDK.*`                                | `com.wingify.insights.*`                        |
+| `com.blitzllama.androidSDK.BlitzLlamaSDK`                    | `com.wingify.insights.WingifyInsights`              |
+| `com.blitzllama.androidSDK.SdkInitialisationSuccessCallback` | `com.wingify.insights.exposed.IWingifyInitCallback` |
 
 ***
 
@@ -635,9 +635,9 @@ class MainActivity : AppCompatActivity() {
 
 ```kotlin
 // MyApplication.kt
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.exposed.IVwoInitCallback
-import com.vwo.insights.exposed.models.ClientConfiguration
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.exposed.IWingifyInitCallback
+import com.wingify.insights.exposed.models.ClientConfiguration
 
 class MyApplication : Application() {
     override fun onCreate() {
@@ -649,16 +649,16 @@ class MyApplication : Application() {
             "user_123"  // User ID now here
         )
         
-        val callback = object : IVwoInitCallback {
-            override fun vwoInitSuccess(message: String) {
+        val callback = object : IWingifyInitCallback {
+            override fun wingifyInitSuccess(message: String) {
                 // SDK ready
             }
-            override fun vwoInitFailed(message: String) {
+            override fun wingifyInitFailed(message: String) {
                 // Handle failure
             }
         }
         
-        VWOInsights.init(this, callback, clientConfig)
+        WingifyInsights.init(this, callback, clientConfig)
     }
 }
 
@@ -668,10 +668,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         
         // SDK must be initialized before calling these methods
-        val sdkManager = VWOInsights.getSurveySdkManager(this)
+        val sdkManager = WingifyInsights.getSurveySdkManager(this)
         
         // Set attributes (including email and name)
-        VWOInsights.setAttribute(mapOf(
+        WingifyInsights.setAttribute(mapOf(
             "user_email" to "user@example.com",
             "user_name" to "John Doe",
             "plan" to "premium"
@@ -690,21 +690,21 @@ class MainActivity : AppCompatActivity() {
 
 ## Survey not showing after migration?
 
-1. **Verify initialization**: Ensure `vwoInitSuccess` callback is received before triggering surveys
-2. **Check event names**: Event names must match exactly with VWO dashboard configuration
-3. **Verify credentials**: Confirm Account ID and SDK Key are correct from VWO dashboard
+1. **Verify initialization**: Ensure `wingifyInitSuccess` callback is received before triggering surveys
+2. **Check event names**: Event names must match exactly with Wingify dashboard configuration
+3. **Verify credentials**: Confirm Account ID and SDK Key are correct from Wingify dashboard
 
 ## Race condition on first screen?
 
-Use the `vwoInitSuccess` callback to trigger surveys:
+Use the `wingifyInitSuccess` callback to trigger surveys:
 
 ```kotlin
-val callback = object : IVwoInitCallback {
-    override fun vwoInitSuccess(message: String) {
+val callback = object : IWingifyInitCallback {
+    override fun wingifyInitSuccess(message: String) {
         // Safe to trigger survey here
-        VWOInsights.getSurveySdkManager(context).trackEvent("app_launched")
+        WingifyInsights.getSurveySdkManager(context).trackEvent("app_launched")
     }
-    override fun vwoInitFailed(message: String) { }
+    override fun wingifyInitFailed(message: String) { }
 }
 ```
 
@@ -712,15 +712,15 @@ val callback = object : IVwoInitCallback {
 
 # Migration Checklist
 
-- [ ] Updated `build.gradle` dependency from Blitzllama to Wingify Pulse
-- [ ] Removed Blitzllama meta-data from `AndroidManifest.xml`
-- [ ] Updated Application class initialization
-- [ ] Replaced `createUser()` with `setUserId()` for user identification
-- [ ] Changed `triggerEvent()` calls to `trackEvent()`
-- [ ] Updated `setUserAttribute()` to `setAttribute()`
-- [ ] Updated import statements
-- [ ] Configured events in Wingify dashboard
-- [ ] Tested survey triggering in the app
+* [ ] Updated `build.gradle` dependency from Blitzllama to Wingify Pulse
+* [ ] Removed Blitzllama meta-data from `AndroidManifest.xml`
+* [ ] Updated Application class initialization
+* [ ] Replaced `createUser()` with `setUserId()` for user identification
+* [ ] Changed `triggerEvent()` calls to `trackEvent()`
+* [ ] Updated `setUserAttribute()` to `setAttribute()`
+* [ ] Updated import statements
+* [ ] Configured events in Wingify dashboard
+* [ ] Tested survey triggering in the app
 
 ***
 
@@ -728,8 +728,6 @@ val callback = object : IVwoInitCallback {
 
 | Component                               | Version          |
 | --------------------------------------- | ---------------- |
-| Wingify Pulse SDK Version               | `2.2.0`          |
+| Wingify Pulse SDK Version                   | `2.5.1`          |
 | Minimum Android SDK                     | 21 (Android 5.0) |
 | Blitzllama SDK Version (migrating from) | `1.9.1`          |
-
-<br />

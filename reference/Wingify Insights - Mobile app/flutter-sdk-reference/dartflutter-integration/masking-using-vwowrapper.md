@@ -1,5 +1,5 @@
 ---
-title: Masking using VwoWrapper
+title: Masking using WingifyWrapper
 excerpt: ''
 deprecated: false
 hidden: false
@@ -10,16 +10,16 @@ metadata:
 next:
   description: ''
 ---
-If you want to mask a widget on a screen, use VwoWrapper. Place the widget you want to hide as a child of VwoWrapper.
+If you want to mask a widget on a screen, use WingifyWrapper. Place the widget you want to hide as a child of WingifyWrapper.
 
 <br />
 
 e.g. hide a text widget
 
 ```javascript Dart
-import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
+import 'package:wingify_insights_flutter_sdk/wingify_insights_flutter_sdk.dart';
  
-VwoWrapper(child: Text("This will be hidden."));
+WingifyWrapper(child: Text("This will be hidden."));
 ```
 
 <br />
@@ -27,7 +27,7 @@ VwoWrapper(child: Text("This will be hidden."));
 e.g. hide a button
 
 ```javascript Dart
-VwoWrapper(
+WingifyWrapper(
     child: TextButton(
       onPressed: () {},
       child: const Text("Press Me"),
@@ -40,7 +40,7 @@ VwoWrapper(
 e.g. hide a card containing images and texts
 
 ```javascript Dart
-VwoWrapper(
+WingifyWrapper(
     child: Card(
       child: Column(
         children: [

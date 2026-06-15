@@ -11,18 +11,18 @@ The Wingify Pulse React Native SDK provides comprehensive survey functionality t
 
 ## Key Features
 
-- **Event-based Triggers** - Trigger surveys based on specific events in your app
-- **User Identification** - Identify and track users to ensure proper survey targeting
-- **Personalization** - Personalize surveys with user attributes
-- **Localization** - Localize surveys by setting different languages
+* **Event-based Triggers** - Trigger surveys based on specific events in your app
+* **User Identification** - Identify and track users to ensure proper survey targeting
+* **Personalization** - Personalize surveys with user attributes
+* **Localization** - Localize surveys by setting different languages
 
 ## Requirements
 
-| Requirement       | Details                                            |
-| ----------------- | -------------------------------------------------- |
-| React Native      | 0.60+                                              |
-| iOS               | 12.0+                                              |
-| Android           | API level 21+ (Android 5.0)                        |
+| Requirement   | Details                                            |
+| ------------- | -------------------------------------------------- |
+| React Native  | 0.60+                                              |
+| iOS           | 12.0+                                              |
+| Android       | API level 21+ (Android 5.0)                        |
 | Wingify Dashboard | Access required to retrieve Account ID and SDK Key |
 
 ***
@@ -31,9 +31,13 @@ The Wingify Pulse React Native SDK provides comprehensive survey functionality t
 
 ## Before You Begin
 
-1. **Obtain Your API Key**<br />Log in to the Wingify dashboard and navigate to:<br />`Configuration → Websites and apps → Default mobile app → SDK`<br />Retrieve your API key from this section.
+1. **Obtain Your API Key**  
+   Log in to the Wingify dashboard and navigate to:  
+   `Configuration → Websites and apps → Default mobile app → SDK`  
+   Retrieve your API key from this section.
 
-2. **Create a Survey**<br />A survey should be created in your Wingify dashboard with appropriate trigger events.
+2. **Create a Survey**  
+   A survey should be created in your Wingify dashboard with appropriate trigger events.
 
 ***
 
@@ -44,9 +48,9 @@ The Wingify Pulse React Native SDK provides comprehensive survey functionality t
 Install the SDK using npm or yarn:
 
 ```bash
-npm install vwo-insights-react-native-sdk
+npm install wingify-insights-react-native-sdk
 # or
-yarn add vwo-insights-react-native-sdk
+yarn add wingify-insights-react-native-sdk
 ```
 
 **For iOS**, install CocoaPods dependencies:
@@ -59,17 +63,17 @@ cd ios && pod install && cd ..
 
 ### Android Initialization
 
-Initialize Wingify SDK in your Application class (`ReactNativeVwoApp.kt`):
+Initialize Wingify SDK in your Application class (`ReactNativeWingifyApp.kt`):
 
 ```kotlin
-// ReactNativeVwoApp.kt
-import com.vwo.insights.VwoInsightsReactNativeSdkModule
+// ReactNativeWingifyApp.kt
+import com.wingify.insights.WingifyInsightsReactNativeSdkModule
 
-class ReactNativeVwoApp : Application() {
+class ReactNativeWingifyApp : Application() {
     override fun onCreate() {
         super.onCreate()
         
-        VwoInsightsReactNativeSdkModule.init(
+        WingifyInsightsReactNativeSdkModule.init(
             this,
             "your_account_id",
             "your_sdk_key",
@@ -83,7 +87,7 @@ Register the Application class in `AndroidManifest.xml`:
 
 ```xml
 <application
-    android:name=".ReactNativeVwoApp"
+    android:name=".ReactNativeWingifyApp"
     ... >
 </application>
 ```
@@ -93,7 +97,7 @@ Register the Application class in `AndroidManifest.xml`:
 Initialize the SDK in your React Native component:
 
 ```javascript
-import { config } from 'vwo-insights-react-native-sdk';
+import { config } from 'wingify-insights-react-native-sdk';
 
 React.useEffect(() => {
     config(ACCOUNT_ID, SDK_KEY, USER_ID);
@@ -103,7 +107,7 @@ React.useEffect(() => {
 ## Step 3: Trigger a Survey
 
 ```javascript
-import { trackEvent } from 'vwo-insights-react-native-sdk';
+import { trackEvent } from 'wingify-insights-react-native-sdk';
 
 trackEvent('event_name');
 ```
@@ -117,7 +121,7 @@ Surveys can be triggered based on events that occur in your application. Use the
 ## Basic Trigger
 
 ```javascript
-import { trackEvent } from 'vwo-insights-react-native-sdk';
+import { trackEvent } from 'wingify-insights-react-native-sdk';
 
 // Trigger a survey
 trackEvent('Main');
@@ -128,7 +132,7 @@ trackEvent('Main');
 You can pass additional properties along with the event to provide more context:
 
 ```javascript
-import { trackEvent } from 'vwo-insights-react-native-sdk';
+import { trackEvent } from 'wingify-insights-react-native-sdk';
 
 trackEvent('PurchaseCompleted', {
     productId: '12345',
@@ -169,7 +173,7 @@ User attributes help you target surveys to specific user segments. Set attribute
 ## Basic Usage
 
 ```javascript
-import { setAttribute } from 'vwo-insights-react-native-sdk';
+import { setAttribute } from 'wingify-insights-react-native-sdk';
 
 setAttribute({
     'userType': 'premium',
@@ -181,7 +185,7 @@ setAttribute({
 ## Setting User Email and Name
 
 ```javascript
-import { setAttribute } from 'vwo-insights-react-native-sdk';
+import { setAttribute } from 'wingify-insights-react-native-sdk';
 
 setAttribute({
     'user_name': 'John Doe',
@@ -221,7 +225,7 @@ If you explicitly set a language using the SDK, **that language will override th
 ## Setting Survey Language
 
 ```javascript
-import { setSurveyLanguage } from 'vwo-insights-react-native-sdk';
+import { setSurveyLanguage } from 'wingify-insights-react-native-sdk';
 
 // Set language using ISO 639-1 language code
 setSurveyLanguage('en'); // English
@@ -318,11 +322,11 @@ Initializes the SDK on iOS.
 config(accountId: string, sdkKey: string, userId: string): void
 ```
 
-| Parameter   | Type   | Required | Description                         |
-| ----------- | ------ | -------- | ----------------------------------- |
+| Parameter   | Type   | Required | Description                     |
+| ----------- | ------ | -------- | ------------------------------- |
 | `accountId` | string | Yes      | Your Wingify account ID             |
 | `sdkKey`    | string | Yes      | Your SDK key from Wingify dashboard |
-| `userId`    | string | Yes      | Unique identifier for the user      |
+| `userId`    | string | Yes      | Unique identifier for the user  |
 
 **Example:**
 
@@ -342,7 +346,7 @@ Always ensure the SDK is initialized before calling any survey functions.
 
 ```kotlin
 // In Application class
-VwoInsightsReactNativeSdkModule.init(
+WingifyInsightsReactNativeSdkModule.init(
     this,
     "your_account_id",
     "your_sdk_key",
@@ -353,7 +357,7 @@ VwoInsightsReactNativeSdkModule.init(
 ### iOS
 
 ```javascript
-import { config, trackEvent } from 'vwo-insights-react-native-sdk';
+import { config, trackEvent } from 'wingify-insights-react-native-sdk';
 
 React.useEffect(() => {
     config(ACCOUNT_ID, SDK_KEY, USER_ID);
@@ -414,7 +418,7 @@ trackEvent('PurchaseCompleted', {
 Set the survey language as early as possible, ideally during app initialization:
 
 ```javascript
-import { setSurveyLanguage } from 'vwo-insights-react-native-sdk';
+import { setSurveyLanguage } from 'wingify-insights-react-native-sdk';
 
 React.useEffect(() => {
     const languageCode = getUserPreferredLanguage();
@@ -466,8 +470,6 @@ React.useEffect(() => {
 
 | Component           | Version                         |
 | ------------------- | ------------------------------- |
-| SDK Package         | `vwo-insights-react-native-sdk` |
+| SDK Package         | `wingify-insights-react-native-sdk` |
 | Minimum iOS Version | 12.0                            |
 | Minimum Android SDK | 21 (Android 5.0)                |
-
-<br />

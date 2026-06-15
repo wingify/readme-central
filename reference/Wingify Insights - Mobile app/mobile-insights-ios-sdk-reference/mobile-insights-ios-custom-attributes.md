@@ -19,5 +19,5 @@ var dict = Dictionary<String, Any>()
 dict["email"] = "abc@xyz.com"
 dict["rollNumber"] = 21
      
-VWO.triggerSyncVisitorPropEvent(visitorData: dict)
+Wingify.triggerSyncVisitorPropEvent(visitorData: dict)
 ```
