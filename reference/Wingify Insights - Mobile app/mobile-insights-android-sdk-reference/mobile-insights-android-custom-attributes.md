@@ -17,14 +17,12 @@ HashMap map = new HashMap<String, Object>();
 map.put("email", "abc@xyz.com");
 map.put("name", "Wingify Insights");
 
-VWOInsights.INSTANCE.sendCustomAttribute(map);
+WingifyInsights.INSTANCE.sendCustomAttribute(map);
 ```
 ```kotlin
 val map = mutableMapOf<String, Any>()
 map["email"] = "abc@xyz.com"
-map["name"] = "VWO Insights"
+map["name"] = "Wingify Insights"
   
-VWOInsights.sendCustomAttribute(map)
+WingifyInsights.sendCustomAttribute(map)
 ```
-
-<br />

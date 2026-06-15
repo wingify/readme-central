@@ -16,7 +16,5 @@ Custom attributes can be created by creating a map that contains key and value p
 final Map<String, dynamic> attributes = {};
 attributes["email"] = "abc@xyz.com";
 attributes["name"] = "Wingify Insights";
-VwoFlutter.sendCustomAttribute(attributes);
+WingifyFlutter.sendCustomAttribute(attributes);
 ```
-
-<br />

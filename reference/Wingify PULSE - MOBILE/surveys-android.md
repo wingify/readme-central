@@ -11,17 +11,17 @@ The Wingify Pulse Android SDK enables you to deliver in-app surveys directly ins
 
 ## Key Features
 
-- **Event-based Triggers** - Trigger surveys based on specific events in your app
-- **User Identification** - Identify and track users to ensure proper survey targeting
-- **Personalization** - Personalize surveys with user attributes
-- **Localization** - Localize surveys by setting different languages
+* **Event-based Triggers** - Trigger surveys based on specific events in your app
+* **User Identification** - Identify and track users to ensure proper survey targeting
+* **Personalization** - Personalize surveys with user attributes
+* **Localization** - Localize surveys by setting different languages
 
 ## Requirements
 
-| Requirement       | Details                                            |
-| ----------------- | -------------------------------------------------- |
-| Android Version   | Android 5.0 (API level 21) and above               |
-| Wingify Dashboard | Access required to retrieve Account ID and SDK Key |
+| Requirement     | Details                                            |
+| --------------- | -------------------------------------------------- |
+| Android Version | Android 5.0 (API level 21) and above               |
+| Wingify Dashboard   | Access required to retrieve Account ID and SDK Key |
 
 ***
 
@@ -29,9 +29,13 @@ The Wingify Pulse Android SDK enables you to deliver in-app surveys directly ins
 
 ## Before You Begin
 
-1. **Obtain Your API Key**<br />Log in to the Wingify dashboard and navigate to:<br />`Configuration → Websites and apps → Default mobile app → SDK`<br />Retrieve your API key from this section.
+1. **Obtain Your API Key**  
+   Log in to the Wingify dashboard and navigate to:  
+   `Configuration → Websites and apps → Default mobile app → SDK`  
+   Retrieve your API key from this section.
 
-2. **Confirm Minimum SDK**<br />The SDK officially supports API level 21 and above.
+2. **Confirm Minimum SDK**  
+   The SDK officially supports API level 21 and above.
 
 ***
 
@@ -43,7 +47,7 @@ Add the SDK dependency to your `app/build.gradle`:
 
 ```groovy
 dependencies {
-    implementation 'com.vwo:insights:2.1.1'
+    implementation 'com.wingify:insights:2.1.1'
 }
 ```
 
@@ -54,9 +58,9 @@ Initialize the SDK in your Application class's `onCreate()` method.
 ### Kotlin
 
 ```kotlin
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.exposed.IVwoInitCallback
-import com.vwo.insights.exposed.models.ClientConfiguration
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.exposed.IWingifyInitCallback
+import com.wingify.insights.exposed.models.ClientConfiguration
 
 class MyApplication : Application() {
     override fun onCreate() {
@@ -68,19 +72,19 @@ class MyApplication : Application() {
             "user_id"
         )
 
-        val callback = object : IVwoInitCallback {
-            override fun vwoInitSuccess(message: String) {
+        val callback = object : IWingifyInitCallback {
+            override fun wingifyInitSuccess(message: String) {
                 // SDK initialized successfully
                 // You can now trigger surveys
             }
 
-            override fun vwoInitFailed(message: String) {
+            override fun wingifyInitFailed(message: String) {
                 // SDK initialization failed
                 // Check network connectivity
             }
         }
 
-        VWOInsights.init(this, callback, clientConfig)
+        WingifyInsights.init(this, callback, clientConfig)
     }
 }
 ```
@@ -88,9 +92,9 @@ class MyApplication : Application() {
 ### Java
 
 ```java
-import com.vwo.insights.VWOInsights;
-import com.vwo.insights.exposed.IVwoInitCallback;
-import com.vwo.insights.exposed.models.ClientConfiguration;
+import com.wingify.insights.WingifyInsights;
+import com.wingify.insights.exposed.IWingifyInitCallback;
+import com.wingify.insights.exposed.models.ClientConfiguration;
 
 public class MyApplication extends Application {
     @Override
@@ -103,21 +107,21 @@ public class MyApplication extends Application {
             "user_id"
         );
 
-        IVwoInitCallback callback = new IVwoInitCallback() {
+        IWingifyInitCallback callback = new IWingifyInitCallback() {
             @Override
-            public void vwoInitSuccess(@NotNull String message) {
+            public void wingifyInitSuccess(@NotNull String message) {
                 // SDK initialized successfully
                 // You can now trigger surveys
             }
 
             @Override
-            public void vwoInitFailed(@NotNull String message) {
+            public void wingifyInitFailed(@NotNull String message) {
                 // SDK initialization failed
                 // Check network connectivity
             }
         };
 
-        VWOInsights.init(this, callback, clientConfig);
+        WingifyInsights.init(this, callback, clientConfig);
     }
 }
 ```
@@ -140,14 +144,14 @@ Add a trigger event to display surveys at specific points in your app.
 ### Kotlin
 
 ```kotlin
-val sdkManager = VWOInsights.getSurveySdkManager(context)
+val sdkManager = WingifyInsights.getSurveySdkManager(context)
 sdkManager.trackEvent("event_name")
 ```
 
 ### Java
 
 ```java
-SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+SdkManager sdkManager = WingifyInsights.getSurveySdkManager(context);
 sdkManager.trackEvent("event_name");
 ```
 
@@ -168,14 +172,14 @@ You can trigger surveys using the `trackEvent` method.
 #### Kotlin
 
 ```kotlin
-val sdkManager = VWOInsights.getSurveySdkManager(context)
+val sdkManager = WingifyInsights.getSurveySdkManager(context)
 sdkManager.trackEvent("event_name")
 ```
 
 #### Java
 
 ```java
-SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+SdkManager sdkManager = WingifyInsights.getSurveySdkManager(context);
 sdkManager.trackEvent("event_name");
 ```
 
@@ -186,7 +190,7 @@ You can pass additional event properties when triggering a survey:
 #### Kotlin
 
 ```kotlin
-val sdkManager = VWOInsights.getSurveySdkManager(context)
+val sdkManager = WingifyInsights.getSurveySdkManager(context)
 
 val properties = mapOf(
     "product_id" to "SKU123",
@@ -200,7 +204,7 @@ sdkManager.trackEvent("purchase_completed", properties)
 #### Java
 
 ```java
-SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+SdkManager sdkManager = WingifyInsights.getSurveySdkManager(context);
 
 Map<String, Object> properties = new HashMap<>();
 properties.put("product_id", "SKU123");
@@ -217,14 +221,14 @@ For better context when displaying surveys, you can pass an Activity reference:
 #### Kotlin
 
 ```kotlin
-val sdkManager = VWOInsights.getSurveySdkManager(context)
+val sdkManager = WingifyInsights.getSurveySdkManager(context)
 sdkManager.trackEventWithActivity(this, "checkout_screen")
 ```
 
 #### Java
 
 ```java
-SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+SdkManager sdkManager = WingifyInsights.getSurveySdkManager(context);
 sdkManager.trackEventWithActivity(this, "checkout_screen");
 ```
 
@@ -235,7 +239,7 @@ You can also receive a callback when the survey interaction is complete:
 #### Kotlin
 
 ```kotlin
-val sdkManager = VWOInsights.getSurveySdkManager(context)
+val sdkManager = WingifyInsights.getSurveySdkManager(context)
 
 val properties = mapOf("screen" to "home")
 
@@ -248,7 +252,7 @@ sdkManager.trackEvent("home_screen_loaded", properties) { result ->
 #### Java
 
 ```java
-SdkManager sdkManager = VWOInsights.getSurveySdkManager(context);
+SdkManager sdkManager = WingifyInsights.getSurveySdkManager(context);
 
 Map<String, Object> properties = new HashMap<>();
 properties.put("screen", "home");
@@ -265,7 +269,7 @@ sdkManager.trackEvent("home_screen_loaded", properties, result -> {
 
 ## Setting User Properties
 
-You can set profile attributes directly through VWOInsights using `setAttribute()`. This method supports different value types:
+You can set profile attributes directly through WingifyInsights using `setAttribute()`. This method supports different value types:
 
 | Type    | Example                   |
 | ------- | ------------------------- |
@@ -283,7 +287,7 @@ attributes["user_level"] = 3
 attributes["user_email"] = "user@example.com"
 attributes["user_name"] = "John Doe"
 
-VWOInsights.setAttribute(attributes)
+WingifyInsights.setAttribute(attributes)
 ```
 
 ### Java
@@ -295,7 +299,7 @@ attributes.put("user_level", 3);
 attributes.put("user_email", "user@example.com");
 attributes.put("user_name", "John Doe");
 
-VWOInsights.setAttribute(attributes);
+WingifyInsights.setAttribute(attributes);
 ```
 
 ## Setting Date Attributes
@@ -311,7 +315,7 @@ attributes["signup_date"] = System.currentTimeMillis()
 // Or use a specific date in milliseconds
 attributes["subscription_expiry"] = 1735689600000L  // Example: Jan 1, 2025
 
-VWOInsights.setAttribute(attributes)
+WingifyInsights.setAttribute(attributes)
 ```
 
 ### Java
@@ -323,7 +327,7 @@ attributes.put("signup_date", System.currentTimeMillis());
 // Or use a specific date in milliseconds
 attributes.put("subscription_expiry", 1735689600000L);  // Example: Jan 1, 2025
 
-VWOInsights.setAttribute(attributes);
+WingifyInsights.setAttribute(attributes);
 ```
 
 > 📘 **Note:** Always use milliseconds for date values, not epoch seconds. You can convert a Date object using `date.getTime()` in Java or `date.time` in Kotlin.
@@ -335,13 +339,13 @@ To display surveys in the user's preferred language, set the survey language usi
 ### Kotlin
 
 ```kotlin
-VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en")
+WingifyInsights.getSurveySdkManager(context).setSurveyLanguage("en")
 ```
 
 ### Java
 
 ```java
-VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
+WingifyInsights.getSurveySdkManager(context).setSurveyLanguage("en");
 ```
 
 **Common Language Codes:**
@@ -356,18 +360,18 @@ VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
 
 **Why Set Survey Language?**
 
-- Improve user experience by displaying surveys in the user's native language
-- Support better localization for global apps
+* Improve user experience by displaying surveys in the user's native language
+* Support better localization for global apps
 
 ***
 
 # API Reference
 
-## VWOInsights
+## WingifyInsights
 
 | Method                                | Description                                           |
 | ------------------------------------- | ----------------------------------------------------- |
-| `init(application, callback, config)` | Initializes the Wingify SDK                           |
+| `init(application, callback, config)` | Initializes the Wingify SDK                               |
 | `getSurveySdkManager(context)`        | Returns the SdkManager instance for survey operations |
 | `setAttribute(extras)`                | Sets custom profile attributes for surveys            |
 
@@ -383,11 +387,11 @@ VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
 
 ## ClientConfiguration
 
-| Parameter   | Type   | Required | Description                         |
-| ----------- | ------ | -------- | ----------------------------------- |
+| Parameter   | Type   | Required | Description                     |
+| ----------- | ------ | -------- | ------------------------------- |
 | `accountId` | String | Yes      | Your Wingify account ID             |
 | `appId`     | String | Yes      | Your SDK key from Wingify dashboard |
-| `userId`    | String | Yes      | Unique identifier for the user      |
+| `userId`    | String | Yes      | Unique identifier for the user  |
 
 ***
 
@@ -395,36 +399,39 @@ VWOInsights.getSurveySdkManager(context).setSurveyLanguage("en");
 
 ## Survey not showing up?
 
-- Ensure Wingify SDK is initialized successfully (check for `vwoInitSuccess` callback)
-- Verify that the trigger name matches **exactly** what's configured in the Wingify dashboard
-- Check that surveys are active and properly configured in the dashboard
+* Ensure Wingify SDK is initialized successfully (check for `wingifyInitSuccess` callback)
+* Verify that the trigger name matches **exactly** what's configured in the Wingify dashboard
+* Check that surveys are active and properly configured in the dashboard
 
 ## Survey not showing on home screen or first app page?
 
 This might be a **race condition**. The SDK may not be fully initialized before you trigger the survey.
 
-**Solution:** Use the `vwoInitSuccess` callback to trigger surveys after successful initialization.
+**Solution:** Use the `wingifyInitSuccess` callback to trigger surveys after successful initialization.
 
 ```kotlin
-override fun vwoInitSuccess(message: String) {
+override fun wingifyInitSuccess(message: String) {
     // Safe to trigger surveys here
-    VWOInsights.getSurveySdkManager(context).trackEvent("home_screen_loaded")
+    WingifyInsights.getSurveySdkManager(context).trackEvent("home_screen_loaded")
 }
 ```
 
 ## How to create events?
 
-1. **Create in dashboard first:**<br />Navigate to `Data360 → Events → Create` and create an event with an `event_name`
+1. **Create in dashboard first:**  
+   Navigate to `Data360 → Events → Create` and create an event with an `event_name`
 
-2. **Configure in Surveys:**<br />Go to `Surveys → Custom Triggers` and configure the event
+2. **Configure in Surveys:**  
+   Go to `Surveys → Custom Triggers` and configure the event
 
-3. **Use in your app:**<br />Use the same `event_name` in your app code to launch the Survey
+3. **Use in your app:**  
+   Use the same `event_name` in your app code to launch the Survey
 
 ## Network connectivity issues?
 
-- The SDK requires network connectivity for initialization
-- If `vwoInitFailed` is called, check the device's network connection
-- Surveys are fetched from the server when triggered
+* The SDK requires network connectivity for initialization
+* If `wingifyInitFailed` is called, check the device's network connection
+* Surveys are fetched from the server when triggered
 
 ***
 
@@ -432,8 +439,8 @@ override fun vwoInitSuccess(message: String) {
 
 | Practice                      | Description                                                               |
 | ----------------------------- | ------------------------------------------------------------------------- |
-| **Initialize early**          | Call `VWOInsights.init()` in your Application class's `onCreate()` method |
-| **Wait for initialization**   | Always wait for the `vwoInitSuccess` callback before triggering surveys   |
+| **Initialize early**          | Call `WingifyInsights.init()` in your Application class's `onCreate()` method |
+| **Wait for initialization**   | Always wait for the `wingifyInitSuccess` callback before triggering surveys   |
 | **Set user attributes early** | Configure user attributes before triggering surveys for better targeting  |
 
 ***
@@ -444,5 +451,3 @@ override fun vwoInitSuccess(message: String) {
 | ------------------- | ---------------- |
 | SDK Version         | `2.1.0`          |
 | Minimum Android SDK | 21 (Android 5.0) |
-
-<br />

@@ -32,7 +32,7 @@ return MaterialApp(
 To the below.
 
 ```javascript Dart
-import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';
+import 'package:wingify_insights_flutter_sdk/wingify_insights_flutter_sdk.dart';
  
 return MaterialApp(
       title: 'Flutter Demo',
@@ -42,7 +42,7 @@ return MaterialApp(
         '/Screen2': (context) => Screen2(),
       },
       navigatorObservers: [
-        VwoNavigatorObserver(),
+        WingifyNavigatorObserver(),
         YourNavigatorObserverIfNeeded(),
       ],
     );

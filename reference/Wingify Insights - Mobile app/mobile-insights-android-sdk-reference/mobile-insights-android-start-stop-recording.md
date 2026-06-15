@@ -15,11 +15,11 @@ After initializing the SDK successfully, a developer can start/stop the session 
 **To start the session recording** 
 
 ```java
-VWOInsights.startSessionRecording()
+WingifyInsights.startSessionRecording()
 ```
 
 **To stop the session recording**
 
 ```java
-VWOInsights.stopSessionRecording()
+WingifyInsights.stopSessionRecording()
 ```

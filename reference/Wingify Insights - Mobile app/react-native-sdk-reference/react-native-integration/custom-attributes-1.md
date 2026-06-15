@@ -15,7 +15,7 @@ Custom Attributes can be created by creating a map that contains key and value p
 <br />
 
 ```javascript
-import { customAttribute } from 'vwo-insights-react-native-sdk';
+import { customAttribute } from 'wingify-insights-react-native-sdk';
   
 <Button
             style={styles.button}
