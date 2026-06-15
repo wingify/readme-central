@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-The latest SDK version for IOS is **v1.0.6** and you can view the changelog <Anchor label="here" target="_blank" href="https://github.com/wingify/ios-mobile-insights-artifacts/blob/main/CHANGELOG.md?plain=1">here</Anchor>.
+The latest SDK version for IOS is **v2.5.0** and you can view the changelog <Anchor label="here" target="_blank" href="https://github.com/wingify/wingify-mobile-insights-ios-artifacts/blob/main/CHANGELOG.md?plain=1">here</Anchor>.
 
 <br />
 
@@ -17,7 +17,7 @@ The latest SDK version for IOS is **v1.0.6** and you can view the changelog <Anc
 
 If the integration is being made with SPM (Swift Package Manager), please integrate Wingify with the following:
 
-URL: [https://github.com/wingify/ios-mobile-insights-artifacts.git](https://github.com/wingify/ios-mobile-insights-artifacts.git)
+URL: [https://github.com/wingify/wingify-mobile-insights-ios-artifacts.git](https://github.com/wingify/wingify-mobile-insights-ios-artifacts.git)
 
 <br />
 
