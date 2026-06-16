@@ -285,7 +285,7 @@ export default defineConfig({
 
 <Callout icon="🚧" theme="warn">
   Do NOT let un-awaited asynchronous calls hang — they might get dropped.
-  Read more on Edge optimizations here - [https://developers.vwo.com/v2/docs/fme-edge-support](https://developers.vwo.com/v2/docs/fme-edge-support)
+  Read more on Edge optimizations here - [https://developers.wingify.com/v2/docs/fme-edge-support](https://developers.wingify.com/v2/docs/fme-edge-support)
 </Callout>
 
 <br />

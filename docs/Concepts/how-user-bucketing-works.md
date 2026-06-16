@@ -33,7 +33,7 @@ Once a user is identified, the SDK checks whether they are eligible for the camp
 * The SDK computes a normalized hash value (derived from the user ID) mapped to a 0–100 scale.
 * If the `normalized value ≤ the campaign’s traffic percentage`, user enters the campaign. Otherwise, they are excluded.
 * Example: If campaign traffic is set to 40 % and the user’s normalized value is 23, the user is eligible (23 ≤ 40).
-  developers.vwo.com
+  developers.wingify.com
 * If their normalized value were, say, 45, they would be excluded.
 
 #### 2.2 Variation Bucket Allocation Only for Eligible Users
@@ -50,7 +50,7 @@ Once a user is eligible, the SDK must map the user to a variation in a determini
 #### 3.1 Hashing + Normalisation
 
 * A hashing algorithm (specifically MurmurHash) is applied to the User ID to generate a hash value.
-  developers.vwo.com
+  developers.wingify.com
 * This hash value is then normalized to fit within the bucket range domain (1 through 10,000).
   * Why `1–10,000`? Using a large integer range allows fine-grained traffic splits and stable arithmetic logic.
 * Example: Suppose the normalized integer is `6,278`.

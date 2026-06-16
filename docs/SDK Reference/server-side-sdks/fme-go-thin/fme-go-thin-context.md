@@ -14,7 +14,7 @@ next:
       slug: fme-go-flags
       title: Feature Flags
 ---
-The user context is a crucial component in VWO's Feature Experimentation SDK. It provides information about the current user, which is used for targeting and segmentation.
+The user context is a crucial component in Wingify's Feature Experimentation SDK. It provides information about the current user, which is used for targeting and segmentation.
 
 ## Usage
 
@@ -70,7 +70,7 @@ if err != nil {
       </td>
 
       <td>
-        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to VWO. [Read more here](https://developers.vwo.com/v2/docs/user-id-management)  .
+        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to VWO. [Read more here](https://developers.wingify.com/v2/docs/user-id-management)  .
       </td>
     </tr>
 

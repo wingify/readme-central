@@ -66,10 +66,10 @@ This client object allows you to run experiments, track events, and enable/disab
 | **accountId** _Required_                | Integer | VWO Account ID for authentication.                                                                                                                                                                                                                                                                                         |
 | **sdkKey** _Required_                   | String  | A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **Default Project**.                                                                                                                                                                                          |
 | **context** _Required_                  | Context | Android application context. When provided, SDK will use internal storage for persisting user decisions and campaign data.                                                                                                                                                                                                 |
-| **pollInterval** _Optional_             | Integer | Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) |
+| **pollInterval** _Optional_             | Integer | Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling) |
 | **storage** _Optional_                  | Object  | Custom storage connector for persisting user decisions and campaign data.                                                                                                                                                                                                                                                  |
-| **logger** _Optional_                   | Object  | An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-android-logging)                                                                                                                                                             |
-| **integrations** _Optional_             | Object  | A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-android-integrations)                                                                                              |
+| **logger** _Optional_                   | Object  | An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-android-logging)                                                                                                                                                             |
+| **integrations** _Optional_             | Object  | A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-android-integrations)                                                                                              |
 | **cachedSettingsExpiryTime** _Optional_ | Integer | Controls the duration (in milliseconds) the SDK uses cached settings before fetching new ones.                                                                                                                                                                                                                             |
 | **batchMinSize** _Optional_             | Integer | Uploads are triggered when the batch reaches this minimum size.                                                                                                                                                                                                                                                            |
 | **batchUploadTimeInterval** _Optional_  | Integer | Specifies the time interval (in milliseconds) for periodic batch uploads.                                                                                                                                                                                                                                                  |
@@ -77,7 +77,7 @@ This client object allows you to run experiments, track events, and enable/disab
 ### Poll Interval (Keeping VWO client up-to-date)
 
 When you initialize the _vwoClient_ on your mobile, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized on your mobile, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized on your mobile, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -120,7 +120,7 @@ VWO.init(vwoInitOptions, new IVwoInitCallback() {
 
 ### Logger
 
-VWO by default logs all ERROR level messages to your device console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+VWO by default logs all ERROR level messages to your device console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```kotlin
 vwoInitOptions.logger = mutableMapOf<String, Any>().apply {
@@ -134,7 +134,7 @@ loggerOptions.put("level", "INFO");  // DEBUG, INFO, ERROR, TRACE, WARN
 vwoInitOptions.setLogger(loggerOptions);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-android-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v2/docs/fme-android-logging) for more advanced logger options.
 
 ### Integrations
 
@@ -191,7 +191,7 @@ VWO.init(vwoInitOptions, new IVwoInitCallback() {
 });
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-android-integrations) to learn more about Integrations.
+Please click [here](https://developers.wingify.com/v2/docs/fme-android-integrations) to learn more about Integrations.
 
 ### Cached Settings Expiry Time
 
@@ -244,7 +244,7 @@ The VWO SDK supports storing impression events while the device is offline, ensu
 
 #### NOTE: The uploading of events will get triggered based on whichever condition is met first if using both options.
 
-See [Event Batching](https://developers.vwo.com/v2/docs/event-batching#/) documentation for additional information.
+See [Event Batching](https://developers.wingify.com/v2/docs/event-batching#/) documentation for additional information.
 
 | **Parameter**             | **Description**                                                                    | **Required** | **Type** | **Example** |
 | ------------------------- | ---------------------------------------------------------------------------------- | ------------ | -------- | ----------- |

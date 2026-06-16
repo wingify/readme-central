@@ -26,7 +26,7 @@ vwoInstance, err := vwo.Init(options)
 
 ## Properties available to use for integrations
 
-All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [GetFlag](https://developers.vwo.com/v2/docs/fme-go-flags) and [TrackEvent](https://developers.vwo.com/v2/docs/fme-go-metrics) APIs.
+All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [GetFlag](https://developers.wingify.com/v2/docs/fme-go-flags) and [TrackEvent](https://developers.wingify.com/v2/docs/fme-go-metrics) APIs.
 
 ```json
 {

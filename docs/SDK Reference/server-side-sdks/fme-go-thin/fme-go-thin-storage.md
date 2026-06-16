@@ -20,7 +20,7 @@ The Gateway Service handles caching and storage of:
 * User-specific variation assignments
 * Metrics data
 
-This centralized storage approach ensures consistency across your application instances and reduces the load on VWO's servers.
+This centralized storage approach ensures consistency across your application instances and reduces the load on Wingify's servers.
 
 ## Benefits
 
@@ -45,4 +45,4 @@ if err != nil {
 }
 ```
 
-For more information on setting up and configuring the Gateway Service, refer to the [Gateway Service documentation](https://developers.vwo.com/v2/docs/gateway-service).
+For more information on setting up and configuring the Gateway Service, refer to the [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service).

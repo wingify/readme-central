@@ -26,7 +26,7 @@ https://app.vwo.com/api/v2/accounts/{account_id}/environments/{environment_id_or
 * **environment_id:** The environment key .
 * **feature_key:** The unique key of your feature flag.
 
-#### **API Reference:** For details on this endpoint, see [Toggle Feature Flag Status](https://developers.vwo.com/reference/fme-toggle-feature-flag-status-for-an-environment).
+#### **API Reference:** For details on this endpoint, see [Toggle Feature Flag Status](https://developers.wingify.com/reference/fme-toggle-feature-flag-status-for-an-environment).
 
 You will also need a **Authentication header** for this which you can get from  [Access VWO API](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API)
 

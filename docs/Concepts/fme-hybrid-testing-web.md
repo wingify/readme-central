@@ -84,7 +84,7 @@ Conceptually:
 
 > This follows a decision-layer experimentation model.
 
-Reference: [List of VWO Feature Experimentation SDKs](https://developers.vwo.com/v2/docs/list-of-fme-sdks)
+Reference: [List of VWO Feature Experimentation SDKs](https://developers.wingify.com/v2/docs/list-of-fme-sdks)
 
 <br />
 
@@ -149,7 +149,7 @@ The unifying principle is:
 
 <Callout icon="📘" theme="info">
   **A canonical UUID must represent the same user across all evaluation layers.**  
-  Check [what is a UUID](https://developers.vwo.com/v2/docs/user-id-management)  for more details.
+  Check [what is a UUID](https://developers.wingify.com/v2/docs/user-id-management)  for more details.
 </Callout>
 
 Whether evaluation occurs:

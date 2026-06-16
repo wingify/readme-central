@@ -14,7 +14,7 @@ next:
       slug: fme-node-storage
       title: Storage Service
 ---
-VWO by default logs all ERROR level messages to your server's console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+VWO by default logs all ERROR level messages to your server's console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ## Logger Properties
 
@@ -102,4 +102,4 @@ const vwoClient = await init({
 });
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing *vwoClient*.](https://developers.vwo.com/v2/docs/fme-initialization)
+This "logger" object can be passed as one of the parameters when [initializing *vwoClient*.](https://developers.wingify.com/v2/docs/fme-initialization)

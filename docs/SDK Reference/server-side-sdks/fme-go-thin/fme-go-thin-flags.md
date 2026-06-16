@@ -14,7 +14,7 @@ next:
       slug: fme-go-variables
       title: Variables
 ---
-Feature flags are at the core of VWO's Feature Experimentation capabilities. They allow you to control feature rollouts and conduct experiments.
+Feature flags are at the core of Wingify's Feature Experimentation capabilities. They allow you to control feature rollouts and conduct experiments.
 
 ## GetFlag()
 
@@ -85,7 +85,7 @@ if flag.IsEnabled() {
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-node-context).
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-node-context).
       </td>
     </tr>
   </tbody>

@@ -30,7 +30,7 @@ vwo_client = VWO.init({
 
 ## Properties available to use for integrations
 
-All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [get\_flag](https://developers.vwo.com/v2/docs/fme-ruby-flags) and [track\_event](https://developers.vwo.com/v2/docs/fme-ruby-metrics) APIs.
+All VWO SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever VWO SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [get\_flag](https://developers.wingify.com/v2/docs/fme-ruby-flags) and [track\_event](https://developers.wingify.com/v2/docs/fme-ruby-metrics) APIs.
 
 ```json
 {

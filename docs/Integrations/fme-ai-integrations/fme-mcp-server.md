@@ -144,7 +144,7 @@ Here's what you can do with our feature flag management tools:
 
 ### IDE Configuration with VWO
 
-1. **Add VWO Rules** - Retrieve IDE rules and configuration settings to seamlessly manage feature flags within your project. This enables smooth integration with your SDK and leverages VWO's feature experimentation capabilities.
+1. **Add VWO Rules** - Retrieve IDE rules and configuration settings to seamlessly manage feature flags within your project. This enables smooth integration with your SDK and leverages Wingify's feature experimentation capabilities.
 
 > Note: Supports both Cursor IDE and VS Code. The tool automatically detects your IDE or you can specify it manually. Needs to be called once after setting up VWO FE MCP.
 

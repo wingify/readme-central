@@ -34,17 +34,17 @@ The `init()` method is called with the `sdkKey` and `accountId`. It initializes 
 | :------------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **accountId**<br />*Required*                | Integer | Your VWO application's Account ID.                                                                                                                                                                                                                                                                                         |
 | **sdkKey**<br />*Required*                   | String  | A unique environment key provided to you inside the Websites & Apps section in the VWO application, under ***Default Project***.                                                                                                                                                                                           |
-| **pollInterval**<br />*Optional*             | Integer | Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling) |
+| **pollInterval**<br />*Optional*             | Integer | Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling) |
 | **cachedSettingsExpiryTime**<br />*Optional* | Integer | Controls the duration (in milliseconds) the SDK uses cached settings before fetching new ones.                                                                                                                                                                                                                             |
 | **batchMinSize**<br />*Optional*             | Integer | Minimum number of events to trigger a batch upload.                                                                                                                                                                                                                                                                        |
 | **batchUploadTimeInterval**<br />*Optional*  | Integer | Time interval (in milliseconds) for periodic batch uploads.                                                                                                                                                                                                                                                                |
-| **logger**<br />*Optional*                   | Object  | An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-flutter-logging)                                                                                                                                                             |
-| **integrations**<br />*Optional*             | Object  | A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-flutter-integrations)                                                                                              |
+| **logger**<br />*Optional*                   | Object  | An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-flutter-logging)                                                                                                                                                             |
+| **integrations**<br />*Optional*             | Object  | A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-flutter-integrations)                                                                                              |
 
 ### Poll Interval (Keeping VWO client up-to-date)
 
 When you initialize the *vwoClient* on your mobile, it pulls the latest configurations you've done in the VWO application.\
-If/when you make any changes to the feature flags or rules within VWO after the *vwoClient* has been initialized on your mobile, there needs to be some way to update your *vwoClient* with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+If/when you make any changes to the feature flags or rules within VWO after the *vwoClient* has been initialized on your mobile, there needs to be some way to update your *vwoClient* with the latest settings from VWO. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -61,7 +61,7 @@ final vwoClient = await VWO.init(vwoInitOptions);
 
 ### Logger
 
-VWO by default logs all ERROR level messages to your mobile console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+VWO by default logs all ERROR level messages to your mobile console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```dart
 // Create a custom logger implementation
@@ -90,7 +90,7 @@ final vwoInitOptions = VWOInitOptions(
 final vwoClient = await VWO.init(vwoInitOptions);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-flutter-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v2/docs/fme-flutter-logging) for more advanced logger options.
 
 ### Integrations
 
@@ -109,4 +109,4 @@ final vwoInitOptions = VWOInitOptions(
 final vwoClient = await VWO.init(vwoInitOptions);
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-node-integrations) to learn more about Integrations.
+Please click [here](https://developers.wingify.com/v2/docs/fme-node-integrations) to learn more about Integrations.

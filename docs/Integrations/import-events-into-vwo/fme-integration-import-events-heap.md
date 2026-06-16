@@ -91,11 +91,11 @@ npm install vwo-fme-node-sdk
 
 ### Setup Gateway Service :
 
-**Reference**: [VWO Gateway Service Doc](https://developers.vwo.com/v2/docs/gateway-service)
+**Reference**: [VWO Gateway Service Doc](https://developers.wingify.com/v2/docs/gateway-service)
 
 ### Initialize the SDK in your application with the VWO gateway service:
 
-**Reference**: [SDK Initialization Doc](https://developers.vwo.com/v2/docs/fme-node-initialization)
+**Reference**: [SDK Initialization Doc](https://developers.wingify.com/v2/docs/fme-node-initialization)
 
 ```javascript
 const { init } = require('vwo-fme-node-sdk');

@@ -13,7 +13,7 @@ To support businesses at different stages of this growth, VWO offers two powerfu
 
 Think of it like building things: you might start with simple tools for quick fixes, but you need more advanced equipment as your projects get bigger and more complex.
 
-VWO's products follow a similar idea, offering the right tools as your testing needs grow.
+Wingify's products follow a similar idea, offering the right tools as your testing needs grow.
 
 <br />
 

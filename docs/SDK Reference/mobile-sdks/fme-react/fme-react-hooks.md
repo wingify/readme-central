@@ -152,32 +152,32 @@ This hook **does not** accept any parameters.
 `useGetFlag` is a custom React hook to fetch and manage the state of a specific feature flag from the VWO SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
 
 * **Usage**: Retrieve a feature flag using VWO client instance.
-* **More Info**: [Learn more about useGetFlag](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables)
+* **More Info**: [Learn more about useGetFlag](https://developers.wingify.com/v2/docs/fme-react-feature-flags-variables)
 
 ## useGetFlagVariable
 
 `useGetFlagVariable` is a generic React hook that retrieves the value of a specific variable from a VWO feature flag. It provides a typed interface to safely access variables with a fallback default.
 
 * **Usage**: Retrieve the value of a specific feature flag variable.
-* **More Info**: [Learn more about useGetFlagVariable](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables#usegetflagvariable-hook)
+* **More Info**: [Learn more about useGetFlagVariable](https://developers.wingify.com/v2/docs/fme-react-feature-flags-variables#usegetflagvariable-hook)
 
 ## useGetFlagVariables
 
 The `useGetFlagVariable` hook allows you to fetch all variables associated with a feature flag.
 
 * **Usage**: Retrieve all feature flag variables.
-* **More Info**: [Learn more about useGetFlagVariables](https://developers.vwo.com/v2/docs/fme-react-feature-flags-variables#usegetflagvariables-hook)
+* **More Info**: [Learn more about useGetFlagVariables](https://developers.wingify.com/v2/docs/fme-react-feature-flags-variables#usegetflagvariables-hook)
 
 ## useTrackEvent
 
 The `useTrackEvent` hook allows you to track custom events within your app, such as user actions or conversions.
 
 * **Usage**: Track important metrics, such as button clicks or completed purchases.
-* **More Info**: [Learn more about useTrackEvent](https://developers.vwo.com/v2/docs/fme-react-metrics-tracking#usetrackevent-hook)
+* **More Info**: [Learn more about useTrackEvent](https://developers.wingify.com/v2/docs/fme-react-metrics-tracking#usetrackevent-hook)
 
 ## useSetAttribute
 
 The `useSetAttribute` hook provides a simple way to associate these attributes with users in VWO for advanced segmentation.
 
 * **Usage**: Assign user attributes to help with segmentation and personalization.
-* **More Info**: [Learn more about useSetAttribute](https://developers.vwo.com/v2/docs/fme-react-attributes#usesetattribute-hook)
+* **More Info**: [Learn more about useSetAttribute](https://developers.wingify.com/v2/docs/fme-react-attributes#usesetattribute-hook)

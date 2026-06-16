@@ -12,7 +12,7 @@ next:
 ---
 ## Overview
 
-The VWO FE Gateway Service is a critical component for VWO's Feature Experimentation (FE) SDKs, particularly essential for pre-segmentation based on user location and user agent (UA). It's designed to be deployed within your infrastructure, ensuring minimal latency and enhanced security for FE operations.
+The VWO FE Gateway Service is a critical component for Wingify's Feature Experimentation (FE) SDKs, particularly essential for pre-segmentation based on user location and user agent (UA). It's designed to be deployed within your infrastructure, ensuring minimal latency and enhanced security for FE operations.
 
 ## When is Gateway Service Needed?
 
@@ -215,7 +215,7 @@ These configuration options allow you to customize the Gateway Service to fit yo
 
 ## API Endpoints
 
-The Gateway Service exposes these main endpoints. These endpoints should be used when you're directly accessing the Gateway Service without using any of VWO's SDKs:
+The Gateway Service exposes these main endpoints. These endpoints should be used when you're directly accessing the Gateway Service without using any of Wingify's SDKs:
 
 ### 1. GetFlag
 
@@ -309,6 +309,6 @@ Note: All three parameters are required. The setAttribute API always returns a 2
 
 ### Conclusion
 
-The VWO FE Gateway Service enhances VWO SDK capabilities by providing advanced pre-segmentation, consistent cross-platform behaviour, and improved performance within your infrastructure. It ensures fast, efficient, and secure Feature Experimentation processes, making it an essential component for applications leveraging VWO's FE capabilities, especially for thin clients and scenarios requiring advanced targeting or segmentation.
+The VWO FE Gateway Service enhances VWO SDK capabilities by providing advanced pre-segmentation, consistent cross-platform behaviour, and improved performance within your infrastructure. It ensures fast, efficient, and secure Feature Experimentation processes, making it an essential component for applications leveraging Wingify's FE capabilities, especially for thin clients and scenarios requiring advanced targeting or segmentation.
 
 .

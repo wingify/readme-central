@@ -91,7 +91,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.vwo.com/v2/docs/polling)
+        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling)
       </td>
     </tr>
 
@@ -106,7 +106,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.vwo.com/v2/docs/fme-python-logging)
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-python-logging)
       </td>
     </tr>
 
@@ -121,7 +121,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.vwo.com/v2/docs/fme-python-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-python-storage)
       </td>
     </tr>
 
@@ -136,7 +136,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.vwo.com/v2/docs/fme-python-initialization#proxyurl)
+        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.wingify.com/v2/docs/fme-python-initialization#proxyurl)
       </td>
     </tr>
 
@@ -151,7 +151,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.vwo.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.wingify.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -166,7 +166,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.vwo.com/v2/docs/fme-python-integrations)
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-python-integrations)
       </td>
     </tr>
   </tbody>
@@ -175,7 +175,7 @@ This client object allows you to run experiments, track events, and enable/disab
 ### Poll Interval (Keeping VWO client up-to-date)
 
 When you initialize the _vwo_client_ on your server, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwo_client_ has been initialized in your server, there needs to be some way to update your _vwo_client_ with the latest settings from VWO. This can be done via [polling](https://developers.vwo.com/v2/docs/polling).
+If/when you make any changes to the feature flags or rules within VWO after the _vwo_client_ has been initialized in your server, there needs to be some way to update your _vwo_client_ with the latest settings from VWO. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -193,7 +193,7 @@ vwo_client = init(options)
 
 ### Logger
 
-VWO by default logs all ERROR level messages to your server console. To gain more control over VWO's logging behavior, you can use the logger parameter in the init configuration.
+VWO by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```python
 # Init options with logger
@@ -209,7 +209,7 @@ options = {
 vwo_client = init(options)
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-python-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v2/docs/fme-python-logging) for more advanced logger options.
 
 ### Storage
 
@@ -273,7 +273,7 @@ options = {
 vwo_client = init(options
 ```
 
-Please click [here](https://developers.vwo.com/v2/docs/fme-python-integrations) to learn more about Integrations.
+Please click [here](https://developers.wingify.com/v2/docs/fme-python-integrations) to learn more about Integrations.
 
 ### ProxyUrl
 
@@ -292,4 +292,4 @@ options = {
 vwo_client = init(options)
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.vwo.com/v2/docs/fme-python-proxy-url">here</Anchor> to learn more about ProxyURL.
+Please click <Anchor label="here" target="_blank" href="https://developers.wingify.com/v2/docs/fme-python-proxy-url">here</Anchor> to learn more about ProxyURL.

@@ -25,7 +25,7 @@ Feature Flags serve as the foundation for all testing, personalization, and roll
 
 useGetFlag is a custom React hook to fetch and manage the state of a specific feature flag from the VWO SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
 
-### Usage without UserContext (If provided in [VWOProvider](https://developers.vwo.com/v2/docs/initialization-copy#usage))
+### Usage without UserContext (If provided in [VWOProvider](https://developers.wingify.com/v2/docs/initialization-copy#usage))
 
 ```typescript TypeScript
 import React from 'react';
@@ -128,7 +128,7 @@ export default YourComponent;
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-react-user-context).
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-react-user-context).
       </td>
     </tr>
   </tbody>

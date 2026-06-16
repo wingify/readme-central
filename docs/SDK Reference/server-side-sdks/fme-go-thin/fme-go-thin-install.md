@@ -43,7 +43,7 @@ You're ready to initialize and use the SDK in your Go application.
 
 > 📘 Note
 >
-> The Go SDK requires the use of VWO Gateway Service. Make sure to set up the Gateway Service before initializing the SDK. For more information, see our [Gateway Service documentation](https://developers.vwo.com/v2/docs/gateway-service).
+> The Go SDK requires the use of VWO Gateway Service. Make sure to set up the Gateway Service before initializing the SDK. For more information, see our [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service).
 
 ## Source Code
 

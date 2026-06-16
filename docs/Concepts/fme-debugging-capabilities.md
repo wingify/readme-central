@@ -119,7 +119,7 @@ const vwoClient = init({
 });
 ```
 
-> For more details, see the Logging section in each SDK reference—for example, the [Node.js Logging](https://developers.vwo.com/v2/docs/fme-node-logging) documentation.
+> For more details, see the Logging section in each SDK reference—for example, the [Node.js Logging](https://developers.wingify.com/v2/docs/fme-node-logging) documentation.
 
 | Level   | What It Shows                   |
 | ------- | ------------------------------- |

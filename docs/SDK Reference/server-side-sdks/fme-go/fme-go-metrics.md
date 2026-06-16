@@ -106,7 +106,7 @@ trackResponse, err := vwoClient.TrackEvent("purchase", context, eventProperties)
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-node-context) .
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-node-context) .
       </td>
     </tr>
 

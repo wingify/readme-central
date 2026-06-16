@@ -121,7 +121,7 @@ Map<String, Boolean> trackResponse = vwoClient.trackEvent("event-name", userCont
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.vwo.com/v2/docs/fme-android-context) .
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-android-context) .
       </td>
     </tr>
 
