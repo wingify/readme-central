@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The VWO Go SDK uses the Gateway Service for caching and storage. Unlike some other SDKs, the Go SDK does not provide a separate storage interface for custom implementations.
+The Wingify Go SDK uses the Gateway Service for caching and storage. Unlike some other SDKs, the Go SDK does not provide a separate storage interface for custom implementations.
 
 ## Gateway Service Storage
 
@@ -24,9 +24,9 @@ This centralized storage approach ensures consistency across your application in
 
 ## Benefits
 
-1. **Improved Performance**: The Gateway Service caches data, reducing the need for frequent API calls to VWO servers.
+1. **Improved Performance**: The Gateway Service caches data, reducing the need for frequent API calls to Wingify servers.
 2. **Consistency**: All instances of your application connect to the same Gateway Service, ensuring consistent feature flag evaluations.
-3. **Real-time Updates**: The Gateway Service can receive real-time updates from VWO, ensuring your application always has the latest configuration.
+3. **Real-time Updates**: The Gateway Service can receive real-time updates from Wingify, ensuring your application always has the latest configuration.
 
 ## Configuration
 

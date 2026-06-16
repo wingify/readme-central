@@ -7,7 +7,7 @@ metadata:
 ---
 ## **Overview**
 
-Triggers can be used with Sentry to automatically toggle a Feature Flag based on application errors or performance issues. For example, you can create a trigger that disables a Feature Flag and connect it to a Sentry alert webhook. If Sentry detects a spike in errors or a critical issue in your application, it can call the trigger URL, allowing VWO to automatically disable the Feature Flag and prevent further impact to users.
+Triggers can be used with Sentry to automatically toggle a Feature Flag based on application errors or performance issues. For example, you can create a trigger that disables a Feature Flag and connect it to a Sentry alert webhook. If Sentry detects a spike in errors or a critical issue in your application, it can call the trigger URL, allowing Wingify to automatically disable the Feature Flag and prevent further impact to users.
 
 ## **1. Creating the Trigger URL**
 
@@ -24,7 +24,7 @@ https://app.vwo.com/api/v2/accounts/current/environments/<envId|sdkKey>/features
 * **featureId_or_key** – The ID or key of the feature flag you want to control.
 * **envId_or_key** – The ID or key of the environment where the feature flag should be toggled.
 * **isEnabled** – Set to `0` to disable the feature flag (or `1` to enable it).
-* **authToken** – Your VWO API authentication token.
+* **authToken** – Your Wingify API authentication token.
 
 ## **2. Connecting to Sentry**
 
@@ -63,6 +63,6 @@ Finally, link the integration to an Alert Rule in Sentry.
 
 6. Click **Save Rule**.
 
-Now, whenever this alert fires, Sentry will hit the trigger URL and disable the feature flag in VWO immediately.
+Now, whenever this alert fires, Sentry will hit the trigger URL and disable the feature flag in Wingify immediately.
 
 <br />

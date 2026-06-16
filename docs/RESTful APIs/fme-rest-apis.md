@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-VWO’s Feature Experimentation (FE) APIs allow developers to programmatically manage feature flags and their rules programmatically, enabling seamless integration into development and deployment workflows.
+Wingify’s Feature Experimentation (FE) APIs allow developers to programmatically manage feature flags and their rules programmatically, enabling seamless integration into development and deployment workflows.
 
 ## API Operations
 

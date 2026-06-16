@@ -7,7 +7,7 @@ metadata:
 ---
 ## Introduction
 
-The **VWO FE MCP Server** serves as a seamless bridge between your development environment and VWO’s Feature Experimentation. It enables effortless feature flag management by integrating directly with AI-powered IDEs, allowing you to control and optimize feature releases without disrupting your coding workflow.
+The **Wingify FE MCP Server** serves as a seamless bridge between your development environment and Wingify’s Feature Experimentation. It enables effortless feature flag management by integrating directly with AI-powered IDEs, allowing you to control and optimize feature releases without disrupting your coding workflow.
 
 ### Key Features
 
@@ -22,18 +22,18 @@ This is ideal for developers who want to manage feature flags efficiently within
 
 ## Required Configuration
 
-To connect the MCP server to the VWO feature experimentation system, you must configure two essential environment variables:
+To connect the MCP server to the Wingify feature experimentation system, you must configure two essential environment variables:
 
-* **VWO_ACCOUNT_ID**: VWO Account ID.
-* **VWO_API_KEY**: The API key (Developer Token) for authenticating with VWO REST APIs.
+* **VWO_ACCOUNT_ID**: Wingify Account ID.
+* **VWO_API_KEY**: The API key (Developer Token) for authenticating with Wingify REST APIs.
 
-> To create your developer token, please refer to the article <Anchor label="How to Access VWO API" target="_blank" href="https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API">How to Access VWO API</Anchor> and navigate to the `Generate API Tokens` section for step-by-step instructions.
+> To create your developer token, please refer to the article <Anchor label="How to Access Wingify API" target="_blank" href="https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API">How to Access Wingify API</Anchor> and navigate to the `Generate API Tokens` section for step-by-step instructions.
 
 <br />
 
 ## Setup Instructions
 
-To begin using the **VWO MCP server** with your client, follow the setup instructions below for popular tools.
+To begin using the **Wingify MCP server** with your client, follow the setup instructions below for popular tools.
 
 ### Cursor
 
@@ -59,7 +59,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 4. Save the configuration and confirm that the server status turns green, indicating it's active.
 
-<Image align="center" border={true} caption="VWO FE MCP Server Setup in Cursor" src="https://files.readme.io/2e318235298fb03b366a67dde23975d50a403f6329000980b364ad7df59497f8-fme-_mcp_cusror_setup.gif" />
+<Image align="center" border={true} caption="Wingify FE MCP Server Setup in Cursor" src="https://files.readme.io/2e318235298fb03b366a67dde23975d50a403f6329000980b364ad7df59497f8-fme-_mcp_cusror_setup.gif" />
 
 > 📘 Note:
 >
@@ -67,12 +67,12 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 <br />
 
-> You can add the VWO FE MCP Server by simply clicking the button below. Make sure to update the VWO_ACCOUNT_ID and VWO_API_KEY environment variables before you start using it.
+> You can add the Wingify FE MCP Server by simply clicking the button below. Make sure to update the VWO_ACCOUNT_ID and VWO_API_KEY environment variables before you start using it.
 
 <br />
 
 <HTMLBlock>{`
-<a href="cursor://anysphere.cursor-deeplink/mcp/install?name=VWO-fme-mcp&config=eyJlbnYiOnsiVldPX0FDQ09VTlRfSUQiOiJWV09fQUNDT1VOVF9JRCIsIlZXT19BUElfS0VZIjoiVldPX0FQSV9LRVkifSwiY29tbWFuZCI6Im5weCAteSB2d28tZm1lLW1jcEBsYXRlc3QifQ%3D%3D" target="_blank">
+<a href="cursor://anysphere.cursor-deeplink/mcp/install?name=Wingify-fme-mcp&config=eyJlbnYiOnsiVldPX0FDQ09VTlRfSUQiOiJWV09fQUNDT1VOVF9JRCIsIlZXT19BUElfS0VZIjoiVldPX0FQSV9LRVkifSwiY29tbWFuZCI6Im5weCAteSB2d28tZm1lLW1jcEBsYXRlc3QifQ%3D%3D" target="_blank">
   <img src="https://cursor.com/deeplink/mcp-install-dark.svg" alt="Add vwo-fme-mcp MCP server to Cursor" width="170" height="40" />
 </a>
 `}</HTMLBlock>
@@ -101,7 +101,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 3. Save the settings and ensure the MCP server is ready for use within VS Code.
 
-<Image align="center" border={true} caption="VWO FE MCP Server Setup in VS Code" src="https://files.readme.io/351699fdc6e3c335f4b87f32eeaf204faca01600eda6fafc5291ab1464353da7-VWO_VS_Code_MCP.gif" />
+<Image align="center" border={true} caption="Wingify FE MCP Server Setup in VS Code" src="https://files.readme.io/351699fdc6e3c335f4b87f32eeaf204faca01600eda6fafc5291ab1464353da7-VWO_VS_Code_MCP.gif" />
 
 ***
 
@@ -128,7 +128,7 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 4. Save the file and restart Claude Desktop. Once the server is active, a hammer icon will appear in the chat window.
 
-<Image align="center" border={true} caption="VWO FE MCP Server Setup in Claude" src="https://files.readme.io/5f8166e22cf8760d4ffde73bca3e88a89d6f81720668864062a9e77bbb0d11bc-VWO_Claude_MCP.gif" />
+<Image align="center" border={true} caption="Wingify FE MCP Server Setup in Claude" src="https://files.readme.io/5f8166e22cf8760d4ffde73bca3e88a89d6f81720668864062a9e77bbb0d11bc-VWO_Claude_MCP.gif" />
 
 <br />
 
@@ -142,11 +142,11 @@ To begin using the **VWO MCP server** with your client, follow the setup instruc
 
 Here's what you can do with our feature flag management tools:
 
-### IDE Configuration with VWO
+### IDE Configuration with Wingify
 
-1. **Add VWO Rules** - Retrieve IDE rules and configuration settings to seamlessly manage feature flags within your project. This enables smooth integration with your SDK and leverages Wingify's feature experimentation capabilities.
+1. **Add Wingify Rules** - Retrieve IDE rules and configuration settings to seamlessly manage feature flags within your project. This enables smooth integration with your SDK and leverages Wingify's feature experimentation capabilities.
 
-> Note: Supports both Cursor IDE and VS Code. The tool automatically detects your IDE or you can specify it manually. Needs to be called once after setting up VWO FE MCP.
+> Note: Supports both Cursor IDE and VS Code. The tool automatically detects your IDE or you can specify it manually. Needs to be called once after setting up Wingify FE MCP.
 
 * **Cursor IDE**: Creates rules in `.cursor/rules/vwo-feature-flag-rule.mdc`
 * **VS Code**: Creates instructions in `.github/instructions/vwo-fme.instructions.md`
@@ -154,7 +154,7 @@ Here's what you can do with our feature flag management tools:
 ### Feature Flags
 
 1. **Create Feature Flag With Defaults** - Create a complete feature flag with variables, variations, associated metric, rules, and automatic enablement. This tool handles the entire setup process.
-2. **Create Feature Flag** - Create a new feature flag into your VWO account with mandatory requirements like variables, variations and metrics.
+2. **Create Feature Flag** - Create a new feature flag into your Wingify account with mandatory requirements like variables, variations and metrics.
 3. **Delete Feature Flag** - Safely remove any feature flag from your account when it's no longer needed.
 4. **Get Feature Flag** - Dive into the details of any feature flag to see its current configuration and status.
 5. **List Feature Flags** - Get a bird's-eye view of all your feature flags in one place.
@@ -194,8 +194,8 @@ Here's what you can do with our feature flag management tools:
 ## How it works
 
 * Starts with a natural language **prompt** from a developer or AI agent.
-* MCP Plugin acts as the **orchestrator**: detecting context, managing IDE rules, interacting with VWO APIs, and generating SDK code.
-* Flags are created/updated in the VWO dashboard, and integration code is directly injected into the user’s codebase.
+* MCP Plugin acts as the **orchestrator**: detecting context, managing IDE rules, interacting with Wingify APIs, and generating SDK code.
+* Flags are created/updated in the Wingify dashboard, and integration code is directly injected into the user’s codebase.
 
 <br />
 

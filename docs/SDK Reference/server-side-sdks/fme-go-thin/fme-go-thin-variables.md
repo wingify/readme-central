@@ -107,4 +107,4 @@ for _, variable := range variables {
 ```
 
 This method returns a slice of maps, where each map represents a variable with its key and value.\
-Remember that variables must be defined in your VWO dashboard for the corresponding feature flag before you can use them in your code.
+Remember that variables must be defined in your Wingify dashboard for the corresponding feature flag before you can use them in your code.

@@ -70,7 +70,7 @@ func main() {
       </td>
 
       <td>
-        Your VWO application's Account ID.
+        Your Wingify application's Account ID.
       </td>
     </tr>
 
@@ -85,7 +85,7 @@ func main() {
       </td>
 
       <td>
-        Unique environment key provided to you inside the Websites & Apps section in VWO application, under "Default Project".
+        Unique environment key provided to you inside the Websites & Apps section in Wingify application, under "Default Project".
       </td>
     </tr>
 

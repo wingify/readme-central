@@ -7,11 +7,11 @@ metadata:
 ---
 ## **Testing Email/SMS via Server-Side Experimentation**
 
-This document outlines why standard client-side experimentation is incompatible with Email and SMS channels and demonstrates how VWO Feature Experimentation (Server-Side) provides the robust solution required for these test cases.
+This document outlines why standard client-side experimentation is incompatible with Email and SMS channels and demonstrates how Wingify Feature Experimentation (Server-Side) provides the robust solution required for these test cases.
 
 ### **The Challenge: Why Client-Side Testing Fails for Email/SMS**
 
-Client-side testing tools (like VWO Visual Editor) rely on two fundamental technologies that are absent in Email and SMS environments:
+Client-side testing tools (like Wingify Visual Editor) rely on two fundamental technologies that are absent in Email and SMS environments:
 
 <br />
 
@@ -51,19 +51,19 @@ Furthermore, server-side experimentation avoids UI performance costs like flicke
 
 <br />
 
-## **What VWO Feature Experimentation (FE) Offers**
+## **What Wingify Feature Experimentation (FE) Offers**
 
 **a. Feature Experimentation Server-Side Support**
 
-VWO FE provides SDKs that you integrate into backend environments (such as Node.js, Java, Python, etc.). These server-side SDKs:
+Wingify FE provides SDKs that you integrate into backend environments (such as Node.js, Java, Python, etc.). These server-side SDKs:
 
-* Connect to VWO servers to fetch experiment/feature flags.
+* Connect to Wingify servers to fetch experiment/feature flags.
 * Evaluate variation logic at the server level.
 * Return variation assignments that your application can use before sending messages.
 
 Typical integration flow:
 
-1. Backend code calls the VWO SDK during message processing.
+1. Backend code calls the Wingify SDK during message processing.
 2. SDK evaluates experiment rules and segments.
 3. Backend composes a message based on the returned variation.
 4. Backend sends email/SMS with variation content.
@@ -86,9 +86,9 @@ sequenceDiagram
     App->>Msg: Send Email/SMS with variation content
 ```
 
-VWO documentation outlines that server-side testing allows testing deeply within the tech stack and is ideal when experimenting inside logic layers rather than UI.
+Wingify documentation outlines that server-side testing allows testing deeply within the tech stack and is ideal when experimenting inside logic layers rather than UI.
 
-**Example: A/B Test for Email Subject Lines Using VWO FE**
+**Example: A/B Test for Email Subject Lines Using Wingify FE**
 
 **Scenario**
 
@@ -187,7 +187,7 @@ Server-side SDKs allow complex segmentation (user attributes, custom rules) that
 
 Events (opens, clicks) can be tracked in correlation with experiment buckets via server logs and analytics pipelines.
 
-| Feature           | Client-Side (Visual Editor | Server-Side (VWO FE           |
+| Feature           | Client-Side (Visual Editor | Server-Side (Wingify FE           |
 | ----------------- | -------------------------- | ----------------------------- |
 | Logic Location    | Browser / User Device      | Your Server                   |
 | Email/SMS Support | ❌ No                       | ✅ Yes                         |
@@ -205,7 +205,7 @@ Testing email/SMS messaging content or logic cannot rely on client-side experime
 
 <br />
 
-**Server-side testing** using **VWO Feature Experimentation SDKs** is the correct approach, enabling teams to:
+**Server-side testing** using **Wingify Feature Experimentation SDKs** is the correct approach, enabling teams to:
 
 * Choose variation logic in the backend code.
 * Evaluate feature flags programmatically.

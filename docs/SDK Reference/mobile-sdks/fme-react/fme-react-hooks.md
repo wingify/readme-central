@@ -1,22 +1,22 @@
 ---
 title: Hooks
-excerpt: Available Hooks in VWO FE React SDK
+excerpt: Available Hooks in Wingify FE React SDK
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-The `VWO FE React SDK` provides a set of hooks to help you seamlessly integrate feature flagging, experimentation, and event tracking into your React application. These hooks provide an easy and flexible way to interact with the VWO SDK.
+The `VWO FE React SDK` provides a set of hooks to help you seamlessly integrate feature flagging, experimentation, and event tracking into your React application. These hooks provide an easy and flexible way to interact with the Wingify SDK.
 
 Here are the available hooks:
 
 ## useVWOClient
 
-`useVWOClient` is a custom React hook that provides access to the initialized VWO SDK client instance within components wrapped by `VWOProvider`. It enables interaction with the VWO platform for experiments, feature flags, and tracking.
+`useVWOClient` is a custom React hook that provides access to the initialized Wingify SDK client instance within components wrapped by `VWOProvider`. It enables interaction with the Wingify platform for experiments, feature flags, and tracking.
 
 #### Usage
 
-The hook **does not** accept any parameters. It internally consumes the VWO context provided by `VWOProvider`.
+The hook **does not** accept any parameters. It internally consumes the Wingify context provided by `VWOProvider`.
 
 ```javascript
 const { vwoClient, isReady } = useVWOClient();
@@ -29,10 +29,10 @@ if (isReady) {
 
 #### Hook Lifecycle & Side Effects
 
-* The hook internally accesses the VWO client and readiness state from the React context.
+* The hook internally accesses the Wingify client and readiness state from the React context.
 * If used outside of a `VWOProvider`, it logs an error and returns a default state with no client and `isReady: false`.
 * If the context indicates the client is not ready, it returns a default state signaling the client is still initializing.
-* The hook has `No side effects` (like state updates or async calls) happen inside this hook, it’s purely for safe retrieval of the VWO client from context.
+* The hook has `No side effects` (like state updates or async calls) happen inside this hook, it’s purely for safe retrieval of the Wingify client from context.
 
 #### Return Type
 
@@ -43,8 +43,8 @@ interface VWOClientResult {
 }
 ```
 
-* `vwoClient`: The VWO SDK client instance if initialized; otherwise null.
-* `isReady`: Boolean indicating whether the VWO client is fully initialized and ready for use.
+* `vwoClient`: The Wingify SDK client instance if initialized; otherwise null.
+* `isReady`: Boolean indicating whether the Wingify client is fully initialized and ready for use.
 
 #### Using the above `vwoClient`You can call the different methods available directly without using any hooks.
 
@@ -95,9 +95,9 @@ vwoClient.setAttribute('event_name', userContext);
 
 ## useVWOContext
 
-The `useVWOContext` hook is used to access the `VWOContext`, which provides shared context values for components that need to interact with the VWO SDK and user targeting information.
+The `useVWOContext` hook is used to access the `VWOContext`, which provides shared context values for components that need to interact with the Wingify SDK and user targeting information.
 
-The `useVWOContext` hook provides access to `setUserContext`, which lets you dynamically update the user details. Updating the context this way triggers updates in all components consuming the VWO context, enabling real-time evaluation of feature flags based on the latest user data.
+The `useVWOContext` hook provides access to `setUserContext`, which lets you dynamically update the user details. Updating the context this way triggers updates in all components consuming the Wingify context, enabling real-time evaluation of feature flags based on the latest user data.
 
 It should only be used within components wrapped by `VWOProvider`.
 
@@ -145,18 +145,18 @@ This hook **does not** accept any parameters.
 > 📘 Important Considerations for `setUserContext` Usage
 >
 > * Using `setUserContext` from the `useVWOContext` hook will cause any component using the `useGetFlag` hook to re-run its effect and likely re-render, since it depends on the `userContext`.
-> * Updating the `id` using `setUserContext` is treated as switching to a new user. This may result in different variation or flag values for the same feature. Additionally, it will be counted as a **new visitor** in VWO.
+> * Updating the `id` using `setUserContext` is treated as switching to a new user. This may result in different variation or flag values for the same feature. Additionally, it will be counted as a **new visitor** in Wingify.
 
 ## useGetFlag
 
-`useGetFlag` is a custom React hook to fetch and manage the state of a specific feature flag from the VWO SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
+`useGetFlag` is a custom React hook to fetch and manage the state of a specific feature flag from the Wingify SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
 
-* **Usage**: Retrieve a feature flag using VWO client instance.
+* **Usage**: Retrieve a feature flag using Wingify client instance.
 * **More Info**: [Learn more about useGetFlag](https://developers.wingify.com/v2/docs/fme-react-feature-flags-variables)
 
 ## useGetFlagVariable
 
-`useGetFlagVariable` is a generic React hook that retrieves the value of a specific variable from a VWO feature flag. It provides a typed interface to safely access variables with a fallback default.
+`useGetFlagVariable` is a generic React hook that retrieves the value of a specific variable from a Wingify feature flag. It provides a typed interface to safely access variables with a fallback default.
 
 * **Usage**: Retrieve the value of a specific feature flag variable.
 * **More Info**: [Learn more about useGetFlagVariable](https://developers.wingify.com/v2/docs/fme-react-feature-flags-variables#usegetflagvariable-hook)
@@ -177,7 +177,7 @@ The `useTrackEvent` hook allows you to track custom events within your app, such
 
 ## useSetAttribute
 
-The `useSetAttribute` hook provides a simple way to associate these attributes with users in VWO for advanced segmentation.
+The `useSetAttribute` hook provides a simple way to associate these attributes with users in Wingify for advanced segmentation.
 
 * **Usage**: Assign user attributes to help with segmentation and personalization.
 * **More Info**: [Learn more about useSetAttribute](https://developers.wingify.com/v2/docs/fme-react-attributes#usesetattribute-hook)

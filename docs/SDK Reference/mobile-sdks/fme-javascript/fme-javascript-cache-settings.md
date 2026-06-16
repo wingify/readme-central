@@ -147,7 +147,7 @@ const vwoClient = await init({
 
 ## Flow
 
-The diagram outlines how the **VWO FE JavaScript SDK** manages settings using configurable caching options:
+The diagram outlines how the **Wingify FE JavaScript SDK** manages settings using configurable caching options:
 
 ```mermaid
 flowchart TD

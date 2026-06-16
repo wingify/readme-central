@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-A robust caching layer can significantly improve response times and reduce load on VWO servers by storing and reusing fetched settings at the edge or within your application’s storage. VWO FE SDKs support a variety of caching strategies, both at your infrastructure edge (e.g., Cloudflare Workers, AWS Lambda\@Edge) and within application-local storage (client‑side mobile and browser SDKs). This document details available options, behavior, and configuration.
+A robust caching layer can significantly improve response times and reduce load on Wingify servers by storing and reusing fetched settings at the edge or within your application’s storage. Wingify FE SDKs support a variety of caching strategies, both at your infrastructure edge (e.g., Cloudflare Workers, AWS Lambda\@Edge) and within application-local storage (client‑side mobile and browser SDKs). This document details available options, behavior, and configuration.
 
 <br />
 
@@ -17,7 +17,7 @@ A robust caching layer can significantly improve response times and reduce load 
 
 Edge caching is a method of storing content closer to end users by placing cached versions of data or web assets (like images, scripts, or even full web pages) on edge servers, servers located in geographically distributed data centres near users.
 
-With edge caching, you can delegate storage and retrieval of VWO settings to your CDN or edge compute layer. Instead of every request hitting your origin or VWO server, frequently accessed settings are served from the nearest edge node.
+With edge caching, you can delegate storage and retrieval of Wingify settings to your CDN or edge compute layer. Instead of every request hitting your origin or Wingify server, frequently accessed settings are served from the nearest edge node.
 
 ### 1.2 Supported Edge Platforms
 
@@ -38,14 +38,14 @@ With edge caching, you can delegate storage and retrieval of VWO settings to you
 
 ## 2. Client‑Side SDK Caching
 
-Client‑side SDKs (browsers and mobile-apps) provide out‑of‑the‑box caching of VWO settings within the application’s storage (e.g., `app-storage` in mobile and `localStorage`for browsers). You have the option to provide your storage connector for the SDKs to use.
+Client‑side SDKs (browsers and mobile-apps) provide out‑of‑the‑box caching of Wingify settings within the application’s storage (e.g., `app-storage` in mobile and `localStorage`for browsers). You have the option to provide your storage connector for the SDKs to use.
 
 ### 2.1 How It Works
 
-1. **Initial Fetch:** On the first invocation, the SDK retrieves the full settings payload from VWO.
+1. **Initial Fetch:** On the first invocation, the SDK retrieves the full settings payload from Wingify.
 2. **Local Cache:** Settings are stored locally (in Web or Mobile storage) under a designated key.
 3. **Subsequent Calls:** SDK reads from local cache and uses settings immediately for flag/variable evaluation.
-4. **Asynchronous Refresh:** In the background, SDK fetches current settings from VWO. If a difference is detected, the cache is updated and the SDK instance is refreshed.
+4. **Asynchronous Refresh:** In the background, SDK fetches current settings from Wingify. If a difference is detected, the cache is updated and the SDK instance is refreshed.
 
 ```mermaid
 flowchart TD
@@ -150,13 +150,13 @@ const vwoInstance = init({
 
 ## 4. Polling & Webhooks
 
-When using caching with VWO FE SDKs, it's essential to ensure that cached settings stay up-to-date with the latest configurations made in the VWO app. While caching improves performance and reduces network calls, it introduces the risk of stale data, especially in dynamic environments where flags, variables, or campaigns are updated frequently.
+When using caching with Wingify FE SDKs, it's essential to ensure that cached settings stay up-to-date with the latest configurations made in the Wingify app. While caching improves performance and reduces network calls, it introduces the risk of stale data, especially in dynamic environments where flags, variables, or campaigns are updated frequently.
 
-To address this, VWO provides two mechanisms: Polling and Webhooks.
+To address this, Wingify provides two mechanisms: Polling and Webhooks.
 
 ### 4.1 Polling
 
-* **Mechanism:** Periodically (configurable interval) call VWO API to check for changes.
+* **Mechanism:** Periodically (configurable interval) call Wingify API to check for changes.
 * **Behavior:** If settings have changed, the SDK updates the local settings cache and refreshes the instance.
 * **Trade-offs:** Increases periodic network usage. May not be truly real-time; depends on the polling interval (e.g., every 5 minutes).
 
@@ -172,7 +172,7 @@ const vwoClient = await init({
 
 ### 4.2 Webhooks
 
-* **Mechanism:** Webhooks notify your system immediately when there’s a change in your VWO account (like a flag update). You can then trigger a refresh of the cached settings.
+* **Mechanism:** Webhooks notify your system immediately when there’s a change in your Wingify account (like a flag update). You can then trigger a refresh of the cached settings.
 * **Implementation:** On receiving a webhook event, call `updateSettings(newSettings)` on the SDK instance to apply the latest settings immediately.
 * **Trade-offs:** Requires endpoint setup.
 
@@ -217,13 +217,13 @@ graph LR
 
 ```
 
-The diagram illustrates how VWO SDKs handle settings initialization and caching differently for client-side and server-side environments:
+The diagram illustrates how Wingify SDKs handle settings initialization and caching differently for client-side and server-side environments:
 
-Client SDKs fetch settings from VWO, store them in localStorage, use them immediately, and refresh them asynchronously in the background.
+Client SDKs fetch settings from Wingify, store them in localStorage, use them immediately, and refresh them asynchronously in the background.
 
-Server SDKs fetch fresh settings from VWO; or use the passed stored settings, passed while initializing the SDK.
+Server SDKs fetch fresh settings from Wingify; or use the passed stored settings, passed while initializing the SDK.
 
-Both approaches ensure quick flag evaluations while keeping the cache updated to reflect changes from the VWO platform.
+Both approaches ensure quick flag evaluations while keeping the cache updated to reflect changes from the Wingify platform.
 
 <br />
 

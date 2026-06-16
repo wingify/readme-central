@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-To integrate VWO Feature Experimentation (FE) into your React application, you must wrap your application code with the `VWOProvider` component.
+To integrate Wingify Feature Experimentation (FE) into your React application, you must wrap your application code with the `VWOProvider` component.
 
-The `VWOProvider` is a React context provider that initializes the VWO Feature Experimentation (FE) SDK and makes the client instance and user context available to child components through React Context.
+The `VWOProvider` is a React context provider that initializes the Wingify Feature Experimentation (FE) SDK and makes the client instance and user context available to child components through React Context.
 
 It is essential for enabling feature flag evaluation, A/B testing, and user tracking using hooks like `useVWOClient` or `useGetFlag`.
 
@@ -56,10 +56,10 @@ export default App;
 
 | Type               | Prop                  | Required | Description                                                                                |
 | :----------------- | :-------------------- | :------- | :----------------------------------------------------------------------------------------- |
-| `IVWOClient`       | **client**            | No       | Pre-initialized VWO client. If provided, it overrides the `config`.                        |
-| `IVWOOptions`      | **config**            | No       | SDK configuration for initializing the VWO client. Required if the `client` is not passed. |
+| `IVWOClient`       | **client**            | No       | Pre-initialized Wingify client. If provided, it overrides the `config`.                        |
+| `IVWOOptions`      | **config**            | No       | SDK configuration for initializing the Wingify client. Required if the `client` is not passed. |
 | `IVWOContextModel` | **userContext**       | No       | Initial user context to evaluate flags and experiments.                                    |
-| `ReactNode`        | **children**          | Yes      | Child components that require access to the VWO context.                                   |
+| `ReactNode`        | **children**          | Yes      | Child components that require access to the Wingify context.                                   |
 | `ReactNode`        | **fallbackComponent** | No       | Component shown while the client is initializing.                                          |
 
 > 📘 Note
@@ -68,9 +68,9 @@ export default App;
 
 <br />
 
-## Usage (Using Pre-initialized VWO Client)
+## Usage (Using Pre-initialized Wingify Client)
 
-If you have already initialized a VWO client in your application, you can pass it directly to the VWOProvider:
+If you have already initialized a Wingify client in your application, you can pass it directly to the VWOProvider:
 
 ```typescript
 import React, { useEffect, useState } from 'react';
@@ -152,7 +152,7 @@ export default App;
 
 In some cases, you might prefer not to wrap your application with the `VWOProvider` component. For example, you may want finer control over when and how the SDK is initialized, or you might need to integrate it into an existing setup where using a provider is not feasible.
 
-VWO FE React SDK allows you to bypass the provider and directly work with its methods. This gives you the flexibility to manually initialize the SDK and manage feature flag evaluations, user targeting, and other SDK operations programmatically.
+Wingify FE React SDK allows you to bypass the provider and directly work with its methods. This gives you the flexibility to manually initialize the SDK and manage feature flag evaluations, user targeting, and other SDK operations programmatically.
 
 You can implement this approach using the example below:
 
@@ -206,25 +206,25 @@ export default MyComponent;
 
 <br />
 
-## VWO Provider Config Parameter Definitions
+## Wingify Provider Config Parameter Definitions
 
 To customize the SDK further, additional parameters can be passed to the `VWOProvider` component using `config` parameter. Here’s a table describing each option:
 
 | Parameter                   | Type    | Description                                                                                                                                                                                                                                                                                                                |
 | :-------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **accountId** _Required_    | Integer | Your VWO application's Account ID.                                                                                                                                                                                                                                                                                         |
-| **sdkKey** _Required_       | String  | A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.                                                                                                                                                                                        |
-| **pollInterval** _Optional_ | Number  | Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling) |
+| **accountId** _Required_    | Integer | Your Wingify application's Account ID.                                                                                                                                                                                                                                                                                         |
+| **sdkKey** _Required_       | String  | A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under _**Default Project**_.                                                                                                                                                                                        |
+| **pollInterval** _Optional_ | Number  | Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling) |
 | **logger** _Optional_       | object  | An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-react-logging)                                                                                                                                                               |
 | **storage** _Optional_      | object  | Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-react-storage)                                                                                                                                            |
 | **integrations** _Optional_ | object  | A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-react-integrations)                                                                                                |
 
-### Poll Interval (Keeping VWO client up-to-date)
+### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _vwoClient_ using _VWOProvider_, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
+When you initialize the _vwoClient_ using _VWOProvider_, it pulls the latest configurations you've done in the Wingify application.  
+If/when you make any changes to the feature flags or rules within Wingify after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from Wingify. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
-The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
+The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
 ```typescript
 import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
@@ -245,7 +245,7 @@ const App = () => (
 
 ### Logger
 
-VWO by default logs all ERROR level messages to your console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```typescript
 import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';
@@ -300,7 +300,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-react-storage)  t
 
 ### Integrations
 
-VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```typescript
 import { VWOProvider, IVWOOptions, IVWOContextModel } from 'vwo-fme-react-sdk';

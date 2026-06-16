@@ -60,5 +60,5 @@ A successful response will return a list of insights metrics, including detailed
 
 ### Related Links
 
-* [How to Access VWO API](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API?utm_source=openai)
-* [VWO API Documentation](https://developers.vwo.com/reference/get-page-overview-details?utm_source=openai)
+* [How to Access Wingify API](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API?utm_source=openai)
+* [Wingify API Documentation](https://developers.vwo.com/reference/get-page-overview-details?utm_source=openai)

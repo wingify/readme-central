@@ -12,9 +12,9 @@ next:
 ---
 ## Get Started
 
-An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
+An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., Wingify or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO OpenFeature Provider for Node helps you integrate Feature Experimentation systems into your Node.js-based server applications.
+This Wingify OpenFeature Provider for Node helps you integrate Feature Experimentation systems into your Node.js-based server applications.
 
 <Cards columns={4}>
   <Card title="GitHub Repo" icon="fa-code-commit">
@@ -137,15 +137,15 @@ start();
       </td>
 
       <td>
-        `vwoClient` (VWO SDK instance)
+        `vwoClient` (Wingify SDK instance)
       </td>
 
       <td>
-        **vwoClient**: The initialized VWO SDK client instance.
+        **vwoClient**: The initialized Wingify SDK client instance.
       </td>
 
       <td>
-        Creates a new instance of `VWOProvider`, which integrates VWO with OpenFeature.
+        Creates a new instance of `VWOProvider`, which integrates Wingify with OpenFeature.
       </td>
     </tr>
 
@@ -159,11 +159,11 @@ start();
       </td>
 
       <td>
-        **provider**: The VWO provider instance that will handle feature flag evaluations.
+        **provider**: The Wingify provider instance that will handle feature flag evaluations.
       </td>
 
       <td>
-        Sets the provider for OpenFeature, enabling it to evaluate feature flags using VWO.
+        Sets the provider for OpenFeature, enabling it to evaluate feature flags using Wingify.
       </td>
     </tr>
 

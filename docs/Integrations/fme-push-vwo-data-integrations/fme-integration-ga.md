@@ -7,17 +7,17 @@ metadata:
 ---
 ## Overview
 
-**Integrating VWO Feature Experimentation with GA4** offers powerful benefits. VWO Feature Experimentation sends feature flag and event data directly to GA4, allowing you to see which feature flag variations users encounter during their sessions. This enables you to correlate user behaviour and performance metrics with specific experiments and feature rollouts. As a result, you can better understand how new features impact key KPIs like retention, engagement, and conversion:
+**Integrating Wingify Feature Experimentation with GA4** offers powerful benefits. Wingify Feature Experimentation sends feature flag and event data directly to GA4, allowing you to see which feature flag variations users encounter during their sessions. This enables you to correlate user behaviour and performance metrics with specific experiments and feature rollouts. As a result, you can better understand how new features impact key KPIs like retention, engagement, and conversion:
 
 <br />
 
 ## Prerequisites
 
-### VWO FE SDK Installation and Configuration
+### Wingify FE SDK Installation and Configuration
 
-* Ensure you have the VWO Feature Experimentation product enabled for your VWO account.
-* The VWO FE SDK should be properly installed in your Node.js project.
-* Set your VWO account ID and SDK key in your application's constants in `.env` file:
+* Ensure you have the Wingify Feature Experimentation product enabled for your Wingify account.
+* The Wingify FE SDK should be properly installed in your Node.js project.
+* Set your Wingify account ID and SDK key in your application's constants in `.env` file:
   ```
   VWO_ACCOUNT_ID=vwo_account_id
   VWO_SDK_KEY=vwo_sdk_key
@@ -76,9 +76,9 @@ yarn add vwo-fme-node-sdk
 
 ## Integration Steps
 
-Integrating the VWO FE SDK with analytics platforms like GA4 allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FE SDK.
+Integrating the Wingify FE SDK with analytics platforms like GA4 allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FE SDK.
 
-* Clone the VWO FE Examples from [GitHub](https://github.com/wingify/vwo-fme-examples)
+* Clone the Wingify FE Examples from [GitHub](https://github.com/wingify/vwo-fme-examples)
   ```shell
   git clone https://github.com/wingify/vwo-fme-examples.git
   ```
@@ -93,7 +93,7 @@ Integrating the VWO FE SDK with analytics platforms like GA4 allows you to autom
 
 ### Integration Data
 
-The `IntegrationCallback` receives a `properties: Record<string, unknown>` containing details about the VWO SDK action:
+The `IntegrationCallback` receives a `properties: Record<string, unknown>` containing details about the Wingify SDK action:
 
 * For flag evaluations (i.e.  `getFlag`):
   ```json

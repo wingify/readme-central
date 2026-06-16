@@ -16,7 +16,7 @@ next:
 ---
 ## Node.js SDK Installation
 
-To integrate FE SDK into your Node.js application, you first need to install the SDK through a package manager for JavaScript. VWO Node.js SDK can be installed using either [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/).
+To integrate FE SDK into your Node.js application, you first need to install the SDK through a package manager for JavaScript. Wingify Node.js SDK can be installed using either [npm](https://www.npmjs.com/) or [yarn](https://yarnpkg.com/en/).
 
 ## Requirements
 

@@ -7,7 +7,7 @@ metadata:
 ---
 ## **Overview**
 
-By default, VWO assigns variations based on each user's unique ID — meaning different users may see different variations. **Custom Bucketing Seed** lets you override this by passing a shared `bucketingSeed` string, so that all users with the same seed are guaranteed to see the **same variation**.
+By default, Wingify assigns variations based on each user's unique ID — meaning different users may see different variations. **Custom Bucketing Seed** lets you override this by passing a shared `bucketingSeed` string, so that all users with the same seed are guaranteed to see the **same variation**.
 
 This is useful whenever you need a group of users to share a consistent experience, rather than being individually randomized.
 
@@ -45,7 +45,7 @@ When you provide a `bucketingSeed` in the user context, the SDK uses it **instea
 | **No salt, with seed** | `{campaignId}_{bucketingSeed}` |
 | **Salt + seed**        | `{salt}_{bucketingSeed}`       |
 
-**Note:** The salt is managed by the VWO platform — it is not something you set in the SDK context. Your `bucketingSeed` always replaces the `bucketingId` portion of the key, regardless of whether a salt is present.
+**Note:** The salt is managed by the Wingify platform — it is not something you set in the SDK context. Your `bucketingSeed` always replaces the `bucketingId` portion of the key, regardless of whether a salt is present.
 
 ## **Usage Examples**
 

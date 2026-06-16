@@ -70,7 +70,7 @@ if err != nil {
       </td>
 
       <td>
-        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to VWO. [Read more here](https://developers.wingify.com/v2/docs/user-id-management)  .
+        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to Wingify. [Read more here](https://developers.wingify.com/v2/docs/user-id-management)  .
       </td>
     </tr>
 
@@ -115,7 +115,7 @@ if err != nil {
       </td>
 
       <td>
-        Any additional details of the current user that you want to push to VWO can be added here as key-value pairs, can be used for targeting & pre-segmentation.
+        Any additional details of the current user that you want to push to Wingify can be added here as key-value pairs, can be used for targeting & pre-segmentation.
       </td>
     </tr>
   </tbody>

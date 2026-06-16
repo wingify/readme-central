@@ -7,13 +7,13 @@ metadata:
 ---
 ## Overview
 
-This document provides insights into the performance characteristics of VWO FE SDKs across environments such as backend and client-side(mobile and browser) applications. It includes benchmarking data, impact on system resources, and network usage during various SDK operations.
+This document provides insights into the performance characteristics of Wingify FE SDKs across environments such as backend and client-side(mobile and browser) applications. It includes benchmarking data, impact on system resources, and network usage during various SDK operations.
 
 <br />
 
 ## Local Evaluation
 
-VWO FE SDKs are designed with local decision-making as a core principle. Once initialized with configuration data fetched from VWO DACDN, all flag evaluations, variable resolutions, and targeting decisions are performed entirely within the SDK, without additional network calls. This approach ensures sub-millisecond response times for decision APIs like `getFlag()` and `getVariable()`, making our SDKs highly performant and suitable for latency-sensitive applications across backend services, mobile apps, and client-side environments.
+Wingify FE SDKs are designed with local decision-making as a core principle. Once initialized with configuration data fetched from Wingify DACDN, all flag evaluations, variable resolutions, and targeting decisions are performed entirely within the SDK, without additional network calls. This approach ensures sub-millisecond response times for decision APIs like `getFlag()` and `getVariable()`, making our SDKs highly performant and suitable for latency-sensitive applications across backend services, mobile apps, and client-side environments.
 
 We have benchmarked our SDKs across various use cases and environments to validate their low-latency and low-overhead nature. You can find below the detailed benchmark metrics, resource usage stats, and operational characteristics that demonstrate their performance at scale.
 
@@ -33,7 +33,7 @@ To ensure accurate and consistent performance evaluation, all benchmarks present
 >
 > Benchmarks are representative of high-performance production environments and help assess SDK behavior under typical backend and service workloads.
 
-To help you understand the performance characteristics of the VWO FE SDKs across different environments, we’ve broken down key critical technical dimensions for evaluating SDK integration in production systems.
+To help you understand the performance characteristics of the Wingify FE SDKs across different environments, we’ve broken down key critical technical dimensions for evaluating SDK integration in production systems.
 
 In the following sections, you'll find detailed insights on:
 
@@ -65,7 +65,7 @@ SDK Overhead (During Request Lifecycle)
 | Initialization    | \< 100 ms               | No        | Fetches and caches settings                                               |
 | Flag Evaluation   | \~ 5-25 ms              | No        | Done in-memory; no HTTP involved                                          |
 | Event Tracking    | \< 5 ms                 | No        | Actual dispatch happens out-of-band                                       |
-| Attribute Updates | \< 2 ms                 | No        | Updates user attributes used for post-segmenting the VWO campaign reports |
+| Attribute Updates | \< 2 ms                 | No        | Updates user attributes used for post-segmenting the Wingify campaign reports |
 
 <br />
 
@@ -77,7 +77,7 @@ SDK Overhead (During Request Lifecycle)
 
 ## Initialization Time
 
-VWO FE SDKs are optimized for fast, non-blocking startup. When the init() method is called, the SDK asynchronously fetches the configuration settings from VWO DACDN, a globally distributed CDN. These settings contain all required data for flag evaluations, experiment configurations, targeting rules, and variable definitions.
+Wingify FE SDKs are optimized for fast, non-blocking startup. When the init() method is called, the SDK asynchronously fetches the configuration settings from Wingify DACDN, a globally distributed CDN. These settings contain all required data for flag evaluations, experiment configurations, targeting rules, and variable definitions.
 
 **Key Points:**
 
@@ -100,7 +100,7 @@ VWO FE SDKs are optimized for fast, non-blocking startup. When the init() method
 
 > 📘 Note
 >
-> The SDK fetches configuration from VWO DACDN, which serves static, edge-cached settings files with industry-leading low latency. This ensures reliable performance even under large-scale rollouts.
+> The SDK fetches configuration from Wingify DACDN, which serves static, edge-cached settings files with industry-leading low latency. This ensures reliable performance even under large-scale rollouts.
 >
 > Our Content Delivery Network (CDN) runs using a Global Load Balancer, deployed in Google Cloud Platform (GCP), and the backend servers are spread across 14 locations each in Japan, Australia, Singapore, India, Brazil, Netherlands, Belgium, Germany, 2 cities in the UK, and 4 cities in the US to help us serve dynamic requests for tests. Read more [here](https://help.vwo.com/hc/en-us/articles/360021116194-Where-are-VWO-data-centers-located)
 
@@ -108,12 +108,12 @@ VWO FE SDKs are optimized for fast, non-blocking startup. When the init() method
 
 ## SDK Methods Benchmarks
 
-To help you understand the performance impact of using the VWO FE SDK in real-world applications, we benchmarked key SDK methods across multiple environments. These benchmarks include execution latency, memory footprint, and whether any external network calls are made.
+To help you understand the performance impact of using the Wingify FE SDK in real-world applications, we benchmarked key SDK methods across multiple environments. These benchmarks include execution latency, memory footprint, and whether any external network calls are made.
 
 The results below represent average and worst-case scenarios for commonly used methods such as *init()*, *getFlag()*, *trackEvent()*, *setAttribute*, and others.
 
 * **init**\
-  While initialization involves a single HTTP request to VWO DACDN, it’s executed asynchronously. Once initialized, no additional settings fetches are made unless a refresh is triggered manually, via polling, or via webhooks.
+  While initialization involves a single HTTP request to Wingify DACDN, it’s executed asynchronously. Once initialized, no additional settings fetches are made unless a refresh is triggered manually, via polling, or via webhooks.
 * **getFlag / getVariable**\
   These are local-only operations. They resolve decisions from the SDK’s in-memory settings without any delay or network latency. *getFlag()* triggers an asynchronous tracking call for reporting purposes, but this does not affect evaluation time. Events can be batched and dispatched asynchronously by configuring batching parameters while initializing the SDK, minimizing further impact on the request lifecycle.
 * **trackEvent**\
@@ -159,7 +159,7 @@ The results below represent average and worst-case scenarios for commonly used m
       </td>
 
       <td>
-        For fetching VWO settings asynchronously.
+        For fetching Wingify settings asynchronously.
       </td>
     </tr>
 
@@ -224,13 +224,13 @@ The results below represent average and worst-case scenarios for commonly used m
 
 > 📘 Note for PHP
 >
-> PHP is a synchronous language, meaning it waits for tracking calls to complete before returning a response when using functions like *getFlag*. The same behavior applies to *trackEvent* and *setAttribute* APIs. Typically, these tracking calls complete within *100 ms*, depending on the user's geographic location and the proximity to the nearest VWO server node.
+> PHP is a synchronous language, meaning it waits for tracking calls to complete before returning a response when using functions like *getFlag*. The same behavior applies to *trackEvent* and *setAttribute* APIs. Typically, these tracking calls complete within *100 ms*, depending on the user's geographic location and the proximity to the nearest Wingify server node.
 
 <br />
 
 ## Memory and Resource Utilization
 
-VWO FE SDKs are designed with a strong emphasis on low resource usage, making them suitable for both server-side and client-side applications where memory, CPU, and garbage collection overhead must be minimal.
+Wingify FE SDKs are designed with a strong emphasis on low resource usage, making them suitable for both server-side and client-side applications where memory, CPU, and garbage collection overhead must be minimal.
 
 This section outlines the SDK's typical memory footprint and runtime resource behavior during different stages of its lifecycle.
 
@@ -238,7 +238,7 @@ This section outlines the SDK's typical memory footprint and runtime resource be
 
 | Phase                      | Typical Memory Usage | Description                                                                                                                        |
 | -------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| **Post-init (Cold Start)** | \< 2 MB              | Memory used after fetching and loading settings from VWO DACDN. Includes parsing and in-memory caching of rules and configuration. |
+| **Post-init (Cold Start)** | \< 2 MB              | Memory used after fetching and loading settings from Wingify DACDN. Includes parsing and in-memory caching of rules and configuration. |
 | **Steady State (Idle)**    | \< 0.5 MB            | Memory usage during regular flag evaluations and event tracking, excluding settings refresh. Remains stable with minimal growth.   |
 
 <br />
@@ -251,11 +251,11 @@ This section outlines the SDK's typical memory footprint and runtime resource be
 
 ## Network Usage Profile
 
-The Network Usage Profile defines how and when the VWO FE SDK communicates with external servers over the network. Understanding this helps developers assess the SDK’s impact on bandwidth, latency, and reliability, especially in environments like serverless functions, mobile apps, or edge infrastructure where network calls are sensitive and often limited.
+The Network Usage Profile defines how and when the Wingify FE SDK communicates with external servers over the network. Understanding this helps developers assess the SDK’s impact on bandwidth, latency, and reliability, especially in environments like serverless functions, mobile apps, or edge infrastructure where network calls are sensitive and often limited.
 
-In the Feature Experimentation (FE) context, many tools require frequent communication with backend servers to fetch flag decisions, send telemetry, or synchronize states. VWO FE SDKs, however, are designed to minimize such overhead through offline, local decision-making and asynchronous, batched network interactions.
+In the Feature Experimentation (FE) context, many tools require frequent communication with backend servers to fetch flag decisions, send telemetry, or synchronize states. Wingify FE SDKs, however, are designed to minimize such overhead through offline, local decision-making and asynchronous, batched network interactions.
 
-### VWO Settings from VWO CDN(DaCDN)
+### Wingify Settings from Wingify CDN(DaCDN)
 
 * **Endpoint**: [https://dev.visualwebsiteoptimizer.com/server-side/v2-settings](https://dev.visualwebsiteoptimizer.com/server-side/v2-settings)
 * **Size**: Depends on the number of running feature flags and their configurations. For example: 2-3 kB for 10 feature flags and their rule configurations
@@ -271,11 +271,11 @@ In the Feature Experimentation (FE) context, many tools require frequent communi
 
 ### Network Efficiency Highlights
 
-* **One-time config fetch**: Only a single network call is made during SDK initialization to retrieve configuration from VWO DACDN.
+* **One-time config fetch**: Only a single network call is made during SDK initialization to retrieve configuration from Wingify DACDN.
 * **Async-only traffic**: All runtime network operations (e.g., tracking) are performed asynchronously, ensuring zero impact on application latency or main thread execution.
-* **No polling by default**: VWO FE SDKs do not poll the server for updates unless explicitly configured to do so.
+* **No polling by default**: Wingify FE SDKs do not poll the server for updates unless explicitly configured to do so.
 * **Batched requests**: Tracking user, metric events, and setting user attributes events are queued and dispatched in batches to optimize throughput and reduce network chatter. You need to pass event batching configuration while initializing the SDK to enable batching of events.
-* **Webhook support for updates**: VWO supports webhooks that can notify your system when settings are updated. This allows applications to refresh SDK settings on-demand rather than relying on polling or scheduled fetches, ensuring timely updates with minimal network overhead.
+* **Webhook support for updates**: Wingify supports webhooks that can notify your system when settings are updated. This allows applications to refresh SDK settings on-demand rather than relying on polling or scheduled fetches, ensuring timely updates with minimal network overhead.
 
 > 📘 Note
 >
@@ -285,7 +285,7 @@ In the Feature Experimentation (FE) context, many tools require frequent communi
 
 ## SDK Footprint
 
-VWO FE SDKs offer a minimal footprint and are engineered for maximum efficiency. Whether you're deploying on high-scale infrastructure or embedded platforms, the SDK will not introduce meaningful bloat or performance drag. This makes it a safe and scalable choice for modern product experimentation and feature flagging.
+Wingify FE SDKs offer a minimal footprint and are engineered for maximum efficiency. Whether you're deploying on high-scale infrastructure or embedded platforms, the SDK will not introduce meaningful bloat or performance drag. This makes it a safe and scalable choice for modern product experimentation and feature flagging.
 
 <Table>
   <thead>
@@ -450,5 +450,5 @@ Understanding the SDK footprint is critical when integrating into environments w
 ## Best Practices
 
 * Initialize the SDK only once per app/server process.
-* Use ***getFlag()*** and ***getVariable()*** freely, they perform evaluations locally and do not make any blocking network calls. However, getFlag() does asynchronously trigger a user tracking request to the VWO server in the background, ensuring that application performance and response latency remain unaffected.
+* Use ***getFlag()*** and ***getVariable()*** freely, they perform evaluations locally and do not make any blocking network calls. However, getFlag() does asynchronously trigger a user tracking request to the Wingify server in the background, ensuring that application performance and response latency remain unaffected.
 * Use event batching to track custom events in backend/mobile applications.

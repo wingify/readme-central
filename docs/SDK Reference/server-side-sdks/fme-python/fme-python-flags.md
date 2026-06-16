@@ -44,7 +44,7 @@ The returned flag object allows you to:
 
 ## ***Get Flag*** API
 
-This API connects the application to VWO’s feature experimentation system to determine:
+This API connects the application to Wingify’s feature experimentation system to determine:
 
 * Whether a feature should be active for a specific user.
 * What configuration or variation of the feature should be presented to that user.
@@ -54,13 +54,13 @@ This API connects the application to VWO’s feature experimentation system to d
 1. **Feature Key:**\
    This acts as a **unique identifier** for the feature you want to manage. It could represent anything from a new dashboard, a beta feature, to a limited-time promotional banner.
 2. **User Context:**\
-   This refers to the **specific details about the user**, such as their ID, location, device type, or custom attributes. VWO uses this data to decide if the feature should be shown to the user.
+   This refers to the **specific details about the user**, such as their ID, location, device type, or custom attributes. Wingify uses this data to decide if the feature should be shown to the user.
 
 ### How It Works:
 
 When this API is triggered:
 
-* VWO checks its rules and targeting conditions associated with the feature.
+* Wingify checks its rules and targeting conditions associated with the feature.
 * It evaluates the provided user context to see if the user meets the conditions for accessing the feature.
 * Based on this evaluation, it returns information about the feature’s status (enabled/disabled) and any additional settings configured for the feature.
 
@@ -126,7 +126,7 @@ flag = vwo_client.get_flag('feature_key', user_context)
 
 > 🚧 Note
 >
-> Please note that the flag must already be defined in the VWO Application for this otherwise False will be returned.
+> Please note that the flag must already be defined in the Wingify Application for this otherwise False will be returned.
 
 ## ***Is Enabled*** API
 
@@ -149,7 +149,7 @@ Returns True if flag is enabled otherwise false
 
 ## ***Get Variable*** API
 
-If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in VWO, which can then be fetched at your server and used to control the user's experience in your codebase.
+If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in Wingify, which can then be fetched at your server and used to control the user's experience in your codebase.
 
 The *get\_variable()* function retrieves the value of a specific variable associated with a feature flag. If the variable is found, it returns the assigned value; otherwise, it returns the provided default\_value. This ensures that your application has a fallback value in case the variable is undefined or unavailable.
 
@@ -191,7 +191,7 @@ variable_value = flag.get_variable('variable_key', 'default_value')
       </td>
 
       <td>
-        The unique key of the variable as defined in the VWO application. This key is used to retrieve the corresponding variable value.
+        The unique key of the variable as defined in the Wingify application. This key is used to retrieve the corresponding variable value.
       </td>
     </tr>
 

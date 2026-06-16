@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
+An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., Wingify or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
 ## Why is it useful?
 
@@ -18,7 +18,7 @@ OpenFeature is an open standard that provides a unified, vendor-agnostic API for
 
 <br />
 
-## VWO FE supports the following OpenFeature providers
+## Wingify FE supports the following OpenFeature providers
 
 Click on the cards below to view the OpenFeature provider documentation for your chosen programming language.
 
@@ -50,13 +50,13 @@ Click on the cards below to view the OpenFeature provider documentation for your
 
 ***
 
-You can also explore our OpenFeature-compliant providers, officially listed in the [OpenFeature Ecosystem](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo). These providers enable seamless integration with the VWO Feature Experimentation (FE) product and are designed to support a variety of platforms and deployment needs.
+You can also explore our OpenFeature-compliant providers, officially listed in the [OpenFeature Ecosystem](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo). These providers enable seamless integration with the Wingify Feature Experimentation (FE) product and are designed to support a variety of platforms and deployment needs.
 
 <Image align="center" border={true} src="https://files.readme.io/7307ca6b7ab53499aadba7d9cc634eff5b38c45fb4f082ba255ee61c05cd3d9a-Screenshot_2025-11-07_at_6.25.18_PM.png" className="border" />
 
 <br />
 
-## Open-source VWO OpenFeature Providers
+## Open-source Wingify OpenFeature Providers
 
 | Provider | GitHub Link                                                                                                              |
 | :------- | :----------------------------------------------------------------------------------------------------------------------- |

@@ -12,15 +12,15 @@ next:
 ---
 User attributes are specific characteristics or properties assigned to users that help define who they are or how they interact with an application. These attributes can include demographic information (like age, location), behavioral data (such as past purchases), or custom-defined properties relevant to business goals.
 
-For any additional parameters or information about the current user, you can use attributes to pass that data to VWO.
+For any additional parameters or information about the current user, you can use attributes to pass that data to Wingify.
 
-These attributes would typically be any additional user info that you'd like to use in VWO for post-segmentation (filtering, slicing and dicing of reports).
+These attributes would typically be any additional user info that you'd like to use in Wingify for post-segmentation (filtering, slicing and dicing of reports).
 
-For example, you might want to analyze the performance of a test based on the user type to see which user type converted better or worse than the other. For this, you can pass on the "user type" as an attribute to VWO, with the relevant values for each user, ie "free", "paid" or whatever internal parameters you'd like to use for post-segmentation.
+For example, you might want to analyze the performance of a test based on the user type to see which user type converted better or worse than the other. For this, you can pass on the "user type" as an attribute to Wingify, with the relevant values for each user, ie "free", "paid" or whatever internal parameters you'd like to use for post-segmentation.
 
 ## ***useSetAttribute*** Hook
 
-This hook allows you to assign attributes' key-value pairs to a user. By doing so, VWO can:
+This hook allows you to assign attributes' key-value pairs to a user. By doing so, Wingify can:
 
 * Segment users based on defined attributes.
 * Deliver personalized experiences tailored to individual user preferences.
@@ -38,7 +38,7 @@ When this hook is executed, the application assigns the specified attribute (att
 
 > 🚧 Current Limitation
 >
-> VWO **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of VWO applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
+> Wingify **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of Wingify applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
 
 ### Usage
 
@@ -93,4 +93,4 @@ The `useSetAttribute` hook returns an object containing a `setAttribute` functio
 
 > 🚧 Note
 >
-> Please note that the *Attribute* must already be defined in the VWO Application for this, otherwise an unregistered attribute won't get tracked in VWO application.
+> Please note that the *Attribute* must already be defined in the Wingify Application for this, otherwise an unregistered attribute won't get tracked in Wingify application.

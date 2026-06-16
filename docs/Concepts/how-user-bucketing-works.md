@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-At a high level, bucketing in VWO means once a user is identified, determining if they are eligible for a campaign, then assigning them deterministically to one of the campaign’s variations based on traffic allocation. Once assigned, the same variation should be returned for that user across sessions (and platforms) as long as the setup remains unchanged.
+At a high level, bucketing in Wingify means once a user is identified, determining if they are eligible for a campaign, then assigning them deterministically to one of the campaign’s variations based on traffic allocation. Once assigned, the same variation should be returned for that user across sessions (and platforms) as long as the setup remains unchanged.
 
 ### Step 1: Identifying the User
 
@@ -45,7 +45,7 @@ If excluded, the SDK will treat them as “not in the campaign” — typically 
 
 ### Step 3: Bucketing / Variation Assignment
 
-Once a user is eligible, the SDK must map the user to a variation in a deterministic way. The mechanism used by VWO is outlined as follows:
+Once a user is eligible, the SDK must map the user to a variation in a deterministic way. The mechanism used by Wingify is outlined as follows:
 
 #### 3.1 Hashing + Normalisation
 
@@ -93,7 +93,7 @@ Re-bucketing (users getting different variation assignments) can occur if any of
 * This approach ensures consistency even when campaign settings are modified mid-run (though best practice is to avoid changing settings once the campaign is live).
 
 <Callout icon="📘" theme="info">
-  **Note**: VWO SDKs support implementing this storage layer; ensure your integration includes this to avoid unwanted variation flips.
+  **Note**: Wingify SDKs support implementing this storage layer; ensure your integration includes this to avoid unwanted variation flips.
 </Callout>
 
 <br />

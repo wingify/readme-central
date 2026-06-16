@@ -9,7 +9,7 @@ This guide details how Wingify's Feature Experimentation (FE) SDKs handle segmen
 
 ## Overview
 
-Segmentation is a critical part of delivering personalized experiences. VWO supports advanced segmentation based on:
+Segmentation is a critical part of delivering personalized experiences. Wingify supports advanced segmentation based on:
 
 * 🌍 Location (derived via IP)
 * 🧭 User Agent (device/browser type)
@@ -55,7 +55,7 @@ flowchart TD
 
 ### How it Works
 
-VWO’s client-side SDKs leverage the **VWO DaCDN**, an intelligent CDN layer, **to automatically evaluate segments** using the request's IP and User-Agent. These values are implicitly available to DaCDN because it is invoked directly from the user's browser/device.
+Wingify’s client-side SDKs leverage the **Wingify DaCDN**, an intelligent CDN layer, **to automatically evaluate segments** using the request's IP and User-Agent. These values are implicitly available to DaCDN because it is invoked directly from the user's browser/device.
 
 > ⚙️ Note
 >
@@ -100,4 +100,4 @@ Server-side SDKs run in a backend context without automatic access to:
 
 > 📘 Note
 >
-> For fast and frictionless implementation of advanced segment targeting (location, user-agent, and more), we strongly recommend using Client-Side SDKs wherever feasible. If you're using server-side SDKs, ensure VWO Gateway is correctly set up for similar capabilities.
+> For fast and frictionless implementation of advanced segment targeting (location, user-agent, and more), we strongly recommend using Client-Side SDKs wherever feasible. If you're using server-side SDKs, ensure Wingify Gateway is correctly set up for similar capabilities.

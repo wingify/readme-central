@@ -1,5 +1,5 @@
 ---
-title: VWO FE React Native SDK Usage
+title: Wingify FE React Native SDK Usage
 description: Recipe Description
 hidden: true
 recipe:
@@ -35,7 +35,7 @@ vwoClient.setAttribute( attributeMap, userContext);
 
 <!-- javascript@1-2 -->
 
-Import VWO FE SDK so it can be initialized.
+Import Wingify FE SDK so it can be initialized.
 
 
 
@@ -44,7 +44,7 @@ Import VWO FE SDK so it can be initialized.
 
 <!-- javascript@4-6 -->
 
-This code initializes the VWO SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc. can be passed depending upon the requirements.
+This code initializes the Wingify SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc. can be passed depending upon the requirements.
 
 # Set User Context
 
@@ -68,4 +68,4 @@ Tracks a metric conversion for a specified event, requiring a User Context and o
 
 <!-- javascript@17-18 -->
 
-Sends a user attribute to VWO for filtering campaign reports based on attributes.
+Sends a user attribute to Wingify for filtering campaign reports based on attributes.

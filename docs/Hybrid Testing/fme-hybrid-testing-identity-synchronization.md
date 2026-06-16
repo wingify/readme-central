@@ -45,7 +45,7 @@ Whether evaluation occurs:
 
 The identity must remain stable.
 
-VWO achieves this by ensuring that:
+Wingify achieves this by ensuring that:
 
 * FE SDKs can generate/read and reuse UUIDs
 * SmartCode can generate/read and preserve the same UUID
@@ -114,7 +114,7 @@ if(f=!1,v=d.querySelector('#vwoCode'),cc={},-1<d.URL.indexOf('__vwo_disable__')|
 
 Once installed on web pages:
 
-* VWO can identify visitors
+* Wingify can identify visitors
 * Bucketing happens client-side
 * Cookies are set automatically
 * Visual experiments can be launched without code changes
@@ -159,7 +159,7 @@ There are only two logical ways a user can enter the experimentation system:
 1. **Server-first flow**
 2. **Client-first flow**
 
-> VWO supports both symmetrically.
+> Wingify supports both symmetrically.
 
 Before we dive into how UUID synchronization works between server-side Feature Experimentation and client-side Web Testing, it is important to understand a more fundamental concept: **How do servers and browsers generally exchange information?**
 
@@ -287,7 +287,7 @@ const uuid = vwoClient.getUUID(userContext);
 
 #### Client-side Example
 
-> Add the below code before VWO SmartCode Script
+> Add the below code before Wingify SmartCode Script
 
 ```javascript
 window.VWO.push(['setSessionId', () => {
@@ -379,7 +379,7 @@ In real-world systems:
 
 If experimentation only supported one direction, identity fragmentation would occur.
 
-VWO’s model ensures:
+Wingify’s model ensures:
 
 | Entry Mode   | Identity Authority | System Alignment |
 | ------------ | ------------------ | ---------------- |
@@ -440,8 +440,8 @@ flowchart LR
 
 The diagram below illustrates:
 
-* FE SDK communicates with VWO for configuration
-* SmartCode communicates independently with VWO
+* FE SDK communicates with Wingify for configuration
+* SmartCode communicates independently with Wingify
 * UUID is the shared binding identity
 
 ```mermaid

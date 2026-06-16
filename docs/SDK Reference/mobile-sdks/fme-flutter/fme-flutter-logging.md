@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-VWO by default logs all `ERROR` level messages to your device console. To gain more control over Wingify's logging behavior, you can use the `logger` parameter in the `init` configuration.
+Wingify by default logs all `ERROR` level messages to your device console. To gain more control over Wingify's logging behavior, you can use the `logger` parameter in the `init` configuration.
 
 ## Logger Properties
 

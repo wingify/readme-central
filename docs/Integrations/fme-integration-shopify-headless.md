@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-# Integrating VWO FE SDK with Shopify Headless (Hydrogen + Oxygen)
+# Integrating Wingify FE SDK with Shopify Headless (Hydrogen + Oxygen)
 
 <br />
 
@@ -19,7 +19,7 @@ To run **experiments and feature flags** reliably in this architecture, we need 
 * Hydrate in the **browser**
 * Run at the **Edge** if available
 
-The VWO FE SDK — available at [GitHub](https://github.com/wingify/vwo-fme-node-sdk)  — supports **Node.js, browser, and Edge**, making it ideal.
+The Wingify FE SDK — available at [GitHub](https://github.com/wingify/vwo-fme-node-sdk)  — supports **Node.js, browser, and Edge**, making it ideal.
 
 <br />
 
@@ -29,7 +29,7 @@ Architectural Considerations
 | --------------------------- | ----------------------- | --------- |
 | Remix Loaders               | Server / Oxygen (Edge)  | N/A       |
 | React Rendering & Hydration | Browser                 | Yes       |
-| VWO Tracking Scripts        | Browser                 | Yes       |
+| Wingify Tracking Scripts        | Browser                 | Yes       |
 | Variant Assignment          | Server / Browser / Edge | Varies    |
 
 <br />
@@ -39,7 +39,7 @@ Always determine feature flags and experiment variations **before sending the HT
 
 <br />
 
-## Why VWO FE SDK for Headless Shopify
+## Why Wingify FE SDK for Headless Shopify
 
 * Multi-environment compatibility: Node, Browser, Edge
 * Unified API for feature flags & experiments
@@ -64,20 +64,20 @@ This means:
 
 ## Hydrogen + Oxygen Compatibility
 
-| Environment          | Can run VWO FE SDK? | Notes                                |
+| Environment          | Can run Wingify FE SDK? | Notes                                |
 | -------------------- | ------------------- | ------------------------------------ |
 | Node.js Server (SSR) | ✅                   | Works normally                       |
 | Oxygen Edge          | ⚠️                  | Must await async tracking            |
 | Browser JS           | ⚠️                  | SDK key exposed (use read-only keys) |
 
-VWO’s FE SDK is Edge compatible, so we can initialize it server-side during Remix loader execution.
+Wingify’s FE SDK is Edge compatible, so we can initialize it server-side during Remix loader execution.
 
 ## Step-by-Step Integration
 
 **Prerequisites**
 
 * A Shopify Hydrogen project (Remix routing)
-* VWO Account and SDK Key (for the specific environment)
+* Wingify Account and SDK Key (for the specific environment)
 * Unique user identifiers (for consistent assignments)
 
 ### Installing the SDK
@@ -106,7 +106,7 @@ VWO_SDK_CLIENT_KEY=your_browser_key
 Hydrogen uses Remix loaders to fetch data before rendering.
 In this step:
 
-* We initialize VWO FE SDK in the **Hydrogen loader**
+* We initialize Wingify FE SDK in the **Hydrogen loader**
 * We fetch **experiment assignment**
 * We return data for the React UI
 
@@ -334,7 +334,7 @@ Should I run SDK initialization on every request?
 
 Not necessarily — and you shouldn’t if you can avoid it.
 
-VWO FE SDKs support initialising the SDK using already-fetched or cached settings. When you pass pre-fetched settings during initialization:
+Wingify FE SDKs support initialising the SDK using already-fetched or cached settings. When you pass pre-fetched settings during initialization:
 
 * ❌ No network call is required during init
 * ⚡ Decisioning happens immediately and synchronously
@@ -346,7 +346,7 @@ This makes the SDK highly suitable for high-performance SSR and Edge runtimes, w
 
 ### ✅ Recommended approach (especially for Edge / Oxygen)
 
-* Fetch VWO settings **periodically** (for example, via a scheduled job, cache refresh, or shared storage).
+* Fetch Wingify settings **periodically** (for example, via a scheduled job, cache refresh, or shared storage).
 * Initialize the SDK using those cached settings.
 * Perform **real-time feature flag and experiment evaluation** without waiting on remote calls.
 
@@ -357,14 +357,14 @@ This ensures:
 * Better scalability at the Edge
 
 <Callout icon="📘" theme="info">
-  You must ensure that cached settings are refreshed periodically so your application receives the latest changes made in the VWO application (new flags, updated rules, traffic changes, etc.).
+  You must ensure that cached settings are refreshed periodically so your application receives the latest changes made in the Wingify application (new flags, updated rules, traffic changes, etc.).
 </Callout>
 
 <br />
 
 ## Conclusion
 
-Integrating **VWO FE SDK with Shopify Headless** (Hydrogen + Oxygen) gives you:
+Integrating **Wingify FE SDK with Shopify Headless** (Hydrogen + Oxygen) gives you:
 
 * Consistent SSR feature flag evaluation
 * Fast UX with server-rendered variant decisions

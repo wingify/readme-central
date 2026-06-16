@@ -1,7 +1,7 @@
 ---
 title: Edge Support
 excerpt: >-
-  Learn how to configure the VWO FE JavaScript SDK for edge computing
+  Learn how to configure the Wingify FE JavaScript SDK for edge computing
   environments like Cloudflare Workers, Vercel Edge Functions, and AWS
   Lambda@Edge.
 deprecated: false
@@ -17,7 +17,7 @@ next:
 
 Modern edge platforms such as Cloudflare Workers, Vercel Edge Functions, and AWS Edge runtimes are optimized for low-latency, short-lived execution. While these environments provide excellent performance, they introduce unique challenges for SDK initialization and configuration management.
 
-The VWO Feature Experimentation (FE) JavaScript SDK is fully compatible with edge environments. However, to achieve optimal performance and avoid unnecessary network calls, settings management must be handled differently than in traditional long-running servers.
+The Wingify Feature Experimentation (FE) JavaScript SDK is fully compatible with edge environments. However, to achieve optimal performance and avoid unnecessary network calls, settings management must be handled differently than in traditional long-running servers.
 
 **Supported edge platforms include:**
 
@@ -41,7 +41,7 @@ This document explains:
 
 <br />
 
-> For further details on the VWO FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [VWO JavaScript SDK Documentation](https://developers.vwo.com/v2/docs/fme-javascript).
+> For further details on the Wingify FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [Wingify JavaScript SDK Documentation](https://developers.vwo.com/v2/docs/fme-javascript).
 
 ## Default SDK Initialization (Not Recommended for Edge)
 
@@ -56,7 +56,7 @@ await VWO.init({
 
 **What Happens Internally**
 
-* SDK makes a network request to VWO servers
+* SDK makes a network request to Wingify servers
 * Settings are fetched on every worker execution
 * No reuse unless the runtime keeps the worker warm
 
@@ -89,7 +89,7 @@ Edge platforms introduce several behavioral constraints that impact any SDK perf
 
 ## SDK Configuration for Edge Environments
 
-Use the `edgeConfig` option when initializing the VWO SDK inside any edge runtime.
+Use the `edgeConfig` option when initializing the Wingify SDK inside any edge runtime.
 
 ### Parameter: edgeConfig
 
@@ -106,7 +106,7 @@ With edgeConfig, core methods like `getFlag`, `trackEvent`, and `setAttribute` r
 <Callout icon="🚧" theme="warn">
   **Important Note**
 
-  When using `edgeConfig`, you must call `await flushEvents()` at the end of your code flow to send tracking events to VWO for reporting purposes.
+  When using `edgeConfig`, you must call `await flushEvents()` at the end of your code flow to send tracking events to Wingify for reporting purposes.
 </Callout>
 
 <br />
@@ -199,7 +199,7 @@ main();
 
 ## Flushing Events in Edge Environments
 
-When using `edgeConfig`, you **must** call `flushEvents()` at the end of your function to send tracking events to VWO.
+When using `edgeConfig`, you **must** call `flushEvents()` at the end of your function to send tracking events to Wingify.
 
 ### Basic Usage
 
@@ -223,7 +223,7 @@ This can be achieved in two ways:
 
 ### Option 1: Explicit SDK Settings Injection
 
-VWO supports initializing the SDK with pre-fetched settings, completely skipping the network call.
+Wingify supports initializing the SDK with pre-fetched settings, completely skipping the network call.
 
 > Reference: [https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings](https://developers.vwo.com/v2/docs/fme-explicit-sdk-fetch-settings)
 
@@ -268,7 +268,7 @@ await init({
 
 #### Lifecycle
 
-* VWO Settings API
+* Wingify Settings API
 * Fetch Once (Background / Cron / First Request)
 * Store in Edge KV / Redis / Durable Store
 * Inject into SDK on init()
@@ -293,7 +293,7 @@ To simplify settings management, the FE SDK now supports settings **persistence 
 * SDK initializes
 * SDK calls `getSettings()`
 * If settings exist → use them
-* If not → fetch from VWO servers
+* If not → fetch from Wingify servers
 * SDK calls `setSettings()` to persist them
 
 <br />
@@ -432,4 +432,4 @@ await init({
 
 <br />
 
-By following this guide, you can confidently deploy the VWO FE JavaScript SDK to distributed, edge platforms while preserving the integrity of your feature flagging and experimentation data.
+By following this guide, you can confidently deploy the Wingify FE JavaScript SDK to distributed, edge platforms while preserving the integrity of your feature flagging and experimentation data.

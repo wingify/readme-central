@@ -1,7 +1,7 @@
 ---
 title: Expo(React-Native)
 excerpt: >-
-  Easily integrate the VWO FE React Native SDK into your Expo project with this
+  Easily integrate the Wingify FE React Native SDK into your Expo project with this
   step-by-step guide.
 deprecated: false
 hidden: false
@@ -14,7 +14,7 @@ next:
 ---
 ## Steps Required
 
-The VWO FE React Native SDK uses native SDKs for iOS and Android, which require access to the native project files. By default, Expo projects do not expose the native iOS and Android folders.
+The Wingify FE React Native SDK uses native SDKs for iOS and Android, which require access to the native project files. By default, Expo projects do not expose the native iOS and Android folders.
 
 Running `expo prebuild` generates these folders so the native SDKs can be properly linked and integrated.
 
@@ -28,7 +28,7 @@ Run command `npx expo prebuild` in your project root:
 * These folders contain the native code for iOS and Android platforms.
 * You only need to run this once or whenever you add or update native code.
 
-### Step 2: Install the VWO FE React Native SDK Package
+### Step 2: Install the Wingify FE React Native SDK Package
 
 Install the SDK package using yarn or npm:
 
@@ -65,7 +65,7 @@ No additional steps are required for Android. The native code is linked automati
 
 ### Step 5: Verify Expo Architecture Compatibility
 
-The VWO FE React Native SDK is compatible with both old and new React Native architectures in Expo.
+The Wingify FE React Native SDK is compatible with both old and new React Native architectures in Expo.
 
 * You can use the SDK with Expo SDK versions that have the new architecture enabled.
 * To verify if the new architecture is enabled in an Expo project, you should check the app.json file where you can set the newArchEnabled option to true.

@@ -49,7 +49,7 @@ After adding Wingify to you Xcode project the size of Xcode project changes as f
   <tbody>
     <tr>
       <td>
-        VWO/Core
+        Wingify/Core
       </td>
 
       <td>
@@ -59,7 +59,7 @@ After adding Wingify to you Xcode project the size of Xcode project changes as f
 
     <tr>
       <td>
-        VWO
+        Wingify
       </td>
 
       <td>
@@ -87,7 +87,7 @@ After adding Wingify to you Xcode project the size of Xcode project changes as f
   <tbody>
     <tr>
       <td>
-        VWO/Core
+        Wingify/Core
       </td>
 
       <td>
@@ -97,7 +97,7 @@ After adding Wingify to you Xcode project the size of Xcode project changes as f
 
     <tr>
       <td>
-        VWO
+        Wingify
       </td>
 
       <td>

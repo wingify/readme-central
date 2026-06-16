@@ -1,5 +1,5 @@
 ---
-title: VWO FE iOS SDK Usage
+title: Wingify FE iOS SDK Usage
 description: Recipe Description
 hidden: true
 recipe:
@@ -45,13 +45,13 @@ VWOFme.setAttribute(attributes: attributeDict, context: userContext)
 
 <!-- swift@1 -->
 
-Import VWO FE SDK so it can be initialized.
+Import Wingify FE SDK so it can be initialized.
 
 # Initialize
 
 <!-- swift@3-13 -->
 
-This code initializes the VWO SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc. can be passed depending upon the requirements.
+This code initializes the Wingify SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc. can be passed depending upon the requirements.
 
 # Set User Context
 
@@ -75,4 +75,4 @@ Tracks a metric conversion for a specified event, requiring a User Context and o
 
 <!-- swift@27-28 -->
 
-Sends a user attribute to VWO for filtering campaign reports based on attributes.
+Sends a user attribute to Wingify for filtering campaign reports based on attributes.

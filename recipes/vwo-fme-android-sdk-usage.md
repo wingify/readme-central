@@ -1,5 +1,5 @@
 ---
-title: VWO FE Android SDK Usage
+title: Wingify FE Android SDK Usage
 description: Recipe Description
 hidden: true
 recipe:
@@ -72,13 +72,13 @@ vwoClient?.setAttribute(attributes, context)
 
 <!-- kotlin@1-6 -->
 
-Import VWO FE SDK so it can be initialized.
+Import Wingify FE SDK so it can be initialized.
 
 # Initialize
 
 <!-- kotlin@8-23 -->
 
-This code initializes the VWO SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc can be passed depending upon the requirements.
+This code initializes the Wingify SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc can be passed depending upon the requirements.
 
 # Set User Context
 
@@ -102,4 +102,4 @@ Tracks a metric conversion for a specified event, requiring a User Context and o
 
 <!-- kotlin@51-55 -->
 
-Sends a user attribute to VWO for filtering campaign reports based on attributes.
+Sends a user attribute to Wingify for filtering campaign reports based on attributes.
