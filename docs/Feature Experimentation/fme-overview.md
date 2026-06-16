@@ -10,30 +10,30 @@ metadata:
 next:
   description: ''
 ---
-This version of the documentation (v2) is for the new **Feature Experimentation(FE)** product of VWO.
+This version of the documentation (v2) is for the new **Feature Experimentation(FE)** product of Wingify.
 
 **Feature Experimentation** is a full-stack solution that integrates Wingify's SDK into your server or mobile codebase, allowing you to run feature tests, rollouts, personalisation, and experimentation campaigns.
 
 <Callout icon="🚧">
-  Please note that this differs from the **ServerSide** / **FullStack** Testing product that VWO already offers.
+  Please note that this differs from the **ServerSide** / **FullStack** Testing product that Wingify already offers.
 </Callout>
 
 <br />
 
-VWO FE lets you do the enterprise-grade testing of your product by deploying code behind features, experimenting with A/B tests, and rolling out or rolling back features immediately. With VWO FE, you can literally test anything - be it the search algorithms or recommendation engine for your e-commerce store or subscription workflows for your SaaS business. VWO FE is built to help you execute even the most complex tests. It enables you to test on any platform and is not limited to devices that have a browser. Think native apps, beacons, and connected devices.
+Wingify FE lets you do the enterprise-grade testing of your product by deploying code behind features, experimenting with A/B tests, and rolling out or rolling back features immediately. With Wingify FE, you can literally test anything - be it the search algorithms or recommendation engine for your e-commerce store or subscription workflows for your SaaS business. Wingify FE is built to help you execute even the most complex tests. It enables you to test on any platform and is not limited to devices that have a browser. Think native apps, beacons, and connected devices.
 
-With VWO FE, you can perform the testing wherein the variations of a particular test are rendered directly from the web server and are then sent to the visitors’ devices. Implementing directly on the server allows you to run more sophisticated tests that might otherwise hamper the user experience if implemented on the client side. In addition to that, server-side testing is also opted for in cases when it is simply unfeasible to experiment on the client-side. For example, testing two different product recommendation algorithms for an e-commerce website.
+With Wingify FE, you can perform the testing wherein the variations of a particular test are rendered directly from the web server and are then sent to the visitors’ devices. Implementing directly on the server allows you to run more sophisticated tests that might otherwise hamper the user experience if implemented on the client side. In addition to that, server-side testing is also opted for in cases when it is simply unfeasible to experiment on the client-side. For example, testing two different product recommendation algorithms for an e-commerce website.
 
 <br />
 
-**Typical use cases of VWO FE are:**
+**Typical use cases of Wingify FE are:**
 
 * Manage Features' Lifecycle With Feature Flag Management
 * Deliver Features Confidently with Staged Feature Rollouts
 * You can test multiple variations of the feature with a different set of variables
 * A/B Test deep within your stack
 
-VWO FE enables you to test much deeper. Rather than being limited to testing images or buttons on your website, you can test algorithms, architectures, and rebrands. But for complex applications, client-side testing may not be the best option: Layering more JavaScript on top of an already bulky application means an even slower load time and an even more cumbersome user experience.
+Wingify FE enables you to test much deeper. Rather than being limited to testing images or buttons on your website, you can test algorithms, architectures, and rebrands. But for complex applications, client-side testing may not be the best option: Layering more JavaScript on top of an already bulky application means an even slower load time and an even more cumbersome user experience.
 
 Consider the following situation. An e-commerce store owner, to optimize for better conversions, wants to test two different checkout flows on both his/her website and mobile app at the same time. To do so, they need an advanced testing methodology, which is more inherent to the process and integrates with the website to ensure a seamless user experience. Neither of these is possible by running a simple A/B test on the client-side, and that is why server-side testing is required.
 
@@ -101,4 +101,4 @@ Consider the following situation. An e-commerce store owner, to optimize for bet
 
 For any other languages or frameworks you want to use FE with or for a demo of the product, please reach out to us at [support@vwo.com](mailto:support@vwo.com).
 
-The VWO SDKs code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2024-2025.
+The Wingify SDKs code is available in various languages on GitHub. All different SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Software Pvt. Ltd. 2024-2025.

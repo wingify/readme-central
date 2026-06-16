@@ -9,7 +9,7 @@ metadata:
 
 Amplitude is a product analytics platform that helps teams understand user behavior, track engagement, and measure the impact of product changes with powerful event-based analytics.
 
-VWO Feature Experimentation (FE) sends feature-flag and event data to Amplitude. This allows you to see which feature flag variations users are exposed to directly within your Amplitude reports. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
+Wingify Feature Experimentation (FE) sends feature-flag and event data to Amplitude. This allows you to see which feature flag variations users are exposed to directly within your Amplitude reports. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
 
 ## **Prerequisites**
 
@@ -24,26 +24,26 @@ VWO Feature Experimentation (FE) sends feature-flag and event data to Amplitude.
 AMPLITUDE_API_KEY=your_amplitude_api_key
 ```
 
-### **2. VWO FE SDK Configuration**
+### **2. Wingify FE SDK Configuration**
 
-* Ensure VWO Feature Experimentation is enabled in your VWO account.
-* The VWO FE SDK should be properly installed in your project.
-* Locate your Account ID and SDK Key in the VWO dashboard.
-* Set your VWO account ID and SDK key in your application's environment or constants file.
+* Ensure Wingify Feature Experimentation is enabled in your Wingify account.
+* The Wingify FE SDK should be properly installed in your project.
+* Locate your Account ID and SDK Key in the Wingify dashboard.
+* Set your Wingify account ID and SDK key in your application's environment or constants file.
 
 ## **Integration Steps**
 
-Integrating the VWO FE SDK with analytics platforms like Amplitude allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
+Integrating the Wingify FE SDK with analytics platforms like Amplitude allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard.
 
 <br />
 
 > 📘 Note
 >
-> The example below shows an implementation with the `Node` SDK. Please note that any VWO FE SDK can be used.
+> The example below shows an implementation with the `Node` SDK. Please note that any Wingify FE SDK can be used.
 
 ### **1. Install Dependencies**
 
-Install the VWO FE Node SDK. No additional Amplitude SDK is required as we use the Amplitude HTTP API.
+Install the Wingify FE Node SDK. No additional Amplitude SDK is required as we use the Amplitude HTTP API.
 
 Bash
 
@@ -89,7 +89,7 @@ module.exports = { sendToAmplitude };
 
 ```
 
-### **3. Initialize VWO SDK and Set Up the `integrations.callback`**
+### **3. Initialize Wingify SDK and Set Up the `integrations.callback`**
 
 Provide an `integrations.callback` when initializing the FE SDK. Inside the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to Amplitude.
 
@@ -135,7 +135,7 @@ const vwoClient = await init({
 
 ## **Integration Data**
 
-The `integrations.callback` receives a `properties` object containing details about the VWO SDK action:
+The `integrations.callback` receives a `properties` object containing details about the Wingify SDK action:
 
 ### For flag evaluations (getFlag):
 

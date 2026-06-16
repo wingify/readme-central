@@ -22,8 +22,8 @@ When an IOS app is integrated with the Wingify SDK, the increase in the size of 
 
 | Installation Type          | Size (in KB) |
 | :------------------------- | :----------- |
-| VWO\_insights              | \~800 KB     |
-| VWO\_insights/SSZipArchive | \~58 KB      |
+| Wingify\_insights              | \~800 KB     |
+| Wingify\_insights/SSZipArchive | \~58 KB      |
 
 ## IOS Application Analysis
 

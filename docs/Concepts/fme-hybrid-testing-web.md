@@ -1,5 +1,5 @@
 ---
-title: Unifying Server-Side and Client-Side Experimentation in VWO
+title: Unifying Server-Side and Client-Side Experimentation in Wingify
 excerpt: >-
   A Conceptual Guide to Connecting Feature Experimentation, Web Testing, and Web
   Insights
@@ -23,7 +23,7 @@ To experiment effectively across this ecosystem, one foundational problem to be 
 
 <br />
 
-This article explains how **VWO Feature Experimentation (FE)** connects with **VWO Web Testing** and **VWO Web Insights**, enabling:
+This article explains how **Wingify Feature Experimentation (FE)** connects with **Wingify Web Testing** and **Wingify Web Insights**, enabling:
 
 * Consistent user identification across client and server
 * Combined client-side and server-side experimentation
@@ -38,11 +38,11 @@ We’ll cover **concepts, architecture, step-by-step integration, code examples*
 
 Before understanding connectivity, we must understand the philosophical difference between the two experimentation models.
 
-At a high level, VWO offers two complementary experimentation models:
+At a high level, Wingify offers two complementary experimentation models:
 
 <br />
 
-### VWO Web Testing (Client-Side)
+### Wingify Web Testing (Client-Side)
 
 Works via **SmartCode**, a JavaScript snippet added to your website
 
@@ -60,11 +60,11 @@ Conceptually:
 
 > This follows a presentation-layer experimentation model.
 
-Reference: [What is VWO SmartCode?](https://help.vwo.com/hc/en-us/articles/360019420774-What-is-VWO-SmartCode)
+Reference: [What is Wingify SmartCode?](https://help.vwo.com/hc/en-us/articles/360019420774-What-is-VWO-SmartCode)
 
 <br />
 
-### VWO Feature Experimentation (FE)
+### Wingify Feature Experimentation (FE)
 
 Works via **SDKs** (server-side and client-side)
 
@@ -84,7 +84,7 @@ Conceptually:
 
 > This follows a decision-layer experimentation model.
 
-Reference: [List of VWO Feature Experimentation SDKs](https://developers.wingify.com/v2/docs/list-of-fme-sdks)
+Reference: [List of Wingify Feature Experimentation SDKs](https://developers.wingify.com/v2/docs/list-of-fme-sdks)
 
 <br />
 
@@ -99,7 +99,7 @@ Reference: [List of VWO Feature Experimentation SDKs](https://developers.wingify
 
 <br />
 
-### VWO Web Insights (Behavioral Analytics)
+### Wingify Web Insights (Behavioral Analytics)
 
 Works via **SmartCode-based data collection**, capturing visitor interactions on your website.
 
@@ -120,7 +120,7 @@ Conceptually:
 
 > This follows a behavioral-analytics model, complementing experimentation by explaining why users behaved the way they did.
 
-Reference: [What is VWO Insights](https://help.vwo.com/hc/en-us/articles/900000051286-What-is-VWO-Insights)
+Reference: [What is Wingify Insights](https://help.vwo.com/hc/en-us/articles/900000051286-What-is-VWO-Insights)
 
 <br />
 
@@ -161,7 +161,7 @@ Whether evaluation occurs:
 
 The identity must remain stable.
 
-VWO achieves this by ensuring that:
+Wingify achieves this by ensuring that:
 
 * FE SDKs can generate/read and reuse UUIDs
 * SmartCode can generate/read and preserve the same UUID
@@ -228,7 +228,7 @@ if(f=!1,v=d.querySelector('#vwoCode'),cc={},-1<d.URL.indexOf('__vwo_disable__')|
 
 Once installed on web pages:
 
-* VWO can identify visitors
+* Wingify can identify visitors
 * Bucketing happens client-side
 * Cookies are set automatically
 * Visual experiments can be launched without code changes
@@ -275,7 +275,7 @@ There are only two logical ways a user can enter the experimentation system:
 1. **Server-first flow**
 2. **Client-first flow**
 
-> VWO supports both symmetrically.
+> Wingify supports both symmetrically.
 
 Before we dive into how UUID synchronization works between server-side Feature Experimentation and client-side Web Testing, it is important to understand a more fundamental concept: **How do servers and browsers generally exchange information?**
 
@@ -409,7 +409,7 @@ const uuid = vwoClient.getUUID(userContext);
 
 #### Client-side Example
 
-> Add the below code before VWO SmartCode Script
+> Add the below code before Wingify SmartCode Script
 
 ```javascript
 window.VWO.push(['setSessionId', () => {
@@ -501,7 +501,7 @@ In real-world systems:
 
 If experimentation only supported one direction, identity fragmentation would occur.
 
-VWO’s model ensures:
+Wingify’s model ensures:
 
 | Entry Mode   | Identity Authority | System Alignment |
 | ------------ | ------------------ | ---------------- |
@@ -564,8 +564,8 @@ flowchart LR
 
 The diagram below illustrates:
 
-* FE SDK communicates with VWO for configuration
-* SmartCode communicates independently with VWO
+* FE SDK communicates with Wingify for configuration
+* SmartCode communicates independently with Wingify
 * UUID is the shared binding identity
 
 ```mermaid
@@ -645,15 +645,15 @@ Because both FE SDK events and SmartCode events use the same UUID:
 
 ## Conversion Tracking Across Feature Experimentation and Web Testing
 
-Conversion tracking in a connected VWO architecture relies on one fundamental requirement:
+Conversion tracking in a connected Wingify architecture relies on one fundamental requirement:
 
 > The same UUID must be used at the time of conversion as was used at the time of bucketing.
 
 If identity is consistent across client and server layers, conversions can be attributed accurately across:
 
 * Feature Experimentation (FE)
-* VWO Web Testing
-* VWO Web Insights
+* Wingify Web Testing
+* Wingify Web Insights
 * Offline systems (CRM, POS, backend billing, etc.)
 
 This section explains how conversion tracking works in both FE-first and Client-first architectures, and how offline conversions fit into the model.
@@ -836,9 +836,9 @@ Conversions may occur outside the web session:
 * CRM lifecycle update
 * Subscription upgrade via billing system
 
-If the same UUID is stored in your backend systems, it can be sent later via VWO Data360 offline conversion APIs.
+If the same UUID is stored in your backend systems, it can be sent later via Wingify Data360 offline conversion APIs.
 
-Reference: [How to Track Offline Conversions Using VWO Data360](https://help.vwo.com/hc/en-us/articles/25754666953241-How-to-Track-Offline-Conversions-Using-VWO-Data360)
+Reference: [How to Track Offline Conversions Using Wingify Data360](https://help.vwo.com/hc/en-us/articles/25754666953241-How-to-Track-Offline-Conversions-Using-VWO-Data360)
 
 Offline conversion tracking works seamlessly in a connected system.
 
@@ -915,9 +915,9 @@ Then attribution may fragment.
 
 <br />
 
-## Behavioral Analytics Integration with VWO Web Insights
+## Behavioral Analytics Integration with Wingify Web Insights
 
-Beyond experimentation and conversion tracking, VWO Web Insights adds behavioral analytics capabilities such as:
+Beyond experimentation and conversion tracking, Wingify Web Insights adds behavioral analytics capabilities such as:
 
 * Session Recordings
 * Heatmaps
@@ -999,4 +999,4 @@ This architecture enables system-wide experimentation, not just UI testing.
 * `UUID` is the binding identity
 * Cookies are the transport mechanism
 * Two-way identity propagation is supported
-* VWO Web Insights unifies analytics across layers
+* Wingify Web Insights unifies analytics across layers

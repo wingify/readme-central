@@ -17,14 +17,14 @@ https://dev.visualwebsiteoptimizer.com/server-side/v2-settings?i={sdkKey}&a={acc
 
 Where:
 
-* `{sdkKey}`:  VWO SDK key.
-* `{accountId}`: VWO Account ID.
-* `{skdName}`: VWO FE SDK Name
-* `{sdkVersion}`: VWO FE SDK Version
+* `{sdkKey}`:  Wingify SDK key.
+* `{accountId}`: Wingify Account ID.
+* `{skdName}`: Wingify FE SDK Name
+* `{sdkVersion}`: Wingify FE SDK Version
 * `{randomValue}`: A random value used to prevent caching. You can generate a random value using `Math.random()` (or any other suitable method in your environment). For eg: `0.342411122`
 
 <Callout icon="📘" theme="info">
-  The URL provided above is the official VWO endpoint for retrieving the settings of your active feature flags.
+  The URL provided above is the official Wingify endpoint for retrieving the settings of your active feature flags.
 </Callout>
 
 #### Example Response:

@@ -691,8 +691,8 @@ class MainActivity : AppCompatActivity() {
 ## Survey not showing after migration?
 
 1. **Verify initialization**: Ensure `vwoInitSuccess` callback is received before triggering surveys
-2. **Check event names**: Event names must match exactly with VWO dashboard configuration
-3. **Verify credentials**: Confirm Account ID and SDK Key are correct from VWO dashboard
+2. **Check event names**: Event names must match exactly with Wingify dashboard configuration
+3. **Verify credentials**: Confirm Account ID and SDK Key are correct from Wingify dashboard
 
 ## Race condition on first screen?
 

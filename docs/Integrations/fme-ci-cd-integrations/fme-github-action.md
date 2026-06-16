@@ -22,15 +22,15 @@ Key components of **GitHub Actions**:
 4. **Events**:\
    An event is a specific activity in a repository that triggers a workflow run. For example, an activity can originate from GitHub when someone creates a pull request, opens an issue, or pushes a commit to a repository
 
-## Introduction to VWO FE Github Action
+## Introduction to Wingify FE Github Action
 
-The **VWO FE GitHub Action** enables you to evaluate feature flags in your CI/CD pipelines using the **VWO platform**. It allows you to dynamically enable or disable features or retrieve feature flag values during the build process. By leveraging feature flags, you can make more flexible, robust, and dynamic applications, eliminating hardcoded values from the codebase.
+The **Wingify FE GitHub Action** enables you to evaluate feature flags in your CI/CD pipelines using the **Wingify platform**. It allows you to dynamically enable or disable features or retrieve feature flag values during the build process. By leveraging feature flags, you can make more flexible, robust, and dynamic applications, eliminating hardcoded values from the codebase.
 
 > 📘 GitHub Repo
 >
 > You can find the source code of the repo [here](https://github.com/wingify/vwo-fme-github-action) .
 
-This documentation provides a comprehensive guide to understand how to set up and use the VWO FE GitHub Action in your repository.
+This documentation provides a comprehensive guide to understand how to set up and use the Wingify FE GitHub Action in your repository.
 
 ## Inputs
 
@@ -40,7 +40,7 @@ The following input fields need to be provided when using the `VWO FE GitHub Act
 | :--------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
 | **flagsWithVariables** | A JSON object containing feature flag keys and their default values. This allows you to evaluate multiple feature flags with associated variables. Example: `{"featureA": {"variableA": "defaultValue"}}` | Yes      |
 | **userContext**        | A JSON object describing the context of the user for whom the feature flag needs to be evaluated. This helps determine which flag state the user should receive. Example: `{"id": "userId"}`              | Yes      |
-| **sdkInitOptions**     | An optional JSON object for configuring the VWO SDK. This could include logger settings, network options, etc. Example: `{"logger": {"level": "DEBUG"}}`                                                  | No       |
+| **sdkInitOptions**     | An optional JSON object for configuring the Wingify SDK. This could include logger settings, network options, etc. Example: `{"logger": {"level": "DEBUG"}}`                                                  | No       |
 
 ## Outputs
 
@@ -55,18 +55,18 @@ The action will provide the following outputs that can be referenced in subseque
 
 ## Environment Variables
 
-The action requires the following environment variables to be set for the VWO SDK initialization:
+The action requires the following environment variables to be set for the Wingify SDK initialization:
 
 | Environment Variable | Description                                                                                                           | Required |
 | :------------------- | :-------------------------------------------------------------------------------------------------------------------- | :------- |
-| **VWO\_SDK\_KEY**    | The SDK key is used to initialize the VWO SDK. This key is required for the action to interact with the VWO platform. | Yes      |
-| **VWO\_ACCOUNT\_ID** | The account ID of the VWO project. This ID is used to identify the VWO account associated with the feature flags.     | Yes      |
+| **Wingify\_SDK\_KEY**    | The SDK key is used to initialize the Wingify SDK. This key is required for the action to interact with the Wingify platform. | Yes      |
+| **Wingify\_ACCOUNT\_ID** | The account ID of the Wingify project. This ID is used to identify the Wingify account associated with the feature flags.     | Yes      |
 
 You should store the `VWO_SDK_KEY` and `VWO_ACCOUNT_ID` securely in your GitHub repository’s secrets (e.g., `${{ secrets.VWO_SDK_KEY }})`.
 
 ## Usage Example
 
-Below is an example of how to use the VWO FE GitHub Action in a GitHub Actions workflow:
+Below is an example of how to use the Wingify FE GitHub Action in a GitHub Actions workflow:
 
 ```yaml
 name: Feature Flag Management
@@ -114,4 +114,4 @@ Explanation:
 * The `Evaluate Feature Flags` step uses the `VWO FE GitHub Action` to evaluate the feature flags for a user with the specified context (`userContext`).
 * Feature flags are specified in the `flagsWithVariables` input as JSON, where each key represents a feature flag and its associated variable values.
 * The `sdkInitOptions` input allows for optional SDK configuration.
-* The VWO SDK credentials (`VWO_SDK_KEY` and `VWO_ACCOUNT_ID`) are passed securely using GitHub secrets.
+* The Wingify SDK credentials (`VWO_SDK_KEY` and `VWO_ACCOUNT_ID`) are passed securely using GitHub secrets.

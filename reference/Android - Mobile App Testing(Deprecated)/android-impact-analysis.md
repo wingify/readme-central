@@ -175,7 +175,7 @@ When an Android app is integrated with the Wingify SDK, the increase in the size
   <tbody>
     <tr>
       <td>
-        VWO.launch(VWOStatusListener listener)
+        Wingify.launch(VWOStatusListener listener)
       </td>
 
       <td>
@@ -185,7 +185,7 @@ When an Android app is integrated with the Wingify SDK, the increase in the size
 
     <tr>
       <td>
-        VWO.launchSynchronously()
+        Wingify.launchSynchronously()
       </td>
 
       <td>
@@ -195,7 +195,7 @@ When an Android app is integrated with the Wingify SDK, the increase in the size
 
     <tr>
       <td>
-        VWO.getObjectForKey(String key, Object defaultValue);
+        Wingify.getObjectForKey(String key, Object defaultValue);
       </td>
 
       <td>
@@ -205,7 +205,7 @@ When an Android app is integrated with the Wingify SDK, the increase in the size
 
     <tr>
       <td>
-        VWO.getIntegerForKey(String key, int defaultValue);
+        Wingify.getIntegerForKey(String key, int defaultValue);
       </td>
 
       <td>
@@ -215,7 +215,7 @@ When an Android app is integrated with the Wingify SDK, the increase in the size
 
     <tr>
       <td>
-        VWO.getDoubleForKey(String key, double defaultValue);
+        Wingify.getDoubleForKey(String key, double defaultValue);
       </td>
 
       <td>
@@ -225,7 +225,7 @@ When an Android app is integrated with the Wingify SDK, the increase in the size
 
     <tr>
       <td>
-        VWO.getStringForKey(String key, String defaultValue);
+        Wingify.getStringForKey(String key, String defaultValue);
       </td>
 
       <td>
@@ -235,7 +235,7 @@ When an Android app is integrated with the Wingify SDK, the increase in the size
 
     <tr>
       <td>
-        VWO.getBooleanForKey(String key, boolean defaultValue);
+        Wingify.getBooleanForKey(String key, boolean defaultValue);
       </td>
 
       <td>
@@ -245,7 +245,7 @@ When an Android app is integrated with the Wingify SDK, the increase in the size
 
     <tr>
       <td>
-        VWO.getVariationNameForTestKey(String testKey)
+        Wingify.getVariationNameForTestKey(String testKey)
       </td>
 
       <td>
@@ -255,7 +255,7 @@ When an Android app is integrated with the Wingify SDK, the increase in the size
 
     <tr>
       <td>
-        VWO.trackConversion()
+        Wingify.trackConversion()
       </td>
 
       <td>
@@ -265,7 +265,7 @@ When an Android app is integrated with the Wingify SDK, the increase in the size
 
     <tr>
       <td>
-        VWO.trackConversion(double value)
+        Wingify.trackConversion(double value)
       </td>
 
       <td>

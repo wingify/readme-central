@@ -14,7 +14,7 @@ next:
       slug: fme-go-storage
       title: Storage Service
 ---
-Attributes allow you to update user properties dynamically. These can be used for user segmentation and targeting in your VWO campaigns.
+Attributes allow you to update user properties dynamically. These can be used for user segmentation and targeting in your Wingify campaigns.
 
 ## SetAttribute()
 

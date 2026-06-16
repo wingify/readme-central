@@ -12,7 +12,7 @@ next:
 ---
 ## JavaScript SDK Installation
 
-To integrate the FE SDK into your web application, you first need to install it through a Javascript package manager. The VWO JavaScript SDK can be installed using [npm](https://www.npmjs.com/) / [yarn](https://yarnpkg.com/en/) or via a script tag.
+To integrate the FE SDK into your web application, you first need to install it through a Javascript package manager. The Wingify JavaScript SDK can be installed using [npm](https://www.npmjs.com/) / [yarn](https://yarnpkg.com/en/) or via a script tag.
 
 ## Installation via npm
 

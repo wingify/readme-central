@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-Welcome to the VWO Feature Experimentation (FE) documentation. This section provides a quick overview of all major areas available in the docs. Use this as a starting point to explore detailed guides, references, and resources.
+Welcome to the Wingify Feature Experimentation (FE) documentation. This section provides a quick overview of all major areas available in the docs. Use this as a starting point to explore detailed guides, references, and resources.
 
 ***
 

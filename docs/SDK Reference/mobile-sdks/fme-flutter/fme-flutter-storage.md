@@ -19,11 +19,11 @@ The primary purpose of using storage in mobile SDKs is to enhance performance an
 
 ## Implementation in Flutter
 
-The VWO Flutter SDK implements storage through platform-specific mechanisms, such as `SharedPreferences` for Android and `UserDefaults` for iOS. This provides a reliable, persistent key-value store that survives app restarts and updates.
+The Wingify Flutter SDK implements storage through platform-specific mechanisms, such as `SharedPreferences` for Android and `UserDefaults` for iOS. This provides a reliable, persistent key-value store that survives app restarts and updates.
 
 ### Storage Configuration
 
-To enable proper storage functionality in the VWO Flutter SDK, you do not need to provide any external storage parameter during initialization:
+To enable proper storage functionality in the Wingify Flutter SDK, you do not need to provide any external storage parameter during initialization:
 
 #### Example
 

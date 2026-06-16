@@ -5,11 +5,11 @@ hidden: false
 metadata:
   robots: index
 ---
-This document provides a comprehensive analysis of the VWO FE iOS SDK's impact on application performance, resource utilization, and network consumption. The metrics presented below are based on extensive testing and real-world implementation scenarios.
+This document provides a comprehensive analysis of the Wingify FE iOS SDK's impact on application performance, resource utilization, and network consumption. The metrics presented below are based on extensive testing and real-world implementation scenarios.
 
 ## Executive Summary
 
-The VWO FE iOS SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust Feature Experimentation capabilities.
+The Wingify FE iOS SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust Feature Experimentation capabilities.
 
 ## Asynchronous Initialization
 
@@ -25,7 +25,7 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 
 ### Settings Management
 
-**Endpoint**: VWO Settings API
+**Endpoint**: Wingify Settings API
 
 * **Frequency**: Single request per session with intelligent caching
 * **Caching Strategy**: Configurable cache duration with offline fallback support
@@ -34,7 +34,7 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 
 ### Event Tracking System
 
-**Endpoint**: VWO Event Tracking API
+**Endpoint**: Wingify Event Tracking API
 
 * **Processing Mode**: Asynchronous batch processing with asynchronous uploads to optimize network usage
 * **Retry Logic**: Automatic retry mechanism for failed requests with exponential backoff
@@ -126,4 +126,4 @@ The SDK implements a sophisticated network layer designed for efficiency and rel
 
 ***
 
-*This performance analysis is based on VWO FE iOS SDK version 1.6.0. Performance characteristics may vary based on device specifications, network conditions, and implementation patterns.*
+*This performance analysis is based on Wingify FE iOS SDK version 1.6.0. Performance characteristics may vary based on device specifications, network conditions, and implementation patterns.*

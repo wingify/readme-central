@@ -5,11 +5,11 @@ hidden: false
 metadata:
   robots: index
 ---
-The VWO JavaScript SDK now includes support for **custom proxy URLs**, enabling you to route all SDK network traffic through your own proxy server. This feature provides enhanced control over request routing, offering significant benefits in environments where direct network access to VWO endpoints may be restricted or blocked.
+The Wingify JavaScript SDK now includes support for **custom proxy URLs**, enabling you to route all SDK network traffic through your own proxy server. This feature provides enhanced control over request routing, offering significant benefits in environments where direct network access to Wingify endpoints may be restricted or blocked.
 
 ### Why Use a Custom Proxy URL?
 
-In modern web environments, many users utilize browser-based **ad-blockers** and privacy tools that restrict access to known ad-serving or tracking domains. Since the VWO JavaScript SDK communicates with VWO services via the default domain (`dev.visualwebsiteoptimizer.com`), requests to this endpoint may be **intercepted or blocked**.
+In modern web environments, many users utilize browser-based **ad-blockers** and privacy tools that restrict access to known ad-serving or tracking domains. Since the Wingify JavaScript SDK communicates with Wingify services via the default domain (`dev.visualwebsiteoptimizer.com`), requests to this endpoint may be **intercepted or blocked**.
 
 When this occurs, it can lead to partial or complete SDK failure, resulting in:
 
@@ -18,7 +18,7 @@ When this occurs, it can lead to partial or complete SDK failure, resulting in:
 * **Settings fetch issues** – SDK initialization can fail if configuration settings cannot be retrieved.
 * **Inconsistent user experience** – Variability in ad blocker configurations can cause different users to experience different application behavior, leading to reliability concerns.
 
-To address these issues, VWO provides the ability to configure a **proxy URL**, allowing organizations to **self-host a relay** for SDK traffic. This enables better control over network access, enhanced observability, and improved compatibility with restrictive user environments.
+To address these issues, Wingify provides the ability to configure a **proxy URL**, allowing organizations to **self-host a relay** for SDK traffic. This enables better control over network access, enhanced observability, and improved compatibility with restrictive user environments.
 
 <br />
 
@@ -27,13 +27,13 @@ To address these issues, VWO provides the ability to configure a **proxy URL**, 
 The request flow when using a custom proxy is as follows:
 
 1. **SDK → Proxy Server**\
-   The VWO SDK sends all API and data collection requests to the proxy server, using the `proxyUrl` specified during SDK initialization.
-2. **Proxy Server → VWO Backend**\
-   Your proxy server receives the SDK request and forwards it to the appropriate VWO endpoint.
-3. **VWO Backend → Proxy Server**\
-   VWO processes the incoming request, generates a response (e.g., flag configuration, experiment data), and sends it back to your proxy.
+   The Wingify SDK sends all API and data collection requests to the proxy server, using the `proxyUrl` specified during SDK initialization.
+2. **Proxy Server → Wingify Backend**\
+   Your proxy server receives the SDK request and forwards it to the appropriate Wingify endpoint.
+3. **Wingify Backend → Proxy Server**\
+   Wingify processes the incoming request, generates a response (e.g., flag configuration, experiment data), and sends it back to your proxy.
 4. **Proxy Server → SDK**\
-   Your proxy server relays the response from VWO back to the SDK, completing the round trip.
+   Your proxy server relays the response from Wingify back to the SDK, completing the round trip.
 
 <br />
 
@@ -85,7 +85,7 @@ vwoClient = init({
 
 ## Performance and Latency Considerations
 
-Using a proxy introduces an additional network hop between the SDK and VWO servers. While this offers flexibility and control, it can affect performance if not optimized properly.
+Using a proxy introduces an additional network hop between the SDK and Wingify servers. While this offers flexibility and control, it can affect performance if not optimized properly.
 
 **Key considerations:**
 

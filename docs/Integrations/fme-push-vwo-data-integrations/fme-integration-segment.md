@@ -25,11 +25,11 @@ Integrating FE with Segment offers significant benefits. FE sends feature flag a
 SEGMENT_WRITE_KEY=your_segment_write_key
 ```
 
-### VWO FE SDK Installation and Configuration
+### Wingify FE SDK Installation and Configuration
 
-* Ensure you have the VWO Feature Experimentation product enabled for your VWO account
-* The VWO FE SDK should be properly installed in your project
-* Set your VWO account ID and SDK key in your application's constants or local.properties file:
+* Ensure you have the Wingify Feature Experimentation product enabled for your Wingify account
+* The Wingify FE SDK should be properly installed in your project
+* Set your Wingify account ID and SDK key in your application's constants or local.properties file:
 
 ```properties
 FME_ACCOUNT_ID=your_account_id // Replace with your actual VWO account ID
@@ -38,11 +38,11 @@ FME_SDK_KEY=your_sdk_key // Replace with your actual VWO sdk key
 
 ## Integration Steps
 
-Integrating the VWO FE SDK with analytics platforms like Segment allows you to automatically send feature flag evaluation and event tracking data to your entire analytics stack. This integration enables automatic data collection and distribution to all your connected analytics tools.
+Integrating the Wingify FE SDK with analytics platforms like Segment allows you to automatically send feature flag evaluation and event tracking data to your entire analytics stack. This integration enables automatic data collection and distribution to all your connected analytics tools.
 
 > 📘 Note
 >
-> The example below shows an implementation with the `Android` SDK. Please note that any VWO FE SDK can be used.
+> The example below shows an implementation with the `Android` SDK. Please note that any Wingify FE SDK can be used.
 
 ### 1. Add Required Dependencies
 
@@ -159,7 +159,7 @@ VWO.init(initOptions, object : IVwoInitCallback {
 
 ### Integration Data
 
-The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` containing details about the VWO SDK action:
+The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` containing details about the Wingify SDK action:
 
 * **For flag evaluations** (i.e. `getFlag`):
 
@@ -189,7 +189,7 @@ The `execute` method of the `IntegrationCallback` receives a `Map<String, Any>` 
 
 Ensure you have added your Segment write key to your constants or `local.properties` file as specified in the Prerequisites.
 
-This setup ensures that every time a feature flag is evaluated or an event is tracked by the VWO SDK, the relevant data is automatically sent to your configured Segment source and then routed to all your connected destinations such as:
+This setup ensures that every time a feature flag is evaluated or an event is tracked by the Wingify SDK, the relevant data is automatically sent to your configured Segment source and then routed to all your connected destinations such as:
 
 * Analytics tools (Google Analytics, Mixpanel, Amplitude)
 * Data warehouses (Snowflake, BigQuery, Redshift)
@@ -232,4 +232,4 @@ After integrating Segment with your app, you can view the tracked data in the fo
 
 The complete source code for this example is available on <Anchor label="GitHub" target="_blank" href="https://github.com/wingify/vwo-fme-examples/tree/master/android">GitHub</Anchor>   .
 
-This is an example of an implementation using the Android SDK. While this demonstrates the approach, you can utilize any of the VWO FE SDKs for your project.
+This is an example of an implementation using the Android SDK. While this demonstrates the approach, you can utilize any of the Wingify FE SDKs for your project.

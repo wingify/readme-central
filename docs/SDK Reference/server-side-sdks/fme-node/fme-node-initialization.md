@@ -14,7 +14,7 @@ next:
       slug: fme-node-context
       title: User Context
 ---
-To create a VWO Client instance, you need to initialize the VWO FE Node SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
+To create a Wingify Client instance, you need to initialize the Wingify FE Node SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
 
 ## Usage
 
@@ -27,7 +27,8 @@ const vwoClient = await init({
 });
 ```
 
-The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`.<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object`vwoClient`, which can be used to perform feature  
+This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -60,7 +61,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Your VWO application's Account ID.
+        Your Wingify application's Account ID.
       </td>
     </tr>
 
@@ -75,7 +76,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under **_Default Project_**.
+        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under _**Default Project**_.
       </td>
     </tr>
 
@@ -90,7 +91,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Time (in milliseconds) at which VWO should check with the server for any updates to the feature flag or rules in the VWO Dashboard. Useful to keep your VWO Client instance up-to-date with any changes made in the VWO Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling)
+        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling)
       </td>
     </tr>
 
@@ -179,13 +180,14 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Pass the already fetched settings so the SDK can initialize instantly, without waiting to fetch settings from VWO. Refer [this](doc:fme-node-initialization#initialization-with-explicit-settings).
+        Pass the already fetched settings so the SDK can initialize instantly, without waiting to fetch settings from Wingify. Refer [this](doc:fme-node-initialization#initialization-with-explicit-settings).
       </td>
     </tr>
 
     <tr>
       <td>
-        **proxyUrl**<br />_Optional_
+        **proxyUrl**  
+        _Optional_
       </td>
 
       <td>
@@ -199,12 +201,12 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
   </tbody>
 </Table>
 
-### Poll Interval (Keeping VWO client up-to-date)
+### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the VWO application.  
-If/when you make any changes to the feature flags or rules within VWO after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from VWO. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
+When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the Wingify application.  
+If/when you make any changes to the feature flags or rules within Wingify after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from Wingify. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
-The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the VWO server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
+The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
 ```node
 // Init options with poll_interval
@@ -217,7 +219,7 @@ const vwoClient = await init({
 
 ### Logger
 
-VWO by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```node
 // Init options with logger
@@ -249,7 +251,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-node-storage)  to
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
+The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
 
 ```node
 // Init options with gateway_service
@@ -262,11 +264,11 @@ const vwoClient = await init({
 });
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about the VWO Gateway service.
+Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about the Wingify Gateway service.
 
 ### Integrations
 
-VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```node
 // Init options with integrations
@@ -330,7 +332,7 @@ Please click <Anchor label="here" target="_blank" href="https://developers.wingi
 
 ### ProxyUrl
 
-VWO FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
+Wingify FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
 
 ```javascript
 const vwoClient = await init({

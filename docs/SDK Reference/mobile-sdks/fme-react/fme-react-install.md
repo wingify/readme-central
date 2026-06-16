@@ -12,7 +12,7 @@ next:
 ---
 ## React SDK Installation
 
-To integrate VWO FE SDK into your React application, you must first install the SDK through a package manager. VWO FE React SDK can be installed using [npm](https://www.npmjs.com/).
+To integrate Wingify FE SDK into your React application, you must first install the SDK through a package manager. Wingify FE React SDK can be installed using [npm](https://www.npmjs.com/).
 
 ## Requirements
 
@@ -38,7 +38,7 @@ yarn add vwo-fme-react-sdk
 
 ## Source Code
 
-VWO FE SDKs source code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2025.
+Wingify FE SDKs source code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2025.
 
 | Language | Repository                                                                                   |
 | :------- | :------------------------------------------------------------------------------------------- |

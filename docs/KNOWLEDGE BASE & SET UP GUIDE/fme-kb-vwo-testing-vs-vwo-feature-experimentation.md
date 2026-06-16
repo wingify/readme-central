@@ -1,5 +1,5 @@
 ---
-title: VWO Testing vs VWO Feature Experimentation
+title: Wingify Testing vs Wingify Feature Experimentation
 deprecated: false
 hidden: false
 metadata:
@@ -9,7 +9,7 @@ metadata:
 
 As companies get more serious about using data to make decisions, they often want to run more experiments and tests. This is what we call evolving your "experimentation culture."
 
-To support businesses at different stages of this growth, VWO offers two powerful ways to test and improve digital products: VWO Web Testing and VWO Feature Experimentation.
+To support businesses at different stages of this growth, Wingify offers two powerful ways to test and improve digital products: Wingify Web Testing and Wingify Feature Experimentation.
 
 Think of it like building things: you might start with simple tools for quick fixes, but you need more advanced equipment as your projects get bigger and more complex.
 

@@ -7,9 +7,9 @@ metadata:
 ---
 ## Get Started
 
-An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
+An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., Wingify or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO OpenFeature Provider for Go helps you integrate Feature Experimentation systems into your Go-based applications.
+This Wingify OpenFeature Provider for Go helps you integrate Feature Experimentation systems into your Go-based applications.
 
 <Cards columns={4}>
   <Card title="GitHub Repo" icon="fa-code-commit">
@@ -131,11 +131,11 @@ func main() {
       </td>
 
       <td>
-        **config**: Configuration object containing: `sdkKey` your VWO SDK key and `accountId`your VWO account ID
+        **config**: Configuration object containing: `sdkKey` your Wingify SDK key and `accountId`your Wingify account ID
       </td>
 
       <td>
-        Creates a new instance of `VWOProvider`, enabling integration of VWO with OpenFeature in Go.
+        Creates a new instance of `VWOProvider`, enabling integration of Wingify with OpenFeature in Go.
       </td>
     </tr>
 
@@ -149,11 +149,11 @@ func main() {
       </td>
 
       <td>
-        **provider**: The VWO provider instance responsible for flag evaluations.
+        **provider**: The Wingify provider instance responsible for flag evaluations.
       </td>
 
       <td>
-        Registers the VWO provider with OpenFeature and waits until it is ready.
+        Registers the Wingify provider with OpenFeature and waits until it is ready.
       </td>
     </tr>
 

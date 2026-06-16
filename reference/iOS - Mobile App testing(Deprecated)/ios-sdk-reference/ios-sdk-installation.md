@@ -33,7 +33,7 @@ pod install
 
 `pod install` installs the SDK on your project.
 
-## VWO/Core
+## Wingify/Core
 
 To reduce the size of SDK, `pod 'VWO/Core'` can be added to the Podfile.\
 This will make sure that all extra code is required only while development; therefore, it is not shipped with the app.

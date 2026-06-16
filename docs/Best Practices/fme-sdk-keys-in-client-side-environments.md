@@ -5,24 +5,24 @@ hidden: false
 metadata:
   robots: index
 ---
-VWO’s FE SDKs allow you to run experiments and feature rollouts in any environment — web, mobile, or backend. However, when using VWO in client-side environments (e.g., browsers or mobile apps), you're required to expose your Account ID and SDK Key, which may raise security concerns.
+Wingify’s FE SDKs allow you to run experiments and feature rollouts in any environment — web, mobile, or backend. However, when using Wingify in client-side environments (e.g., browsers or mobile apps), you're required to expose your Account ID and SDK Key, which may raise security concerns.
 
-This document outlines best practices for safely using VWO SDK Keys on the client-side and when you should consider using a server-side or proxy-based model instead.
+This document outlines best practices for safely using Wingify SDK Keys on the client-side and when you should consider using a server-side or proxy-based model instead.
 
-## What is a VWO SDK Key?
+## What is a Wingify SDK Key?
 
-* A **VWO SDK Key** is used to initialize the FE SDK and authenticate with VWO servers to fetch feature flags and experiment configurations.
-* It is **not a secret**, but it should be treated with care. Anyone with access to it can fetch variation assignments and feature flags, although they **cannot modify experiments** or access your VWO account settings.
+* A **Wingify SDK Key** is used to initialize the FE SDK and authenticate with Wingify servers to fetch feature flags and experiment configurations.
+* It is **not a secret**, but it should be treated with care. Anyone with access to it can fetch variation assignments and feature flags, although they **cannot modify experiments** or access your Wingify account settings.
 
 > 📘 Note
 >
-> The SDK Key is read-only and only used to fetch your FE feature flag configurations, so its exposure doesn't pose a direct security risk. However, VWO strongly advises against storing any personally identifiable information (PII) in your flag configurations.
+> The SDK Key is read-only and only used to fetch your FE feature flag configurations, so its exposure doesn't pose a direct security risk. However, Wingify strongly advises against storing any personally identifiable information (PII) in your flag configurations.
 
 <br />
 
 ## What Happens If an SDK Key is Exposed?
 
-SDK keys are often embedded in the frontend code when using VWO FE in the browser or with mobile clients. While this is supported, consider the security implications:
+SDK keys are often embedded in the frontend code when using Wingify FE in the browser or with mobile clients. While this is supported, consider the security implications:
 
 | Risk                           | Impact                                                                |
 | ------------------------------ | --------------------------------------------------------------------- |
@@ -36,13 +36,13 @@ SDK keys are often embedded in the frontend code when using VWO FE in the browse
 
 ### 1. Use Environment-Specific SDK Keys
 
-When working with VWO FE, it's important to isolate environments to reduce risk and maintain control over your feature flag configurations. VWO provides you with default multiple environments (such as `development`, `staging`, and `production`) within your project, each with its own unique SDK Key.
+When working with Wingify FE, it's important to isolate environments to reduce risk and maintain control over your feature flag configurations. Wingify provides you with default multiple environments (such as `development`, `staging`, and `production`) within your project, each with its own unique SDK Key.
 
 #### 💡 Best Practice for Client-Side Usage
 
 For client-side integrations, especially in web browsers where the SDK Key is publicly exposed, you should go one step further:
 
-* **Create a dedicated environment** (e.g., named `client-side`) within your VWO Default project.
+* **Create a dedicated environment** (e.g., named `client-side`) within your Wingify Default project.
 * **Restrict this environment** so that only feature flags intended for use in browser-based applications are enabled within it.
 * **Avoid including any server-side or mobile-specific flags** in this environment to prevent unintended exposure.
 
@@ -173,6 +173,6 @@ Then send that flag result/variable values to the frontend either via `cookies` 
 | Recommendation       | Description                                                                         |
 | -------------------- | ----------------------------------------------------------------------------------- |
 | Rotate SDK Keys      | Regenerate SDK keys periodically or upon suspected misuse                           |
-| Monitor usage        | Use network monitoring tools or VWO’s dashboards to track API calls                 |
+| Monitor usage        | Use network monitoring tools or Wingify’s dashboards to track API calls                 |
 | Rate limit via proxy | If using a server-side proxy, add rate limits and throttling                        |
 | Obfuscate code       | For web apps, consider bundling and obfuscating JS code to make key scraping harder |

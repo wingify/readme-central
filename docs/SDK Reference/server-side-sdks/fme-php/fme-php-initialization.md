@@ -14,7 +14,7 @@ next:
       slug: fme-php-context
       title: User Context
 ---
-To create a VWO Client instance, you need to initialize the VWO FE Php SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
+To create a Wingify Client instance, you need to initialize the Wingify FE Php SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
 
 ## Usage
 
@@ -25,7 +25,7 @@ $vwoClient = VWO::init([
 ]);
 ```
 
-The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a VWO Client Object`vwoClient`, which can be used to perform feature  
+The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object`vwoClient`, which can be used to perform feature  
 This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
@@ -59,7 +59,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Your VWO application's Account ID.
+        Your Wingify application's Account ID.
       </td>
     </tr>
 
@@ -74,7 +74,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the VWO application, under _**Default Project**_.
+        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under _**Default Project**_.
       </td>
     </tr>
 
@@ -164,7 +164,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Use these to configure the network call timeout for fetching settings from VWO. Refer [this]().
+        Use these to configure the network call timeout for fetching settings from Wingify. Refer [this]().
       </td>
     </tr>
 
@@ -179,7 +179,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        Pass the already fetched settings so the SDK can initialize instantly, without waiting to fetch settings from VWO. Refer [this](doc:fme-php-initialization#initialization-with-explicit-settings).
+        Pass the already fetched settings so the SDK can initialize instantly, without waiting to fetch settings from Wingify. Refer [this](doc:fme-php-initialization#initialization-with-explicit-settings).
       </td>
     </tr>
   </tbody>
@@ -187,7 +187,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Logger
 
-VWO by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages to your server console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ```php
 // Init options with logger
@@ -219,7 +219,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-php-storage)  to 
 
 ### Gateway Service
 
-The VWO FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gatewayService parameter during initialization.
+The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gatewayService parameter during initialization.
 
 ```php
 // Init options with gatewayService
@@ -236,7 +236,7 @@ Please click [here]()  to learn more about gateway service.
 
 ### Integrations
 
-VWO FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives VWO-specific properties and can forward them to any third-party tool of your choice.
+Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```php
 // Init options with integrations
@@ -255,7 +255,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-python-integratio
 
 ### Settings Configuration
 
-Use these options to define and control the timeout duration for the network request made to fetch settings from VWO, ensuring the SDK does not wait indefinitely and behaves predictably under slow or unreliable network conditions.
+Use these options to define and control the timeout duration for the network request made to fetch settings from Wingify, ensuring the SDK does not wait indefinitely and behaves predictably under slow or unreliable network conditions.
 
 ```php
 $vwoClient = VWO::init([

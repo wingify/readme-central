@@ -10,14 +10,14 @@ metadata:
 next:
   description: ''
 ---
-VWO by default logs all ERROR level messages on your browser console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
+Wingify by default logs all ERROR level messages on your browser console. To gain more control over Wingify's logging behavior, you can use the logger parameter in the init configuration.
 
 ## Logger Properties
 
 | Parameter     | Type   | Description                                                                            |
 | :------------ | :----- | :------------------------------------------------------------------------------------- |
 | **level**     | String | Level or Type of error. Could be one of the following: DEBUG, INFO, ERROR, TRACE, WARN |
-| **prefix**    | String | The text that is prefixed to the error messages when logged. Defaults to 'VWO-SDK'.    |
+| **prefix**    | String | The text that is prefixed to the error messages when logged. Defaults to 'Wingify-SDK'.    |
 | **transport** | Object | Custom logger implementation                                                           |
 
 **Example 1**: Set log level to control the verbosity of logs

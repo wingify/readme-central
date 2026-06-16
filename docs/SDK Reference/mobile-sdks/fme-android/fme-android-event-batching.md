@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-By default, VWO FE Android SDK sends impression events to VWO servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your VWO Campaign Reports.
+By default, Wingify FE Android SDK sends impression events to Wingify servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your Wingify Campaign Reports.
 
-However, there are scenarios where it may be beneficial to collect multiple events over a period of time and send them together in a single request. The VWO Android SDK supports event batching, allowing you to configure how and when impression events are uploaded to VWO servers.
+However, there are scenarios where it may be beneficial to collect multiple events over a period of time and send them together in a single request. The Wingify Android SDK supports event batching, allowing you to configure how and when impression events are uploaded to Wingify servers.
 
 ## Event Batching Configuration
 
@@ -67,14 +67,14 @@ VWO.init(options, new IVwoInitCallback() {
 
 ## Offline Event Batching
 
-The VWO Android SDK is designed to ensure that no impression events are lost, even when your users are offline. If the device loses internet connectivity, the SDK stores all impression events locally on the device. Once the device reconnects to the internet, these stored events are automatically uploaded to VWO servers in batches.
+The Wingify Android SDK is designed to ensure that no impression events are lost, even when your users are offline. If the device loses internet connectivity, the SDK stores all impression events locally on the device. Once the device reconnects to the internet, these stored events are automatically uploaded to Wingify servers in batches.
 
 For offline event batching to work, you must provide an Android application context during SDK initialization via the `context` parameter in `VWOInitOptions`. Options batchMinSize and batchUploadTimeInterval are not used in Offline batching. Offline event batching allows the SDK to register background workers to handle uploads when connectivity is restored.
 
 ## Important Notes
 
 * Without event batching: Impression events are sent in real-time and reflected instantly in campaign reports.
-* With event batching: Campaign reports are updated only after the batch is sent to VWO servers.
+* With event batching: Campaign reports are updated only after the batch is sent to Wingify servers.
 * Offline support: Events generated offline are stored locally and uploaded automatically when the device reconnects.
 * Offline event batching works in conjunction with online event batching.
 * Application context is required to enable batch uploads (both online and offline).

@@ -12,9 +12,9 @@ next:
 ---
 ## Get Started
 
-An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
+An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., Wingify or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO OpenFeature Provider for .NET helps you integrate Feature Experimentation systems into your .NET-based server applications.
+This Wingify OpenFeature Provider for .NET helps you integrate Feature Experimentation systems into your .NET-based server applications.
 
 <Cards columns={4}>
   <Card title="GitHub Repo" icon="fa-code-commit">
@@ -210,11 +210,11 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *SdkKey : Unique key for authentication with VWO.<br />  AccountId : VWO account identifier.  <br />  Logger*\*: Dictionary defining logging level.
+        * *SdkKey : Unique key for authentication with Wingify.<br />  AccountId : Wingify account identifier.  <br />  Logger*\*: Dictionary defining logging level.
       </td>
 
       <td>
-        Initializes the VWO client with the provided SDK key, account ID, and logging options.
+        Initializes the Wingify client with the provided SDK key, account ID, and logging options.
       </td>
     </tr>
 
@@ -228,11 +228,11 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *vwoClient*\*: The initialized VWO SDK client instance.
+        * *vwoClient*\*: The initialized Wingify SDK client instance.
       </td>
 
       <td>
-        Creates a new instance of `VWOProvider`, integrating VWO with OpenFeature.
+        Creates a new instance of `VWOProvider`, integrating Wingify with OpenFeature.
       </td>
     </tr>
 
@@ -324,11 +324,11 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *vwoProvider*\*: The VWO provider instance that will handle feature flag evaluations.
+        * *vwoProvider*\*: The Wingify provider instance that will handle feature flag evaluations.
       </td>
 
       <td>
-        Asynchronously sets the provider for OpenFeature, enabling it to evaluate feature flags using VWO.
+        Asynchronously sets the provider for OpenFeature, enabling it to evaluate feature flags using Wingify.
       </td>
     </tr>
 

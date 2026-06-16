@@ -56,9 +56,9 @@ Run the command:
 flutter pub get
 ```
 
-## Step 3: Import VWO
+## Step 3: Import Wingify
 
-Import VWO in your Dart code:
+Import Wingify in your Dart code:
 
 ```dart
 import 'package:vwo_insights_flutter_sdk/vwo_insights_flutter_sdk.dart';

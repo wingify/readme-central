@@ -14,7 +14,7 @@ next:
       slug: fme-go-initialization
       title: Initialization
 ---
-To integrate the VWO Feature Experimentation SDK into your Go project, you can use Go modules to install it directly from GitHub.
+To integrate the Wingify Feature Experimentation SDK into your Go project, you can use Go modules to install it directly from GitHub.
 
 ## Requirements
 
@@ -28,7 +28,7 @@ Run the following command in your project directory:
 go get github.com/wingify/vwo-fme-go-sdk
 ```
 
-This command will download and install the VWO FE SDK and its dependencies in your project.\
+This command will download and install the Wingify FE SDK and its dependencies in your project.\
 Import the SDK
 
 After installation, you can import the SDK in your Go files:
@@ -43,7 +43,7 @@ You're ready to initialize and use the SDK in your Go application.
 
 > 📘 Note
 >
-> The Go SDK requires the use of VWO Gateway Service. Make sure to set up the Gateway Service before initializing the SDK. For more information, see our [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service).
+> The Go SDK requires the use of Wingify Gateway Service. Make sure to set up the Gateway Service before initializing the SDK. For more information, see our [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service).
 
 ## Source Code
 

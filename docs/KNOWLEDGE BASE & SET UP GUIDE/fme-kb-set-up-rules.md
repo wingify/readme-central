@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-So, you've set up a feature flag in VWO and put it in your code. The next step is deciding who sees that feature and how.
+So, you've set up a feature flag in Wingify and put it in your code. The next step is deciding who sees that feature and how.
 
 Do you want to show it randomly to a small percentage of users at first, or maybe test different versions? Or do you want to show it only to a certain segment of users?
 

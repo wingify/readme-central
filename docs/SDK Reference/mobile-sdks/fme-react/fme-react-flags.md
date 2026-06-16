@@ -23,7 +23,7 @@ Feature Flags serve as the foundation for all testing, personalization, and roll
 
 ## _**useGetFlag**_ Hook
 
-useGetFlag is a custom React hook to fetch and manage the state of a specific feature flag from the VWO SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
+useGetFlag is a custom React hook to fetch and manage the state of a specific feature flag from the Wingify SDK. It allows components to retrieve the current status and variables of a feature flag based on a feature key and optional user context.
 
 ### Usage without UserContext (If provided in [VWOProvider](https://developers.wingify.com/v2/docs/initialization-copy#usage))
 
@@ -80,7 +80,7 @@ export default YourComponent;
 > 📘 When to Use `isReady`
 >
 > 1. When `VWOProvider` and the `useGetFlag` hook are used together on the same page without providing a `fallbackComponent` in `VWOProvider`.
-> 2. When performing pre-segmentation based on user-agent or IP address, to ensure the VWO client and flags are fully available before using flag data.
+> 2. When performing pre-segmentation based on user-agent or IP address, to ensure the Wingify client and flags are fully available before using flag data.
 
 ### Parameters Definition
 
@@ -138,9 +138,9 @@ export default YourComponent;
 
 * `On mount and whenever featureKey, context (deep compared), or readiness changes, the hook:
   * `Validates inputs (`featureKey` and user context).
-  * If valid and the VWO client is ready, asynchronously fetches the feature flag using `vwoClient.getFlag()`.
+  * If valid and the Wingify client is ready, asynchronously fetches the feature flag using `vwoClient.getFlag()`.
   * Updates local state with the fetched flag instance.
-  * Updates the user context in the global VWO context via `setUserContext`.
+  * Updates the user context in the global Wingify context via `setUserContext`.
   * Manages a loading state (`isLoading`) to track readiness.
 * Errors during flag fetch are caught and logged without crashing the app.
 * Uses `useMemo` to memoize user context and avoid unnecessary refetches on stable inputs.
@@ -156,12 +156,12 @@ interface IFlag {
 }
 ```
 
-* `flag`: The VWO feature flag instance or a default fallback flag if not ready or errors occur.
+* `flag`: The Wingify feature flag instance or a default fallback flag if not ready or errors occur.
 * `isReady`: Becomes true once the flag data is loaded and available.
 
 ## _**useGetFlagVariable**_ Hook
 
-If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in VWO, which can then be fetched at your server and used to control the user's experience in your codebase.
+If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in Wingify, which can then be fetched at your server and used to control the user's experience in your codebase.
 
 The _useGetFlagVariable()_ hook retrieves the value of a specific variable associated with a feature flag. If the variable is found, it returns the assigned value; otherwise, it returns the provided default value. This ensures that your application has a fallback value in case the variable is undefined or unavailable.
 
@@ -221,7 +221,7 @@ const variableValue = useGetFlagVariable(flag, "variable-value", "default-value"
       </td>
 
       <td>
-        The unique key of the variable as defined in the VWO application. This key is used to retrieve the corresponding variable value.
+        The unique key of the variable as defined in the Wingify application. This key is used to retrieve the corresponding variable value.
       </td>
     </tr>
 

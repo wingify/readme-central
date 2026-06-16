@@ -212,7 +212,7 @@ Here is a summary of the Android application analysis. This analysis includes a 
 
 ## API Calls
 
-VWO SDK makes two types of API calls to VWO CDN.
+Wingify SDK makes two types of API calls to Wingify CDN.
 
 1. **_AppSettings_**-  During SDK initialization, a single request is made to fetch settings, with two retry attempts. If this initial request fails, the SDK does not make any further attempts to fetch settings. This approach ensures consistent app behavior throughout an ongoing session.
 2. **_DataSync_** - Data synchronization for session recording and heatmaps is facilitated through a dedicated request. In the event of a failure, the SDK keeps track of the issue and will attempt to resend the data after a specified interval.

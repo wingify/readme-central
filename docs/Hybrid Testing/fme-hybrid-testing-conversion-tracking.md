@@ -8,18 +8,18 @@ metadata:
 next:
   pages:
     - slug: integration-with-vwo-web-insights
-      title: Integration with VWO Web Insights
+      title: Integration with Wingify Web Insights
       type: basic
 ---
-Conversion tracking in a connected VWO architecture relies on one fundamental requirement:
+Conversion tracking in a connected Wingify architecture relies on one fundamental requirement:
 
 > The same UUID must be used at the time of conversion as was used at the time of bucketing.
 
 If identity is consistent across client and server layers, conversions can be attributed accurately across:
 
 * Feature Experimentation (FE)
-* VWO Web Testing
-* VWO Web Insights
+* Wingify Web Testing
+* Wingify Web Insights
 * Offline systems (CRM, POS, backend billing, etc.)
 
 This section explains how conversion tracking works in both FE-first and Client-first architectures, and how offline conversions fit into the model.
@@ -190,9 +190,9 @@ Conversions may occur outside the web session:
 * CRM lifecycle update
 * Subscription upgrade via billing system
 
-If the same UUID is stored in your backend systems, it can be sent later via VWO Data360 offline conversion APIs.
+If the same UUID is stored in your backend systems, it can be sent later via Wingify Data360 offline conversion APIs.
 
-Reference: [How to Track Offline Conversions Using VWO Data360](https://help.vwo.com/hc/en-us/articles/25754666953241-How-to-Track-Offline-Conversions-Using-VWO-Data360)
+Reference: [How to Track Offline Conversions Using Wingify Data360](https://help.vwo.com/hc/en-us/articles/25754666953241-How-to-Track-Offline-Conversions-Using-VWO-Data360)
 
 Offline conversion tracking works seamlessly in a connected system.
 

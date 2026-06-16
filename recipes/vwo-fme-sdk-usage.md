@@ -1,5 +1,5 @@
 ---
-title: VWO FE SDK Usage
+title: Wingify FE SDK Usage
 description: Recipe Description
 hidden: true
 recipe:
@@ -232,7 +232,7 @@ vwo_client.set_attribute({ attribute_key: 'attribute_value' }, user_context)
 <!-- csharp@1-2 -->
 <!-- ruby@1 -->
 
-Import the VWO FE SDK so that it can be initialized
+Import the Wingify FE SDK so that it can be initialized
 
 # Initialize
 
@@ -243,7 +243,7 @@ Import the VWO FE SDK so that it can be initialized
 <!-- csharp@8-15 -->
 <!-- ruby@3-7 -->
 
-This code initializes the VWO SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc. can be passed depending upon the requirements.
+This code initializes the Wingify SDK using the init function. The init function takes in the required parameters - SDK Key and Account ID. Optional keys like storage, logger, polling, etc. can be passed depending upon the requirements.
 
 # Set User Context
 
@@ -287,4 +287,4 @@ Tracks a metric conversion for a specified event, requiring a User Context and o
 <!-- csharp@40-41 -->
 <!-- ruby@25-26 -->
 
-Sends a user attribute to VWO for filtering campaign reports based on attributes.
+Sends a user attribute to Wingify for filtering campaign reports based on attributes.

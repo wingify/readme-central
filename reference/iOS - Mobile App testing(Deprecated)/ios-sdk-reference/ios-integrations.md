@@ -136,7 +136,7 @@ In the following suggested approach for Flurry, we use [Custom Events](https://d
 
 We add a notification listener to listen to NSNotification with the key `VWOUserStartedTrackingInCampaignNotification`. When the callback is requested, we send an event to Flurry when a user becomes part of a campaign. In the event, we are sending the campaign name and id, along with the variation name and id.
 
-Events in Flurry have a two-level structure. The highest level is the specific action, in this case, **VWO**. The second level in the Events structure is the Event parameter.
+Events in Flurry have a two-level structure. The highest level is the specific action, in this case, **Wingify**. The second level in the Events structure is the Event parameter.
 
 If the campaign name is **TestSignup** and campaign id is **21**, we can set the event name as **Wingify Campaign - TestSignup - 21**. We also send event parameters as campaign\_name, campaign\_id, variation\_name, and variation\_id.
 

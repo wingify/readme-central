@@ -7,7 +7,7 @@ metadata:
 ---
 ## Android SDK Installation
 
-To integrate FE SDK into your Android application, you first need to install the SDK through a package manager for Android. VWO FE Android SDK can be installed using [maven](https://mvnrepository.com/artifact/com.vwo.sdk/vwo-fme-android-sdk).
+To integrate FE SDK into your Android application, you first need to install the SDK through a package manager for Android. Wingify FE Android SDK can be installed using [maven](https://mvnrepository.com/artifact/com.vwo.sdk/vwo-fme-android-sdk).
 
 ```kotlin
 implementation 'com.vwo.sdk:vwo-fme-android-sdk:<latestVersion>'

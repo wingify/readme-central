@@ -18,7 +18,7 @@ With this integration, customers can **link session data** between Wingify Insig
 
 Benefits of Integrating Both SDKs:
 
-- Seamlessly link user sessions between Wingify Insights Mobile SDK and VWO FE SDK.
+- Seamlessly link user sessions between Wingify Insights Mobile SDK and Wingify FE SDK.
 - Post-segment session data based on specific attributes or flags.
 - Ensure session consistency when sessions are renewed in the Wingify Insights Mobile SDK.
 - Enhance tracking, analysis, and insights across both platforms.

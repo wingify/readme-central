@@ -1,24 +1,24 @@
 ---
 title: Transitioning from Fullstack to Feature Experimentation
 excerpt: >-
-  A comprehensive guide to understanding the differences and migrating from VWO
+  A comprehensive guide to understanding the differences and migrating from Wingify
   FullStack to Feature Experimentation (FE).
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-# VWO FullStack vs FE
+# Wingify FullStack vs FE
 
-A comprehensive guide to understanding the differences and migrating from VWO FullStack to Feature Experimentation (FE).
+A comprehensive guide to understanding the differences and migrating from Wingify FullStack to Feature Experimentation (FE).
 
 ---
 
 ## Introduction
 
-**`DEPRECATED`** **VWO FullStack (FS)** — The original server-side SDK for A/B testing and feature management. Only receiving critical bug fixes and security patches.
+**`DEPRECATED`** **Wingify FullStack (FS)** — The original server-side SDK for A/B testing and feature management. Only receiving critical bug fixes and security patches.
 
-**`CURRENT`** **VWO FE (Feature Experimentation)** — The actively developed replacement with a modernized API and improved developer experience.
+**`CURRENT`** **Wingify FE (Feature Experimentation)** — The actively developed replacement with a modernized API and improved developer experience.
 
 ### Same Purpose, New Philosophy
 
@@ -187,14 +187,14 @@ if (variation === 'Control') {
 ```
 
 > **Problems with this approach:**
-> - **Tight coupling:** Your code is tightly coupled to variation names defined in VWO
+> - **Tight coupling:** Your code is tightly coupled to variation names defined in Wingify
 > - **Code changes for experiments:** Adding a new variation requires a code deployment
 > - **Hard to maintain:** Variation logic is scattered across your codebase
 > - **Rigid:** Non-developers cannot iterate on experiments without code changes
 
 ### The Solution: Variable-Driven Logic (FE Approach)
 
-FE encourages you to define **variables** (buttonColor, buttonText, showBadge) in the VWO dashboard, with each variation specifying different values. Your code simply reads these variables:
+FE encourages you to define **variables** (buttonColor, buttonText, showBadge) in the Wingify dashboard, with each variation specifying different values. Your code simply reads these variables:
 
 ```javascript
 // FE: Variable-driven logic (RECOMMENDED)
@@ -212,7 +212,7 @@ if (flag.isEnabled()) {
 
 > **Benefits of variable-driven logic:**
 > - **Decoupled:** Code doesn't know or care about variation names
-> - **No deployments:** Add new variations or modify existing ones entirely in VWO
+> - **No deployments:** Add new variations or modify existing ones entirely in Wingify
 > - **Single source of truth:** All experiment configuration lives in the dashboard
 > - **Team empowerment:** Product managers can iterate without engineering
 
@@ -495,4 +495,4 @@ if (flag.isEnabled()) {
 
 ---
 
-> **Need Help?** For assistance migrating from FullStack to FE, contact VWO support at support@vwo.com
+> **Need Help?** For assistance migrating from FullStack to FE, contact Wingify support at support@vwo.com

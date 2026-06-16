@@ -118,4 +118,4 @@ if flag.IsEnabled() {
 }
 ```
 
-Remember that the feature flag must be defined in your VWO dashboard before using it in your code.
+Remember that the feature flag must be defined in your Wingify dashboard before using it in your code.

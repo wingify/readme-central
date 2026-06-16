@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-When writing tests for React components that use VWO hooks like `useGetFlag`, you can easily mock the SDK’s hooks to control returned values and simulate different feature flag states.
+When writing tests for React components that use Wingify hooks like `useGetFlag`, you can easily mock the SDK’s hooks to control returned values and simulate different feature flag states.
 
 Consider the following React component that uses the `useGetFlag` hook to check whether a feature flag is enabled and displays its status.
 
@@ -63,4 +63,4 @@ test('renders flag enabled and variable value', () => {
 
 ```
 
-You can also refer to the VWO FE React SDK tests [here](https://github.com/wingify/vwo-fme-react-sdk/tree/master/test) .
+You can also refer to the Wingify FE React SDK tests [here](https://github.com/wingify/vwo-fme-react-sdk/tree/master/test) .

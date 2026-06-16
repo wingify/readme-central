@@ -7,9 +7,9 @@ metadata:
 ---
 ## **Overview**
 
-Triggers allow you to automatically disable a specific rule inside a **VWO Feature Flag** when a metric threshold is breached in **New Relic**.
+Triggers allow you to automatically disable a specific rule inside a **Wingify Feature Flag** when a metric threshold is breached in **New Relic**.
 
-**Use Case:** If your error rate spikes after a new feature rollout, New Relic can "fire" a webhook to VWO to turn off the feature flag immediately, acting as an automated "Kill Switch."
+**Use Case:** If your error rate spikes after a new feature rollout, New Relic can "fire" a webhook to Wingify to turn off the feature flag immediately, acting as an automated "Kill Switch."
 
 ## **1. Creating the Trigger URL**
 
@@ -26,7 +26,7 @@ https://app.vwo.com/api/v2/accounts/current/environments/<envId|sdkKey>/features
 * **featureId_or_key** – The ID or key of the feature flag you want to control.
 * **envId_or_key** – The ID or key of the environment where the feature flag should be toggled.
 * **isEnabled** – Set to `0` to disable the feature flag (or `1` to enable it).
-* **authToken**– Your VWO API authentication token.
+* **authToken**– Your Wingify API authentication token.
 
 ## **2. Connecting to New Relic**
 
@@ -78,5 +78,5 @@ Link the workflow to a specific performance metric using NRQL.
 
 ## **4. Verification**
 
-* **Test the Webhook**: In the New Relic Destination settings, use the "Test connection" feature to ensure VWO receives the toggle command.
-* **Check VWO**: Once the test is sent, refresh your VWO dashboard to see if the Feature Flag status has moved to **Disabled**.
+* **Test the Webhook**: In the New Relic Destination settings, use the "Test connection" feature to ensure Wingify receives the toggle command.
+* **Check Wingify**: Once the test is sent, refresh your Wingify dashboard to see if the Feature Flag status has moved to **Disabled**.

@@ -9,7 +9,7 @@ React Native SDK utilize native SDKs (iOS and Android) to manage feature flags a
 
 ## Purpose of of Storage
 
-The VWO FE SDK operates in a stateless mode by default, meaning each `getFlag` call triggers a fresh evaluation of the flag against the current user context.
+The Wingify FE SDK operates in a stateless mode by default, meaning each `getFlag` call triggers a fresh evaluation of the flag against the current user context.
 
 To optimize performance and maintain consistency, the SDK provides both built-in storage. This allows you to persist feature flag decisions, mobile applications can quickly access necessary data without repeatedly querying the server.
 
@@ -28,6 +28,6 @@ To optimize performance and maintain consistency, the SDK provides both built-in
 
 1. **Improved Performance**: Reduces network calls and latency by caching decisions locally
 2. **Consistent User Experience**: Ensures users get the same experience across app sessions
-3. **Reduced Server Load**: Minimizes the number of requests to VWO servers
-4. **Decision Stability**: Once a decision is made for a user, it remains consistent even if campaign settings are modified in the VWO Application
+3. **Reduced Server Load**: Minimizes the number of requests to Wingify servers
+4. **Decision Stability**: Once a decision is made for a user, it remains consistent even if campaign settings are modified in the Wingify Application
 5. **Offline Functionality**: Allows the SDK to function even when the device is offline

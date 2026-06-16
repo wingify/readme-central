@@ -23,21 +23,21 @@ To use user aliasing, the following must be configured in your SDK setup:
 
 ## Overview
 
-User Aliasing is particularly useful in scenarios where users transition between anonymous and authenticated states. By creating an alias between identifiers, VWO ensures that:
+User Aliasing is particularly useful in scenarios where users transition between anonymous and authenticated states. By creating an alias between identifiers, Wingify ensures that:
 
 * Users receive consistent feature flag variations regardless of which identifier is used
 * Events and conversions are correctly attributed to the original user
 * Flows where userId is not initially known but captured post a login, but the experience needs to be delivered immediately
 
 <Callout icon="📘" theme="info">
-  User Aliasing requires the **VWO Gateway Service** to be configured. The Gateway Service stores and retrieves alias mappings. See [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service) for setup instructions.
+  User Aliasing requires the **Wingify Gateway Service** to be configured. The Gateway Service stores and retrieves alias mappings. See [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service) for setup instructions.
 </Callout>
 
 <br />
 
 ## How It Works
 
-The aliasing system works by maintaining a mapping between alias identifiers and original user IDs in the VWO Gateway Service. When API methods are called with an aliased identifier, the SDK automatically resolves it to the original user ID before processing.
+The aliasing system works by maintaining a mapping between alias identifiers and original user IDs in the Wingify Gateway Service. When API methods are called with an aliased identifier, the SDK automatically resolves it to the original user ID before processing.
 
 ### Flow Diagram
 
@@ -98,7 +98,7 @@ The diagram illustrates the complete aliasing flow from SDK initialization throu
 
 ## Configuration
 
-To enable User Aliasing, you must configure both the `isAliasingEnabled` flag and the `gatewayService` when initializing the VWO SDK.
+To enable User Aliasing, you must configure both the `isAliasingEnabled` flag and the `gatewayService` when initializing the Wingify SDK.
 
 ### Initialization Options
 
@@ -108,7 +108,7 @@ Set to `true` to enable user aliasing functionality. Default is `false`.
 
 **gatewayService** `object` _required for aliasing_
 
-Configuration object for the VWO Gateway Service. Required when `isAliasingEnabled` is `true`.
+Configuration object for the Wingify Gateway Service. Required when `isAliasingEnabled` is `true`.
 
 ### Example Configuration
 

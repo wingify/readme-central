@@ -132,7 +132,7 @@ export default App;
 
 ## Flow
 
-The diagram outlines how the **VWO FE React SDK** manages settings using configurable caching options:
+The diagram outlines how the **Wingify FE React SDK** manages settings using configurable caching options:
 
 ```mermaid
 flowchart TD

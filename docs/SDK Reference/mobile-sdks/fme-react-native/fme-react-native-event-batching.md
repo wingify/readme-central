@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-By default, VWO React Native SDK send impression events to VWO servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your VWO Campaign Reports.
+By default, Wingify React Native SDK send impression events to Wingify servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your Wingify Campaign Reports.
 
-However, there are scenarios where it may be beneficial to collect multiple events over a period of time and send them together in a single request. The VWO React Native SDK supports event batching, allowing you to configure how and when impression events are uploaded to VWO servers.
+However, there are scenarios where it may be beneficial to collect multiple events over a period of time and send them together in a single request. The Wingify React Native SDK supports event batching, allowing you to configure how and when impression events are uploaded to Wingify servers.
 
 ### Event Batching Configuration
 
@@ -39,12 +39,12 @@ const vwoClient = await init(options);
 
 ### Offline Event Batching
 
-The VWO React Native SDK is designed to ensure that no impression events are lost, even when your users are offline. If the device loses internet connectivity, the SDK securely stores all impression events locally on the device. Once the device reconnects to the internet, these stored events are automatically uploaded to VWO servers in batches.
+The Wingify React Native SDK is designed to ensure that no impression events are lost, even when your users are offline. If the device loses internet connectivity, the SDK securely stores all impression events locally on the device. Once the device reconnects to the internet, these stored events are automatically uploaded to Wingify servers in batches.
 
 ### Important Notes:
 
 * Without event batching: Impression events are sent in real-time and reflected instantly in campaign reports.
-* With event batching: Campaign reports are updated only after the batch is sent to VWO servers.
+* With event batching: Campaign reports are updated only after the batch is sent to Wingify servers.
 * Offline support: Events generated offline are stored locally and uploaded automatically when the device reconnects.
 * Offline event batching works in conjunction with online event batching.
 * Data Sync on Initialization: When the SDK initializes, it always syncs any stored data if present.

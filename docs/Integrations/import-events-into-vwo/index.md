@@ -1,5 +1,5 @@
 ---
-title: Import Events into VWO
+title: Import Events into Wingify
 deprecated: false
 hidden: false
 metadata:

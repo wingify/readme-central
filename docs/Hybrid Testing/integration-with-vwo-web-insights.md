@@ -1,12 +1,12 @@
 ---
-title: Integration with VWO Web & Mobile Insights
-excerpt: Behavioral Analytics Integration with VWO Web Insights
+title: Integration with Wingify Web & Mobile Insights
+excerpt: Behavioral Analytics Integration with Wingify Web Insights
 deprecated: false
 hidden: true
 metadata:
   robots: index
 ---
-Beyond experimentation and conversion tracking, VWO Web Insights adds behavioral analytics capabilities such as:
+Beyond experimentation and conversion tracking, Wingify Web Insights adds behavioral analytics capabilities such as:
 
 * Session Recordings
 * Heatmaps
@@ -86,11 +86,11 @@ This architecture enables system-wide experimentation, not just UI testing.
 * `UUID` is the binding identity
 * Cookies are the transport mechanism
 * Two-way identity propagation is supported
-* VWO Web Insights unifies analytics across layers
+* Wingify Web Insights unifies analytics across layers
 
 <br />
 
-## Integration with VWO Mobile Insights
+## Integration with Wingify Mobile Insights
 
 <Callout icon="📘" theme="info">
   Refer this [article](https://developers.wingify.com/v2/docs/fme-integrations-vwo-insights-mobile)  to know the details.
