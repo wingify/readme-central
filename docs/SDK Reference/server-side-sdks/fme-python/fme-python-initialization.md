@@ -27,7 +27,7 @@ wingify_client = init(options)
 
 A dictionary named `options` is created to store the SDK configuration details.
 
-The `init()` function is called with the `options` dictionary. It initializes and returns a Wingify Client Object`wingify_client`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` function is called with the `options` dictionary. It initializes and returns a Wingify Client Object`wingify_client`.<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
