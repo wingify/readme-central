@@ -238,7 +238,7 @@ options = {
 vwo_client = init(options)
 ```
 
-Please click [here]()  to learn more about gateway service.
+Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about gateway service.
 
 ### Integrations
 
