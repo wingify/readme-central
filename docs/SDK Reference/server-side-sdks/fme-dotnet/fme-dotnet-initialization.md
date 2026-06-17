@@ -28,8 +28,7 @@ var vwoClient = VWO.Init(vwoInitOptions);
 
 An object of `VWOInitOptions` is created to store the SDK configuration details.
 
-The `Init()` function is called with the `vwoInitOptions` object. It initializes and returns a Wingify Client Object`vwoClient`, which can be used to perform feature  
-This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `Init()` function is called with the `vwoInitOptions` object. It initializes and returns a Wingify Client Object`vwoClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -68,8 +67,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **SdkKey**  
-        _Required_
+        **SdkKey**<br />_Required_
       </td>
 
       <td>
@@ -77,14 +75,13 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under _**Default Project**_.
+        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under **_Default Project_**.
       </td>
     </tr>
 
     <tr>
       <td>
-        **PollInterval**  
-        _Optional_
+        **PollInterval**<br />_Optional_
       </td>
 
       <td>
@@ -98,8 +95,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **Logger**  
-        _Optional_
+        **Logger**<br />_Optional_
       </td>
 
       <td>
@@ -113,8 +109,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **Storage**  
-        _Optional_
+        **Storage**<br />_Optional_
       </td>
 
       <td>
@@ -128,8 +123,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **GatewayService**  
-        _Optional_
+        **GatewayService**<br />_Optional_
       </td>
 
       <td>
@@ -143,8 +137,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **Integrations**  
-        _Optional_
+        **Integrations**<br />_Optional_
       </td>
 
       <td>
@@ -158,8 +151,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **retryConfig**  
-        _Optional_
+        **retryConfig**<br />_Optional_
       </td>
 
       <td>
@@ -175,8 +167,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the Wingify application.  
-If/when you make any changes to the feature flags or rules within Wingify after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from Wingify. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
+When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from Wingify. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -210,7 +201,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-net-logging) for 
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each _get_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _get\_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```csharp
 var vwoInitOptions = new VWOInitOptions
@@ -225,7 +216,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-net-storage)  to 
 
 ### Gateway Service
 
-The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
+The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```csharp
 var vwoInitOptions = new VWOInitOptions
@@ -237,7 +228,7 @@ var vwoInitOptions = new VWOInitOptions
 };
 ```
 
-Please click [here]()  to learn more about gateway service.
+Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about gateway service.
 
 ### Integrations
 
@@ -284,4 +275,4 @@ var vwoClient = VWO.Init(new VWOInitOptions
 });
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
