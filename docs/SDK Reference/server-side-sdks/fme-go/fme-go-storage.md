@@ -69,7 +69,7 @@ func main {
       "accountId": "123456",
       "storage":   customStorage
     }
-  wingifyInstance, err := wingify.Init(options)
+  wingifyClient, err := wingify.Init(options)
 }
 ```
 
