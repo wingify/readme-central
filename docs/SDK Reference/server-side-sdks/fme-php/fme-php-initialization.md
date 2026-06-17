@@ -25,8 +25,7 @@ $vwoClient = VWO::init([
 ]);
 ```
 
-The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object`vwoClient`, which can be used to perform feature  
-This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object`vwoClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -74,7 +73,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under _**Default Project**_.
+        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under **_Default Project_**.
       </td>
     </tr>
 
@@ -110,8 +109,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **retryConfig**  
-        _Optional_
+        **retryConfig**<br />_Optional_
       </td>
 
       <td>
@@ -232,7 +230,7 @@ $vwoClient = VWO::init([
 ]);
 ```
 
-Please click [here]()  to learn more about gateway service.
+Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about gateway service.
 
 ### Integrations
 
@@ -270,8 +268,7 @@ $vwoClient = VWO::init([
 
 ### Initialization with Explicit Settings
 
-The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.  
-Please refer to <Anchor label="this" target="_blank" href="https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.<br />Please refer to <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```php
 $settingsStringified = '{
@@ -314,4 +311,4 @@ $vwoClient = VWO::init([
 
 > Retry works for synchronous (cURL) calls only, and you should pass 'shouldWaitForTrackingCalls' => true, in the init configration to enable synchronous (cURL) calls and retry.
 
-Please click <Anchor label="here" target="_blank" href="https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
