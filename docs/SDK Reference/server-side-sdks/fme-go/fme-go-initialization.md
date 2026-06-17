@@ -211,7 +211,7 @@ options := map[string]interface{}{
     "pollInterval": 60000, // Set the poll interval to 60 seconds
 }
 
-wingifyInstance, err := wingify.Init(options)
+wingifyClient, err := wingify.Init(options)
 ```
 
 ### Logger
@@ -227,7 +227,7 @@ options := map[string]interface{}{
     },
 }
 
-wingifyInstance, err := wingify.Init(options)
+wingifyClient, err := wingify.Init(options)
 ```
 
 Please click [here](https://developers.wingify.com/v2/docs/fme-go-logging) for more advanced logger options.
@@ -244,7 +244,7 @@ options := map[string]interface{}{
     "storage":   customStorage
 }
 
-wingifyInstance, err := wingify.Init(options)
+wingifyClient, err := wingify.Init(options)
 ```
 
 Please click [here](https://developers.wingify.com/v2/docs/fme-go-storage)  to learn more about storage implementation.
@@ -262,7 +262,7 @@ options := map[string]interface{}{
     },
 }
 
-wingifyInstance, err := wingify.Init(options)
+wingifyClient, err := wingify.Init(options)
 ```
 
 Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about the Wingify Gateway service.
@@ -283,7 +283,7 @@ options := map[string]interface{}{
     },
 }
 
-wingifyInstance, err := wingify.Init(options)
+wingifyClient, err := wingify.Init(options)
 ```
 
 Please click [here](https://developers.wingify.com/v2/docs/fme-go-integrations) to learn more about Integrations,.
@@ -311,7 +311,7 @@ options := map[string]interface{}{
     "settings": localSettings
 }
 
-wingifyInstance, err := wingify.Init(options)
+wingifyClient, err := wingify.Init(options)
 ```
 
 ### Retry Config
@@ -330,7 +330,7 @@ options := map[string]interface{}{
     },
 }
 
-wingifyInstance, err := wingify.Init(options)
+wingifyClient, err := wingify.Init(options)
 ```
 
 Please click [here](https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism) to learn more about retry configuration.
@@ -350,7 +350,7 @@ options := map[string]interface{}{
 }
 
 // Initialize Wingify instance
-wingifyInstance, err := wingify.Init(options)
+wingifyClient, err := wingify.Init(options)
 ```
 
 Please <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-go-proxy-url">click</Anchor> here to learn more about Proxy URL.
