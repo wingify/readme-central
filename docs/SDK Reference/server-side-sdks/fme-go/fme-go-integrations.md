@@ -21,7 +21,7 @@ options := map[string]interface{}{
     },
 }
 
-vwoInstance, err := vwo.Init(options)
+vwoClient, err := vwo.Init(options)
 ```
 
 ## Properties available to use for integrations
@@ -56,3 +56,5 @@ Since Wingify SDKs are platform agnostic, with the help of the above code snippe
 > 📘 Note
 >
 > Please remember to refer to the third-party destination's official documentation before sending the properties as it is received from the Wingify SDK.
+
+<br />
