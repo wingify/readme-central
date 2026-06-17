@@ -27,8 +27,7 @@ vwo_client = init(options)
 
 A dictionary named `options` is created to store the SDK configuration details.
 
-The `init()` function is called with the `options` dictionary. It initializes and returns a Wingify Client Object`vwo_client`, which can be used to perform feature  
-This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` function is called with the `options` dictionary. It initializes and returns a Wingify Client Object`vwo_client`.<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -52,7 +51,7 @@ This client object allows you to run experiments, track events, and enable/disab
   <tbody>
     <tr>
       <td>
-        **account_id**
+        **account\_id**
         _Required_
       </td>
 
@@ -67,8 +66,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **sdk_key**  
-        _Required_
+        **sdk\_key**<br />_Required_
       </td>
 
       <td>
@@ -76,14 +74,13 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under _**Default Project**_.
+        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under **_Default Project_**.
       </td>
     </tr>
 
     <tr>
       <td>
-        **poll_interval**  
-        _Optional_
+        **poll\_interval**<br />_Optional_
       </td>
 
       <td>
@@ -97,8 +94,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **logger**  
-        _Optional_
+        **logger**<br />_Optional_
       </td>
 
       <td>
@@ -112,8 +108,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **storage**  
-        _Optional_
+        **storage**<br />_Optional_
       </td>
 
       <td>
@@ -127,8 +122,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **proxy_url**  
-        _Optional_
+        **proxy\_url**<br />_Optional_
       </td>
 
       <td>
@@ -142,8 +136,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **gateway_service**  
-        _Optional_
+        **gateway\_service**<br />_Optional_
       </td>
 
       <td>
@@ -157,8 +150,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
     <tr>
       <td>
-        **integrations**  
-        _Optional_
+        **integrations**<br />_Optional_
       </td>
 
       <td>
@@ -174,8 +166,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _vwo_client_ on your server, it pulls the latest configurations you've done in the Wingify application.  
-If/when you make any changes to the feature flags or rules within Wingify after the _vwo_client_ has been initialized in your server, there needs to be some way to update your _vwo_client_ with the latest settings from Wingify. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
+When you initialize the _vwo\_client_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _vwo\_client_ has been initialized in your server, there needs to be some way to update your _vwo\_client_ with the latest settings from Wingify. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -213,7 +204,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-python-logging) f
 
 ### Storage
 
-By default, the SDK operates in stateless mode, evaluating flags on each _get_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
+By default, the SDK operates in stateless mode, evaluating flags on each _get\_flag_ call. To improve performance and consistency, you can use a custom storage mechanism to cache decisions, ensuring stable user experiences and reducing application load.
 
 ```python
 # Init options with storage
@@ -231,7 +222,7 @@ Please click [here]()  to learn more about storage implementation.
 
 ### Gateway Service
 
-The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
+The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```python
 # Init options with gateway_service
@@ -292,4 +283,4 @@ options = {
 vwo_client = init(options)
 ```
 
-Please click <Anchor label="here" target="_blank" href="https://developers.wingify.com/v2/docs/fme-python-proxy-url">here</Anchor> to learn more about ProxyURL.
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-python-proxy-url">here</Anchor> to learn more about ProxyURL.
