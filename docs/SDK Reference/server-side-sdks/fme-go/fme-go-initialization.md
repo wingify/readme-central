@@ -39,7 +39,7 @@ func main() {
 }
 ```
 
-The `Init` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object `wingifyClient`, which can be used to perform feature<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `Init` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object `wingifyClient`.<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
