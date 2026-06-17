@@ -218,7 +218,7 @@ options = {
 vwo_client = init(options)
 ```
 
-Please click [here]()  to learn more about storage implementation.
+Please click [here](https://developers.wingify.com/v2/update/docs/fme-python-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
