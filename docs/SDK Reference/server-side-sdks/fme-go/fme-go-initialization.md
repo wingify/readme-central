@@ -39,8 +39,7 @@ func main() {
 }
 ```
 
-The `Init` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object`vwoClient`, which can be used to perform feature  
-This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `Init` function is called with the `sdkKey`and `accountId`. It initializes and returns a Wingify Client Object`vwoClient`.<br />This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -88,7 +87,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under _**Default Project**_.
+        A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under **_Default Project_**.
       </td>
     </tr>
 
@@ -114,7 +113,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        map[string]interface{}
+        map\[string]interface{}
       </td>
 
       <td>
@@ -144,7 +143,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        map[string]interface{}
+        map\[string]interface{}
       </td>
 
       <td>
@@ -159,7 +158,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        map[string]interface{}
+        map\[string]interface{}
       </td>
 
       <td>
@@ -174,7 +173,7 @@ This client object allows you to run experiments, track events, and enable/disab
       </td>
 
       <td>
-        map[string]interface{}
+        map\[string]interface{}
       </td>
 
       <td>
@@ -201,8 +200,7 @@ This client object allows you to run experiments, track events, and enable/disab
 
 ### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the Wingify application.  
-If/when you make any changes to the feature flags or rules within Wingify after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from Wingify. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
+When you initialize the _vwoClient_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _vwoClient_ has been initialized in your server, there needs to be some way to update your _vwoClient_ with the latest settings from Wingify. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -253,7 +251,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-go-storage)  to l
 
 ### Gateway Service
 
-The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway_service parameter during initialization.
+The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```go
 options := map[string]interface{}{
@@ -292,8 +290,7 @@ Please click [here](https://developers.wingify.com/v2/docs/fme-go-integrations) 
 
 ### Initialization with Explicit Settings
 
-The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.  
-Please refer to <Anchor label="this" target="_blank" href="https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.<br />Please refer to <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```go
 var localSettings = '{
@@ -356,6 +353,6 @@ options := map[string]interface{}{
 vwoInstance, err := vwo.Init(options)
 ```
 
-Please <Anchor label="click" target="_blank" href="https://developers.wingify.com/v2/docs/fme-go-proxy-url">click</Anchor> here to learn more about Proxy URL.
+Please <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-go-proxy-url">click</Anchor> here to learn more about Proxy URL.
 
 <br />
