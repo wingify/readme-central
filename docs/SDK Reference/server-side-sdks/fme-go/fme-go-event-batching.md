@@ -159,7 +159,7 @@ options := map[string]interface{}{
 		},
 }
 
-wingifyInstance, err := wingify.Init(options)
+wingifyClient, err := wingify.Init(options)
 ```
 
 > 🚧 Note
