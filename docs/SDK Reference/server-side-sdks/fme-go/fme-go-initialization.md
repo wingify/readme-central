@@ -241,7 +241,7 @@ By default, the SDK operates in stateless mode, evaluating flags on each _getFla
 options := map[string]interface{}{
     "sdkKey":    "32-alpha-numeric-sdk-key",
     "accountId": "123456",
-    "storage":   customStorage
+    "storage":   customStorage,
 }
 
 vwoClient, err := vwo.Init(options)
@@ -308,7 +308,7 @@ var localSettings = '{
 options := map[string]interface{}{
     "sdkKey":       "32-alpha-numeric-sdk-key",
     "accountId":    "123456",
-    "settings": localSettings
+    "settings": localSettings,
 }
 
 vwoClient, err := vwo.Init(options)
@@ -346,7 +346,7 @@ The proxy URL can be configured by passing the `proxyUrl` parameter in the init 
 options := map[string]interface{}{
     "sdkKey":    "32-alpha-numeric-sdk-key", // Replace with your SDK key
     "accountId": "123456",                   // Replace with your account ID
-    "proxyUrl": "https://custom.proxy.com"   // Replace with your custom proxy url
+    "proxyUrl": "https://custom.proxy.com",   // Replace with your custom proxy url
 }
 
 // Initialize VWO instance
