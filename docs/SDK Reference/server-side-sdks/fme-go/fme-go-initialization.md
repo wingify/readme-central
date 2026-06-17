@@ -211,7 +211,7 @@ options := map[string]interface{}{
     "pollInterval": 60000, // Set the poll interval to 60 seconds
 }
 
-vwoInstance, err := vwo.Init(options)
+vwoClient, err := vwo.Init(options)
 ```
 
 ### Logger
@@ -227,7 +227,7 @@ options := map[string]interface{}{
     },
 }
 
-vwoInstance, err := vwo.Init(options)
+vwoClient, err := vwo.Init(options)
 ```
 
 Please click [here](https://developers.wingify.com/v2/docs/fme-go-logging) for more advanced logger options.
@@ -244,7 +244,7 @@ options := map[string]interface{}{
     "storage":   customStorage
 }
 
-vwoInstance, err := vwo.Init(options)
+vwoClient, err := vwo.Init(options)
 ```
 
 Please click [here](https://developers.wingify.com/v2/docs/fme-go-storage)  to learn more about storage implementation.
@@ -262,7 +262,7 @@ options := map[string]interface{}{
     },
 }
 
-vwoInstance, err := vwo.Init(options)
+vwoClient, err := vwo.Init(options)
 ```
 
 Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about the Wingify Gateway service.
@@ -283,7 +283,7 @@ options := map[string]interface{}{
     },
 }
 
-vwoInstance, err := vwo.Init(options)
+vwoClient, err := vwo.Init(options)
 ```
 
 Please click [here](https://developers.wingify.com/v2/docs/fme-go-integrations) to learn more about Integrations,.
@@ -311,7 +311,7 @@ options := map[string]interface{}{
     "settings": localSettings
 }
 
-vwoInstance, err := vwo.Init(options)
+vwoClient, err := vwo.Init(options)
 ```
 
 ### Retry Config
@@ -330,7 +330,7 @@ options := map[string]interface{}{
     },
 }
 
-vwoInstance, err := vwo.Init(options)
+vwoClient, err := vwo.Init(options)
 ```
 
 Please click [here](https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism) to learn more about retry configuration.
@@ -350,7 +350,7 @@ options := map[string]interface{}{
 }
 
 // Initialize VWO instance
-vwoInstance, err := vwo.Init(options)
+vwoClient, err := vwo.Init(options)
 ```
 
 Please <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-go-proxy-url">click</Anchor> here to learn more about Proxy URL.
