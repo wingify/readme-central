@@ -34,16 +34,16 @@ The `init()` method is called with the `sdkKey` and `accountId`. It initializes 
 | :------------------------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **accountId**<br />_Required_                | Integer | Your Wingify application's Account ID.                                                                                                                                                                                                                                                                                         |
 | **sdkKey**<br />_Required_                   | String  | A unique environment key provided to you inside the Websites & Apps section in the Wingify application, under **_Default Project_**.                                                                                                                                                                                           |
-| **pollInterval**<br />_Optional_             | Integer | Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling) |
+| **pollInterval**<br />_Optional_             | Integer | Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v3/docs/polling) |
 | **cachedSettingsExpiryTime**<br />_Optional_ | Integer | Controls the duration (in milliseconds) the SDK uses cached settings before fetching new ones.                                                                                                                                                                                                                             |
 | **batchMinSize**<br />_Optional_             | Integer | Minimum number of events to trigger a batch upload.                                                                                                                                                                                                                                                                        |
 | **batchUploadTimeInterval**<br />_Optional_  | Integer | Time interval (in milliseconds) for periodic batch uploads.                                                                                                                                                                                                                                                                |
-| **logger**<br />_Optional_                   | Object  | An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-flutter-logging)                                                                                                                                                             |
-| **integrations**<br />_Optional_             | Object  | A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-flutter-integrations)                                                                                              |
+| **logger**<br />_Optional_                   | Object  | An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v3/docs/fme-flutter-logging)                                                                                                                                                             |
+| **integrations**<br />_Optional_             | Object  | A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v3/docs/fme-flutter-integrations)                                                                                              |
 
 ### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _wingifyClient_ on your mobile, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _wingifyClient_ has been initialized on your mobile, there needs to be some way to update your _wingifyClient_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
+When you initialize the _wingifyClient_ on your mobile, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _wingifyClient_ has been initialized on your mobile, there needs to be some way to update your _wingifyClient_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v3/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -89,7 +89,7 @@ final wingifyInitOptions = WingifyInitOptions(
 final wingifyClient = await Wingify.init(wingifyInitOptions);
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-flutter-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v3/docs/fme-flutter-logging) for more advanced logger options.
 
 ### Integrations
 
@@ -108,4 +108,4 @@ final wingifyInitOptions = WingifyInitOptions(
 final wingifyClient = await Wingify.init(wingifyInitOptions);
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-node-integrations) to learn more about Integrations.
+Please click [here](https://developers.wingify.com/v3/docs/fme-node-integrations) to learn more about Integrations.

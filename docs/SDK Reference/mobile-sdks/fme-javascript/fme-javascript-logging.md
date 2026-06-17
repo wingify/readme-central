@@ -97,4 +97,4 @@ const wingifyClient = await init({
 });
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing _wingifyClient_.](https://developers.wingify.com/v2/docs/fme-initialization)
+This "logger" object can be passed as one of the parameters when [initializing _wingifyClient_.](https://developers.wingify.com/v3/docs/fme-initialization)

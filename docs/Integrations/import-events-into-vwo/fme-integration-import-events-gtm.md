@@ -171,7 +171,7 @@ Paste the following script into your GTM Custom HTML field:
 
 1. **Backend**
 
-Generates a unique Wingify UUID for each user by calling getUUID(userId, accountId) from the Wingify FME SDK (any supported SDK can be used — see [list of all SDKs](https://developers.wingify.com/v2/docs/list-of-fme-sdks#/)). Below is the sample code for Node.js application.
+Generates a unique Wingify UUID for each user by calling getUUID(userId, accountId) from the Wingify FME SDK (any supported SDK can be used — see [list of all SDKs](https://developers.wingify.com/v3/docs/list-of-fme-sdks#/)). Below is the sample code for Node.js application.
 
 ```javascript Node.js
 import { getUUID } from 'wingify-fme-node-sdk';

@@ -12,23 +12,23 @@ next:
 ---
 List of Frequently Asked Questions:
 
-* [What should be considered as the User ID?](https://developers.wingify.com/v2/docs/fme-faqs#/what-should-be-considered-as-the-user-id)
-* [How does Wingify affect my application speed?](https://developers.wingify.com/v2/docs/fme-faqs#/how-does-vwo-affect-my-application-speed)
-* [How do Wingify bucket users across SDKs?](https://developers.wingify.com/v2/docs/fme-faqs#/how-do-vwo-bucket-users-across-sdks)
-* [How does Wingify bucket the same users across platforms?](https://developers.wingify.com/v2/docs/fme-faqs#/how-does-vwo-bucket-the-same-users-across-platforms)
-* [Why is it important to use Persistent Storage when deploying to Production?](https://developers.wingify.com/v2/docs/fme-faqs#/why-is-it-important-to-use-persistent-storage-when-deploying-to-production)
-* [Why isn't data reflecting in the campaign report](https://developers.wingify.com/v2/docs/fme-faqs#/why-isnt-data-reflecting-in-the-campaign-report)
-* [[Why aren't conversions reflecting in the campaign report](https://developers.wingify.com/v2/docs/fme-faqs#/why-arent-conversions-reflecting-in-the-campaign-report)]
-* [Are there any repercussions of changing campaign settings mid-campaign?](https://developers.wingify.com/v2/docs/fme-faqs#/are-there-any-repercussions-of-changing-campaign-settings-mid-campaign)
-* [What latency do getFlag, trackEvent, and setAttribute APIs calls add to my backend?](https://developers.wingify.com/v2/docs/fme-faqs#/what-latency-do-getflag-trackevent-and-setattribute-apis-calls-add-to-my-backend)
-* [Which programming languages are supported by Wingify FE SDKs?](https://developers.wingify.com/v2/docs/fme-faqs#/which-programming-languages-are-supported-by-vwo-fe-sdks)
-* [What's the minimum version supported by each Wingify SDK?](https://developers.wingify.com/v2/docs/fme-faqs#/whats-the-minimum-version-supported-by-each-vwo-sdk)
-* [Is there any history of changes that went live in different SDKs?](https://developers.wingify.com/v2/docs/fme-faqs#/is-there-any-history-of-changes-that-went-live-in-different-sdks)
-* [Can we track a goal with the same identifier in multiple campaigns at once?](https://developers.wingify.com/v2/docs/fme-faqs#/can-we-track-a-goal-with-the-same-identifier-in-multiple-campaigns-at-once)
-* [How to make sure you are running the latest version of the SDK?](https://developers.wingify.com/v2/docs/fme-faqs#/how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
-* [Why use Webhooks for updating settings and not Polling?](https://developers.wingify.com/v2/docs/fme-faqs#/why-use-webhooks-for-updating-settings-and-not-polling)
-* [Does Wingify support User aliasing?](https://developers.wingify.com/v2/docs/fme-faqs#/does-vwo-support-user-aliasing)
-* [Do I need to modify my firewall when using Wingify FE?](https://developers.wingify.com/v2/docs/fme-faqs#/do-i-need-to-modify-my-firewall-when-using-vwo-fe)
+* [What should be considered as the User ID?](https://developers.wingify.com/v3/docs/fme-faqs#/what-should-be-considered-as-the-user-id)
+* [How does Wingify affect my application speed?](https://developers.wingify.com/v3/docs/fme-faqs#/how-does-vwo-affect-my-application-speed)
+* [How do Wingify bucket users across SDKs?](https://developers.wingify.com/v3/docs/fme-faqs#/how-do-vwo-bucket-users-across-sdks)
+* [How does Wingify bucket the same users across platforms?](https://developers.wingify.com/v3/docs/fme-faqs#/how-does-vwo-bucket-the-same-users-across-platforms)
+* [Why is it important to use Persistent Storage when deploying to Production?](https://developers.wingify.com/v3/docs/fme-faqs#/why-is-it-important-to-use-persistent-storage-when-deploying-to-production)
+* [Why isn't data reflecting in the campaign report](https://developers.wingify.com/v3/docs/fme-faqs#/why-isnt-data-reflecting-in-the-campaign-report)
+* [[Why aren't conversions reflecting in the campaign report](https://developers.wingify.com/v3/docs/fme-faqs#/why-arent-conversions-reflecting-in-the-campaign-report)]
+* [Are there any repercussions of changing campaign settings mid-campaign?](https://developers.wingify.com/v3/docs/fme-faqs#/are-there-any-repercussions-of-changing-campaign-settings-mid-campaign)
+* [What latency do getFlag, trackEvent, and setAttribute APIs calls add to my backend?](https://developers.wingify.com/v3/docs/fme-faqs#/what-latency-do-getflag-trackevent-and-setattribute-apis-calls-add-to-my-backend)
+* [Which programming languages are supported by Wingify FE SDKs?](https://developers.wingify.com/v3/docs/fme-faqs#/which-programming-languages-are-supported-by-vwo-fe-sdks)
+* [What's the minimum version supported by each Wingify SDK?](https://developers.wingify.com/v3/docs/fme-faqs#/whats-the-minimum-version-supported-by-each-vwo-sdk)
+* [Is there any history of changes that went live in different SDKs?](https://developers.wingify.com/v3/docs/fme-faqs#/is-there-any-history-of-changes-that-went-live-in-different-sdks)
+* [Can we track a goal with the same identifier in multiple campaigns at once?](https://developers.wingify.com/v3/docs/fme-faqs#/can-we-track-a-goal-with-the-same-identifier-in-multiple-campaigns-at-once)
+* [How to make sure you are running the latest version of the SDK?](https://developers.wingify.com/v3/docs/fme-faqs#/how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
+* [Why use Webhooks for updating settings and not Polling?](https://developers.wingify.com/v3/docs/fme-faqs#/why-use-webhooks-for-updating-settings-and-not-polling)
+* [Does Wingify support User aliasing?](https://developers.wingify.com/v3/docs/fme-faqs#/does-vwo-support-user-aliasing)
+* [Do I need to modify my firewall when using Wingify FE?](https://developers.wingify.com/v3/docs/fme-faqs#/do-i-need-to-modify-my-firewall-when-using-vwo-fe)
 
 ## What should be considered as the User ID?
 

@@ -113,7 +113,7 @@ WingifyFme.getFlag(featureKey: "feature_key", context: userContext, completion: 
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-ios-context).
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v3/docs/fme-ios-context).
       </td>
     </tr>
   </tbody>

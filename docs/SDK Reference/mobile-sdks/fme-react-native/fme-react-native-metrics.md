@@ -103,7 +103,7 @@ WingifyClient.trackEvent('event_name', userContext, eventProperties);
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-react-native-context) .
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v3/docs/fme-react-native-context) .
       </td>
     </tr>
 

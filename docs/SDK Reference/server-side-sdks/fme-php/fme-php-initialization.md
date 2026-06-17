@@ -88,7 +88,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-php-logging)
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v3/docs/fme-php-logging)
       </td>
     </tr>
 
@@ -103,7 +103,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-php-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v3/docs/fme-php-storage)
       </td>
     </tr>
 
@@ -117,7 +117,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.wingify.com/v2/docs/fme-php-initialization#retry-configuration)
+        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.wingify.com/v3/docs/fme-php-initialization#retry-configuration)
       </td>
     </tr>
 
@@ -132,7 +132,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.wingify.com/v2/docs/gateway-service), this object will specify the location and port where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.wingify.com/v3/docs/gateway-service), this object will specify the location and port where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -198,7 +198,7 @@ $wingifyClient = Wingify::init([
 ]);
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-php-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v3/docs/fme-php-logging) for more advanced logger options.
 
 ### Storage
 
@@ -213,7 +213,7 @@ $wingifyClient = Wingify::init([
 ]);
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-php-storage)  to learn more about storage implementation.
+Please click [here](https://developers.wingify.com/v3/docs/fme-php-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
@@ -249,7 +249,7 @@ $wingifyClient = Wingify::init([
 ]);
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-python-integrations) to learn more about Integrations,.
+Please click [here](https://developers.wingify.com/v3/docs/fme-python-integrations) to learn more about Integrations,.
 
 ### Settings Configuration
 
@@ -268,7 +268,7 @@ $wingifyClient = Wingify::init([
 
 ### Initialization with Explicit Settings
 
-The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.<br />Please refer to <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.<br />Please refer to <Anchor target="_blank" href="https://developers.wingify.com/v3/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```php
 $settingsStringified = '{
@@ -311,4 +311,4 @@ $wingifyClient = Wingify::init([
 
 > Retry works for synchronous (cURL) calls only, and you should pass 'shouldWaitForTrackingCalls' => true, in the init configration to enable synchronous (cURL) calls and retry.
 
-Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v3/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism

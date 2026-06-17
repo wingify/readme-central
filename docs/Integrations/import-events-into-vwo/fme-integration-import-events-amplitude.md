@@ -88,11 +88,11 @@ npm install wingify-fme-node-sdk
 
 ### 5.2 Setup Gateway Service :
 
-**Reference**: [Wingify Gateway Service Doc](https://developers.wingify.com/v2/docs/gateway-service)
+**Reference**: [Wingify Gateway Service Doc](https://developers.wingify.com/v3/docs/gateway-service)
 
 ### 5.3 Initialize the SDK in your application with gateway service:
 
-**Reference**: [SDK Initialization Doc](https://developers.wingify.com/v2/docs/fme-node-initialization)
+**Reference**: [SDK Initialization Doc](https://developers.wingify.com/v3/docs/fme-node-initialization)
 
 ```javascript
 const wingify = require('wingify-fme-node-sdk');

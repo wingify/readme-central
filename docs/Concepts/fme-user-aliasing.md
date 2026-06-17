@@ -30,7 +30,7 @@ User Aliasing is particularly useful in scenarios where users transition between
 * Flows where userId is not initially known but captured post a login, but the experience needs to be delivered immediately
 
 <Callout icon="📘" theme="info">
-  User Aliasing requires the **Wingify Gateway Service** to be configured. The Gateway Service stores and retrieves alias mappings. See [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service) for setup instructions.
+  User Aliasing requires the **Wingify Gateway Service** to be configured. The Gateway Service stores and retrieves alias mappings. See [Gateway Service documentation](https://developers.wingify.com/v3/docs/gateway-service) for setup instructions.
 </Callout>
 
 <br />

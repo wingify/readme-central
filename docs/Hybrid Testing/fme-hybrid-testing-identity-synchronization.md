@@ -33,7 +33,7 @@ The unifying principle is:
 
 <Callout icon="📘" theme="info">
   **A canonical UUID must represent the same user across all evaluation layers.**  
-  Check [what is a UUID](https://developers.wingify.com/v2/docs/user-id-management)  for more details.
+  Check [what is a UUID](https://developers.wingify.com/v3/docs/user-id-management)  for more details.
 </Callout>
 
 Whether evaluation occurs:

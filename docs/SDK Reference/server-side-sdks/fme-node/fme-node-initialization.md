@@ -90,7 +90,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling)
+        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v3/docs/polling)
       </td>
     </tr>
 
@@ -105,7 +105,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-node-logging)
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v3/docs/fme-node-logging)
       </td>
     </tr>
 
@@ -120,7 +120,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-node-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v3/docs/fme-node-storage)
       </td>
     </tr>
 
@@ -134,7 +134,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.wingify.com/v2/docs/fme-node-initialization#retry-configuration)
+        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.wingify.com/v3/docs/fme-node-initialization#retry-configuration)
       </td>
     </tr>
 
@@ -149,7 +149,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.wingify.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.wingify.com/v3/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -164,7 +164,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-node-integrations)
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v3/docs/fme-node-integrations)
       </td>
     </tr>
 
@@ -193,7 +193,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
       </td>
 
       <td>
-        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.wingify.com/v2/docs/fme-node-initialization#proxyurl)
+        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.wingify.com/v3/docs/fme-node-initialization#proxyurl)
       </td>
     </tr>
   </tbody>
@@ -201,7 +201,7 @@ The `init()` function is called with the `sdkKey`and `accountId`. It initializes
 
 ### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _wingifyClient_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _wingifyClient_ has been initialized in your server, there needs to be some way to update your _wingifyClient_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
+When you initialize the _wingifyClient_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _wingifyClient_ has been initialized in your server, there needs to be some way to update your _wingifyClient_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v3/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -229,7 +229,7 @@ const wingifyClient = await init({
 });
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-node-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v3/docs/fme-node-logging) for more advanced logger options.
 
 ### Storage
 
@@ -244,7 +244,7 @@ const wingifyClient = await init({
 });
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-node-storage)  to learn more about storage implementation.
+Please click [here](https://developers.wingify.com/v3/docs/fme-node-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
@@ -261,7 +261,7 @@ const wingifyClient = await init({
 });
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about the Wingify Gateway service.
+Please click [here](https://developers.wingify.com/v3/docs/gateway-service)  to learn more about the Wingify Gateway service.
 
 ### Integrations
 
@@ -280,11 +280,11 @@ const wingifyClient = await wingify.init({
 })
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-node-integrations) to learn more about Integrations,.
+Please click [here](https://developers.wingify.com/v3/docs/fme-node-integrations) to learn more about Integrations,.
 
 ### Initialization with Explicit Settings
 
-The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.<br />Please refer to <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
+The SDK provides the ability to reduce initialization time by allowing users to explicitly pass in settings instead of fetching them automatically. This can be especially useful in environments where you need to optimize for faster setup or if you already have the necessary settings retrieved from a remote server.<br />Please refer to <Anchor target="_blank" href="https://developers.wingify.com/v3/docs/fme-explicit-sdk-fetch-settings#/">this</Anchor> document for more information on retrieving settings.
 
 ```javascript
 const localSettings = {
@@ -324,7 +324,7 @@ const wingifyClient = await init({
 });
 ```
 
-Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v3/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
 
 ### ProxyUrl
 
@@ -340,4 +340,4 @@ const wingifyClient = await init({
 });
 ```
 
-Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-node-proxy-url">here</Anchor> to learn more about ProxyURL.
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v3/docs/fme-node-proxy-url">here</Anchor> to learn more about ProxyURL.

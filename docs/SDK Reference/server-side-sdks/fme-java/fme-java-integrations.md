@@ -32,7 +32,7 @@ Wingify instance = Wingify.init ( wingifyInitOptions );
 
 ## Properties available to use for integrations
 
-All Wingify SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever Wingify SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.wingify.com/v2/docs/fme-java-flags) and [trackEvent](https://developers.wingify.com/v2/docs/fme-java-metrics) APIs.
+All Wingify SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever Wingify SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [getFlag](https://developers.wingify.com/v3/docs/fme-java-flags) and [trackEvent](https://developers.wingify.com/v3/docs/fme-java-metrics) APIs.
 
 ```json
 {

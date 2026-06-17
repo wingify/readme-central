@@ -24,7 +24,7 @@ The storage mechanism ensures that once a decision is made for a user, it remain
 
 ## How to Implement a Storage Service
 
-Storage Service is optional while [instantiating](https://developers.wingify.com/v2/docs/fme-python-initialization) the Wingify SDK. However, to ensure sticky variation assignments, we recommend implementing it.
+Storage Service is optional while [instantiating](https://developers.wingify.com/v3/docs/fme-python-initialization) the Wingify SDK. However, to ensure sticky variation assignments, we recommend implementing it.
 
 ### Usage
 

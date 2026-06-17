@@ -95,7 +95,7 @@ const wingifyClient = init({
 });
 ```
 
-For more information, see our reference on Edge Support: [https://developers.wingify.com/v2/docs/fme-edge-support#/](https://developers.wingify.com/v2/docs/fme-edge-support#/)
+For more information, see our reference on Edge Support: [https://developers.wingify.com/v3/docs/fme-edge-support#/](https://developers.wingify.com/v3/docs/fme-edge-support#/)
 
 <br />
 

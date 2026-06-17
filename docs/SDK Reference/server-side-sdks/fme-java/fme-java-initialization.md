@@ -112,7 +112,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling)
+        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v3/docs/polling)
       </td>
     </tr>
 
@@ -130,7 +130,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check -[Logger](https://developers.wingify.com/v2/docs/fme-java-logging)
+        An optional logger object that defines the logging behavior. For more details, please check -[Logger](https://developers.wingify.com/v3/docs/fme-java-logging)
       </td>
     </tr>
 
@@ -148,7 +148,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-java-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v3/docs/fme-java-storage)
       </td>
     </tr>
 
@@ -166,7 +166,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.wingify.com/v2/docs/fme-java-initialization#proxyurl)
+        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.wingify.com/v3/docs/fme-java-initialization#proxyurl)
       </td>
     </tr>
 
@@ -190,7 +190,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.wingify.com/v2/docs/gateway-service) , this object will specify the location and port of where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.wingify.com/v3/docs/gateway-service) , this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -208,7 +208,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-java-integrations)
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v3/docs/fme-java-integrations)
       </td>
     </tr>
 
@@ -226,7 +226,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.wingify.com/v2/docs/fme-java-initialization#retry-configuration)
+        Customize retry behavior by passing a **retryConfig** in the init options. For more details, please check - [Retry Configuration](https://developers.wingify.com/v3/docs/fme-java-initialization#retry-configuration)
       </td>
     </tr>
   </tbody>
@@ -234,7 +234,7 @@ The `init()` function is called with the `wingifyInitOptions` object. It initial
 
 ### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _wingifyClient_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _wingifyClient_ has been initialized in your server, there needs to be some way to update your _wingifyClient_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
+When you initialize the _wingifyClient_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _wingifyClient_ has been initialized in your server, there needs to be some way to update your _wingifyClient_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v3/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -260,7 +260,7 @@ wingifyInitOptions.setLogger(logger);
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-java-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v3/docs/fme-java-logging) for more advanced logger options.
 
 ### Storage
 
@@ -275,7 +275,7 @@ wingifyInitOptions.setStorage(storageObject)
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click [storage](https://developers.wingify.com/v2/docs/fme-java-storage)  to learn more about storage implementation.
+Please click [storage](https://developers.wingify.com/v3/docs/fme-java-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
@@ -292,7 +292,7 @@ wingifyInitOptions.setGatewayService(gatewayService);
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click [GatewayService](https://developers.wingify.com/v2/docs/gateway-service)  to learn more about gateway service.
+Please click [GatewayService](https://developers.wingify.com/v3/docs/gateway-service)  to learn more about gateway service.
 
 ### Integrations
 
@@ -314,7 +314,7 @@ wingifyInitOptions.setIntegrations(integrations);
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-java-integrations) to learn more about Integrations,.
+Please click [here](https://developers.wingify.com/v3/docs/fme-java-integrations) to learn more about Integrations,.
 
 ### ProxyUrl
 
@@ -329,7 +329,7 @@ wingifyInitOptions.setProxyUrl("http://custom.proxy.com");
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-java-proxy-url">here</Anchor> to learn more about Proxy URL,.
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v3/docs/fme-java-proxy-url">here</Anchor> to learn more about Proxy URL,.
 
 ### Retry Configuration
 
@@ -351,4 +351,4 @@ wingifyInitOptions.setRetryConfig(retryConfig);
 Wingify wingifyInstance = Wingify.init(wingifyInitOptions);
 ```
 
-Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v3/docs/fme-sdk-retry-mechanism">here</Anchor> to learn more about Retry Mechanism

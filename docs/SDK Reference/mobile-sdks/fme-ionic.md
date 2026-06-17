@@ -172,9 +172,9 @@ export class HomePage implements OnInit {
 
 > 💡 The Wingify Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
 >
-> - [getFlag()](https://developers.wingify.com/v2/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
-> - [trackEvent()](https://developers.wingify.com/v2/docs/fme-javascript-metrics#/) to send custom events for reporting
-Wingify  - [setAttribute()](https://developers.wingify.com/v2/docs/fme-javascript-attributes#/) to send user attributes to
+> - [getFlag()](https://developers.wingify.com/v3/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
+> - [trackEvent()](https://developers.wingify.com/v3/docs/fme-javascript-metrics#/) to send custom events for reporting
+Wingify  - [setAttribute()](https://developers.wingify.com/v3/docs/fme-javascript-attributes#/) to send user attributes to
 
 <br />
 

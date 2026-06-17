@@ -102,7 +102,7 @@ wingifyClient.setAttribute("attribute_key", "attribute_value", context);
       </td>
 
       <td>
-        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to Wingify. [Read more here](https://developers.wingify.com/v2/docs/user-id-management)  .
+        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to Wingify. [Read more here](https://developers.wingify.com/v3/docs/user-id-management)  .
       </td>
     </tr>
 

@@ -88,7 +88,7 @@ The `init()` function is called with the `options` dictionary. It initializes an
       </td>
 
       <td>
-        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling)
+        Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v3/docs/polling)
       </td>
     </tr>
 
@@ -102,7 +102,7 @@ The `init()` function is called with the `options` dictionary. It initializes an
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-python-logging)
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v3/docs/fme-python-logging)
       </td>
     </tr>
 
@@ -116,7 +116,7 @@ The `init()` function is called with the `options` dictionary. It initializes an
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-python-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v3/docs/fme-python-storage)
       </td>
     </tr>
 
@@ -130,7 +130,7 @@ The `init()` function is called with the `options` dictionary. It initializes an
       </td>
 
       <td>
-        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.wingify.com/v2/docs/fme-python-initialization#proxyurl)
+        ProxyUrl is an optional parameter to support for redirecting all network calls through a custom proxy URL. please check - [Proxy URL](https://developers.wingify.com/v3/docs/fme-python-initialization#proxyurl)
       </td>
     </tr>
 
@@ -144,7 +144,7 @@ The `init()` function is called with the `options` dictionary. It initializes an
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.wingify.com/v2/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
+        If using the [FE Gateway Service](https://developers.wingify.com/v3/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -158,7 +158,7 @@ The `init()` function is called with the `options` dictionary. It initializes an
       </td>
 
       <td>
-        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-python-integrations)
+        A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v3/docs/fme-python-integrations)
       </td>
     </tr>
   </tbody>
@@ -166,7 +166,7 @@ The `init()` function is called with the `options` dictionary. It initializes an
 
 ### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _vwo\_client_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _vwo\_client_ has been initialized in your server, there needs to be some way to update your _vwo\_client_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
+When you initialize the _vwo\_client_ on your server, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _vwo\_client_ has been initialized in your server, there needs to be some way to update your _vwo\_client_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v3/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -200,7 +200,7 @@ options = {
 wingify_client = init (options)
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-python-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v3/docs/fme-python-logging) for more advanced logger options.
 
 ### Storage
 
@@ -264,7 +264,7 @@ options = {
 wingify_client = init(options)
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-python-integrations) to learn more about Integrations.
+Please click [here](https://developers.wingify.com/v3/docs/fme-python-integrations) to learn more about Integrations.
 
 ### ProxyUrl
 
@@ -283,4 +283,4 @@ options = {
 wingify_client = init(options)
 ```
 
-Please click <Anchor target="_blank" href="https://developers.wingify.com/v2/docs/fme-python-proxy-url">here</Anchor> to learn more about ProxyURL.
+Please click <Anchor target="_blank" href="https://developers.wingify.com/v3/docs/fme-python-proxy-url">here</Anchor> to learn more about ProxyURL.

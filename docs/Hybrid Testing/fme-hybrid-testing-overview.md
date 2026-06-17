@@ -85,7 +85,7 @@ Conceptually:
 
 > This follows a decision-layer experimentation model.
 
-Reference: [List of Wingify Feature Experimentation SDKs](https://developers.wingify.com/v2/docs/list-of-fme-sdks)
+Reference: [List of Wingify Feature Experimentation SDKs](https://developers.wingify.com/v3/docs/list-of-fme-sdks)
 
 ### Key Difference
 

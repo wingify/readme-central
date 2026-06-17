@@ -112,7 +112,7 @@ flag = wingify_client.get_flag('feature_key', user_context)
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-python-context).
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v3/docs/fme-python-context).
       </td>
     </tr>
   </tbody>

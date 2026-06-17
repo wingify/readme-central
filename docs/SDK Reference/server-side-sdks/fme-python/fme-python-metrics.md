@@ -102,7 +102,7 @@ wingify_client.track_event('event_name', user_context, {'userType': 'paid'})
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-python-context) .
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v3/docs/fme-python-context) .
       </td>
     </tr>
 

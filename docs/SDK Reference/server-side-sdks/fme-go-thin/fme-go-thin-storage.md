@@ -45,4 +45,4 @@ if err != nil {
 }
 ```
 
-For more information on setting up and configuring the Gateway Service, refer to the [Gateway Service documentation](https://developers.wingify.com/v2/docs/gateway-service).
+For more information on setting up and configuring the Gateway Service, refer to the [Gateway Service documentation](https://developers.wingify.com/v3/docs/gateway-service).

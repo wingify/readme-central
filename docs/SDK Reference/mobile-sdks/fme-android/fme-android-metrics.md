@@ -121,7 +121,7 @@ Map<String, Boolean> trackResponse = wingifyClient.trackEvent("event-name", user
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-android-context) .
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v3/docs/fme-android-context) .
       </td>
     </tr>
 

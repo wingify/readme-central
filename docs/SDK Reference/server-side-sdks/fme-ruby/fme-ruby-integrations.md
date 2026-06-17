@@ -30,7 +30,7 @@ wingify_client = Wingify.init({
 
 ## Properties available to use for integrations
 
-All Wingify SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever Wingify SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [get\_flag](https://developers.wingify.com/v2/docs/fme-ruby-flags) and [track\_event](https://developers.wingify.com/v2/docs/fme-ruby-metrics) APIs.
+All Wingify SDKs provide the following properties when a decision is made. This means if you configure the integrations callback at the time of launching the SDK, the callback will be triggered whenever Wingify SDK decides which campaign version to show to the user. The callback, if provided, will be called in case of [get\_flag](https://developers.wingify.com/v3/docs/fme-ruby-flags) and [track\_event](https://developers.wingify.com/v3/docs/fme-ruby-metrics) APIs.
 
 ```json
 {

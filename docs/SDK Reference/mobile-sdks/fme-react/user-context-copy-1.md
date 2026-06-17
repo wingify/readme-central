@@ -90,7 +90,7 @@ export default App;
       </td>
 
       <td>
-        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to Wingify. [Read more here](https://developers.wingify.com/v2/docs/user-id-management).
+        Unique user ID for the current user. 'id' is the only required property in userContext. This ID should be a unique identifier for the current user which you need to pass to Wingify. [Read more here](https://developers.wingify.com/v3/docs/user-id-management).
       </td>
     </tr>
 
@@ -150,4 +150,4 @@ const userContext: IVWOContextModel = { id: 'unique_user_id' }
 const { flag, isReady } = useGetFlag('feature_key', userContext);
 ```
 
-[Learn more about useGetFlag](https://developers.wingify.com/v2/docs/feature-flags-variables)
+[Learn more about useGetFlag](https://developers.wingify.com/v3/docs/feature-flags-variables)

@@ -105,7 +105,7 @@ $wingifyClient->trackEvent(‘event-name’, $userContext, ['userType' => 'paid'
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-php-context) .
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v3/docs/fme-php-context) .
       </td>
     </tr>
 

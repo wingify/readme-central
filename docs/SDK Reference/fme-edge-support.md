@@ -41,7 +41,7 @@ This document explains:
 
 <br />
 
-> For further details on the Wingify FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [Wingify JavaScript SDK Documentation](https://developers.wingify.com/v2/docs/fme-javascript).
+> For further details on the Wingify FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [Wingify JavaScript SDK Documentation](https://developers.wingify.com/v3/docs/fme-javascript).
 
 ## Default SDK Initialization (Not Recommended for Edge)
 
@@ -225,7 +225,7 @@ This can be achieved in two ways:
 
 Wingify supports initializing the SDK with pre-fetched settings, completely skipping the network call.
 
-> Reference: [https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings](https://developers.wingify.com/v2/docs/fme-explicit-sdk-fetch-settings)
+> Reference: [https://developers.wingify.com/v3/docs/fme-explicit-sdk-fetch-settings](https://developers.wingify.com/v3/docs/fme-explicit-sdk-fetch-settings)
 
 #### Example
 
@@ -277,7 +277,7 @@ await init({
 
 To simplify settings management, the FE SDK now supports settings **persistence directly via the storage connector**.
 
-> Reference: <Anchor label="[[https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service)](https://developers.wingify.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service)" target="_blank" href="https://developers.wingify.com/v2/docs/fme-node-storage#how-to-implement-a-storage-service"><Anchor label="[https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)" target="_blank" href="https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector">[https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v2/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)</Anchor></Anchor>
+> Reference: <Anchor label="[[https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v3/docs/fme-node-storage#how-to-implement-a-storage-service)](https://developers.wingify.com/v3/docs/fme-node-storage#how-to-implement-a-storage-service)" target="_blank" href="https://developers.wingify.com/v3/docs/fme-node-storage#how-to-implement-a-storage-service"><Anchor label="[https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)" target="_blank" href="https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector">[https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)</Anchor></Anchor>
 
 #### Why This Is Better
 

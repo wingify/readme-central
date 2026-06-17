@@ -212,14 +212,14 @@ To customize the SDK further, additional parameters can be passed to the `Wingif
 | :-------------------------- | :------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **accountId** _Required_    | Integer | Your Wingify application's Account ID.                                                                                                                                                                                                                                                                                         |
 | **sdkKey** _Required_       | String  | A unique environment key is provided to you inside the Websites & Apps section in the Wingify application, under **_Default Project_**.                                                                                                                                                                                        |
-| **pollInterval** _Optional_ | Number  | Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v2/docs/polling) |
-| **logger** _Optional_       | object  | An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-react-logging)                                                                                                                                                               |
-| **storage** _Optional_      | object  | Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v2/docs/fme-react-storage)                                                                                                                                            |
-| **integrations** _Optional_ | object  | A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v2/docs/fme-react-integrations)                                                                                                |
+| **pollInterval** _Optional_ | Number  | Time (in milliseconds) at which Wingify should check with the server for any updates to the feature flag or rules in the Wingify Dashboard. Useful to keep your Wingify Client instance up-to-date with any changes made in the Wingify Application. For more details, please check -[Polling](https://developers.wingify.com/v3/docs/polling) |
+| **logger** _Optional_       | object  | An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v3/docs/fme-react-logging)                                                                                                                                                               |
+| **storage** _Optional_      | object  | Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v3/docs/fme-react-storage)                                                                                                                                            |
+| **integrations** _Optional_ | object  | A callback function that receives data which can be pushed to any external tool that you need to integrate with. For more details, please check - [Integrations](https://developers.wingify.com/v3/docs/fme-react-integrations)                                                                                                |
 
 ### Poll Interval (Keeping Wingify client up-to-date)
 
-When you initialize the _wingifyClient_ using _WingifyProvider_, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _wingifyClient_ has been initialized in your server, there needs to be some way to update your _wingifyClient_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v2/docs/polling).
+When you initialize the _wingifyClient_ using _WingifyProvider_, it pulls the latest configurations you've done in the Wingify application.<br />If/when you make any changes to the feature flags or rules within Wingify after the _wingifyClient_ has been initialized in your server, there needs to be some way to update your _wingifyClient_ with the latest settings from. This can be done via [polling](https://developers.wingify.com/v3/docs/polling).
 
 The poll interval is an optional parameter that allows the SDK to automatically fetch and update settings from the Wingify server at specified intervals. Setting this parameter ensures your application always uses the latest configuration.
 
@@ -267,7 +267,7 @@ const App = () => (
 export default App;
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-react-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v3/docs/fme-react-logging) for more advanced logger options.
 
 ### Storage
 
@@ -295,7 +295,7 @@ const App = () => (
 export default App;
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-react-storage)  to learn more about storage implementation.
+Please click [here](https://developers.wingify.com/v3/docs/fme-react-storage)  to learn more about storage implementation.
 
 ### Integrations
 
@@ -325,4 +325,4 @@ const App = () => (
 export default App;
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-react-integrations) to learn more about Integrations.
+Please click [here](https://developers.wingify.com/v3/docs/fme-react-integrations) to learn more about Integrations.

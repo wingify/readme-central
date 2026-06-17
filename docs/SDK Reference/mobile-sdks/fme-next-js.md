@@ -170,7 +170,7 @@ These attributes are used in flag conditions or audience targeting rules in the 
 
 In addition to the primary hooks provided by the Wingify SDK, there are several other useful React hooks designed to support different Feature Experimentation use cases. These include utilities for tracking goals, managing feature variables, and responding to variation changes dynamically. Each hook is optimized for seamless integration with React components and lifecycle methods.
 
-> For a complete list and usage details, visit the official [Wingify React Hooks](https://developers.wingify.com/v2/docs/fme-react-hooks#/) documentation.
+> For a complete list and usage details, visit the official [Wingify React Hooks](https://developers.wingify.com/v3/docs/fme-react-hooks#/) documentation.
 
 <br />
 
@@ -220,6 +220,6 @@ Wingify provides a full-featured example app with Wingify FE React SDK integrate
 
 ## Further References
 
-1. React SDK Docs: [https://developers.wingify.com/v2/docs/fme-react-web#/](https://developers.wingify.com/v2/docs/fme-react-web#/)
+1. React SDK Docs: [https://developers.wingify.com/v3/docs/fme-react-web#/](https://developers.wingify.com/v3/docs/fme-react-web#/)
 2. React SDK GitHub Repo: [https://github.com/wingify/vwo-fme-react-sdk](https://github.com/wingify/vwo-fme-react-sdk)
 3. Example Next.js Integration: [https://github.com/wingify/vwo-fme-examples/tree/master/nextjs](https://github.com/wingify/vwo-fme-examples/tree/master/nextjs)

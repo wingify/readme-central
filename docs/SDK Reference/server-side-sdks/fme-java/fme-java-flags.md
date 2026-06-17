@@ -114,7 +114,7 @@ GetFlag getFlag = wingifyInstance.getFlag("feature_key", context);
       </td>
 
       <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-java-context).
+        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v3/docs/fme-java-context).
       </td>
     </tr>
   </tbody>
