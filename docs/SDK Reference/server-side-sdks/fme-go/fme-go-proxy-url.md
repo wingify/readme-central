@@ -61,7 +61,7 @@ options := map[string]interface{}{
 }
 
 // Initialize Wingify instance
-wingifyInstance, err := wingify.Init(options)
+wingifyClient, err := wingify.Init(options)
 ```
 
 > Ensure your proxy server is properly configured to forward requests to `dev.visualwebsiteoptimizer.com`, handle request/response headers appropriately, and support both GET and POST methods used by the SDK.
