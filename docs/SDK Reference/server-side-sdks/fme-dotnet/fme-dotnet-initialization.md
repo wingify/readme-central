@@ -104,7 +104,7 @@ The `Init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v3/docs/fme-net-logging)
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v3/docs/fme-dotnet-logging)
       </td>
     </tr>
 
@@ -118,7 +118,7 @@ The `Init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v3/docs/fme-net-storage)
+        Storage Service, if required, can be implemented using this parameter. For more details, please check - [Storage Service](https://developers.wingify.com/v3/docs/fme-dotnet-storage)
       </td>
     </tr>
 
@@ -146,7 +146,7 @@ The `Init()` function is called with the `wingifyInitOptions` object. It initial
       </td>
 
       <td>
-        Contains a callback function that receives campaign data which can be pushed to any external tool that you need to integrate with. [Integrations](https://developers.wingify.com/v3/docs/fme-net-integrations)
+        Contains a callback function that receives campaign data which can be pushed to any external tool that you need to integrate with. [Integrations](https://developers.wingify.com/v3/docs/fme-dotnet-integrations)
       </td>
     </tr>
 
