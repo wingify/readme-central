@@ -103,7 +103,7 @@ The `Init()` function is called with the `vwoInitOptions` object. It initializes
       </td>
 
       <td>
-        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-net-logging)
+        An optional logger object that defines the logging behavior. For more details, please check - [Logger](https://developers.wingify.com/v2/docs/fme-dotnet-logging)
       </td>
     </tr>
 
@@ -145,7 +145,7 @@ The `Init()` function is called with the `vwoInitOptions` object. It initializes
       </td>
 
       <td>
-        Contains a callback function that receives campaign data which can be pushed to any external tool that you need to integrate with. [Integrations](https://developers.wingify.com/v2/docs/fme-net-integrations)
+        Contains a callback function that receives campaign data which can be pushed to any external tool that you need to integrate with. [Integrations](https://developers.wingify.com/v2/docs/fme-dotnet-integrations)
       </td>
     </tr>
 
@@ -197,7 +197,7 @@ var vwoInitOptions1 = new VWOInitOptions
 var vwoClient1 = VWO.Init(vwoInitOptions1);
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-net-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v2/docs/fme-dotnet-logging) for more advanced logger options.
 
 ### Storage
 
@@ -212,7 +212,7 @@ var vwoInitOptions = new VWOInitOptions
 };
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-net-storage)  to learn more about storage implementation.
+Please click [here](https://developers.wingify.com/v2/docs/fme-dotnet-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
@@ -252,7 +252,7 @@ var vwoClient = VWO.Init(new VWOInitOptions
 });
 ```
 
-Please click [here](https://developers.wingify.com/v2/docs/fme-net-integrations) to learn more about Integrations,.
+Please click [here](https://developers.wingify.com/v2/docs/fme-dotnet-integrations) to learn more about Integrations,.
 
 ### Retry Configuration
 
