@@ -4,6 +4,11 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: fme-go-metrics
+      title: Metrics Tracking
+      type: basic
 ---
 A **feature flag** is a tool that allows teams to control the visibility and behavior of features without deploying new code. It enables **dynamic feature rollouts**, targeted testing, and quick rollbacks if needed.
 
