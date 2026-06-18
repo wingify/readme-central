@@ -6,7 +6,7 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: fme-node-context
+    - slug: fme-go-context
       title: User Context
       type: basic
 ---
