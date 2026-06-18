@@ -230,7 +230,7 @@ $wingifyClient = Wingify::init([
 ]);
 ```
 
-Please click [here]()  to learn more about gateway service.
+Please click [here](https://developers.wingify.com/v3/docs/gateway-service)  to learn more about gateway service.
 
 ### Integrations
 
