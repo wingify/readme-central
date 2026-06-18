@@ -6,7 +6,7 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: fme-node-initialization
+    - slug: fme-go-initialization
       title: Initialization
       type: basic
 ---
