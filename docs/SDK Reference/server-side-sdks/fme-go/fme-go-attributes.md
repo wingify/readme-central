@@ -6,8 +6,8 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: fme-node-logging
-      title: Error Logging
+    - slug: fme-go-logging
+      title: Logging
       type: basic
 ---
 User attributes are specific characteristics or properties assigned to users that help define who they are or how they interact with an application. These attributes can include demographic information (like age, location), behavioral data (such as past purchases), or custom-defined properties relevant to business goals.
