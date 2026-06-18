@@ -4,6 +4,11 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: fme-go-proxy-url
+      title: Proxy URL (bypassing Firewall)
+      type: basic
 ---
 All Wingify FE SDKs implement an advanced event batching mechanism to efficiently handle tracking for visitor events, conversion goals, and custom attributes. Instead of sending each event individually, the SDK collects them in memory and dispatches them in bulk within a single network request.
 
