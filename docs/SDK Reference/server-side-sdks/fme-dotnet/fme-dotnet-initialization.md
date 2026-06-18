@@ -213,7 +213,7 @@ var wingifyInitOptions = new WingifyInitOptions
 };
 ```
 
-Please click [here](https://developers.wingify.com/v3/docs/fme-net-storage)  to learn more about storage implementation.
+Please click [here](https://developers.wingify.com/v3/update/docs/fme-dotnet-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
