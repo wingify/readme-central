@@ -198,7 +198,7 @@ var wingifyInitOptions = new WingifyInitOptions
 var wingifyClient = Wingify.Init(wingifyInitOptions1);
 ```
 
-Please click [here](https://developers.wingify.com/v3/docs/fme-net-logging) for more advanced logger options.
+Please click [here](https://developers.wingify.com/v3/update/docs/fme-dotnet-logging) for more advanced logger options.
 
 ### Storage
 
