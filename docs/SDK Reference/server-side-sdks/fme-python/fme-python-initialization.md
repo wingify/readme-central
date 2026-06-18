@@ -218,7 +218,7 @@ options = {
 wingify_client = init (options)
 ```
 
-Please click [here]()  to learn more about storage implementation.
+Please click [here](https://developers.wingify.com/v3/docs/fme-python-storage)  to learn more about storage implementation.
 
 ### Gateway Service
 
@@ -238,7 +238,7 @@ options = {
 wingify_client = init (options)
 ```
 
-Please click [here]()  to learn more about gateway service.
+Please click [here](https://developers.wingify.com/v3/docs/gateway-service)  to learn more about gateway service.
 
 ### Integrations
 
