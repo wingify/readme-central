@@ -6,7 +6,7 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: fme-node-storage
+    - slug: fme-go-storage
       title: Storage Service
       type: basic
 ---
