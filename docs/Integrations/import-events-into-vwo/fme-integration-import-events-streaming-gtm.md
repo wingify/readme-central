@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-<Callout icon="🚧">
-  Wingify Event Streamer fetches events only from the GTM `dataLayer` variable. It does **not** import events directly from Google Analytics (GA).
-</Callout>
+> 🚧
+>
+> Wingify Event Streamer fetches events only from the GTM `dataLayer` variable. It does **not** import events directly from Google Analytics (GA).
 
 Wingify Event Streamer is a custom tag template that you can import into your GTM account in order to stream custom events from GTM to Wingify. This is an effortless approach if you just require fetching custom events from GTM to Wingify. You just need to install the Wingify streamer as a template on GTM and configure the events to be sent to Wingify from GTM.
 
@@ -19,19 +19,23 @@ NOTE: The Wingify Event Streamer setup is exclusively applicable to [Data360](ht
 
 # **Installing Wingify Event Streamer on GTM**
 
-Download the Wingify Event Streamer tag template [from here](https://github.com/wingify/vwo-event-streamer-gtm-template/) , extract the files and perform the following steps to install the Wingify Event Streamer on GTM:
+Download the Wingify Event Streamer tag template [from here](https://github.com/vwointegration/vwo-event-streamer-gtm-template) , extract the files and perform the following steps to install the Wingify Event Streamer on GTM:
 
 1. Log in to your GTM account and select the appropriate workspace where you want to install the Wingify Event Streamer.
 
 2. From the main menu on the left, go to **Templates** > **Tag Templates** > **New**.
 
-   <Image align="center" border={false} width="650px" src="https://files.readme.io/3c973f3bda16d8cc51fdd648f6d42c15fe28a62324c44fa5566f4ed49c4fd04d-image3.png" />
+
+   <Image src="https://files.readme.io/3c973f3bda16d8cc51fdd648f6d42c15fe28a62324c44fa5566f4ed49c4fd04d-image3.png" align="center" width="650px" />
+
 
 3. On the Template Editor page, click on the vertical ellipsis (**⋮**) and select **Import**.
 
-   <Image align="center" border={true} width="600px" src="https://files.readme.io/eea08acf5dffff0b6d889b035b00175f48413ea1d8a2be1289c2ec84c6185707-image11.png" className="border" />
 
-4. Unzip the **VWO_Event_Streamer.zip** and select the **template.tpl** file.
+   <Image src="https://files.readme.io/eea08acf5dffff0b6d889b035b00175f48413ea1d8a2be1289c2ec84c6185707-image11.png" align="center" width="600px" border={true} />
+
+
+4. Unzip the **VWO\_Event\_Streamer.zip** and select the **template.tpl** file.
 
 5. Click **Save** to complete the import of the Wingify Event Streamer template.
 
@@ -43,7 +47,9 @@ Upon successful import, you can use the Wingify Event Streamer template to strea
 2. Name the tag and click on the **Tag Configuration** section.
 3. From the list of tags, under the **Custom** section, select the **Wingify Streamer** tag.
 
-   <Image align="center" border={true} width="625px" src="https://files.readme.io/1885bbf3e462d517b708fbb025ff9b6d232aef8d98db70191f18701d3f53e255-image5.png" className="border" />
+
+   <Image src="https://files.readme.io/1885bbf3e462d517b708fbb025ff9b6d232aef8d98db70191f18701d3f53e255-image5.png" align="center" width="625px" border={true} />
+
 
 ## &#x20;**Configure the Wingify Template Settings:**
 
@@ -51,23 +57,25 @@ Upon successful import, you can use the Wingify Event Streamer template to strea
 
 Enables sending events for Feature experimentation (FE) using Offline Conversions. When this option is checked, the GTM tag sends the events to Wingify as Offline Conversions.
 
-* **Account ID:** Your Wingify Account ID
-* **Region:** Region, US (default)
-* **Wingify Visitor ID:** [User’s UUID](#configuring-the-vwo-uuid-variable-\(only-required-for-fe\))
+- **Account ID:** Your Wingify Account ID
+- **Region:** Region, US (default)
+- **Wingify Visitor ID:** [User’s UUID](#configuring-the-vwo-uuid-variable-\(only-required-for-fe\))
 
-<Image align="center" border={true} width="600px" src="https://files.readme.io/b52e54ffe04ee088bbb47bd83665bb46ada5541185578e9dd837d18bf8db9a91-image4.png" className="border" />
+
+<Image src="https://files.readme.io/b52e54ffe04ee088bbb47bd83665bb46ada5541185578e9dd837d18bf8db9a91-image4.png" align="center" width="600px" border={true} />
+
 
 ## **Additional Custom Properties**
 
 **1. Custom Property:** Allows you to add custom properties that will be sent with every event. To add a custom property, click on **Add New Property** and enter the input in the respective fields as follows:
 
-* **Property Name:** The name of the custom property.
-* **Property Value:** The value of the custom property.
+- **Property Name:** The name of the custom property.
+- **Property Value:** The value of the custom property.
 
 **2. Nested JSON Field Mapping:** Allows you to import event properties with JSON nested values into Wingify. To do this, click on **Add Nested Field Mapping** and enter the input in the respective fields as follows:
 
-* **Property Name:** The name of the property you want to map.
-* **JSON Key Path:** The path to the key in the JSON object.
+- **Property Name:** The name of the property you want to map.
+- **JSON Key Path:** The path to the key in the JSON object.
 
   **Example JSON:**
 
@@ -85,8 +93,8 @@ Enables sending events for Feature experimentation (FE) using Offline Conversion
     }
   }
   ```
-* For a value inside a nested object, such as "value": 55 inside ecommerce,  the JSON Key Path to use is: **ecommerce.value**
-* **For a value inside an array**, such as the name of the first purchased item ("Vintage Chair"), the JSON Key Path to use is: **ecommerce.items.0.item_name**
+- For a value inside a nested object, such as "value": 55 inside ecommerce,  the JSON Key Path to use is: **ecommerce.value**
+- **For a value inside an array**, such as the name of the first purchased item ("Vintage Chair"), the JSON Key Path to use is: **ecommerce.items.0.item\_name**
 
   You can add as many property mappings as needed by clicking **+ Add Field Mapping**.
 
@@ -94,32 +102,40 @@ Enables sending events for Feature experimentation (FE) using Offline Conversion
 
 Use this section to block specific data from being sent to Wingify
 
-* **Properties to exclude:** Specify the names of the events to exclude if necessary (e.g.,taxValue).
-* **Events to exclude:** Add rows for event names you do not want to track (e.g.,sign_up).
+- **Properties to exclude:** Specify the names of the events to exclude if necessary (e.g.,taxValue).
+- **Events to exclude:** Add rows for event names you do not want to track (e.g.,sign\_up).
 
-  <Image align="center" border={true} width="500px" src="https://files.readme.io/b610734c68606eb426b8070c2c07870cc488917a5bca1ad750bdbae3c2124e67-image6.png" className="border" />
+
+  <Image src="https://files.readme.io/b610734c68606eb426b8070c2c07870cc488917a5bca1ad750bdbae3c2124e67-image6.png" align="center" width="500px" border={true} />
+
 
 ## **Triggering**
 
 1. Click on the **Triggering** section and click on the **+** icon at the top-right to create a new trigger.
 
-   <Image align="center" border={true} width="550px" src="https://files.readme.io/d1db45d7aee4394704a206b6ab7495f8df650ebb516ab77e01eead04264b733d-image10.png" className="border" />
+
+   <Image src="https://files.readme.io/d1db45d7aee4394704a206b6ab7495f8df650ebb516ab77e01eead04264b733d-image10.png" align="center" width="550px" border={true} />
+
 2. Name the trigger and click on the **Trigger Configuration** section.
 3. We recommend using the following trigger settings to stream all the events to Wingify. Configure your trigger settings as follows and click on **Save**:
 
    1. In the **Trigger Type** field, select **Custom Event**.
 
-   2. In the **Event name** field, enter “**.***”.
+   2. In the **Event name** field, enter “**.**\*”.
 
    3. Select the **Use regex matching** option.
 
    4. Click **Save**.
 
-      <Image align="center" border={true} width="550px" src="https://files.readme.io/18589fcead215a22e499d9bee9093a4ed59c019eafb8bd02dfcd6e8c4108fa94-image2.png" className="border" />
+
+      <Image src="https://files.readme.io/18589fcead215a22e499d9bee9093a4ed59c019eafb8bd02dfcd6e8c4108fa94-image2.png" align="center" width="550px" border={true} />
+
 
    Now, your website events from GTM will be streaming into the **UNREGISTERED EVENTS** section under [**Events**](https://help.vwo.com/hc/en-us/articles/8676443712537-Working-With-Events-in-VWO)  in your [**Wingify Data360**](https://help.vwo.com/hc/en-us/categories/8675257180185-VWO-Data360)  module. You can use these events to [set up your campaign triggers](https://help.vwo.com/hc/en-us/articles/18789345801113)   , [create metrics](https://help.vwo.com/hc/en-us/articles/8675547113625-Working-With-Metrics-in-VWO) , and [target the visitors for your campaigns](https://help.vwo.com/hc/en-us/articles/360020418454-Using-Segmentation-in-VWO) .
 
-   <Image align="center" border={true} width="600px" src="https://files.readme.io/139f37e0e973f60c21ecec316253a60e6c9ffd95faa8971f0e08088cd1352354-image9.png" className="border" />
+
+   <Image src="https://files.readme.io/139f37e0e973f60c21ecec316253a60e6c9ffd95faa8971f0e08088cd1352354-image9.png" align="center" width="600px" border={true} />
+
 
 ## **Configuring the Wingify UUID Variable (Only required for FE)**
 
@@ -128,23 +144,25 @@ Use this section to block specific data from being sent to Wingify
 3. Name your variable as Wingify UUID.
 4. In the Variable Configuration section:
    1. Choose “1st Party Cookie” as the Variable Type.
-   2. Enter **_vwo_uuid** in the Cookie Name field.
+   2. Enter **\_vwo\_uuid** in the Cookie Name field.
 5. Save the variable.
 
    **NOTE:** To enable GTM event tracking, the `_vwo_uuid` cookie must be accessible in the browser. Use the Wingify SDK’s `getUUID()` method to generate this identifier based on your implementation:
 
-   <Image align="center" border={true} width="600px" src="https://files.readme.io/44df4f558bcbf250a453ed0847b25e29ab96404482f74a67bab823c3413572c0-image7.png" className="border" />
+
+   <Image src="https://files.readme.io/44df4f558bcbf250a453ed0847b25e29ab96404482f74a67bab823c3413572c0-image7.png" align="center" width="600px" border={true} />
+
 
 ### **Backend SDK (Server-Side)**
 
-* **Generate:** Call `getUUID(userId, accountId)` in your SDK (e.g., Node.js).
-* **Pass:** Send the generated UUID from your server to the frontend.
-* **Set:** Store the value in the browser as the `_vwo_uuid` cookie. Ensure the cookie is **not** `HttpOnly` so GTM can access it.
+- **Generate:** Call `getUUID(userId, accountId)` in your SDK (e.g., Node.js).
+- **Pass:** Send the generated UUID from your server to the frontend.
+- **Set:** Store the value in the browser as the `_vwo_uuid` cookie. Ensure the cookie is **not** `HttpOnly` so GTM can access it.
 
 ### **Frontend SDK (Client-Side)**
 
-* **Generate:** Call `getUUID()` directly within your client-side SDK.
-* **Set:** Store the returned string in the browser using `document.cookie` with the name `_vwo_uuid`.
+- **Generate:** Call `getUUID()` directly within your client-side SDK.
+- **Set:** Store the returned string in the browser using `document.cookie` with the name `_vwo_uuid`.
 
 ## **Supported Event Formats**
 
@@ -172,38 +190,46 @@ By default, GTM is set up to access events from your datalayer variable named 'd
 
 1. From your GTM dashboard, access **Templates** > **Tag Templates** > **Wingify Event Streamer** > **Code**.
 
-   <Image align="center" border={true} width="550px" src="https://files.readme.io/6eacdad66a4aaa77520d241fab64fdc0797c44d251612d4a4d5490938bd65b61-image1.png" className="border" />
-2. In the code, replace “dataLayer”, corresponding to **const DATALAYER_VARIABLE_NAME**, with your custom datalayer variable name and click **Save**.
 
-   <Image align="center" border={true} width="550px" src="https://files.readme.io/5b25a4455260425cda1b759196c5a4a9ecb8f6bfb2f3a01e37c7f972090e77e5-image8.png" className="border" />
+   <Image src="https://files.readme.io/6eacdad66a4aaa77520d241fab64fdc0797c44d251612d4a4d5490938bd65b61-image1.png" align="center" width="550px" border={true} />
+
+2. In the code, replace “dataLayer”, corresponding to **const DATALAYER\_VARIABLE\_NAME**, with your custom datalayer variable name and click **Save**.
+
+
+   <Image src="https://files.readme.io/5b25a4455260425cda1b759196c5a4a9ecb8f6bfb2f3a01e37c7f972090e77e5-image8.png" align="center" width="550px" border={true} />
+
 3. Go to **Permissions** > **Accesses global variables** > **Add key**.
 4. In the **Key** field, enter the name of your custom datalayer variable, select **Read**, and click **Add**.
 
-   <Image align="center" border={true} width="550px" src="https://files.readme.io/c7decc60e38ecf42d05144109a67025097a6323c56df0da50a72bd489d7d2a3e-image12.png" className="border" />
+
+   <Image src="https://files.readme.io/c7decc60e38ecf42d05144109a67025097a6323c56df0da50a72bd489d7d2a3e-image12.png" align="center" width="550px" border={true} />
+
 5. Click **Save**.
 
 ## **Technical Details**
 
-* **SmartCode Dependency:** When the “Feature experimentation” option is OFF, this tag relies on Wingify SmartCode running on the page.
-* **Via Offline Conversion:** When ON, the tag pushes data independently of SmartCode. A valid Wingify Visitor ID is required.
+- **SmartCode Dependency:** When the “Feature experimentation” option is OFF, this tag relies on Wingify SmartCode running on the page.
+- **Via Offline Conversion:** When ON, the tag pushes data independently of SmartCode. A valid Wingify Visitor ID is required.
 
 ## Recommended Best Practices
 
-* While configuring the Wingify Event tag in GTM, map event parameters (Properties) using **dynamic GTM variables** (typically sourced from the dataLayer) such as orderId or price, rather than using hard-coded static values.
-* Maintain consistent **naming conventions** (camelCase, snake_case).
-* For Offline Conversions, use a GTM **1st Party Cookie variable** to read _vwo_uuid.
+- While configuring the Wingify Event tag in GTM, map event parameters (Properties) using **dynamic GTM variables** (typically sourced from the dataLayer) such as orderId or price, rather than using hard-coded static values.
+- Maintain consistent **naming conventions** (camelCase, snake\_case).
+- For Offline Conversions, use a GTM **1st Party Cookie variable** to read \_vwo\_uuid.
 
 ## **Troubleshooting / Known Issues**
 
-* ### **Issue: Event is not appearing in Wingify**
+- ### **Issue: Event is not appearing in Wingify**
 
-  * Verify tag firing using GTM Preview mode.
-  * Ensure Wingify SmartCode loads before the GTM event fires (if Offline Conversion is not enabled).
-* ### **Issue: Data not linked to the correct user (Offline Conversion)**
+  - Verify tag firing using GTM Preview mode.
+  - Ensure Wingify SmartCode loads before the GTM event fires (if Offline Conversion is not enabled).
+- ### **Issue: Data not linked to the correct user (Offline Conversion)**
 
-  * Ensure the Wingify Visitor ID field is populated with a valid UUID.
-  * If undefined, check the GTM cookie variable configuration.
+  - Ensure the Wingify Visitor ID field is populated with a valid UUID.
+  - If undefined, check the GTM cookie variable configuration.
 
-  <br />
 
-  <br />
+
+
+
+<br />
