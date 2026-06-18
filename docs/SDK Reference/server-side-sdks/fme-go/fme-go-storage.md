@@ -6,7 +6,7 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: fme-node-integrations
+    - slug: fme-go-integrations
       title: Integrations
       type: basic
 ---
