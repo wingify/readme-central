@@ -6,7 +6,7 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: fme-node-attributes
+    - slug: fme-go-attributes
       title: Attributes
       type: basic
 ---
