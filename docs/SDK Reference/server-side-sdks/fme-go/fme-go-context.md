@@ -6,8 +6,8 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: fme-node-flags
-      title: Feature Flags
+    - slug: fme-go-flags
+      title: Feature Flags & Variables
       type: basic
 ---
 The **user context** serves as a unique identifier for individual users and plays a critical role in ensuring **consistent feature rollouts** across sessions and devices. Typically represented as a **object**, the user context includes an _id_ key that uniquely identifies the user.
