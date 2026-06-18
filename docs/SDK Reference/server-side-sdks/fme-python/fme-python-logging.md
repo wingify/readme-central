@@ -14,11 +14,11 @@ Wingify by default logs all ERROR level messages to your server's console. To ga
 
 ## Logger Properties
 
-| Parameter     | Type   | Description                                                                            |
-| :------------ | :----- | :------------------------------------------------------------------------------------- |
-| **level**     | String | Level or Type of error. Could be one of the following: DEBUG, INFO, ERROR, TRACE, WARN |
-| **prefix**    | String | The text that is prefixed to the error messages when logged. Defaults to 'WINGIFY-SDK'.    |
-| **transport** | Object | Custom logger implementation                                                           |
+| Parameter     | Type   | Description                                                                             |
+| :------------ | :----- | :-------------------------------------------------------------------------------------- |
+| **level**     | String | Level or Type of error. Could be one of the following: DEBUG, INFO, ERROR, TRACE, WARN  |
+| **prefix**    | String | The text that is prefixed to the error messages when logged. Defaults to 'WINGIFY-SDK'. |
+| **transport** | Object | Custom logger implementation                                                            |
 
 **Example 1**: Set log level to control the verbosity of logs
 
@@ -115,4 +115,4 @@ options = {
 wingify_client = init(options)
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing _wingifyClient_.](https://developers.wingify.com/v3/docs/fme-initialization)
+This "logger" object can be passed as one of the parameters when [initializing _wingify\_client_.](https://developers.wingify.com/v3/docs/fme-python-initialization)
