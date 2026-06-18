@@ -115,4 +115,4 @@ options = {
 vwo_client = init(options)
 ```
 
-This "logger" object can be passed as one of the parameters when [initializing _vwoClient_.](https://developers.wingify.com/v2/docs/fme-python-initialization)
+This "logger" object can be passed as one of the parameters when [initializing _vwo\_client_.](https://developers.wingify.com/v2/docs/fme-python-initialization)
