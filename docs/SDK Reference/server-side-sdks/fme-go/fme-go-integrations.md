@@ -4,6 +4,11 @@ deprecated: false
 hidden: false
 metadata:
   robots: index
+next:
+  pages:
+    - slug: fme-go-event-batching
+      title: Event Batching
+      type: basic
 ---
 Wingify FE SDKs help you integrate with several third-party tools, be it analytics, monitoring, customer data platforms, messaging, etc., by implementing a very basic and generic callback capable of receiving Wingify-specific properties that can then be pushed to any third-party tool.
 
