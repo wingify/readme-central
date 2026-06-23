@@ -45,6 +45,7 @@ const userContext = {
   userAgent:
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
   ipAddress: '1.1.1.1',
+  bucketingSeed: 'custom_seed_value',
 };
 
 // The same user context can be used across different APIs. For example -
