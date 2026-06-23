@@ -135,6 +135,20 @@ wingifyClient.setAttribute('attribute-name', 'attribute-value', userContext);
         Any additional details of the current user that you want to push to Wingify can be added here as key-value pairs, can be used for targeting & pre-segmentation.
       </td>
     </tr>
+
+    <tr>
+      <td>
+        **bucketingSeed**<br />_Optional_
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        A custom seed value to be used for bucketing the user. If provided, this value will be used as the bucketing ID instead of the user ID.
+      </td>
+    </tr>
   </tbody>
 </Table>
 
