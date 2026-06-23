@@ -59,6 +59,9 @@ Map<String, ?> customVariables = new HashMap<String, Object>() {
         
 userContext.setCustomVariables(customVariables);
 
+// Set Custom Bucketing Seed - optional
+userContext.setBucketingSeed("your-bucketing-seed");
+
 // The same user context can be used across different APIs. For example -
 
 // Returns a flag object which can be used to get flag's status or variable(s)
@@ -145,6 +148,20 @@ wingifyClient.setAttribute("attribute_key", "attribute_value", context);
 
       <td>
         Any additional details of the current user that you want to push to Wingify can be added here as key-value pairs, can be used for targeting & pre-segmentation.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **bucketingSeed**<br />_Optional_
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        A custom seed value to be used for bucketing the user. If provided, this value will be used as the bucketing ID instead of the user ID.
       </td>
     </tr>
   </tbody>
