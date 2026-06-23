@@ -44,6 +44,7 @@ $userContext = [
   'customVariables' => ['age' => 25, 'location' => 'US'],
   'userAgent' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
   'ipAddress' => '1.1.1.1',
+  'bucketingSeed' => 'your-bucketing-seed',
 ];
 
 // The same user context can be used across different APIs. For example -
@@ -132,6 +133,20 @@ $wingifyClient->setAttribute('attribute_name', 'attribute_value', $userContext);
 
       <td>
         Any additional details of the current user that you want to push to Wingify can be added here as key-value pairs, can be used for targeting & pre-segmentation.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        **bucketingSeed**<br />_Optional_
+      </td>
+
+      <td>
+        String
+      </td>
+
+      <td>
+        A custom seed value to be used for bucketing the user. If provided, this value will be used as the bucketing ID instead of the user ID.
       </td>
     </tr>
   </tbody>
