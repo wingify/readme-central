@@ -146,7 +146,7 @@ vwoClient.setAttribute('attribute-name', 'attribute-value', userContext);
       </td>
 
       <td>
-        Any custom seed value to be used for bucketing the user. If provided, this value will be used as the bucketing ID instead of the user ID.
+        A custom seed value to be used for bucketing the user. If provided, this value will be used as the bucketing ID instead of the user ID.
       </td>
     </tr>
   </tbody>
