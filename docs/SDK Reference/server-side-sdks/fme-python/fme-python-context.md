@@ -10,26 +10,26 @@ metadata:
 next:
   description: ''
 ---
-The **user context** serves as a unique identifier for individual users and plays a critical role in ensuring **consistent feature rollouts** across sessions and devices. Typically represented as a **dictionary**, the user context includes an *id* key that uniquely identifies the user.
+The **user context** serves as a unique identifier for individual users and plays a critical role in ensuring **consistent feature rollouts** across sessions and devices. Typically represented as a **dictionary**, the user context includes an _id_ key that uniquely identifies the user.
 
-In addition to the user ID, the context can incorporate various ***attributes*** to support advanced targeting and segmentation strategies. These may include:
+In addition to the user ID, the context can incorporate various **_attributes_** to support advanced targeting and segmentation strategies. These may include:
 
-* **custom-variables**: User-specific data points for personalized experiences.
-* **user-agent**: Information about the user's device, browser, or operating system.
-* **ip-address**: Location-based data to enable geo-targeting.
+- **custom-variables**: User-specific data points for personalized experiences.
+- **user-agent**: Information about the user's device, browser, or operating system.
+- **ip-address**: Location-based data to enable geo-targeting.
 
 By leveraging these attributes, organizations can deliver **precisely targeted features**, maintain **personalization consistency**, and **conduct granular experimentation** for improved user engagement and performance analysis.
 
 > 📘 Important Note
 >
-> The **user context attributes** differ from the attributes set using the ***setAttribute*** API.
+> The **user context attributes** differ from the attributes set using the **_setAttribute_** API.
 >
-> * **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
-> * ***setAttribute* API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
+> - **User Context Attributes**: Primarily used for **targeting purposes** during feature rollouts and experimentation. These attributes help determine which users are eligible for specific features or variations.
+> - **_setAttribute_ API Attributes**: Specifically designed for **post-segmentation analysis**, allowing you to segment and analyze experiment results based on defined user characteristics.
 
 > 🚧 Current Limitation
 >
-> Wingify **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of Wingify applications. For post-segmentation, it is recommended to rely on attributes set via the *setAttribute* API.
+> Wingify **does not support** using **user context attributes** directly as **post-segmentation filters** in the reporting section of Wingify applications. For post-segmentation, it is recommended to rely on attributes set via the _setAttribute_ API.
 
 ## Usage
 
@@ -42,7 +42,8 @@ user_context = {
         'location': 'US'     # Example: User's location
     },
     'user_agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',  # User's browser and OS info (optional)
-    'ip_address': '1.1.1.1'  # User's IP address (optional)
+    'ip_address': '1.1.1.1',  # User's IP address (optional)
+    'bucketingSeed': 'your-bucketing-seed'
 }
 
 # The same user context can be used across different APIs. For example -
@@ -80,7 +81,7 @@ vwo_client.set_attribute('attribute_key', 'attribute_value', user_context)
     <tr>
       <td>
         **id**
-        *Required*
+        _Required_
       </td>
 
       <td>
@@ -94,8 +95,7 @@ vwo_client.set_attribute('attribute_key', 'attribute_value', user_context)
 
     <tr>
       <td>
-        **user\_agent**\
-        *Optional*
+        **user\_agent**<br />_Optional_
       </td>
 
       <td>
@@ -103,14 +103,13 @@ vwo_client.set_attribute('attribute_key', 'attribute_value', user_context)
       </td>
 
       <td>
-        The userAgent object for the current user can be used for targeting & segmentation. 
+        The userAgent object for the current user can be used for targeting & segmentation.
       </td>
     </tr>
 
     <tr>
       <td>
-        **ip\_address**\
-        *Optional*
+        **ip\_address**<br />_Optional_
       </td>
 
       <td>
@@ -124,8 +123,7 @@ vwo_client.set_attribute('attribute_key', 'attribute_value', user_context)
 
     <tr>
       <td>
-        **custom\_variables**\
-        *Optional*
+        **custom\_variables**<br />_Optional_
       </td>
 
       <td>
@@ -136,9 +134,25 @@ vwo_client.set_attribute('attribute_key', 'attribute_value', user_context)
         Any additional details of the current user that you want to push to Wingify can be added here as key-value pairs and can be used for targeting & pre-segmentation.
       </td>
     </tr>
+
+    <tr>
+      <td>
+        **bucketingSeed**<br />_Optional_
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        A custom seed value to be used for bucketing the user. If provided, this value will be used as the bucketing ID instead of the user ID.
+      </td>
+    </tr>
   </tbody>
 </Table>
 
 > 📘 Note
 >
 > You need to pass [Gateway Service]() configuration while initializing the SDK for targeting (pre-segmentation using user-agent or IP-address-related segments).
+
+<br />
