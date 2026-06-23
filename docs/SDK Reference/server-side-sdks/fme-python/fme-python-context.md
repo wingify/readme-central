@@ -42,7 +42,7 @@ user_context = {
         'location' : 'US'     # Example: User's location 
     }, 
     'user_agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36' ,   # User's browser and OS info (optional) 
-    'ip_address' : '1.1.1.1'   # User's IP address (optional) 
+    'ip_address' : '1.1.1.1',  # User's IP address (optional) 
     'bucketingSeed': 'your-bucketing-seed'
 } 
 
