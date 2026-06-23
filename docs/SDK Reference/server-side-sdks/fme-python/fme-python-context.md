@@ -43,6 +43,7 @@ user_context = {
     }, 
     'user_agent' : 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36' ,   # User's browser and OS info (optional) 
     'ip_address' : '1.1.1.1'   # User's IP address (optional) 
+    'bucketingSeed': 'your-bucketing-seed'
 } 
 
 # The same user context can be used across different APIs. For example - 
@@ -131,6 +132,20 @@ wingify_client.set_attribute('attribute_key', 'attribute_value', user_context)
 
       <td>
         Any additional details of the current user that you want to push to Wingify can be added here as key-value pairs and can be used for targeting & pre-segmentation.
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        bucketingSeed
+      </td>
+
+      <td>
+        string
+      </td>
+
+      <td>
+        A custom seed value to be used for bucketing the user. If provided, this value will be used as the bucketing ID instead of the user ID.
       </td>
     </tr>
   </tbody>
