@@ -39,7 +39,8 @@ user_context = {
   id: 'unique_user_id',
   customVariables: { age: 25, location: 'US' },
   userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36',
-  ipAddress: '1.1.1.1'
+  ipAddress: '1.1.1.1',
+  bucketingSeed: 'your-bucketing-seed'
 }
 
 # The same user context can be used across different APIs. For example -
