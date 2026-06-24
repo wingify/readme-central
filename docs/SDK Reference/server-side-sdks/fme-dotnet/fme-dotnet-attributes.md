@@ -131,6 +131,6 @@ wingifyClient.SetAttribute(attributes, context);
 
 > 🚧 Note
 >
-> Please note that the _Attribute_ must already be defined in the Wingify Application for this, otherwise an unregistered attribute won't get tracked in Wingify application.
+> Please note that the _Attribute_ must already be defined in the Wingify Application for this, otherwise an unregistered attribute won't get tracked in Wingify application.<br /><br />You must provide either `attributeKey` and `attributeValue` for a single attribute, or an `attributes` dictionary for multiple attributes.
 
 <br />
