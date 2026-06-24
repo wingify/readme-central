@@ -53,6 +53,15 @@ When this API is executed:
 // 'attribute_key' is the name of the attribute (e.g., 'subscription_status').
 // 'attribute_value' is the value to assign to the attribute (e.g., 'premium').
 wingifyClient.SetAttribute("attribute_key", "attribute_value", userContext);
+
+// You can also set multiple attributes at once
+var attributes = new Dictionary<string, dynamic>
+{
+    { "attribute_key", "attribute_value" },
+    { "age", 25 }
+};
+wingifyClient.SetAttribute(attributes, context);
+
 ```
 
 ### Parameters Definition
