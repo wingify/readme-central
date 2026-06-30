@@ -120,15 +120,13 @@ The MCP server handles configuration import and code rewrite in one workflow.
 
 ## Run the migration
 
-Once the Wingify migration assistant is connected, start the migration by typing a single prompt in Cursor:
+Once MCP server is successfully configured, start the migration by typing a single prompt:
 
 <Callout icon="fa-comment" theme="info">
-  ###
-
-  Type this in Cursor: <strong>Migrate from Statsig to Wingify</strong>
+  ### Migrate from Statsig to Wingify
 </Callout>
 
-The assistant scans your codebase, identifies all Statsig components, recreates them in Wingify, and updates your application code automatically.
+The MCP server scans your codebase, identifies all Statsig components, recreates them in Wingify, and updates your application code automatically.
 
 <Callout icon="fa-lightbulb" theme="success">
   ###
@@ -136,7 +134,9 @@ The assistant scans your codebase, identifies all Statsig components, recreates 
   After the assistant connects, ask it to <strong>Add Wingify Rules</strong> once before running the migration. This sets up project-level rules for your codebase and only needs to be done once per project.
 </Callout>
 
-## Verify the agent's output
+<br />
+
+## Verify the migrated output
 
 After you run the migration, the assistant returns a consolidated summary. Use it as your checklist before enabling anything in production.
 
