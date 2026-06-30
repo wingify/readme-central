@@ -166,24 +166,19 @@ After the migration is completed, a checklist is available. Verify the setup ins
 
 ## Troubleshooting
 
-| Issue                      | What to check                                                |
-| -------------------------- | ------------------------------------------------------------ |
-| Missing flags              | Wingify Developer Token and Account ID in MCP config.        |
-| Missing metrics            | Statsig Console API key and Data360 access in Wingify.       |
-| Empty or partial migration | Statsig project permissions.                                 |
-| Wrong environment          | MCP target environment. The default is Production (`id: 1`). |
+| Issue                      | What to check                                               |
+| -------------------------- | ----------------------------------------------------------- |
+| Missing flags              | Wingify Developer Token and Account ID in MCP config        |
+| Missing metrics            | Statsig Console API key and Data360 access in Wingify       |
+| Empty or partial migration | Statsig project permissions                                 |
+| Wrong environment          | MCP target environment. The default is Production (`id: 1`) |
 
-When escalating, share the project name, environment, metric names, flag keys, and the migration summary.
+<br />
 
 ## Next steps and resources
 
-Once the migration summary looks clean and the dashboard checks pass, complete the cutover.
-
-1. Enable migrated feature flags in the Wingify dashboard.
-2. Start testing campaigns for experiments that should go live.
-3. Confirm the app uses the Wingify SDK and passes smoke tests.
-4. Validate in Staging and Dev before full Production cutover.
-5. Monitor Data360 metrics and experiment goals after go-live.
-6. Retire Statsig only after Wingify is validated in production.
+1. Enable migrated feature flags in the Wingify dashboard (these are OFF by default)
+2. Start testing campaigns for experiments that should go live
+3. Monitor Data360 metrics and experiment goals after go-live
 
 <br />
