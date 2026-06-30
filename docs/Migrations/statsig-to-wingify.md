@@ -164,31 +164,6 @@ After the migration is completed, a checklist is available. Verify the setup ins
 
 <br />
 
-## Metrics check in Data360
-
-Full migration runs metrics first, then flags. In the Wingify dashboard under **Data360 → Metrics**, confirm:
-
-- Each important Statsig metric has a matching Wingify metric or custom event.
-- Metric names and event names align with what experiments and flags reference.
-- Primary vs. secondary goals on experiments match your Statsig setup.
-
-| Issue                                 | What to check                                                                            |
-| ------------------------------------- | ---------------------------------------------------------------------------------------- |
-| Experiment migrated but goals missing | Metric migration may have failed. Re-run metric migration or create the metric manually. |
-| Duplicate metrics                     | The agent may report `skipped`. Confirm you're not expecting a new copy.                 |
-| Hidden Statsig metrics missing        | Hidden metrics are excluded by default. Ask to include them if needed.                   |
-
-## Smoke test after the SDK is connected
-
-After your application uses the Wingify SDK, run these checks:
-
-1. Re-initialize the SDK or restart the app.
-2. For gates, confirm ON/OFF behavior for a test user.
-3. For configs, verify variable values match the dashboard.
-4. For experiments, confirm variation variables and running status.
-5. For events, trigger a key event and confirm it appears in Wingify. This validates metric and tracking wiring.
-6. Change the user ID and re-initialize to confirm consistent bucketing.
-
 ## Troubleshooting
 
 | Issue                      | What to check                                                |
