@@ -24,11 +24,11 @@ Migrate your feature setup from Statsig to Wingify using the FE MCP Server and r
 
 Three values are configured in the MCP server block.
 
-| Field                     | Purpose                                                                                                    |
-| ------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| `VWO_ACCOUNT_ID`          | Your Wingify Account ID, found in Wingify account settings.                                                |
-| `VWO_API_KEY`             | Your Wingify Developer Token, used by the assistant to create flags in your project.                       |
-| `STATSIG_CONSOLE_API_KEY` | Your Statsig Console API key, which lets the assistant read your existing gates, configs, and experiments. |
+| Field                     | Purpose                                                                                                                     |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `WINGIFY_ACCOUNT_ID`      | Wingify Account ID, found in account settings.                                                                              |
+| `WINGIFY_API_KEY`         | [Wingify Developer Token](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API), used  to create flags |
+| `STATSIG_CONSOLE_API_KEY` | Statsig Console API key to read existing gates, configs, and experiments                                                    |
 
 ## How Wingify FE differs from Statsig
 
