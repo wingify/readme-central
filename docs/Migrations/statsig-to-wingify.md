@@ -70,9 +70,9 @@ After migration, three separate SDK calls in Statsig are replaced by a single ca
 
 ### Variables vs. variation names
 
-In Statsig, experiment code often branches on a variation name (`groupName`). In Wingify FE, you read typed variables instead. The variation name is not the primary SDK property.
+In Statsig, experiment code often branches on a variation name (`groupName`). In FE, you read variables instead. The variation name is not used for branching logic.
 
-After migration, code should use `flag.getVariable('buttonText', 'default')` rather than checking `if (variation === 'Variation A')`. If you need a label for logging, expose it as a string variable, such as `variation_name`.
+<br />
 
 ### Environment model
 
@@ -81,13 +81,6 @@ After migration, code should use `flag.getVariable('buttonText', 'default')` rat
 | SDK key              | One key + optional environment tier set in code    | One SDK key per environment; the key determines the environment |
 | Default environments | Development, Staging, Production built in          | User-defined environments within a project                      |
 | Rule targeting       | Rules can be scoped to a specific environment tier | Rules are toggled independently per environment                 |
-
-| Statsig setup                               | Wingify equivalent                                                                                     |
-| ------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| Dev / Staging / Prod SDK keys               | Three Wingify environments, each with its own SDK key                                                  |
-| Rule scoped to development tier             | Create or toggle rules in the Wingify Development environment                                          |
-| `environment: { tier: 'staging' }` at init  | Use the Staging environment SDK key in `init()`                                                        |
-| Console API reads gates for one environment | MCP defaults to Production (`environmentIdOrKey = "1"`); override when migrating to other environments |
 
 <br />
 
