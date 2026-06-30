@@ -116,51 +116,7 @@ The MCP server handles configuration import and code rewrite in one workflow.
 | Layers (mutual exclusion)     | Not directly supported (MEG is an option)    |
 | Warehouse-native metrics      | Not supported                                |
 
-## Add the Wingify MCP server
-
-Add the Wingify FME MCP server to Cursor before running the migration.
-
-### Step 1: Open MCP settings
-
-Open **Cursor Settings → MCP → Add new global MCP server**. This opens or creates your `mcp.json` file.
-
-### Step 2: Add the server block
-
-Paste the following into `mcp.json`. If you already have other MCP servers, add this inside the existing `"mcpServers"` object.
-
-```json
-{
-  "mcpServers": {
-    "vwo-mcp-server": {
-      "command": "npx",
-      "args": ["-y", "vwo-fme-mcp@latest"],
-      "env": {
-        "VWO_ACCOUNT_ID": "YOUR_ACCOUNT_ID",
-        "VWO_API_KEY": "YOUR_DEVELOPER_TOKEN"
-      }
-    }
-  }
-}
-```
-
-### Step 3: Replace the credential placeholders
-
-| Placeholder            | Replace with                       |
-| ---------------------- | ---------------------------------- |
-| `YOUR_ACCOUNT_ID`      | Your Wingify Account ID (numeric). |
-| `YOUR_DEVELOPER_TOKEN` | Your Wingify Developer Token.      |
-
-### Step 4: Save and confirm
-
-Save `mcp.json`, go back to **Cursor Settings → MCP**, and confirm `vwo-mcp-server` shows a green active status.
-
-If it stays red, verify Node.js is installed by running `npx -v`. The command should return a version number. Then restart Cursor.
-
-<Callout icon="fa-book" theme="info">
-  ###
-
-  Full MCP setup reference: Wingify MCP Server documentation.
-</Callout>
+<br />
 
 ## Run the migration
 
