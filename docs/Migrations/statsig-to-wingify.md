@@ -30,21 +30,31 @@ Three values are configured in the MCP server block.
 | `WINGIFY_API_KEY`         | [Wingify Developer Token](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API), used  to create flags |
 | `STATSIG_CONSOLE_API_KEY` | Statsig Console API key to read existing gates, configs, and experiments                                                    |
 
+<br />
+
 ## How Wingify FE differs from Statsig
 
-Statsig and Wingify Feature Experimentation both help you roll out features, personalize experiences, and run experiments, but they organize that work differently. Statsig gives you three separate tools: feature gates, dynamic configs, and experiments. Wingify FE gives you one concept: the feature flag. You attach different rule types to a feature flag depending on what you need.
+Statsig and Wingify Feature Experimentation both help you roll out features, personalize experiences, and run experiments, but they organize that work differently.
 
-In practice, everything you set up in Statsig maps into Wingify as a feature flag with a rule. A gate becomes a flag with a rollout rule. A dynamic config becomes a flag with variables and personalization rules. An experiment becomes a flag with a testing rule.
+Statsig offers feature gates, dynamic configs, and experiments.
 
-After migration, three separate SDK calls collapse into one: `getFlag()` handles gates, configs, and experiments.
+Wingify FE one concept: the feature flag. You attach different rule types (like Rollout, Testing, Personalize, MVT) to a feature flag depending on the usecase.
 
-### Concept mapping at a glance
+Everything in Statsig maps to FE as a feature flag with a rule. So, a gate becomes a flag with a rollout rule. A dynamic config becomes a flag with variables and personalization rules. And an experiment becomes a flag with a testing rule.
 
-| What it does              | In Statsig     | In Wingify FE                               |
-| ------------------------- | -------------- | ------------------------------------------- |
-| Turn a feature on or off  | Feature Gate   | Feature Flag + Rollout Rule                 |
-| Control settings remotely | Dynamic Config | Feature Flag + Variables + Personalize Rule |
-| Run an A/B test           | Experiment     | Feature Flag + Variables + Testing Rule     |
+After migration, three separate SDK calls in Statsig are replaced by a single call in FE: `getFlag()`
+
+<br />
+
+### Equivalent Features
+
+| What it does              | In Statsig     | In FE                           |
+| ------------------------- | -------------- | ------------------------------- |
+| Turn a feature on or off  | Feature Gate   | Feature Flag + Rollout Rule     |
+| Control settings remotely | Dynamic Config | Feature Flag + Personalize Rule |
+| Run an A/B test           | Experiment     | Feature Flag + Testing Rule     |
+
+<br />
 
 ### SDK call comparison
 
