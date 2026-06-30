@@ -138,7 +138,7 @@ The MCP server scans your codebase, identifies all Statsig components, recreates
 
 ## Verify the migrated output
 
-After you run the migration, the assistant returns a consolidated summary. Use it as your checklist before enabling anything in production.
+After you run the migration, there is a consolidated summary. Use it as your checklist before enabling anything in production.
 
 ### Review the migration summary
 
