@@ -138,7 +138,9 @@ The MCP server scans your codebase, identifies all Statsig components, recreates
 
 ## Verify the migrated output
 
-After you run the migration, there is a consolidated summary. Use it as your checklist before enabling anything in production.
+After the migration is completed, a checklist is available. Verify the setup inside Wingify Feature Flags, as well as the code snippets
+
+<br />
 
 ### Review the migration summary
 
@@ -149,29 +151,18 @@ After you run the migration, there is a consolidated summary. Use it as your che
 | Dynamic config | Feature flag key, variables, variations, rule count, and status `migrated`.   |
 | Experiment     | Feature flag key, variables, variations, testing rule, and status `migrated`. |
 
+<br />
+
 ### Check the Wingify dashboard
 
-Confirm that:
+- Each migrated flag key exists in your Wingify project
+- Rollout rules and targeting match what you had in Statsig gates
+- Testing variations and traffic splits look correct
+- Primary and secondary metrics are linked
+- Flags were created in the intended environment, usually Production
+- All metrics were successfully created in Data360 and linked to the feature flags
 
-- Each migrated flag key exists in your Wingify project.
-- Rollout rules and targeting match what you had in Statsig gates.
-- Experiment variations and traffic splits look correct.
-- Primary and secondary experiment goals are linked.
-- Flags were created in the intended environment, usually Production.
-
-<Callout icon="fa-triangle-exclamation" theme="warning">
-  ###
-
-  Migrated rules may be enabled while the feature flag itself is still disabled. Enable feature flags only after you've reviewed them in the dashboard.
-</Callout>
-
-### Accept vs. escalate
-
-| Accept when                                           | Escalate when                                                   |
-| ----------------------------------------------------- | --------------------------------------------------------------- |
-| Migration summary looks complete.                     | Metrics or flags are missing or failed.                         |
-| Flags, variables, and rules match your Statsig setup. | Experiment goals are not linked though they existed in Statsig. |
-| Experiment goals are linked correctly.                | The summary contains a large number of failed items.            |
+<br />
 
 ## Metrics check in Data360
 
