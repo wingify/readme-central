@@ -14,12 +14,9 @@ Migrate your feature setup from Statsig to Wingify using the FE MCP Server and r
 
 1. **Check prerequisites**<br />Confirm active Statsig and Wingify accounts and appropriate permissions
 2. **Add the Wingify FE MCP Server**<br />Add the Wingify FE MCP server to your IDE and required credentials
-3. **Run the migration**
-   Type one prompt in Cursor. The assistant handles the rest.
-4. **Review in the Wingify dashboard**
-   Confirm your feature flags, rollout rules, and experiments were created correctly.
-5. **Enable and go live**
-   Turn on migrated flags in Wingify, validate in staging, then retire Statsig.
+3. **Run the migration prompt**<br />Something like _migrate my project from statsig to wingify_
+4. **Review in the Wingify dashboard**<br />Confirm your feature flags, rollout and testing rules were created correctly
+5. **Enable and go live**<br />Turn on the newly created, migrated flags in Wingify, and you are good to go
 
 ## Prerequisites
 
