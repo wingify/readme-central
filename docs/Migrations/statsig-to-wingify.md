@@ -84,57 +84,37 @@ In Statsig, experiment code often branches on a variation name (`groupName`). In
 
 <br />
 
-## Terminology mapping
+## Migrate with the FE MCP Server
 
-Use this as a quick reference when reviewing what the migration assistant created in Wingify.
-
-| Statsig                  | Wingify FE                                                                          | Notes                                                                                   |
-| ------------------------ | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Feature Gate             | Feature Flag + boolean variable (`isEnabled`) + Rollout rule(s)                     | Gate pass/fail maps to `flag.isEnabled()`.                                              |
-| Dynamic Config           | Feature Flag + typed variables + variations + Rollout / Personalize / Testing rules | Config keys map to flag variables; rule `returnValue` maps to variation.                |
-| Experiment               | Feature Flag + variables + variations + `FLAG_TESTING` rule                         | Control group maps to default variation; treatments map to additional variations.       |
-| Experiment parameter     | Flag variable                                                                       | Typed as boolean, int, float, string, or JSON.                                          |
-| Metric / `logEvent()`    | Data360 custom event + `trackEvent()`                                               | Call after `getFlag()` for correct attribution.                                         |
-| `StatsigUser` / `userID` | `userContext` with `id` + optional attributes                                       | Custom attributes are top-level attributes on `userContext`, not nested under `custom`. |
-| Layer                    | No direct equivalent                                                                | Wingify uses rule-level traffic allocation; mutual exclusion is configured differently. |
-| Segment                  | Wingify audience / targeting on rules                                               | Not auto-migrated by MCP tools today.                                                   |
-| Tags on gates/configs    | Flag labels                                                                         | Mapped from Statsig `tags[]`.                                                           |
-| Server Secret Key        | SDK Key per environment                                                             | From Wingify Websites & Apps → Default Project.                                         |
-| `customIDs`              | Custom ID fields on user context                                                    | Used for multi-entity bucketing.                                                        |
-
-## Migrate with the Wingify agent
-
-The Wingify migration agent handles configuration import and code rewrite in one workflow.
+The MCP server handles configuration import and code rewrite in one workflow.
 
 ### Configuration import
 
-The assistant:
-
-- Recreates feature gates as Wingify flags with rollout rules.
-- Recreates dynamic configs as flags with typed variables.
-- Recreates experiments as flags with testing rules and variations.
-- Migrates metrics to Wingify Data360.
+- Recreates feature gates as Feature flags with rollout rules
+- Recreates dynamic configs as feature flags with personalize rules
+- Recreates experiments as feature flags with testing rules with variations
+- Migrates metrics to Wingify Data360 events and metrics
 
 ### Code rewrite
 
-The assistant:
+- Replaces Statsig SDK imports with the Wingify FE SDK imports
+- Refactors `getFeatureGate()`, `getDynamicConfig()`, and `getExperiment()` to `getFlag()`
+- Replaces `logEvent()` with `trackEvent()`
+- Updates SDK initialization logic
 
-- Replaces Statsig SDK imports with the Wingify FME SDK.
-- Refactors `getFeatureGate()`, `getDynamicConfig()`, and `getExperiment()` to `getFlag()`.
-- Replaces `logEvent()` with `trackEvent()`.
-- Updates SDK initialization.
+<br />
 
-### What's in migration scope
+### What's in the migration scope
 
-| Statsig type                  | Status               |
-| ----------------------------- | -------------------- |
-| Feature gates                 | ✓ Migrated           |
-| Dynamic configs               | ✓ Migrated           |
-| Experiments                   | ✓ Migrated           |
-| Custom-event metrics          | ✓ Migrated           |
-| Segments / audience targeting | Not auto-migrated    |
-| Layers (mutual exclusion)     | No direct equivalent |
-| Warehouse-native metrics      | Not migrated         |
+| Statsig type                  | Status                                       |
+| ----------------------------- | -------------------------------------------- |
+| Feature gates                 | ✓ Migrated                                   |
+| Dynamic configs               | ✓ Migrated                                   |
+| Experiments                   | ✓ Migrated                                   |
+| Custom-event metrics          | ✓ Migrated                                   |
+| Segments / audience targeting | Currently not configured (coming soon in v1) |
+| Layers (mutual exclusion)     | Not directly supported (MEG is an option)    |
+| Warehouse-native metrics      | Not supported                                |
 
 ## Add the Wingify MCP server
 
