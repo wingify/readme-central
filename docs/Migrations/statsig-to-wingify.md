@@ -8,14 +8,12 @@ metadata:
 ---
 Migrate your feature setup from Statsig to Wingify using the FE MCP Server and running a single prompt. It will migrate your Statsig configuration to Wingify FE, and make the required code changes to use Wingify FE SDKs.
 
-The migration has two parts: connect Wingify to your workspace, then run the migration. Once the assistant is connected, a single prompt in your IDE recreates your flags, configs, and experiments in Wingify and updates your application code.
+<br />
 
 ## Migration flow
 
-1. **Check prerequisites**
-   Confirm active Statsig and Wingify accounts and the right permissions.
-2. **Add the Wingify migration assistant**
-   Add the Wingify FME MCP server to your IDE and enter credentials.
+1. **Check prerequisites**<br />Confirm active Statsig and Wingify accounts and appropriate permissions
+2. **Add the Wingify FE MCP Server**<br />Add the Wingify FE MCP server to your IDE and required credentials
 3. **Run the migration**
    Type one prompt in Cursor. The assistant handles the rest.
 4. **Review in the Wingify dashboard**
