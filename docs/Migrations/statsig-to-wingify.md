@@ -66,6 +66,8 @@ After migration, three separate SDK calls in Statsig are replaced by a single ca
 | Experiment | `getExperiment(key)` → `groupName`, `value` | `getFlag()` + testing rule; read variables, not variation name |
 | Events     | `logEvent()`                                | `trackEvent()`                                                 |
 
+<br />
+
 ### Variables vs. variation names
 
 In Statsig, experiment code often branches on a variation name (`groupName`). In Wingify FE, you read typed variables instead. The variation name is not the primary SDK property.
@@ -86,6 +88,8 @@ After migration, code should use `flag.getVariable('buttonText', 'default')` rat
 | Rule scoped to development tier             | Create or toggle rules in the Wingify Development environment                                          |
 | `environment: { tier: 'staging' }` at init  | Use the Staging environment SDK key in `init()`                                                        |
 | Console API reads gates for one environment | MCP defaults to Production (`environmentIdOrKey = "1"`); override when migrating to other environments |
+
+<br />
 
 ## Terminology mapping
 
