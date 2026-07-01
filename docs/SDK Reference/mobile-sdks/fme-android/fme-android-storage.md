@@ -5,8 +5,6 @@ hidden: false
 metadata:
   robots: index
 ---
-# Storage in Wingify FE Android SDK
-
 By default, the SDK uses storage to cache user decisions. As a result, repeated evaluation calls for the same user and feature return the cached decision instead of triggering a fresh evaluation.
 
 To optimize performance and maintain consistency, the SDK provides both built-in storage and the ability to implement custom storage through a storage connector. This allows you to persist feature flag decisions in your preferred storage system.
