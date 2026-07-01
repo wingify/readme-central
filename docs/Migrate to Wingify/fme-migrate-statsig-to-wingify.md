@@ -154,10 +154,10 @@ After the migration is completed, verify the setup inside Wingify Feature Flags,
 
 | Statsig type   | What to confirm in the summary                                                |
 | -------------- | ----------------------------------------------------------------------------- |
-| Metrics        | Status `migrated` or `skipped (already exists)`.                              |
 | Feature gate   | Feature flag key, rollout rule(s), and status `migrated`.                     |
-| Dynamic config | Feature flag key, variables, variations, rule count, and status `migrated`.   |
 | Experiment     | Feature flag key, variables, variations, testing rule, and status `migrated`. |
+| Dynamic config | Feature flag key, variables, variations, rule count, and status `migrated`.   |
+| Metrics        | Status `migrated` or `skipped (already exists)`.                              |
 
 <br />
 
@@ -166,11 +166,15 @@ After the migration is completed, verify the setup inside Wingify Feature Flags,
 - Each migrated flag key exists in your Wingify project
 - Rollout rules and targeting match what you had in Statsig gates
 - Testing variations and traffic splits look correct
-- Primary and secondary metrics are linked
 - Flags were created in the intended environment, usually Production
 - All metrics were successfully created in Data360 and linked to the feature flags
+- Primary and secondary metrics are linked
 
 <br />
+
+Checklist for migrated code snippets
+
+- Valid Wingify accountId and FE environment key are&#x20;
 
 ## Troubleshooting
 
