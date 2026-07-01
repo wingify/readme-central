@@ -11,6 +11,8 @@ metadata:
 Migrate your feature setup from Statsig to Wingify using the FE MCP Server and running a single prompt. It will migrate your Statsig configuration to Wingify FE, and make the required code changes to use Wingify FE SDKs.
 
 <Callout icon="fa-comment" theme="warning">
+  ###
+
   <strong>Note:</strong> This is currently in Beta
 </Callout>
 
@@ -144,7 +146,7 @@ The MCP server scans your codebase, identifies all Statsig components, recreates
 
 ## Verify the migrated output
 
-After the migration is completed, a checklist is available. Verify the setup inside Wingify Feature Flags, as well as the code snippets
+After the migration is completed, verify the setup inside Wingify Feature Flags, as well as the code snippets. Once the verification is done, ensure that the feature flags as well as the corresponding rules toggles are turned **ON.**
 
 <br />
 
