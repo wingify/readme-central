@@ -10,9 +10,9 @@ metadata:
 ---
 Migrate your feature setup from Statsig to Wingify using the FE MCP Server and running a single prompt. It will migrate your Statsig configuration to Wingify FE, and make the required code changes to use Wingify FE SDKs.
 
-<Callout icon="fa-comment" theme="info">
-  ### Note: This is currently in Beta
-</Callout>
+<div style={{ backgroundColor: '#FFF8D6', border: '1px solid #F1D98A', borderRadius: '6px', padding: '8px 12px', fontSize: '14px', lineHeight: '1.4', display: 'inline-block' }}>
+  <strong>Note:</strong> This is currently in Beta
+</div>
 
 <br />
 
