@@ -1,13 +1,11 @@
 ---
-title: Storage
+title: Storage Service
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-# Storage in Wingify FE Android SDK
-
-The Wingify FE Android SDK operates in a stateless mode by default, meaning each `getFlag` call triggers a fresh evaluation of the flag against the current user context.
+By default, the SDK uses storage to cache user decisions. As a result, repeated evaluation calls for the same user and feature return the cached decision instead of triggering a fresh evaluation.
 
 To optimize performance and maintain consistency, the SDK provides both built-in storage and the ability to implement custom storage through a storage connector. This allows you to persist feature flag decisions in your preferred storage system.
 
@@ -27,8 +25,8 @@ The SDK uses Android's `SharedPreferences` API for built-in storage, which provi
 
 ### Requirements for Built-in Storage
 
-* The `context` parameter is **required** for built-in storage to work properly
-* Storage is automatically enabled when a valid application context is provided
+- The `context` parameter is **required** for built-in storage to work properly
+- Storage is automatically enabled when a valid application context is provided
 
 ### Example Usage with Built-in Storage
 
@@ -167,10 +165,12 @@ VWO.init(options, new IVwoInitCallback() {
 
 ## Important Notes
 
-* The `context` parameter is **required** for built-in storage to work properly
-* Custom storage implementations should handle data persistence and retrieval efficiently
-* Storage data persists between app launches
-* The SDK automatically manages storage operations for built-in storage
-* Custom storage implementations should be thread-safe
-* Consider implementing proper error handling in custom storage implementations
-* Storage operations should be fast to avoid impacting app performance
+- The `context` parameter is **required** for built-in storage to work properly
+- Custom storage implementations should handle data persistence and retrieval efficiently
+- Storage data persists between app launches
+- The SDK automatically manages storage operations for built-in storage
+- Custom storage implementations should be thread-safe
+- Consider implementing proper error handling in custom storage implementations
+- Storage operations should be fast to avoid impacting app performance
+
+<br />
