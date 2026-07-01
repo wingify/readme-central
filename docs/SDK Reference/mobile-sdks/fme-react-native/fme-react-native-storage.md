@@ -1,5 +1,5 @@
 ---
-title: Storage
+title: Storage Service
 deprecated: false
 hidden: false
 metadata:
@@ -9,7 +9,7 @@ React Native SDK utilize native SDKs (iOS and Android) to manage feature flags a
 
 ## Purpose of of Storage
 
-The Wingify FE SDK operates in a stateless mode by default, meaning each `getFlag` call triggers a fresh evaluation of the flag against the current user context.
+By default, the SDK uses storage to cache user decisions. As a result, repeated evaluation calls for the same user and feature return the cached decision instead of triggering a fresh evaluation.
 
 To optimize performance and maintain consistency, the SDK provides both built-in storage. This allows you to persist feature flag decisions, mobile applications can quickly access necessary data without repeatedly querying the server.
 
