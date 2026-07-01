@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The SDK operates in a stateless mode by default, meaning each get\_flag call triggers a fresh evaluation of the flag against the current user context.
+By default, the SDK uses storage to cache user decisions. As a result, repeated evaluation calls for the same user and feature return the cached decision instead of triggering a fresh evaluation.
 
 To optimize performance and maintain consistency, you can implement a custom storage mechanism by passing a storage parameter during initialization. This allows you to persist feature flag decisions in your preferred database system (like Redis, MongoDB, or any other data store).
 
@@ -65,10 +65,12 @@ export default App;
 | **provider**   | Determines the browser storage mechanism to use. It can be either `localStorage` or `sessionStorage`. `localStorage` persists data even after the browser is closed, while `sessionStorage` persists data only during the current browser tab session. | No       | Object  | `localStorage` |
 | **isDisabled** | When set to `true`, completely disables client-side storage. This is useful if you want to avoid any data persistence in the browser for privacy or other reasons.                                                                                     | No       | Boolean | `false`        |
 
-> 📘 Important Notes
->
-> * **Browser Environment Only:** The `clientStorage` option works exclusively in browser environments where `localStorage` and `sessionStorage` APIs are available.
-> * **Node.js Environments:** For server-side or Node.js environments, use the `storage` option for implementing custom storage logic, as `localStorage` and `sessionStorage` are not available there. To know more, click [here](https://developers.wingify.com/v2/docs/fme-node-storage#/).
+<Callout icon="📘" theme="info">
+  ### Important Notes
+
+  - **Browser Environment Only:** The `clientStorage` option works exclusively in browser environments where `localStorage` and `sessionStorage` APIs are available.
+  - **Node.js Environments:** For server-side or Node.js environments, use the `storage` option for implementing custom storage logic, as `localStorage` and `sessionStorage` are not available there. To know more, click [here](https://developers.wingify.com/v2/docs/fme-node-storage#/).
+</Callout>
 
 ## How to Implement a StorageConnector
 
@@ -124,9 +126,11 @@ const App = () => (
 export default App;
 ```
 
-Storage Service should expose two methods: *get* and *set*. These methods are used by Wingify whenever there is a need to read or write from the storage service.
+Storage Service should expose two methods: _get_ and _set_. These methods are used by Wingify whenever there is a need to read or write from the storage service.
 
 | Method Name | Params             | Description                                                 | Returns                                                                                    |
 | :---------- | :----------------- | :---------------------------------------------------------- | :----------------------------------------------------------------------------------------- |
 | get         | featureKey, userId | Retrieve stored data corresponding to featureKey and userId | Returns a matching user-feature data mapping corresponding to featureKey and userId passed |
 | set         | data               | Store user-feature data mapping                             | null                                                                                       |
+
+<br />
