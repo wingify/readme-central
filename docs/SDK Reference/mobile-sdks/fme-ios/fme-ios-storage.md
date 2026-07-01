@@ -1,5 +1,5 @@
 ---
-title: Storage
+title: Storage Service
 deprecated: false
 hidden: false
 metadata:
