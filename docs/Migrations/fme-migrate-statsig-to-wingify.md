@@ -1,6 +1,8 @@
 ---
 title: Statsig To Wingify
-excerpt: Migrate your Statsig setup to Wingify
+excerpt: >-
+  Migrate your Statsig gates, configs, and experiments to Wingify Feature
+  Experimentation
 deprecated: false
 hidden: true
 metadata:
