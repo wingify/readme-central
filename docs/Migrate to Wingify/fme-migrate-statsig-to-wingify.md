@@ -53,13 +53,13 @@ Three values are configured in the MCP server block.
 
 ## How Wingify FE differs from Statsig
 
-Statsig and Wingify Feature Experimentation both help you roll out features, personalize experiences, and run experiments, but they organize that work differently.
+Statsig and Wingify Feature Experimentation both help you roll out features, personalize experiences, and run experiments, but they organize the work differently.
 
 Statsig offers feature gates, dynamic configs, and experiments.
 
-Wingify FE one concept: the feature flag. You attach different rule types (like Rollout, Testing, Personalize, MVT) to a feature flag depending on the usecase.
+Wingify FE one concept: the **feature flag**. You attach different rule types (like Rollout, Testing, Personalize, Multivariate) to a feature flag depending on the usecase.
 
-Everything in Statsig maps to FE as a feature flag with a rule. So, a gate becomes a flag with a rollout rule. A dynamic config becomes a flag with variables and personalization rules. And an experiment becomes a flag with a testing rule.
+Everything in Statsig maps to FE as a feature flag with a rule. A gate becomes a flag with a rollout rule. A dynamic config becomes a flag with variables, served through rollout, testing or personalize rules. An experiment becomes a flag with a testing rule.
 
 After migration, three separate SDK calls in Statsig are replaced by a single call in FE: `getFlag()`
 
