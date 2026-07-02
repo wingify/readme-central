@@ -202,8 +202,6 @@ When the migration completes, the assistant returns a consolidated migration sum
 - Statsig SDK imports and calls have been fully replaced (getFlag(), trackEvent())
 - No branching logic remains on variation names — code reads flag variables instead
 
-<br />
-
 ## Run a smoke test (after the SDK is connected)
 
 - Re-initialize the SDK or restart the app
@@ -229,13 +227,5 @@ When the migration completes, the assistant returns a consolidated migration sum
 | Missing metrics            | Statsig Console API key and Data360 access in Wingify       |
 | Empty or partial migration | Statsig project permissions                                 |
 | Wrong environment          | MCP target environment. The default is Production (`id: 1`) |
-
-<br />
-
-## Next steps and resources
-
-1. Enable migrated feature flags in the Wingify dashboard (these are OFF by default)
-2. Start testing rules for experiments that should go live
-3. Monitor Data360 metrics and experiment goals after go-live
 
 <br />
