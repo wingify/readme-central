@@ -16,6 +16,8 @@ metadata:
 
 Migrate your feature setup from Statsig to Wingify using FE MCP Server with a single prompt. The assistant migrates your Statsig configuration to Wingify FE and makes the required code changes to use Wingify FE SDKs.
 
+<br />
+
 ## **Prerequisites**
 
 Confirm the following before starting the migration.
@@ -29,6 +31,8 @@ Confirm the following before starting the migration.
 
 - MCP compatible IDE with the Wingify FE MCP server installed — [see the MCP Server setup guide](https://developers.wingify.com/v3/docs/fme-mcp-server)
 
+
+
 ## Migration flow
 
 1. **Check prerequisites**<br />confirm your Statsig project, Wingify FE account, and IDE setup listed above
@@ -36,6 +40,8 @@ Confirm the following before starting the migration.
 3. **Run the migration prompt**<br />Something like _migrate my project from Statsig to Wingify_
 4. **Review in the Wingify dashboard and your codebase**<br />Confirm feature flags, rollout and testing rules were created correctly, and review the SDK code changes made by the Assistant
 5. **Enable and go live**<br />Turn on the newly created, migrated flags in Wingify, validate it and then you are good to go
+
+
 
 ## How Wingify FE differs from Statsig
 
@@ -51,7 +57,7 @@ After migration, three separate SDK calls in Statsig are replaced by a single ca
 
 <br />
 
-### Equivalent Features
+## Equivalent Features
 
 | What it does              | In Statsig     | In Wingify FE                                   |
 | ------------------------- | -------------- | ----------------------------------------------- |
@@ -61,7 +67,7 @@ After migration, three separate SDK calls in Statsig are replaced by a single ca
 
 <br />
 
-### SDK call comparison
+## SDK call comparison
 
 | Area       | Statsig                                     | Wingify FE                                                     |
 | ---------- | ------------------------------------------- | -------------------------------------------------------------- |
@@ -73,13 +79,13 @@ After migration, three separate SDK calls in Statsig are replaced by a single ca
 
 <br />
 
-### Variables vs. variation names
+## Variables vs. variation names
 
 In Statsig, experiment code often branches on a variation name (`groupName`). In FE, you read variables instead. The variation name is not used for branching logic. If you need a label for logging, expose it as a string variable
 
 <br />
 
-### Environment model
+## Environment model
 
 | Aspect               | Statsig                                            | Wingify FE                                                                                                                 |
 | -------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
@@ -109,7 +115,7 @@ The MCP server handles configuration import and code rewrite in one workflow.
 
 <br />
 
-### What's in the migration scope
+## What's in the migration scope
 
 | Statsig type                  | Status                                                                                                                                                                                                           |
 | ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -133,11 +139,11 @@ Three values are configured in the MCP server block.
 | `WINGIFY_API_KEY`         | [Wingify Developer Token](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API), used  to create flags |
 | `STATSIG_CONSOLE_API_KEY` | Statsig Console API key to read existing gates, configs, and experiments                                                    |
 
-### Step 2: Add the Wingify FE MCP Server
+## Step 2: Add the Wingify FE MCP Server
 
 Add the [Wingify FE MCP Server](https://developers.wingify.com/v3/docs/fme-mcp-server) to your IDE and configure it with the credentials from Step 1
 
-### Step 3: Run the migration
+## Step 3: Run the migration
 
 Once MCP server is successfully configured, start the migration by typing a single prompt:
 
@@ -151,8 +157,6 @@ The MCP server scans your codebase, identifies all Statsig components, recreates
 
 When the migration completes, the assistant returns a consolidated migration summary in your IDE. Use this summary as your verification checklist before enabling anything. Once verification is done, turn the feature flags and the corresponding rule toggles **ON**.
 
-<br />
-
 ### Review the migration summary
 
 | Statsig type   | What to confirm in the summary                                                |
@@ -161,8 +165,6 @@ When the migration completes, the assistant returns a consolidated migration sum
 | Experiment     | Feature flag key, variables, variations, testing rule, and status `migrated`. |
 | Dynamic config | Feature flag key, variables, variations, rule count, and status `migrated`.   |
 | Metrics        | Status `migrated, failed` or `skipped (already exists)`.                      |
-
-<br />
 
 ### Check the Wingify dashboard
 
@@ -190,7 +192,7 @@ When the migration completes, the assistant returns a consolidated migration sum
 - Statsig SDK imports and calls have been fully replaced (getFlag(), trackEvent())
 - No branching logic remains on variation names — code reads flag variables instead
 
-## Run a smoke test (after the SDK is connected)
+### Run a smoke test (after the SDK is connected)
 
 - Re-initialize the SDK or restart the app
 - Gate — confirm ON/OFF behavior for a test user
@@ -199,7 +201,7 @@ When the migration completes, the assistant returns a consolidated migration sum
 - Events — trigger a key event and confirm it appears in Wingify (validates metric and tracking wiring)
 - Change the user ID and re-initialize to confirm consistent bucketing
 
-### Step 5: Enable and go live
+## Step 5: Enable and go live
 
 - Enable migrated feature flags in the Wingify dashboard (these are **OFF** by default)
 - Enable all the rules that should go live
