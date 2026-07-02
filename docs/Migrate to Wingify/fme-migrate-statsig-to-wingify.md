@@ -174,12 +174,34 @@ When the migration completes, the assistant returns a consolidated migration sum
 
 ### Check the Wingify dashboard
 
+#### Flags and rules:
+
 - Each migrated flag key exists in your Wingify project
-- Rollout rules and targeting match what you had in Statsig gates
+- Rollout rules match what you had in Statsig gates
 - Testing variations and traffic splits look correct
 - Flags were created in the intended environment, usually Production
+
+#### Metrics (under Data360 → Metrics)
+
 - All metrics were successfully created in Data360 and linked to the feature flags
-- Primary and secondary metrics are linked
+- Primary and secondary metrics are linked to feature flags
+
+| Issue                                   | What to check                                                                                |
+| --------------------------------------- | -------------------------------------------------------------------------------------------- |
+| Experiment migrated but metrics missing | Metric migration may have failed — re-run the metric migration or create the metric manually |
+| Duplicate metrics                       | The assistant may report "skipped" — confirm you are not expecting a new copy                |
+
+<br />
+
+.
+
+<Callout icon="fa-lightbulb" theme="success">
+  ### Primary and Secondary Metrics
+
+  In Wingify, a feature flag can have **only one** primary metric, but **multiple** secondary metrics. The primary metric is used to decide a winner for a test
+</Callout>
+
+<br />
 
 <br />
 
