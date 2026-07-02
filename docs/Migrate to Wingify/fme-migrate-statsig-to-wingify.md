@@ -147,7 +147,7 @@ Three values are configured in the MCP server block.
 
 ### Step 2: Add the Wingify FE MCP Server
 
-<br />
+Add the [Wingify FE MCP Server](https://developers.wingify.com/v3/docs/fme-mcp-server) to your IDE and configure it with the credentials from Step 1
 
 ### Step 3: Run the migration
 
@@ -217,9 +217,9 @@ When the migration completes, the assistant returns a consolidated migration sum
 
 ### Step 5: Enable and go live
 
-- Enable migrated feature flags in the Wingify dashboard (these are OFF by default)
-- Start testing rules for experiments that should go live
-- Monitor Data360 metrics and experiment goals after go-live
+- Enable migrated feature flags in the Wingify dashboard (these are **OFF** by default)
+- Enable all the rules that should go live
+- Monitor feature flag metrics after go-live
 
 <br />
 
