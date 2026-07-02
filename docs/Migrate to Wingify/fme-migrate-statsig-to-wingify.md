@@ -27,7 +27,7 @@ Confirm the following before starting the migration.
 
 #### Workspace setup
 
-- Cursor (or another MCP-compatible IDE) with the Wingify FE MCP server installed — [see the MCP Server setup guide](https://developers.wingify.com/v3/docs/fme-mcp-server)
+- MCP compatible IDE with the Wingify FE MCP server installed — [see the MCP Server setup guide](https://developers.wingify.com/v3/docs/fme-mcp-server)
 
 ## Migration flow
 
