@@ -180,21 +180,17 @@ When the migration completes, the assistant returns a consolidated migration sum
 - All metrics were successfully created in Data360 and linked to the feature flags
 - Primary and secondary metrics are linked to feature flags
 
-<br />
-
 <Callout icon="fa-lightbulb" theme="success">
   ### Primary and Secondary Metrics
 
-  In Wingify, a feature flag can have **only one** primary metric, but **multiple** secondary metrics. The primary metric is used to decide a winner for a test
+  In Wingify, a feature flag can have **only one** primary metric, but **multiple** secondary metrics. The primary metric is used to decide a winner of a campaign
 </Callout>
 
-<br />
+#### Review the migrated code
 
-<br />
-
-Checklist for migrated code snippets
-
-- Valid Wingify accountId and FE environment key are&#x20;
+- A valid Wingify accountId and FE environment SDK key are used in SDK initialization
+- Statsig SDK imports and calls have been fully replaced (getFlag(), trackEvent())
+- No branching logic remains on variation names — code reads flag variables instead
 
 ## Troubleshooting
 
