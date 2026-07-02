@@ -162,7 +162,7 @@ When the migration completes, the assistant returns a consolidated migration sum
 | Feature gate   | Feature flag key, rollout rule(s), and status `migrated`.                     |
 | Experiment     | Feature flag key, variables, variations, testing rule, and status `migrated`. |
 | Dynamic config | Feature flag key, variables, variations, rule count, and status `migrated`.   |
-| Metrics        | Status `migrated` or `skipped (already exists)`.                              |
+| Metrics        | Status `migrated, failed` or `skipped (already exists)`.                      |
 
 <br />
 
@@ -179,11 +179,6 @@ When the migration completes, the assistant returns a consolidated migration sum
 
 - All metrics were successfully created in Data360 and linked to the feature flags
 - Primary and secondary metrics are linked to feature flags
-
-| Issue                                   | What to check                                                                                |
-| --------------------------------------- | -------------------------------------------------------------------------------------------- |
-| Experiment migrated but metrics missing | Metric migration may have failed — re-run the metric migration or create the metric manually |
-| Duplicate metrics                       | The assistant may report "skipped" — confirm you are not expecting a new copy                |
 
 <br />
 
