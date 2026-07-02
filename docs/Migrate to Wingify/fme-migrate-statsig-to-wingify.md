@@ -37,8 +37,6 @@ Confirm the following before starting the migration.
 4. **Review in the Wingify dashboard and your codebase**<br />Confirm feature flags, rollout and testing rules were created correctly, and review the SDK code changes made by the Assistant
 5. **Enable and go live**<br />Turn on the newly created, migrated flags in Wingify, validate it and then you are good to go
 
-<br />
-
 ## How Wingify FE differs from Statsig
 
 Statsig and Wingify Feature Experimentation both help you roll out features, personalize experiences, and run experiments, but they organize the work differently.
