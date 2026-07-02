@@ -135,17 +135,21 @@ The MCP server handles configuration import and code rewrite in one workflow.
 | Layers (mutual exclusion)     | Not directly supported. Mutually Exclusive Groups (MEG) are an option — [see the MEG documentation](https://help.vwo.com/hc/en-us/articles/360034153814-How-to-Set-Up-Mutually-Exclusive-Campaign-Groups-in-VWO) |
 | Warehouse-native metrics      | Not supported                                                                                                                                                                                                    |
 
+### Step 1: Configure migration credentials
+
+Three values are configured in the MCP server block.
+
+| Field                     | Purpose                                                                                                                     |
+| ------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `WINGIFY_ACCOUNT_ID`      | Wingify Account ID, found in account settings.                                                                              |
+| `WINGIFY_API_KEY`         | [Wingify Developer Token](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API), used  to create flags |
+| `STATSIG_CONSOLE_API_KEY` | Statsig Console API key to read existing gates, configs, and experiments                                                    |
+
+### Step 2: Add the Wingify FE MCP Server
+
 <br />
 
-## Run the migration
-
-##
-
-<br />
-
-<br />
-
-<br />
+### Step 3: Run the migration
 
 Once MCP server is successfully configured, start the migration by typing a single prompt:
 
@@ -157,7 +161,7 @@ The MCP server scans your codebase, identifies all Statsig components, recreates
 
 <br />
 
-## Verify the migrated output
+## Step 4: Verify the migrated output
 
 When the migration completes, the assistant returns a consolidated migration summary in your IDE. Use this summary as your verification checklist before enabling anything. Once verification is done, turn the feature flags and the corresponding rule toggles **ON**.
 
@@ -210,6 +214,12 @@ When the migration completes, the assistant returns a consolidated migration sum
 - Experiment — confirm variation variables and running status
 - Events — trigger a key event and confirm it appears in Wingify (validates metric and tracking wiring)
 - Change the user ID and re-initialize to confirm consistent bucketing
+
+### Step 5: Enable and go live
+
+- Enable migrated feature flags in the Wingify dashboard (these are OFF by default)
+- Start testing rules for experiments that should go live
+- Monitor Data360 metrics and experiment goals after go-live
 
 <br />
 
