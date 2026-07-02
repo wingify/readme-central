@@ -147,12 +147,6 @@ Once MCP server is successfully configured, start the migration by typing a sing
 
 The MCP server scans your codebase, identifies all Statsig components, recreates them in Wingify, and updates your application code automatically.
 
-<Callout icon="fa-lightbulb" theme="success">
-  ###
-
-  After the assistant connects, ask it to <strong>Add Wingify Rules</strong> once before running the migration. This sets up project-level rules for your codebase and only needs to be done once per project.
-</Callout>
-
 <br />
 
 ## Verify the migrated output
