@@ -2,25 +2,36 @@
 title: Statsig To Wingify
 excerpt: >-
   Migrate your Statsig gates, configs, and experiments to Wingify Feature
-  Experimentation
+  Experimentation.
 deprecated: false
 hidden: true
 metadata:
   robots: index
 ---
-Migrate your feature setup from Statsig to Wingify using the FE MCP Server and running a single prompt. It will migrate your Statsig configuration to Wingify FE, and make the required code changes to use Wingify FE SDKs.
-
 <Callout icon="fa-comment" theme="warning">
   ###
 
-  <strong>Note:</strong> This is currently in Beta
+  <strong>Note:</strong> The Statsig to Wingify Migration Assistant is currently in Beta. Review all migrated output before enabling anything in production.
 </Callout>
 
-<br />
+Migrate your feature setup from Statsig to Wingify using FE MCP Server with a single prompt. The assistant migrates your Statsig configuration to Wingify FE and makes the required code changes to use Wingify FE SDKs.
+
+## **Prerequisites**
+
+Confirm the following before starting the migration.
+
+#### Access and accounts
+
+- Active Statsig project with the gates, configs, and experiments you plan to migrate
+- Active Wingify account with Feature Experimentation enabled
+
+#### Workspace setup
+
+- Cursor (or another MCP-compatible IDE) with the Wingify FE MCP server installed — [see the MCP Server setup guide](https://developers.wingify.com/v3/docs/fme-mcp-server)
 
 ## Migration flow
 
-1. **Check prerequisites**<br />a. Statsig project with the gates, configs, and experiments you plan to migrate<br />b. Wingify account with **Feature Experimentation enabled**
+1. **Check prerequisites**<br />confirm your Statsig project, Wingify FE account, and IDE setup listed above
 2. **Add the Wingify FE MCP Server**<br />[Add the Wingify FE MCP](https://developers.wingify.com/v3/docs/fme-mcp-server) server to your IDE and required credentials
 3. **Run the migration prompt**<br />Something like _migrate my project from statsig to wingify_
 4. **Review in the Wingify dashboard**<br />Confirm your feature flags, rollout and testing rules were created correctly
