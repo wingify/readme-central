@@ -39,18 +39,6 @@ Confirm the following before starting the migration.
 
 <br />
 
-## Configure migration credentials
-
-Three values are configured in the MCP server block.
-
-| Field                     | Purpose                                                                                                                     |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `WINGIFY_ACCOUNT_ID`      | Wingify Account ID, found in account settings.                                                                              |
-| `WINGIFY_API_KEY`         | [Wingify Developer Token](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API), used  to create flags |
-| `STATSIG_CONSOLE_API_KEY` | Statsig Console API key to read existing gates, configs, and experiments                                                    |
-
-<br />
-
 ## How Wingify FE differs from Statsig
 
 Statsig and Wingify Feature Experimentation both help you roll out features, personalize experiences, and run experiments, but they organize the work differently.
@@ -131,11 +119,13 @@ The MCP server handles configuration import and code rewrite in one workflow.
 | Dynamic configs               | ✓ Migrated                                                                                                                                                                                                       |
 | Experiments                   | ✓ Migrated                                                                                                                                                                                                       |
 | Custom-event metrics          | ✓ Migrated                                                                                                                                                                                                       |
-| Segments / audience targeting | Currently not configured (coming soon in v1)                                                                                                                                                                     |
+| Segments / audience targeting | Coming soon in General Availability Release                                                                                                                                                                      |
 | Layers (mutual exclusion)     | Not directly supported. Mutually Exclusive Groups (MEG) are an option — [see the MEG documentation](https://help.vwo.com/hc/en-us/articles/360034153814-How-to-Set-Up-Mutually-Exclusive-Campaign-Groups-in-VWO) |
 | Warehouse-native metrics      | Not supported                                                                                                                                                                                                    |
 
-### Step 1: Configure migration credentials
+<br />
+
+## Step 1: Configure migration credentials
 
 Three values are configured in the MCP server block.
 
@@ -227,5 +217,7 @@ When the migration completes, the assistant returns a consolidated migration sum
 | Missing metrics            | Statsig Console API key and Data360 access in Wingify       |
 | Empty or partial migration | Statsig project permissions                                 |
 | Wrong environment          | MCP target environment. The default is Production (`id: 1`) |
+
+<br />
 
 <br />
