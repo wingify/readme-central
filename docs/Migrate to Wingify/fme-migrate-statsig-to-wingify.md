@@ -110,7 +110,7 @@ The MCP server handles configuration import and code rewrite in one workflow.
 ### Configuration import
 
 - Recreates feature gates as Feature flags with rollout rules
-- Recreates dynamic configs as feature flags with personalize rules
+- Recreates dynamic configs as feature flags with testing/rollout/personalize rules
 - Recreates experiments as feature flags with testing rules with variations
 - Migrates metrics to Wingify Data360 events and metrics
 
@@ -125,15 +125,15 @@ The MCP server handles configuration import and code rewrite in one workflow.
 
 ### What's in the migration scope
 
-| Statsig type                  | Status                                       |
-| ----------------------------- | -------------------------------------------- |
-| Feature gates                 | ✓ Migrated                                   |
-| Dynamic configs               | ✓ Migrated                                   |
-| Experiments                   | ✓ Migrated                                   |
-| Custom-event metrics          | ✓ Migrated                                   |
-| Segments / audience targeting | Currently not configured (coming soon in v1) |
-| Layers (mutual exclusion)     | Not directly supported (MEG is an option)    |
-| Warehouse-native metrics      | Not supported                                |
+| Statsig type                  | Status                                                                                                                                                                                                           |
+| ----------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Feature gates                 | ✓ Migrated                                                                                                                                                                                                       |
+| Dynamic configs               | ✓ Migrated                                                                                                                                                                                                       |
+| Experiments                   | ✓ Migrated                                                                                                                                                                                                       |
+| Custom-event metrics          | ✓ Migrated                                                                                                                                                                                                       |
+| Segments / audience targeting | Currently not configured (coming soon in v1)                                                                                                                                                                     |
+| Layers (mutual exclusion)     | Not directly supported. Mutually Exclusive Groups (MEG) are an option — [see the MEG documentation](https://help.vwo.com/hc/en-us/articles/360034153814-How-to-Set-Up-Mutually-Exclusive-Campaign-Groups-in-VWO) |
+| Warehouse-native metrics      | Not supported                                                                                                                                                                                                    |
 
 <br />
 
