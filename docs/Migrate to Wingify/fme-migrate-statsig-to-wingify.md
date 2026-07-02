@@ -95,11 +95,11 @@ In Statsig, experiment code often branches on a variation name (`groupName`). In
 
 ### Environment model
 
-| Aspect               | Statsig                                            | Wingify FE                                                      |
-| -------------------- | -------------------------------------------------- | --------------------------------------------------------------- |
-| SDK key              | One key + optional environment tier set in code    | One SDK key per environment; the key determines the environment |
-| Default environments | Development, Staging, Production built in          | User-defined environments within a project                      |
-| Rule targeting       | Rules can be scoped to a specific environment tier | Rules are toggled independently per environment                 |
+| Aspect               | Statsig                                            | Wingify FE                                                                                                                 |
+| -------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| SDK key              | One key + optional environment tier set in code    | One SDK key per environment; the key determines the environment                                                            |
+| Default environments | Development, Staging, Production built in          | Default environments (Dev, Staging, Prod) provided out of the box; additional environments can be defined within a project |
+| Rule targeting       | Rules can be scoped to a specific environment tier | Rules are toggled independently per environment                                                                            |
 
 <br />
 
