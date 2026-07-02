@@ -157,7 +157,7 @@ The MCP server scans your codebase, identifies all Statsig components, recreates
 
 ## Verify the migrated output
 
-After the migration is completed, verify the setup inside Wingify Feature Flags, as well as the code snippets. Once the verification is done, ensure that the feature flags as well as the corresponding rules toggles are turned **ON.**
+When the migration completes, the assistant returns a consolidated migration summary in your IDE. Use this summary as your verification checklist before enabling anything. Once verification is done, turn the feature flags and the corresponding rule toggles **ON**.
 
 <br />
 
