@@ -67,11 +67,11 @@ After migration, three separate SDK calls in Statsig are replaced by a single ca
 
 ### Equivalent Features
 
-| What it does              | In Statsig     | In FE                           |
-| ------------------------- | -------------- | ------------------------------- |
-| Turn a feature on or off  | Feature Gate   | Feature Flag + Rollout Rule     |
-| Control settings remotely | Dynamic Config | Feature Flag + Personalize Rule |
-| Run an A/B test           | Experiment     | Feature Flag + Testing Rule     |
+| What it does              | In Statsig     | In Wingify FE                                   |
+| ------------------------- | -------------- | ----------------------------------------------- |
+| Turn a feature on or off  | Feature Gate   | Feature Flag + Rollout Rule                     |
+| Control settings remotely | Dynamic Config | Feature Flag + Rollout/Testing/Personalize Rule |
+| Run an A/B test           | Experiment     | Feature Flag + Testing Rule                     |
 
 <br />
 
