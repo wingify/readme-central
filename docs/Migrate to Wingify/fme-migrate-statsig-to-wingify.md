@@ -192,6 +192,19 @@ When the migration completes, the assistant returns a consolidated migration sum
 - Statsig SDK imports and calls have been fully replaced (getFlag(), trackEvent())
 - No branching logic remains on variation names — code reads flag variables instead
 
+<br />
+
+## Run a smoke test (after the SDK is connected)
+
+- Re-initialize the SDK or restart the app
+- Gate — confirm ON/OFF behavior for a test user
+- Config — verify variable values match the dashboard
+- Experiment — confirm variation variables and running status
+- Events — trigger a key event and confirm it appears in Wingify (validates metric and tracking wiring)
+- Change the user ID and re-initialize to confirm consistent bucketing
+
+<br />
+
 ## Troubleshooting
 
 | Issue                      | What to check                                               |
@@ -206,7 +219,16 @@ When the migration completes, the assistant returns a consolidated migration sum
 ## Next steps and resources
 
 1. Enable migrated feature flags in the Wingify dashboard (these are OFF by default)
-2. Start testing campaigns for experiments that should go live
+2. Start testing rules for experiments that should go live
 3. Monitor Data360 metrics and experiment goals after go-live
+
+<br />
+
+
+
+Confirm the app uses the Wingify SDK and passes the smoke tests above
+Validate in Staging and Development environments before full Production cutover
+Monitor Data360 metrics after go-live
+Retire Statsig only after Wingify is validated in production
 
 <br />
