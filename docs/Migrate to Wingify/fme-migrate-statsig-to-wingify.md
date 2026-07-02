@@ -139,6 +139,14 @@ The MCP server handles configuration import and code rewrite in one workflow.
 
 ## Run the migration
 
+##
+
+<br />
+
+<br />
+
+<br />
+
 Once MCP server is successfully configured, start the migration by typing a single prompt:
 
 <Callout icon="fa-comment" theme="info">
@@ -221,14 +229,5 @@ When the migration completes, the assistant returns a consolidated migration sum
 1. Enable migrated feature flags in the Wingify dashboard (these are OFF by default)
 2. Start testing rules for experiments that should go live
 3. Monitor Data360 metrics and experiment goals after go-live
-
-<br />
-
-
-
-Confirm the app uses the Wingify SDK and passes the smoke tests above
-Validate in Staging and Development environments before full Production cutover
-Monitor Data360 metrics after go-live
-Retire Statsig only after Wingify is validated in production
 
 <br />
