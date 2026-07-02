@@ -193,8 +193,6 @@ When the migration completes, the assistant returns a consolidated migration sum
 
 <br />
 
-.
-
 <Callout icon="fa-lightbulb" theme="success">
   ### Primary and Secondary Metrics
 
