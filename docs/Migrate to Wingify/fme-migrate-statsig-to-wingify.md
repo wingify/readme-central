@@ -225,26 +225,31 @@ When the migration completes, the assistant returns a consolidated migration sum
         Statsig project permissions
       </td>
     </tr>
-
-    <tr>
-      <td>
-        \[**REMOVE**] Wrong environment
-      </td>
-
-      <td>
-        MCP target environment. The default is Production (`id: 1`)
-      </td>
-    </tr>
   </tbody>
 </Table>
 
 ## FAQ
 
-Q. I have multiple projects in Statsig, how do I migrate all of them to Wingify?
+**Q.** I have multiple Statsig projects. How do I migrate all of them?
+Each _Statsig Console API_ key is scoped to one project, so the migration runs one project at a time — repeat it per project, updating only **STATSIG\_CONSOLE\_API\_KEY** in your MCP configuration between runs.<br />You can structure the destination in two ways:<br />1. All projects into one Wingify account — run each migration with the same Wingify credentials. Simple, but flag keys must be unique across the account, so watch for collisions.<br />2. One workspace per Statsig project — create a Wingify workspace for each project and target it per run. Preserves project boundaries and per-team access.<br />
 
-You can do this in two different ways.
+**Q**. Does the migration modify my Statsig setup?
+No. The Statsig Console API key is used only to read your gates, configs, experiments, and metrics. The migration never writes to or changes anything in Statsig — your existing setup keeps running untouched until you choose to retire it.
 
-1. Each Statsig Console API key corresponds to a project. You can use the different API keys and migrate all your gates, experiments and dynamic configurations to the same Wingify Project
-2. If you want to keep the projects separate, first create different workspaces in Wingify, and then use their corresponding developer tokens in the MCP server, so that each Statsig project will map to a separate Wingify workspace
+
+Q. Will my users be re-bucketed? Will running experiments be disrupted?
+Yes — Statsig and Wingify FE use different deterministic bucketing algorithms, so the same user ID may land in a different variation after migration. For feature gates and rollouts this is usually harmless. For running experiments, don't carry results across platforms: either conclude the experiment in Statsig before migrating, or restart it fresh in Wingify FE. Experiment results and historical data do not migrate.
+
+
+Q. Which SDKs does the code rewrite support?
+The assistant rewrites application code for languages with a Wingify FE SDK equivalent to your Statsig SDK. (Insert supported list — e.g., Node.js, Java, PHP, Python, .NET, Ruby, Go, and client-side SDKs — confirm the tested set with engineering.) For unsupported languages, the configuration import still works; only the code changes need to be made manually using the SDK reference.
+
+
+Q. What happens to my Statsig historical experiment data?
+It stays in Statsig — experiment results, exposure logs, and metric history are not migrated. Export or archive anything you need from Statsig before decommissioning your account. In Wingify, reporting starts fresh from the moment your migrated flags go live.
+
+
+Q. How long does the migration take?
+It depends on the number of items and the size of your codebase — small projects finish in minutes, while large projects with many flags and call sites take longer since each item is created via API and each code reference is rewritten. The migration summary shows progress per item, and re-running is safe if a run is interrupted.
 
 <br />
