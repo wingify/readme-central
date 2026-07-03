@@ -168,7 +168,7 @@ When the migration completes, the assistant returns a consolidated migration sum
   In Wingify, a feature flag can have **only one** primary metric, but **multiple** secondary metrics. The primary metric is used to decide a winner of a campaign
 </Callout>
 
-#### Review the migrated code
+### Review the migrated code
 
 - A valid Wingify accountId and FE environment SDK key are used in SDK initialization
 - Statsig SDK imports and calls have been fully replaced (getFlag(), trackEvent())
