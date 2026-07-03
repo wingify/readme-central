@@ -221,3 +221,54 @@ When the migration completes, the assistant returns a consolidated migration sum
 <br />
 
 <br />
+
+## Troubleshooting
+
+<Table>
+  <thead>
+    <tr>
+      <th>
+        Issue
+      </th>
+
+      <th>
+        What to check
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td>
+        Missing flags or metrics
+      </td>
+
+      <td>
+        1. Wingify Developer Token and Account ID in MCP config
+        2. Statsig Console API key
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Empty or partial migration
+      </td>
+
+      <td>
+        Statsig project permissions
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        Wrong environment
+      </td>
+
+      <td>
+        MCP target environment. The default is Production (`id: 1`)
+      </td>
+    </tr>
+  </tbody>
+</Table>
+
+<br />
