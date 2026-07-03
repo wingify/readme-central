@@ -230,7 +230,7 @@ When the migration completes, the assistant returns a consolidated migration sum
 
 ## FAQ
 
-<Accordion title="I have multiple Statsig projects. How do I migrate all of them?" icon="fa-folder-tree">
+<Accordion title="I have multiple Statsig projects. How do I migrate all of them?">
   Each _Statsig Console API_ key is scoped to one project, so the migration runs one project at a time. Repeat the migration for each project, updating only `STATSIG_CONSOLE_API_KEY` in your MCP configuration between runs.
 
   You can structure the destination in two ways:
@@ -239,17 +239,17 @@ When the migration completes, the assistant returns a consolidated migration sum
   2. **One workspace per Statsig project** — create a Wingify workspace for each project and target it per run. This preserves project boundaries and per-team access.
 </Accordion>
 
-<Accordion title="Does the migration modify my Statsig setup?" icon="fa-shield-halved">
+<Accordion title="Does the migration modify my Statsig setup?">
   No. The Statsig Console API key is used only to read your gates, configs, experiments, and metrics. The migration never writes to or changes anything in Statsig, so your existing setup keeps running untouched until you choose to retire it.
 </Accordion>
 
-<Accordion title="Will my users be re-bucketed? Will running experiments be disrupted?" icon="fa-shuffle">
+<Accordion title="Will my users be re-bucketed? Will running experiments be disrupted?">
   Yes. Statsig and Wingify FE use different deterministic bucketing algorithms, so the same user ID may land in a different variation after migration.
 
   For feature gates and rollouts, this is usually harmless. For running experiments, do not carry results across platforms. Either conclude the experiment in Statsig before migrating, or restart it fresh in Wingify FE. Experiment results and historical data do not migrate.
 </Accordion>
 
-<Accordion title="Which SDKs does the code rewrite support?" icon="fa-code">
+<Accordion title="Which SDKs does the code rewrite support?">
   The assistant rewrites application code for languages that have a Wingify FE SDK equivalent to your Statsig SDK.
 
   The supported languages are: Android, iOS, React-Native, Flutter, Go, Java, Javascript, NextJS, Node, PHP, Python, React-Web, Ruby, .NET
@@ -257,7 +257,7 @@ When the migration completes, the assistant returns a consolidated migration sum
   For unsupported languages, the configuration import still works, but you will have to manually write the code, using the <a href="https://developers.wingify.com/v2/docs/gateway-service">Gateway Service</a>
 </Accordion>
 
-<Accordion title="What happens to my Statsig historical experiment data?" icon="fa-clock-rotate-left">
+<Accordion title="What happens to my Statsig historical experiment data?">
   It stays in Statsig. Experiment results, exposure logs, and metric history are <b>not</b> migrated. In Wingify, reporting starts fresh from the moment your migrated flags go live.
 </Accordion>
 
