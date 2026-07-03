@@ -258,15 +258,7 @@ When the migration completes, the assistant returns a consolidated migration sum
 </Accordion>
 
 <Accordion title="What happens to my Statsig historical experiment data?" icon="fa-clock-rotate-left">
-  It stays in Statsig. Experiment results, exposure logs, and metric history are not migrated.
-
-  Export or archive anything you need from Statsig before decommissioning your account. In Wingify, reporting starts fresh from the moment your migrated flags go live.
-</Accordion>
-
-<Accordion title="How long does the migration take?" icon="fa-hourglass-half">
-  It depends on the number of items and the size of your codebase. Small projects finish in minutes, while large projects with many flags and call sites take longer because each item is created through the API and each code reference is rewritten.
-
-  The migration summary shows progress per item, and re-running is safe if a run is interrupted.
+  It stays in Statsig. Experiment results, exposure logs, and metric history are <b>not</b> migrated. In Wingify, reporting starts fresh from the moment your migrated flags go live.
 </Accordion>
 
 <br />
