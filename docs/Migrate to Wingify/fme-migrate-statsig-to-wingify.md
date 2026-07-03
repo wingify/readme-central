@@ -228,7 +228,7 @@ When the migration completes, the assistant returns a consolidated migration sum
 
     <tr>
       <td>
-        Wrong environment
+        \[**REMOVE**] Wrong environment
       </td>
 
       <td>
