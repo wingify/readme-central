@@ -97,8 +97,6 @@ The MCP server handles configuration import and code rewrite in one workflow.
 - Replaces `logEvent()` with `trackEvent()`
 - Updates SDK initialization logic
 
-<br />
-
 ## What's in the migration scope
 
 | Statsig type                  | Status                                                                                                                                                                                                           |
