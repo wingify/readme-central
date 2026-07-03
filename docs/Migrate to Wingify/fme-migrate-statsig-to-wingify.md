@@ -252,7 +252,7 @@ When the migration completes, the assistant returns a consolidated migration sum
 <Accordion title="Which SDKs does the code rewrite support?" icon="fa-code">
   The assistant rewrites application code for languages that have a Wingify FE SDK equivalent to your Statsig SDK.
 
-  For unsupported languages, the configuration import still works, but you must update the application code manually.
+  For unsupported languages, the configuration import still works, but you will have to manually write the code, using the <a href="https://developers.wingify.com/v2/docs/gateway-service">Gateway Service</a>
 </Accordion>
 
 <Accordion title="What happens to my Statsig historical experiment data?" icon="fa-clock-rotate-left">
