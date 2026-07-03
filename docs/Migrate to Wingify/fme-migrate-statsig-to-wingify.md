@@ -245,6 +245,6 @@ Q. I have multiple projects in Statsig, how do I migrate all of them to Wingify?
 You can do this in two different ways.
 
 1. Each Statsig Console API key corresponds to a project. You can use the different API keys and migrate all your gates, experiments and dynamic configurations to the same Wingify Project
-2. If you want to keep the projects separate, first create different workspaces in Wingify, and then use their corresponding&#x20;
+2. If you want to keep the projects separate, first create different workspaces in Wingify, and then use their corresponding developer tokens in the MCP server, so that each Statsig project will map to a separate Wingify workspace
 
 <br />
