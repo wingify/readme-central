@@ -227,7 +227,7 @@ When the migration completes, the assistant returns a consolidated migration sum
   </tbody>
 </Table>
 
-## FAQ
+## FAQs
 
 <Accordion title="I have multiple Statsig projects. How do I migrate all of them?">
   Each _Statsig Console API_ key is scoped to one project, so the migration runs one project at a time. Repeat the migration for each project, updating only `STATSIG_CONSOLE_API_KEY` in your MCP configuration between runs.
