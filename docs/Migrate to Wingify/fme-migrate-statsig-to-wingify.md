@@ -169,7 +169,7 @@ When the migration completes, the assistant returns a consolidated migration sum
 
 ### Review the migrated code
 
-- A valid Wingify accountId and FE environment SDK key are used in SDK initialization
+- A valid Wingify accountId and FE SDK environment key are used in SDK initialization
 - Statsig SDK imports and calls have been fully replaced (getFlag(), trackEvent())
 - No branching logic remains on variation names — code reads flag variables instead
 
