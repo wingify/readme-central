@@ -67,13 +67,9 @@ After migration, three separate SDK calls in Statsig are replaced by a single ca
 | Experiment | `getExperiment(key)` → `groupName`, `value` | `getFlag()` + testing rule; read variables, not variation name |
 | Events     | `logEvent()`                                | `trackEvent()`                                                 |
 
-<br />
-
 ## Variables vs. variation names
 
 In Statsig, experiment code often branches on a variation name (`groupName`). In FE, you read variables instead. The variation name is not used for branching logic. If you need a label for logging, expose it as a string variable
-
-<br />
 
 ## Environment model
 
