@@ -155,7 +155,6 @@ When the migration completes, the assistant returns a consolidated migration sum
 - Each migrated flag key exists in your Wingify project
 - Rollout rules match what you had in Statsig gates
 - Testing variations and traffic splits look correct
-- Flags were created in the intended environment, usually Production
 
 #### Metrics (under Data360 → Metrics)
 
