@@ -57,8 +57,6 @@ After migration, three separate SDK calls in Statsig are replaced by a single ca
 | Control settings remotely | Dynamic Config | Feature Flag + Rollout/Testing/Personalize Rule |
 | Run an A/B test           | Experiment     | Feature Flag + Testing Rule                     |
 
-<br />
-
 ## SDK call comparison
 
 | Area       | Statsig                                     | Wingify FE                                                     |
