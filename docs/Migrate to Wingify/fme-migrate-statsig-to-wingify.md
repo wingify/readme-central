@@ -189,8 +189,6 @@ When the migration completes, the assistant returns a consolidated migration sum
 - Enable all the rules that should go live
 - Monitor feature flag metrics after go-live
 
-<br />
-
 ## Troubleshooting
 
 <Table>
