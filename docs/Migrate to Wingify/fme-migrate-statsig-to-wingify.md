@@ -49,8 +49,6 @@ Everything in Statsig maps to FE as a feature flag with a rule. A gate becomes a
 
 After migration, three separate SDK calls in Statsig are replaced by a single call in FE: `getFlag()`
 
-<br />
-
 ## Equivalent Features
 
 | What it does              | In Statsig     | In Wingify FE                                   |
