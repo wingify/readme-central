@@ -237,13 +237,11 @@ Each _Statsig Console API_ key is scoped to one project, so the migration runs o
 No. The Statsig Console API key is used only to read your gates, configs, experiments, and metrics. The migration never writes to or changes anything in Statsig — your existing setup keeps running untouched until you choose to retire it.
 
 
-Q. Will my users be re-bucketed? Will running experiments be disrupted?
+**Q**. Will my users be re-bucketed? Will running experiments be disrupted?
 Yes — Statsig and Wingify FE use different deterministic bucketing algorithms, so the same user ID may land in a different variation after migration. For feature gates and rollouts this is usually harmless. For running experiments, don't carry results across platforms: either conclude the experiment in Statsig before migrating, or restart it fresh in Wingify FE. Experiment results and historical data do not migrate.
 
 
-Q. Which SDKs does the code rewrite support?
-The assistant rewrites application code for languages with a Wingify FE SDK equivalent to your Statsig SDK. (Insert supported list — e.g., Node.js, Java, PHP, Python, .NET, Ruby, Go, and client-side SDKs — confirm the tested set with engineering.) For unsupported languages, the configuration import still works; only the code changes need to be made manually using the SDK reference.
-
+**Q**. Which SDKs does the code rewrite support?<br />The assistant rewrites application code for languages with a Wingify FE SDK equivalent to your Statsig SDK. (Insert supported list — e.g., Node.js, Java, PHP, Python, .NET, Ruby, Go, and client-side SDKs) For unsupported languages, the configuration import still works; but <br />
 
 Q. What happens to my Statsig historical experiment data?
 It stays in Statsig — experiment results, exposure logs, and metric history are not migrated. Export or archive anything you need from Statsig before decommissioning your account. In Wingify, reporting starts fresh from the moment your migrated flags go live.
