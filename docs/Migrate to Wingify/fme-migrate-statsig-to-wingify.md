@@ -1,5 +1,5 @@
 ---
-title: Statsig To Wingify
+title: Statsig To Wingify Migration Assistant
 excerpt: >-
   Migrate your Statsig gates, configs, and experiments to Wingify Feature
   Experimentation.
