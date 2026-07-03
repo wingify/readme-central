@@ -38,7 +38,7 @@ Confirm the following before starting the migration.
 1. **[Check prerequisites](#step-1-check-prerequisites-and-configure-migration-credentials)**<br />Confirm your Statsig project, Wingify FE account, and IDE setup listed above
 2. **[Add the Wingify FE MCP Server](#step-2-add-the-wingify-fe-mcp-server)**<br />[Add the Wingify FE MCP](https://developers.wingify.com/v3/docs/fme-mcp-server) server to your IDE and configure credentials
 3. **[Run the migration prompt](#step-3-run-the-migration)**<br />Something like _migrate my project from Statsig to Wingify_
-4. **[Review in the Wingify dashboard and your codebase](#step-4-verify-the-migrated-output)**<br />Confirm feature flags, rollout and testing rules were created correctly, and review the SDK code changes made by the Assistant
+4. [**Verify the migrated output**](#step-4-verify-the-migrated-output)<br />Confirm feature flags, rollout and testing rules were created correctly, and review the SDK code changes made by the Assistant
 5. **[Enable and go live](#step-5-enable-and-go-live)**<br />Turn on the newly created, migrated flags in Wingify, validate it and then you are good to go
 
 <br />
