@@ -31,17 +31,17 @@ Confirm the following before starting the migration.
 
 - MCP compatible IDE with the Wingify FE MCP server installed — [see the MCP Server setup guide](https://developers.wingify.com/v3/docs/fme-mcp-server)
 
-
+<br />
 
 ## Migration flow
 
-1. **[Check prerequisites](#step-1-check-prerequisites-and-configure-migration-credentials)**<br />confirm your Statsig project, Wingify FE account, and IDE setup listed above
+1. **[Check prerequisites](#step-1-check-prerequisites-and-configure-migration-credentials)**<br />Confirm your Statsig project, Wingify FE account, and IDE setup listed above
 2. **[Add the Wingify FE MCP Server](#step-2-add-the-wingify-fe-mcp-server)**<br />[Add the Wingify FE MCP](https://developers.wingify.com/v3/docs/fme-mcp-server) server to your IDE and configure credentials
 3. **[Run the migration prompt](#step-3-run-the-migration)**<br />Something like _migrate my project from Statsig to Wingify_
 4. **[Review in the Wingify dashboard and your codebase](#step-4-verify-the-migrated-output)**<br />Confirm feature flags, rollout and testing rules were created correctly, and review the SDK code changes made by the Assistant
 5. **[Enable and go live](#step-5-enable-and-go-live)**<br />Turn on the newly created, migrated flags in Wingify, validate it and then you are good to go
 
-
+<br />
 
 ## How Wingify FE differs from Statsig
 
@@ -143,7 +143,7 @@ Three values are configured in the MCP server block.
 
 Add the [Wingify FE MCP Server](https://developers.wingify.com/v3/docs/fme-mcp-server) to your IDE and configure it with the credentials from Step 1
 
-## Step 3: Run the migration
+## Step 3: Run the migration prompt
 
 Once MCP server is successfully configured, start the migration by typing a single prompt:
 
