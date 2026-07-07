@@ -11,10 +11,10 @@ The **Wingify FE MCP Server** serves as a seamless bridge between your developme
 
 ### Key Features
 
-* **AI Assistant Integration**: Compatible with tools such as `Cursor`, `VS Code`, and `Claude`.
-* **Feature Flag Management**: Enables the creation, reading, updating, and deletion of feature flags.
-* **Environment Control**: Offers flexibility to enable or disable features in different environments.
-* **Cursor Rule Setup**: Bootstrapping simplifies the configuration of Cursor rules to deliver contextual results and integrate with the SDK
+- **AI Assistant Integration**: Compatible with tools such as `Cursor`, `VS Code`, and `Claude`.
+- **Feature Flag Management**: Enables the creation, reading, updating, and deletion of feature flags.
+- **Environment Control**: Offers flexibility to enable or disable features in different environments.
+- **Cursor Rule Setup**: Bootstrapping simplifies the configuration of Cursor rules to deliver contextual results and integrate with the SDK
 
 This is ideal for developers who want to manage feature flags efficiently within their IDEs.
 
@@ -24,10 +24,10 @@ This is ideal for developers who want to manage feature flags efficiently within
 
 To connect the MCP server to the Wingify feature experimentation system, you must configure two essential environment variables:
 
-* **VWO_ACCOUNT_ID**: Wingify Account ID.
-* **VWO_API_KEY**: The API key (Developer Token) for authenticating with Wingify REST APIs.
+- **WINGIFY\_ACCOUNT\_ID**: Wingify Account ID.
+- **WINGIFY\_API\_KEY**: The API key (Developer Token) for authenticating with Wingify REST APIs.
 
-> To create your developer token, please refer to the article <Anchor label="How to Access Wingify API" target="_blank" href="https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API">How to Access Wingify API</Anchor> and navigate to the `Generate API Tokens` section for step-by-step instructions.
+> To create your developer token, please refer to the article <Anchor target="_blank" href="https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API">How to Access Wingify API</Anchor> and navigate to the `Generate API Tokens` section for step-by-step instructions.
 
 <br />
 
@@ -44,12 +44,12 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 ```json
 {
   "mcpServers": {
-    "vwo-mcp-server": {
+    "wingify-mcp-server": {
       "command": "npx",
-      "args": ["-y", "vwo-fme-mcp@latest"],
+      "args": ["-y", "wingify-fme-mcp@latest"],
       "env": {
-        "VWO_ACCOUNT_ID": "VWO_ACCOUNT_ID",
-        "VWO_API_KEY": "VWO_API_KEY"
+        "WINGIFY_ACCOUNT_ID": "WINGIFY_ACCOUNT_ID",
+        "WINGIFY_API_KEY": "WINGIFY_API_KEY"
       }
     }
   }
@@ -59,15 +59,19 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 
 4. Save the configuration and confirm that the server status turns green, indicating it's active.
 
-<Image align="center" border={true} caption="Wingify FE MCP Server Setup in Cursor" src="https://files.readme.io/2e318235298fb03b366a67dde23975d50a403f6329000980b364ad7df59497f8-fme-_mcp_cusror_setup.gif" />
 
-> 📘 Note:
->
-> If the MCP stays red after being turned on, ensure that you have **Node.js** installed, as the MCP requires **npx** to install the package. To confirm this, run `npx -v`. If you get an error saying the `npx: command not found`, then install **Node.js** and check again. If you get the correct version of npx, restart the cursor and try turning on the MCP again.
+<Image src="https://files.readme.io/2e318235298fb03b366a67dde23975d50a403f6329000980b364ad7df59497f8-fme-_mcp_cusror_setup.gif" align="center" caption="Wingify FE MCP Server Setup in Cursor" border={true} />
+
+
+<Callout icon="📘" theme="info">
+  ### Note:
+
+  If the MCP stays red after being turned on, ensure that you have **Node.js** installed, as the MCP requires **npx** to install the package. To confirm this, run `npx -v`. If you get an error saying the `npx: command not found`, then install **Node.js** and check again. If you get the correct version of npx, restart the cursor and try turning on the MCP again.
+</Callout>
 
 <br />
 
-> You can add the Wingify FE MCP Server by simply clicking the button below. Make sure to update the VWO_ACCOUNT_ID and VWO_API_KEY environment variables before you start using it.
+> You can add the Wingify FE MCP Server by simply clicking the button below. Make sure to update the VWO\_ACCOUNT\_ID and VWO\_API\_KEY environment variables before you start using it.
 
 <br />
 
@@ -87,9 +91,9 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 ```json
 "mcp": {
   "servers": {
-    "vwo-mcp-server": {
+    "wingify-mcp-server": {
       "command": "npx",
-      "args": ["-y", "vwo-fme-mcp@latest"],
+      "args": ["-y", "wingify-fme-mcp@latest"],
       "env": {
         "VWO_ACCOUNT_ID": "VWO_ACCOUNT_ID",
         "VWO_API_KEY": "VWO_API_KEY"
@@ -101,7 +105,9 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 
 3. Save the settings and ensure the MCP server is ready for use within VS Code.
 
-<Image align="center" border={true} caption="Wingify FE MCP Server Setup in VS Code" src="https://files.readme.io/351699fdc6e3c335f4b87f32eeaf204faca01600eda6fafc5291ab1464353da7-VWO_VS_Code_MCP.gif" />
+
+<Image src="https://files.readme.io/351699fdc6e3c335f4b87f32eeaf204faca01600eda6fafc5291ab1464353da7-VWO_VS_Code_MCP.gif" align="center" caption="Wingify FE MCP Server Setup in VS Code" border={true} />
+
 
 ***
 
@@ -114,12 +120,12 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 ```json
 {
   "mcpServers": {
-    "vwo-mcp-server": {
+    "wingify-mcp-server": {
       "command": "npx",
-      "args": ["-y", "vwo-fme-mcp@latest"],
+      "args": ["-y", "wingify-fme-mcp@latest"],
       "env": {
-        "VWO_ACCOUNT_ID": "VWO_ACCOUNT_ID",
-        "VWO_API_KEY": "VWO_API_KEY"
+        "WINGIFY_ACCOUNT_ID": "WINGIFY_ACCOUNT_ID",
+        "WINGIFY_API_KEY": "WINGIFY_API_KEY"
       }
     }
   }
@@ -128,13 +134,17 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 
 4. Save the file and restart Claude Desktop. Once the server is active, a hammer icon will appear in the chat window.
 
-<Image align="center" border={true} caption="Wingify FE MCP Server Setup in Claude" src="https://files.readme.io/5f8166e22cf8760d4ffde73bca3e88a89d6f81720668864062a9e77bbb0d11bc-VWO_Claude_MCP.gif" />
+
+<Image src="https://files.readme.io/5f8166e22cf8760d4ffde73bca3e88a89d6f81720668864062a9e77bbb0d11bc-VWO_Claude_MCP.gif" align="center" caption="Wingify FE MCP Server Setup in Claude" border={true} />
+
 
 <br />
 
-> 📘 Looking for other AI Clients?
->
-> For other clients, refer to their documentation on configuring custom MCP servers. The configuration pattern remains similar.
+<Callout icon="📘" theme="info">
+  ### Looking for other AI Clients?
+
+  For other clients, refer to their documentation on configuring custom MCP servers. The configuration pattern remains similar.
+</Callout>
 
 <br />
 
@@ -148,8 +158,8 @@ Here's what you can do with our feature flag management tools:
 
 > Note: Supports both Cursor IDE and VS Code. The tool automatically detects your IDE or you can specify it manually. Needs to be called once after setting up Wingify FE MCP.
 
-* **Cursor IDE**: Creates rules in `.cursor/rules/vwo-feature-flag-rule.mdc`
-* **VS Code**: Creates instructions in `.github/instructions/vwo-fme.instructions.md`
+- **Cursor IDE**: Creates rules in `.cursor/rules/wingify-feature-flag-rule.mdc`
+- **VS Code**: Creates instructions in `.github/instructions/wingify-fme.instructions.md`
 
 ### Feature Flags
 
@@ -188,14 +198,14 @@ Here's what you can do with our feature flag management tools:
 <br />
 
 <Accordion title="Source Code" icon="fa-info-circle">
-  You can browse the source code on Wingify's GitHub repository, Here's the [link](https://github.com/wingify/vwo-fme-mcp)
+  You can browse the source code on Wingify's GitHub repository, Here's the [link](https://github.com/wingify/wingify-fme-mcp)
 </Accordion>
 
 ## How it works
 
-* Starts with a natural language **prompt** from a developer or AI agent.
-* MCP Plugin acts as the **orchestrator**: detecting context, managing IDE rules, interacting with Wingify APIs, and generating SDK code.
-* Flags are created/updated in the Wingify dashboard, and integration code is directly injected into the user’s codebase.
+- Starts with a natural language **prompt** from a developer or AI agent.
+- MCP Plugin acts as the **orchestrator**: detecting context, managing IDE rules, interacting with Wingify APIs, and generating SDK code.
+- Flags are created/updated in the Wingify dashboard, and integration code is directly injected into the user’s codebase.
 
 <br />
 
@@ -225,3 +235,5 @@ graph TD
     classDef code fill:#cfc,stroke:#333,stroke-width:1px,color:#000
 
 ```
+
+<br />
