@@ -33,22 +33,20 @@ window.Wingify.push(['onVariationApplied', function (data) {
 
 ### Callback Data
 
-The callback function receives an object with the following structure:
+The callback function receives a single `data` object that contains information about the visitor, the applied campaign, and the assigned variation.
 
-**Type**:
+#### Type
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `visId` | `string` | Visitor identity |
-| `campType` | `string` | Campaign type, e.g. `VISUAL_AB`, `VISUAL`, `SPLIT_URL` |
-| `campId` | `string` | Campaign identity |
-| `campName` | `string` | Campaign name |
-| `varId` | `string` | Campaign's variation identity that was shown to the visitor |
-| `varName` | `string` | Campaign's variation name that was shown to the visitor |
-| `targetId` | `string` | Campaign's target identity whose variation was shown to the visitor. This is applicable for Peronsalize product only! |
-| `targetName` | `string` | Campaign's target name whose variation was shown to the visitor. This is applicable for Peronsalize product only! |
-
-This array structure ensures that the callback function can easily access the specific details of the campaign applied to the visitor.
+| `visId` | `string` | Unique identifier of the visitor. |
+| `campType` | `string` | Type of the applied campaign. Possible values include `VISUAL_AB`, `VISUAL`, and `SPLIT_URL`. |
+| `campId` | `string` | Unique identifier of the applied campaign. |
+| `campName` | `string` | Name of the applied campaign. |
+| `varId` | `string` | Unique identifier of the variation assigned to the visitor. |
+| `varName` | `string` | Name of the variation assigned to the visitor. |
+| `targetId` | `string \| null` | Unique identifier of the target. Available only for **Personalize** campaigns; otherwise `null`. |
+| `targetName` | `string \| null` | Name of the target. Available only for **Personalize** campaigns; otherwise `null`. |
 
 ### Example
 
