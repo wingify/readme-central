@@ -1,8 +1,8 @@
 ---
 title: Using Wingify Web Testing Visitor UUID as userId in FE SDK
 excerpt: >-
-  Use the Web Testing _vwo_uuid cookie as the Feature Experimentation
-  userContext.id to align visitor identity across Wingify products.
+  Use the Web Testing _vwo_uuid cookie as the Feature Experimentation userId to
+  align visitor identity across Wingify products
 deprecated: false
 hidden: true
 metadata:
