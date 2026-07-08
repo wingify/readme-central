@@ -4,7 +4,7 @@ excerpt: >-
   Migrate your Statsig gates, configs, and experiments to Wingify Feature
   Experimentation.
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
