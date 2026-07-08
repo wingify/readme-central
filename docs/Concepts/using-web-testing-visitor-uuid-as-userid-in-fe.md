@@ -138,6 +138,8 @@ async function evaluateFeatureFlag(wingifyClient, featureKey, fallbackUserId) {
 
 ## How it all fits together
 
+![](https://files.readme.io/95775bf250e31322e169e8e2a871ed089a2afa5e0ac97cebb26d4b022094aecf-vwo_uuid_flow_diagram.png)
+
 <br />
 
 ## Important Considerations
