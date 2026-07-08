@@ -14,10 +14,10 @@ next:
 
 If Web Testing and Feature Experimentation operate independently:
 
-* A user bucketed client-side may be unknown to server-side systems
-* Backend experiments cannot be correlated with frontend experiments
-* Funnel-level analysis becomes fragmented
-* Attribution becomes inaccurate
+- A user bucketed client-side may be unknown to server-side systems
+- Backend experiments cannot be correlated with frontend experiments
+- Funnel-level analysis becomes fragmented
+- Attribution becomes inaccurate
 
 In other words:
 
@@ -32,25 +32,26 @@ Connectivity ensures:
 The unifying principle is:
 
 <Callout icon="📘" theme="info">
-  **A canonical UUID must represent the same user across all evaluation layers.**  
-  Check [what is a UUID](https://developers.wingify.com/v2/docs/user-id-management)  for more details.
+  ###
+
+  **A canonical UUID must represent the same user across all evaluation layers.**<br />Check [what is a UUID](https://developers.wingify.com/v2/docs/fme-user-id-management)  for more details.
 </Callout>
 
 Whether evaluation occurs:
 
-* In the browser (SmartCode)
-* In the backend (FE SDK)
-* In mobile apps (FE SDK)
-* In APIs (Payload)
+- In the browser (SmartCode)
+- In the backend (FE SDK)
+- In mobile apps (FE SDK)
+- In APIs (Payload)
 
 The identity must remain stable.
 
 Wingify achieves this by ensuring that:
 
-* FE SDKs can generate/read and reuse UUIDs
-* SmartCode can generate/read and preserve the same UUID
-* Both systems communicate identity through cookies or server headers
-* All events flow into Web Insights under the same visitor profile
+- FE SDKs can generate/read and reuse UUIDs
+- SmartCode can generate/read and preserve the same UUID
+- Both systems communicate identity through cookies or server headers
+- All events flow into Web Insights under the same visitor profile
 
 ```mermaid
 flowchart TB
@@ -114,10 +115,10 @@ if(f=!1,v=d.querySelector('#vwoCode'),cc={},-1<d.URL.indexOf('__vwo_disable__')|
 
 Once installed on web pages:
 
-* Wingify can identify visitors
-* Bucketing happens client-side
-* Cookies are set automatically
-* Visual experiments can be launched without code changes
+- Wingify can identify visitors
+- Bucketing happens client-side
+- Cookies are set automatically
+- Visual experiments can be launched without code changes
 
 ### Feature Experimentation Example (Server-Side)
 
@@ -146,9 +147,9 @@ if (flag.isEnabled()) {
 
 Here:
 
-* The SDK buckets the user locally based on the unique ID for the user
-* Decisions happen before the response is sent to the front-end
-* Perfect for backend-controlled flows
+- The SDK buckets the user locally based on the unique ID for the user
+- Decisions happen before the response is sent to the front-end
+- Perfect for backend-controlled flows
 
 <br />
 
@@ -190,9 +191,9 @@ To keep the same UUID across server-side and client-side experiments, the identi
 
 Cookies are the most reliable way to share a UUID between server and client.
 
-* **Server → Client**: Server sets the UUID using the `Set-Cookie` header
-* **Client → Server**: Browser automatically sends the cookie with every request
-* **Client access**: Available via JavaScript if not marked HttpOnly
+- **Server → Client**: Server sets the UUID using the `Set-Cookie` header
+- **Client → Server**: Browser automatically sends the cookie with every request
+- **Client access**: Available via JavaScript if not marked HttpOnly
 
 Cookies persist across page refreshes and navigations, making them ideal for keeping server and client experiments in sync.
 
@@ -200,8 +201,8 @@ Cookies persist across page refreshes and navigations, making them ideal for kee
 
 Custom headers can be used to pass the UUID explicitly.
 
-* **Server → Client**: Server sends the UUID in a response header (e.g., `X-VWO-Visitor-ID`)
-* **Client → Server**: Client includes the same header in subsequent API requests
+- **Server → Client**: Server sends the UUID in a response header (e.g., `X-VWO-Visitor-ID`)
+- **Client → Server**: Client includes the same header in subsequent API requests
 
 This approach works well for API-driven applications but requires explicit handling and persistence on the client.
 
@@ -215,14 +216,16 @@ The server embeds the UUID into the page during rendering:
 </script>
 ```
 
-* **Server → Client**: UUID is injected during SSR
-* **Client → Server**: Client reads the value and sends it back via cookies or headers
+- **Server → Client**: UUID is injected during SSR
+- **Client → Server**: Client reads the value and sends it back via cookies or headers
 
 This method provides immediate client-side access but relies on another mechanism for persistence.
 
-> 📘 Recommendation
->
-> There can be other ways too, depending on the requirements. For consistent experiment identity, use cookies as the primary bidirectional channel, optionally combined with HTML injection (window or JSON script) for immediate client-side availability during initialization.
+<Callout icon="📘" theme="info">
+  ### Recommendation
+
+  There can be other ways too, depending on the requirements. For consistent experiment identity, use cookies as the primary bidirectional channel, optionally combined with HTML injection (window or JSON script) for immediate client-side availability during initialization.
+</Callout>
 
 <br />
 
@@ -230,10 +233,10 @@ This method provides immediate client-side access but relies on another mechanis
 
 This is common in:
 
-* Authenticated applications
-* API-driven products
-* Backend-rendered pages
-* SaaS dashboards
+- Authenticated applications
+- API-driven products
+- Backend-rendered pages
+- SaaS dashboards
 
 ### Theoretical Flow
 
@@ -269,9 +272,9 @@ sequenceDiagram
 
 ### Conceptual Outcome
 
-* The server becomes the primary authority.
-* Browser inherits identity.
-* Cross-layer alignment is automatic.
+- The server becomes the primary authority.
+- Browser inherits identity.
+- Cross-layer alignment is automatic.
 
 #### Server-side Example
 
@@ -307,18 +310,18 @@ window.VWO.push(['setVisitorId', () => {
 
 Common in:
 
-* Marketing websites
-* SEO landing pages
-* Anonymous traffic
-* Static sites
+- Marketing websites
+- SEO landing pages
+- Anonymous traffic
+- Static sites
 
 ### Theoretical Flow
 
 1. SmartCode loads first.
 2. SmartCode:
 
-* Generates a UUID.
-* Stores it in a cookie.
+- Generates a UUID.
+- Stores it in a cookie.
 
 3. User performs an action, triggering a server request.
 4. Server reads UUID from cookie or request headers.
@@ -349,9 +352,9 @@ sequenceDiagram
 
 ### Conceptual Outcome
 
-* The browser becomes the identity authority.
-* Server reuses existing identity.
-* No duplication occurs.
+- The browser becomes the identity authority.
+- Server reuses existing identity.
+- No duplication occurs.
 
 #### Server-side Example
 
@@ -372,10 +375,10 @@ const flag = vwoClient.getFlag('recommendation_algo', userContext);
 
 In real-world systems:
 
-* Some users land on marketing pages first.
-* Some users enter through authenticated deep links.
-* Some traffic originates via APIs.
-* Some flows are SPA-based.
+- Some users land on marketing pages first.
+- Some users enter through authenticated deep links.
+- Some traffic originates via APIs.
+- Some flows are SPA-based.
 
 If experimentation only supported one direction, identity fragmentation would occur.
 
@@ -407,10 +410,10 @@ flowchart LR
 
 Problems
 
-* Separate visitor identities
-* No shared attribution
-* Fragmented analytics
-* Incomplete funnel visibility
+- Separate visitor identities
+- No shared attribution
+- Fragmented analytics
+- Incomplete funnel visibility
 
 ### Unified Architecture (Recommended)
 
@@ -429,10 +432,10 @@ flowchart LR
 
 **Benefits**
 
-* Single UUID across systems
-* Unified experimentation
-* Reliable attribution
-* End-to-end journey tracking
+- Single UUID across systems
+- Unified experimentation
+- Reliable attribution
+- End-to-end journey tracking
 
 <br />
 
@@ -440,9 +443,9 @@ flowchart LR
 
 The diagram below illustrates:
 
-* FE SDK communicates with Wingify for configuration
-* SmartCode communicates independently with Wingify
-* UUID is the shared binding identity
+- FE SDK communicates with Wingify for configuration
+- SmartCode communicates independently with Wingify
+- UUID is the shared binding identity
 
 ```mermaid
 sequenceDiagram
@@ -477,10 +480,10 @@ sequenceDiagram
 
 A single user could experience:
 
-* Visual homepage test
-* Server-side pricing experiment
-* Feature-flagged recommendation engine
-* Mobile push personalization
+- Visual homepage test
+- Server-side pricing experiment
+- Feature-flagged recommendation engine
+- Mobile push personalization
 
 > All attributed to one identity.
 
@@ -488,9 +491,9 @@ A single user could experience:
 
 Because both FE SDK events and SmartCode events use the same UUID:
 
-* Funnels remain intact
-* Cross-experiment impact can be measured
-* Combined revenue lift can be calculated
+- Funnels remain intact
+- Cross-experiment impact can be measured
+- Combined revenue lift can be calculated
 
 > Attribution is reliable
 
@@ -508,11 +511,13 @@ Because both FE SDK events and SmartCode events use the same UUID:
 
 #### Without connectivity:
 
-* These appear as two different users
-* Insights are fragmented
+- These appear as two different users
+- Insights are fragmented
 
 #### With connectivity:
 
-* One visitor profile (Same user → same UUID → same journey)
-* Full funnel visibility (Analyze impact, not isolated tests)
-* Clear insight into how frontend + backend experiments interact
+- One visitor profile (Same user → same UUID → same journey)
+- Full funnel visibility (Analyze impact, not isolated tests)
+- Clear insight into how frontend + backend experiments interact
+
+<br />
