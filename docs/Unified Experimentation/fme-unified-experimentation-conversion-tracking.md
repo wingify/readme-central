@@ -17,10 +17,10 @@ Conversion tracking in a connected Wingify architecture relies on one fundamenta
 
 If identity is consistent across client and server layers, conversions can be attributed accurately across:
 
-* Feature Experimentation (FE)
-* Wingify Web Testing
-* Wingify Web Insights
-* Offline systems (CRM, POS, backend billing, etc.)
+- Feature Experimentation (FE)
+- Wingify Web Testing
+- Wingify Web Insights
+- Offline systems (CRM, POS, backend billing, etc.)
 
 This section explains how conversion tracking works in both FE-first and Client-first architectures, and how offline conversions fit into the model.
 
@@ -41,9 +41,9 @@ If UUID continuity is maintained, attribution works across products.
 
 This flow is common in:
 
-* Backend-rendered applications
-* Authenticated SaaS products
-* API-first architectures
+- Backend-rendered applications
+- Authenticated SaaS products
+- API-first architectures
 
 #### Identity and Rendering
 
@@ -57,7 +57,7 @@ This flow is common in:
 sequenceDiagram
     participant User
     participant Server
-    participant FE_SDK as VWO FE SDK
+    participant FE_SDK as Wingify FE SDK
     participant Browser
 
     User->>Server: 1. HTTP request
@@ -71,18 +71,18 @@ sequenceDiagram
 
 At this point:
 
-* Server-side experiment decision is locked.
-* Client-side SmartCode reads the same UUID.
-* Identity is unified.
+- Server-side experiment decision is locked.
+- Client-side SmartCode reads the same UUID.
+- Identity is unified.
 
 ### Client-Side-First Conversion Flow
 
 This flow is common in:
 
-* Marketing websites
-* Anonymous traffic
-* SEO landing pages
-* Static web deployments
+- Marketing websites
+- Anonymous traffic
+- SEO landing pages
+- Static web deployments
 
 #### Identity and Rendering
 
@@ -101,7 +101,7 @@ sequenceDiagram
     participant Browser
     participant SmartCode
     participant Server
-    participant FE_SDK as VWO FE SDK
+    participant FE_SDK as Wingify FE SDK
 
     User->>Browser: Visit page
     Browser->>SmartCode: 1. Load SmartCode
@@ -120,8 +120,8 @@ sequenceDiagram
 
 Now:
 
-* Client and server are aligned.
-* Identity is unified.
+- Client and server are aligned.
+- Identity is unified.
 
 ### Conversion Trigger
 
@@ -155,9 +155,9 @@ VWO.event("REPLACE_WITH_ACTUAL_EVENT_API_NAME", {
 
 Use this when:
 
-* Conversion is purely UI-driven
-* Marketing or CRO teams manage events
-* You want conversion tracked within Web Testing
+- Conversion is purely UI-driven
+- Marketing or CRO teams manage events
+- You want conversion tracked within Web Testing
 
 Since SmartCode is already using the UUID from cookie, attribution remains consistent.
 
@@ -175,9 +175,9 @@ vwoClient.trackEvent('REPLACE_WITH_ACTUAL_EVENT_API_NAME', {
 
 Use this when:
 
-* Conversion is backend-confirmed (e.g., payment success)
-* You want authoritative server validation
-* You want conversion tied directly to FE experiment logic
+- Conversion is backend-confirmed (e.g., payment success)
+- You want authoritative server validation
+- You want conversion tied directly to FE experiment logic
 
 Because the same UUID is passed, attribution aligns with earlier bucketing.
 
@@ -185,10 +185,10 @@ Because the same UUID is passed, attribution aligns with earlier bucketing.
 
 Conversions may occur outside the web session:
 
-* In-store purchase
-* Call-center sale
-* CRM lifecycle update
-* Subscription upgrade via billing system
+- In-store purchase
+- Call-center sale
+- CRM lifecycle update
+- Subscription upgrade via billing system
 
 If the same UUID is stored in your backend systems, it can be sent later via Wingify Data360 offline conversion APIs.
 
@@ -198,18 +198,20 @@ Offline conversion tracking works seamlessly in a connected system.
 
 **Requirements:**
 
-* Store UUID alongside user record (CRM / DB)
-* Use same UUID in offline event payload
-* Ensure UUID originally used during evaluation
+- Store UUID alongside user record (CRM / DB)
+- Use same UUID in offline event payload
+- Ensure UUID originally used during evaluation
 
 This enables:
 
-* Web experiment attribution
-* Feature flag attribution
-* Full journey visibility
-* Revenue mapping across touchpoints
+- Web experiment attribution
+- Feature flag attribution
+- Full journey visibility
+- Revenue mapping across touchpoints
 
 <Callout icon="📘" theme="info">
+  ###
+
   Note: As long as the UUID matches the one used during evaluation, attribution remains accurate across FE and Web Testing.
 </Callout>
 
@@ -223,8 +225,8 @@ sequenceDiagram
     participant Browser
     participant SmartCode
     participant Server
-    participant FE_SDK as VWO FE SDK
-    participant VWO
+    participant FE_SDK as Wingify FE SDK
+    participant Wingify
     participant Data360 as Offline System
 
     User->>Browser: Visit Page
@@ -233,19 +235,19 @@ sequenceDiagram
 
     Browser->>Server: Request (UUID cookie sent)
     Server->>FE_SDK: Evaluate flag using UUID
-    FE_SDK->>VWO: Fetch config & evaluate
-    VWO-->>FE_SDK: Decision
+    FE_SDK->>Wingify: Fetch config & evaluate
+    Wingify-->>FE_SDK: Decision
     FE_SDK-->>Server: Variation decision
 
     User->>Browser: Click "Buy Now"
 
     alt Client-side conversion
-        SmartCode->>VWO: track.customEvent(UUID)
+        SmartCode->>Wingify: track.customEvent(UUID)
     else Server-side conversion
         Server->>FE_SDK: trackEvent(UUID)
-        FE_SDK->>VWO: Send conversion event
+        FE_SDK->>Wingify: Send conversion event
     else Offline conversion
-        Data360->>VWO: Push conversion(UUID)
+        Data360->>Wingify: Push conversion(UUID)
     end
 
     Note over SmartCode,FE_SDK: Same UUID ensures correct attribution
@@ -257,8 +259,8 @@ Conversion tracking should only occur after successful visitor synchronization a
 
 If conversion fires:
 
-* Before the UUID is shared,
-* Or before the server reuses the client UUID,
-* Or before FE SDK evaluation uses the correct identity,
+- Before the UUID is shared,
+- Or before the server reuses the client UUID,
+- Or before FE SDK evaluation uses the correct identity,
 
 Then attribution may fragment.
