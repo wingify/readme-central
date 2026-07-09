@@ -67,10 +67,10 @@ flowchart TB
         UUID[Shared UUID]
     end
 
-    subgraph VWO Platform
-        WT[VWO Web Testing]
-        FE[VWO Feature Experimentation]
-        VI[VWO Insights]
+    subgraph Wingify Platform
+        WT[Wingify Web Testing]
+        FE[Wingify Feature Experimentation]
+        VI[Wingify Insights]
     end
 
     User --> Client
@@ -251,7 +251,7 @@ This is common in:
 sequenceDiagram
     participant User
     participant Server
-    participant FE_SDK as VWO FE SDK
+    participant FE_SDK as Wingify FE SDK
     participant Browser
     participant SmartCode
 
@@ -331,7 +331,7 @@ sequenceDiagram
     participant Browser
     participant SmartCode
     participant Server
-    participant FE_SDK as VWO FE SDK
+    participant FE_SDK as Wingify FE SDK
 
     User->>Browser: Visit page
     Browser->>SmartCode: 1. Load SmartCode
@@ -396,10 +396,10 @@ Wingify’s model ensures:
 ```mermaid
 flowchart LR
     Browser --> SmartCode
-    SmartCode --> VWO_Web[VWO Web Testing]
+    SmartCode --> Wingify_Web[Wingify Web Testing]
 
-    Server --> FE_SDK[VWO FE SDK]
-    FE_SDK --> VWO_FE[VWO Feature Experimentation]
+    Server --> FE_SDK[Wingify FE SDK]
+    FE_SDK --> Wingify_FE[Wingify Feature Experimentation]
 
     Browser -. separate identity .- Server
 
@@ -417,11 +417,11 @@ Problems
 ```mermaid
 flowchart LR
     Browser -->|UUID Cookie| Server
-    Server --> FE_SDK[VWO FE SDK]
-    FE_SDK --> VWO
+    Server --> FE_SDK[Wingify FE SDK]
+    FE_SDK --> Wingify
 
     Browser --> SmartCode
-    SmartCode --> VWO
+    SmartCode --> Wingify
 
     FE_SDK -. shared UUID .- SmartCode
 
@@ -448,22 +448,22 @@ The diagram below illustrates:
 sequenceDiagram
     participant User
     participant Server
-    participant FE_SDK as VWO FE SDK
-    participant VWO
+    participant FE_SDK as Wingify FE SDK
+    participant Wingify
     participant Browser
     participant SmartCode
 
     User->>Server: Initial request
     Server->>FE_SDK: Pass user ID / context
-    FE_SDK->>VWO: Fetch settings / evaluate rule
-    VWO-->>FE_SDK: Campaign & flag configuration
+    FE_SDK->>Wingify: Fetch settings / evaluate rule
+    Wingify-->>FE_SDK: Campaign & flag configuration
     FE_SDK-->>Server: Decision + UUID
     Server->>Browser: Response + UUID (cookie)
 
     Browser->>SmartCode: Load page
     SmartCode->>Browser: Read UUID cookie
-    SmartCode->>VWO: Evaluate visual tests
-    VWO-->>SmartCode: Variation decision
+    SmartCode->>Wingify: Evaluate visual tests
+    Wingify-->>SmartCode: Variation decision
 
     Note over User,SmartCode: Same UUID used across server & client
 
