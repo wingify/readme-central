@@ -83,7 +83,7 @@ npm install vwo-fme-node-sdk
 
 The `gatewayService` is mandatory for Salesforce integration because the SDK uses the Gateway to check in real-time if the user belongs to the synced Salesforce segment stored in Wingify.
 
-**Reference:** [Wingify Gateway Service Doc](https://developers.wingify.com/v3/docs/gateway-service)
+**Reference:** [Wingify Gateway Service Doc](https://developers.wingify.com/v2/docs/gateway-service)
 
 ## **Step 6: Setting Up Pre-Segmentation for Salesforce-Synced Segments**
 
