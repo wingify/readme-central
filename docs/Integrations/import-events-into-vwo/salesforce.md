@@ -5,8 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-# **Integrating Wingify Feature Experimentation (FE) with Salesforce**
-
 ## **Overview:**
 
 **Salesforce** is a world-leading Customer Relationship Management (CRM) platform that helps businesses manage customer data, sales operations, and marketing leads. Integrating Wingify with Salesforce allows you to bridge the gap between your CRM data and your product experimentation.
@@ -37,8 +35,6 @@ To enable the Wingify-Salesforce integration for your Wingify account:
 
    ![](https://files.readme.io/7e483640f0877d480d22dd9badb491e1dce71c6a4019ff7377121e38dd04d7ed-image3.png)
 
-
-
    ![]()
 
    ![](https://files.readme.io/739e38ef3b990e9722baf6876e0c6f23689fb7f1dd55a5daebf9f2fa1728d5a2-Screenshot_2026-07-10_at_9.33.52_PM.png)
@@ -51,17 +47,17 @@ To enable the Wingify-Salesforce integration for your Wingify account:
 
    ![](https://files.readme.io/a14a70b89508c8189142284dc951e3d46f731d6c23a978cc683113c2704f3c05-image1.png)
 
-
 2. In the **Create object list** pane, perform the following:
    - **Object list name:** Provide a descriptive name for your list.
    - **Object for targeting:** Select the relevant Salesforce object type (e.g., Lead, Account, or Opportunity).
    - **Field selection:** Choose the specific field that contains the unique data you wish to target (e.g., Website, Email).
    - **Add Conditions (Optional):** Click **Add condition** to filter the data (e.g., "Lead Status = Qualified").
+
 3. Click **Test Data** to preview the matches.
 
 
-
    <Image src="https://files.readme.io/fd74eed6c51996287b4c8d8528c217290ece5a0b2affa9953131d94f88eabf42-image2.png" align="left" width="500px" wrap={false} />
+
 
 4. Once verified, click **Submit**. Wingify will start fetching your list.
 
@@ -94,15 +90,24 @@ The `gatewayService` is mandatory for Salesforce integration because the SDK use
 Once your Salesforce lists are imported into Wingify, configure **pre-segmentation** in your feature flag.
 
 1. Navigate to **Feature Experimentation → Feature Flags** in Wingify.
+
 2. Click **Create Feature Flag** (or open an existing one).
+
 3. Go to the **Rules** tab → Click **Create New Rollout Rule**.
+
 4. Under **Audience**, choose **Custom Segment**.
+
 5. In **Attribute**, select **Custom Variable**.
+
 6. Enter the identifier name used for targeting (e.g., `salesforce_id` or `leadEmails`).
+
 7. Choose **Operator → In List**.
+
 8. Select the **Attribute List** corresponding to your Salesforce object list.<br />
 
+
    <Image src="https://files.readme.io/e3ffb4bc7d3e4b59ffce930d348ca55dbfa403153590d3fe06efc46bf3eeb514-image4.png" align="left" width="550px" wrap={false} />
+
 
 9. Save the rule and **toggle ON** the rollout rule.
 
