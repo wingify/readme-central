@@ -4,7 +4,7 @@ excerpt: >-
   Use the Web Testing _vwo_uuid cookie as the Feature Experimentation userId to
   align visitor identity across Wingify products
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
