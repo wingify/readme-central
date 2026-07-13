@@ -48,8 +48,8 @@ This flow is common in:
 #### Identity and Rendering
 
 1. User request hits the server.
-2. FE SDK evaluates the feature flag.
-3. FE SDK generates (or reuses) a UUID.
+2. Pass a user ID to FE SDK.
+3. FE SDK converts the user ID to a UUID and evaluates the feature flag.
 4. Server sets UUID in cookie.
 5. Client-side renders UI using this UUID.
 
