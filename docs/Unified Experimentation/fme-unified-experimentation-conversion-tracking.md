@@ -48,7 +48,7 @@ This flow is common in:
 #### Identity and Rendering
 
 1. User request hits the server.
-2. Pass a user ID to FE SDK.
+2. User ID is passed to FE SDK.
 3. FE SDK converts the user ID to a UUID and evaluates the feature flag.
 4. Server sets UUID in cookie.
 5. Client-side renders UI using this UUID.
@@ -61,8 +61,8 @@ sequenceDiagram
     participant Browser
 
     User->>Server: 1. HTTP request
-    Server->>FE_SDK: 2. Evaluate feature flag
-    FE_SDK->>FE_SDK: 3. Generate or reuse UUID
+    Server->>FE_SDK: 2. User ID is passed to SDK
+    FE_SDK->>FE_SDK: 3. Convert user ID to UUID and evaluate feature flag
     FE_SDK-->>Server: Return decision + UUID
     Server->>Browser: 4. Response (Set UUID cookie)
     Browser->>Browser: 5. Render UI using UUID
