@@ -147,7 +147,7 @@ sequenceDiagram
   participant FESDK as FE SDK
 
   Browser->>SmartCode: Page loads
-  SmartCode->>Cookie: Sets _vwo_uuid = "D3F2504E..." (365-day expiry)
+  SmartCode->>Cookie: Sets _vwo_uuid = "D3F2504E..."
   Note over Cookie: First-party cookie on your domain
   Application->>Cookie: Reads _vwo_uuid cookie value
   Cookie-->>Application: "D3F2504E04F8911D39A0C0305E82C330"
