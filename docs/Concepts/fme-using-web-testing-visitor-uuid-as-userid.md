@@ -139,11 +139,22 @@ async function evaluateFeatureFlag(wingifyClient, featureKey, fallbackUserId) {
 ## How it all fits together
 
 ```mermaid
-flowchart LR
-  browser[Browser] -->|loads| smartCode[Wingify SmartCode]
-  smartCode -->|sets _vwo_uuid| cookie[_vwo_uuid Cookie]
-  cookie -->|application reads cookie| application[Your Application]
-  application -->|passes the same identifier| feSdk[FE SDK]
+sequenceDiagram
+  participant Browser
+  participant SmartCode as Wingify SmartCode
+  participant Cookie as _vwo_uuid Cookie
+  participant Application as Your Application
+  participant FESDK as FE SDK
+
+  Browser->>SmartCode: Page loads
+  SmartCode->>Cookie: Sets _vwo_uuid = "D3F2504E..." (365-day expiry)
+  Note over Cookie: First-party cookie on your domain
+  Application->>Cookie: Reads _vwo_uuid cookie value
+  Cookie-->>Application: "D3F2504E04F8911D39A0C0305E82C330"
+  Application->>FESDK: getFlag(featureKey, { id: "D3F2504E..." })
+  Note right of FESDK: Detects Wingify Smartcode UUID
+  Note right of FESDK: Skips hashing, uses UUID as-is
+  FESDK-->>Application: Flag evaluated with same UUID as Web Testing
 ```
 
 ![](https://files.readme.io/95775bf250e31322e169e8e2a871ed089a2afa5e0ac97cebb26d4b022094aecf-vwo_uuid_flow_diagram.png)
