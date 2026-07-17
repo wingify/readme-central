@@ -138,6 +138,14 @@ async function evaluateFeatureFlag(wingifyClient, featureKey, fallbackUserId) {
 
 ## How it all fits together
 
+```mermaid
+flowchart LR
+  browser[Browser] -->|loads| smartCode[Wingify SmartCode]
+  smartCode -->|sets _vwo_uuid| cookie[_vwo_uuid Cookie]
+  cookie -->|application reads cookie| application[Your Application]
+  application -->|passes the same identifier| feSdk[FE SDK]
+```
+
 ![](https://files.readme.io/95775bf250e31322e169e8e2a871ed089a2afa5e0ac97cebb26d4b022094aecf-vwo_uuid_flow_diagram.png)
 
 <br />
