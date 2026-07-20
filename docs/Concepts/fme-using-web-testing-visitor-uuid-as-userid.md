@@ -17,9 +17,9 @@ This guide explains how to bridge the two systems by reading the Web Testing UUI
 Important to note, that this will not work for mobile SDKs, due to the dependence on cookies. The flow described here, is best suited for client (JS, React) and serverSide SDKs (Node, Java, Python etc), used in tandem with the Web Testing product.
 
 <Callout icon="fa-circle-info" theme="info">
-  ###
+  ### Note
 
-  \[NOTE] : Ensuring that the UUID is the same, does not guarantee that the experience delivered will be the same. Web Testing and FE are two different products, and will render experiences according to their respective flag and campaign configuration.
+  Ensuring that the UUID is the same, does not guarantee that the experience delivered will be the same. Web Testing and FE are two different products, and will render experiences according to their respective flag and campaign configuration.
 </Callout>
 
 ## How Wingify Web Testing Identifies Visitors
@@ -36,9 +36,9 @@ Cookie details:
 This UUID is the primary visitor identifier used by Wingify Web Testing for bucketing, analytics, and reporting.
 
 <Callout icon="fa-circle-info" theme="info">
-  ###
+  ### Note
 
-  \[NOTE] The \_vwo_uuid cookie is only generated after the Wingify SmartCode has been installed on the website and a visitor loads the page for the first time.
+  The \_vwo_uuid cookie is only generated after the Wingify SmartCode has been installed on the website and a visitor loads the page for the first time.
 </Callout>
 
 ## How FE SDK Handles userId
@@ -76,9 +76,9 @@ const wingifyUuid = getWingifyUuid();
 ```
 
 <Callout icon="fa-circle-info" theme="info">
-  ###
+  ### Note
 
-  \[NOTE] If the visitor has not yet been tracked by Wingify Web Testing (e.g., on their very first page load), this function returns null. Always implement a fallback userId.
+  If the visitor has not yet been tracked by Wingify Web Testing (e.g., on their very first page load), this function returns null. Always implement a fallback userId.
 </Callout>
 
 ### Step 2 — Pass the UUID as userId in FE userContext
@@ -162,15 +162,15 @@ sequenceDiagram
 ## Important Considerations
 
 <Callout icon="fa-circle-info" theme="info">
-  ###
+  ### Note
 
-  \[NOTE] Cookie availability: The \_vwo_uuid cookie is only set after Wingify SmartCode has run on the page. For brand-new visitors on their very first page view, the cookie may not exist yet. Always provide a fallback userId
+  Cookie availability: The \_vwo_uuid cookie is only set after Wingify SmartCode has run on the page. For brand-new visitors on their very first page view, the cookie may not exist yet. Always provide a fallback userId
 </Callout>
 
 <Callout icon="fa-triangle-exclamation" theme="warning">
-  ###
+  ### Warning
 
-  \[WARNING] Do not modify the raw cookie value before passing it to FE. Any alteration (trimming, lowercasing, encoding) will cause validation to fail and the SDK will fall back to hashing instead of using the value as-is
+  Do not modify the raw cookie value before passing it to FE. Any alteration (trimming, lowercasing, encoding) will cause validation to fail and the SDK will fall back to hashing instead of using the value as-is
 </Callout>
 
 <br />
