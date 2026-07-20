@@ -1,12 +1,8 @@
 ---
 title: Transitioning from Fullstack to Feature Experimentation
 excerpt: >-
-Wingify  A comprehensive guide to understanding the differences and migrating from
-  FullStack to Feature Experimentation (FE).
-deprecated: false
-hidden: false
-metadata:
-  robots: index
+  A comprehensive guide to understanding the differences and migrating from
+  Wingify FullStack to Feature Experimentation (FE).
 ---
 # Wingify FullStack vs FE
 
