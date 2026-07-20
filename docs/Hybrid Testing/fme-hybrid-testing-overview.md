@@ -1,10 +1,10 @@
 ---
 title: Overview
 excerpt: >-
-  A Conceptual Guide to Connecting Wingify Feature Experimentation, Wingify Web Testing,
-  and Wingify Web & Mobile Insights
+  A Conceptual Guide to Connecting Wingify Feature Experimentation, Wingify Web
+  Testing, and Wingify Web & Mobile Insights
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 next:
