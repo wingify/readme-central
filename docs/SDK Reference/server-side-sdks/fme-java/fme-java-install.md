@@ -16,7 +16,7 @@ next:
 ---
 ## Java SDK Installation
 
-To integrate Wingify FE SDK into your Java application, you must first install the SDK through a java package manager. Wingify FE Python SDK can be installed using [maven](https://mvnrepository.com/artifact).
+To integrate Wingify FE SDK into your Java application, you must first install the SDK through a java package manager. Wingify FE Java SDK can be installed using [maven](https://mvnrepository.com/artifact).
 
 ```java
 <dependency>
@@ -30,9 +30,11 @@ You must then install the dependencies using`mvn install`
 
 ## Requirements
 
-> 📘 Java Version
->
-> Java version >= 8
+<Callout icon="📘" theme="info">
+  ### Java Version
+
+  Java version >= 8
+</Callout>
 
 ## Source Code
 
