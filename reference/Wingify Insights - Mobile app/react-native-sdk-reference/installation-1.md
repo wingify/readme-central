@@ -1,6 +1,6 @@
 ---
 title: Installation
-excerpt: Latest SDK version is 2.2.0
+excerpt: Latest SDK version is 2.6.0
 deprecated: false
 hidden: false
 metadata:
@@ -36,8 +36,10 @@ This will add a line like the one below to your package.json file.
 
 "dependencies": {
 	// other code
-	"vwo-insights-react-native-sdk": "2.2.0"
+	"vwo-insights-react-native-sdk": "2.6.0"
 	// other code
 }
 
 ```
+
+<br />
