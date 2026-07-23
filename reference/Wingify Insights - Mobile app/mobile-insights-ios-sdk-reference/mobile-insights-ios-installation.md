@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The latest SDK version for IOS is **2.2.0** and you can view the changelog [here](https://github.com/wingify/ios-mobile-insights-artifacts/blob/main/CHANGELOG.md?plain=1).
+The latest SDK version for IOS is **2.6.0** and you can view the changelog [here](https://github.com/wingify/ios-mobile-insights-artifacts/blob/main/CHANGELOG.md?plain=1).
 
 <br />
 
@@ -44,8 +44,10 @@ Run the `pod install` command.
 
 <br />
 
-> 📘 NOTE - SDK version starting from _v0.4.13_ and beyond, it is no longer necessary to include the _VWOPrincipleClass_ entry in the _Info.plist_ file.
->
-> This change simplifies the setup process and eliminates the need for this manual configuration. Please ensure you're using the latest version of the SDK for the best experience.
+<Callout icon="📘" theme="info">
+  ### NOTE - SDK version starting from _v0.4.13_ and beyond, it is no longer necessary to include the _VWOPrincipleClass_ entry in the _Info.plist_ file.
+
+  This change simplifies the setup process and eliminates the need for this manual configuration. Please ensure you're using the latest version of the SDK for the best experience.
+</Callout>
 
 <br />
