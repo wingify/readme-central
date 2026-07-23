@@ -84,8 +84,8 @@ class VWOApplication : Application() {
     override fun onCreate() {
         super.onCreate()
           
-// From SDK version 2.6.0+ we have introduced a new highly optimized recording mechanism, you can enable it using "VWOInsights.enablePerformanceMode();"
-VWOInsights.enablePerformanceMode(); // This works best on API 26+ (Android 8.0+).
+        // From SDK version 2.6.0+ we have introduced a new highly optimized recording mechanism, you can enable it using "VWOInsights.enablePerformanceMode();"
+        VWOInsights.enablePerformanceMode(); // This works best on API 26+ (Android 8.0+).
 
         ClientConfiguration configuration = new ClientConfiguration("ACCOUNT_ID", "SDK_KEY", "USER_ID");
         VWOInsights.init(this, new IVwoInitCallback() { 
@@ -116,8 +116,8 @@ class VWOApplication : Application() {
     override fun onCreate() {
       super.onCreate()
  
-			// From SDK version 2.6.0+ we have introduced a new highly optimized recording mechanism, you can enable it using "VWOInsights.enablePerformanceMode();"
-				VWOInsights.enablePerformanceMode() // This works best on API 26+ (Android 8.0+).
+      // From SDK version 2.6.0+ we have introduced a new highly optimized recording mechanism, you can enable it using "VWOInsights.enablePerformanceMode();"
+      VWOInsights.enablePerformanceMode() // This works best on API 26+ (Android 8.0+).
 
         val configuration = ClientConfiguration("ACCOUNT_ID","APPLICATION_ID", "USER_ID")
 
