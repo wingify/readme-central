@@ -30,7 +30,7 @@ After installing the SDK, initialize the app in the _onCreate_ function of the A
   <tbody>
     <tr>
       <td>
-        **ACCOUNT\_ID**
+        **ACCOUNT_ID**
         _Required_
       </td>
 
@@ -41,7 +41,7 @@ After installing the SDK, initialize the app in the _onCreate_ function of the A
 
     <tr>
       <td>
-        **SDK\_KEY**<br />_Required_
+        **SDK_KEY**<br />_Required_
       </td>
 
       <td>
@@ -51,7 +51,7 @@ After installing the SDK, initialize the app in the _onCreate_ function of the A
 
     <tr>
       <td>
-        **USER\_ID**<br />_Optional_
+        **USER_ID**<br />_Optional_
       </td>
 
       <td>
@@ -84,6 +84,8 @@ class VWOApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
+				// From SDK version 2.6.0+ we have introduced a new highly optimized recording mechanism, you can enable it using "VWOInsights.enableFlutterPerformanceMode();"
+				VWOInsights.enablePerformanceMode(); // This works best on API 26+ (Android 8.0+).
 
         ClientConfiguration configuration = new ClientConfiguration("ACCOUNT_ID", "SDK_KEY", "USER_ID");
         VWOInsights.init(this, new IVwoInitCallback() { 
