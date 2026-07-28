@@ -1,6 +1,6 @@
 ---
 title: Surveys - Flutter - Migration Guide
-excerpt: Latest SDK version is 2.2.1
+excerpt: Latest SDK version is 2.6.1
 deprecated: false
 hidden: true
 metadata:
@@ -20,7 +20,7 @@ Wingify Pulse SDK provides the same core functionality as Blitzllama with some k
 
 | Aspect          | Blitzllama              | Wingify Pulse                                                    |
 | --------------- | ----------------------- | ---------------------------------------------------------------- |
-| Package         | blitzllama\_flutter     | vwo\_insights\_flutter\_sdk                                      |
+| Package         | blitzllama_flutter      | vwo_insights_flutter_sdk                                         |
 | Class Name      | BlitzllamaFlutter       | VwoFlutter                                                       |
 | Initialization  | Dart code               | Native code (Android/iOS)                                        |
 | User Creation   | createUser() in Dart    | userId in native initialization (optional), then use setUserId() |
@@ -48,7 +48,7 @@ Add the Wingify Pulse Flutter SDK:
 
 ```yaml
 dependencies:
-  vwo_insights_flutter_sdk: ^2.2.1
+  vwo_insights_flutter_sdk: ^2.6.1
 ```
 
 Run the following command to update dependencies:
@@ -242,7 +242,9 @@ VwoFlutter.setAttribute({
 });
 ```
 
-> 📘 **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
+<Callout icon="📘" theme="info">
+  ### **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
+</Callout>
 
 ## User Email and User Name
 
@@ -372,7 +374,9 @@ if (success) {
 }
 ```
 
-> 📘 **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
+<Callout icon="📘" theme="info">
+  ### **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
+</Callout>
 
 ***
 
@@ -382,8 +386,8 @@ if (success) {
 | ------------------------- | ------------------------ | ------------------------------- |
 | init(apiKey)              | Native initialization    | See Step 3                      |
 | createUser(userId)        | setUserId(userId)        | Use after initialization        |
-| setUserEmail(email)       | setAttribute()           | Pass user\_email in map         |
-| setUserName(name)         | setAttribute()           | Pass user\_name in map          |
+| setUserEmail(email)       | setAttribute()           | Pass user_email in map          |
+| setUserName(name)         | setAttribute()           | Pass user_name in map           |
 | setUserAttribute()        | setAttribute()           | Now accepts a map               |
 | setSurveyLanguage(code)   | setSurveyLanguage(code)  | Same signature                  |
 | triggerEvent(name)        | trackEvent(name)         | Method renamed                  |
@@ -395,7 +399,7 @@ if (success) {
 
 # Migration Checklist
 
-- [ ] Update pubspec.yaml to use vwo\_insights\_flutter\_sdk ^2.1.0
+- [ ] Update pubspec.yaml to use vwo_insights_flutter_sdk ^2.6.1
 - [ ] Run flutter pub get
 - [ ] Update all import statements
 - [ ] Remove Dart-based init() calls
@@ -456,9 +460,9 @@ For additional support or questions:
 
 | Component                       | Version          |
 | ------------------------------- | ---------------- |
-| Wingify Pulse Flutter SDK       | ^2.2.1           |
-| Native Android SDK              | 2.2.0            |
-| Native iOS SDK                  | 2.2.0            |
+| Wingify Pulse Flutter SDK       | ^2.6.1           |
+| Native Android SDK              | 2.6.1            |
+| Native iOS SDK                  | 2.6.1            |
 | Minimum iOS Version             | 12.0             |
 | Minimum Android SDK             | 21 (Android 5.0) |
 | Blitzllama SDK (migrating from) | 0.6.3            |
