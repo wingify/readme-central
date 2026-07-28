@@ -380,7 +380,7 @@ For additional support or questions:
 
 | Component           | Version                         |
 | ------------------- | ------------------------------- |
-| Flutter Package     | vwo_insights_flutter_sdk ^2.1.0 |
+| Flutter Package     | vwo_insights_flutter_sdk ^2.6.1 |
 | Native Android SDK  | 2.1.0                           |
 | Native iOS SDK      | 2.1.0                           |
 | Minimum iOS Version | 12.0                            |
