@@ -22,7 +22,7 @@ This guide helps you migrate your Android application from the **Blitzllama SDK*
 
 | Feature          | Blitzllama SDK                    | Wingify Pulse SDK                                                               |
 | ---------------- | --------------------------------- | ------------------------------------------------------------------------------- |
-| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.2.0`                                                        |
+| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.vwo:insights:2.6.1`                                                        |
 | API Key Location | AndroidManifest.xml               | ClientConfiguration object                                                      |
 | User Creation    | Separate `createUser()` call      | Passed during initialization (optional), then use `setUserId()` to switch users |
 | User Switching   | `logout()`                        | `setUserId(randomString, callback)`                                             |
@@ -52,7 +52,7 @@ dependencies {
 ```groovy
 // app/build.gradle
 dependencies {
-    implementation 'com.vwo:insights:2.2.0'
+    implementation 'com.vwo:insights:2.6.1'
 }
 ```
 
@@ -75,7 +75,9 @@ Remove the following from `AndroidManifest.xml`:
 
 Wingify Pulse does not require manifest configuration. Credentials are passed programmatically during SDK initialization.
 
-> 📘 **Note:** If you had `<uses-sdk tools:overrideLibrary="com.blitzllama.androidSDK" />`, you can remove it as well.
+<Callout icon="📘" theme="info">
+  ### **Note:** If you had `<uses-sdk tools:overrideLibrary="com.blitzllama.androidSDK" />`, you can remove it as well.
+</Callout>
 
 ***
 
@@ -408,7 +410,9 @@ val attributes = mapOf(
 VWOInsights.setAttribute(attributes)
 ```
 
-> 📘 **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
+<Callout icon="📘" theme="info">
+  ### **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
+</Callout>
 
 ## Setting Custom User Attributes
 
@@ -446,7 +450,9 @@ val attributes = mapOf(
 VWOInsights.setAttribute(attributes)
 ```
 
-> 📘 **Note:** Wingify uses `setAttribute()` instead of `setUserAttribute()`. Data types are automatically inferred, so you don't need to specify them explicitly. The SDK automatically associates attributes with the current user ID.
+<Callout icon="📘" theme="info">
+  ### **Note:** Wingify uses `setAttribute()` instead of `setUserAttribute()`. Data types are automatically inferred, so you don't need to specify them explicitly. The SDK automatically associates attributes with the current user ID.
+</Callout>
 
 ***
 
@@ -570,7 +576,9 @@ VWOInsights.setUserId(randomUserId, object : IVwoInitCallback {
 | Logout clears session      | Use random string for anonymous tracking         |
 | Requires re-initialization | `setUserId()` handles session refresh internally |
 
-> 📘 **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
+<Callout icon="📘" theme="info">
+  ### **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
+</Callout>
 
 ***
 
@@ -583,7 +591,9 @@ If you're using triggers configured in the Blitzllama dashboard, you may need to
 3. Create events with the same names you used as trigger names in Blitzllama
 4. Configure these events in **Surveys → Custom Triggers**
 
-> ⚠️ **Important:** Ensure event names match exactly between your code and the Wingify dashboard.
+<Callout icon="⚠️" theme="warn">
+  ### **Important:** Ensure event names match exactly between your code and the Wingify dashboard.
+</Callout>
 
 ***
 
@@ -728,7 +738,7 @@ val callback = object : IVwoInitCallback {
 
 | Component                               | Version          |
 | --------------------------------------- | ---------------- |
-| Wingify Pulse SDK Version               | `2.2.0`          |
+| Wingify Pulse SDK Version               | `2.6.1`          |
 | Minimum Android SDK                     | 21 (Android 5.0) |
 | Blitzllama SDK Version (migrating from) | `1.9.1`          |
 
