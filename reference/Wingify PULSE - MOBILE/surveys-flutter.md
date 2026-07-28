@@ -20,7 +20,7 @@ The Wingify Pulse Flutter SDK allows you to deliver in-app surveys seamlessly wi
 
 | Requirement       | Details                                            |
 | ----------------- | -------------------------------------------------- |
-| Flutter           | 2.0+                                               |
+| Flutter           | 2.7+                                               |
 | iOS               | 12.0+                                              |
 | Android           | API level 21+ (Android 5.0)                        |
 | Wingify Dashboard | Access required to retrieve Account ID and SDK Key |
@@ -378,12 +378,12 @@ For additional support or questions:
 
 # Version Information
 
-| Component           | Version                            |
-| ------------------- | ---------------------------------- |
-| Flutter Package     | vwo\_insights\_flutter\_sdk ^2.1.0 |
-| Native Android SDK  | 2.1.0                              |
-| Native iOS SDK      | 2.1.0                              |
-| Minimum iOS Version | 12.0                               |
-| Minimum Android SDK | 21 (Android 5.0)                   |
+| Component           | Version                         |
+| ------------------- | ------------------------------- |
+| Flutter Package     | vwo_insights_flutter_sdk ^2.1.0 |
+| Native Android SDK  | 2.1.0                           |
+| Native iOS SDK      | 2.1.0                           |
+| Minimum iOS Version | 12.0                            |
+| Minimum Android SDK | 21 (Android 5.0)                |
 
 <br />
