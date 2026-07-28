@@ -44,7 +44,7 @@ Add the SDK dependency to your `Podfile`:
 
 ```ruby
 # Podfile
-pod 'VWO-Insights', '~> 2.1.0'
+pod 'VWO-Insights', '~> 2.6.1'
 pod 'SwiftyJSON', '~> 5.0.2'
 ```
 
@@ -188,7 +188,9 @@ let attributes: [String: Any] = [
 surveySDK.setAttribute(attributes: attributes)
 ```
 
-> 📘 **Note:** Always use milliseconds for date values, not epoch seconds. You can convert a Date object using `date.timeIntervalSince1970 * 1000`.
+<Callout icon="📘" theme="info">
+  ### **Note:** Always use milliseconds for date values, not epoch seconds. You can convert a Date object using `date.timeIntervalSince1970 * 1000`.
+</Callout>
 
 ## Setting Survey Language
 
