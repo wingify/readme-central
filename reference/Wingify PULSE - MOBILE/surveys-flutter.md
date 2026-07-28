@@ -45,7 +45,7 @@ Open your pubspec.yaml file and add the following dependency:
 
 ```yaml
 dependencies:
-  vwo_insights_flutter_sdk: ^2.1.0
+  vwo_insights_flutter_sdk: ^2.6.1
 ```
 
 ## Step 2: Install Package
