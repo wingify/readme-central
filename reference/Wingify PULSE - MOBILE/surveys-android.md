@@ -444,7 +444,7 @@ override fun vwoInitSuccess(message: String) {
 
 | Component           | Version          |
 | ------------------- | ---------------- |
-| SDK Version         | `2.1.0`          |
+| SDK Version         | `2.6.1`          |
 | Minimum Android SDK | 21 (Android 5.0) |
 
 <br />
