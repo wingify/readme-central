@@ -341,7 +341,7 @@ VWO.configure(
 
 | Component           | Version |
 | ------------------- | ------- |
-| SDK Version         | `2.1.0` |
+| SDK Version         | `2.6.1` |
 | Minimum iOS Version | 12.0    |
 | Swift Version       | 5.0+    |
 
