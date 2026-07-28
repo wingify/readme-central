@@ -45,7 +45,6 @@ Add the SDK dependency to your `Podfile`:
 ```ruby
 # Podfile
 pod 'VWO-Insights', '~> 2.6.1'
-pod 'SwiftyJSON', '~> 5.0.2'
 ```
 
 Then run:
