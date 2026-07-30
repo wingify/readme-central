@@ -9,7 +9,7 @@ metadata:
 
 Contentsquare is a digital analytics platform that automatically captures user interactions, clicks, mouse movements, and scrolling without manual event tracking.
 
-Wingify Feature Experimentation (FE) sends feature-flag and event data to Contentsquare as **Dynamic Variables**. This allows you to see which feature flag variations drive specific user behaviors, filter session replays by active feature flags, and make data-driven decisions on your rollouts.
+Wingify Feature Experimentation (FE) sends feature-flag and event data to Contentsquare as **Dynamic Variables**. This allows you to see which variations drive specific user behaviors, filter session replays by active feature flags, and make data-driven decisions on your rollouts.
 
 ***
 
@@ -229,7 +229,7 @@ After integrating Contentsquare with your application, you can view the tracked 
 
   ![](https://files.readme.io/7c83f18499da61189064be6308795979b1a75eecd98e38693b9aa4b9283ccd5e-image1.png)
 
-
+<br />
 
 ### 3. Track Custom Events
 
