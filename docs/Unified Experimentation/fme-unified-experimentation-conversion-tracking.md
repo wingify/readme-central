@@ -7,8 +7,8 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: integration-with-vwo-web-insights
-      title: Integration with Wingify Web Insights
+    - slug: fme-unified-experimentation-integration-with-web-insights
+      title: Integration with Wingify Web & Mobile Insights
       type: basic
 ---
 Conversion tracking in a connected Wingify architecture relies on one fundamental requirement:
