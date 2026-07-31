@@ -9,7 +9,7 @@ metadata:
   robots: index
 next:
   pages:
-    - slug: fme-hybrid-testing-identity-synchronization
+    - slug: fme-unified-experimentation-identity-synchronization
       title: Cross-System Identity Synchronization
       type: basic
 ---
