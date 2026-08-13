@@ -9,8 +9,6 @@ metadata:
   robots: index
 ---
 <Callout icon="fa-comment" theme="warning">
-  ###
-
   <strong>Note:</strong> The Statsig to Wingify Migration Assistant is currently in Beta. Review all migrated output before enabling anything in production.
 </Callout>
 
@@ -105,7 +103,7 @@ The MCP server handles configuration import and code rewrite in one workflow.
 | Dynamic configs               | ✓ Migrated                                                                                                                                                                                                       |
 | Experiments                   | ✓ Migrated                                                                                                                                                                                                       |
 | Custom-event metrics          | ✓ Migrated                                                                                                                                                                                                       |
-| Segments / audience targeting | Coming soon in General Availability Release                                                                                                                                                                      |
+| Segments / audience targeting | ✓ Migrated                                                                                                                                                                                                       |
 | Layers (mutual exclusion)     | Not directly supported. Mutually Exclusive Groups (MEG) are an option — [see the MEG documentation](https://help.vwo.com/hc/en-us/articles/360034153814-How-to-Set-Up-Mutually-Exclusive-Campaign-Groups-in-VWO) |
 | Warehouse-native metrics      | Not supported                                                                                                                                                                                                    |
 
@@ -259,5 +257,3 @@ When the migration completes, the assistant returns a consolidated migration sum
 <Accordion title="What happens to my Statsig historical experiment data?">
   It stays in Statsig. Experiment results, exposure logs, and metric history are <b>not</b> migrated. In Wingify, reporting starts fresh from the moment your migrated flags go live.
 </Accordion>
-
-<br />
