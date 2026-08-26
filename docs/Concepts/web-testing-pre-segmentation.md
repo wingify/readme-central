@@ -16,8 +16,6 @@ Web Testing Pre-Segmentation lets a user be targeted based on their exposure to 
 > - As the web testing assignment is read via cookies, there is no network latency involved and hence response times are not affected
 > - Ensures that customers have the option to exclude users from becoming part of experiments from both frontend and backend
 
-<br />
-
 ## **Enabling Web Testing Pre-Segmentation in FE**
 
 > 1. Configure the campaign's targeting segmentation in the app dashboard to use the campaignVariation operand for the Web Testing campaign ID(s) you want to gate on
@@ -25,8 +23,6 @@ Web Testing Pre-Segmentation lets a user be targeted based on their exposure to 
 > 3. You can do this manually, or you can use our sample scriptsamplescript to read the cookie dropped by the Web Testing product and pass on its values to the context object directly
 
 ![](https://files.readme.io/d9b4973d4bd7bca547978d99be30a30bf1988b0f1a2596a23e30e6a7155d50df-Web_Testing_as_Pre-Segment.png)
-
-<br />
 
 ## **Usage**
 
@@ -43,8 +39,6 @@ const context = {
 };
 const flag = await wingifyClient.getFlag('feature-key', context);
 ```
-
-<br />
 
 ## **Flow Diagram**
 
@@ -73,10 +67,10 @@ flowchart TD
 
 ## **Context Field Reference**
 
-| Field                                 | Type                   | Required               | Description                                       |                                                                                                                                                                        |
-| :------------------------------------ | :--------------------- | :--------------------- | :------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|                                       | platformVariables      | object                 | No                                                | Namespaced container for platform-originated signals passed into the FE context.                                                                                       |
-| platformVariables.webTestingCampaigns | Record\<string, string | number> or JSON string | Only if the campaign's DSL uses campaignVariation | Map of Web Testing campaign ID to the variation ID the visitor was assigned. Keys and values are coerced to strings; null/undefined values and empty keys are dropped. |
+| Field                                 | Type                                             | Required                                          | Description                                                                                                                                                            |
+| :------------------------------------ | :----------------------------------------------- | :------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| platformVariables                     | Object                                           | No                                                | Namespaced container for platform-originated signals passed into the FE context                                                                                        |
+| platformVariables.webTestingCampaigns | Record\<string, string \| number> or JSON string | Only if the campaign's DSL uses campaignVariation | Map of Web Testing campaign ID to the variation ID the visitor was assigned. Keys and values are coerced to strings; null/undefined values and empty keys are dropped. |
 
 **Script to read cookie value:**<br />/\*\*<br />_Reads Wingify cookies and returns a map of campaigns and variations.<br />_ @returns {Object} Example: { "122": "1", "130": "2" }<br />\*/<br />function getWebTestingCampaigns() \{<br />const cookieVal = {};<br />const nameRe = /^\_vis_op&#x74;_&#x65;xp_(\d+)\_combi$/;<br />const cookies = document.cookie ? document.cookie.split(";") : \[];
 
