@@ -63,7 +63,6 @@ E -- "Assignment matches rule" --> F\["✅ Feature included"]
 E -- "No match / not provided" --> G\["❌ Feature excluded"]
 
 ```mermaid
-flowchart LR 
  A\["1. Configure segmentation rule\nin VWO dashboard\n(target/exclude a Web Testing campaign)"] --> B\["2. Get visitor's Web Testing\ncampaign & variation assignment\n(e.g. via cookie-reading
 
 script)"]
@@ -96,12 +95,10 @@ if (match) \{<br />const campaignId = match\[1];<br />let decodedValue = decodeU
 
 // Extracts the variation ID (the first numeric token)<br />const variationId = (decodedValue.split(/\[,\\|:%]+/).find(t => /^\d+$/.test(t.trim())) || "").trim();<br />if (variationId) cookieVal\[campaignId] = variationId;<br />\}<br />\}<br />return cookieVal;<br />\}
 
-**Script to send cookie value to FE UserContext:**<br />/\*\*<br />_Sends the cookie value set by Web Testing product inside user context<br />_/<br />**const userContext = {**  
- 
-{**  
-scraped using helper script as above**  
-ns: cookieVal**  
+**Script to send cookie value to FE UserContext:**<br />/\*\*<br />_Sends the cookie value set by Web Testing product inside user context<br />_/<br />**const userContext = \{**
 
-;**
+\{\*\*<br />scraped using helper script as above\*\*<br />ns: cookieVal\*\*
+
+;\*\*
 
 **const flag = await wingifyClient.getFlag("feature_key", userContext);**
