@@ -62,9 +62,9 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  C["4. Flag evaluations & tracking calls\nshort-circuit to safe defaults"]
-  D["5. SDK checks in quietly with Wingify\nin the background"]
-  E["6. SDK resumes normal evaluation\n(Force Refresh pulls the latest settings — see Part 2)"]
+  C["4. Flag evaluations calls short-circuit to safe defaults"]
+  D["5. SDK checks in quietly with Wingify in background"]
+  E["6. SDK resumes normal evaluation (Force Refresh pulls the latest settings"]
 
   C --> D
   E -- "Panic Mode still ON" --> C
