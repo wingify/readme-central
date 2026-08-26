@@ -72,18 +72,50 @@ flowchart TD
 | platformVariables                     | Object                                           | No                                                | Namespaced container for platform-originated signals passed into the FE context                                                                                        |
 | platformVariables.webTestingCampaigns | Record\<string, string \| number> or JSON string | Only if the campaign's DSL uses campaignVariation | Map of Web Testing campaign ID to the variation ID the visitor was assigned. Keys and values are coerced to strings; null/undefined values and empty keys are dropped. |
 
-**Script to read cookie value:**<br />/\*\*<br />_Reads Wingify cookies and returns a map of campaigns and variations.<br />_ @returns {Object} Example: { "122": "1", "130": "2" }<br />\*/<br />function getWebTestingCampaigns() \{<br />const cookieVal = {};<br />const nameRe = /^\_vis_op&#x74;_&#x65;xp_(\d+)\_combi$/;<br />const cookies = document.cookie ? document.cookie.split(";") : \[];
+## **Script to read cookie value**
 
-for (const entry of cookies) \{<br />const \[name, value] = entry.split("=").map(s => s.trim());<br />const match = nameRe.exec(name);
+```javascript
+/**
+ * Reads Wingify cookies and returns a map of campaigns and variations.
+ * @returns {Object} Example: { "122": "1", "130": "2" }
+ */
+function getWebTestingCampaigns() {
+  const cookieVal = {};
+  const nameRe = /^_vis_opt_exp_(\d+)_combi$/;
+  const cookies = document.cookie ? document.cookie.split(";") : [];
 
-if (match) \{<br />const campaignId = match\[1];<br />let decodedValue = decodeURIComponent(value);
+  for (const entry of cookies) {
+    const [name, value] = entry.split("=").map(s => s.trim());
+    const match = nameRe.exec(name);
 
-// Extracts the variation ID (the first numeric token)<br />const variationId = (decodedValue.split(/\[,\\|:%]+/).find(t => /^\d+$/.test(t.trim())) || "").trim();<br />if (variationId) cookieVal\[campaignId] = variationId;<br />\}<br />\}<br />return cookieVal;<br />\}
+    if (match) {
+      const campaignId = match[1];
+      let decodedValue = decodeURIComponent(value);
 
-**Script to send cookie value to FE UserContext:**<br />/\*\*<br />_Sends the cookie value set by Web Testing product inside user context<br />_/<br />**const userContext = \{**
+      // Extracts the variation ID (the first numeric token)
+      const variationId = (decodedValue.split(/[,\|:%]+/).find(t => /^\d+$/.test(t.trim())) || "").trim();
+      if (variationId) cookieVal[campaignId] = variationId;
+    }
+  }
+  return cookieVal;
+}
 
-\{\*\*<br />scraped using helper script as above\*\*<br />ns: cookieVal\*\*
+```
 
-;\*\*
+## Script to send cookie value to FE UserContext
 
-**const flag = await wingifyClient.getFlag("feature_key", userContext);**
+```javascript
+/**
+ * Sends the cookie value set by Web Testing product inside user context
+ */
+const userContext = {
+  id: "user_123",
+  platformVariables: {
+    // cookie object scraped using helper script as above
+    webTestingCampaigns: cookieVal
+  }
+};
+
+const flag = await wingifyClient.getFlag("feature_key", userContext);
+
+```
