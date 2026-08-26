@@ -8,7 +8,7 @@ metadata:
 Web Testing as Pre-Seg
 
 ```mermaid
-flowchart LR
+flowchart TD
   subgraph Dashboard["VWO dashboard"]
     A["Configure a feature segmentation rule"]
     B["Target or exclude a Web Testing campaign"]
