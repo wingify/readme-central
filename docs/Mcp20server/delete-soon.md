@@ -61,7 +61,7 @@ flowchart TD
 ### Force Refresh
 
 ```mermaid
-flowchart LR 
+flowchart TD
 A["Urgent change on Wingify's side\n(e.g. Panic Mode cleared, or an urgent\ndashboard update)"] --> B["Wingify sends a refresh signal\nto connected SDK instances"]
 
 B --> C["SDK fetches latest settings\nimmediately, without waiting\nfor the next poll"]
