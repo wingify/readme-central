@@ -99,25 +99,17 @@ Under normal conditions, the SDK refreshes its local copy of the account's campa
 
 <br />
 
-## Flow Diagram _(displayed as Mermaid diagram in dev docs)_
-
-A\["Urgent change on Wingify's side\n(e.g. Panic Mode cleared, or an urgent\ndashboard update)"] --> B\["Wingify sends a refresh signal\nto connected SDK instances"]
-
-B --> C\["SDK fetches latest settings\nimmediately, without waiting\nfor the next poll"]
-
-C --> D\["SDK's local configuration\nis now fully up to date"]
-
-D --> E\["getFlag() / tracking calls continue\nusing the refreshed configuration"]
+## Flow Diagram
 
 ```mermaid
-A["Urgent change on Wingify's side\n(e.g. Panic Mode cleared, or an urgent\ndashboard update)"] --> B["Wingify sends a refresh signal\nto connected SDK instances"]
+flowchart TD
+A["Urgent change on Wingify dashboard"] --> B["Wingify sends refresh signal to connected SDK instances"]
 
-B --> C["SDK fetches latest settings\nimmediately, without waiting\nfor the next poll"]
+B --> C["SDK fetches latest settings *immediately*, without waiting for next poll"]
 
 C --> D["SDK's local configuration\nis now fully up to date"]
 
-D --> E["getFlag() / tracking calls continue\nusing the refreshed configuration"]
-
+D --> E["getFlag() calls continue using the refreshed configuration"]
 ```
 
 ***
