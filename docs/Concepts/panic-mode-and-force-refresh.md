@@ -13,18 +13,26 @@ Its an account-wide (account and environment specific) kill switch, which when t
 
 ## Key Features
 
-- > **One-click activation** from the Wingify dashboard — no code deploy or SDK restart needed
-- > **Applies instantly, account-wide (account and environment specific)** — every connected SDK instance detects the change on its own
-- > **Safe fallback behavior** — while Panic Mode is active, feature flag calls return their default/fallback state, so application keeps running rather than erroring out or serving broken experiment variations
-- > **Quiet in the background** — the SDK checks in periodically with Wingify to know the instant Panic Mode is lifted, without adding any noticeable overhead to the application.
-- > **Automatic recovery** — the moment Panic Mode is turned off in the dashboard, the SDK resumes normal operation on its own. No manual restart of your app or SDK is required.
-- > **Pairs with Force Refresh** (see Part 2) to make sure the SDK is working off the latest configuration the moment it comes back online.
+> - **One-click activation** from the Wingify dashboard — no code deploy or SDK restart needed
+
+> - **Applies instantly, account-wide (account and environment specific)** — every connected SDK instance detects the change on its own
+
+> - **Safe fallback behavior** — while Panic Mode is active, feature flag calls return their default/fallback state, so application keeps running rather than erroring out or serving broken experiment variations
+
+> - **Quiet in the background** — the SDK checks in periodically with Wingify to know the instant Panic Mode is lifted, without adding any noticeable overhead to the application.
+
+> - **Automatic recovery** — the moment Panic Mode is turned off in the dashboard, the SDK resumes normal operation on its own. No manual restart of your app or SDK is required.
+
+> - **Pairs with Force Refresh** (see Part 2) to make sure the SDK is working off the latest configuration the moment it comes back online.
 
 ## Enabling Panic Mode
 
 > 1. Go to Websites and Apps - SDK Settings and for the required environment, click on Disable SDK
+
 > 2. \[screenshot attached]
+
 > 3. Every connected SDK instance detects this automatically — there is nothing to change in your codebase.
+
 > 4. When the issue is resolved, click on Enable SDK from the same screen to let your application resume normal experimentation.
 
 !\[]\[image1]
