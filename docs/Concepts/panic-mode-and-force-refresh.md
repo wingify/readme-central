@@ -53,12 +53,12 @@ Its an account-wide (account and environment specific) kill switch, which when t
 ```mermaid
 flowchart TD
   A["1. Turn ON Panic Mode in Wingify dashboard"]
-  B["3. Connected SDK instances detect\nPanic Mode is active"]
+  B["3. Connected SDK instances detect Panic Mode is active"]
 
   A --> B
 ```
 
-Part 2: SDK Behaviour and Recovery
+#### Part 2: SDK Behaviour and Recovery
 
 ```mermaid
 flowchart TD
