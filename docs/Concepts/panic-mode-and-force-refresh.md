@@ -31,7 +31,9 @@ Its an account-wide (account and environment specific) kill switch, which when t
 > - Every connected SDK instance detects this automatically — there is nothing to change in your codebase.
 > - When the issue is resolved, click on Enable SDK from the same screen to let your application resume normal experimentation.
 
-!\[]\[image1]
+![](https://files.readme.io/fd7dc675d46412c6e16f69b50eb214ff11401af5a84e94dbf8455a587ff8ed06-Panic.png)
+
+<br />
 
 ### What The Application Experiences
 
@@ -44,7 +46,7 @@ Its an account-wide (account and environment specific) kill switch, which when t
 
 ##
 
-## Flow Diagram _(displayed as Mermaid diagram in dev docs)_
+## Flow Diagram
 
 flowchart TD<br />A\["1. Account owner turns ON Panic Mode\nin Wingify dashboard"]<br />B\["2. Wingify backend flags the account\nas in Panic Mode"]<br />C\["3. Connected SDK instances detect\nPanic Mode is active"]
 
@@ -55,6 +57,26 @@ flowchart TD<br />D\["4. Flag evaluations & tracking calls\nshort-circuit to saf
 D --> E<br />E -- "Panic Mode still ON" --> D<br />E -- "Panic Mode turned OFF" --> F
 
 Diagram available here: [https://developers.wingify.com/v3/docs/delete-soon](https://developers.wingify.com/v3/docs/delete-soon)
+
+```mermaid
+flowchart TD
+  A["1. Account owner turns ON Panic Mode\nin Wingify dashboard"]
+  B["2. Wingify backend flags the account\nas in Panic Mode"]
+  C["3. Connected SDK instances detect\nPanic Mode is active"]
+
+  A --> B --> C
+
+
+flowchart TD
+  D["4. Flag evaluations & tracking calls\nshort-circuit to safe defaults"]
+  E["5. SDK checks in quietly with Wingify\nin the background"]
+  F["6. SDK resumes normal evaluation\n(Force Refresh pulls the latest settings — see Part 2)"]
+
+  D --> E
+  E -- "Panic Mode still ON" --> D
+  E -- "Panic Mode turned OFF" --> F
+
+```
 
 ***
 
