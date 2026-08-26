@@ -46,41 +46,27 @@ const flag = await wingifyClient.getFlag('feature-key', context);
 
 <br />
 
-**Flow Diagram \[displayed as Mermaid Diagram in dev docs]**
-
-A\["1. Configure segmentation rule\nin VWO dashboard\n(target/exclude a Web Testing campaign)"] --> B\["2. Get visitor's Web Testing\ncampaign & variation assignment\n(e.g. via cookie-reading
-
-script)"]
-
-B --> C\["3. Pass it in context:\nplatformVariables.webTestingCampaigns"]
-
-C --> D\["4. Call getFlag(featureKey, context)"]
-
-D --> E\["SDK evaluates the rule\nagainst the assignment"]
-
-E -- "Assignment matches rule" --> F\["✅ Feature included"]
-
-E -- "No match / not provided" --> G\["❌ Feature excluded"]
+## **Flow Diagram**
 
 ```mermaid
 flowchart TD
-  subgraph Dashboard["VWO dashboard"]
-    A["Configure a feature segmentation rule"]
-    B["Target or exclude a Web Testing campaign"]
+  subgraph Dashboard["Wingify dashboard"]
+    A["Configure rule pre-segment"]
+    B["Target or exclude Web Testing campaign"]
     A --> B
   end
 
   subgraph Application["Your application"]
-    C["Read the visitor's campaign and variation assignment"]
-    D["Add the assignment to platformVariables.webTestingCampaigns"]
-    E["Call getFlag(featureKey, context)"]
+    C["Read user's campaign and variation assignment"]
+    D["Add the assignment to platformVariables.webTestingCampaigns in user context"]
+    E["Call getFlag(featureKey, userContext)"]
     C --> D --> E
   end
 
   B --> C
-  E --> F{"Does the assignment match the segmentation rule?"}
-  F -- "Yes" --> G["Feature included"]
-  F -- "No, missing, or unmatched" --> H["Feature excluded"]
+  E --> F{"Does the assignment match the pre-segment?"}
+  F -- "Yes" --> G["Feature enabled"]
+  F -- "No, missing, or unmatched" --> H["Feature disabled"]
 ```
 
 ##
