@@ -8,20 +8,24 @@ metadata:
 Web Testing as Pre-Seg
 
 ```mermaid
-flowchart LR 
-A\["1. Configure segmentation rule\nin VWO dashboard\n(target/exclude a Web Testing campaign)"] --> B\["2. Get visitor's Web Testing\ncampaign & variation assignment\n(e.g. via cookie-reading
+flowchart LR
+  subgraph Dashboard["VWO dashboard"]
+    A["Configure a feature segmentation rule"]
+    B["Target or exclude a Web Testing campaign"]
+    A --> B
+  end
 
-script)"]
+  subgraph Application["Your application"]
+    C["Read the visitor's campaign and variation assignment"]
+    D["Add the assignment to platformVariables.webTestingCampaigns"]
+    E["Call getFlag(featureKey, context)"]
+    C --> D --> E
+  end
 
-B --> C\["3. Pass it in context:\nplatformVariables.webTestingCampaigns"]
-
-C --> D\["4. Call getFlag(featureKey, context)"]
-
-D --> E\["SDK evaluates the rule\nagainst the assignment"]
-
-E -- "Assignment matches rule" --> F\["✅ Feature included"]
-
-E -- "No match / not provided" --> G\["❌ Feature excluded"]
+  B --> C
+  E --> F{"Does the assignment match the segmentation rule?"}
+  F -- "Yes" --> G["Feature included"]
+  F -- "No, missing, or unmatched" --> H["Feature excluded"]
 ```
 
 <br />
