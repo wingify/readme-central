@@ -32,5 +32,19 @@ flowchart TD
 <br />
 
 ```mermaid
-flowchart TD A["getFlag() called for a user"] --> B{"User already\nevaluated before?"} B -- "Yes" --> Z["Return the same\ndecision as before"] B -- "No" --> C{"In an active\nHoldout?"} C -- "Yes" --> H["Feature OFF\n(excluded from experimentation)"] C -- "No" --> D{"Rollout rule(s)\nconfigured & matched?"} D -- "No rollout rules" --> E D -- "Matched & in traffic %" --> E{"Evaluate A/B Testing\n& Personalize rules"} D -- "No match / out of traffic %" --> H2["Feature OFF"] E -- "Rule matched" --> F["Allocate traffic /\nassign variation"] E -- "No rule matched" --> H3["Feature OFF"] F --> Z2["Return final\nvariation & feature state"]
+flowchart TD
+  A["getFlag() called for a user"] --> B{"User already<br/>evaluated before?"}
+  B -- "Yes" --> Z["Return the same<br/>decision as before"]
+  B -- "No" --> C{"In an active<br/>holdout?"}
+
+  C -- "Yes" --> H["Feature OFF<br/>(excluded from experimentation)"]
+  C -- "No" --> D{"Rollout rule(s)<br/>configured and matched?"}
+
+  D -- "No rollout rules" --> E{"Evaluate A/B testing<br/>and personalize rules"}
+  D -- "Matched and in traffic %" --> E
+  D -- "No match or out of traffic %" --> H2["Feature OFF"]
+
+  E -- "Rule matched" --> F["Allocate traffic /<br/>assign variation"]
+  E -- "No rule matched" --> H3["Feature OFF"]
+  F --> Z2["Return final<br/>variation and feature state"]
 ```
