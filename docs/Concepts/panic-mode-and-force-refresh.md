@@ -48,15 +48,7 @@ Its an account-wide (account and environment specific) kill switch, which when t
 
 ## Flow Diagram
 
-flowchart TD<br />A\["1. Account owner turns ON Panic Mode\nin Wingify dashboard"]<br />B\["2. Wingify backend flags the account\nas in Panic Mode"]<br />C\["3. Connected SDK instances detect\nPanic Mode is active"]
-
-A --> B --> C
-
-flowchart TD<br />D\["4. Flag evaluations & tracking calls\nshort-circuit to safe defaults"]<br />E\["5. SDK checks in quietly with Wingify\nin the background"]<br />F\["6. SDK resumes normal evaluation\n(Force Refresh pulls the latest settings — see Part 2)"]
-
-D --> E<br />E -- "Panic Mode still ON" --> D<br />E -- "Panic Mode turned OFF" --> F
-
-Diagram available here: [https://developers.wingify.com/v3/docs/delete-soon](https://developers.wingify.com/v3/docs/delete-soon)
+#### Part 1: Enable Panic Mode
 
 ```mermaid
 flowchart TD
@@ -65,18 +57,11 @@ flowchart TD
   C["3. Connected SDK instances detect\nPanic Mode is active"]
 
   A --> B --> C
-
-
-flowchart TD
-  D["4. Flag evaluations & tracking calls\nshort-circuit to safe defaults"]
-  E["5. SDK checks in quietly with Wingify\nin the background"]
-  F["6. SDK resumes normal evaluation\n(Force Refresh pulls the latest settings — see Part 2)"]
-
-  D --> E
-  E -- "Panic Mode still ON" --> D
-  E -- "Panic Mode turned OFF" --> F
-
 ```
+
+Part 2: SDK Behaviour and Recovery
+
+\<mermaid
 
 ***
 
