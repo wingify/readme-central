@@ -88,23 +88,23 @@ Under normal conditions, the SDK refreshes its local copy of the account's campa
 
 ## Key Features
 
-- **Bypasses the normal polling wait** — the SDK fetches the latest settings as soon as a refresh signal is received, instead of waiting out the rest of its polling interval.
-- **Fully automatic** — there is nothing to configure or call from the code; it's triggered by Wingify whenever an instant update is needed.
-- **Runs automatically after Panic Mode clears** — so the application comes back online with fully up-to-date experiment configuration, not a stale cached copy from before the incident.
-- **Non-disruptive** — refreshing settings happens in the background and does not block or delay in-flight flag evaluations or tracking calls.
-- **Safe under rapid changes** — if several refresh signals arrive in quick succession, the SDK avoids redundant fetches and always settles on the latest configuration, even if signals arrive out of order.
+> - **Bypasses the normal polling wait** — the SDK fetches the latest settings as soon as a refresh signal is received, instead of waiting out the rest of its polling interval.
+>
+> * **Fully automatic** — there is nothing to configure or call from the code; it's triggered by Wingify whenever an instant update is needed.
+> * **Runs automatically after Panic Mode clears** — so the application comes back online with fully up-to-date experiment configuration, not a stale cached copy from before the incident.
+> * **Non-disruptive** — refreshing settings happens in the background and does not block or delay in-flight flag evaluations or tracking calls.
+> * **Safe under rapid changes** — if several refresh signals arrive in quick succession, the SDK avoids redundant fetches and always settles on the latest configuration, even if signals arrive out of order.
 
 ## Enabling Force Refresh
 
-1. Go to Websites and Apps - SDK Settings and for the required environment, click on Force SDK Refresh
-2. \[screenshot attached]
-3. Every connected SDK instance detects this automatically — and fetches the latest settings from Wingify server
-4. To prevent multiple unnecessary fetches for the SDKs, once the Force Refresh button is clicked, it freezes the state for 5 minutes, which means, the next Force Refresh can only be enabled after that duration
-5. There is no explicit turning off Force Refresh
+> - Go to Websites and Apps - SDK Settings and for the required environment, click on Force SDK Refresh
+> - Every connected SDK instance detects this automatically — and fetches the latest settings from Wingify server
+> - To prevent multiple unnecessary fetches for the SDKs, once the Force Refresh button is clicked, it freezes the state for 5 minutes, which means, the next Force Refresh can only be enabled after that duration
+> - There is no explicit turning off Force Refresh
 
-!\[]\[image2]
+![](https://files.readme.io/a11c39f9da457614661da99b3680b7abd44a783c3956d3ecb5790ecc969e02a7-Panic.png)
 
-1.
+<br />
 
 ## Flow Diagram _(displayed as Mermaid diagram in dev docs)_
 
@@ -115,6 +115,17 @@ B --> C\["SDK fetches latest settings\nimmediately, without waiting\nfor the nex
 C --> D\["SDK's local configuration\nis now fully up to date"]
 
 D --> E\["getFlag() / tracking calls continue\nusing the refreshed configuration"]
+
+```mermaid
+A["Urgent change on Wingify's side\n(e.g. Panic Mode cleared, or an urgent\ndashboard update)"] --> B["Wingify sends a refresh signal\nto connected SDK instances"]
+
+B --> C["SDK fetches latest settings\nimmediately, without waiting\nfor the next poll"]
+
+C --> D["SDK's local configuration\nis now fully up to date"]
+
+D --> E["getFlag() / tracking calls continue\nusing the refreshed configuration"]
+
+```
 
 ***
 
