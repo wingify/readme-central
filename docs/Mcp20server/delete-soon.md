@@ -35,9 +35,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-  A["getFlag() called for a user"] --> B{"User already<br/>evaluated before?"}
-  B -- "Yes" --> Z["Return the same<br/>decision as before"]
-  B -- "No" --> C{"In an active<br/>holdout?"}
+  A["getFlag() called for a user"] --> C{"In an active<br/>holdout?"}
 
   C -- "Yes" --> H["Feature OFF<br/>(excluded from experimentation)"]
   C -- "No" --> D{"Rollout rule(s)<br/>configured and matched?"}
