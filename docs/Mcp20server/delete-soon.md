@@ -31,6 +31,8 @@ flowchart TD
 
 <br />
 
+## **Rule Evaluation**
+
 ```mermaid
 flowchart TD
   A["getFlag() called for a user"] --> B{"User already<br/>evaluated before?"}
