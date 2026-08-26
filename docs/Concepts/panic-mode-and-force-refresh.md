@@ -61,7 +61,16 @@ flowchart TD
 
 Part 2: SDK Behaviour and Recovery
 
-\<mermaid
+```mermaid
+flowchart TD
+  D["4. Flag evaluations & tracking calls\nshort-circuit to safe defaults"]
+  E["5. SDK checks in quietly with Wingify\nin the background"]
+  F["6. SDK resumes normal evaluation\n(Force Refresh pulls the latest settings — see Part 2)"]
+
+  D --> E
+  E -- "Panic Mode still ON" --> D
+  E -- "Panic Mode turned OFF" --> F
+```
 
 ***
 
