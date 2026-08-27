@@ -12,17 +12,19 @@ Web Testing Pre-Segmentation lets a user be targeted based on their exposure to 
 
 ## **Key Features**
 
-> - Accepts the visitor's Web Testing assignment via context.platformVariables.webTestingCampaigns, as either a plain object or a JSON string
-> - As the web testing assignment is read via cookies, there is no network latency involved and hence response times are not affected
-> - Ensures that customers have the option to exclude users from becoming part of experiments from both frontend and backend
+- Accepts the visitor's Web Testing assignment via context.platformVariables.webTestingCampaigns, as either a plain object or a JSON string
+- As the web testing assignment is read via cookies, there is no network latency involved and hence response times are not affected
+- Ensures that customers have the option to exclude users from becoming part of experiments from both frontend and backend
 
 ## **Enabling Web Testing Pre-Segmentation in FE**
 
-> 1. Configure the campaign's targeting segmentation in the app dashboard to use the campaignVariation operand for the Web Testing campaign ID(s) you want to gate on
-> 2. Inside the context object, populate platformVariables.webTestingCampaigns with the visitor's current Web Testing campaign → variation assignment
-> 3. You can do this manually, or you can use our sample scriptsamplescript to read the cookie dropped by the Web Testing product and pass on its values to the context object directly
+- Configure the campaign's targeting segmentation in the app dashboard to use the campaignVariation operand for the Web Testing campaign ID(s) you want to gate on
+- Inside the context object, populate platformVariables.webTestingCampaigns with the visitor's current Web Testing campaign → variation assignment
+- You can do this manually, or you can use our sample scriptsamplescript to read the cookie dropped by the Web Testing product and pass on its values to the context object directly
 
-![](https://files.readme.io/d9b4973d4bd7bca547978d99be30a30bf1988b0f1a2596a23e30e6a7155d50df-Web_Testing_as_Pre-Segment.png)
+
+<Image src="https://files.readme.io/d9b4973d4bd7bca547978d99be30a30bf1988b0f1a2596a23e30e6a7155d50df-Web_Testing_as_Pre-Segment.png" border={true} />
+
 
 ## **Usage**
 
