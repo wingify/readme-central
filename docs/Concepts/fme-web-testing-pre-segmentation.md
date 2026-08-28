@@ -8,8 +8,6 @@ hidden: true
 metadata:
   robots: index
 ---
-Pre-segment users based on their Web Testing campaign exposure and assigned variation.
-
 ## Overview
 
 Web Testing Pre-Segmentation lets you target users based on their exposure to a **Web Testing** campaign and the variation assigned to them. This connects Feature Experimentation rules to an in-flight Web Testing experiment without an additional network round trip.
@@ -70,9 +68,9 @@ flowchart TD
 
 ## Context field reference
 
-| Field | Type | Required | Description |
-| :--- | :--- | :--- | :--- |
-| `platformVariables` | Object | No | Namespaced container for platform-originated signals passed into the FE context. |
+| Field                                   | Type                                              | Required                                            | Description                                                                                                                                                            |
+| :-------------------------------------- | :------------------------------------------------ | :-------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `platformVariables`                     | Object                                            | No                                                  | Namespaced container for platform-originated signals passed into the FE context.                                                                                       |
 | `platformVariables.webTestingCampaigns` | `Record<string, string \| number>` or JSON string | Only if the campaign's DSL uses `campaignVariation` | Map of Web Testing campaign ID to the variation ID assigned to the visitor. Keys and values are converted to strings; `null`, `undefined`, and empty keys are removed. |
 
 ## Read Web Testing cookie values
