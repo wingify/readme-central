@@ -4,7 +4,7 @@ excerpt: >-
   Pre-segment users based on their Web Testing campaign exposure and assigned
   variation.
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
