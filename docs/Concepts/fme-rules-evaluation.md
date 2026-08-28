@@ -4,7 +4,7 @@ excerpt: >-
   Learn how Wingify FE evaluates feature flag rules, including holdouts, rollout
   gates, testing, personalization, and whitelisting
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   title: ''
   description: ''
