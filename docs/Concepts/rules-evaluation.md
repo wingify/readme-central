@@ -12,54 +12,57 @@ metadata:
 next:
   description: ''
 ---
-When you call `getFlag`, the SDK evaluates holdouts and feature rules to determine whether a feature is enabled and which variation, if any, a user receives.
+# **How Wingify FE Evaluates Feature Flag Rules**
 
-## Overview
+## **Overview**
 
-Feature-flag evaluation answers two questions:
+When a feature flag is evaluated for a user, the SDK has to decide two things:
 
-1. Is the feature enabled for this user?
-2. Which variation should the user see, if applicable?
+1. should this feature be enabled for this user
+2. which variation (if any) should the user see
 
-The outcome depends on the rules configured for the feature, their order in the dashboard, and controls such as holdouts and Force Users (whitelisting).
+This follows a set process, determined by the type of rules present in the feature flag, the order of the rules and presence of features like Holdouts or Force Users (Whitelisting)
 
-## Types of rules
+## **Types of Rules**
 
-| Rule type | What it does |
-| --- | --- |
-| **Rollout** | Provides a simple on/off gate. A configured percentage of matching users receives the feature. Use rollouts to gradually release a feature. |
-| **A/B and multivariate testing** | Splits qualifying traffic across two or more variations so you can compare their performance. |
-| **Personalize** | Delivers a custom experience to a targeted percentage of a defined audience segment. |
+| Rule Type | What it does |
+| :---: | :---: |
+| **Rollout** | Simple on/off gate Defined percentage of matching users get the feature turned on Commonly used to gradually release a feature |
+| **A/B and Multivariate Testing** | Splits qualifying traffic across two or more variations to compare their performance against each other |
+| **Personalize** | Delivers custom experience to a targeted percentage of a defined audience segment |
 
-You can combine rollout rules with A/B testing and/or personalize rules in a feature.
+Inside a feature, you can combine Rollout rules with A/B Testing and/or Personalize rules.
 
-## Order of evaluation
+## **Order of Evaluation**
 
-For every `getFlag` call, Wingify evaluates rules in the following order. Evaluation stops as soon as the user's outcome is determined, and later rules are skipped.
+For every `getFlag` call, Wingify evaluates rules in the following order. Evaluation stops as soon as a decision is reached and later rules are skipped once the user’s outcome is determined.
 
-1. **Check for a holdout.**
-   - If the feature flag is connected to an active holdout, Wingify evaluates the user for the holdout before any feature rule.
-   - If the user is assigned to the holdout, Wingify does not evaluate any rules and the user does not become part of the feature.
+1. **Holdout check**
+   1. If the feature flag is connected to an active Holdout, user is evaluated for Holdout first, before any rule
+   2. If the user becomes part of the Holdout, then they will not be evaluated for any rule
+   3. The user will not become part of the feature
+2. **Rollout rules**
+   1. Rollout rules are checked for audience targeting matches, and this evaluation happens in the order in which the rules are present in the dashboard, from top to bottom, one by one
+   2. Once a user qualifies for a rule, the traffic percentage is used for final evaluation
+   3. If both are passed, then the user is considered to become part of the Rollout rule
+   4. Once a user qualifies for a rule, based on audience targeting match, they will not be evaluated for any other Rollout rule, irrespective of whether they become part of that rule or not
+3. **A/B and Multivariate Testing and Personalize Rules**
+   1. Only evaluated if the feature has **NO** Rollout rules, **OR** if the user became part of one of the Rollout rules
+   2. Testing and Personalize rules are also checked for audience targeting matches, and this evaluation happens in the order in which the rules are present in the dashboard
+   3. Once a user qualifies for a rule, the traffic percentage is used for final evaluation
+   4. If both are passed, then the user is considered to become part of that rule
+      1. If the user becomes part of a testing rule, then the user is assigned a variation based on the variations connected to the testing rule
+      2. If the user becomes part of a personalize rule, then the user is assigned the variation associated with the rule
+      3. If the user becomes part of a multivariate testing rule, then the user is assigned a combination based on the combinations connected to the multivariate rule
+   5. Once a user qualifies for a rule, based on audience targeting match, they will not be evaluated for any other rule, irrespective of whether they become part of that rule or not
 
-2. **Evaluate rollout rules.**
-   - Wingify checks rollout rules from top to bottom in the order they appear in the dashboard.
-   - For each rule, Wingify first evaluates audience targeting. If the user matches the audience, Wingify then uses the rule's traffic percentage for the final decision.
-   - If the user passes both checks, they become part of the rollout rule.
-   - After a user matches a rollout rule's audience, Wingify does not evaluate them against any other rollout rule—even if they are outside that rule's traffic allocation.
+**Note:** if a feature has Rollout rules configured, they act as a gate. A user must pass a Rollout rule before Testing and Personalize rules are even considered for evaluation. If a feature has no Rollout rules at all, Testing and Personalize rules are evaluated directly.
 
-3. **Evaluate A/B testing, multivariate testing, and personalize rules.**
-   - Wingify evaluates these rules only when the feature has no rollout rules, or when the user became part of a rollout rule.
-   - Wingify checks these rules from top to bottom in the order they appear in the dashboard.
-   - For each rule, Wingify first evaluates audience targeting. If the user matches the audience, Wingify then uses the rule's traffic percentage for the final decision.
-   - If the user passes both checks, they become part of the rule:
-     - For an A/B testing rule, Wingify assigns a variation from the variations connected to that rule.
-     - For a personalize rule, Wingify assigns the variation associated with the rule.
-     - For a multivariate testing rule, Wingify assigns a combination from the combinations connected to that rule.
-   - After a user matches a rule's audience, Wingify does not evaluate them against any other testing or personalize rule—even if they are outside that rule's traffic allocation.
+**Note**: Mutually Exclusive Groups (MEG) are not mentioned here, as they have a different flow and will be covered separately
 
-<Callout icon="fa-info-circle" theme="info">
-If a feature has rollout rules, they act as a gate: a user must become part of a rollout rule before Wingify evaluates testing and personalize rules. If the feature has no rollout rules, Wingify evaluates testing and personalize rules directly.
-</Callout>
+![][image1]
+
+![][image2]
 
 ```mermaid
 flowchart TD
@@ -74,21 +77,17 @@ flowchart TD
 
   E -- "Rule matched" --> F["Allocate traffic /<br/>assign variation"]
   E -- "No rule matched" --> H3["Feature OFF"]
-  F --> Z["Return final<br/>variation and feature state"]
+  F --> Z2["Return final<br/>variation and feature state"]
 ```
 
-## Exceptions and special cases
+*(rendered as a Mermaid diagram in dev docs)*
 
-### Holdouts
+## **Exceptions & Special Cases**
 
-A holdout reserves a percentage of user traffic as a **control group that never becomes part of any feature**. When a user becomes part of a holdout, Wingify does not evaluate them for any rule and disables the feature flag for that user.
+### **Holdouts**
 
-### Whitelisting (forced variation)
+A Holdout reserves a percentage of user traffic as a **control group that never becomes part of any feature.** Once a user becomes part of a Holdout, they are not evaluated for any rule, and the feature flag is disabled for them
 
-Whitelisting forces specific users into a rollout or personalize rule, or into a specific variation of a testing rule. QA teams and internal stakeholders commonly use it to view a particular variation regardless of normal targeting or traffic-allocation rules.
+### **Whitelisting (Forced Variation)**
 
-When a user is eligible for whitelisting, Wingify does not evaluate them against other rules and directly makes them part of the whitelisted rule.
-
-### Optional: Mutually Exclusive Groups
-
-Mutually Exclusive Groups (MEGs) use a different evaluation flow and are documented separately.
+Whitelisting forces specific users into a specific rollout or personalize rule, or a specific variation of a testing rule. This is commonly used by QA team or internal stakeholders, to see a particular variation, regardless of normal targeting or traffic allocation rules. Once a user is eligible for whitelisting, they are not evaluated for any rules, and are directly made part of the whitelisted rule
