@@ -2,7 +2,7 @@
 title: Web Testing Pre-Segmentation
 excerpt: Pre-Segment users based on Web Testing Rules
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
