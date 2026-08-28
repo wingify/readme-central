@@ -10,7 +10,7 @@
 - fme-explicit-sdk-fetch-settings
 - fme-testing-email-sms-via-server-side
 - fme-user-aliasing
-- rules-evaluation
+- fme-rules-evaluation
 - fme-hybrid-testing-web
 - fme-using-web-testing-visitor-uuid-as-userid
 - web-testing-pre-segmentation
