@@ -2,7 +2,7 @@
 title: Rules Evaluation in FE
 excerpt: >-
   Learn how Wingify FE evaluates feature flag rules, including holdouts, rollout
-  gates, testing, personalization, and whitelisting.
+  gates, testing, personalization, and whitelisting
 deprecated: false
 hidden: true
 metadata:
