@@ -25,11 +25,11 @@ This follows a set process, determined by the type of rules present in the featu
 
 ## **Types of Rules**
 
-| Rule Type | What it does |
-| :---: | :---: |
-| **Rollout** | Simple on/off gate Defined percentage of matching users get the feature turned on Commonly used to gradually release a feature |
-| **A/B and Multivariate Testing** | Splits qualifying traffic across two or more variations to compare their performance against each other |
-| **Personalize** | Delivers custom experience to a targeted percentage of a defined audience segment |
+|             Rule Type            |                                                          What it does                                                          |
+| :------------------------------: | :----------------------------------------------------------------------------------------------------------------------------: |
+|            **Rollout**           | Simple on/off gate Defined percentage of matching users get the feature turned on Commonly used to gradually release a feature |
+| **A/B and Multivariate Testing** |             Splits qualifying traffic across two or more variations to compare their performance against each other            |
+|          **Personalize**         |                        Delivers custom experience to a targeted percentage of a defined audience segment                       |
 
 Inside a feature, you can combine Rollout rules with A/B Testing and/or Personalize rules.
 
@@ -60,9 +60,13 @@ For every `getFlag` call, Wingify evaluates rules in the following order. Evalua
 
 **Note**: Mutually Exclusive Groups (MEG) are not mentioned here, as they have a different flow and will be covered separately
 
-![][image1]
+![](https://files.readme.io/806ea1ca4d7f2a63d4c41a6af6c93c3c02e234722335e0b2a0003c4ccfebb6fe-Screenshot_2026-08-28_at_17.16.18.png)
 
-![][image2]
+<br />
+
+![](https://files.readme.io/753a67b2c9ed68dacb5cd7dc22acc45611ada8de79f540a858c89250baad6be6-Screenshot_2026-08-28_at_17.16.31.png)
+
+<br />
 
 ```mermaid
 flowchart TD
@@ -80,7 +84,7 @@ flowchart TD
   F --> Z2["Return final<br/>variation and feature state"]
 ```
 
-*(rendered as a Mermaid diagram in dev docs)*
+_(rendered as a Mermaid diagram in dev docs)_
 
 ## **Exceptions & Special Cases**
 
