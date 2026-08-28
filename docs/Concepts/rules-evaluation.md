@@ -1,5 +1,5 @@
 ---
-title: Rules evaluation and Debugger
+title: Rules Evaluation in FE
 excerpt: ''
 deprecated: false
 hidden: true
