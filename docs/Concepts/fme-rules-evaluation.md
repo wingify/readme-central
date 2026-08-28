@@ -1,5 +1,8 @@
 ---
-title: How Wingify FE Evaluates Feature Flag Rules
+title: Rules Evaluation in FE
+excerpt: >-
+  Learn how Wingify FE evaluates feature flag rules, including holdouts, rollout
+  gates, testing, personalization, and whitelisting
 ---
 # **How Wingify FE Evaluates Feature Flag Rules**
 
