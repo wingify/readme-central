@@ -84,7 +84,7 @@ flowchart TD
   F --> Z2["Return final<br/>variation and feature state"]
 ```
 
-_(rendered as a Mermaid diagram in dev docs)_
+<br />
 
 ## **Exceptions & Special Cases**
 
