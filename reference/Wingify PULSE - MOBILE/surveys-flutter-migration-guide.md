@@ -1,6 +1,6 @@
 ---
 title: Surveys - Flutter - Migration Guide
-excerpt: Latest SDK version is 2.5.0
+excerpt: Latest SDK version is 2.6.1
 deprecated: false
 hidden: true
 metadata:
@@ -48,7 +48,7 @@ Add the Wingify Pulse Flutter SDK:
 
 ```yaml
 dependencies:
-  wingify_insights_flutter_sdk: ^2.5.0
+  wingify_insights_flutter_sdk: ^2.6.1
 ```
 
 Run the following command to update dependencies:
@@ -455,9 +455,9 @@ For additional support or questions:
 
 | Component                       | Version          |
 | ------------------------------- | ---------------- |
-| Wingify Pulse Flutter SDK           | ^2.5.0           |
-| Native Android SDK              | 2.5.1            |
-| Native iOS SDK                  | 2.5.0            |
+| Wingify Pulse Flutter SDK           | ^2.6.1           |
+| Native Android SDK              | 2.6.1            |
+| Native iOS SDK                  | 2.6.1            |
 | Minimum iOS Version             | 12.0             |
 | Minimum Android SDK             | 21 (Android 5.0) |
 | Blitzllama SDK (migrating from) | 0.6.3            |

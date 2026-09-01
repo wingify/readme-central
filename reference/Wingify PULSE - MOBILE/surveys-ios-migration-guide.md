@@ -49,7 +49,7 @@ pod 'Blitzllama-ios', '1.6.29'
 
 ```ruby
 # Podfile
-pod 'Wingify-Insights', '~> 2.5.0'
+pod 'Wingify-Insights', '~> 2.6.1'
 ```
 
 ***
@@ -507,7 +507,7 @@ Wingify.configure(
 
 | Component                               | Version |
 | --------------------------------------- | ------- |
-| Wingify Pulse SDK Version                   | 2.5.0+  |
+| Wingify Pulse SDK Version                   | 2.6.1+  |
 | Minimum iOS Version                     | 12.0    |
 | Swift Version                           | 5.0+    |
 | Blitzllama SDK Version (migrating from) | 1.6.29  |
