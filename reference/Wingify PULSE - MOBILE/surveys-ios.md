@@ -48,8 +48,7 @@ Add the SDK dependency to your `Podfile`:
 
 ```ruby
 # Podfile
-pod 'Wingify-Insights', '~> 2.1.0'
-pod 'SwiftyJSON', '~> 5.0.2'
+pod 'Wingify-Insights', '~> 2.6.1'
 ```
 
 Then run:
