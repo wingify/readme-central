@@ -49,7 +49,7 @@ pod 'Blitzllama-ios', '1.6.29'
 
 ```ruby
 # Podfile
-pod 'VWO-Insights', '~> 2.2.0'
+pod 'VWO-Insights', '~> 2.6.1'
 ```
 
 ***
@@ -210,7 +210,9 @@ let attributes: [String: Any] = [
 surveySDK.setAttribute(attributes: attributes)
 ```
 
-> 📘 **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
+<Callout icon="📘" theme="info">
+  ### **Note:** You don't need to include `user_id` in `setAttribute()` — the SDK automatically uses the current user ID set via initialization or `setUserId()`.
+</Callout>
 
 ## Setting Custom User Attributes
 
@@ -238,7 +240,9 @@ let attributes: [String: Any] = [
 surveySDK.setAttribute(attributes: attributes)
 ```
 
-> 📘 **Note:** Wingify uses `setAttribute()` instead of `updateUserAttributes()`. Data types are automatically inferred, so you don't need to specify them explicitly. You can pass multiple attributes in a single dictionary. The SDK automatically associates attributes with the current user ID.
+<Callout icon="📘" theme="info">
+  ### **Note:** Wingify uses `setAttribute()` instead of `updateUserAttributes()`. Data types are automatically inferred, so you don't need to specify them explicitly. You can pass multiple attributes in a single dictionary. The SDK automatically associates attributes with the current user ID.
+</Callout>
 
 ***
 
@@ -322,7 +326,9 @@ VWO.setUserId(randomUserId) { result in
 | Logout clears session      | Use random string for anonymous tracking         |
 | Requires re-initialization | `setUserId()` handles session refresh internally |
 
-> 📘 **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
+<Callout icon="📘" theme="info">
+  ### **Note:** `setUserId()` automatically stops the current session, refreshes configuration, and resumes recording if it was active before the switch.
+</Callout>
 
 ***
 
@@ -335,7 +341,9 @@ If you're using triggers configured in the Blitzllama dashboard, you may need to
 3. Create events with the same names you used as trigger names in Blitzllama
 4. Configure these events in **Surveys → Custom Triggers**
 
-> ⚠️ **Important:** Ensure event names match exactly between your code and the Wingify dashboard.
+<Callout icon="⚠️" theme="warn">
+  ### **Important:** Ensure event names match exactly between your code and the Wingify dashboard.
+</Callout>
 
 ***
 
@@ -507,7 +515,7 @@ VWO.configure(
 
 | Component                               | Version |
 | --------------------------------------- | ------- |
-| Wingify Pulse SDK Version               | 2.2.0+  |
+| Wingify Pulse SDK Version               | 2.6.1   |
 | Minimum iOS Version                     | 12.0    |
 | Swift Version                           | 5.0+    |
 | Blitzllama SDK Version (migrating from) | 1.6.29  |

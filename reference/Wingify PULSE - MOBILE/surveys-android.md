@@ -43,7 +43,7 @@ Add the SDK dependency to your `app/build.gradle`:
 
 ```groovy
 dependencies {
-    implementation 'com.vwo:insights:2.1.1'
+    implementation 'com.vwo:insights:2.6.1'
 }
 ```
 
@@ -326,7 +326,9 @@ attributes.put("subscription_expiry", 1735689600000L);  // Example: Jan 1, 2025
 VWOInsights.setAttribute(attributes);
 ```
 
-> 📘 **Note:** Always use milliseconds for date values, not epoch seconds. You can convert a Date object using `date.getTime()` in Java or `date.time` in Kotlin.
+<Callout icon="📘" theme="info">
+  ### **Note:** Always use milliseconds for date values, not epoch seconds. You can convert a Date object using `date.getTime()` in Java or `date.time` in Kotlin.
+</Callout>
 
 ## Setting Survey Language
 
@@ -442,7 +444,7 @@ override fun vwoInitSuccess(message: String) {
 
 | Component           | Version          |
 | ------------------- | ---------------- |
-| SDK Version         | `2.1.0`          |
+| SDK Version         | `2.6.1`          |
 | Minimum Android SDK | 21 (Android 5.0) |
 
 <br />
