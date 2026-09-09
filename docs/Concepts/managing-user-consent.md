@@ -5,8 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-#
-
 ## Overview
 
 Due to privacy concerns and GDPR requirements, customers often need to obtain explicit consent from their users before tracking their data — especially when a third-party source like Wingify is involved. The recommended approach is to use a **consent cookie** that the customer drops for every user, and to check it before invoking the Wingify Feature Experimentation (FE) SDK for that user.
