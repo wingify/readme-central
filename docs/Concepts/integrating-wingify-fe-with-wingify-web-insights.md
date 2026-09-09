@@ -58,7 +58,9 @@ This method does not accept any parameters.
 | :------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `number` | The session identifier used for this flag evaluation. If `context.sessionId` was provided when calling `getFlag()`, that value is returned. Otherwise, it defaults to the Unix timestamp at which the session began. |
 
-## **How to Implement**
+<br />
+
+# **How to Implement**
 
 ### **Server-First Flow**
 
@@ -97,11 +99,11 @@ window.VWO.push(['setSessionId', () => {
 
 Once this runs, the same user and session are connected across both FE and Web Insights — session recordings and heatmaps for this visitor will correctly reflect the feature flag decisions they received.
 
+<br />
+
 ### **Client-First Flow**
 
 1\. The user is first evaluated by Web Insights. SmartCode assigns a UUID (stored as a cookie and available inside a JS object) and a sessionId.
-
- 
 
 ```javascript
 window.VWO = window.VWO || [];
