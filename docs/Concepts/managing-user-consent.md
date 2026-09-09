@@ -22,38 +22,36 @@ Due to privacy concerns and GDPR requirements, customers often need to obtain ex
 ### Reading the Cookie and Checking Validity
 
 ```javascript
-function getVwoUserContext(req, userId) {
+// get User Context
+function getUserContext(req, userId) {
+  // get the cookies from request object
   const cookies = Object.fromEntries(
     (req.headers.cookie || '')
       .split(';')
       .map(cookie => cookie.trim().split('='))
   );
 
-  // Get the consent cookie
+  // get consent cookie
   const consentCookie = cookies.vwoConsent;
-
-  // Check if consent given and still valid
   if (!consentCookie) {
     return null;
   }
 
+  // get consent cookie value
   const consent = new URLSearchParams(
     decodeURIComponent(consentCookie)
   );
-
   const isConsentGiven = consent.get('isConsentGiven');
   const expiryTimestamp = Number(consent.get('ts'));
   const currentTimestamp = Math.floor(Date.now() / 1000);
 
-  // Consent not given or consent has expired
-  if (
-    isConsentGiven !== '1' ||
-    !expiryTimestamp ||
-    currentTimestamp > expiryTimestamp
-  ) {
+  // consent not given or consent has expired
+  if (isConsentGiven !== '1' || !expiryTimestamp ||
+      currentTimestamp > expiryTimestamp) {
     return null;
   }
 
+  // valid consent - return user context
   return {
     id: userId
   };
@@ -63,8 +61,10 @@ function getVwoUserContext(req, userId) {
 ### Instantiating the User Context
 
 ```javascript
-const userContext = getVwoUserContext(req, userId);
+// get user context
+const userContext = getUserContext(req, userId);
 
+// evaluate flag if consent given and valid user context
 if (userContext) {
   const flag = await vwoClient.getFlag(
     'feature_key',
