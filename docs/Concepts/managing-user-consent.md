@@ -25,55 +25,151 @@ Due to privacy concerns and GDPR requirements, customers often need to obtain ex
 
 ```javascript
 function getVwoUserContext(req, userId) {
-  const cookies = Object.fromEntries(
-    (req.headers.cookie || '')
-      .split(';')
-      .map(cookie => cookie.trim().split('='))
-  );
 
-  // Get the consent cookie
-  const consentCookie = cookies.vwoConsent;
+&nbsp;
 
-  // Check if consent given and still valid
-  if (!consentCookie) {
-    return null;
-  }
+    const cookies \= Object.fromEntries(
 
-  const consent = new URLSearchParams(
-    decodeURIComponent(consentCookie)
-  );
+&nbsp;
 
-  const isConsentGiven = consent.get('isConsentGiven');
-  const expiryTimestamp = Number(consent.get('ts'));
-  const currentTimestamp = Math.floor(Date.now() / 1000);
+        (req.headers.cookie || '')
 
-  // Consent not given or consent has expired
-  if (
-    isConsentGiven !== '1' ||
-    !expiryTimestamp ||
-    currentTimestamp > expiryTimestamp
-  ) {
-    return null;
-  }
+&nbsp;
 
-  return {
-    id: userId
-  };
+            .split(';')
+
+&nbsp;
+
+            .map(cookie \=\> cookie.trim().split('='))
+
+&nbsp;
+
+    );
+
+&nbsp;
+
+    // Get the consent cookie
+
+&nbsp;
+
+    const consentCookie \= cookies.vwoConsent;
+
+&nbsp;
+
+    // Check if consent given and still valid
+
+&nbsp;
+
+    if (\!consentCookie) {
+
+&nbsp;
+
+        return null;
+
+&nbsp;
+
+    }
+
+&nbsp;
+
+    const consent \= new URLSearchParams(
+
+&nbsp;
+
+        decodeURIComponent(consentCookie)
+
+&nbsp;
+
+    );
+
+&nbsp;
+
+    const isConsentGiven \= consent.get('isConsentGiven');
+
+&nbsp;
+
+    const expiryTimestamp \= Number(consent.get('ts'));
+
+&nbsp;
+
+    const currentTimestamp \= Math.floor(Date.now() / 1000);
+
+&nbsp;
+
+    // Consent not given or consent has expired
+
+&nbsp;
+
+    if (
+
+&nbsp;
+
+        isConsentGiven \!== '1' ||
+
+&nbsp;
+
+        \!expiryTimestamp ||
+
+&nbsp;
+
+        currentTimestamp \> expiryTimestamp
+
+&nbsp;
+
+    ) {
+
+&nbsp;
+
+        return null;
+
+&nbsp;
+
+    }
+
+&nbsp;
+
+    return {
+
+&nbsp;
+
+        id: userId
+
+&nbsp;
+
+    };
+
+&nbsp;
+
 }
 ```
 
 ### Instantiating the User Context
 
-```javascript
-const userContext = getVwoUserContext(req, userId);
+const userContext \= getVwoUserContext(req, userId);
+
+&nbsp;
 
 if (userContext) {
-  const flag = await vwoClient.getFlag(
-    'feature_key',
-    userContext
-  );
+
+&nbsp;
+
+    const flag \= await vwoClient.getFlag(
+
+&nbsp;
+
+        'feature\_key',
+
+&nbsp;
+
+        userContext
+
+&nbsp;
+
+    );
+
+&nbsp;
+
 }
-```
 
 ## Reusing the Wingify Web Testing Consent Cookie
 
@@ -85,3 +181,7 @@ If the customer is already using Wingify's Web Testing product, they can reuse t
 | :---- | :---- | :---- | :---- |
 | `isConsentGiven` | string (`"1"` or `"0"`) | Yes | Whether the user has given consent. Only `"1"` is treated as valid consent. |
 | `ts` | number (Unix timestamp, seconds) | Yes | The time at which consent expires (customer can set the offset according to their privacy policy) |
+
+&nbsp;
+
+&nbsp;
