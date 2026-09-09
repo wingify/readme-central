@@ -23,6 +23,7 @@ Due to privacy concerns and GDPR requirements, customers often need to obtain ex
 
 ### Reading the Cookie and Checking Validity
 
+```javascript
 function getVwoUserContext(req, userId) {
 
 &nbsp;
@@ -140,6 +141,7 @@ function getVwoUserContext(req, userId) {
 &nbsp;
 
 }
+```
 
 ### Instantiating the User Context
 
