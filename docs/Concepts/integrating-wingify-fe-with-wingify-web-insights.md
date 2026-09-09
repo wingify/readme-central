@@ -1,7 +1,7 @@
 ---
 title: Integrating Wingify FE With Wingify Web Insights
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
