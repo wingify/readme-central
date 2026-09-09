@@ -26,7 +26,7 @@ There are two flows, depending on which system sees the visitor first:
 
 ## Relevant Feature Flag Methods
 
-The `Flag` object returned by `getFlag()` exposes two accessor methods for retrieving the identity used during that evaluation. These are the same `uuid` and `sessionId` values referenced throughout the implementation flows below.
+The `Flag` object returned by `getFlag()` exposes two methods for retrieving the identity used during that evaluation. These are the same `uuid` and `sessionId` values referenced throughout the implementation flows below.
 
 ### flag.getUUID()
 
