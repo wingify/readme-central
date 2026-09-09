@@ -11,20 +11,18 @@ metadata:
 
 Wingify Feature Experimentation (FE) evaluates feature flags and experiments and Web Insights performs behavioral analysis (session recordings, heatmaps) in the browser via SmartCode. If the two systems assign different identifiers to the same visitor, Wingify cannot match the two — session recordings and heatmaps won't correlate correctly with the flag decisions that visitor received.
 
- 
-
 The solution is a shared identity: the same **UUID** and the same **sessionId**, recognized by both systems for the same visitor, on every request.
-
- 
 
 There are two flows, depending on which system sees the visitor first:
 
 > * **Server-First Flow** — the FE SDK sees the user first (e.g. during SSR or an API call), and the resulting identity must be handed to SmartCode
 > * **Client-First Flow** — SmartCode sees the user first, and the resulting identity must be handed to the FE SDK
 
-## Flag Methods
+<br />
 
-The `Flag` object returned by `getFlag()` exposes two accessor methods for retrieving the identity used during that evaluation. These are the same `uuid` and `sessionId` values referenced throughout the implementation flows below.
+# Relevant Feature Flag Methods
+
+The `Flag` object returned by `getFlag()` exposes two  methods for retrieving the identity used during that evaluation. These are the same `uuid` and `sessionId` values referenced throughout the implementation flows below.
 
 ### `flag.getUUID()`
 
