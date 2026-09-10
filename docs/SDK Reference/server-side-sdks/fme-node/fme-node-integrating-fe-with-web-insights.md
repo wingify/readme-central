@@ -39,7 +39,7 @@ This method does not accept any parameters.
 | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `string` | The UUID associated with the visitor for this flag evaluation. If a valid web-generated UUID (format: `D` or `J` followed by 32 hex characters) was passed as `context.id`, that value is returned as-is. Otherwise, a UUID is deterministically derived from `context.id` and the account ID. |
 
-#### `flag.getSessionId()`
+### `flag.getSessionId()`
 
 ```javascript
 const flag = await wingifyClient.getFlag('feature-key', context);
@@ -68,7 +68,7 @@ This method does not accept any parameters.
 require('wingify-fme-node-sdk');
 
 const userId = 'user-123';
-const accountId = '123456'; // your Wingify account ID
+const accountId = '123456'; // your VWO account ID
 
 const context = { id: userId };
 const flag = await wingifyClient.getFlag('feature-key', context);
