@@ -5,8 +5,6 @@ hidden: true
 metadata:
   robots: index
 ---
-# **Integrating Wingify FE With Wingify Web Insights**
-
 ## **Overview**
 
 Wingify Feature Experimentation (FE) evaluates feature flags and experiments and Web Insights performs behavioral analysis (session recordings, heatmaps) in the browser via SmartCode. If the two systems assign different identifiers to the same visitor, Wingify cannot match the two — session recordings and heatmaps won't correlate correctly with the flag decisions that visitor received.
