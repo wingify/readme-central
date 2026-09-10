@@ -68,7 +68,7 @@ This method does not accept any parameters.
 require('wingify-fme-node-sdk');
 
 const userId = 'user-123';
-const accountId = '123456'; // your VWO account ID
+const accountId = '123456'; // your Wingify account ID
 
 const context = { id: userId };
 const flag = await wingifyClient.getFlag('feature-key', context);
