@@ -7,5 +7,6 @@
 - fme-java-logging
 - fme-java-storage
 - fme-java-integrations
+- fme-java-event-batching
 - fme-java-proxy-url
 - fme-java-integrating-fe-with-web-insights
