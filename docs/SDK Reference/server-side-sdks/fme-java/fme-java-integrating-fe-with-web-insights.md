@@ -129,6 +129,6 @@ Once this runs, the same user and session are connected across both FE and Web I
 
 ***
 
-### Resources
+## Resources
 
 * [Cross-System Identity Synchronization](https://developers.wingify.com/v2/docs/fme-unified-experimentation-identity-synchronization)
