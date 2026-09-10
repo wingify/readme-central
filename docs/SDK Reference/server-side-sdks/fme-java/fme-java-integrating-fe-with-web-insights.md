@@ -23,7 +23,7 @@ There are two flows, depending on which system sees the visitor first:
 
 The `Flag` object returned by `getFlag()` exposes two accessor methods for retrieving the identity used during that evaluation. These are the exact `uuid` and `sessionId` values referenced throughout the implementation flows below.
 
-#### `flag.getUuid()`
+### `flag.getUuid()`
 
 ```java
 GetFlag flag = wingifyClient.getFlag("feature-key", context);
@@ -38,7 +38,7 @@ String uuid = flag.getUuid();
 | :------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `String` | The UUID associated with the visitor for this flag evaluation. If a valid web-generated UUID (format: `D` or `J` followed by 32 hex characters) was passed as `context.id`, that value is returned as-is. Otherwise, a UUID is deterministically derived from `context.id` and the account ID. |
 
-#### `flag.getSessionId()`
+### `flag.getSessionId()`
 
 ```java
 GetFlag flag = wingifyClient.getFlag("feature-key", context);
