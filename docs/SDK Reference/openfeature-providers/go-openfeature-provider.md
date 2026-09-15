@@ -7,28 +7,29 @@ metadata:
 ---
 ## Get Started
 
-An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
+An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., Wingify or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO OpenFeature Provider for Go helps you integrate Feature Experimentation systems into your Go-based applications.
+This Wingify OpenFeature Provider for Go helps you integrate Feature Experimentation systems into your Go-based applications.
 
-<Cards columns={4}>
+<Cards columns="4">
   <Card title="GitHub Repo" icon="fa-code-commit">
     Check <a href="https://github.com/wingify/vwo-openfeature-provider-go" target="_blank">this</a> out
   </Card>
 
-<Card title="OpenFeature Ecosystem" icon="fa-globe-pointer">
-  Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20go" target="_blank">this</a> out
-</Card>
-
+  <Card title="OpenFeature Ecosystem" icon="fa-globe-pointer">
+    Check <a href="https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo%20go" target="_blank">this</a> out
+  </Card>
 
   <Card title="OpenFeature Docs" icon="fa-book-open">
     Check <a href="https://openfeature.dev/docs/reference/technologies/server/go/" target="_blank">this</a> out
   </Card>
 </Cards>
 
-> 🚧 **Note**
->
-> This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+<Callout icon="🚧" theme="warn">
+  ### **Note**
+
+  This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+</Callout>
 
 ## Requirements
 
@@ -189,8 +190,7 @@ func main() {
       </td>
 
       <td>
-        Defines the evaluation context for feature flag resolution.  
-        Pass `variableKey` in attributes to fetch a specific variable.
+        Defines the evaluation context for feature flag resolution.<br />Pass `variableKey` in attributes to fetch a specific variable.
       </td>
     </tr>
 
@@ -201,18 +201,15 @@ func main() {
 
       <td>
         `ctx: context.Context, featureKey: string, defaultValue: bool,  
-                        evalCtx: EvaluationContext`
+                                evalCtx: EvaluationContext`
       </td>
 
       <td>
-        **featureKey**: The feature flag key.  
-        **defaultValue**: Returned if evaluation fails.  
-        **evalCtx**: Must include `variableKey` to fetch a variable; otherwise returns feature ON/OFF.
+        **featureKey**: The feature flag key.<br />**defaultValue**: Returned if evaluation fails.<br />**evalCtx**: Must include `variableKey` to fetch a variable; otherwise returns feature ON/OFF.
       </td>
 
       <td>
-        Fetches the boolean value of a feature flag.  
-        Without `variableKey`, evaluates flag enabled/disabled.
+        Fetches the boolean value of a feature flag.<br />Without `variableKey`, evaluates flag enabled/disabled.
       </td>
     </tr>
 
@@ -230,8 +227,7 @@ func main() {
       </td>
 
       <td>
-        Returns the string variable value.  
-        Without `variableKey`, returns the default value.
+        Returns the string variable value.<br />Without `variableKey`, returns the default value.
       </td>
     </tr>
 
@@ -249,8 +245,7 @@ func main() {
       </td>
 
       <td>
-        Fetches an integer variable value.  
-        Without `variableKey`, returns the default.
+        Fetches an integer variable value.<br />Without `variableKey`, returns the default.
       </td>
     </tr>
 
@@ -268,8 +263,7 @@ func main() {
       </td>
 
       <td>
-        Fetches a floating-point variable.  
-        Without `variableKey`, returns the default.
+        Fetches a floating-point variable.<br />Without `variableKey`, returns the default.
       </td>
     </tr>
 
@@ -287,8 +281,7 @@ func main() {
       </td>
 
       <td>
-        Fetches JSON variable values.  
-        If `variableKey` is provided, returns that variable's value.
+        Fetches JSON variable values.<br />If `variableKey` is provided, returns that variable's value.
       </td>
     </tr>
   </tbody>
