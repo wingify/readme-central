@@ -12,11 +12,11 @@ next:
 ---
 ## Get Started
 
-An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
+An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., Wingify or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO OpenFeature Provider for .NET helps you integrate Feature Experimentation systems into your .NET-based server applications.
+This Wingify OpenFeature Provider for .NET helps you integrate Feature Experimentation systems into your .NET-based server applications.
 
-<Cards columns={4}>
+<Cards columns="4">
   <Card title="GitHub Repo" icon="fa-code-commit">
     Check <a href="https://github.com/wingify/vwo-openfeature-provider-dotnet" target="_blank">this</a> out
   </Card>
@@ -34,9 +34,11 @@ This VWO OpenFeature Provider for .NET helps you integrate Feature Experimentati
   </Card>
 </Cards>
 
-> 🚧 **Note**
->
-> This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+<Callout icon="🚧" theme="warn">
+  ### **Note**
+
+  This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+</Callout>
 
 ## Requirements
 
@@ -210,7 +212,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *SdkKey : Unique key for authentication with VWO.<br />  AccountId : VWO account identifier.  <br />  Logger*\*: Dictionary defining logging level.
+        * _SdkKey : Unique key for authentication with VWO.<br />  AccountId : VWO account identifier.  <br />  Logger_\*: Dictionary defining logging level.
       </td>
 
       <td>
@@ -228,7 +230,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *vwoClient*\*: The initialized VWO SDK client instance.
+        * _vwoClient_\*: The initialized VWO SDK client instance.
       </td>
 
       <td>
@@ -246,7 +248,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * <br />
+        *
       </td>
 
       <td>
@@ -264,7 +266,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * <br />
+        *
       </td>
 
       <td>
@@ -285,7 +287,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *key : The attribute key to set.<br />  value*\*: The value associated with the key.
+        * _key : The attribute key to set.<br />  value_\*: The value associated with the key.
       </td>
 
       <td>
@@ -303,7 +305,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * <br />
+        *
       </td>
 
       <td>
@@ -324,7 +326,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *vwoProvider*\*: The VWO provider instance that will handle feature flag evaluations.
+        * _vwoProvider_\*: The VWO provider instance that will handle feature flag evaluations.
       </td>
 
       <td>
@@ -342,7 +344,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *featureKey : The unique key representing the feature flag.<br />  defaultValue : The fallback boolean value if the flag evaluation fails.  <br />  context*\*: The evaluation context containing user details and attributes.
+        * _featureKey : The unique key representing the feature flag.<br />  defaultValue : The fallback boolean value if the flag evaluation fails.  <br />  context_\*: The evaluation context containing user details and attributes.
       </td>
 
       <td>
@@ -360,7 +362,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *featureKey : The unique key representing the feature flag.<br />  defaultValue : The fallback string value if the flag evaluation fails.  <br />  context*\*: The evaluation context containing user details and attributes.
+        * _featureKey : The unique key representing the feature flag.<br />  defaultValue : The fallback string value if the flag evaluation fails.  <br />  context_\*: The evaluation context containing user details and attributes.
       </td>
 
       <td>
@@ -378,7 +380,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *featureKey : The unique key representing the feature flag.<br />  defaultValue : The fallback integer value if the flag evaluation fails.  <br />  context*\*: The evaluation context containing user details and attributes.
+        * _featureKey : The unique key representing the feature flag.<br />  defaultValue : The fallback integer value if the flag evaluation fails.  <br />  context_\*: The evaluation context containing user details and attributes.
       </td>
 
       <td>
@@ -396,7 +398,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *featureKey : The unique key representing the feature flag.<br />  defaultValue : The fallback float value if the flag evaluation fails.  <br />  context*\*: The evaluation context containing user details and attributes.
+        * _featureKey : The unique key representing the feature flag.<br />  defaultValue : The fallback float value if the flag evaluation fails.  <br />  context_\*: The evaluation context containing user details and attributes.
       </td>
 
       <td>
@@ -414,7 +416,7 @@ static async Task TestFlags(FeatureClient client, EvaluationContext context)
       </td>
 
       <td>
-        * *featureKey : The unique key representing the feature flag.<br />  defaultValue : The fallback object if the flag evaluation fails.  <br />  context*\*: The evaluation context containing user details and attributes.
+        * _featureKey : The unique key representing the feature flag.<br />  defaultValue : The fallback object if the flag evaluation fails.  <br />  context_\*: The evaluation context containing user details and attributes.
       </td>
 
       <td>
