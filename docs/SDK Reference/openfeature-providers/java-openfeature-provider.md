@@ -12,11 +12,11 @@ next:
 ---
 ## Get Started
 
-An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
+An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., Wingify or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO OpenFeature Provider for Java helps you integrate Feature Experimentation systems into your Java-based server applications.
+This Wingify OpenFeature Provider for Java helps you integrate Feature Experimentation systems into your Java-based server applications.
 
-<Cards columns={4}>
+<Cards columns="4">
   <Card title="GitHub Repo" icon="fa-code-commit">
     Check <a href="https://github.com/wingify/vwo-openfeature-provider-java" target="_blank">this</a> out
   </Card>
@@ -34,9 +34,11 @@ This VWO OpenFeature Provider for Java helps you integrate Feature Experimentati
   </Card>
 </Cards>
 
-> 🚧 **Note**
->
-> This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+<Callout icon="🚧" theme="warn">
+  ### **Note**
+
+  This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+</Callout>
 
 ## Requirements
 
