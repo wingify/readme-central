@@ -12,11 +12,11 @@ next:
 ---
 ## Get Started
 
-An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., VWO or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
+An **OpenFeature Provider** is a **pluggable integration layer** that connects the **OpenFeature SDK** to a specific **feature flag management system** (e.g., Wingify or custom in-house solutions). OpenFeature is an open-source standard for feature flagging, designed to provide a **vendor-agnostic** approach, enabling organizations to switch between feature flagging tools without rewriting application code.
 
-This VWO OpenFeature Provider for Node helps you integrate Feature Experimentation systems into your Node.js-based server applications.
+This Wingify OpenFeature Provider for Node helps you integrate Feature Experimentation systems into your Node.js-based server applications.
 
-<Cards columns={4}>
+<Cards columns="4">
   <Card title="GitHub Repo" icon="fa-code-commit">
     Check <a href="https://github.com/wingify/vwo-openfeature-provider-node" target="_blank">this</a> out
   </Card>
@@ -34,9 +34,11 @@ This VWO OpenFeature Provider for Node helps you integrate Feature Experimentati
   </Card>
 </Cards>
 
-> 🚧 **Note**
->
-> This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+<Callout icon="🚧" theme="warn">
+  ### **Note**
+
+  This library is intended to be used in server-side contexts and has not been evaluated for use on mobile devices.
+</Callout>
 
 ## Requirements
 
@@ -198,8 +200,7 @@ start();
       </td>
 
       <td>
-        **featureKey**: The unique key representing the feature flag.<br />\
-        **defaultValue**: The fallback boolean value if the flag evaluation fails.<br />
+        **featureKey**: The unique key representing the feature flag.<br /><br />**defaultValue**: The fallback boolean value if the flag evaluation fails.<br />
         **context**: The evaluation context containing user details and an optional `key` to fetch a specific variable.
       </td>
 
@@ -218,8 +219,7 @@ start();
       </td>
 
       <td>
-        **featureKey**: The unique key representing the feature flag.<br />\
-        **defaultValue**: The fallback string value if the flag evaluation fails.<br />
+        **featureKey**: The unique key representing the feature flag.<br /><br />**defaultValue**: The fallback string value if the flag evaluation fails.<br />
         **context**: The evaluation context with user details and optional `key` to fetch a specific variable.
       </td>
 
@@ -238,8 +238,7 @@ start();
       </td>
 
       <td>
-        **featureKey**: The unique key representing the feature flag.<br />\
-        **defaultValue**: The fallback numeric value if the flag evaluation fails.<br />
+        **featureKey**: The unique key representing the feature flag.<br /><br />**defaultValue**: The fallback numeric value if the flag evaluation fails.<br />
         **context**: The evaluation context with user details and optional `key` to fetch a specific variable.
       </td>
 
@@ -258,8 +257,7 @@ start();
       </td>
 
       <td>
-        **featureKey**: The unique key representing the feature flag.<br />\
-        **defaultValue**: The fallback JSON object if the flag evaluation fails.<br />
+        **featureKey**: The unique key representing the feature flag.<br /><br />**defaultValue**: The fallback JSON object if the flag evaluation fails.<br />
         **context**: The evaluation context with user details and optional `key` to fetch a specific variable.
       </td>
 
