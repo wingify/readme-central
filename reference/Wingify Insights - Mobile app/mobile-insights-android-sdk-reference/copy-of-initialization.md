@@ -1,5 +1,5 @@
 ---
-title: Copy of Initialization
+title: Initialization
 deprecated: false
 hidden: true
 metadata:
