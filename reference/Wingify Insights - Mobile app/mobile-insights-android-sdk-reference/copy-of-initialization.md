@@ -66,8 +66,6 @@ After installing the SDK, initialize the app in the _onCreate_ function of the A
   </tbody>
 </Table>
 
-### Example:
-
 ```java
 package com.wingify.screenshotsample
 
@@ -139,7 +137,7 @@ Call `enablePerformanceMode()` before `init()`, typically in your `Application.o
 
 ***
 
-## API level
+### API level
 
 | Requirement                | Value                                       |
 | -------------------------- | ------------------------------------------- |
@@ -158,38 +156,6 @@ Call `enablePerformanceMode()` before `init()`, typically in your `Application.o
 
 ### Example
 
-```kotlin
-package com.example.myapp
-
-import android.app.Application
-import com.vwo.insights.VWOInsights
-import com.vwo.insights.exposed.IVwoInitCallback
-import com.vwo.insights.exposed.models.ClientConfiguration
-
-class MyApplication : Application() {
-
-    override fun onCreate() {
-        super.onCreate()
-
-        // From SDK version 2.6.0+ we have introduced a new highly optimized recording
-        // mechanism. You can enable it using VWOInsights.enablePerformanceMode().
-        // Call this before init(). Takes effect on Android 8.0 (API 26) and above.
-        VWOInsights.enablePerformanceMode()
-
-        val configuration = ClientConfiguration("ACCOUNT_ID", "SDK_KEY", "USER_ID")
-
-        VWOInsights.init(this, object : IVwoInitCallback {
-            override fun vwoInitSuccess(message: String) {
-                // Insights SDK initialized successfully
-            }
-
-            override fun vwoInitFailed(message: String) {
-                // Insights SDK failed to initialize
-            }
-        }, configuration)
-    }
-}
-```
 ```java
 package com.example.myapp;
 
@@ -224,6 +190,38 @@ public class MyApplication extends Application {
                 // Insights SDK failed to initialize
             }
         }, configuration);
+    }
+}
+```
+```kotlin
+package com.example.myapp
+
+import android.app.Application
+import com.vwo.insights.VWOInsights
+import com.vwo.insights.exposed.IVwoInitCallback
+import com.vwo.insights.exposed.models.ClientConfiguration
+
+class MyApplication : Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+
+        // From SDK version 2.6.0+ we have introduced a new highly optimized recording
+        // mechanism. You can enable it using VWOInsights.enablePerformanceMode().
+        // Call this before init(). Takes effect on Android 8.0 (API 26) and above.
+        VWOInsights.enablePerformanceMode()
+
+        val configuration = ClientConfiguration("ACCOUNT_ID", "SDK_KEY", "USER_ID")
+
+        VWOInsights.init(this, object : IVwoInitCallback {
+            override fun vwoInitSuccess(message: String) {
+                // Insights SDK initialized successfully
+            }
+
+            override fun vwoInitFailed(message: String) {
+                // Insights SDK failed to initialize
+            }
+        }, configuration)
     }
 }
 ```
