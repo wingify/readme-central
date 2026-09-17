@@ -71,58 +71,16 @@ const flag = await wingifyClient.getFlag('feature_key', userContext);
 
 ### Parameters Definition
 
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Parameter
-      </th>
+| Parameter                       | Type   | Description                                                                                                                                                                                                    |
+| :------------------------------ | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **feature_key**<br />_Required_ | String | unique identifier for the particular feature flag that you're implementing. You will see this while creating a feature flag, and you can also find it under 'Settings' for the Feature Flag after creating it. |
+| **userContext**<br />_Required_ | Object | Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v3/docs/fme-node-context).                |
 
-      <th>
-        Type
-      </th>
+<Callout icon="🚧" theme="warn">
+  ### Note
 
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        **feature\_key**
-        _Required_
-      </td>
-
-      <td>
-        String
-      </td>
-
-      <td>
-        unique identifier for the particular feature flag that you're implementing. You will see this while creating a feature flag, and you can also find it under 'Settings' for the Feature Flag after creating it.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **userContext**<br />_Required_
-      </td>
-
-      <td>
-        Object
-      </td>
-
-      <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v3/docs/fme-node-context).
-      </td>
-    </tr>
-  </tbody>
-</Table>
-
-> 🚧 Note
->
-> Please note that the flag must already be defined in the Wingify Application for this otherwise False will be returned.
+  Please note that the flag must already be defined in the Wingify Application for this otherwise False will be returned.
+</Callout>
 
 ## **_Is Enabled_** API
 
@@ -147,7 +105,7 @@ Returns True if flag is enabled otherwise false
 
 If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in Wingify, which can then be fetched at your server and used to control the user's experience in your codebase.
 
-The _getVariable()_ function retrieves the value of a specific variable associated with a feature flag. If the variable is found, it returns the assigned value; otherwise, it returns the provided default\_value. This ensures that your application has a fallback value in case the variable is undefined or unavailable.
+The _getVariable()_ function retrieves the value of a specific variable associated with a feature flag. If the variable is found, it returns the assigned value; otherwise, it returns the provided default_value. This ensures that your application has a fallback value in case the variable is undefined or unavailable.
 
 ### Usage
 
@@ -158,54 +116,10 @@ variableValue = flag.getVariable('variableKey', 'defaultValue')
 
 ### Parameters Definition
 
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Parameter
-      </th>
-
-      <th>
-        Type
-      </th>
-
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        **variableKey**
-        _Required_
-      </td>
-
-      <td>
-        String
-      </td>
-
-      <td>
-        The unique key of the variable as defined in the Wingify application. This key is used to retrieve the corresponding variable value.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **defaultValue**<br />_Required_
-      </td>
-
-      <td>
-        Any
-      </td>
-
-      <td>
-        The fallback value to return if the getVariable method encounters an error or the specified variable\_key does not exist.
-      </td>
-    </tr>
-  </tbody>
-</Table>
+| Parameter                        | Type   | Description                                                                                                                          |
+| :------------------------------- | :----- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| **variableKey**<br />_Required_  | String | The unique key of the variable as defined in the Wingify application. This key is used to retrieve the corresponding variable value. |
+| **defaultValue**<br />_Optional_ | Any    | The fallback value to return if the getVariable method encounters an error or the specified variable_key does not exist.             |
 
 ## **_Get Variables_** API
 
