@@ -1,5 +1,6 @@
 - mobile-insights-android-installation
 - mobile-insights-android-initialization
+- copy-of-initialization
 - mobile-insights-android-start-stop-recording
 - mobile-insights-android-custom-attributes
 - android-native-custom-events
@@ -8,4 +9,3 @@
 - manual-screen-set
 - mobile-insights-android-impact-analysis
 - android-mi-switch-user
-- copy-of-initialization
