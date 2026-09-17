@@ -36,7 +36,7 @@ Call `enablePerformanceMode()` before `init()`, typically in your `Application.o
 
 **For dependency:** `com.vwo:insights:<version>`<br />**Entry point:** `VWOInsights`
 
-### Kotlin
+### Example
 
 ```kotlin
 package com.example.myapp
@@ -114,7 +114,7 @@ public class MyApplication extends Application {
 
 **For dependency:** `com.wingify:insights:<version>`<br />**Entry point:** `WingifyInsights`
 
-### Kotlin
+### Example
 
 ```kotlin
 package com.example.myapp
