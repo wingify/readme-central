@@ -1,7 +1,7 @@
 ---
 title: Performance Mode
 deprecated: false
-hidden: false
+hidden: true
 metadata:
   robots: index
 ---
