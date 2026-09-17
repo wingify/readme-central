@@ -108,8 +108,6 @@ public class MyApplication extends Application {
 }
 ```
 
-###
-
 ***
 
 ## Wingify brand
