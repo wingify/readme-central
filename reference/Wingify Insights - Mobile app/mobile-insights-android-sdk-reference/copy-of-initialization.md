@@ -66,6 +66,8 @@ After installing the SDK, initialize the app in the _onCreate_ function of the A
   </tbody>
 </Table>
 
+### Example
+
 ```java
 package com.wingify.screenshotsample
 
