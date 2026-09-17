@@ -5,7 +5,7 @@ hidden: true
 metadata:
   robots: index
 ---
-From SDK version 2.6.0+, Mobile Insights provides an optional **performance mode** that uses a highly optimized recording mechanism for Android native apps.
+From SDK version 2.6.0+, Mobile Insights provides an optional performance mode that uses a highly optimized recording mechanism for Android native apps.
 
 Call `enablePerformanceMode()` before `init()`, typically in your `Application.onCreate()`.
 
