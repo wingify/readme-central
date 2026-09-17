@@ -12,7 +12,7 @@ next:
 ---
 A **feature flag** is a tool that allows teams to control the visibility and behavior of features without deploying new code. It enables **dynamic feature rollouts**, targeted testing, and quick rollbacks if needed.
 
-Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FE. To implement a feature flag, first use the get*flag() method to retrieve the flag configuration. The\_get\_flag()* method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like *is\_enabled()* for checking the feature's status and *get\_variable()* for retrieving any associated variable(s).
+Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FE. To implement a feature flag, first use the ge&#x74;_&#x66;lag() method to retrieve the flag configuration. The_get_flag()_ method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like _is_enabled()_ for checking the feature's status and _get_variable()_ for retrieving any associated variable(s).
 
 **Key Benefits:**
 
@@ -25,8 +25,8 @@ Feature Flags serve as the foundation for all testing, personalization, and roll
 
 **Key Functions:**
 
-1. get\_flag(): Fetches the feature flag configuration for the specified feature and user.
-   1. is\_enabled(): Determines whether the feature is enabled or disabled for that user.
+1. get_flag(): Fetches the feature flag configuration for the specified feature and user.
+   1. is_enabled(): Determines whether the feature is enabled or disabled for that user.
    2. getVariables() / getVariable(): Retrieves any custom variables or settings linked to the feature flag (e.g., UI colors, text, or limits).
 
 This allows dynamic control over feature availability, enabling targeted rollouts, personalization, and real-time feature management without deploying new code.
@@ -35,14 +35,11 @@ This allows dynamic control over feature availability, enabling targeted rollout
 
 The returned flag object allows you to:
 
-1. Check if the feature is enabled for the user:\
-   `is_feature_enabled = flag.is_enabled()`
-2. Retrieve associated feature variables (if configured):\
-   `variable_value = flag.get_variable('variable_key')
-     all_variables = flag.get_variables()`\
-   These variables can define UI elements, feature limits, or configuration settings, enabling personalized experiences without changing the codebase.
+1. Check if the feature is enabled for the user:<br />`is_feature_enabled = flag.is_enabled()`
+2. Retrieve associated feature variables (if configured):<br />`variable_value = flag.get_variable('variable_key')
+     all_variables = flag.get_variables()`<br />These variables can define UI elements, feature limits, or configuration settings, enabling personalized experiences without changing the codebase.
 
-## ***Get Flag*** API
+## **_Get Flag_** API
 
 This API connects the application to Wingify’s feature experimentation system to determine:
 
@@ -51,10 +48,8 @@ This API connects the application to Wingify’s feature experimentation system 
 
 **Key Components Involved:**
 
-1. **Feature Key:**\
-   This acts as a **unique identifier** for the feature you want to manage. It could represent anything from a new dashboard, a beta feature, to a limited-time promotional banner.
-2. **User Context:**\
-   This refers to the **specific details about the user**, such as their ID, location, device type, or custom attributes. Wingify uses this data to decide if the feature should be shown to the user.
+1. **Feature Key:**<br />This acts as a **unique identifier** for the feature you want to manage. It could represent anything from a new dashboard, a beta feature, to a limited-time promotional banner.
+2. **User Context:**<br />This refers to the **specific details about the user**, such as their ID, location, device type, or custom attributes. Wingify uses this data to decide if the feature should be shown to the user.
 
 ### How It Works:
 
@@ -74,67 +69,24 @@ flag = vwo_client.get_flag('feature_key', user_context)
 
 ### Parameters Definition
 
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Parameter
-      </th>
+| Parameter                        | Type   | Description                                                                                                                                                                                                    |
+| :------------------------------- | :----- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **feature_key**<br />_Required_  | String | Unique identifier for the particular feature flag that you're implementing. You will see this while creating a feature flag, and you can also find it under 'Settings' for the Feature Flag after creating it. |
+| **user_context**<br />_Required_ | Dict   | Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-python-context).              |
 
-      <th>
-        Type
-      </th>
+<Callout icon="🚧" theme="warn">
+  ### Note
 
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
+  Please note that the flag must already be defined in the Wingify Application for this otherwise False will be returned.
+</Callout>
 
-  <tbody>
-    <tr>
-      <td>
-        **feature\_key**
-        *Required*
-      </td>
+## **_Is Enabled_** API
 
-      <td>
-        String
-      </td>
-
-      <td>
-        Unique identifier for the particular feature flag that you're implementing. You will see this while creating a feature flag, and you can also find it under 'Settings' for the Feature Flag after creating it.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **user\_context**\
-        *Required*
-      </td>
-
-      <td>
-        Dict
-      </td>
-
-      <td>
-        Contains information about the current user, including a required unique identifier for each user. Read more about userContext [here](https://developers.wingify.com/v2/docs/fme-python-context).
-      </td>
-    </tr>
-  </tbody>
-</Table>
-
-> 🚧 Note
->
-> Please note that the flag must already be defined in the Wingify Application for this otherwise False will be returned.
-
-## ***Is Enabled*** API
-
-After fetching the flag object, you can call the *is\_enabled()* function, which checks if that particular feature flag is enabled for the current user.
+After fetching the flag object, you can call the _is_enabled()_ function, which checks if that particular feature flag is enabled for the current user.
 
 This is evaluated based on the rules and targeting conditions configured with your feature flag.
 
-If the current user satisfies the conditions for any rollout, testing, or personalize rule connected to a specific feature flag, *is\_enabled()* will return 'true'; otherwise, it will return 'false'.
+If the current user satisfies the conditions for any rollout, testing, or personalize rule connected to a specific feature flag, _is_enabled()_ will return 'true'; otherwise, it will return 'false'.
 
 ### Usage
 
@@ -147,11 +99,11 @@ is_enabled = flag.is_enabled()
 
 Returns True if flag is enabled otherwise false
 
-## ***Get Variable*** API
+## **_Get Variable_** API
 
 If a particular feature flag is enabled for a user, you can then fetch the required variables corresponding to that feature flag. These variables need to be configured in Wingify, which can then be fetched at your server and used to control the user's experience in your codebase.
 
-The *get\_variable()* function retrieves the value of a specific variable associated with a feature flag. If the variable is found, it returns the assigned value; otherwise, it returns the provided default\_value. This ensures that your application has a fallback value in case the variable is undefined or unavailable.
+The _get_variable()_ function retrieves the value of a specific variable associated with a feature flag. If the variable is found, it returns the assigned value; otherwise, it returns the provided default_value. This ensures that your application has a fallback value in case the variable is undefined or unavailable.
 
 ### Usage
 
@@ -162,59 +114,14 @@ variable_value = flag.get_variable('variable_key', 'default_value')
 
 ### Parameters Definition
 
-<Table align={["left","left","left"]}>
-  <thead>
-    <tr>
-      <th>
-        Parameter
-      </th>
+| Parameter                         | Type   | Description                                                                                                                          |
+| :-------------------------------- | :----- | :----------------------------------------------------------------------------------------------------------------------------------- |
+| **variable_key**<br />_Required_  | String | The unique key of the variable as defined in the Wingify application. This key is used to retrieve the corresponding variable value. |
+| **default_value**<br />_Optional_ | Any    | The fallback value to return if the get_variable method encounters an error or the specified variable_key does not exist.            |
 
-      <th>
-        Type
-      </th>
+## **_Get Variables_** API
 
-      <th>
-        Description
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        **variable\_key**
-        *Required*
-      </td>
-
-      <td>
-        String
-      </td>
-
-      <td>
-        The unique key of the variable as defined in the Wingify application. This key is used to retrieve the corresponding variable value.
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        **default\_value**\
-        *Required*
-      </td>
-
-      <td>
-        Any
-      </td>
-
-      <td>
-        The fallback value to return if the get\_variable method encounters an error or the specified variable\_key does not exist.
-      </td>
-    </tr>
-  </tbody>
-</Table>
-
-## ***Get Variables*** API
-
-The *get\_variables()* function returns all variables associated with the feature flag as a dictionary.
+The _get_variables()_ function returns all variables associated with the feature flag as a dictionary.
 
 ### Usage
 
