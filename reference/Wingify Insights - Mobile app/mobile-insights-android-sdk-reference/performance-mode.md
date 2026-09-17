@@ -5,9 +5,9 @@ hidden: true
 metadata:
   robots: index
 ---
-From SDK version **2.6.0+**, Mobile Insights provides an optional **performance mode** that uses a highly optimized recording mechanism for Android native apps.
+From SDK version 2.6.0+, Mobile Insights provides an optional **performance mode** that uses a highly optimized recording mechanism for Android native apps.
 
-Call `enablePerformanceMode()` **before** `init()`, typically in your `Application.onCreate()`.
+Call `enablePerformanceMode()` before `init()`, typically in your `Application.onCreate()`.
 
 > **Scope:** Android native (including Jetpack Compose) only.<br />Flutter apps should use `enableFlutterPerformanceMode()` instead — see the Flutter SDK documentation.
 
@@ -17,7 +17,7 @@ Call `enablePerformanceMode()` **before** `init()`, typically in your `Applicati
 
 | Requirement                | Value                                       |
 | -------------------------- | ------------------------------------------- |
-| Minimum for optimized path | **Android 8.0 (API 26)**                    |
+| Minimum for optimized path | Android 8.0 (API 26).                       |
 | Call on API \< 26          | Safe — SDK uses the standard recording path |
 
 ***
