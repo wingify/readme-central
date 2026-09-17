@@ -135,7 +135,7 @@ From SDK version 2.6.0+, Mobile Insights provides an optional performance mode t
 
 Call `enablePerformanceMode()` before `init()`, typically in your `Application.onCreate()`.
 
-> **Scope:** Android native (including Jetpack Compose) only.<br />Flutter apps should use `enableFlutterPerformanceMode()` instead — see the Flutter SDK documentation.
+> **Scope:** Android native (including Jetpack Compose) only.<br />Flutter apps should use `enableFlutterPerformanceMode()` instead.
 
 ***
 
