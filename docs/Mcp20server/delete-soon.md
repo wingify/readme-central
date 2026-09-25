@@ -89,3 +89,31 @@ flowchart TD
   E -- "No rule matched" --> H3["Feature OFF"]
   F --> Z2["Return final<br/>variation and feature state"]
 ```
+
+<br />
+
+# Force User To Rollout
+
+```mermaid
+flowchart TD
+  subgraph Dashboard["Wingify dashboard"]
+    A["Open Rollout or Personalize rule"]
+    B["Enable Forced users"]
+    C["Add userIds: force-in list (+ force-off list for Rollout)"]
+    A --> B --> C
+  end
+
+  subgraph Application["Your application"]
+    D["Build user context with id"]
+    E["Call getFlag(featureKey, context)"]
+    D --> E
+  end
+
+  C --> D
+  E --> F{"Rollout only: is context.id on the force-off list?"}
+  F -- "Yes" --> G["Rule skipped for this user"]
+  F -- "No" --> H{"Is context.id on the force-in list?"}
+  H -- "Yes" --> I["User receives the rule's variation, traffic allocation ignored"]
+  H -- "No" --> J["Normal traffic-allocation evaluation applies"]
+
+```
