@@ -1,5 +1,5 @@
 ---
-title: Manual Hide (React Native)
+title: Manual Hide
 deprecated: false
 hidden: true
 metadata:
