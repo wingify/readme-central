@@ -18,7 +18,7 @@ It's an account-wide (account and environment-specific) kill switch, when turned
 * **Safe fallback behavior** - while Panic Mode is active, feature flag calls return their default/fallback state, so the application keeps running rather than erroring out or serving broken experiment variations
 * **Quiet in the background** - the SDK checks in periodically with Wingify to know the instant Panic Mode is lifted, without adding any noticeable overhead to the application.
 * **Automatic recovery** - the moment Panic Mode is turned off in the dashboard, the SDK resumes normal operation on its own. No manual restart of your app or SDK is required.
-* **Pairs with Force Refresh** (see Part 2) to make sure the SDK is working off the latest configuration the moment it comes back online.
+* **Pairs with Force Refresh** (refer: [this](https://developers.wingify.com/v2/docs/fme-panic-mode-and-force-refresh#how-panic-mode-and-force-refresh-work-together) ) to make sure the SDK is working off the latest configuration the moment it comes back online.
 
 ## Enabling Panic Mode
 
@@ -38,7 +38,7 @@ It's an account-wide (account and environment-specific) kill switch, when turned
 | :----------------------------------------: | :-----------------------------------------------------------------------------------------: |
 | Feature flag evaluation (e.g. `getFlag()`) | Returns the flag's default/fallback state immediately — no campaign or targeting logic runs |
 |            Event tracking calls            |    Held back — no experiment/tracking data is sent to Wingify while Panic Mode is active    |
-|      SDK initialization / usage events     |                                            Paused                                           |
+|       SDK initialization/usage events      |                                            Paused                                           |
 |      Background check-ins with Wingify     |           Continue quietly, so the SDK knows the instant Panic Mode is turned off           |
 
 ##
@@ -117,7 +117,7 @@ D --> E["getFlag() calls continue using the refreshed configuration"]
 
 These are two distinct features, but they're designed to complement each other during an incident:
 
-1. **Panic Mode** ON — application immediately falls back to safe default behavior, account-wide (account and environment-specific)
+1. **Panic Mode** ON - application immediately falls back to safe default behavior, account-wide (account and environment-specific)
 2. Once the issue is resolved, **Panic Mode** is turned OFF from the dashboard.
-3. SDK detects Panic Mode has cleared and automatically triggers **Force Refresh**, fetching latest settings immediately instead of waiting for next scheduled poll
+3. SDK detects Panic Mode has cleared and automatically triggers **Force Refresh**, fetching the latest settings immediately instead of waiting for the next scheduled poll
 4. Application resumes normal experimentation with fully up-to-date configuration — no manual restart, redeploy, or code change needed at any step.
