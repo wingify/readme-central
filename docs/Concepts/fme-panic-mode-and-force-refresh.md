@@ -9,29 +9,26 @@ metadata:
 
 ## Overview
 
-Its an account-wide (account and environment specific) kill switch, which when turned on from the Wingify dashboard, forces every SDK to stop evaluating campaigns and feature flags, and instead return safe, default behavior. This protects the customer application without requiring any code change or redeploy.
+It's an account-wide (account and environment-specific) kill switch, when turned on from the Wingify dashboard, forces every SDK to stop evaluating campaigns and feature flags and instead return safe, default behavior. This protects the customer application without requiring any code change or redeploy.
 
 ## Key Features
 
-> - **One-click activation** from the Wingify dashboard — no code deploy or SDK restart needed
->
-> * **Applies instantly, account-wide (account and environment specific)** — every connected SDK instance detects the change on its own
->
-> - **Safe fallback behavior** — while Panic Mode is active, feature flag calls return their default/fallback state, so application keeps running rather than erroring out or serving broken experiment variations
->
-> * **Quiet in the background** — the SDK checks in periodically with Wingify to know the instant Panic Mode is lifted, without adding any noticeable overhead to the application.
->
-> - **Automatic recovery** — the moment Panic Mode is turned off in the dashboard, the SDK resumes normal operation on its own. No manual restart of your app or SDK is required.
->
-> * **Pairs with Force Refresh** (see Part 2) to make sure the SDK is working off the latest configuration the moment it comes back online.
+* **One-click activation** from the Wingify dashboard — no code deploy or SDK restart needed
+* **Applies instantly, account-wide (account and environment-specific)** - every connected SDK instance detects the change on its own
+* **Safe fallback behavior** - while Panic Mode is active, feature flag calls return their default/fallback state, so the application keeps running rather than erroring out or serving broken experiment variations
+* **Quiet in the background** - the SDK checks in periodically with Wingify to know the instant Panic Mode is lifted, without adding any noticeable overhead to the application.
+* **Automatic recovery** - the moment Panic Mode is turned off in the dashboard, the SDK resumes normal operation on its own. No manual restart of your app or SDK is required.
+* **Pairs with Force Refresh** (see Part 2) to make sure the SDK is working off the latest configuration the moment it comes back online.
 
 ## Enabling Panic Mode
 
-> - Go to Websites and Apps - SDK Settings and for the required environment, click on Disable SDK
-> - Every connected SDK instance detects this automatically — there is nothing to change in your codebase.
-> - When the issue is resolved, click on Enable SDK from the same screen to let your application resume normal experimentation.
+* Go to Websites and Apps - SDK Settings and, for the required environment, click on Disable SDK
+* Every connected SDK instance detects this automatically — there is nothing to change in your codebase.
+* When the issue is resolved, click on Enable SDK from the same screen to let your application resume normal experimentation.
 
-![](https://files.readme.io/fd7dc675d46412c6e16f69b50eb214ff11401af5a84e94dbf8455a587ff8ed06-Panic.png)
+
+<Image src="https://files.readme.io/fd7dc675d46412c6e16f69b50eb214ff11401af5a84e94dbf8455a587ff8ed06-Panic.png" border={true} />
+
 
 <br />
 
@@ -48,7 +45,7 @@ Its an account-wide (account and environment specific) kill switch, which when t
 
 ## Flow Diagram
 
-#### Part 1: Enable Panic Mode
+<br />Part 1: Enable Panic Mode
 
 ```mermaid
 flowchart TD
@@ -71,38 +68,40 @@ flowchart TD
   D -- "Panic Mode turned OFF" --> E
 ```
 
-***
+<br />
 
 # Force Refresh
 
 ## Overview
 
-Under normal conditions, the SDK refreshes its local copy of the account's campaigns, feature flags, and settings on a regular polling interval. Force Refresh lets Wingify tell the SDK to skip the wait and fetch the latest configuration immediately. This is very helpful when an urgent change in the configuration needs to be sent to the SDKs immediately.
+Under normal conditions, the SDK refreshes its local copy of the account's campaigns, feature flags, and settings on a regular polling interval. Force Refresh lets Wingify tell the SDK to skip the wait and fetch the latest configuration immediately. This is especially helpful when an urgent configuration change needs to reach the SDKs immediately.
 
 ## Key Features
 
-> - **Bypasses the normal polling wait** — the SDK fetches the latest settings as soon as a refresh signal is received, instead of waiting out the rest of its polling interval.
->
-> * **Fully automatic** — there is nothing to configure or call from the code; it's triggered by Wingify whenever an instant update is needed.
-> * **Runs automatically after Panic Mode clears** — so the application comes back online with fully up-to-date experiment configuration, not a stale cached copy from before the incident.
-> * **Non-disruptive** — refreshing settings happens in the background and does not block or delay in-flight flag evaluations or tracking calls.
-> * **Safe under rapid changes** — if several refresh signals arrive in quick succession, the SDK avoids redundant fetches and always settles on the latest configuration, even if signals arrive out of order.
+- **Bypasses the normal polling wait** - the SDK fetches the latest settings as soon as a refresh signal is received, instead of waiting out the rest of its polling interval.
+
+* **Fully automatic** - nothing to configure or call from the code; Wingify triggers it whenever an instant update is needed.
+* **Runs automatically after Panic Mode clears** - so the application comes back online with fully up-to-date experiment configuration, not a stale cached copy from before the incident.
+* **Non-disruptive** - refreshing settings happens in the background and does not block or delay in-flight flag evaluations or tracking calls.
+* **Safe under rapid changes** - if several refresh signals arrive in quick succession, the SDK avoids redundant fetches and always settles on the latest configuration, even if signals arrive out of order.
 
 ## Enabling Force Refresh
 
-> - Go to Websites and Apps - SDK Settings and for the required environment, click on Force SDK Refresh
-> - Every connected SDK instance detects this automatically — and fetches the latest settings from Wingify server
-> - To prevent multiple unnecessary fetches for the SDKs, once the Force Refresh button is clicked, it freezes the state for 5 minutes, which means, the next Force Refresh can only be enabled after that duration
-> - There is no explicit turning off Force Refresh
+* Go to Websites and Apps - SDK Settings and, for the required environment, click on Force SDK Refresh
+* Every connected SDK instance detects this automatically — and fetches the latest settings from the Wingify server
+* To prevent multiple unnecessary fetches for the SDKs, once the Force Refresh button is clicked, it freezes the state for 5 minutes, which means the next Force Refresh can only be enabled after that duration
+* There is no explicit turning off of Force Refresh<br />
 
-![](https://files.readme.io/a11c39f9da457614661da99b3680b7abd44a783c3956d3ecb5790ecc969e02a7-Panic.png)
+
+<Image src="https://files.readme.io/a11c39f9da457614661da99b3680b7abd44a783c3956d3ecb5790ecc969e02a7-Panic.png" border={true} />
+
 
 <br />
 
 ## Flow Diagram
 
 ```mermaid
-flowchart TD
+flowchart LR
 A["Urgent change on Wingify dashboard"] --> B["Wingify sends refresh signal to connected SDK instances"]
 
 B --> C["SDK fetches latest settings *immediately*, without waiting for next poll"]
@@ -112,13 +111,13 @@ C --> D["SDK's local configuration\nis now fully up to date"]
 D --> E["getFlag() calls continue using the refreshed configuration"]
 ```
 
-***
+<br />
 
 # How Panic Mode and Force Refresh Work Together
 
 These are two distinct features, but they're designed to complement each other during an incident:
 
-1. **Panic Mode** ON — application immediately falls back to safe default behavior, account-wide (account and environment specific)
-2. Once the issue is resolved, **Panic Mode** turned OFF from the dashboard.
+1. **Panic Mode** ON — application immediately falls back to safe default behavior, account-wide (account and environment-specific)
+2. Once the issue is resolved, **Panic Mode** is turned OFF from the dashboard.
 3. SDK detects Panic Mode has cleared and automatically triggers **Force Refresh**, fetching latest settings immediately instead of waiting for next scheduled poll
 4. Application resumes normal experimentation with fully up-to-date configuration — no manual restart, redeploy, or code change needed at any step.
