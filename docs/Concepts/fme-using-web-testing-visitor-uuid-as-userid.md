@@ -1,7 +1,7 @@
 ---
-title: Using Wingify Web Testing Visitor UUID as userId in FE SDK
+title: Using Wingify Web Experimentation Visitor UUID as userId in FM SDK
 excerpt: >-
-  Use the Web Testing _vwo_uuid cookie as the Feature Experimentation userId to
+  Use the Web Experimentation _vwo_uuid cookie as the Feature Management userId to
   align visitor identity across Wingify products
 deprecated: false
 hidden: false
@@ -10,21 +10,21 @@ metadata:
 ---
 ## Overview
 
-Wingify Web Testing and Feature Experimentation (FE) are two separate products that can coexist on the same page. When both are running, they independently identify users — Web Testing via a browser cookie (\_vwo_uuid), and FE via a userId passed in userContext. By default, these two identifiers are different, which means a visitor bucketed into a Web Testing campaign will be tracked as a different user in FE.
+Wingify Web Experimentation and Feature Management (FM) are two separate products that can coexist on the same page. When both are running, they independently identify users — Web Experimentation via a browser cookie (\_vwo_uuid), and FM via a userId passed in userContext. By default, these two identifiers are different, which means a visitor bucketed into a Web Experimentation campaign will be tracked as a different user in FM.
 
-This guide explains how to bridge the two systems by reading the Web Testing UUID from the browser cookie and passing it as the userId in FE's userContext, ensuring consistent user identity across both products.
+This guide explains how to bridge the two systems by reading the Web Experimentation UUID from the browser cookie and passing it as the userId in FM's userContext, ensuring consistent user identity across both products.
 
-Important to note, that this will not work for mobile SDKs, due to the dependence on cookies. The flow described here, is best suited for client (JS, React) and serverSide SDKs (Node, Java, Python etc), used in tandem with the Web Testing product.
+Important to note, that this will not work for mobile SDKs, due to the dependence on cookies. The flow described here, is best suited for client (JS, React) and serverSide SDKs (Node, Java, Python etc), used in tandem with the Web Experimentation product.
 
 <Callout icon="fa-circle-info" theme="info">
   ### Note
 
-  Ensuring that the UUID is the same, does not guarantee that the experience delivered will be the same. Web Testing and FE are two different products, and will render experiences according to their respective flag and campaign configuration.
+  Ensuring that the UUID is the same, does not guarantee that the experience delivered will be the same. Web Experimentation and FM are two different products, and will render experiences according to their respective flag and campaign configuration.
 </Callout>
 
-## How Wingify Web Testing Identifies Visitors
+## How Wingify Web Experimentation Identifies Visitors
 
-Wingify Web Testing automatically sets a first-party cookie named _vwo_uuid in the visitor's browser when the Wingify SmartCode loadscalled_ vwo_uuid in the visitor's browser when the VWO SmartCode is loaded.
+Wingify Web Experimentation automatically sets a first-party cookie named _vwo_uuid in the visitor's browser when the Wingify SmartCode loadscalled_ vwo_uuid in the visitor's browser when the VWO SmartCode is loaded.
 
 Cookie details:
 
@@ -33,7 +33,7 @@ Cookie details:
   Example: D3F2504E04F8911D39A0C0305E82C330
 - Scope:       Set on your domain (first-party)
 
-This UUID is the primary visitor identifier used by Wingify Web Testing for bucketing, analytics, and reporting.
+This UUID is the primary visitor identifier used by Wingify Web Experimentation for bucketing, analytics, and reporting.
 
 <Callout icon="fa-circle-info" theme="info">
   ### Note
@@ -41,9 +41,9 @@ This UUID is the primary visitor identifier used by Wingify Web Testing for buck
   The \_vwo_uuid cookie is only generated after the Wingify SmartCode has been installed on the website and a visitor loads the page for the first time.
 </Callout>
 
-## How FE SDK Handles userId
+## How FM SDK Handles userId
 
-When you call getFlag(), you pass a userContext object containing an id (the userId). Normally, FE converts this userId into an internal UUID using UUIDv5 hashing — deriving a deterministic hash from the userId combined with your accountId. This is done to protect your privacy and ensure that Wingify servers never store any PII, even accidentally.
+When you call getFlag(), you pass a userContext object containing an id (the userId). Normally, FM converts this userId into an internal UUID using UUIDv5 hashing — deriving a deterministic hash from the userId combined with your accountId. This is done to protect your privacy and ensure that Wingify servers never store any PII, even accidentally.
 
 Standard UUID Conversion Flow:
 
@@ -51,17 +51,17 @@ Standard UUID Conversion Flow:
 userId (string)  →  UUIDv5 hash(userId + accountId namespace)  →  internal UUID
 ```
 
-This internal UUID is what FE uses for bucketing, feature rollouts, and reporting.
+This internal UUID is what FM uses for bucketing, feature rollouts, and reporting.
 
-## The Exception: Web Testing UUID Passthrough
+## The Exception: Web Experimentation UUID Passthrough
 
-FE's SDKs include a special detection mechanism: if the userId you provide matches the Web Testing UUID format — a D or J prefix followed by exactly 32 hexadecimal characters — the SDK skips the hashing step entirely and uses the provided userId directly as the internal UUID.
+FM's SDKs include a special detection mechanism: if the userId you provide matches the Web Experimentation UUID format — a D or J prefix followed by exactly 32 hexadecimal characters — the SDK skips the hashing step entirely and uses the provided userId directly as the internal UUID.
 
 This is the key to cross-product identity alignment.
 
 ## Step-by-Step: Unifying User Identity
 
-### Step 1 — Read the Web Testing UUID from the Cookie
+### Step 1 — Read the Web Experimentation UUID from the Cookie
 
 The \_vwo_uuid cookie is accessible from client-side JavaScript running on the same domain:
 
@@ -78,10 +78,10 @@ const wingifyUuid = getWingifyUuid();
 <Callout icon="fa-circle-info" theme="info">
   ### Note
 
-  If the visitor has not yet been tracked by Wingify Web Testing (e.g., on their very first page load), this function returns null. Always implement a fallback userId.
+  If the visitor has not yet been tracked by Wingify Web Experimentation (e.g., on their very first page load), this function returns null. Always implement a fallback userId.
 </Callout>
 
-### Step 2 — Pass the UUID as userId in FE userContext
+### Step 2 — Pass the UUID as userId in FM userContext
 
 ```javascript
 import { init } from 'wingify-fme-node-sdk';
@@ -104,7 +104,7 @@ if (flag.isEnabled()) {
 }
 ```
 
-Because the value of id matches the Web Testing UUID format, FE uses it as-is — no hashing. The same UUID that Wingify Web Testing uses for this visitor is now the identifier in FE as well.
+Because the value of id matches the Web Experimentation UUID format, FM uses it as-is — no hashing. The same UUID that Wingify Web Experimentation uses for this visitor is now the identifier in FM as well.
 
 ## Complete Example
 
@@ -144,17 +144,17 @@ sequenceDiagram
   participant SmartCode as Wingify SmartCode
   participant Cookie as _vwo_uuid Cookie
   participant Application as Your Application
-  participant FESDK as FE SDK
+  participant FMSDK as FM SDK
 
   Browser->>SmartCode: Page loads
   SmartCode->>Cookie: Sets _vwo_uuid = "D3F2504E..."
   Note over Cookie: First-party cookie on your domain
   Application->>Cookie: Reads _vwo_uuid cookie value
   Cookie-->>Application: "D3F2504E04F8911D39A0C0305E82C330"
-  Application->>FESDK: getFlag(featureKey, { id: "D3F2504E..." })
-  Note right of FESDK: Detects Wingify Smartcode UUID
-  Note right of FESDK: Skips hashing, uses UUID as-is
-  FESDK-->>Application: Flag evaluated with same UUID as Web Testing
+  Application->>FMSDK: getFlag(featureKey, { id: "D3F2504E..." })
+  Note right of FMSDK: Detects Wingify Smartcode UUID
+  Note right of FMSDK: Skips hashing, uses UUID as-is
+  FMSDK-->>Application: Flag evaluated with same UUID as Web Experimentation
 ```
 
 <br />
@@ -170,7 +170,7 @@ sequenceDiagram
 <Callout icon="fa-triangle-exclamation" theme="warning">
   ### Warning
 
-  Do not modify the raw cookie value before passing it to FE. Any alteration (trimming, lowercasing, encoding) will cause validation to fail and the SDK will fall back to hashing instead of using the value as-is
+  Do not modify the raw cookie value before passing it to FM. Any alteration (trimming, lowercasing, encoding) will cause validation to fail and the SDK will fall back to hashing instead of using the value as-is
 </Callout>
 
 <br />

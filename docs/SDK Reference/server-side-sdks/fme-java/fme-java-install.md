@@ -16,7 +16,7 @@ next:
 ---
 ## Java SDK Installation
 
-To integrate Wingify FE SDK into your Java application, you must first install the SDK through a java package manager. Wingify FE Java SDK can be installed using [maven](https://mvnrepository.com/artifact).
+To integrate Wingify FM SDK into your Java application, you must first install the SDK through a java package manager. Wingify FM Java SDK can be installed using [maven](https://mvnrepository.com/artifact).
 
 ```java
 <dependency>

@@ -5,11 +5,11 @@ hidden: false
 metadata:
   robots: index
 ---
-This document provides a comprehensive analysis of the Wingify FE iOS SDK's impact on application performance, resource utilization, and network consumption. The metrics presented below are based on extensive testing and real-world implementation scenarios.
+This document provides a comprehensive analysis of the Wingify FM iOS SDK's impact on application performance, resource utilization, and network consumption. The metrics presented below are based on extensive testing and real-world implementation scenarios.
 
 ## Executive Summary
 
-The Wingify FE iOS SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust Feature Experimentation capabilities.
+The Wingify FM iOS SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust Feature Management capabilities.
 
 ## Asynchronous Initialization
 
@@ -126,4 +126,4 @@ _Data consumption measured for typical operation scenarios_
 
 ***
 
-_This performance analysis is based on&#x20;_&#x57;ingif&#x79;_&#x20;FE iOS SDK version 1.6.0. Performance characteristics may vary based on device specifications, network conditions, and implementation patterns._
+_This performance analysis is based on&#x20;_&#x57;ingif&#x79;_&#x20;FM iOS SDK version 1.6.0. Performance characteristics may vary based on device specifications, network conditions, and implementation patterns._

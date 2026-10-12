@@ -1,7 +1,7 @@
 ---
-title: Rules Evaluation in FE
+title: Rules Evaluation in FM
 excerpt: >-
-  Learn how Wingify FE evaluates feature flag rules, including holdouts, rollout
+  Learn how Wingify FM evaluates feature flag rules, including holdouts, rollout
   gates, testing, personalization, and whitelisting
 deprecated: false
 hidden: false
@@ -12,7 +12,7 @@ metadata:
 next:
   description: ''
 ---
-# **How Wingify FE Evaluates Feature Flag Rules**
+# **How Wingify FM Evaluates Feature Flag Rules**
 
 ## **Overview**
 

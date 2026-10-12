@@ -73,7 +73,7 @@ To enable the Wingify-Salesforce integration for your Wingify account:
 
 ### **Install and Initialize the Wingify SDK**
 
-Install the official Wingify FE Node SDK:
+Install the official Wingify FM Node SDK:
 
 ```
 npm install wingify-fme-node-sdk
@@ -89,7 +89,7 @@ The `gatewayService` is mandatory for Salesforce integration because the SDK use
 
 Once your Salesforce lists are imported into Wingify, configure **pre-segmentation** in your feature flag.
 
-1. Navigate to **Feature Experimentation → Feature Flags** in Wingify.
+1. Navigate to **Feature Management → Feature Flags** in Wingify.
 
 2. Click **Create Feature Flag** (or open an existing one).
 
@@ -117,10 +117,10 @@ Ensure your SDK passes the appropriate user context. The key in `customVariables
 
 ```ts
 let context = {
-    id: 'user_12345', 
+    id: 'user_12345',
     customVariables: {
         // This key must match the identifier defined in Wingify pre-segmentation
-        "leadEmails": "customer@company.com" 
+        "leadEmails": "customer@company.com"
     }
 };
 const featureFlag = wingifyClient.getFlag('feature_flag_key', context);

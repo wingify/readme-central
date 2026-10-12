@@ -12,7 +12,7 @@ next:
 ---
 A **feature flag** is a tool that allows teams to control the visibility and behavior of features without deploying new code. It enables **dynamic feature rollouts**, targeted testing, and quick rollbacks if needed.
 
-Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FE. To implement a feature flag, first use the useGetFlag() hook to retrieve the flag configuration. The _useGetFlag()_ hook provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that you can pass to other hooks, like _useGetFlagVariable()_ and _useGetFlagVariables()_ to fetch the value for a specific _variableKey_ and also to fetch all variables respectively.
+Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FM. To implement a feature flag, first use the useGetFlag() hook to retrieve the flag configuration. The _useGetFlag()_ hook provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that you can pass to other hooks, like _useGetFlagVariable()_ and _useGetFlagVariables()_ to fetch the value for a specific _variableKey_ and also to fetch all variables respectively.
 
 **Key Benefits:**
 

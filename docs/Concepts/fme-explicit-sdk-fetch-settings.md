@@ -19,8 +19,8 @@ Where:
 
 * `{sdkKey}`:  Wingify SDK key.
 * `{accountId}`: Wingify Account ID.
-* `{skdName}`: Wingify FE SDK Name
-* `{sdkVersion}`: Wingify FE SDK Version
+* `{skdName}`: Wingify FM SDK Name
+* `{sdkVersion}`: Wingify FM SDK Version
 * `{randomValue}`: A random value used to prevent caching. You can generate a random value using `Math.random()` (or any other suitable method in your environment). For eg: `0.342411122`
 
 <Callout icon="📘" theme="info">
@@ -35,7 +35,7 @@ The server will return the settings in JSON format. Example:
 {
     "accountId": "123456",                  // Wingify Account ID
     "sdkKey": "32-chars-alphanumeric-key",  // Wingify SDK Key
-    "features": {                           // features configurations here 
+    "features": {                           // features configurations here
         // ...
     },
     "campaigns": {                          // campaigns configuration here

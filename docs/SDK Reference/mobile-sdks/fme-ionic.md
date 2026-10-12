@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide provides step-by-step instructions for integrating the Wingify FE JavaScript SDK into an Ionic-based mobile application.
+This guide provides step-by-step instructions for integrating the Wingify FM JavaScript SDK into an Ionic-based mobile application.
 
 ### What is Ionic?
 
@@ -13,9 +13,9 @@ This guide provides step-by-step instructions for integrating the Wingify FE Jav
 
 <br />
 
-### Compatibility with Wingify FE JavaScript SDK
+### Compatibility with Wingify FM JavaScript SDK
 
-The Wingify FE JavaScript SDK integrates seamlessly with Ionic applications through the installation of an npm package. Since Ionic uses web technologies and can leverage Capacitor for native functionality, the Wingify FE JavaScript SDK can be directly imported and used within Ionic services and components.
+The Wingify FM JavaScript SDK integrates seamlessly with Ionic applications through the installation of an npm package. Since Ionic uses web technologies and can leverage Capacitor for native functionality, the Wingify FM JavaScript SDK can be directly imported and used within Ionic services and components.
 
 <br />
 
@@ -35,9 +35,9 @@ For detailed instructions, refer to the [Ionic Getting Started Guide](https://io
 
 <br />
 
-### 2. Install FE JavaScript SDK
+### 2. Install FM JavaScript SDK
 
-Add the Wingify FE JavaScript SDK to your project using npm:
+Add the Wingify FM JavaScript SDK to your project using npm:
 
 ```shell
 npm install wingify-fme-node-sdk
@@ -69,7 +69,7 @@ export const environment = {
 
 ### 4. Create Wingify Service
 
-Create a service to handle FE SDK initialization and operations:
+Create a service to handle FM SDK initialization and operations:
 
 ```typescript
 import { Injectable } from '@angular/core';
@@ -131,7 +131,7 @@ export class WingifyService {
 
 <br />
 
-### 5. Use FE in Components
+### 5. Use FM in Components
 
 Import and use the Wingify service in your Ionic components:
 
@@ -170,7 +170,7 @@ export class HomePage implements OnInit {
 
 <br />
 
-> 💡 The Wingify Feature Experimentation (FE) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
+> 💡 The Wingify Feature Management (FM) SDK provides a range of APIs for managing feature flags and tracking user behavior. Key APIs include
 >
 > - [getFlag()](https://developers.wingify.com/v3/docs/fme-javascript-flags#/) to retrieve feature flag status and getting variables values
 > - [trackEvent()](https://developers.wingify.com/v3/docs/fme-javascript-metrics#/) to send custom events for reporting

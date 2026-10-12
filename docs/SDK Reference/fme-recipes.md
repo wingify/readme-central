@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-<TutorialTile emoji="🦉" slug="vwo-fme-sdk-usage" title="Wingify FE SDK Usage" />
+<TutorialTile emoji="🦉" slug="vwo-fme-sdk-usage" title="Wingify FM SDK Usage" />
 
-Wingify FE SDKs Recipes provide a streamlined approach to integrating and using the Wingify Feature Experimentation (FE) SDKs across multiple programming languages. Whether you're working with Node.js, Python, Java, or any other supported language, this guide helps you quickly set up, initialize, and start running feature rollouts, A/B tests, and experiments.
+Wingify FM SDKs Recipes provide a streamlined approach to integrating and using the Wingify Feature Management (FM) SDKs across multiple programming languages. Whether you're working with Node.js, Python, Java, or any other supported language, this guide helps you quickly set up, initialize, and start running feature rollouts, A/B tests, and experiments.
 
 **What You'll Find in This Guide**
 

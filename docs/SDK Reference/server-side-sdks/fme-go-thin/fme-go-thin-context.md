@@ -14,7 +14,7 @@ next:
       slug: fme-go-flags
       title: Feature Flags
 ---
-The user context is a crucial component in's Feature Experimentation SDK. It provides information about the current user, which is used for targeting and segmentation.
+The user context is a crucial component in's Feature Management SDK. It provides information about the current user, which is used for targeting and segmentation.
 
 ## Usage
 

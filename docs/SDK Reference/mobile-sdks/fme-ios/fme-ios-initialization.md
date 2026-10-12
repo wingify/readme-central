@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To create a Wingify Client instance, you need to initialize the Wingify FE iOS SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
+To create a Wingify Client instance, you need to initialize the Wingify FM iOS SDK. This client instance serves as the core interface for conducting Feature Management(A/B and personalization) within your application.
 
 ## Usage
 

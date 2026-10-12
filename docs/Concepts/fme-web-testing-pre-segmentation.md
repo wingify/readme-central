@@ -1,6 +1,6 @@
 ---
-title: Web Testing Pre-Segmentation
-excerpt: Pre-Segment users based on Web Testing Rules
+title: Web Experimentation Pre-Segmentation
+excerpt: Pre-Segment users based on Web Experimentation Rules
 deprecated: false
 hidden: false
 metadata:
@@ -8,19 +8,19 @@ metadata:
 ---
 ## **Overview**
 
-Web Testing Pre-Segmentation lets a user be targeted based on their exposure to a **Web Testing** campaign and the variation assigned to them, thereby connecting two important platforms in the Wingify universe. It allows FE rules to be gated on, or exclude, visitors based on an in-flight Web Testing experiment, without an extra network round trip.
+Web Experimentation Pre-Segmentation lets a user be targeted based on their exposure to a **Web Experimentation** campaign and the variation assigned to them, thereby connecting two important platforms in the Wingify universe. It allows FM rules to be gated on, or exclude, visitors based on an in-flight Web Experimentation experiment, without an extra network round trip.
 
 ## **Key Features**
 
-- Accepts the visitor's Web Testing assignment via context.platformVariables.webTestingCampaigns, as either a plain object or a JSON string
-- As the web testing assignment is read via cookies, there is no network latency involved and hence response times are not affected
+- Accepts the visitor's Web Experimentation assignment via context.platformVariables.webTestingCampaigns, as either a plain object or a JSON string
+- As the Web Experimentation assignment is read via cookies, there is no network latency involved and hence response times are not affected
 - Ensures that customers have the option to exclude users from becoming part of experiments from both frontend and backend
 
-## **Enabling Web Testing Pre-Segmentation in FE**
+## **Enabling Web Experimentation Pre-Segmentation in FM**
 
-- Configure the campaign's targeting segmentation in the app dashboard to use the campaignVariation operand for the Web Testing campaign ID(s) you want to gate on
-- Inside the context object, populate platformVariables.webTestingCampaigns with the visitor's current Web Testing campaign → variation assignment
-- You can do this manually, or you can use our sample scriptsamplescript to read the cookie dropped by the Web Testing product and pass on its values to the context object directly
+- Configure the campaign's targeting segmentation in the app dashboard to use the campaignVariation operand for the Web Experimentation campaign ID(s) you want to gate on
+- Inside the context object, populate platformVariables.webTestingCampaigns with the visitor's current Web Experimentation campaign → variation assignment
+- You can do this manually, or you can use our sample scriptsamplescript to read the cookie dropped by the Web Experimentation product and pass on its values to the context object directly
 
 
 <Image src="https://files.readme.io/d9b4973d4bd7bca547978d99be30a30bf1988b0f1a2596a23e30e6a7155d50df-Web_Testing_as_Pre-Segment.png" border={true} />
@@ -32,7 +32,7 @@ Web Testing Pre-Segmentation lets a user be targeted based on their exposure to 
 const context = {
   id: 'user-123',
   platformVariables: {
-    // Map of Web Testing campaign ID -> assigned variation ID
+    // Map of Web Experimentation campaign ID -> assigned variation ID
     webTestingCampaigns: {
       123: '4',
       456: '1',
@@ -48,7 +48,7 @@ const flag = await wingifyClient.getFlag('feature-key', context);
 flowchart TD
   subgraph Dashboard["Wingify dashboard"]
     A["Configure rule pre-segment"]
-    B["Target or exclude Web Testing campaign"]
+    B["Target or exclude Web Experimentation campaign"]
     A --> B
   end
 
@@ -71,8 +71,8 @@ flowchart TD
 
 | Field                                 | Type                                             | Required                                          | Description                                                                                                                                                            |
 | :------------------------------------ | :----------------------------------------------- | :------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| platformVariables                     | Object                                           | No                                                | Namespaced container for platform-originated signals passed into the FE context                                                                                        |
-| platformVariables.webTestingCampaigns | Record\<string, string \| number> or JSON string | Only if the campaign's DSL uses campaignVariation | Map of Web Testing campaign ID to the variation ID the visitor was assigned. Keys and values are coerced to strings; null/undefined values and empty keys are dropped. |
+| platformVariables                     | Object                                           | No                                                | Namespaced container for platform-originated signals passed into the FM context                                                                                        |
+| platformVariables.webTestingCampaigns | Record\<string, string \| number> or JSON string | Only if the campaign's DSL uses campaignVariation | Map of Web Experimentation campaign ID to the variation ID the visitor was assigned. Keys and values are coerced to strings; null/undefined values and empty keys are dropped. |
 
 ## **Script to read cookie value**
 
@@ -104,11 +104,11 @@ function getWebTestingCampaigns() {
 
 ```
 
-## Script to send cookie value to FE UserContext
+## Script to send cookie value to FM UserContext
 
 ```javascript
 /**
- * Sends the cookie value set by Web Testing product inside user context
+ * Sends the cookie value set by Web Experimentation product inside user context
  */
 const userContext = {
   id: "user_123",

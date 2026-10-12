@@ -9,7 +9,7 @@ metadata:
 
 Firebase Analytics is a free, comprehensive analytics solution that provides detailed insights into app usage and user engagement. It offers automatic event tracking, reporting, audience segmentation, and seamless integration with other Firebase services, making it a powerful tool for understanding your app's performance and user behavior.
 
-Integrating FE with Firebase Analytics offers significant benefits. FE sends feature flag and event data to Firebase Analytics, allowing you to see which feature flag variations users are exposed to directly within your Firebase dashboard. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
+Integrating FM with Firebase Analytics offers significant benefits. FM sends feature flag and event data to Firebase Analytics, allowing you to see which feature flag variations users are exposed to directly within your Firebase dashboard. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
 
 <br />
 
@@ -23,10 +23,10 @@ Integrating FE with Firebase Analytics offers significant benefits. FE sends fea
 * Add the configuration file to your Xcode project
 * Follow the detailed setup instructions mentioned at <Anchor label="Firebase iOS Setup Guide" target="_blank" href="https://firebase.google.com/docs/ios/setup">Firebase iOS Setup Guide</Anchor>
 
-### Wingify FE SDK Installation and Configuration
+### Wingify FM SDK Installation and Configuration
 
-* Ensure you have the Wingify Feature Experimentation product enabled for your Wingify account
-* The Wingify FE SDK should be properly installed in your project
+* Ensure you have the Wingify Feature Management product enabled for your Wingify account
+* The Wingify FM SDK should be properly installed in your project
 * Set your Wingify account ID and SDK key in your application's configuration:
 
 ```swift
@@ -42,7 +42,7 @@ Firebase Analytics SDK integration enables automatic collection of feature flag 
 
 > 📘 Note
 >
-> The example below shows an implementation with the `iOS` SDK. Please note that any Wingify FE SDK can be used.
+> The example below shows an implementation with the `iOS` SDK. Please note that any Wingify FM SDK can be used.
 
 ### 1. Add Required Dependencies
 
@@ -95,7 +95,7 @@ class FirebaseAnalyticsIntegration: IntegrationCallback {
 
 ### 3. Initialize Firebase Analytics and set up the `IntegrationCallback`:
 
-Initialize your `FirebaseAnalyticsIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FE SDK. `IntegrationCallback` is a mechanism that automatically forwards FE SDK events (like flag evaluations) to the desired analytics platform for real-time tracking and analysis.
+Initialize your `FirebaseAnalyticsIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FM SDK. `IntegrationCallback` is a mechanism that automatically forwards FM SDK events (like flag evaluations) to the desired analytics platform for real-time tracking and analysis.
 
 <br />
 
@@ -109,9 +109,9 @@ let options = WingifyInitOptions(sdkKey: FME_SDK_KEY, // Replace with your actua
 VWOFme.initialize(options: options) { result in
     switch result {
     case .success:
-        print("VWO-FE initialized successfully")
+        print("VWO-FM initialized successfully")
     case .failure(let error):
-        print("VWO-FE initialization failed: \(error)")
+        print("VWO-FM initialization failed: \(error)")
     }
 }
 ```
@@ -183,4 +183,4 @@ After integrating Firebase Analytics with your app, you can view the tracked dat
    * Export data to BigQuery for advanced analysis
    * Set up automated insights and anomaly detection
 
-> This is an example of an implementation using the iOS SDK. While this demonstrates the approach, you can utilize any of the Wingify FE SDKs for your project.
+> This is an example of an implementation using the iOS SDK. While this demonstrates the approach, you can utilize any of the Wingify FM SDKs for your project.

@@ -41,7 +41,7 @@ val transport: MutableMap<String, Any> = mutableMapOf()
 transport["defaultTransport"] = object : LogTransport {
     override fun log(level: LogLevelEnum, message: String?) {
         if (message == null) return
-        Log.d("FE", message)
+        Log.d("FM", message)
     }
 }
 logger.add(transport)
@@ -58,7 +58,7 @@ transport.put("defaultTransport", new LogTransport() {
     @Override
     public void log(LogLevelEnum level, String message) {
         if (message == null) return;
-        Log.d("FE", message);
+        Log.d("FM", message);
     }
 });
 logger.add(transport);

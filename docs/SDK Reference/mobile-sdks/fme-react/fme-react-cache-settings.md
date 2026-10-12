@@ -110,7 +110,7 @@ const wingifyConfig: IWingifyOptions = {
 
   clientStorage: {
     // Custom key used to store SDK data, default is 'wingify_fme_data'
-    key: 'wingify_data', 
+    key: 'wingify_data',
 
     // Use cached settings regardless of TTL, defaults to false
     alwaysUseCachedSettings: true,
@@ -120,8 +120,8 @@ const wingifyConfig: IWingifyOptions = {
   }
 };
 
-const userContext: IWingifyContextModel = { 
-  id: 'unique_user_id' 
+const userContext: IWingifyContextModel = {
+  id: 'unique_user_id'
 };
 
 const fallbackComponent = <div>Initializing...</div>;
@@ -139,7 +139,7 @@ export default App;
 
 ## Flow
 
-The diagram outlines how the **Wingify FE React SDK** manages settings using configurable caching options:
+The diagram outlines how the **Wingify FM React SDK** manages settings using configurable caching options:
 
 ```mermaid
 flowchart TD

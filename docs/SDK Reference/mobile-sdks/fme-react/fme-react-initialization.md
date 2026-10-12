@@ -10,9 +10,9 @@ metadata:
 next:
   description: ''
 ---
-To integrate Wingify Feature Experimentation (FE) into your React application, you must wrap your application code with the `WingifyProvider` component.
+To integrate Wingify Feature Management (FM) into your React application, you must wrap your application code with the `WingifyProvider` component.
 
-The `WingifyProvider` is a React context provider that initializes the Wingify Feature Experimentation (FE) SDK and makes the client instance and user context available to child components through React Context.
+The `WingifyProvider` is a React context provider that initializes the Wingify Feature Management (FM) SDK and makes the client instance and user context available to child components through React Context.
 
 It is essential for enabling feature flag evaluation, A/B testing, and user tracking using hooks like `useWingifyClient` or `useGetFlag`.
 
@@ -150,7 +150,7 @@ export default App;
 
 In some cases, you might prefer not to wrap your application with the `WingifyProvider` component. For example, you may want finer control over when and how the SDK is initialized, or you might need to integrate it into an existing setup where using a provider is not feasible.
 
-Wingify FE React SDK allows you to bypass the provider and directly work with its methods. This gives you the flexibility to manually initialize the SDK and manage feature flag evaluations, user targeting, and other SDK operations programmatically.
+Wingify FM React SDK allows you to bypass the provider and directly work with its methods. This gives you the flexibility to manually initialize the SDK and manage feature flag evaluations, user targeting, and other SDK operations programmatically.
 
 You can implement this approach using the example below:
 
@@ -299,7 +299,7 @@ Please click [here](https://developers.wingify.com/v3/docs/fme-react-storage)  t
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
+Wingify FM SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```typescript
 import { WingifyProvider, IWingifyOptions, IWingifyContextModel } from 'wingify-fme-react-sdk';

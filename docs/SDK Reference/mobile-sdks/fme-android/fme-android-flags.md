@@ -7,7 +7,7 @@ metadata:
 ---
 A **feature flag** is a tool that allows teams to control the visibility and behavior of features without deploying new code. It enables **dynamic feature rollouts**, targeted testing, and quick rollbacks if needed.
 
-Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FE. To implement a feature flag, first use the getFlag() method to retrieve the flag configuration. The _getFlag()_ method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like _isEnabled()_ for checking the feature's status and _getVariable()_ for retrieving any associated variable(s).
+Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FM. To implement a feature flag, first use the getFlag() method to retrieve the flag configuration. The _getFlag()_ method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like _isEnabled()_ for checking the feature's status and _getVariable()_ for retrieving any associated variable(s).
 
 **Key Benefits:**
 
@@ -22,7 +22,7 @@ Feature Flags serve as the foundation for all testing, personalization, and roll
    1. isEnabled(): Determines whether the feature is enabled or disabled for that user.
    2. getVariables() / getVariable(): Retrieves any custom variables or settings linked to the feature flag (e.g., UI colors, text, or limits).
 
-This allows dynamic control over feature availability, enabling targeted rollouts, personalization, and real-time feature Experimentation without deploying new code.
+This allows dynamic control over feature availability, enabling targeted rollouts, personalization, and real-time Feature Management without deploying new code.
 
 **Returns**
 
@@ -35,7 +35,7 @@ The returned flag object allows you to:
 
 ## **_Get Flag_** API
 
-This API connects the application to Wingify’s feature experimentation system to determine:
+This API connects the application to Wingify’s Feature Management system to determine:
 
 - Whether a feature should be active for a specific user.
 - What configuration or variation of the feature should be presented to that user.

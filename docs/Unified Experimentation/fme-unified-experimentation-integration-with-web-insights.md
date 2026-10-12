@@ -1,12 +1,12 @@
 ---
 title: Integration with Wingify Web & Mobile Insights
-excerpt: Behavioral Analytics Integration with Wingify Web Insights
+excerpt: Behavioral Analytics Integration with Wingify Behavior Analytics
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-Beyond experimentation and conversion tracking, Wingify Web Insights adds behavioral analytics capabilities such as:
+Beyond experimentation and conversion tracking, Wingify Behavior Analytics adds behavioral analytics capabilities such as:
 
 * Session Recordings
 * Heatmaps
@@ -15,9 +15,9 @@ Beyond experimentation and conversion tracking, Wingify Web Insights adds behavi
 
 When the `UUID` is consistent across:
 
-* Web Testing
-* Feature Experimentation
-* Web Insights
+* Web Experimentation
+* Feature Management
+* Behavior Analytics
 
 You unlock a powerful capability:
 
@@ -32,7 +32,7 @@ If UUID is shared across products:
 
 Can be:
 
-* Filtered inside Web Insights
+* Filtered inside Behavior Analytics
 * Viewed through session recordings
 * Analyzed via heatmaps
 * Compared across variations
@@ -51,9 +51,9 @@ When UUID is unified:
 
 | Product                 | Role                    | What It Tracks                |
 | ----------------------- | ----------------------- | ----------------------------- |
-| Web Testing             | Client-side experiments | UI variation exposure         |
-| Feature Experimentation | Server-side experiments | Business logic exposure       |
-| Web Insights            | Behavioral analytics    | Session recordings & heatmaps |
+| Web Experimentation             | Client-side experiments | UI variation exposure         |
+| Feature Management | Server-side experiments | Business logic exposure       |
+| Behavior Analytics            | Behavioral analytics    | Session recordings & heatmaps |
 
 Because UUID is identical:
 
@@ -65,28 +65,28 @@ Because UUID is identical:
 ```mermaid
 flowchart LR
     Browser -->|UUID Cookie| Server
-    Server --> FE_SDK[Wingify FE SDK]
-    FE_SDK --> Wingify
+    Server --> FM_SDK[Wingify FM SDK]
+    FM_SDK --> Wingify
 
     Browser --> SmartCode
     SmartCode --> Wingify
 
-    Browser --> WebInsights[Wingify Web Insights]
+    Browser --> WebInsights[Wingify Behavior Analytics]
     WebInsights --> Wingify
 
-    FE_SDK -. Shared UUID .- SmartCode
+    FM_SDK -. Shared UUID .- SmartCode
     SmartCode -. Shared UUID .- WebInsights
 
 ```
 
 This architecture enables system-wide experimentation, not just UI testing.
 
-* Web Testing experiments UI behavior
-* Feature Experimentation controls application logic
+* Web Experimentation experiments UI behavior
+* Feature Management controls application logic
 * `UUID` is the binding identity
 * Cookies are the transport mechanism
 * Two-way identity propagation is supported
-* Wingify Web Insights unifies analytics across layers
+* Wingify Behavior Analytics unifies analytics across layers
 
 <br />
 

@@ -83,7 +83,7 @@ Now, we have to setup the SDK and avail the integration feature.
 
 ### Install and Initialize the Wingify SDK
 
-Install the official Wingify FE Node SDK:
+Install the official Wingify FM Node SDK:
 
 ```
 npm install wingify-fme-node-sdk
@@ -117,7 +117,7 @@ Once your Heap segments are imported into Wingify, configure **pre-segmentation*
 
 ### Configure Pre-Segmentation in the Feature Flag
 
-1. Navigate to **Feature Experimentation → Feature Flags** in Wingify.
+1. Navigate to **Feature Management → Feature Flags** in Wingify.
 
 2. Click **Create Feature Flag** (or open an existing one).
 
@@ -192,7 +192,7 @@ if (featureFlag.enabled) {
 
 * Ensure the **custom variable key** in your SDK context matches the one defined in Wingify’s rule configuration.
 
-* Only **Heap-identified users** from the synced segment will pass the segmentation rule,  
+* Only **Heap-identified users** from the synced segment will pass the segmentation rule,
   **Reference**: [Heap’s Identity API](https://developers.heap.io/reference/identify)
 
 * If you have multiple Heap segments, create separate rollout rules for each to maintain clear targeting logic.

@@ -9,7 +9,7 @@ This document provides a comprehensive analysis of the Wingify Android SDK's imp
 
 ## Executive Summary
 
-The Wingify Android SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust Feature Experimentation capabilities.
+The Wingify Android SDK is designed with performance optimization as a core principle. Through asynchronous initialization, intelligent caching mechanisms, and efficient resource management, the SDK minimizes its impact on application performance while delivering robust Feature Management capabilities.
 
 ## Application Launch Performance
 

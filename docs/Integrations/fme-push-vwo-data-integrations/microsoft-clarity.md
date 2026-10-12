@@ -9,7 +9,7 @@ metadata:
 
 Microsoft Clarity is a user behavior analytics tool that helps you understand how users interact with your website through session replays and heatmaps.
 
-Wingify Feature Experimentation (FE) sends feature-flag and event data to Microsoft Clarity as **Custom Tags** and **Smart Events**. This allows you to see exactly which feature flag variations drive specific user behaviors, filter session recordings by active feature flags, and make data-driven decisions on your rules associated with the feature flag.
+Wingify Feature Management (FM) sends feature-flag and event data to Microsoft Clarity as **Custom Tags** and **Smart Events**. This allows you to see exactly which feature flag variations drive specific user behaviors, filter session recordings by active feature flags, and make data-driven decisions on your rules associated with the feature flag.
 
 ***
 
@@ -24,9 +24,9 @@ Before setting up the integration, ensure you have the following:
 
 - **Tracking Code:** The Microsoft Clarity JavaScript tracking code is installed and active on your frontend application/website.
 
-### 2. Wingify FE SDK Configuration
+### 2. Wingify FM SDK Configuration
 
-- **Account:** A Wingify account with Feature Experimentation enabled.
+- **Account:** A Wingify account with Feature Management enabled.
 - **SDK:** The Wingify SDK is installed and initialized in your backend application.
 
 ***
@@ -39,7 +39,7 @@ Therefore, you must utilize the SDK's `integrations.callback` on your backend, a
 
 ### 1. Install Dependencies
 
-Ensure you have the Wingify FE SDK installed in your project:
+Ensure you have the Wingify FM SDK installed in your project:
 
 ```bash
 npm install Wingify-fme-node-sdk

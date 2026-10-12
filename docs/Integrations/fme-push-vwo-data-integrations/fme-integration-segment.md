@@ -9,7 +9,7 @@ metadata:
 
 Segment is a customer data platform that collects, cleans, and routes user data to multiple analytics tools and data warehouses. It acts as a single hub for all your customer data, allowing you to send information once and distribute it to multiple destinations like analytics tools, data warehouses, marketing platforms, and customer engagement tools.
 
-Integrating FE with Segment offers significant benefits. FE sends feature flag and event data to Segment, which then routes this data to all connected destinations. This allows you to see which feature flag variations users are exposed to across your entire analytics stack. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
+Integrating FM with Segment offers significant benefits. FM sends feature flag and event data to Segment, which then routes this data to all connected destinations. This allows you to see which feature flag variations users are exposed to across your entire analytics stack. By correlating user behavior with specific experiments, you can gain deeper, data-driven insights into the real impact of your feature rollouts and campaigns.
 
 ## Prerequisites
 
@@ -25,10 +25,10 @@ Integrating FE with Segment offers significant benefits. FE sends feature flag a
 SEGMENT_WRITE_KEY=your_segment_write_key
 ```
 
-### Wingify FE SDK Installation and Configuration
+### Wingify FM SDK Installation and Configuration
 
-* Ensure you have the Wingify Feature Experimentation product enabled for your Wingify account
-* The Wingify FE SDK should be properly installed in your project
+* Ensure you have the Wingify Feature Management product enabled for your Wingify account
+* The Wingify FM SDK should be properly installed in your project
 * Set your Wingify account ID and SDK key in your application's constants or local.properties file:
 
 ```properties
@@ -38,11 +38,11 @@ FME_SDK_KEY=your_sdk_key // Replace with your actual Wingify sdk key
 
 ## Integration Steps
 
-Integrating the Wingify FE SDK with analytics platforms like Segment allows you to automatically send feature flag evaluation and event tracking data to your entire analytics stack. This integration enables automatic data collection and distribution to all your connected analytics tools.
+Integrating the Wingify FM SDK with analytics platforms like Segment allows you to automatically send feature flag evaluation and event tracking data to your entire analytics stack. This integration enables automatic data collection and distribution to all your connected analytics tools.
 
 > 📘 Note
 >
-> The example below shows an implementation with the `Android` SDK. Please note that any Wingify FE SDK can be used.
+> The example below shows an implementation with the `Android` SDK. Please note that any Wingify FM SDK can be used.
 
 ### 1. Add Required Dependencies
 
@@ -50,7 +50,7 @@ Add the following dependencies to your app's `build.gradle` file:
 
 ```groovy
 dependencies {
-    // FE SDK dependency
+    // FM SDK dependency
     implementation 'com.wingify.sdk:wingify-fme-android-sdk:<latest version>' // Replace with the latest version
 
     // Segment SDK dependency
@@ -117,7 +117,7 @@ class SegmentIntegration private constructor(context: Context, writeKey: String)
 
 ### 4. Initialize Segment and set up the `IntegrationCallback`:
 
-Initialize your `SegmentIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FE SDK. `IntegrationCallback` is a mechanism that automatically forwards FE SDK events (like flag evaluations) to the desired analytics platform for real-time tracking and analysis. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Segment instance.
+Initialize your `SegmentIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FM SDK. `IntegrationCallback` is a mechanism that automatically forwards FM SDK events (like flag evaluations) to the desired analytics platform for real-time tracking and analysis. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Segment instance.
 
 ```kotlin
 // Example Integration Callback Setup
@@ -232,4 +232,4 @@ After integrating Segment with your app, you can view the tracked data in the fo
 
 The complete source code for this example is available on <Anchor label="GitHub" target="_blank" href="https://github.com/wingify/vwo-fme-examples/tree/master/android">GitHub</Anchor>   .
 
-This is an example of an implementation using the Android SDK. While this demonstrates the approach, you can utilize any of the Wingify FE SDKs for your project.
+This is an example of an implementation using the Android SDK. While this demonstrates the approach, you can utilize any of the Wingify FM SDKs for your project.

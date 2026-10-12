@@ -22,19 +22,19 @@ Key components of **GitHub Actions**:
 4. **Events**:\
    An event is a specific activity in a repository that triggers a workflow run. For example, an activity can originate from GitHub when someone creates a pull request, opens an issue, or pushes a commit to a repository
 
-## Introduction to Wingify FE Github Action
+## Introduction to Wingify FM Github Action
 
-The **Wingify FE GitHub Action** enables you to evaluate feature flags in your CI/CD pipelines using the **Wingify platform**. It allows you to dynamically enable or disable features or retrieve feature flag values during the build process. By leveraging feature flags, you can make more flexible, robust, and dynamic applications, eliminating hardcoded values from the codebase.
+The **Wingify FM GitHub Action** enables you to evaluate feature flags in your CI/CD pipelines using the **Wingify platform**. It allows you to dynamically enable or disable features or retrieve feature flag values during the build process. By leveraging feature flags, you can make more flexible, robust, and dynamic applications, eliminating hardcoded values from the codebase.
 
 > 📘 GitHub Repo
 >
 > You can find the source code of the repo [here](https://github.com/wingify/vwo-fme-github-action) .
 
-This documentation provides a comprehensive guide to understand how to set up and use the Wingify FE GitHub Action in your repository.
+This documentation provides a comprehensive guide to understand how to set up and use the Wingify FM GitHub Action in your repository.
 
 ## Inputs
 
-The following input fields need to be provided when using the `Wingify FE GitHub Action`.
+The following input fields need to be provided when using the `Wingify FM GitHub Action`.
 
 | Input Name             | Description                                                                                                                                                                                               | Required |
 | :--------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
@@ -66,7 +66,7 @@ You should store the `WINGIFY_SDK_KEY` and `WINGIFY_ACCOUNT_ID` securely in your
 
 ## Usage Example
 
-Below is an example of how to use the Wingify FE GitHub Action in a GitHub Actions workflow:
+Below is an example of how to use the Wingify FM GitHub Action in a GitHub Actions workflow:
 
 ```yaml
 name: Feature Flag Management
@@ -111,7 +111,7 @@ jobs:
 Explanation:
 
 * The workflow is triggered on a `push` event to the `main` branch.
-* The `Evaluate Feature Flags` step uses the `Wingify FE GitHub Action` to evaluate the feature flags for a user with the specified context (`userContext`).
+* The `Evaluate Feature Flags` step uses the `Wingify FM GitHub Action` to evaluate the feature flags for a user with the specified context (`userContext`).
 * Feature flags are specified in the `flagsWithVariables` input as JSON, where each key represents a feature flag and its associated variable values.
 * The `sdkInitOptions` input allows for optional SDK configuration.
 * The Wingify SDK credentials (`WINGIFY_SDK_KEY` and `WINGIFY_ACCOUNT_ID`) are passed securely using GitHub secrets.

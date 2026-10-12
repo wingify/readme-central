@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-Wingify offers a native integration with Slack for Notifications for FE.
+Wingify offers a native integration with Slack for Notifications for FM.
 
 This integration enables Wingify to send all important alerts and notifications about your Wingify account directly to Slack. This includes notifications for any changes made to campaigns/rules, as well as notifications when a winner is declared. Wingify also sends notifications if there are any changes made in user roles/permissions.
 

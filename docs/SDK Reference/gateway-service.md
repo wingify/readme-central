@@ -12,7 +12,7 @@ next:
 ---
 ## Overview
 
-The Wingify FE Gateway Service is a critical component for's Feature Experimentation (FE) SDKs, particularly essential for pre-segmentation based on user location and user agent (UA). It's designed to be deployed within your infrastructure, ensuring minimal latency and enhanced security for FE operations.
+The Wingify FM Gateway Service is a critical component for's Feature Management (FM) SDKs, particularly essential for pre-segmentation based on user location and user agent (UA). It's designed to be deployed within your infrastructure, ensuring minimal latency and enhanced security for FM operations.
 
 ## When is Gateway Service Needed?
 
@@ -25,7 +25,7 @@ The Gateway Service is required in the following scenarios:
 
 The Gateway Service is designed to be deployed within your backend infrastructure. This architectural decision offers several key advantages:
 
-1. **Minimal Latency**: Communication between your application servers (where the FE SDKs are implemented) and the Gateway Service occurs internally, ensuring quick response times.
+1. **Minimal Latency**: Communication between your application servers (where the FM SDKs are implemented) and the Gateway Service occurs internally, ensuring quick response times.
 2. **Enhanced Security**: By keeping all communication within your network, you maintain greater control over data flow and can implement your security measures.
 3. **Scalability**: You can scale the Gateway Service according to your needs and traffic patterns.
 4. **Network Efficiency**: The internal communication reduces external network calls, potentially lowering bandwidth usage and associated costs.
@@ -36,11 +36,11 @@ The Gateway Service is designed to be deployed within your backend infrastructur
 * Provides a unified interface for Wingify SDK operations
 * Supports caching for improved response times
 * Offers configurable polling for Wingify campaign settings updates
-* Enables low-latency, internal communication with FE SDKs
+* Enables low-latency, internal communication with FM SDKs
 
 ## Flow
 
-Your application calls the Wingify FE SDK, which communicates with the locally deployed Gateway Service. The Gateway Service handles complex logic and data management required for Feature Experimentation.
+Your application calls the Wingify FM SDK, which communicates with the locally deployed Gateway Service. The Gateway Service handles complex logic and data management required for Feature Management.
 
 <Image align="center" border={false} src="https://files.readme.io/f983ba3e8432b9bc7e203f76372310430473131856b354b494c6f0930238fa9b-FME_Gateway.drawio.png" />
 
@@ -76,7 +76,7 @@ Once the batching condition is met (either 1000 events or 30 seconds), all the c
 
 ## Deployment
 
-Wingify FE Gateway Service is available on the Docker Hub.  
+Wingify FM Gateway Service is available on the Docker Hub.
 Docker Image: [https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service](https://hub.docker.com/r/wingifysoftware/vwo-fme-gateway-service)
 
 ### Prerequisites
@@ -172,7 +172,7 @@ networks:
 
 * `POLLING_TIME` (optional, default: 60000): The interval in milliseconds at which the Gateway Service polls Wingify servers for updates to campaign settings. Adjust this based on how frequently you update your Wingify campaigns.
 
-* `MAXMIND_USER_ID` and `MAXMIND_LICENSE_KEY` (optional): Credentials for MaxMind GeoIP database. This is mandatory if you want to leverage accurate geolocation-based targeting and segmentation in FE.
+* `MAXMIND_USER_ID` and `MAXMIND_LICENSE_KEY` (optional): Credentials for MaxMind GeoIP database. This is mandatory if you want to leverage accurate geolocation-based targeting and segmentation in FM.
 
 * `CORS_CONFIG_REQUIRED` (optional, default: false): Set to true if requests are being sent from the client-side (e.g., browser-based applications). This enables Cross-Origin Resource Sharing (CORS) headers.
 
@@ -309,6 +309,6 @@ Note: All three parameters are required. The setAttribute API always returns a 2
 
 ### Conclusion
 
-The Wingify FE Gateway Service enhances Wingify SDK capabilities by providing advanced pre-segmentation, consistent cross-platform behaviour, and improved performance within your infrastructure. It ensures fast, efficient, and secure Feature Experimentation processes, making it an essential component for applications leveraging's FE capabilities, especially for thin clients and scenarios requiring advanced targeting or segmentation.
+The Wingify FM Gateway Service enhances Wingify SDK capabilities by providing advanced pre-segmentation, consistent cross-platform behaviour, and improved performance within your infrastructure. It ensures fast, efficient, and secure Feature Management processes, making it an essential component for applications leveraging's FM capabilities, especially for thin clients and scenarios requiring advanced targeting or segmentation.
 
 .

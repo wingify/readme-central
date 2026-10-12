@@ -18,7 +18,7 @@ Every feature flag that you create can have connected metrics that can be used t
 
 For each feature flag, you need to define at least one "Primary Metric", and you can set up as many secondary metrics as you'd like.
 
-Metrics in FE are based on "Custom Events" that you can create in Wingify > Data360>Events. All the custom events created in Data360 will be available to be used as metrics in your feature flags.
+Metrics in FM are based on "Custom Events" that you can create in Wingify > Data360>Events. All the custom events created in Data360 will be available to be used as metrics in your feature flags.
 
 Once you have configured custom events as metrics for your feature flag, you can then trigger a conversion for each metric using the following code snippet:
 
@@ -50,16 +50,16 @@ When this API is executed:
 ### Usage
 
 ```java
-// Record a metric conversion for the specified event without any additional properties. 
-// 'event_name' is the name of the event to be tracked. 
-// The 'user_context' ensures the event is associated with the correct user. 
-wingifyClient.trackEvent("eventName", userContext); 
+// Record a metric conversion for the specified event without any additional properties.
+// 'event_name' is the name of the event to be tracked.
+// The 'user_context' ensures the event is associated with the correct user.
+wingifyClient.trackEvent("eventName", userContext);
 
 
-// Record a metric conversion for the specified event with additional properties. 
-// Set 'event_properties' to provide custom attributes for the event (e.g., 'userType' to specify the type of user). 
-Map < String , String > eventProperties = new HashMap <> (); 
-eventProperties.put("revenueValue" , "100"); 
+// Record a metric conversion for the specified event with additional properties.
+// Set 'event_properties' to provide custom attributes for the event (e.g., 'userType' to specify the type of user).
+Map < String , String > eventProperties = new HashMap <> ();
+eventProperties.put("revenueValue" , "100");
 
 wingifyClient.trackEvent("eventName", context , eventProperties);
 ```

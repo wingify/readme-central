@@ -7,17 +7,17 @@ metadata:
 ---
 ## Overview
 
-Due to privacy concerns and GDPR requirements, customers often need to obtain explicit consent from their users before tracking their data — especially when a third-party source like Wingify is involved. The recommended approach is to use a **consent cookie** that the customer drops for every user, and to check it before invoking the Wingify Feature Experimentation (FE) SDK for that user.
+Due to privacy concerns and GDPR requirements, customers often need to obtain explicit consent from their users before tracking their data — especially when a third-party source like Wingify is involved. The recommended approach is to use a **consent cookie** that the customer drops for every user, and to check it before invoking the Wingify Feature Management (FM) SDK for that user.
 
 ## Typical Flow
 
 * The customer asks for consent on their website and stores the decision in a cookie (for example, `_abc_consent`).
 * The cookie typically stores two pieces of information: the consent value (`1` for given, `0` for not given) and the timestamp at which the **consent expires**.
   * Example cookie value: `isConsentGiven=1&ts=1725878400`
-* Before calling the FE SDK flow — which typically starts with initializing the `userContext` — the application checks the consent cookie and validates it:
+* Before calling the FM SDK flow — which typically starts with initializing the `userContext` — the application checks the consent cookie and validates it:
   * Read the cookie and check its validity.
   * Instantiate `UserContext` only if the consent value above is still valid.
-* This ensures, that only if the user has given explicit consent, FE SDK is invoked for them, and their data is stored in Wingify’s servers
+* This ensures, that only if the user has given explicit consent, FM SDK is invoked for them, and their data is stored in Wingify’s servers
 
 ### Reading the Cookie and Checking Validity
 
@@ -73,9 +73,9 @@ if (userContext) {
 }
 ```
 
-## Reusing the Wingify Web Testing Consent Cookie
+## Reusing the Wingify Web Experimentation Consent Cookie
 
-If the customer is already using Wingify's Web Testing product, they can reuse the consent cookie dropped by that tool instead of creating a separate one for FME.
+If the customer is already using Wingify's Web Experimentation product, they can reuse the consent cookie dropped by that tool instead of creating a separate one for FME.
 
 ## Consent Cookie Fields
 

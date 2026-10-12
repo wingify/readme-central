@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-The Wingify Feature Experimentation (FE) SDK is a powerful tool that enables dynamic feature flag management and experimentation in your iOS applications. It allows developers to:
+The Wingify Feature Management (FM) SDK is a powerful tool that enables dynamic feature flag management and experimentation in your iOS applications. It allows developers to:
 
 * Implement user ID-based feature flag evaluation
 * Track user interactions and events
@@ -23,10 +23,10 @@ The Wingify Feature Experimentation (FE) SDK is a powerful tool that enables dyn
 
 ## Prerequisites
 
-#### Wingify FE SDK Installation and Configuration
+#### Wingify FM SDK Installation and Configuration
 
-* Ensure you have the Wingify Feature Experimentation product enabled for your Wingify account
-* The Wingify FE SDK should be properly installed in your iOS project
+* Ensure you have the Wingify Feature Management product enabled for your Wingify account
+* The Wingify FM SDK should be properly installed in your iOS project
 
 #### Mixpanel Account Setup
 
@@ -37,9 +37,9 @@ The Wingify Feature Experimentation (FE) SDK is a powerful tool that enables dyn
 
 ## Integration Steps
 
-Integrating the Wingify FE SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FE SDK.
+Integrating the Wingify FM SDK with analytics platforms like Mixpanel allows you to automatically send feature flag evaluation and event tracking data to your analytics dashboard. This is achieved using the `IntegrationCallback` provided by the FM SDK.
 
-Initialize your `MixpanelIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FE SDK. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Mixpanel instance.
+Initialize your `MixpanelIntegration` instance and provide an implementation of the `IntegrationCallback` when initializing the FM SDK. Inside the `execute` method of the callback, check the properties to determine if it's a flag evaluation or an event tracking call and forward the data to your Mixpanel instance.
 
 ```swift
 import Wingify_FME

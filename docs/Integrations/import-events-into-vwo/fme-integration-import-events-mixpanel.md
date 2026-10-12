@@ -72,7 +72,7 @@ To enable the Wingify-Mixpanel integration for your Wingify account:
 
 ### Install and Initialize the Wingify SDK
 
-Install the official Wingify FE Node SDK:
+Install the official Wingify FM Node SDK:
 
 ```
 npm install wingify-fme-node-sdk
@@ -106,7 +106,7 @@ Once your Mixpanel segments are imported into Wingify, configure **pre-segmentat
 
 ### Configure Pre-Segmentation in the Feature Flag
 
-1. Navigate to **Feature Experimentation → Feature Flags** in Wingify.
+1. Navigate to **Feature Management → Feature Flags** in Wingify.
 
 2. Click **Create Feature Flag** (or open an existing one).
 

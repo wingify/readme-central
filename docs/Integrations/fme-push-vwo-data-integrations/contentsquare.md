@@ -9,7 +9,7 @@ metadata:
 
 Contentsquare is a digital analytics platform that automatically captures user interactions, clicks, mouse movements, and scrolling without manual event tracking.
 
-Wingify Feature Experimentation (FE) sends feature-flag and event data to Contentsquare as Dynamic Variables. This allows you to see which variations drive specific user behaviors, filter session replays by active feature flags, and make data-driven decisions on your rollouts.
+Wingify Feature Management (FM) sends feature-flag and event data to Contentsquare as Dynamic Variables. This allows you to see which variations drive specific user behaviors, filter session replays by active feature flags, and make data-driven decisions on your rollouts.
 
 ***
 
@@ -22,9 +22,9 @@ Before setting up the integration, ensure you have the following.
 - An active Contentsquare account.
 - The Contentsquare JavaScript tracking code is installed and active on your frontend application/website.
 
-### 2. Wingify FE SDK Configuration
+### 2. Wingify FM SDK Configuration
 
-- A Wingify account with Feature Experimentation enabled.
+- A Wingify account with Feature Management enabled.
 - The Wingify SDK is installed and initialized in your backend application.
 
 ***
@@ -37,7 +37,7 @@ Therefore, you must utilize the SDK's `integrations.callback` on your backend, a
 
 ### 1. Install Dependencies
 
-Ensure you have the Wingify FE SDK installed in your project:
+Ensure you have the Wingify FM SDK installed in your project:
 
 ```bash
 npm install wingify-fme-node-sdk

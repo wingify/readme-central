@@ -7,7 +7,7 @@ metadata:
 ---
 ## **Overview**
 
-**Segment** is a leading Customer Data Platform (CDP) that collects, cleans, and routes your customer data to hundreds of tools. By integrating Segment with **Wingify Feature Experimentation**, you can leverage Segment’s powerful "Personas" and "Audiences" to drive your experimentation strategy.
+**Segment** is a leading Customer Data Platform (CDP) that collects, cleans, and routes your customer data to hundreds of tools. By integrating Segment with **Wingify Feature Management**, you can leverage Segment’s powerful "Personas" and "Audiences" to drive your experimentation strategy.
 
 ## **What This Integration Achieves**
 
@@ -44,8 +44,8 @@ Before Wingify can see your audiences, you must connect them via the Cloud Mode 
 2. Under the **Destinations** section, click **Add Destination**.
 
    <Image align="center" width="700px" src="https://files.readme.io/4f90b311fcdab836bafd95e0ae214570f53ff2998019ead7fe5ac3403bc376d3-image4.png" />
-3. Select the **Wingify Cloud Mode (Actions)** destination.  
-   **INFO:** If you can’t find the **Wingify Cloud Mode (Actions)** destination, you need to install it by performing the steps mentioned [here](https://segment.com/docs/connections/destinations/catalog/actions-vwo-cloud/).  
+3. Select the **Wingify Cloud Mode (Actions)** destination.
+   **INFO:** If you can’t find the **Wingify Cloud Mode (Actions)** destination, you need to install it by performing the steps mentioned [here](https://segment.com/docs/connections/destinations/catalog/actions-vwo-cloud/).
    Enabling the Wingify Cloud Mode (Actions) destination is essential as it is the channel through which the events, attributes, and audiences are transited to Wingify from Segment.
 
    <Image align="center" width="700px" src="https://files.readme.io/8adca4968029a09f8f40b935cbf494a521008ac3e9412c02901a7182361e67cb-image7.png" />
@@ -60,7 +60,7 @@ Before Wingify can see your audiences, you must connect them via the Cloud Mode 
 
 1. Back in Wingify (**Configurations** > **Integrations** > **Segment** > **Config**), click **Add Audience**.
 
-2. In the popup, search for or select the Segment audience from the list.  
+2. In the popup, search for or select the Segment audience from the list.
    **Note:** List visibility requires a successful connection with the Cloud Mode destination.
 
    <Image align="center" width="450px" src="https://files.readme.io/36605ac2c300b39fbe46cc3c4ef3b8d0dca9e6ce85b0463121e0e72f5855cdcf-image6.png" />
@@ -73,7 +73,7 @@ Before Wingify can see your audiences, you must connect them via the Cloud Mode 
 
 #### **4.1 Install and Initialize the Wingify SDK**
 
-Install the official Wingify FE Node SDK:
+Install the official Wingify FM Node SDK:
 
 Bash
 
@@ -104,7 +104,7 @@ const wingifyClient = await wingify.init({
 
 Configure the targeting rules for your feature flag:
 
-1. Navigate to **Feature Experimentation → Feature Flags**.
+1. Navigate to **Feature Management → Feature Flags**.
 2. Under the **Rules** tab, click **Create New Rollout Rule**.
 3. Under **Audience**, choose **Custom Segment**.
 4. In **Attribute**, select **Custom Variable**.

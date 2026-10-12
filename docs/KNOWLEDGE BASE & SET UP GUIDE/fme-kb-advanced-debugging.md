@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-Advanced debugging in Wingify Feature Experimentation (FE) allows developers and product teams to monitor, identify, and resolve SDK-related issues directly within the Wingify dashboard.
+Advanced debugging in Wingify Feature Management (FM) allows developers and product teams to monitor, identify, and resolve SDK-related issues directly within the Wingify dashboard.
 
 Traditionally, SDK errors appeared only in internal application logs, making it difficult to isolate-specific issues. With advanced debugging, SDK-generated error logs are collected centrally and displayed in an intuitive console. This provides visibility into integration health, indicates the number of users affected, and enables you to quickly identify the root cause.
 
@@ -25,5 +25,5 @@ With advanced debugging, you can:
 * Drill down into a specific error to view raw event data and timestamp, and identify the users who are encountering the issue.
 
 <Callout icon="📘" theme="info">
-  Read more [here](https://help.vwo.com/hc/en-us/articles/53498732714393-Advanced-Debugging-in-VWO-Feature-Experimentation) 
+  Read more [here](https://help.vwo.com/hc/en-us/articles/53498732714393-Advanced-Debugging-in-VWO-Feature-Experimentation)
 </Callout>

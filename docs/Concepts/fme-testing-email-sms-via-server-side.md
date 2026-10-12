@@ -7,7 +7,7 @@ metadata:
 ---
 ## **Testing Email/SMS via Server-Side Experimentation**
 
-This document outlines why standard client-side experimentation is incompatible with Email and SMS channels and demonstrates how Wingify Feature Experimentation (Server-Side) provides the robust solution required for these test cases.
+This document outlines why standard client-side experimentation is incompatible with Email and SMS channels and demonstrates how Wingify Feature Management (Server-Side) provides the robust solution required for these test cases.
 
 ### **The Challenge: Why Client-Side Testing Fails for Email/SMS**
 
@@ -15,7 +15,7 @@ Client-side testing tools (like Wingify Visual Editor) rely on two fundamental t
 
 <br />
 
-1. **JavaScript Execution**  
+1. **JavaScript Execution**
    Standard A/B testing loads a JavaScript library in the user's browser to modify the DOM (Document Object Model) in real-time.
    * Email Clients (Gmail, Outlook, etc.): Do not execute JavaScript for security reasons.
    * SMS: Is purely text-based (or simple media) and has no execution capability.
@@ -51,11 +51,11 @@ Furthermore, server-side experimentation avoids UI performance costs like flicke
 
 <br />
 
-## **What Wingify Feature Experimentation (FE) Offers**
+## **What Wingify Feature Management (FM) Offers**
 
-**a. Feature Experimentation Server-Side Support**
+**a. Feature Management Server-Side Support**
 
-Wingify FE provides SDKs that you integrate into backend environments (such as Node.js, Java, Python, etc.). These server-side SDKs:
+Wingify FM provides SDKs that you integrate into backend environments (such as Node.js, Java, Python, etc.). These server-side SDKs:
 
 * Connect to Wingify servers to fetch experiment/feature flags.
 * Evaluate variation logic at the server level.
@@ -75,7 +75,7 @@ config:
 ---
 sequenceDiagram
     participant App as Backend Application
-    participant Wingify as Wingify Feature Experimentation SDK
+    participant Wingify as Wingify Feature Management SDK
     participant Msg as Email/SMS Service
 
     App->>Wingify: Call SDK during message processing (userId, attributes)
@@ -88,7 +88,7 @@ sequenceDiagram
 
 Wingify documentation outlines that server-side testing allows testing deeply within the tech stack and is ideal when experimenting inside logic layers rather than UI.
 
-**Example: A/B Test for Email Subject Lines Using Wingify FE**
+**Example: A/B Test for Email Subject Lines Using Wingify FM**
 
 **Scenario**
 
@@ -155,8 +155,8 @@ def send_sms(user):
     }
 
     flag = wingify_client.get_flag(feature_key, user_context)
-    
-    default_variable_value = ‘Grab the latest offers here: https://app.example.com’ 
+
+    default_variable_value = ‘Grab the latest offers here: https://app.example.com’
     message = flag.getVariable(‘’, default_value)
 
     sms_service.send(user.phone, message)
@@ -187,7 +187,7 @@ Server-side SDKs allow complex segmentation (user attributes, custom rules) that
 
 Events (opens, clicks) can be tracked in correlation with experiment buckets via server logs and analytics pipelines.
 
-| Feature           | Client-Side (Visual Editor | Server-Side (Wingify FE           |
+| Feature           | Client-Side (Visual Editor | Server-Side (Wingify FM           |
 | ----------------- | -------------------------- | ----------------------------- |
 | Logic Location    | Browser / User Device      | Your Server                   |
 | Email/SMS Support | ❌ No                       | ✅ Yes                         |
@@ -205,7 +205,7 @@ Testing email/SMS messaging content or logic cannot rely on client-side experime
 
 <br />
 
-**Server-side testing** using **Wingify Feature Experimentation SDKs** is the correct approach, enabling teams to:
+**Server-side testing** using **Wingify Feature Management SDKs** is the correct approach, enabling teams to:
 
 * Choose variation logic in the backend code.
 * Evaluate feature flags programmatically.

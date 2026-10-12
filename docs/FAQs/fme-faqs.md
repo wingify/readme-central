@@ -21,14 +21,14 @@ List of Frequently Asked Questions:
 * [[Why aren't conversions reflecting in the campaign report](https://developers.wingify.com/v3/docs/fme-faqs#/why-arent-conversions-reflecting-in-the-campaign-report)]
 * [Are there any repercussions of changing campaign settings mid-campaign?](https://developers.wingify.com/v3/docs/fme-faqs#/are-there-any-repercussions-of-changing-campaign-settings-mid-campaign)
 * [What latency do getFlag, trackEvent, and setAttribute APIs calls add to my backend?](https://developers.wingify.com/v3/docs/fme-faqs#/what-latency-do-getflag-trackevent-and-setattribute-apis-calls-add-to-my-backend)
-* [Which programming languages are supported by Wingify FE SDKs?](https://developers.wingify.com/v3/docs/fme-faqs#/which-programming-languages-are-supported-by-vwo-fe-sdks)
+* [Which programming languages are supported by Wingify FM SDKs?](https://developers.wingify.com/v3/docs/fme-faqs#/which-programming-languages-are-supported-by-vwo-fe-sdks)
 * [What's the minimum version supported by each Wingify SDK?](https://developers.wingify.com/v3/docs/fme-faqs#/whats-the-minimum-version-supported-by-each-vwo-sdk)
 * [Is there any history of changes that went live in different SDKs?](https://developers.wingify.com/v3/docs/fme-faqs#/is-there-any-history-of-changes-that-went-live-in-different-sdks)
 * [Can we track a goal with the same identifier in multiple campaigns at once?](https://developers.wingify.com/v3/docs/fme-faqs#/can-we-track-a-goal-with-the-same-identifier-in-multiple-campaigns-at-once)
 * [How to make sure you are running the latest version of the SDK?](https://developers.wingify.com/v3/docs/fme-faqs#/how-to-make-sure-you-are-running-the-latest-version-of-the-sdk)
 * [Why use Webhooks for updating settings and not Polling?](https://developers.wingify.com/v3/docs/fme-faqs#/why-use-webhooks-for-updating-settings-and-not-polling)
 * [Does Wingify support User aliasing?](https://developers.wingify.com/v3/docs/fme-faqs#/does-vwo-support-user-aliasing)
-* [Do I need to modify my firewall when using Wingify FE?](https://developers.wingify.com/v3/docs/fme-faqs#/do-i-need-to-modify-my-firewall-when-using-vwo-fe)
+* [Do I need to modify my firewall when using Wingify FM?](https://developers.wingify.com/v3/docs/fme-faqs#/do-i-need-to-modify-my-firewall-when-using-vwo-fe)
 
 ## What should be considered as the User ID?
 
@@ -62,11 +62,11 @@ To ensure deterministic bucketing and a consistent user experience, always use a
 
 ## How does Wingify affect my application speed?
 
-The benefit of using Wingify FE feature flags is that these are lightning-fast. With the help of our SDKs, you can get the variation assignment without making any blocking requests to Wingify servers. All the computation, like deciding user eligibility for a campaign and assigning variation to a user is carried out by our smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.wingify.com/reference#section-how-bucketing-works).
+The benefit of using Wingify FM feature flags is that these are lightning-fast. With the help of our SDKs, you can get the variation assignment without making any blocking requests to Wingify servers. All the computation, like deciding user eligibility for a campaign and assigning variation to a user is carried out by our smart SDKs. We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash) to carry out our [bucketing logic](https://developers.wingify.com/reference#section-how-bucketing-works).
 
 The only thing that could be blocking it is fetching settings. The Wingify SDK requires a _settings_ for its instantiation. Either you can cache it or fetch it just after the server is up, if possible.
 
-As there is no client-side custom code execution, using a FE feature flag is much faster.
+As there is no client-side custom code execution, using a FM feature flag is much faster.
 
 ## How do Wingify bucket users across SDKs?
 
@@ -80,7 +80,7 @@ We use a hashing algorithm [MurmurHash](https://en.wikipedia.org/wiki/MurmurHash
 
 ## Why is it important to use Persistent Storage when deploying to Production?
 
-Wingify Feature Experimentation offers multi-platform testing, i.e. you can run omnichannel tests to track and boost conversions. For this, Wingify SDKs only require a unique identifier for the user using your application. As long as the identifier is the same, SDKs will provide consistent results without any need for storing anything either at your end or's end.
+Wingify Feature Management offers multi-platform testing, i.e. you can run omnichannel tests to track and boost conversions. For this, Wingify SDKs only require a unique identifier for the user using your application. As long as the identifier is the same, SDKs will provide consistent results without any need for storing anything either at your end or's end.
 
 We recommend using a Persistent Storage Service at your end in the following scenarios:
 
@@ -120,7 +120,7 @@ For **asynchronous languages** like Node.js, Java, .NET, and Go, the tracking ca
 
 For **synchronous languages** like PHP, Python, and Ruby, ~150 ms of latency is added to each such API call as these APIs send tracking calls from your server to the Wingify server.
 
-## Which programming languages are supported by Wingify FE SDKs?
+## Which programming languages are supported by Wingify FM SDKs?
 
 We support the following programming languages:
 
@@ -204,7 +204,7 @@ We support the following programming languages:
       </td>
 
       <td>
-        [https://github.com/wingify/vwo-fme-node-sdk](https://github.com/wingify/vwo-fme-node-sdk)  
+        [https://github.com/wingify/vwo-fme-node-sdk](https://github.com/wingify/vwo-fme-node-sdk)
         (Same as Node.js SDK, shares the common code, build and packaged differently.)
       </td>
     </tr>
@@ -315,7 +315,7 @@ Here is the list of various languages we offer which SDKs and the minimum versio
       </td>
 
       <td>
-        * _Open JDK 8, 9, 11, 12  
+        * _Open JDK 8, 9, 11, 12
           Oracle JDK 8, 9, 11, 12_*
       </td>
     </tr>
@@ -397,7 +397,7 @@ Wingify SDKs provide an API to track an event; that event can be associated with
 
 ## How to make sure you are running the latest version of the SDK?
 
-Please use the latest version of the SDK by periodically checking for updates and updating the SDK to enjoy new features we keep on shipping from time to time.  
+Please use the latest version of the SDK by periodically checking for updates and updating the SDK to enjoy new features we keep on shipping from time to time.
 Refer to this [section](https://developers.wingify.com/reference#fullstack-is-there-any-list-of-features-in-different-sdks) to know about the changes Wingify ships in different SDKs.
 
 ## Why use Webhooks for updating settings and not Polling?
@@ -413,6 +413,6 @@ There might be scenarios when you have a situation like the following:
 
 Wingify SDKs operate on User ID. As long as the user ID is the same, SDKs will output consistent results, thereby, providing omnichannel testing support. If you have different IDs associated with the same user, please pass only one of them always or create another unique identifier that identifies the same user(logged-out vs logged-in) and pass it always. Wingify currently does not provide a way to alias the multiple User IDs associated with the same user.
 
-## Do I need to modify my firewall when using Wingify FE?
+## Do I need to modify my firewall when using Wingify FM?
 
 If your firewall has any outbound traffic restrictions, you'll need to whitelist _**dev.visualwebsiteoptimizer.com**_

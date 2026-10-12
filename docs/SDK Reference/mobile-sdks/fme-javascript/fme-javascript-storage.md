@@ -12,7 +12,7 @@ next:
 ---
 ## In-Built Storage
 
-In browser-based environments, the Wingify FE JavaScript SDK automatically utilizes the browser’s localStorage API to persist user-related data. This ensures a seamless user experience by maintaining state across page reloads and browser sessions.
+In browser-based environments, the Wingify FM JavaScript SDK automatically utilizes the browser’s localStorage API to persist user-related data. This ensures a seamless user experience by maintaining state across page reloads and browser sessions.
 
 ### Key Benefits of Custom Storage:
 
@@ -174,7 +174,7 @@ The storage mechanism ensures that once a decision is made for a user, it remain
 class StorageConnector extends StorageConnector {
   protected ttl = 7200000; // 2 hours in milliseconds
   protected alwaysUseCachedSettings = false;
-  
+
   constructor() {
     super();
   }
@@ -197,7 +197,7 @@ class StorageConnector extends StorageConnector {
     // Set data corresponding to a featureKey and user ID
     // Use data.featureKey and data.userId to store the above data for a specific feature and a user
   }
-  
+
   /**
    * Get settingsData from storage
    * @param {number} accountId

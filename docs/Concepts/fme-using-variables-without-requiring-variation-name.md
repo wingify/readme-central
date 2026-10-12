@@ -6,7 +6,7 @@ hidden: false
 metadata:
   robots: index
 ---
-## **Using Variables to Drive Logic Instead of Returning Variation Names in Wingify FE**
+## **Using Variables to Drive Logic Instead of Returning Variation Names in Wingify FM**
 
 <br />
 
@@ -14,7 +14,7 @@ metadata:
 
 <br />
 
-When running experiments or feature rollouts with Wingify Feature Experimentation (FE), you typically need to change behavior or configuration _based on the variation assigned to a user_. One approach is to check the variation name returned by Wingify and hard-code behavior in your application. However, this quickly leads to **tightly coupled logic**, **hard-to-maintain code**, and **rigid experiment evolution**.
+When running experiments or feature rollouts with Wingify Feature Management (FM), you typically need to change behavior or configuration _based on the variation assigned to a user_. One approach is to check the variation name returned by Wingify and hard-code behavior in your application. However, this quickly leads to **tightly coupled logic**, **hard-to-maintain code**, and **rigid experiment evolution**.
 
 <br />
 
@@ -28,9 +28,9 @@ Variables are first-class concepts in Wingify FME — they let you attach typed 
 
 <br />
 
-## How Wingify Feature Experimentation Works
+## How Wingify Feature Management Works
 
-In Wingify FE:
+In Wingify FM:
 
 1. You **create a feature flag** in the Wingify dashboard and define one or more **variables** for it.
 2. You create **variations** of that flag, where each variation assigns specific values to those variables.
@@ -131,7 +131,7 @@ There are valid scenarios where teams want to **know which variation was assigne
 * Debugging experiment behavior
 * Integrating with downstream systems that expect a label
 
-**Wingify FE intentionally avoids exposing variation names as a first-class runtime dependency**, to discourage tight coupling. Instead, the recommended approach is: **Expose the variation name explicitly as a variable.**
+**Wingify FM intentionally avoids exposing variation names as a first-class runtime dependency**, to discourage tight coupling. Instead, the recommended approach is: **Expose the variation name explicitly as a variable.**
 
 <br />
 
@@ -168,9 +168,9 @@ if (flag.isEnabled()) {
 
 ```
 
-### **Why This Is the Right Approach in Wingify FE**
+### **Why This Is the Right Approach in Wingify FM**
 
-From a Wingify Feature Experimentation product design perspective:
+From a Wingify Feature Management product design perspective:
 
 * Variations are **configuration artifacts**, not runtime contracts
 * Variables are the **explicit API surface** exposed to applications

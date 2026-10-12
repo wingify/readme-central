@@ -1,12 +1,12 @@
 ---
 title: Hooks
-excerpt: Available Hooks in Wingify FE React SDK
+excerpt: Available Hooks in Wingify FM React SDK
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-The `Wingify FE React SDK` provides a set of hooks to help you seamlessly integrate feature flagging, experimentation, and event tracking into your React application. These hooks provide an easy and flexible way to interact with the Wingify SDK.
+The `Wingify FM React SDK` provides a set of hooks to help you seamlessly integrate feature flagging, experimentation, and event tracking into your React application. These hooks provide an easy and flexible way to interact with the Wingify SDK.
 
 Here are the available hooks:
 
@@ -44,9 +44,9 @@ if (isReady) {
 ```typescript
 import { IWingifyClient } from 'wingify-fme-react-sdk';
 
-export type WingifyClientResult = { 
-  wingifyClient: IWingifyClient | null; 
-  isReady: boolean; 
+export type WingifyClientResult = {
+  wingifyClient: IWingifyClient | null;
+  isReady: boolean;
 };
 ```
 
@@ -68,13 +68,13 @@ useEffect(() => {
 
     // Retrieve the flag using the feature key and userContext
     const feature: Flag = await wingifyClient.getFlag('feature_key', userContext);
-    
+
     // check if the flag is enabled
     const enabled = feature.isEnabled();
-    
+
     // get specific variable value
     const variableValue = feature.getVariable('variable-key', 'default-value');
-    
+
     // get all variables
     const allVariables = feature.getVariables();
   })();

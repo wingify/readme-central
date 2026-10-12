@@ -1,7 +1,7 @@
 ---
 title: Overview
 excerpt: >-
-  A Conceptual Guide to Connecting Wingify Feature Experimentation, Wingify Web
+  A Conceptual Guide to Connecting Wingify Feature Management, Wingify Web
   Testing, and Wingify Web & Mobile Insights
 deprecated: false
 hidden: false
@@ -29,7 +29,7 @@ To experiment effectively across this ecosystem, one foundational problem to be 
 
 > How do we ensure that the same user is consistently identified and evaluated across all systems?
 
-This section explains how **Wingify Feature Experimentation (FE)** connects with **Wingify Web Testing** and **Wingify Web Insights**, enabling:
+This section explains how **Wingify Feature Management (FM)** connects with **Wingify Web Experimentation** and **Wingify Behavior Analytics**, enabling:
 
 - Consistent user identification across client and server
 - Combined client-side and server-side experimentation
@@ -46,7 +46,7 @@ Before understanding connectivity, we must understand the philosophical differen
 
 At a high level, Wingify offers two complementary experimentation models:
 
-### Wingify Web Testing (Client-Side)
+### Wingify Web Experimentation (Client-Side)
 
 Works via **SmartCode**, a JavaScript snippet added to your website
 
@@ -66,7 +66,7 @@ Conceptually:
 
 Reference: [What is Wingify SmartCode?](https://help.vwo.com/hc/en-us/articles/360019420774-What-is-VWO-SmartCode)
 
-### Wingify Feature Experimentation (FE)
+### Wingify Feature Management (FM)
 
 Works via **SDKs** (server-side and client-side)
 
@@ -86,18 +86,18 @@ Conceptually:
 
 > This follows a decision-layer experimentation model.
 
-Reference: [List of Wingify Feature Experimentation SDKs](https://developers.wingify.com/v3/docs/list-of-fme-sdks)
+Reference: [List of Wingify Feature Management SDKs](https://developers.wingify.com/v3/docs/list-of-fme-sdks)
 
 ### Key Difference
 
-| Aspect      | Web Testing            | Feature Experimentation   |
+| Aspect      | Web Experimentation            | Feature Management   |
 | ----------- | ---------------------- | ------------------------- |
 | Integration | SmartCode (JS snippet) | SDKs                      |
 | Execution   | Browser                | Server / App / Browser    |
 | Audience    | Marketers, CRO teams   | Developers                |
 | Use cases   | UI & UX testing        | Business logic & rollouts |
 
-### Wingify Web Insights (Behavioral Analytics)
+### Wingify Behavior Analytics (Behavioral Analytics)
 
 Works via **SmartCode-based data collection**, capturing visitor interactions on your website.
 

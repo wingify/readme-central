@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The Wingify FE .NET SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within .NET applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
+The Wingify FM .NET SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within .NET applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
 
 ### Source Code Repository
 

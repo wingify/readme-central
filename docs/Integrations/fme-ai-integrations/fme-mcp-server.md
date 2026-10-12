@@ -7,7 +7,7 @@ metadata:
 ---
 ## Introduction
 
-The **Wingify FE MCP Server** serves as a seamless bridge between your development environment and Wingify’s Feature Experimentation. It enables effortless feature flag management by integrating directly with AI-powered IDEs, allowing you to control and optimize feature releases without disrupting your coding workflow.
+The **Wingify FM MCP Server** serves as a seamless bridge between your development environment and Wingify’s Feature Management. It enables effortless feature flag management by integrating directly with AI-powered IDEs, allowing you to control and optimize feature releases without disrupting your coding workflow.
 
 ### Key Features
 
@@ -22,7 +22,7 @@ This is ideal for developers who want to manage feature flags efficiently within
 
 ## Required Configuration
 
-To connect the MCP server to the Wingify feature experimentation system, you must configure two essential environment variables:
+To connect the MCP server to the Wingify Feature Management system, you must configure two essential environment variables:
 
 - **WINGIFY\_ACCOUNT\_ID**: Wingify Account ID.
 - **WINGIF&#x59;_\__&#x41;PI\_KEY**: The API key (Developer Token) for authenticating with Wingify REST APIs.
@@ -60,7 +60,7 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 4. Save the configuration and confirm that the server status turns green, indicating it's active.
 
 
-<Image src="https://files.readme.io/2e318235298fb03b366a67dde23975d50a403f6329000980b364ad7df59497f8-fme-_mcp_cusror_setup.gif" align="center" caption="Wingify FE MCP Server Setup in Cursor" border={true} />
+<Image src="https://files.readme.io/2e318235298fb03b366a67dde23975d50a403f6329000980b364ad7df59497f8-fme-_mcp_cusror_setup.gif" align="center" caption="Wingify FM MCP Server Setup in Cursor" border={true} />
 
 
 <Callout icon="📘" theme="info">
@@ -71,7 +71,7 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 
 <br />
 
-> You can add the Wingify FE MCP Server by simply clicking the button below. Make sure to update the WINGIFY\_ACCOUNT\_ID and WINGIFY\_API\_KEY environment variables before you start using it.
+> You can add the Wingify FM MCP Server by simply clicking the button below. Make sure to update the WINGIFY\_ACCOUNT\_ID and WINGIFY\_API\_KEY environment variables before you start using it.
 
 <br />
 
@@ -106,7 +106,7 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 3. Save the settings and ensure the MCP server is ready for use within VS Code.
 
 
-<Image src="https://files.readme.io/351699fdc6e3c335f4b87f32eeaf204faca01600eda6fafc5291ab1464353da7-VWO_VS_Code_MCP.gif" align="center" caption="Wingify FE MCP Server Setup in VS Code" border={true} />
+<Image src="https://files.readme.io/351699fdc6e3c335f4b87f32eeaf204faca01600eda6fafc5291ab1464353da7-VWO_VS_Code_MCP.gif" align="center" caption="Wingify FM MCP Server Setup in VS Code" border={true} />
 
 
 ***
@@ -135,7 +135,7 @@ To begin using the **Wingify MCP server** with your client, follow the setup ins
 4. Save the file and restart Claude Desktop. Once the server is active, a hammer icon will appear in the chat window.
 
 
-<Image src="https://files.readme.io/5f8166e22cf8760d4ffde73bca3e88a89d6f81720668864062a9e77bbb0d11bc-VWO_Claude_MCP.gif" align="center" caption="Wingify FE MCP Server Setup in Claude" border={true} />
+<Image src="https://files.readme.io/5f8166e22cf8760d4ffde73bca3e88a89d6f81720668864062a9e77bbb0d11bc-VWO_Claude_MCP.gif" align="center" caption="Wingify FM MCP Server Setup in Claude" border={true} />
 
 
 <br />
@@ -154,9 +154,9 @@ Here's what you can do with our feature flag management tools:
 
 ### IDE Configuration with Wingify
 
-1. **Add Wingify Rules** - Retrieve IDE rules and configuration settings to seamlessly manage feature flags within your project. This enables smooth integration with your SDK and leverages's feature experimentation capabilities.
+1. **Add Wingify Rules** - Retrieve IDE rules and configuration settings to seamlessly manage feature flags within your project. This enables smooth integration with your SDK and leverages's Feature Management capabilities.
 
-> Note: Supports both Cursor IDE and VS Code. The tool automatically detects your IDE or you can specify it manually. Needs to be called once after setting up Wingify FE MCP.
+> Note: Supports both Cursor IDE and VS Code. The tool automatically detects your IDE or you can specify it manually. Needs to be called once after setting up Wingify FM MCP.
 
 - **Cursor IDE**: Creates rules in `.cursor/rules/wingify-feature-flag-rule.mdc`
 - **VS Code**: Creates instructions in `.github/instructions/wingify-fme.instructions.md`
@@ -218,7 +218,7 @@ graph TD
     D --> E[Generate IDE rules for Cursor]
 
     C --> F[Call Wingify API to create or update flag]
-    F --> G[Wingify FE Dashboard]
+    F --> G[Wingify FM Dashboard]
 
     C --> H[Generate SDK code: getFlag and getVariable]
     H --> I[Insert integration code into codebase]

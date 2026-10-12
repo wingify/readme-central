@@ -37,9 +37,9 @@ This makes webhooks ideal for event-driven integrations, allowing you to respond
 
 <Image align="center" border={true} caption="How Webhooks Work" src="https://files.readme.io/9bb354009aee72f1ad4b48b74871181e589b37b9c2877313902a249400775721-webhooks.png" />
 
-## Role of Webhooks in Wingify FE SDKs
+## Role of Webhooks in Wingify FM SDKs
 
-Wingify FE SDKs fetch configuration settings (features, campaigns, variations) from the Wingify servers. By default, they periodically poll for updates. Webhooks allow a more efficient and scalable solution by enabling:
+Wingify FM SDKs fetch configuration settings (features, campaigns, variations) from the Wingify servers. By default, they periodically poll for updates. Webhooks allow a more efficient and scalable solution by enabling:
 
 * **Real-time config sync**: No delay between a change on the dashboard and its reflection in the SDK.
 * **Hot-reloading support**: SDK settings are updated in-memory using the webhook payload.
@@ -51,7 +51,7 @@ Wingify FE SDKs fetch configuration settings (features, campaigns, variations) f
 
 1. Log in to your Wingify account.
 2. Navigate to `Configurations` → `Website and Apps` from the left-hand panel.
-3. Select the `Default Project` associated with your FE setup.
+3. Select the `Default Project` associated with your FM setup.
 4. Click on the `Configurations` tab.
 5. Under the **Environment(s)** section, enable the Webhook option for the specific environment(s) you want to subscribe to for configuration change events.
 6. In the `Wehook URL` field, provide the endpoint URL where you want to receive webhook notifications.
@@ -59,7 +59,7 @@ Wingify FE SDKs fetch configuration settings (features, campaigns, variations) f
 
 <br />
 
-<Image align="center" border={true} caption="Configuring FE Webhooks in Wingify" src="https://files.readme.io/c44a29c6f6a6396ceb2690d81878d377f2a1bef0f31d2d3f7688c78ed65f0b33-Screenshot_2025-07-15_at_2.26.38_AM.png" />
+<Image align="center" border={true} caption="Configuring FM Webhooks in Wingify" src="https://files.readme.io/c44a29c6f6a6396ceb2690d81878d377f2a1bef0f31d2d3f7688c78ed65f0b33-Screenshot_2025-07-15_at_2.26.38_AM.png" />
 
 <br />
 

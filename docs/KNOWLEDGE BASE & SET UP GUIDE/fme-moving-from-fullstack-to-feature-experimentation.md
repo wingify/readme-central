@@ -1,12 +1,12 @@
 ---
-title: Transitioning from Fullstack to Feature Experimentation
+title: Transitioning from Fullstack to Feature Management
 excerpt: >-
   A comprehensive guide to understanding the differences and migrating from
-  Wingify FullStack to Feature Experimentation (FE).
+  Wingify FullStack to Feature Management (FM).
 ---
-# Wingify FullStack vs FE
+# Wingify FullStack vs FM
 
-A comprehensive guide to understanding the differences and migrating from Wingify FullStack to Feature Experimentation (FE).
+A comprehensive guide to understanding the differences and migrating from Wingify FullStack to Feature Management (FM).
 
 ---
 
@@ -14,13 +14,13 @@ A comprehensive guide to understanding the differences and migrating from Wingif
 
 **`DEPRECATED`** **Wingify FullStack (FS)** — The original server-side SDK for A/B testing and feature management. Only receiving critical bug fixes and security patches.
 
-**`CURRENT`** **Wingify FE (Feature Experimentation)** — The actively developed replacement with a modernized API and improved developer experience.
+**`CURRENT`** **Wingify FM (Feature Management)** — The actively developed replacement with a modernized API and improved developer experience.
 
 ### Same Purpose, New Philosophy
 
 Both SDKs enable server-side A/B testing and feature management. The key difference lies in their design philosophy:
 
-| FullStack | FE |
+| FullStack | FM |
 |-----------|-----|
 | **Campaign-Centric** — Everything revolves around campaigns. You activate users into campaigns and track goals per campaign. | **Feature-Flag-Centric** — Features are the primary unit. You evaluate flags and track events independently of campaigns. |
 
@@ -28,7 +28,7 @@ Both SDKs enable server-side A/B testing and feature management. The key differe
 
 ## Installation
 
-| Aspect | FullStack | FE |
+| Aspect | FullStack | FM |
 |--------|-----------|-----|
 | **Package Name** | `vwo-node-sdk` | `wingify-fme-node-sdk` |
 | **Install Command** | `npm install vwo-node-sdk` | `npm install wingify-fme-node-sdk` |
@@ -55,7 +55,7 @@ const client = vwoSDK.launch({
 });
 ```
 
-### FE: Single-Step Process
+### FM: Single-Step Process
 
 ```javascript
 const { init } = require('wingify-fme-node-sdk');
@@ -74,7 +74,7 @@ const wingifyClient = await init({
 });
 ```
 
-> **Key Difference:** FE handles settings file fetching internally. No need for a separate `getSettingsFile()` call.
+> **Key Difference:** FM handles settings file fetching internally. No need for a separate `getSettingsFile()` call.
 
 ---
 
@@ -117,7 +117,7 @@ wingifyClient.track(
 );
 ```
 
-### FE Approach (Feature-Flag-Centric)
+### FM Approach (Feature-Flag-Centric)
 
 ```javascript
 const { init } = require('wingify-fme-node-sdk');
@@ -149,15 +149,15 @@ wingifyClient.trackEvent('purchase-completed', userContext);
 ```
 
 > **Key Differences:**
-> - **User ID:** FS passes it per method; FE uses a reusable `userContext` object
-> - **Variation access:** FS returns variation name to check; FE provides variables directly via `getVariable()`
-> - **Tracking:** FS requires `campaignKey`; FE tracks events independently
+> - **User ID:** FS passes it per method; FM uses a reusable `userContext` object
+> - **Variation access:** FS returns variation name to check; FM provides variables directly via `getVariable()`
+> - **Tracking:** FS requires `campaignKey`; FM tracks events independently
 
 ---
 
 ## Variables Over Variations
 
-One of the most important changes in FE is the shift from **variation-name-based logic** to **variable-driven logic**. This isn't just a syntax change—it's a fundamental improvement in how you architect experiments.
+One of the most important changes in FM is the shift from **variation-name-based logic** to **variable-driven logic**. This isn't just a syntax change—it's a fundamental improvement in how you architect experiments.
 
 ### The Problem with Variation Names (FS Approach)
 
@@ -188,12 +188,12 @@ Wingify  - **Tight coupling:** Your code is tightly coupled to variation names d
 > - **Hard to maintain:** Variation logic is scattered across your codebase
 > - **Rigid:** Non-developers cannot iterate on experiments without code changes
 
-### The Solution: Variable-Driven Logic (FE Approach)
+### The Solution: Variable-Driven Logic (FM Approach)
 
-FE encourages you to define **variables** (buttonColor, buttonText, showBadge) in the Wingify dashboard, with each variation specifying different values. Your code simply reads these variables:
+FM encourages you to define **variables** (buttonColor, buttonText, showBadge) in the Wingify dashboard, with each variation specifying different values. Your code simply reads these variables:
 
 ```javascript
-// FE: Variable-driven logic (RECOMMENDED)
+// FM: Variable-driven logic (RECOMMENDED)
 const flag = await wingifyClient.getFlag('checkout-experiment', userContext);
 
 if (flag.isEnabled()) {
@@ -231,7 +231,7 @@ if (variation === 'Variation-1') {
 // 3. Deployment
 ```
 
-**FE (Variable-Based):**
+**FM (Variable-Based):**
 
 ```javascript
 // Code only knows about variables
@@ -251,7 +251,7 @@ if (useNewFlow) {
 
 ### When You Need Variation Names
 
-Sometimes you genuinely need to know which variation a user is in (for logging, analytics, or debugging). In FE, the recommended approach is to create an explicit `variation_name` variable:
+Sometimes you genuinely need to know which variation a user is in (for logging, analytics, or debugging). In FM, the recommended approach is to create an explicit `variation_name` variable:
 
 ```javascript
 // Create a 'variationName' variable in Wingify dashboard
@@ -272,7 +272,7 @@ analytics.track('experiment_viewed', { variation: variationName });
 
 ## API Method Mapping
 
-| Purpose | FullStack | FE |
+| Purpose | FullStack | FM |
 |---------|-----------|-----|
 | **Initialize SDK** | `getSettingsFile()` + `launch()` | `init()` |
 | **Get variation** | `activate(campaignKey, userId)` | `getFlag(featureKey, userContext)` |
@@ -286,7 +286,7 @@ analytics.track('experiment_viewed', { variation: variationName });
 
 ## Conceptual Differences
 
-| Aspect | FullStack | FE |
+| Aspect | FullStack | FM |
 |--------|-----------|-----|
 | **Primary Unit** | Campaign | Feature Flag |
 | **User Identification** | `userId` string passed to each method | `userContext` object created once, reused |
@@ -331,7 +331,7 @@ npm install wingify-fme-node-sdk --save
 const vwoSDK = require('vwo-node-sdk');
 ```
 
-**After (FE):**
+**After (FM):**
 ```javascript
 const { init } = require('wingify-fme-node-sdk');
 ```
@@ -349,7 +349,7 @@ const client = vwoSDK.launch({
 });
 ```
 
-**After (FE):**
+**After (FM):**
 ```javascript
 const wingifyClient = await init({
   accountId: '123456',
@@ -374,7 +374,7 @@ client.activate(campaignKey, userId, options);
 client.track(campaignKey, userId, goalId, options);
 ```
 
-**After (FE) — User context created once and reused:**
+**After (FM) — User context created once and reused:**
 ```javascript
 const userContext = {
   id: 'user-123',
@@ -400,7 +400,7 @@ if (variation === 'Control') {
 }
 ```
 
-**After (FE):**
+**After (FM):**
 ```javascript
 const flag = await wingifyClient.getFlag('button-test', userContext);
 
@@ -428,7 +428,7 @@ client.track('campaign', userId, 'revenue-goal', {
 });
 ```
 
-**After (FE):**
+**After (FM):**
 ```javascript
 // Track event (no campaign key needed)
 wingifyClient.trackEvent('button-clicked', userContext);
@@ -477,7 +477,7 @@ if (flag.isEnabled()) {
 
 ## Summary
 
-| Aspect | FullStack (Deprecated) | FE (Current) |
+| Aspect | FullStack (Deprecated) | FM (Current) |
 |--------|------------------------|---------------|
 | **Package** | `vwo-node-sdk` | `wingify-fme-node-sdk` |
 | **Node.js** | >= 6.10.0 | >= 12.0 |
@@ -491,4 +491,4 @@ if (flag.isEnabled()) {
 
 ---
 
-> **Need Help?** For assistance migrating from FullStack to FE, contact Wingify support at support@vwo.com
+> **Need Help?** For assistance migrating from FullStack to FM, contact Wingify support at support@vwo.com

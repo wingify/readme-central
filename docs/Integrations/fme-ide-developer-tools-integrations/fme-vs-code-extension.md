@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The **Wingify Feature Experimentation extension** for Visual Studio Code offers a seamless experience for managing Wingify feature flags directly from your code editor. With this extension, you can view, toggle, and manage your feature flags without switching between your editor and the Wingify dashboard. Boost your productivity and streamline feature flag management by integrating it right into your development workflow.
+The **Wingify Feature Management extension** for Visual Studio Code offers a seamless experience for managing Wingify feature flags directly from your code editor. With this extension, you can view, toggle, and manage your feature flags without switching between your editor and the Wingify dashboard. Boost your productivity and streamline feature flag management by integrating it right into your development workflow.
 
 ## Features
 
@@ -36,7 +36,7 @@ Before using the extension, you need to set up your Wingify API credentials:
 
 ### Open Wingify Feature Manager
 
-Use the `Wingify: Open Feature Manager` command to open the main interface of the Wingify Feature experimentation extension. Here, you can configure your account and access all available feature flags.
+Use the `Wingify: Open Feature Manager` command to open the main interface of the Wingify Feature Management extension. Here, you can configure your account and access all available feature flags.
 
 ### Toggle Feature Flag
 

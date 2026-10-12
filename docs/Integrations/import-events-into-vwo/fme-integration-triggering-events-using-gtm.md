@@ -15,8 +15,8 @@ Before setting up, ensure you have:
 
 * Access to your **Google Tag Manager** container with publish permissions
 * The **Wingify Event (.tpl)** file
-* Your **Wingify Account ID** (if using Feature Experimentation)
-* A GTM variable for the **Wingify UUID** (if using Feature Experimentation/Offline Conversions)
+* Your **Wingify Account ID** (if using Feature Management)
+* A GTM variable for the **Wingify UUID** (if using Feature Management/Offline Conversions)
 
 **NOTE:** The Wingify Event setup is exclusively applicable to [Data360](https://help.vwo.com/hc/en-us/articles/8679651827737-About-VWO-Data360) accounts.
 
@@ -52,9 +52,9 @@ Upon successful import, you can use the Wingify Event template to stream the eve
 
 * To customize the tag configuration further, you can utilize the following options:
 
-  * Enter the Event Name you want to send to Wingify  
-    **Properties:** Allows you to add properties that will be sent with every event. To add a property, click on **Add a Property** and enter the input in the respective fields as follows:  
-    **a. Property Name:** The name of the property.  
+  * Enter the Event Name you want to send to Wingify
+    **Properties:** Allows you to add properties that will be sent with every event. To add a property, click on **Add a Property** and enter the input in the respective fields as follows:
+    **a. Property Name:** The name of the property.
     **b. Property Value:** The value of the property.
 
 <Image align="center" border={false} width="550px" src="https://files.readme.io/82480a00abd11610cc41e0a5c9308f55fdc2bc42216349fd3ced0762f5234e01-image6.png" />
@@ -65,7 +65,7 @@ Upon successful import, you can use the Wingify Event template to stream the eve
 
 ## **Advanced Settings (Optional)**
 
-**Send Events for Feature Experimentation using Offline Conversions: If checked, events will be sent to Wingify as Offline Conversions.**
+**Send Events for Feature Management using Offline Conversions: If checked, events will be sent to Wingify as Offline Conversions.**
 
 – **Account ID:** Your Wingify Account ID
 
@@ -75,7 +75,7 @@ Upon successful import, you can use the Wingify Event template to stream the eve
 
 <Image align="center" border={false} width="500px" src="https://files.readme.io/ee8556e480e50743cbf6338ceef03be2fd60561de5b2ce35afe0794315a44787-image4.png" />
 
-## **Configuring the Wingify UUID Variable(Only required for FE)**
+## **Configuring the Wingify UUID Variable(Only required for FM)**
 
 1. Navigate to the “Variables” tab in the GTM workspace.
 2. Click on “New” to create a new variable.
@@ -102,7 +102,7 @@ Upon successful import, you can use the Wingify Event template to stream the eve
 
 ## **Technical Details**
 
-* **SmartCode Dependency:** When the “Feature Experimentation” option is OFF, this tag relies on Wingify SmartCode running on the page.
+* **SmartCode Dependency:** When the “Feature Management” option is OFF, this tag relies on Wingify SmartCode running on the page.
 
 * **Via Offline Conversion:** When ON, the tag pushes data independently of SmartCode. A valid Wingify Visitor ID is required.
 

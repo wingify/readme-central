@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-To create a Wingify Client instance, you need to initialize the Wingify FE Node SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
+To create a Wingify Client instance, you need to initialize the Wingify FM Node SDK. This client instance serves as the core interface for conducting Feature Management(A/B and personalization) within your application.
 
 ## Usage
 
@@ -157,7 +157,7 @@ This client object allows you to run experiments, track events, and enable/disab
       <td>
         If using the
 
-        [FE Gateway Service](https://developers.wingify.com/v3/docs/gateway-service)
+        [FM Gateway Service](https://developers.wingify.com/v3/docs/gateway-service)
 
         , this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
@@ -232,7 +232,7 @@ Please click [here](https://developers.wingify.com/v3/docs/fme-javascript-storag
 
 ### Gateway Service
 
-The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
+The Wingify FM Gateway Service enhances Feature Management (FM) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gateway\_service parameter during initialization.
 
 ```javascript
 // Init options with gateway_service
@@ -249,7 +249,7 @@ Please click [here](https://developers.wingify.com/v3/docs/gateway-service)  to 
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
+Wingify FM SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```javascript
 // Init options with integrations
@@ -293,7 +293,7 @@ const wingifyClient = await init({
 
 ### ProxyUrl
 
-Wingify FE SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
+Wingify FM SDKs provide support for redirecting all network calls through a custom proxy URL. This feature enables users to route all SDK network requests (including settings, tracking, etc.) through their own proxy server.
 
 ```javascript
 wingifyClient = init({

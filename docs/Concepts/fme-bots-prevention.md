@@ -10,7 +10,7 @@ metadata:
 
 Bot traffic is an industry-wide challenge for experimentation and analytics platforms. Automated scripts, crawlers, monitoring agents, and malicious actors can generate non-human interactions that may skew experiment data if not properly filtered.
 
-In Wingify Feature Experimentation (FE), multiple mechanisms exist to detect and exclude bot traffic wherever possible. However, like all platforms in the experimentation ecosystem, **100% bot elimination cannot be guaranteed** due to the constantly evolving nature of automation technologies.
+In Wingify Feature Management (FM), multiple mechanisms exist to detect and exclude bot traffic wherever possible. However, like all platforms in the experimentation ecosystem, **100% bot elimination cannot be guaranteed** due to the constantly evolving nature of automation technologies.
 
 This article explains:
 
@@ -66,7 +66,7 @@ Traffic from excluded IPs:
 
 If abnormal spikes occur:
 
-* FE and Support teams assist in investigation
+* FM and Support teams assist in investigation
 * Configuration validation is provided
 * Root-cause guidance is offered
 
@@ -154,7 +154,7 @@ if (isLikelyHuman(session)) {
 
 ### Filter at the Application Layer
 
-For feature experimentation:
+For Feature Management:
 
 * Trigger events only after meaningful interaction
 * Avoid counting impressions on page load

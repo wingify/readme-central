@@ -1,5 +1,5 @@
 ---
-title: Integrating Wingify FE With Wingify Web Insights
+title: Integrating Wingify FM With Wingify Behavior Analytics
 deprecated: false
 hidden: true
 metadata:
@@ -7,14 +7,14 @@ metadata:
 ---
 ## **Overview**
 
-Wingify Feature Experimentation (FE) evaluates feature flags and experiments and Web Insights performs behavioral analysis (session recordings, heatmaps) in the browser via SmartCode. If the two systems assign different identifiers to the same visitor, Wingify cannot match the two — session recordings and heatmaps won't correlate correctly with the flag decisions that visitor received.
+Wingify Feature Management (FM) evaluates feature flags and experiments and Behavior Analytics performs behavioral analysis (session recordings, heatmaps) in the browser via SmartCode. If the two systems assign different identifiers to the same visitor, Wingify cannot match the two — session recordings and heatmaps won't correlate correctly with the flag decisions that visitor received.
 
 The solution is a shared identity: the same **UUID** and the same **sessionId**, recognized by both systems for the same visitor, on every request.
 
 There are two flows, depending on which system sees the visitor first:
 
-> * **Server-First Flow** — the FE SDK sees the user first (e.g. during SSR or an API call), and the resulting identity must be handed to SmartCode
-> * **Client-First Flow** — SmartCode sees the user first, and the resulting identity must be handed to the FE SDK
+> * **Server-First Flow** — the FM SDK sees the user first (e.g. during SSR or an API call), and the resulting identity must be handed to SmartCode
+> * **Client-First Flow** — SmartCode sees the user first, and the resulting identity must be handed to the FM SDK
 
 <br />
 
@@ -72,7 +72,7 @@ This method does not accept any parameters.
 
 ### **Server-First Flow**
 
-1\. The user is evaluated by the FE SDK. Their userId is converted into a UUID, and a sessionId is generated for them.
+1\. The user is evaluated by the FM SDK. Their userId is converted into a UUID, and a sessionId is generated for them.
 
 ```go
 package main
@@ -132,13 +132,13 @@ window.VWO.push(['setSessionId', () => {
 }]);
 ```
 
-Once this runs, the same user and session are connected across both FE and Web Insights — session recordings and heatmaps for this visitor will correctly reflect the feature flag decisions they received.
+Once this runs, the same user and session are connected across both FM and Behavior Analytics — session recordings and heatmaps for this visitor will correctly reflect the feature flag decisions they received.
 
 <br />
 
 ### **Client-First Flow**
 
-1\. The user is first evaluated by Web Insights. SmartCode assigns a UUID (stored as a cookie and available inside a JS object) and a sessionId.
+1\. The user is first evaluated by Behavior Analytics. SmartCode assigns a UUID (stored as a cookie and available inside a JS object) and a sessionId.
 
 ```javascript
 window.VWO = window.VWO || [];
@@ -148,7 +148,7 @@ const sessionId = window.VWO.get('visitor.sessionId');
 const uuid = window.VWO.get('visitor.id');
 ```
 
-2\. Pass this uuid and sessionId to your backend, and use them in the context map when calling the FE SDK:
+2\. Pass this uuid and sessionId to your backend, and use them in the context map when calling the FM SDK:
 
 ```go
 context := map[string]interface{}{
@@ -165,7 +165,7 @@ if err != nil {
 fmt.Println("Feature enabled:", flag.IsEnabled())
 ```
 
-Once this runs, the same user and session are connected across both FE and Web Insights, the same as the server-first flow.
+Once this runs, the same user and session are connected across both FM and Behavior Analytics, the same as the server-first flow.
 
 <br />
 

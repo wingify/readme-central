@@ -5,11 +5,11 @@ hidden: false
 metadata:
   robots: index
 ---
-Wingify FE integrates seamlessly with various tools and platforms to help teams extend experimentation and feature delivery workflows across their ecosystems. These integrations ensure that product analytics, user data, and experimentation insights flow smoothly between Wingify and other systems for unified decision-making and visibility.
+Wingify FM integrates seamlessly with various tools and platforms to help teams extend experimentation and feature delivery workflows across their ecosystems. These integrations ensure that product analytics, user data, and experimentation insights flow smoothly between Wingify and other systems for unified decision-making and visibility.
 
 ### Data Export Integration
 
-Wingify FE supports data export to external platforms, enabling advanced analysis, reporting, and visualization. You can stream experimentation and feature usage data to your preferred destinations—such as warehouses, BI tools, or custom dashboards—to track key metrics and derive insights at scale.
+Wingify FM supports data export to external platforms, enabling advanced analysis, reporting, and visualization. You can stream experimentation and feature usage data to your preferred destinations—such as warehouses, BI tools, or custom dashboards—to track key metrics and derive insights at scale.
 
 [Read more about Data Export Integration](doc:fme-integrations-data-export)
 
@@ -21,7 +21,7 @@ This category includes integrations that send Wingify experiment and feature fla
 
 ## Importing events into
 
-Wingify FE allows you to import external events and user data from various sources to enrich your experimentation analysis. By bringing in conversion events, user attributes, and behavioral data from platforms like Google Tag Manager or custom APIs, you can create more comprehensive experiment reports and better understand user journeys across your entire digital ecosystem.
+Wingify FM allows you to import external events and user data from various sources to enrich your experimentation analysis. By bringing in conversion events, user attributes, and behavioral data from platforms like Google Tag Manager or custom APIs, you can create more comprehensive experiment reports and better understand user journeys across your entire digital ecosystem.
 
 These integrations help you leverage existing data infrastructure while maintaining a single source of truth for experimentation insights, enabling more accurate attribution and deeper analysis of feature impact.
 
@@ -29,19 +29,19 @@ These integrations help you leverage existing data infrastructure while maintain
 
 ### Analytics & Experimentation Integration
 
-Connect Wingify FE with analytics platforms to correlate user behavior data with experiments and feature rollouts. With integrations like Wingify Insights Mobile, you can capture session-level insights such as heatmaps and recordings, adding qualitative depth to your quantitative experiments.
+Connect Wingify FM with analytics platforms to correlate user behavior data with experiments and feature rollouts. With integrations like Wingify Insights Mobile, you can capture session-level insights such as heatmaps and recordings, adding qualitative depth to your quantitative experiments.
 
 [Read more about Analytics & Experimentation Integration](doc:fme-analytics-integrations)
 
 ### CI/CD & DevOps Integration
 
-Integrate Wingify FE into your development workflows using CI/CD tools like GitHub Actions. These integrations automate configuration, deployment, or rollout processes, allowing teams to treat experimentation and feature delivery as part of their existing DevOps lifecycle.
+Integrate Wingify FM into your development workflows using CI/CD tools like GitHub Actions. These integrations automate configuration, deployment, or rollout processes, allowing teams to treat experimentation and feature delivery as part of their existing DevOps lifecycle.
 
 [Read more about CI/CD & DevOps Integration](doc:fme-ci-cd-integrations)
 
 ## AI Integration
 
-Wingify FE’s AI integrations enable intelligent targeting, decision-making, or model-based personalization through systems like the MCP Server. This allows you to integrate machine learning models into your experimentation pipeline for dynamic user experiences and smarter feature delivery.
+Wingify FM’s AI integrations enable intelligent targeting, decision-making, or model-based personalization through systems like the MCP Server. This allows you to integrate machine learning models into your experimentation pipeline for dynamic user experiences and smarter feature delivery.
 
 [Read more about AI Integration](doc:fme-ai-integrations)
 

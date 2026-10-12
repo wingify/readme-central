@@ -5,19 +5,19 @@ hidden: false
 metadata:
   robots: index
 ---
-This guide walks you through integrating Wingify Feature Experimentation(FE) React SDK with a Next.js application. With this integration, you can manage feature rollouts, perform A/B tests, and track custom user metrics directly from your React components in a Next.js environment.
+This guide walks you through integrating Wingify Feature Management(FM) React SDK with a Next.js application. With this integration, you can manage feature rollouts, perform A/B tests, and track custom user metrics directly from your React components in a Next.js environment.
 
 ## Next.js & React
 
 * **React.js**: UI library that enables component-driven UI development.
 * **Next.js**: A React framework offering SSR/SSG, file-based routing, API routes, and performance optimizations.
-* **Wingify Integration**: Next.js uses React as UI layer; Wingify FE React SDK plugs into the React components regardless of SSR or client-side rendering.
+* **Wingify Integration**: Next.js uses React as UI layer; Wingify FM React SDK plugs into the React components regardless of SSR or client-side rendering.
 
 <br />
 
 ## Installing the SDK
 
-To begin, install the Wingify FE React SDK in your Next.js project:
+To begin, install the Wingify FM React SDK in your Next.js project:
 
 ```shell
 npm install wingify-fme-react-sdk
@@ -27,7 +27,7 @@ yarn add wingify-fme-react-sdk
 
 This installs the SDK package required to connect your React app with.
 
-> Refer to the Wingify FE React SDK documentation on [Installing the SDK](doc:fme-react-install)
+> Refer to the Wingify FM React SDK documentation on [Installing the SDK](doc:fme-react-install)
 
 <br />
 
@@ -65,7 +65,7 @@ export default MyApp;
 
 This sets up Wingify across your entire app, with user identification and optional fallback during async loading.
 
-> Refer to the Wingify FE React SDK documentation on [Initialization](doc:fme-react-initialization)
+> Refer to the Wingify FM React SDK documentation on [Initialization](doc:fme-react-initialization)
 
 <br />
 
@@ -96,7 +96,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 This lets you update user context when login or profile changes, enabling real-time flag evaluation.
 
-> Refer to the Wingify FE React SDK documentation on [User Context](doc:fme-react-context)
+> Refer to the Wingify FM React SDK documentation on [User Context](doc:fme-react-context)
 
 <br />
 
@@ -114,7 +114,7 @@ const allFlagVariables = useGetFlagVariables(flag);
 
 isEnabled() checks if the feature is on for the user, and getVariable() fetches typed variation values like strings or booleans.
 
-> Refer to the Wingify FE React SDK documentation on [Feature Flags & Variables](doc:fme-react-flags)
+> Refer to the Wingify FM React SDK documentation on [Feature Flags & Variables](doc:fme-react-flags)
 
 <br />
 
@@ -142,7 +142,7 @@ export default YourComponent;
 
 Metrics allow you to define conversion goals within experiments and track success across feature flags.
 
-> Refer to the Wingify FE React SDK documentation on [Metrics Tracking](doc:fme-react-metrics)
+> Refer to the Wingify FM React SDK documentation on [Metrics Tracking](doc:fme-react-metrics)
 
 <br />
 
@@ -162,13 +162,13 @@ function YourComponent() {
 
 These attributes are used in flag conditions or audience targeting rules in the Wingify dashboard.
 
-> Refer to the Wingify FE React SDK documentation on [Attributes](doc:fme-react-attributes)
+> Refer to the Wingify FM React SDK documentation on [Attributes](doc:fme-react-attributes)
 
 <br />
 
 ## Other Hooks
 
-In addition to the primary hooks provided by the Wingify SDK, there are several other useful React hooks designed to support different Feature Experimentation use cases. These include utilities for tracking goals, managing feature variables, and responding to variation changes dynamically. Each hook is optimized for seamless integration with React components and lifecycle methods.
+In addition to the primary hooks provided by the Wingify SDK, there are several other useful React hooks designed to support different Feature Management use cases. These include utilities for tracking goals, managing feature variables, and responding to variation changes dynamically. Each hook is optimized for seamless integration with React components and lifecycle methods.
 
 > For a complete list and usage details, visit the official [Wingify React Hooks](https://developers.wingify.com/v3/docs/fme-react-hooks#/) documentation.
 
@@ -182,7 +182,7 @@ The Wingify React SDK handles logging, storage, and integrations through built-i
 * **Storage service** allows persisting user data (e.g., variation assignments) locally, using cookies, localStorage, or custom solutions.
 * **Integrations** support syncing Wingify with external analytics tools like Google Analytics, Segment, or Mixpanel.
 
-> Refer to the Wingify FE React SDK documentation on:
+> Refer to the Wingify FM React SDK documentation on:
 >
 > 1. [Logging](doc:fme-react-logging)
 > 2. [Storage Service](doc:fme-react-storage)
@@ -200,7 +200,7 @@ The Wingify React SDK handles logging, storage, and integrations through built-i
 | User ID Persistence   | Ensure consistent user ID across sessions.                              |
 | Initial Flash         | Use `fallbackComponent` in `WingifyProvider` to handle flag loading states. |
 
-Integrating Wingify FE React with a Next.js app involves considerations for both server-rendered and client-side experiences. Here are some key best practices to follow:
+Integrating Wingify FM React with a Next.js app involves considerations for both server-rendered and client-side experiences. Here are some key best practices to follow:
 
 * **Use Dynamic Imports for Client-Only Hooks**: Wingify React hooks like useFeatureVariable, useVariation, etc., are designed to run in the browser. To avoid hydration mismatches, wrap-dependent components using dynamic(() => import('...'), \{ ssr: false }).
 * **Initialize SDK Early**: Place the Wingify SDK initialization inside a custom \_app.tsx or via a context provider, and ensure it's ready before rendering any components that depend on it.
@@ -212,9 +212,9 @@ Integrating Wingify FE React with a Next.js app involves considerations for both
 
 ## Reference Example App
 
-Wingify provides a full-featured example app with Wingify FE React SDK integrated into a Next.js app. It includes flag usage, metrics, attributes, and best practices for SSR-safe rendering and environment setup.
+Wingify provides a full-featured example app with Wingify FM React SDK integrated into a Next.js app. It includes flag usage, metrics, attributes, and best practices for SSR-safe rendering and environment setup.
 
-> <Anchor label="Wingify FE Next.js Example App" target="_blank" href="https://github.com/wingify/vwo-fme-examples/tree/master/nextjs">Wingify FE Next.js Example App</Anchor>
+> <Anchor label="Wingify FM Next.js Example App" target="_blank" href="https://github.com/wingify/vwo-fme-examples/tree/master/nextjs">Wingify FM Next.js Example App</Anchor>
 
 <br />
 

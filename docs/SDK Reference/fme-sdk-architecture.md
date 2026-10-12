@@ -7,11 +7,11 @@ metadata:
 ---
 ## High-Level SDK Architecture
 
-The diagram below represents the core workflow of the Wingify Feature Experimentation SDK, designed to enable dynamic feature delivery, experimentation, and behavioral analytics within an application. The flow is centred around initialization, flag evaluation, event tracking, and user attribute handling, emphasising asynchronous communication with the Wingify backend.
+The diagram below represents the core workflow of the Wingify Feature Management SDK, designed to enable dynamic feature delivery, experimentation, and behavioral analytics within an application. The flow is centred around initialization, flag evaluation, event tracking, and user attribute handling, emphasising asynchronous communication with the Wingify backend.
 
 ```mermaid
 flowchart TD
-    A0(["Wingify FE SDK"]) --> A("Initialize using<br/>configurable options")
+    A0(["Wingify FM SDK"]) --> A("Initialize using<br/>configurable options")
     A --> Y("getFlag(featureKey, userContext)")
     A --> X("trackEvent(eventName, userContext, eventProperties)")
     A --> Z("setAttribute(attributes, userContext)")
@@ -147,14 +147,14 @@ flowchart TD
 
 ```
 
-* To improve performance and reduce network overhead, the Wingify FE SDK supports **event batching**. When batching options are provided during initialization (such as the maximum number of events to batch and the flush interval), the SDK no longer sends tracking or impression events immediately. Instead, events generated from calls like *getFlag*, *trackEvent*, or *setAttribute* are **pushed into an internal queue**.
+* To improve performance and reduce network overhead, the Wingify FM SDK supports **event batching**. When batching options are provided during initialization (such as the maximum number of events to batch and the flush interval), the SDK no longer sends tracking or impression events immediately. Instead, events generated from calls like *getFlag*, *trackEvent*, or *setAttribute* are **pushed into an internal queue**.
 * The SDK monitors this queue and flushes events under two conditions: either when the **number of queued events reaches** the defined threshold, or when the **configured time interval elapses**. Once triggered, all queued events are **batched together into a single payload** and sent asynchronously to the Wingify backend, significantly reducing the number of network calls and improving efficiency, especially in high-interaction environments.
 
 <br />
 
 ## How Storage Connector works for server-side SDKs
 
-The Wingify FE SDK supports **custom storage integration** via a pluggable \_**Storage Connector**\_to optimise performance and reduce repeated computation. This allows the SDK to **persist and retrieve flag evaluation results**, reducing the need to re-evaluate feature flags for the same user context repeatedly. The diagram below illustrates how the SDK uses this connector during the *getFlag* call. If a decision is already available in storage, it's returned immediately. Otherwise, the SDK evaluates the feature flag, sends the tracking event asynchronously, and stores the decision for future use.
+The Wingify FM SDK supports **custom storage integration** via a pluggable \_**Storage Connector**\_to optimise performance and reduce repeated computation. This allows the SDK to **persist and retrieve flag evaluation results**, reducing the need to re-evaluate feature flags for the same user context repeatedly. The diagram below illustrates how the SDK uses this connector during the *getFlag* call. If a decision is already available in storage, it's returned immediately. Otherwise, the SDK evaluates the feature flag, sends the tracking event asynchronously, and stores the decision for future use.
 
 ```mermaid
 flowchart TD

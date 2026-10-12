@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-To create a Wingify Client instance, you need to initialize the Wingify FE Flutter SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
+To create a Wingify Client instance, you need to initialize the Wingify FM Flutter SDK. This client instance serves as the core interface for conducting Feature Management(A/B and personalization) within your application.
 
 ## Usage
 
@@ -26,7 +26,7 @@ final wingifyInitOptions = WingifyInitOptions(
 final wingifyClient = await Wingify.init(wingifyInitOptions);
 ```
 
-The `init()` method is called with the `sdkKey` and `accountId`. It initializes and returns a Wingify Client Object `wingifyClient`, which can be used to perform Feature Experimentation tasks. This client object allows you to run experiments, track events, and enable/disable feature flags.
+The `init()` method is called with the `sdkKey` and `accountId`. It initializes and returns a Wingify Client Object `wingifyClient`, which can be used to perform Feature Management tasks. This client object allows you to run experiments, track events, and enable/disable feature flags.
 
 ## Parameter Definitions
 
@@ -68,7 +68,7 @@ class DartLogger implements LogTransport {
   @override
   void log(String level, String? message) {
     if (message == null) return;
-    print("FE-Flutter: [$level] $message");
+    print("FM-Flutter: [$level] $message");
   }
 }
 
@@ -93,7 +93,7 @@ Please click [here](https://developers.wingify.com/v3/docs/fme-flutter-logging) 
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
+Wingify FM SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```dart
 final wingifyInitOptions = WingifyInitOptions(

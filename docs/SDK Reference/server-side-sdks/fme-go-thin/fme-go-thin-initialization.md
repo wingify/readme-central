@@ -14,11 +14,11 @@ next:
       slug: fme-go-context
       title: User Context
 ---
-Before you can use the  FE Go SDK, you need to initialize it with your account settings.
+Before you can use the  FM Go SDK, you need to initialize it with your account settings.
 
 ## Basic Usage
 
-Here's how to initialize the FE Go SDK:
+Here's how to initialize the FM Go SDK:
 
 ```go
 import wingify "github.com/wingify/wingify-fme-go-sdk"

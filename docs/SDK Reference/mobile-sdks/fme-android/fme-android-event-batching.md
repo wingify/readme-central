@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-By default, Wingify FE Android SDK sends impression events to Wingify servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your Wingify Campaign Reports.
+By default, Wingify FM Android SDK sends impression events to Wingify servers in real-time. This enables immediate tracking of visitor activity and conversions, with data instantly reflected in your Wingify Campaign Reports.
 
 However, there are scenarios where it may be beneficial to collect multiple events over a period of time and send them together in a single request. The Wingify Android SDK supports event batching, allowing you to configure how and when impression events are uploaded to Wingify servers.
 

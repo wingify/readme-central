@@ -1,7 +1,7 @@
 ---
 title: Unifying Server-Side and Client-Side Experimentation in Wingify
 excerpt: >-
-  A Conceptual Guide to Connecting Feature Experimentation, Web Testing, and Web
+  A Conceptual Guide to Connecting Feature Management, Web Experimentation, and Web
   Insights
 deprecated: false
 hidden: true
@@ -23,7 +23,7 @@ To experiment effectively across this ecosystem, one foundational problem to be 
 
 <br />
 
-This article explains how **Wingify Feature Experimentation (FE)** connects with **Wingify Web Testing** and **Wingify Web Insights**, enabling:
+This article explains how **Wingify Feature Management (FM)** connects with **Wingify Web Experimentation** and **Wingify Behavior Analytics**, enabling:
 
 * Consistent user identification across client and server
 * Combined client-side and server-side experimentation
@@ -42,7 +42,7 @@ At a high level, Wingify offers two complementary experimentation models:
 
 <br />
 
-### Wingify Web Testing (Client-Side)
+### Wingify Web Experimentation (Client-Side)
 
 Works via **SmartCode**, a JavaScript snippet added to your website
 
@@ -64,7 +64,7 @@ Reference: [What is Wingify SmartCode?](https://help.vwo.com/hc/en-us/articles/3
 
 <br />
 
-### Wingify Feature Experimentation (FE)
+### Wingify Feature Management (FM)
 
 Works via **SDKs** (server-side and client-side)
 
@@ -84,13 +84,13 @@ Conceptually:
 
 > This follows a decision-layer experimentation model.
 
-Reference: [List of Wingify Feature Experimentation SDKs](https://developers.wingify.com/v3/docs/list-of-fme-sdks)
+Reference: [List of Wingify Feature Management SDKs](https://developers.wingify.com/v3/docs/list-of-fme-sdks)
 
 <br />
 
 ### Key Difference
 
-| Aspect      | Web Testing            | Feature Experimentation   |
+| Aspect      | Web Experimentation            | Feature Management   |
 | ----------- | ---------------------- | ------------------------- |
 | Integration | SmartCode (JS snippet) | SDKs                      |
 | Execution   | Browser                | Server / App / Browser    |
@@ -99,7 +99,7 @@ Reference: [List of Wingify Feature Experimentation SDKs](https://developers.win
 
 <br />
 
-### Wingify Web Insights (Behavioral Analytics)
+### Wingify Behavior Analytics (Behavioral Analytics)
 
 Works via **SmartCode-based data collection**, capturing visitor interactions on your website.
 
@@ -126,7 +126,7 @@ Reference: [What is Wingify Insights](https://help.vwo.com/hc/en-us/articles/900
 
 ## Need for Cross-System Identity Synchronization
 
-If Web Testing and Feature Experimentation operate independently:
+If Web Experimentation and Feature Management operate independently:
 
 * A user bucketed client-side may be unknown to server-side systems
 * Backend experiments cannot be correlated with frontend experiments
@@ -148,25 +148,25 @@ Connectivity ensures:
 The unifying principle is:
 
 <Callout icon="📘" theme="info">
-  **A canonical UUID must represent the same user across all evaluation layers.**  
+  **A canonical UUID must represent the same user across all evaluation layers.**
   Check [what is a UUID](https://developers.wingify.com/v3/docs/user-id-management)  for more details.
 </Callout>
 
 Whether evaluation occurs:
 
 * In the browser (SmartCode)
-* In the backend (FE SDK)
-* In mobile apps (FE SDK)
+* In the backend (FM SDK)
+* In mobile apps (FM SDK)
 * In APIs (Payload)
 
 The identity must remain stable.
 
 Wingify achieves this by ensuring that:
 
-* FE SDKs can generate/read and reuse UUIDs
+* FM SDKs can generate/read and reuse UUIDs
 * SmartCode can generate/read and preserve the same UUID
 * Both systems communicate identity through cookies or server headers
-* All events flow into Web Insights under the same visitor profile
+* All events flow into Behavior Analytics under the same visitor profile
 
 ```mermaid
 flowchart TB
@@ -183,8 +183,8 @@ flowchart TB
     end
 
     subgraph Wingify Platform
-        WT[Wingify Web Testing]
-        FE[Wingify Feature Experimentation]
+        WT[Wingify Web Experimentation]
+        FM[Wingify Feature Management]
         VI[Wingify Insights]
     end
 
@@ -195,7 +195,7 @@ flowchart TB
     Server --> UUID
 
     UUID --> WT
-    UUID --> FE
+    UUID --> FM
     UUID --> VI
 
 ```
@@ -235,9 +235,9 @@ Once installed on web pages:
 
 <br />
 
-### Feature Experimentation Example (Server-Side)
+### Feature Management Example (Server-Side)
 
-A simple Node.js server-side Feature Experimentation example:
+A simple Node.js server-side Feature Management example:
 
 ```javascript
 import { init } from 'wingify-fme-node-sdk';
@@ -277,7 +277,7 @@ There are only two logical ways a user can enter the experimentation system:
 
 > Wingify supports both symmetrically.
 
-Before we dive into how UUID synchronization works between server-side Feature Experimentation and client-side Web Testing, it is important to understand a more fundamental concept: **How do servers and browsers generally exchange information?**
+Before we dive into how UUID synchronization works between server-side Feature Management and client-side Web Experimentation, it is important to understand a more fundamental concept: **How do servers and browsers generally exchange information?**
 
 The mechanisms used for UUID propagation are not unique to experimentation systems. They rely on standard web communication patterns used across modern applications.
 
@@ -293,7 +293,7 @@ A UUID can be generated by either system:
 
 | Entry Point  | UUID Generated By |
 | ------------ | ----------------- |
-| Server-first | FE SDK            |
+| Server-first | FM SDK            |
 | Client-first | SmartCode         |
 
 > Once generated, the UUID becomes the source of truth.
@@ -360,7 +360,7 @@ This is common in:
 ### Theoretical Flow
 
 1. User request hits the server.
-2. Server calls FE SDK.
+2. Server calls FM SDK.
 3. SDK:
    1. Converts the provided user ID to a UUID.
    2. Evaluates rules.
@@ -373,15 +373,15 @@ This is common in:
 sequenceDiagram
     participant User
     participant Server
-    participant FE_SDK as Wingify FE SDK
+    participant FM_SDK as Wingify FM SDK
     participant Browser
     participant SmartCode
 
     User->>Server: 1. HTTP request
-    Server->>FE_SDK: 2. Evaluate user (userId)
-    FE_SDK->>FE_SDK: 3a. Convert userId → UUID
-    FE_SDK->>FE_SDK: 3b. Evaluate feature rules
-    FE_SDK-->>Server: Evaluation result + UUID
+    Server->>FM_SDK: 2. Evaluate user (userId)
+    FM_SDK->>FM_SDK: 3a. Convert userId → UUID
+    FM_SDK->>FM_SDK: 3b. Evaluate feature rules
+    FM_SDK-->>Server: Evaluation result + UUID
     Server->>Browser: 4. Response (UUID via cookie/header)
     Browser->>SmartCode: 5. Page load
     SmartCode->>Browser: 6. Read UUID
@@ -444,7 +444,7 @@ Common in:
 
 3. User performs an action, triggering a server request.
 4. Server reads UUID from cookie or request headers.
-5. Server passes UUID into FE SDK.
+5. Server passes UUID into FM SDK.
 6. Backend experiments now align with client-side identity.
 
 ```mermaid
@@ -453,7 +453,7 @@ sequenceDiagram
     participant Browser
     participant SmartCode
     participant Server
-    participant FE_SDK as Wingify FE SDK
+    participant FM_SDK as Wingify FM SDK
 
     User->>Browser: Visit page
     Browser->>SmartCode: 1. Load SmartCode
@@ -463,9 +463,9 @@ sequenceDiagram
     User->>Browser: 3. Trigger action
     Browser->>Server: Request (UUID cookie/header)
     Server->>Server: 4. Read UUID
-    Server->>FE_SDK: 5. Evaluate using UUID
-    FE_SDK->>FE_SDK: Use existing UUID
-    FE_SDK-->>Server: 6. Evaluation result
+    Server->>FM_SDK: 5. Evaluate using UUID
+    FM_SDK->>FM_SDK: Use existing UUID
+    FM_SDK-->>Server: 6. Evaluation result
 
 ```
 
@@ -518,10 +518,10 @@ Wingify's model ensures:
 ```mermaid
 flowchart LR
     Browser --> SmartCode
-    SmartCode -->_Web[Wingify Web Testing]
+    SmartCode -->_Web[Wingify Web Experimentation]
 
-    Server --> FE_SDK[Wingify FE SDK]
-    FE_SDK --> Wingify_FE[Wingify Feature Experimentation]
+    Server --> FM_SDK[Wingify FM SDK]
+    FM_SDK --> Wingify_FM[Wingify Feature Management]
 
     Browser -. separate identity .- Server
 
@@ -541,13 +541,13 @@ Problems
 ```mermaid
 flowchart LR
     Browser -->|UUID Cookie| Server
-    Server --> FE_SDK[Wingify FE SDK]
-    FE_SDK -->
+    Server --> FM_SDK[Wingify FM SDK]
+    FM_SDK -->
 
     Browser --> SmartCode
     SmartCode -->
 
-    FE_SDK -. shared UUID .- SmartCode
+    FM_SDK -. shared UUID .- SmartCode
 
 ```
 
@@ -564,7 +564,7 @@ flowchart LR
 
 The diagram below illustrates:
 
-* FE SDK communicates with Wingify for configuration
+* FM SDK communicates with Wingify for configuration
 * SmartCode communicates independently with Wingify
 * UUID is the shared binding identity
 
@@ -572,16 +572,16 @@ The diagram below illustrates:
 sequenceDiagram
     participant User
     participant Server
-    participant FE_SDK as Wingify FE SDK
+    participant FM_SDK as Wingify FM SDK
     participant
     participant Browser
     participant SmartCode
 
     User->>Server: Initial request
-    Server->>FE_SDK: Pass user ID / context
-    FE_SDK->>Wingify: Fetch settings / evaluate rule
-   -->>FE_SDK: Campaign & flag configuration
-    FE_SDK-->>Server: Decision + UUID
+    Server->>FM_SDK: Pass user ID / context
+    FM_SDK->>Wingify: Fetch settings / evaluate rule
+   -->>FM_SDK: Campaign & flag configuration
+    FM_SDK-->>Server: Decision + UUID
     Server->>Browser: Response + UUID (cookie)
 
     Browser->>SmartCode: Load page
@@ -608,9 +608,9 @@ A single user could experience:
 
 > All attributed to one identity.
 
-### Unified Web Insights
+### Unified Behavior Analytics
 
-Because both FE SDK events and SmartCode events use the same UUID:
+Because both FM SDK events and SmartCode events use the same UUID:
 
 * Funnels remain intact
 * Cross-experiment impact can be measured
@@ -625,9 +625,9 @@ Because both FE SDK events and SmartCode events use the same UUID:
 #### Scenario: E-commerce Funnel
 
 1. User lands on homepage (web)
-2. Sees a visual hero banner test (Web Testing)
+2. Sees a visual hero banner test (Web Experimentation)
 3. Proceeds to checkout
-4. Backend applies a pricing or recommendation experiment (Feature Experimentation)
+4. Backend applies a pricing or recommendation experiment (Feature Management)
 5. Conversion is tracked holistically
 
 #### Without connectivity:
@@ -643,7 +643,7 @@ Because both FE SDK events and SmartCode events use the same UUID:
 
 <br />
 
-## Conversion Tracking Across Feature Experimentation and Web Testing
+## Conversion Tracking Across Feature Management and Web Experimentation
 
 Conversion tracking in a connected Wingify architecture relies on one fundamental requirement:
 
@@ -651,12 +651,12 @@ Conversion tracking in a connected Wingify architecture relies on one fundamenta
 
 If identity is consistent across client and server layers, conversions can be attributed accurately across:
 
-* Feature Experimentation (FE)
-* Wingify Web Testing
-* Wingify Web Insights
+* Feature Management (FM)
+* Wingify Web Experimentation
+* Wingify Behavior Analytics
 * Offline systems (CRM, POS, backend billing, etc.)
 
-This section explains how conversion tracking works in both FE-first and Client-first architectures, and how offline conversions fit into the model.
+This section explains how conversion tracking works in both FM-first and Client-first architectures, and how offline conversions fit into the model.
 
 <br />
 
@@ -664,7 +664,7 @@ This section explains how conversion tracking works in both FE-first and Client-
 
 Let’s start with a simple system-level example:
 
-1. FE SDK evaluates the user.
+1. FM SDK evaluates the user.
 2. Server renders content based on flag decision.
 3. Browser loads page (SmartCode may also evaluate visual experiments).
 4. User clicks a “Buy Now” button.
@@ -675,7 +675,7 @@ If UUID continuity is maintained, attribution works across products.
 
 <br />
 
-### FE-First Conversion Flow
+### FM-First Conversion Flow
 
 This flow is common in:
 
@@ -686,8 +686,8 @@ This flow is common in:
 #### Identity and Rendering
 
 1. User request hits the server.
-2. FE SDK evaluates the feature flag.
-3. FE SDK generates (or reuses) a UUID.
+2. FM SDK evaluates the feature flag.
+3. FM SDK generates (or reuses) a UUID.
 4. Server sets UUID in cookie.
 5. Client-side renders UI using this UUID.
 
@@ -695,13 +695,13 @@ This flow is common in:
 sequenceDiagram
     participant User
     participant Server
-    participant FE_SDK as Wingify FE SDK
+    participant FM_SDK as Wingify FM SDK
     participant Browser
 
     User->>Server: 1. HTTP request
-    Server->>FE_SDK: 2. Evaluate feature flag
-    FE_SDK->>FE_SDK: 3. Generate or reuse UUID
-    FE_SDK-->>Server: Return decision + UUID
+    Server->>FM_SDK: 2. Evaluate feature flag
+    FM_SDK->>FM_SDK: 3. Generate or reuse UUID
+    FM_SDK-->>Server: Return decision + UUID
     Server->>Browser: 4. Response (Set UUID cookie)
     Browser->>Browser: 5. Render UI using UUID
 
@@ -732,8 +732,8 @@ This flow is common in:
 4. UI renders.
 5. User action triggers a server call.
 6. Server reads UUID from cookie.
-7. Server passes UUID into FE SDK.
-8. FE evaluates the user based on the client-generated UUID.
+7. Server passes UUID into FM SDK.
+8. FM evaluates the user based on the client-generated UUID.
 
 ```mermaid
 sequenceDiagram
@@ -741,7 +741,7 @@ sequenceDiagram
     participant Browser
     participant SmartCode
     participant Server
-    participant FE_SDK as Wingify FE SDK
+    participant FM_SDK as Wingify FM SDK
 
     User->>Browser: Visit page
     Browser->>SmartCode: 1. Load SmartCode
@@ -752,9 +752,9 @@ sequenceDiagram
     User->>Browser: 5. Trigger action
     Browser->>Server: Request (UUID cookie)
     Server->>Server: 6. Read UUID
-    Server->>FE_SDK: 7. Evaluate using UUID
-    FE_SDK->>FE_SDK: 8. Evaluate user (reuse UUID)
-    FE_SDK-->>Server: Evaluation result
+    Server->>FM_SDK: 7. Evaluate using UUID
+    FM_SDK->>FM_SDK: 8. Evaluate user (reuse UUID)
+    FM_SDK-->>Server: Evaluation result
 
 ```
 
@@ -771,11 +771,11 @@ Now, assume a button click occurs.
 
 There are three supported ways to track the conversion:
 
-1. Client-Side Custom Event API (Web Testing)
-2. Method 2: FE SDK `trackEvent` API
+1. Client-Side Custom Event API (Web Experimentation)
+2. Method 2: FM SDK `trackEvent` API
 3. Offline Conversion Tracking
 
-#### Method 1: Client-Side Custom Event API (Web Testing)
+#### Method 1: Client-Side Custom Event API (Web Experimentation)
 
 Conversion is triggered via SmartCode custom event API on the webpage.
 
@@ -799,15 +799,15 @@ Use this when:
 
 * Conversion is purely UI-driven
 * Marketing or CRO teams manage events
-* You want conversion tracked within Web Testing
+* You want conversion tracked within Web Experimentation
 
 Since SmartCode is already using the UUID from cookie, attribution remains consistent.
 
 <br />
 
-#### Method 2: FE SDK trackEvent API
+#### Method 2: FM SDK trackEvent API
 
-Conversion is tracked server-side using FE SDK.
+Conversion is tracked server-side using FM SDK.
 
 Example (Node.js):
 
@@ -821,7 +821,7 @@ Use this when:
 
 * Conversion is backend-confirmed (e.g., payment success)
 * You want authoritative server validation
-* You want conversion tied directly to FE experiment logic
+* You want conversion tied directly to FM experiment logic
 
 Because the same UUID is passed, attribution aligns with earlier bucketing.
 
@@ -856,7 +856,7 @@ This enables:
 * Revenue mapping across touchpoints
 
 <Callout icon="📘" theme="info">
-  Note: As long as the UUID matches the one used during evaluation, attribution remains accurate across FE and Web Testing.
+  Note: As long as the UUID matches the one used during evaluation, attribution remains accurate across FM and Web Experimentation.
 </Callout>
 
 <br />
@@ -871,7 +871,7 @@ sequenceDiagram
     participant Browser
     participant SmartCode
     participant Server
-    participant FE_SDK as Wingify FE SDK
+    participant FM_SDK as Wingify FM SDK
     participant Wingify
     participant Data360 as Offline System
 
@@ -880,23 +880,23 @@ sequenceDiagram
     SmartCode->>Browser: Generate/Read UUID (cookie)
 
     Browser->>Server: Request (UUID cookie sent)
-    Server->>FE_SDK: Evaluate flag using UUID
-    FE_SDK->>Wingify: Fetch config & evaluate
-    Wingify-->>FE_SDK: Decision
-    FE_SDK-->>Server: Variation decision
+    Server->>FM_SDK: Evaluate flag using UUID
+    FM_SDK->>Wingify: Fetch config & evaluate
+    Wingify-->>FM_SDK: Decision
+    FM_SDK-->>Server: Variation decision
 
     User->>Browser: Click "Buy Now"
 
     alt Client-side conversion
         SmartCode->>Wingify: track.customEvent(UUID)
     else Server-side conversion
-        Server->>FE_SDK: trackEvent(UUID)
-        FE_SDK->>Wingify: Send conversion event
+        Server->>FM_SDK: trackEvent(UUID)
+        FM_SDK->>Wingify: Send conversion event
     else Offline conversion
         Data360->>Wingify: Push conversion(UUID)
     end
 
-    Note over SmartCode,FE_SDK: Same UUID ensures correct attribution
+    Note over SmartCode,FM_SDK: Same UUID ensures correct attribution
 ```
 
 <br />
@@ -909,15 +909,15 @@ If conversion fires:
 
 * Before the UUID is shared,
 * Or before the server reuses the client UUID,
-* Or before FE SDK evaluation uses the correct identity,
+* Or before FM SDK evaluation uses the correct identity,
 
 Then attribution may fragment.
 
 <br />
 
-## Behavioral Analytics Integration with Wingify Web Insights
+## Behavioral Analytics Integration with Wingify Behavior Analytics
 
-Beyond experimentation and conversion tracking, Wingify Web Insights adds behavioral analytics capabilities such as:
+Beyond experimentation and conversion tracking, Wingify Behavior Analytics adds behavioral analytics capabilities such as:
 
 * Session Recordings
 * Heatmaps
@@ -926,9 +926,9 @@ Beyond experimentation and conversion tracking, Wingify Web Insights adds behavi
 
 When UUID is consistent across:
 
-* Web Testing
-* Feature Experimentation
-* Web Insights
+* Web Experimentation
+* Feature Management
+* Behavior Analytics
 
 You unlock a powerful capability:
 
@@ -945,7 +945,7 @@ If UUID is shared across products:
 
 Can be:
 
-* Filtered inside Web Insights
+* Filtered inside Behavior Analytics
 * Viewed through session recordings
 * Analyzed via heatmaps
 * Compared across variations
@@ -964,9 +964,9 @@ When UUID is unified:
 
 | Product                 | Role                    | What It Tracks                |
 | ----------------------- | ----------------------- | ----------------------------- |
-| Web Testing             | Client-side experiments | UI variation exposure         |
-| Feature Experimentation | Server-side experiments | Business logic exposure       |
-| Web Insights            | Behavioral analytics    | Session recordings & heatmaps |
+| Web Experimentation             | Client-side experiments | UI variation exposure         |
+| Feature Management | Server-side experiments | Business logic exposure       |
+| Behavior Analytics            | Behavioral analytics    | Session recordings & heatmaps |
 
 Because UUID is identical:
 
@@ -978,25 +978,25 @@ Because UUID is identical:
 ```mermaid
 flowchart LR
     Browser -->|UUID Cookie| Server
-    Server --> FE_SDK[Wingify FE SDK]
-    FE_SDK -->
+    Server --> FM_SDK[Wingify FM SDK]
+    FM_SDK -->
 
     Browser --> SmartCode
     SmartCode -->
 
-    Browser --> WebInsights[Wingify Web Insights]
+    Browser --> WebInsights[Wingify Behavior Analytics]
     WebInsights -->
 
-    FE_SDK -. Shared UUID .- SmartCode
+    FM_SDK -. Shared UUID .- SmartCode
     SmartCode -. Shared UUID .- WebInsights
 
 ```
 
 This architecture enables system-wide experimentation, not just UI testing.
 
-* Web Testing experiments UI behavior
-* Feature Experimentation controls application logic
+* Web Experimentation experiments UI behavior
+* Feature Management controls application logic
 * `UUID` is the binding identity
 * Cookies are the transport mechanism
 * Two-way identity propagation is supported
-* Wingify Web Insights unifies analytics across layers
+* Wingify Behavior Analytics unifies analytics across layers

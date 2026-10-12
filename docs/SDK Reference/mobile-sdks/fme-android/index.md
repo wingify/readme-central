@@ -4,13 +4,13 @@ excerpt: ''
 deprecated: false
 hidden: false
 metadata:
-  title: Feature Experimentation Android(Kotlin/Java)
+  title: Feature Management Android(Kotlin/Java)
   description: ''
   robots: index
 next:
   description: ''
 ---
-The Wingify FE Android SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within Android applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
+The Wingify FM Android SDK empowers developers to integrate feature flags, conduct A/B testing, and personalize user experiences within Android applications. This SDK facilitates controlled feature rollouts, real-time experimentation, and data-driven decision-making to enhance application performance and user engagement.
 
 ### Source Code Repository
 
@@ -31,7 +31,7 @@ To facilitate a comprehensive understanding and effective implementation of the 
 5. [Metrics Tracking](doc:fme-android-metrics)\
    Discover methods to track user interactions and measure the impact of feature rollouts and experiments on key performance indicators.
 6. [Attributes](doc:fme-android-attributes)\
-   Learn how to utilize user attributes for advanced targeting and segmentation in your feature experimentation strategy.
+   Learn how to utilize user attributes for advanced targeting and segmentation in your Feature Management strategy.
 7. [Logging](doc:fme-android-logging)\
    Configure logging to monitor SDK operations, debug issues, and maintain observability within your application.
 8. [Storage Service](doc:fme-android-storage)\
@@ -43,6 +43,6 @@ To facilitate a comprehensive understanding and effective implementation of the 
 11. [Cache Settings](doc:fme-android-cache-settings)\
     Enhance speed and reduce API usage with configurable(TTL) caching of settings.
 12. [Impact Analysis](doc:fme-android-impact-analysis)\
-    Understand how Wingify FE affects your app footprint.
+    Understand how Wingify FM affects your app footprint.
 
 Each section provides detailed guidance, code examples, and best practices to ensure a smooth integration process.

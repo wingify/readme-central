@@ -1,7 +1,7 @@
 ---
 title: Edge Support
 excerpt: >-
-  Learn how to configure the Wingify FE JavaScript SDK for edge computing
+  Learn how to configure the Wingify FM JavaScript SDK for edge computing
   environments like Cloudflare Workers, Vercel Edge Functions, and AWS
   Lambda@Edge.
 deprecated: false
@@ -17,7 +17,7 @@ next:
 
 Modern edge platforms such as Cloudflare Workers, Vercel Edge Functions, and AWS Edge runtimes are optimized for low-latency, short-lived execution. While these environments provide excellent performance, they introduce unique challenges for SDK initialization and configuration management.
 
-The Wingify Feature Experimentation (FE) JavaScript SDK is fully compatible with edge environments. However, to achieve optimal performance and avoid unnecessary network calls, settings management must be handled differently than in traditional long-running servers.
+The Wingify Feature Management (FM) JavaScript SDK is fully compatible with edge environments. However, to achieve optimal performance and avoid unnecessary network calls, settings management must be handled differently than in traditional long-running servers.
 
 **Supported edge platforms include:**
 
@@ -41,7 +41,7 @@ This document explains:
 
 <br />
 
-> For further details on the Wingify FE JavaScript SDK, including specific configuration examples and advanced usage, refer to the [Wingify JavaScript SDK Documentation](https://developers.wingify.com/v3/docs/fme-javascript).
+> For further details on the Wingify FM JavaScript SDK, including specific configuration examples and advanced usage, refer to the [Wingify JavaScript SDK Documentation](https://developers.wingify.com/v3/docs/fme-javascript).
 
 ## Default SDK Initialization (Not Recommended for Edge)
 
@@ -275,7 +275,7 @@ await init({
 
 ### Option 2 (Recommended): Custom Storage Connector with getSettings / setSettings
 
-To simplify settings management, the FE SDK now supports settings **persistence directly via the storage connector**.
+To simplify settings management, the FM SDK now supports settings **persistence directly via the storage connector**.
 
 > Reference: <Anchor label="[[https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v3/docs/fme-node-storage#how-to-implement-a-storage-service)](https://developers.wingify.com/v3/docs/fme-node-storage#how-to-implement-a-storage-service)" target="_blank" href="https://developers.wingify.com/v3/docs/fme-node-storage#how-to-implement-a-storage-service"><Anchor label="[https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)" target="_blank" href="https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector">[https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector](https://developers.wingify.com/v3/docs/fme-javascript-storage#how-to-implement-a-custom-storage-connector)</Anchor></Anchor>
 
@@ -316,14 +316,14 @@ export default {
     });
 
     const userContext = { id: 'user123' };
-    
+
     // Your application logic
     const flag = await wingifyClient.getFlag('feature_key', userContext);
     await wingifyClient.trackEvent('event_name', userContext);
-    
+
     // CRITICAL: Flush events using ctx.waitUntil in Cloudflare
     ctx.waitUntil(wingifyClient.flushEvents());
-    
+
     return new Response('OK');
   }
 }
@@ -349,14 +349,14 @@ export default async function handler(req, res) {
     });
 
     const userContext = { id: 'user123' };
-    
+
     // Your application logic
     const flag = await wingifyClient.getFlag('feature_key', userContext);
     await wingifyClient.trackEvent('event_name', userContext);
-    
+
     // CRITICAL: Flush events using waitUntil in vercel
     waitUntil(wingifyClient.flushEvents());
-    
+
     return res.status(200).json({status: 'success'})
   }
 }
@@ -432,4 +432,4 @@ await init({
 
 <br />
 
-By following this guide, you can confidently deploy the Wingify FE JavaScript SDK to distributed, edge platforms while preserving the integrity of your feature flagging and experimentation data.
+By following this guide, you can confidently deploy the Wingify FM JavaScript SDK to distributed, edge platforms while preserving the integrity of your feature flagging and experimentation data.

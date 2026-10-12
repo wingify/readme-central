@@ -27,8 +27,8 @@ Wingify automatically generates four combinations (2 variables x 2 values) as fo
 
 Wingify shows each combination to a different set of visitors to identify which pair performs best. The multivariate test helps you understand how changes to one element affect the performance of another. For example, the $20 price might lead to more conversions, but only when the Promo Banner Flag is enabled. On the other hand, the $10 price might work better when shown without the banner.
 
-This article further explains how you can set up a multivariate test in Wingify Feature Experimentation.
+This article further explains how you can set up a multivariate test in Wingify Feature Management.
 
 <Callout icon="📘" theme="info">
-  Read more [here](https://help.vwo.com/hc/en-us/articles/49510408484889-Set-Up-Multivariate-Rules-in-Feature-Experimentation) 
+  Read more [here](https://help.vwo.com/hc/en-us/articles/49510408484889-Set-Up-Multivariate-Rules-in-Feature-Experimentation)
 </Callout>

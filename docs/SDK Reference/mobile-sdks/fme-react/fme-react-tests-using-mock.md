@@ -48,9 +48,9 @@ jest.mock('wingify-fme-react-sdk', () => ({
 
 const FlagComponent = () => {
   const { flag, isReady } = useGetFlag('feature-key');
-  
+
   if (!isReady) return null;
-  
+
   return (
     <>
       <div data-testid="flag-status">{flag.isEnabled() ? 'Enabled' : 'Disabled'}</div>
@@ -66,4 +66,4 @@ test('renders flag enabled and variable value', () => {
 });
 ```
 
-You can also refer to the Wingify FE React SDK tests [here](https://github.com/wingify/vwo-fme-react-sdk/tree/master/test) .
+You can also refer to the Wingify FM React SDK tests [here](https://github.com/wingify/vwo-fme-react-sdk/tree/master/test) .

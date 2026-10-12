@@ -1,7 +1,7 @@
 ---
 title: Deep-Dive Debugging Guide
 excerpt: >-
-  Wingify Feature Experimentation (FE) allows developers and product teams to monitor, identify, and resolve SDK-related issues directly within the Wingify dashboard
+  Wingify Feature Management (FM) allows developers and product teams to monitor, identify, and resolve SDK-related issues directly within the Wingify dashboard
 deprecated: false
 hidden: false
 metadata:
@@ -9,9 +9,9 @@ metadata:
 ---
 ## Overview
 
-When a Wingify Feature Experimentation (FE) SDK integration does not behave as expected, feature flags not evaluating correctly, variables returning defaults, events not tracking, or SDK initialization failing, the root cause is almost always visible through SDK logs or’s built-in error monitoring.
+When a Wingify Feature Management (FM) SDK integration does not behave as expected, feature flags not evaluating correctly, variables returning defaults, events not tracking, or SDK initialization failing, the root cause is almost always visible through SDK logs or’s built-in error monitoring.
 
-Wingify FE SDKs provide:
+Wingify FM SDKs provide:
 
 * Configurable log levels
 * Custom log forwarding support
@@ -28,11 +28,11 @@ This guide explains how to systematically debug SDK integrations across:
 
 ## Observability Flow (How Debugging Works)
 
-Every Wingify FE SDK emits three streams of diagnostic signals:
+Every Wingify FM SDK emits three streams of diagnostic signals:
 
 ```mermaid
 flowchart LR
-    A[Application Runtime] --> B[Wingify FE SDK Core]
+    A[Application Runtime] --> B[Wingify FM SDK Core]
 
     B --> C[Structured Logs]
     B --> D[Custom Logger Adapter]
@@ -56,7 +56,7 @@ This allows remote diagnosis without SSH or mobile device log access.
 
 ### What Happens Internally
 
-1. Your application calls the Wingify FE SDK.
+1. Your application calls the Wingify FM SDK.
 2. SDK generates logs based on the configured log level.
 3. Logs are:
    * Printed to standard output
@@ -68,7 +68,7 @@ This allows remote diagnosis without SSH or mobile device log access.
 
 ## SDK Logging Fundamentals
 
-All Wingify FE SDKs from Wingify:
+All Wingify FM SDKs from Wingify:
 
 * Log errors to standard output by default
 * Default log level: `ERROR`
@@ -143,7 +143,7 @@ This is the most important step when troubleshooting incorrect flag evaluations.
 
 ## Forwarding Logs to Your Monitoring System
 
-All FE SDKs allow custom logger integration.
+All FM SDKs allow custom logger integration.
 
 Instead of printing to the console, forward logs to:
 
@@ -181,7 +181,7 @@ In production systems, this is far more powerful than console logging alone.
 
 ## Automatic SDK Error Telemetry (Server + Client Side)
 
-Wingify FE SDKs automatically send ERROR-level logs to Wingify servers across:
+Wingify FM SDKs automatically send ERROR-level logs to Wingify servers across:
 
 * Server-side SDKs
 * JavaScript / React SDK
@@ -313,7 +313,7 @@ After enabling logs:
 
 * Open Wingify Application
 * Navigate to `Website and Apps` under `Configurations` section from the left navbar
-* Select the Feature Experimentation Default Project and switch to `Logs` tab
+* Select the Feature Management Default Project and switch to `Logs` tab
 * Filter by environment
 * Inspect error category
 

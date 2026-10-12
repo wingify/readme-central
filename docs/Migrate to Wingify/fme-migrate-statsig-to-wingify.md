@@ -12,7 +12,7 @@ metadata:
   <strong>Note:</strong> The Statsig to Wingify Migration Assistant is currently in Beta. Review all migrated output before enabling anything in production.
 </Callout>
 
-Migrate your feature setup from Statsig to Wingify using FE MCP Server with a single prompt. The assistant migrates your Statsig configuration to Wingify FE and makes the required code changes to use Wingify FE SDKs.
+Migrate your feature setup from Statsig to Wingify using FM MCP Server with a single prompt. The assistant migrates your Statsig configuration to Wingify FM and makes the required code changes to use Wingify FM SDKs.
 
 ## **Prerequisites**
 
@@ -21,35 +21,35 @@ Confirm the following before starting the migration.
 #### Access and accounts
 
 - Active Statsig project with the gates, configs, and experiments you plan to migrate
-- Active Wingify account with Feature Experimentation enabled
+- Active Wingify account with Feature Management enabled
 
 #### Workspace setup
 
-- MCP compatible IDE with the Wingify FE MCP server installed — [see the MCP Server setup guide](https://developers.wingify.com/v3/docs/fme-mcp-server)
+- MCP compatible IDE with the Wingify FM MCP server installed — [see the MCP Server setup guide](https://developers.wingify.com/v3/docs/fme-mcp-server)
 
 ## Migration flow
 
-1. **[Check prerequisites](#step-1-check-prerequisites-and-configure-migration-credentials)**<br />Confirm your Statsig project, Wingify FE account, and IDE setup listed above
-2. **[Add the Wingify FE MCP Server](#step-2-add-the-wingify-fe-mcp-server)**<br />[Add the Wingify FE MCP](https://developers.wingify.com/v3/docs/fme-mcp-server) server to your IDE and configure credentials
+1. **[Check prerequisites](#step-1-check-prerequisites-and-configure-migration-credentials)**<br />Confirm your Statsig project, Wingify FM account, and IDE setup listed above
+2. **[Add the Wingify FM MCP Server](#step-2-add-the-wingify-fe-mcp-server)**<br />[Add the Wingify FM MCP](https://developers.wingify.com/v3/docs/fme-mcp-server) server to your IDE and configure credentials
 3. **[Run the migration prompt](#step-3-run-the-migration)**<br />Something like _migrate my project from Statsig to Wingify_
 4. [**Verify the migrated output**](#step-4-verify-the-migrated-output)<br />Confirm feature flags, rollout, testing and personalize rules were created correctly, and review the SDK code changes made by the Assistant
 5. **[Enable and go live](#step-5-enable-and-go-live)**<br />Turn on the newly created, migrated flags in Wingify, validate it and then you are good to go
 
-## How Wingify FE differs from Statsig
+## How Wingify FM differs from Statsig
 
-Statsig and Wingify Feature Experimentation both help you roll out features, personalize experiences, and run experiments, but they organize the work differently.
+Statsig and Wingify Feature Management both help you roll out features, personalize experiences, and run experiments, but they organize the work differently.
 
 Statsig offers feature gates, dynamic configs, and experiments.
 
-Wingify FE one concept: the **feature flag**. You attach different rule types (like Rollout, Testing, Personalize, Multivariate) to a feature flag depending on the usecase.
+Wingify FM one concept: the **feature flag**. You attach different rule types (like Rollout, Testing, Personalize, Multivariate) to a feature flag depending on the usecase.
 
-Everything in Statsig maps to FE as a feature flag with a rule. A gate becomes a flag with a rollout rule. A dynamic config becomes a flag with variables, served through rollout, testing or personalize rules. An experiment becomes a flag with a testing rule.
+Everything in Statsig maps to FM as a feature flag with a rule. A gate becomes a flag with a rollout rule. A dynamic config becomes a flag with variables, served through rollout, testing or personalize rules. An experiment becomes a flag with a testing rule.
 
-After migration, three separate SDK calls in Statsig are replaced by a single call in FE: `getFlag()`
+After migration, three separate SDK calls in Statsig are replaced by a single call in FM: `getFlag()`
 
 ## Equivalent Features
 
-| What it does              | In Statsig     | In Wingify FE                                   |
+| What it does              | In Statsig     | In Wingify FM                                   |
 | ------------------------- | -------------- | ----------------------------------------------- |
 | Turn a feature on or off  | Feature Gate   | Feature Flag + Rollout Rule                     |
 | Control settings remotely | Dynamic Config | Feature Flag + Rollout/Testing/Personalize Rule |
@@ -57,7 +57,7 @@ After migration, three separate SDK calls in Statsig are replaced by a single ca
 
 ## SDK call comparison
 
-| Area       | Statsig                                     | Wingify FE                                                     |
+| Area       | Statsig                                     | Wingify FM                                                     |
 | ---------- | ------------------------------------------- | -------------------------------------------------------------- |
 | Init       | `StatsigClient` + `initializeAsync()`       | `init({ accountId, sdkKey })`                                  |
 | Gate check | `getFeatureGate(key).value` sync            | `await getFlag(key, ctx)` → `isEnabled()` async                |
@@ -67,17 +67,17 @@ After migration, three separate SDK calls in Statsig are replaced by a single ca
 
 ## Variables vs. variation names
 
-In Statsig, experiment code often branches on a variation name (`groupName`). In FE, you read variables instead. The variation name is not used for branching logic. If you need a label for logging, expose it as a string variable
+In Statsig, experiment code often branches on a variation name (`groupName`). In FM, you read variables instead. The variation name is not used for branching logic. If you need a label for logging, expose it as a string variable
 
 ## Environment model
 
-| Aspect               | Statsig                                            | Wingify FE                                                                                                                 |
+| Aspect               | Statsig                                            | Wingify FM                                                                                                                 |
 | -------------------- | -------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | SDK key              | One key + optional environment tier set in code    | One SDK key per environment; the key determines the environment                                                            |
 | Default environments | Development, Staging, Production built in          | Default environments (Dev, Staging, Prod) provided out of the box; additional environments can be defined within a project |
 | Rule targeting       | Rules can be scoped to a specific environment tier | Rules are toggled independently per environment                                                                            |
 
-## Migrate with the FE MCP Server
+## Migrate with the FM MCP Server
 
 The MCP server handles configuration import and code rewrite in one workflow.
 
@@ -90,7 +90,7 @@ The MCP server handles configuration import and code rewrite in one workflow.
 
 ### Code rewrite
 
-- Replaces Statsig SDK imports with the Wingify FE SDK imports
+- Replaces Statsig SDK imports with the Wingify FM SDK imports
 - Refactors `getFeatureGate()`, `getDynamicConfig()`, and `getExperiment()` to `getFlag()`
 - Replaces `logEvent()` with `trackEvent()`
 - Updates SDK initialization logic
@@ -119,9 +119,9 @@ Three values are configured in the MCP server block.
 | `WINGIFY_API_KEY`         | [Wingify Developer Token](https://help.vwo.com/hc/en-us/articles/360020559993-How-to-Access-VWO-API), used  to create flags |
 | `STATSIG_CONSOLE_API_KEY` | Statsig Console API key to read existing gates, configs, and experiments                                                    |
 
-## Step 2: Add the Wingify FE MCP Server
+## Step 2: Add the Wingify FM MCP Server
 
-Add the [Wingify FE MCP Server](https://developers.wingify.com/v3/docs/fme-mcp-server) to your IDE and configure it with the credentials from Step 1
+Add the [Wingify FM MCP Server](https://developers.wingify.com/v3/docs/fme-mcp-server) to your IDE and configure it with the credentials from Step 1
 
 ## Step 3: Run the migration prompt
 
@@ -167,7 +167,7 @@ When the migration completes, the assistant returns a consolidated migration sum
 
 ### Review the migrated code
 
-- A valid Wingify accountId and FE SDK environment key are used in SDK initialization
+- A valid Wingify accountId and FM SDK environment key are used in SDK initialization
 - Statsig SDK imports and calls have been fully replaced (getFlag(), trackEvent())
 - No branching logic remains on variation names — code reads flag variables instead
 
@@ -241,13 +241,13 @@ When the migration completes, the assistant returns a consolidated migration sum
 </Accordion>
 
 <Accordion title="Will my users be re-bucketed? Will running experiments be disrupted?">
-  Yes. Statsig and Wingify FE use different deterministic bucketing algorithms, so the same user ID may land in a different variation after migration.
+  Yes. Statsig and Wingify FM use different deterministic bucketing algorithms, so the same user ID may land in a different variation after migration.
 
-  For feature gates and rollouts, this is usually harmless. For running experiments, do not carry results across platforms. Either conclude the experiment in Statsig before migrating, or restart it fresh in Wingify FE. Experiment results and historical data do not migrate.
+  For feature gates and rollouts, this is usually harmless. For running experiments, do not carry results across platforms. Either conclude the experiment in Statsig before migrating, or restart it fresh in Wingify FM. Experiment results and historical data do not migrate.
 </Accordion>
 
 <Accordion title="Which SDKs does the code rewrite support?">
-  The assistant rewrites application code for languages that have a Wingify FE SDK equivalent to your Statsig SDK.
+  The assistant rewrites application code for languages that have a Wingify FM SDK equivalent to your Statsig SDK.
 
   The supported languages are: Android, iOS, React-Native, Flutter, Go, Java, Javascript, NextJS, Node, PHP, Python, React-Web, Ruby, .NET
 

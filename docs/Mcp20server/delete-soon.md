@@ -5,13 +5,13 @@ hidden: true
 metadata:
   robots: index
 ---
-Web Testing as Pre-Seg
+Web Experimentation as Pre-Seg
 
 ```mermaid
 flowchart TD
   subgraph Dashboard["VWO dashboard"]
     A["Configure a feature segmentation rule"]
-    B["Target or exclude a Web Testing campaign"]
+    B["Target or exclude a Web Experimentation campaign"]
     A --> B
   end
 

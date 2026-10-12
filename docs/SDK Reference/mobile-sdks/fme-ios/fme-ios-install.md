@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-You can integrate the FE iOS SDK into your application using either **CocoaPods** or **Swift Package Manager** (SPM).
+You can integrate the FM iOS SDK into your application using either **CocoaPods** or **Swift Package Manager** (SPM).
 
 ## CocoaPods
 
@@ -48,4 +48,4 @@ The SDK is compatible with the following Apple platforms and minimum OS versions
 | :------- | :--------------------------------------------------------------------------------------- |
 | Swift    | [https://github.com/wingify/vwo-fme-ios-sdk](https://github.com/wingify/vwo-fme-ios-sdk) |
 
-The FE SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2026.
+The FM SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2026.

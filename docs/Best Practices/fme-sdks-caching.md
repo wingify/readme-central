@@ -7,7 +7,7 @@ metadata:
 ---
 ## Overview
 
-A robust caching layer can significantly improve response times and reduce load on Wingify servers by storing and reusing fetched settings at the edge or within your application’s storage. Wingify FE SDKs support a variety of caching strategies, both at your infrastructure edge (e.g., Cloudflare Workers, AWS Lambda\@Edge) and within application-local storage (client‑side mobile and browser SDKs). This document details available options, behavior, and configuration.
+A robust caching layer can significantly improve response times and reduce load on Wingify servers by storing and reusing fetched settings at the edge or within your application’s storage. Wingify FM SDKs support a variety of caching strategies, both at your infrastructure edge (e.g., Cloudflare Workers, AWS Lambda\@Edge) and within application-local storage (client‑side mobile and browser SDKs). This document details available options, behavior, and configuration.
 
 <br />
 
@@ -150,7 +150,7 @@ const wingifyClient = init({
 
 ## 4. Polling & Webhooks
 
-When using caching with Wingify FE SDKs, it's essential to ensure that cached settings stay up-to-date with the latest configurations made in the Wingify app. While caching improves performance and reduces network calls, it introduces the risk of stale data, especially in dynamic environments where flags, variables, or campaigns are updated frequently.
+When using caching with Wingify FM SDKs, it's essential to ensure that cached settings stay up-to-date with the latest configurations made in the Wingify app. While caching improves performance and reduces network calls, it introduces the risk of stale data, especially in dynamic environments where flags, variables, or campaigns are updated frequently.
 
 To address this, Wingify provides two mechanisms: Polling and Webhooks.
 

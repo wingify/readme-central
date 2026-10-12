@@ -1,6 +1,6 @@
 ---
 title: Conversion Tracking Across Platforms
-excerpt: Conversion Tracking Across Feature Experimentation and Web Testing
+excerpt: Conversion Tracking Across Feature Management and Web Experimentation
 deprecated: false
 hidden: false
 metadata:
@@ -17,18 +17,18 @@ Conversion tracking in a connected Wingify architecture relies on one fundamenta
 
 If identity is consistent across client and server layers, conversions can be attributed accurately across:
 
-* Feature Experimentation (FE)
-* Wingify Web Testing
-* Wingify Web Insights
+* Feature Management (FM)
+* Wingify Web Experimentation
+* Wingify Behavior Analytics
 * Offline systems (CRM, POS, backend billing, etc.)
 
-This section explains how conversion tracking works in both FE-first and Client-first architectures, and how offline conversions fit into the model.
+This section explains how conversion tracking works in both FM-first and Client-first architectures, and how offline conversions fit into the model.
 
 ### Conceptual Flow of a Connected Conversion
 
 Let’s start with a simple system-level example:
 
-1. FE SDK evaluates the user.
+1. FM SDK evaluates the user.
 2. Server renders content based on flag decision.
 3. Browser loads page (SmartCode may also evaluate visual experiments).
 4. User clicks a “Buy Now” button.
@@ -37,7 +37,7 @@ Let’s start with a simple system-level example:
 
 If UUID continuity is maintained, attribution works across products.
 
-### FE-First Conversion Flow
+### FM-First Conversion Flow
 
 This flow is common in:
 
@@ -48,8 +48,8 @@ This flow is common in:
 #### Identity and Rendering
 
 1. User request hits the server.
-2. FE SDK evaluates the feature flag.
-3. FE SDK generates (or reuses) a UUID.
+2. FM SDK evaluates the feature flag.
+3. FM SDK generates (or reuses) a UUID.
 4. Server sets UUID in cookie.
 5. Client-side renders UI using this UUID.
 
@@ -57,13 +57,13 @@ This flow is common in:
 sequenceDiagram
     participant User
     participant Server
-    participant FE_SDK as Wingify FE SDK
+    participant FM_SDK as Wingify FM SDK
     participant Browser
 
     User->>Server: 1. HTTP request
-    Server->>FE_SDK: 2. Evaluate feature flag
-    FE_SDK->>FE_SDK: 3. Generate or reuse UUID
-    FE_SDK-->>Server: Return decision + UUID
+    Server->>FM_SDK: 2. Evaluate feature flag
+    FM_SDK->>FM_SDK: 3. Generate or reuse UUID
+    FM_SDK-->>Server: Return decision + UUID
     Server->>Browser: 4. Response (Set UUID cookie)
     Browser->>Browser: 5. Render UI using UUID
 
@@ -92,8 +92,8 @@ This flow is common in:
 4. UI renders.
 5. User action triggers a server call.
 6. Server reads UUID from cookie.
-7. Server passes UUID into FE SDK.
-8. FE evaluates the user based on the client-generated UUID.
+7. Server passes UUID into FM SDK.
+8. FM evaluates the user based on the client-generated UUID.
 
 ```mermaid
 sequenceDiagram
@@ -101,7 +101,7 @@ sequenceDiagram
     participant Browser
     participant SmartCode
     participant Server
-    participant FE_SDK as Wingify FE SDK
+    participant FM_SDK as Wingify FM SDK
 
     User->>Browser: Visit page
     Browser->>SmartCode: 1. Load SmartCode
@@ -112,9 +112,9 @@ sequenceDiagram
     User->>Browser: 5. Trigger action
     Browser->>Server: Request (UUID cookie)
     Server->>Server: 6. Read UUID
-    Server->>FE_SDK: 7. Evaluate using UUID
-    FE_SDK->>FE_SDK: 8. Evaluate user (reuse UUID)
-    FE_SDK-->>Server: Evaluation result
+    Server->>FM_SDK: 7. Evaluate using UUID
+    FM_SDK->>FM_SDK: 8. Evaluate user (reuse UUID)
+    FM_SDK-->>Server: Evaluation result
 
 ```
 
@@ -129,11 +129,11 @@ Now, assume a button click occurs.
 
 There are three supported ways to track the conversion:
 
-1. Client-Side Custom Event API (Web Testing)
-2. Method 2: FE SDK `trackEvent` API
+1. Client-Side Custom Event API (Web Experimentation)
+2. Method 2: FM SDK `trackEvent` API
 3. Offline Conversion Tracking
 
-#### Method 1: Client-Side Custom Event API (Web Testing)
+#### Method 1: Client-Side Custom Event API (Web Experimentation)
 
 Conversion is triggered via SmartCode custom event API on the webpage.
 
@@ -157,13 +157,13 @@ Use this when:
 
 * Conversion is purely UI-driven
 * Marketing or CRO teams manage events
-* You want conversion tracked within Web Testing
+* You want conversion tracked within Web Experimentation
 
 Since SmartCode is already using the UUID from cookie, attribution remains consistent.
 
-#### Method 2: FE SDK trackEvent API
+#### Method 2: FM SDK trackEvent API
 
-Conversion is tracked server-side using FE SDK.
+Conversion is tracked server-side using FM SDK.
 
 Example (Node.js):
 
@@ -177,7 +177,7 @@ Use this when:
 
 * Conversion is backend-confirmed (e.g., payment success)
 * You want authoritative server validation
-* You want conversion tied directly to FE experiment logic
+* You want conversion tied directly to FM experiment logic
 
 Because the same UUID is passed, attribution aligns with earlier bucketing.
 
@@ -210,7 +210,7 @@ This enables:
 * Revenue mapping across touchpoints
 
 <Callout icon="📘" theme="info">
-  Note: As long as the UUID matches the one used during evaluation, attribution remains accurate across FE and Web Testing.
+  Note: As long as the UUID matches the one used during evaluation, attribution remains accurate across FM and Web Experimentation.
 </Callout>
 
 ### Conversion Flow Architecture Diagram
@@ -223,7 +223,7 @@ sequenceDiagram
     participant Browser
     participant SmartCode
     participant Server
-    participant FE_SDK as Wingify FE SDK
+    participant FM_SDK as Wingify FM SDK
     participant Wingify
     participant Data360 as Offline System
 
@@ -232,23 +232,23 @@ sequenceDiagram
     SmartCode->>Browser: Generate/Read UUID (cookie)
 
     Browser->>Server: Request (UUID cookie sent)
-    Server->>FE_SDK: Evaluate flag using UUID
-    FE_SDK->>Wingify: Fetch config & evaluate
-    Wingify-->>FE_SDK: Decision
-    FE_SDK-->>Server: Variation decision
+    Server->>FM_SDK: Evaluate flag using UUID
+    FM_SDK->>Wingify: Fetch config & evaluate
+    Wingify-->>FM_SDK: Decision
+    FM_SDK-->>Server: Variation decision
 
     User->>Browser: Click "Buy Now"
 
     alt Client-side conversion
         SmartCode->>Wingify: track.customEvent(UUID)
     else Server-side conversion
-        Server->>FE_SDK: trackEvent(UUID)
-        FE_SDK->>Wingify: Send conversion event
+        Server->>FM_SDK: trackEvent(UUID)
+        FM_SDK->>Wingify: Send conversion event
     else Offline conversion
         Data360->>Wingify: Push conversion(UUID)
     end
 
-    Note over SmartCode,FE_SDK: Same UUID ensures correct attribution
+    Note over SmartCode,FM_SDK: Same UUID ensures correct attribution
 ```
 
 ### Critical Requirement: Conversion After Identity Sync
@@ -259,6 +259,6 @@ If conversion fires:
 
 * Before the UUID is shared,
 * Or before the server reuses the client UUID,
-* Or before FE SDK evaluation uses the correct identity,
+* Or before FM SDK evaluation uses the correct identity,
 
 Then attribution may fragment.

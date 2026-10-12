@@ -12,7 +12,7 @@ next:
 ---
 ## .NET SDK Installation
 
-To integrate Wingify FE SDK into your .NET application, you must first install the SDK through a Python package manager. Wingify .NET SDK can be installed using NuGet Package Manager [NuGet](https://www.nuget.org/packages/Wingify.FME.Sdk).
+To integrate Wingify FM SDK into your .NET application, you must first install the SDK through a Python package manager. Wingify .NET SDK can be installed using NuGet Package Manager [NuGet](https://www.nuget.org/packages/Wingify.FME.Sdk).
 
 ## Requirements
 
@@ -22,7 +22,7 @@ To integrate Wingify FE SDK into your .NET application, you must first install t
 >
 > Compatible with .NET Core, .NET Framework, and .NET 5+
 
-To integrate the FE .NET SDK into your application, run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
+To integrate the FM .NET SDK into your application, run the following command through the command line. Make sure you run this command in the correct directory where your app resides.
 
 ```javascript Shell
 ## Using .NET CLI
@@ -38,4 +38,4 @@ PM> Install-Package Wingify.FME.Sdk
 | :------- | :--------------------------------------------------------------------------------------------- |
 | .NET     | [https://github.com/wingify/vwo-fme-dotnet-sdk](https://github.com/wingify/vwo-fme-dotnet-sdk) |
 
-The FE SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2026.
+The FM SDK code is available in various languages on GitHub. All the SDKs published under Wingify Organization on GitHub are licensed under Apache 2.0 License (c) Wingify Pvt. Ltd. 2024-2026.

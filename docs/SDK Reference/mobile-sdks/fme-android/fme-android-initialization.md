@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-To create a Wingify Client instance, you need to initialize the Wingify FE Android SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
+To create a Wingify Client instance, you need to initialize the Wingify FM Android SDK. This client instance serves as the core interface for conducting Feature Management(A/B and personalization) within your application.
 
 ## Usage
 
@@ -134,7 +134,7 @@ Please click [here](https://developers.wingify.com/v3/docs/fme-android-logging) 
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
+Wingify FM SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```kotlin
 val wingifyInitOptions = WingifyInitOptions()

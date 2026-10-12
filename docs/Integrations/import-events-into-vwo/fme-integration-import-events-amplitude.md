@@ -78,9 +78,9 @@ To enable the-Amplitude integration on your Wingify account, follow this:
 
 ## **Step 5 - SDK Setup (Node.js Example)**
 
-### **5.1 Install and Initialize the Wingify FE SDK**
+### **5.1 Install and Initialize the Wingify FM SDK**
 
-Install the official Wingify FE Node SDK:
+Install the official Wingify FM Node SDK:
 
 ```
 npm install wingify-fme-node-sdk
@@ -114,7 +114,7 @@ Once your Amplitude segments are imported into, configure **pre-segmentation** i
 
 ### **Configure Pre-Segmentation in the Feature Flag**
 
-1. Navigate to **Feature Experimentation → Feature Flags** in Wingify.
+1. Navigate to **Feature Management → Feature Flags** in Wingify.
 
 2. Click **Create Feature Flag** (or open an existing one).
 

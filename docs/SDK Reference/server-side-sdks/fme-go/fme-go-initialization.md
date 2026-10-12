@@ -10,7 +10,7 @@ next:
       title: User Context
       type: basic
 ---
-To create a Wingify Client instance, you need to initialize the Wingify FE Go SDK. This client instance serves as the core interface for conducting Feature Experimentation(A/B and personalization) within your application.
+To create a Wingify Client instance, you need to initialize the Wingify FM Go SDK. This client instance serves as the core interface for conducting Feature Management(A/B and personalization) within your application.
 
 ## Usage
 
@@ -147,7 +147,7 @@ The `Init` function is called with the `sdkKey`and `accountId`. It initializes a
       </td>
 
       <td>
-        If using the [FE Gateway Service](https://developers.wingify.com/v3/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
+        If using the [FM Gateway Service](https://developers.wingify.com/v3/docs/gateway-service), this object will specify the location and port of where the gateway service is deployed on your servers.
       </td>
     </tr>
 
@@ -251,7 +251,7 @@ Please click [here](https://developers.wingify.com/v3/docs/fme-go-storage)  to l
 
 ### Gateway Service
 
-The Wingify FE Gateway Service enhances Feature Experimentation (FE) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gatewayService parameter during initialization.
+The Wingify FM Gateway Service enhances Feature Management (FM) SDKs by enabling pre-segmentation based on user location and user agent. It ensures minimal latency and improved security. The service can be customized via the gatewayService parameter during initialization.
 
 ```go
 options := map[string]interface{}{
@@ -269,7 +269,7 @@ Please click [here](https://developers.wingify.com/v3/docs/gateway-service)  to 
 
 ### Integrations
 
-Wingify FE SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
+Wingify FM SDKs provide seamless integration with third-party tools like analytics platforms, monitoring services, customer data platforms (CDPs), and messaging systems. This is achieved through a simple yet powerful callback mechanism that receives Wingify-specific properties and can forward them to any third-party tool of your choice.
 
 ```go
 options := map[string]interface{}{

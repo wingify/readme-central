@@ -8,7 +8,7 @@ metadata:
 ---
 ## Overview
 
-This guide explains how to integrate **Wingify Feature Experimentation** with **Google Tag Manager (GTM)** to trigger custom tracking events, without requiring client-side SDK initialization.
+This guide explains how to integrate **Wingify Feature Management** with **Google Tag Manager (GTM)** to trigger custom tracking events, without requiring client-side SDK initialization.
 
 By following this flow, you can:
 
@@ -20,7 +20,7 @@ By following this flow, you can:
 
 ### Step 1 — Install the Wingify SDK
 
-Install the official Wingify Feature Experimentation SDK in your backend:
+Install the official Wingify Feature Management SDK in your backend:
 
 ```shell
 npm install wingify-fme-node-sdk

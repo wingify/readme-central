@@ -14,7 +14,7 @@ next:
       slug: fme-go-variables
       title: Variables
 ---
-Feature flags are at the core of's Feature Experimentation capabilities. They allow you to control feature rollouts and conduct experiments.
+Feature flags are at the core of's Feature Management capabilities. They allow you to control feature rollouts and conduct experiments.
 
 ## GetFlag()
 

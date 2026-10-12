@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The **Wingify FE Tech Debt Client** is a tool that analyzes your Wingify flags usage and provides recommendations based on the source code in your project. This application is configurable using command-line arguments.
+The **Wingify FM Tech Debt Client** is a tool that analyzes your Wingify flags usage and provides recommendations based on the source code in your project. This application is configurable using command-line arguments.
 
 ## Features
 

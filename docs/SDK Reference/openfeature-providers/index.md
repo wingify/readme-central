@@ -18,7 +18,7 @@ OpenFeature is an open standard that provides a unified, vendor-agnostic API for
 
 <br />
 
-## Wingify FE supports the following OpenFeature providers
+## Wingify FM supports the following OpenFeature providers
 
 Click on the cards below to view the OpenFeature provider documentation for your chosen programming language.
 
@@ -50,7 +50,7 @@ Click on the cards below to view the OpenFeature provider documentation for your
 
 ***
 
-You can also explore our OpenFeature-compliant providers, officially listed in the [OpenFeature Ecosystem](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo). These providers enable seamless integration with the Wingify Feature Experimentation (FE) product and are designed to support a variety of platforms and deployment needs.
+You can also explore our OpenFeature-compliant providers, officially listed in the [OpenFeature Ecosystem](https://openfeature.dev/ecosystem?instant_search%5Bquery%5D=vwo). These providers enable seamless integration with the Wingify Feature Management (FM) product and are designed to support a variety of platforms and deployment needs.
 
 
 <Image src="https://files.readme.io/7307ca6b7ab53499aadba7d9cc634eff5b38c45fb4f082ba255ee61c05cd3d9a-Screenshot_2025-11-07_at_6.25.18_PM.png" align="center" border={true} />
@@ -85,6 +85,6 @@ We’re excited to be listed on the [OpenFeature Support Page](https://openfeatu
 
 This recognition highlights our commitment to supporting the OpenFeature standard and contributing to a more unified feature flag ecosystem.
 
-As part of our offering, we provide multiple OpenFeature-compliant providers tailored to different use cases and environments. Whether you're looking to integrate feature flags into a backend application or need advanced targeting through our Feature Experimentation(FE) product, we’ve got you covered.
+As part of our offering, we provide multiple OpenFeature-compliant providers tailored to different use cases and environments. Whether you're looking to integrate feature flags into a backend application or need advanced targeting through our Feature Management(FM) product, we’ve got you covered.
 
 We’re proud to support the OpenFeature community and look forward to continued collaboration to make feature flagging more powerful, flexible, and developer-friendly.

@@ -12,7 +12,7 @@ next:
 ---
 A **feature flag** is a tool that allows teams to control the visibility and behavior of features without deploying new code. It enables **dynamic feature rollouts**, targeted testing, and quick rollbacks if needed.
 
-Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FE. To implement a feature flag, first use the ge&#x74;_&#x66;lag() method to retrieve the flag configuration. The_get_flag()_ method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like _is_enabled()_ for checking the feature's status and _get_variable()_ for retrieving any associated variable(s).
+Feature Flags serve as the foundation for all testing, personalization, and rollout rules within FM. To implement a feature flag, first use the ge&#x74;_&#x66;lag() method to retrieve the flag configuration. The_get_flag()_ method provides a simple way to check if a feature is enabled for a specific user and access its variables. It returns an object that contains methods like _is_enabled()_ for checking the feature's status and _get_variable()_ for retrieving any associated variable(s).
 
 **Key Benefits:**
 
@@ -41,7 +41,7 @@ The returned flag object allows you to:
 
 ## **_Get Flag_** API
 
-This API connects the application to Wingify’s feature experimentation system to determine:
+This API connects the application to Wingify’s Feature Management system to determine:
 
 - Whether a feature should be active for a specific user.
 - What configuration or variation of the feature should be presented to that user.

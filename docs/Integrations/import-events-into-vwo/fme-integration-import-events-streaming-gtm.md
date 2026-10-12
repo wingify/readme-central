@@ -47,9 +47,9 @@ Upon successful import, you can use the Wingify Event Streamer template to strea
 
 ## &#x20;**Configure the Wingify Template Settings:**
 
-### **Send Events for Feature Experimentation using Offline Conversions** (Optional)
+### **Send Events for Feature Management using Offline Conversions** (Optional)
 
-Enables sending events for Feature experimentation (FE) using Offline Conversions. When this option is checked, the GTM tag sends the events to Wingify as Offline Conversions.
+Enables sending events for Feature Management (FM) using Offline Conversions. When this option is checked, the GTM tag sends the events to Wingify as Offline Conversions.
 
 * **Account ID:** Your Wingify Account ID
 * **Region:** Region, US (default)
@@ -121,7 +121,7 @@ Wingify se this section to block specific data from being sent to
 
    <Image align="center" border={true} width="600px" src="https://files.readme.io/139f37e0e973f60c21ecec316253a60e6c9ffd95faa8971f0e08088cd1352354-image9.png" className="border" />
 
-## **Configuring the Wingify UUID Variable (Only required for FE)**
+## **Configuring the Wingify UUID Variable (Only required for FM)**
 
 1. Navigate to the “Variables” tab in the GTM workspace.
 2. Click on “New” to create a new variable.
@@ -184,7 +184,7 @@ By default, GTM is set up to access events from your datalayer variable named 'd
 
 ## **Technical Details**
 
-* **SmartCode Dependency:** When the “Feature experimentation” option is OFF, this tag relies on Wingify SmartCode running on the page.
+* **SmartCode Dependency:** When the “Feature Management” option is OFF, this tag relies on Wingify SmartCode running on the page.
 * **Via Offline Conversion:** When ON, the tag pushes data independently of SmartCode. A valid Wingify Visitor ID is required.
 
 ## Recommended Best Practices

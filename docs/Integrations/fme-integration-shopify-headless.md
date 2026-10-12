@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-# Integrating Wingify FE SDK with Shopify Headless (Hydrogen + Oxygen)
+# Integrating Wingify FM SDK with Shopify Headless (Hydrogen + Oxygen)
 
 <br />
 
@@ -19,7 +19,7 @@ To run **experiments and feature flags** reliably in this architecture, we need 
 * Hydrate in the **browser**
 * Run at the **Edge** if available
 
-The Wingify FE SDK — available at [GitHub](https://github.com/wingify/vwo-fme-node-sdk)  — supports **Node.js, browser, and Edge**, making it ideal.
+The Wingify FM SDK — available at [GitHub](https://github.com/wingify/vwo-fme-node-sdk)  — supports **Node.js, browser, and Edge**, making it ideal.
 
 <br />
 
@@ -39,7 +39,7 @@ Always determine feature flags and experiment variations **before sending the HT
 
 <br />
 
-## Why Wingify FE SDK for Headless Shopify
+## Why Wingify FM SDK for Headless Shopify
 
 * Multi-environment compatibility: Node, Browser, Edge
 * Unified API for feature flags & experiments
@@ -64,13 +64,13 @@ This means:
 
 ## Hydrogen + Oxygen Compatibility
 
-| Environment          | Can run Wingify FE SDK? | Notes                                |
+| Environment          | Can run Wingify FM SDK? | Notes                                |
 | -------------------- | ------------------- | ------------------------------------ |
 | Node.js Server (SSR) | ✅                   | Works normally                       |
 | Oxygen Edge          | ⚠️                  | Must await async tracking            |
 | Browser JS           | ⚠️                  | SDK key exposed (use read-only keys) |
 
-Wingify's FE SDK is Edge compatible, so we can initialize it server-side during Remix loader execution.
+Wingify's FM SDK is Edge compatible, so we can initialize it server-side during Remix loader execution.
 
 ## Step-by-Step Integration
 
@@ -106,7 +106,7 @@ WINGIFY_SDK_CLIENT_KEY=your_browser_key
 Hydrogen uses Remix loaders to fetch data before rendering.
 In this step:
 
-* We initialize Wingify FE SDK in the **Hydrogen loader**
+* We initialize Wingify FM SDK in the **Hydrogen loader**
 * We fetch **experiment assignment**
 * We return data for the React UI
 
@@ -208,7 +208,7 @@ Use **client SDK keys** for browser embeds, which are read-only and safe (but vi
 
 ## Edge Usage (Oxygen)
 
-Oxygen behaves like Edge (Cloudflare Workers). The FE SDK works there because:
+Oxygen behaves like Edge (Cloudflare Workers). The FM SDK works there because:
 
 * It uses the browser-fetch API
 * Doesn’t rely on Node native modules
@@ -220,7 +220,7 @@ To ensure tracking completes, you must provide **edgeConfig** in init options an
 ```typescript
 import { init } from "wingify-fme-node-sdk";
 
-// CRITICAL: provide edgeConfig in init options 
+// CRITICAL: provide edgeConfig in init options
 export async function createWingifyClient() {
   const wingifyClient = await init({
     accountId: process.env.WINGIFY_ACCOUNT_ID,
@@ -334,7 +334,7 @@ Should I run SDK initialization on every request?
 
 Not necessarily — and you shouldn’t if you can avoid it.
 
-Wingify FE SDKs support initialising the SDK using already-fetched or cached settings. When you pass pre-fetched settings during initialization:
+Wingify FM SDKs support initialising the SDK using already-fetched or cached settings. When you pass pre-fetched settings during initialization:
 
 * ❌ No network call is required during init
 * ⚡ Decisioning happens immediately and synchronously
@@ -364,7 +364,7 @@ This ensures:
 
 ## Conclusion
 
-Integrating **Wingify FE SDK with Shopify Headless** (Hydrogen + Oxygen) gives you:
+Integrating **Wingify FM SDK with Shopify Headless** (Hydrogen + Oxygen) gives you:
 
 * Consistent SSR feature flag evaluation
 * Fast UX with server-rendered variant decisions
