@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-      implementation 'com.vwo:insights:2.6.1'
+      implementation 'com.vwo:insights:2.6.2'
 }
 ```
 
@@ -29,5 +29,3 @@ Add the following permissions to your _AndroidManifest.xml_ file
 
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 ```
-
-<br />
