@@ -1,6 +1,6 @@
 ---
 title: Introduction
-excerpt: Latest version is v2.6.1^
+excerpt: Latest version is v2.6.x^
 deprecated: false
 hidden: false
 metadata:
