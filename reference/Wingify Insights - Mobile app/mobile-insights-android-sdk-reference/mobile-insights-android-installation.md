@@ -1,6 +1,6 @@
 ---
 title: Installation
-excerpt: ''
+excerpt: Latest SDK version - 2.6.2
 deprecated: false
 hidden: false
 metadata:
@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-      implementation 'com.wingify:insights:2.6.1'
+      implementation 'com.wingify:insights:2.6.2'
 }
 ```
 
