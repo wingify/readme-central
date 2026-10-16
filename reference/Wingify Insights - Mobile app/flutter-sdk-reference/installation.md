@@ -1,6 +1,6 @@
 ---
 title: Installation
-excerpt: Latest SDK version is 2.6.2
+excerpt: Latest SDK version - 2.7.0
 deprecated: false
 hidden: false
 link:
