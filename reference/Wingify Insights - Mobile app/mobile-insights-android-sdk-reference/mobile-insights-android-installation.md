@@ -1,6 +1,6 @@
 ---
 title: Installation
-excerpt: Latest SDK version - 2.6.2
+excerpt: Latest SDK version - 2.7.0
 deprecated: false
 hidden: false
 metadata:
@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-      implementation 'com.vwo:insights:2.6.2'
+      implementation 'com.vwo:insights:2.7.0'
 }
 ```
 
