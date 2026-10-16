@@ -1,6 +1,6 @@
 ---
 title: Installation
-excerpt: Latest SDK version - 2.6.1
+excerpt: Latest SDK version - 2.7.0
 deprecated: false
 hidden: false
 metadata:
@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-The latest SDK version for IOS is **2.6.1** and you can view the changelog [here](https://github.com/wingify/ios-mobile-insights-artifacts/blob/main/CHANGELOG.md?plain=1).
+The latest SDK version for IOS is **2.7.0** and you can view the changelog [here](https://github.com/wingify/ios-mobile-insights-artifacts/blob/main/CHANGELOG.md?plain=1).
 
 <br />
 
@@ -49,5 +49,3 @@ Run the `pod install` command.
 
   This change simplifies the setup process and eliminates the need for this manual configuration. Please ensure you're using the latest version of the SDK for the best experience.
 </Callout>
-
-<br />
