@@ -182,18 +182,21 @@ async function main() {
   await wingifyClient.trackEvent('event_name', userContext);
 
   // IMPORTANT: Flush events before function exits
-  await wingifyClient.flushEvents();
-}
+  awa wingifyClient.flushEvents();
+
 
 main();
 ```
 
-### Code Breakdown
+### `Code Breakdown `
 
-* **init({'{'} edgeConfig: {'{'} shouldWaitForTrackingCalls: true {'}'} {'}'})**: Configures the SDK for edge environments.
-* **getFlag, trackEvent, and setAttribute**: These methods return much faster when using `edgeConfig`.
-* **flushEvents()**: **Required** - Call this at the end of your function to send all tracking events.
-* **Graceful fallback for variables**: Always provide a default value to getVariable() to handle missing configurations.
+<br />
+
+* `` `init({..., edgeConfig:  ``{ shouldWaitForTrackingCalls: true }`})`: Configures the SDK for edge environments.
+
+- **getFlag, trackEvent, and setAttribute**: These methods return much faster when using `edgeConfig`.
+- **flushEvents()**: **Required** - Call this at the end of your function to send all tracking events.
+- **Graceful fallback for variables**: Always provide a default value to getVariable() to handle missing configurations.
 
 <br />
 
