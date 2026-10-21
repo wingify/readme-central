@@ -192,7 +192,16 @@ main();
 
 <br />
 
-* `` `init({..., edgeConfig:  ``{ shouldWaitForTrackingCalls: true }`})`: Configures the SDK for edge environments.
+* ```javascript
+  init({
+    ..., 
+    // Edge configuration for serverless environments
+    edgeConfig: {
+      shouldWaitForTrackingCalls: true
+    }
+  });
+  ```
+  <br />Configures the SDK for edge environments.
 
 - **getFlag, trackEvent, and setAttribute**: These methods return much faster when using `edgeConfig`.
 - **flushEvents()**: **Required** - Call this at the end of your function to send all tracking events.
