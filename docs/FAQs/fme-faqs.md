@@ -415,4 +415,4 @@ Wingify SDKs operate on User ID. As long as the user ID is the same, SDKs will o
 
 ## Do I need to modify my firewall when using Wingify FM?
 
-If your firewall has any outbound traffic restrictions, you'll need to whitelist _**dev.visualwebsiteoptimizer.com**_
+If your firewall has any outbound traffic restrictions, you'll need to whitelist **_dev.visualwebsiteoptimizer.co edge.wingify.net_** and **_collect.wingify.net_**
