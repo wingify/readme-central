@@ -411,7 +411,7 @@ There might be scenarios when you have a situation like the following:
 * Initially, users who land on my website are not logged in what User ID should I use for them?
 * Once they log in I have a different User ID for them. How do I manage this situation?
 
-Wingify SDKs operate on User ID. As long as the user ID is the same, SDKs will output consistent results, thereby, providing omnichannel testing support. If you have different IDs associated with the same user, please pass only one of them always or create another unique identifier that identifies the same user(logged-out vs logged-in) and pass it always. Wingify currently does not provide a way to alias the multiple User IDs associated with the same user.
+Wingify SDKs operate on User ID. As long as the user ID is the same, SDKs will output consistent results, thereby, providing omnichannel testing support. If you have different IDs associated with the same user, you can either, pass only one of them always or use our [User Aliasing](https://developers.wingify.com/v2/docs/fme-user-aliasing) feature to ensure that the same user ID is mapped and sent to the our servers and the user has a consistent experience. This way, even if you have multiple ID's for the same user, they are treated as the same user.
 
 ## Do I need to modify my firewall when using Wingify FE?
 
