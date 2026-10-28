@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-# VWO Insights on Expo
+## VWO Insights on Expo
 
 Use this with an Expo app that includes native code (a development build or an EAS build). Expo Go cannot load this SDK.
 
