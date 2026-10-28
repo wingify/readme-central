@@ -1,5 +1,8 @@
 ---
 title: Expo Guide
+excerpt: >-
+  If you are using expo for building React Native guide, The android setup is
+  little bit different, Please follow the guide below
 deprecated: false
 hidden: false
 metadata:
