@@ -5,7 +5,7 @@ hidden: false
 metadata:
   robots: index
 ---
-# Wingify Insights on Expo
+## Wingify Insights on Expo
 
 Use this with an Expo app that includes native code (a development build or an EAS build). Expo Go cannot load this SDK.
 
