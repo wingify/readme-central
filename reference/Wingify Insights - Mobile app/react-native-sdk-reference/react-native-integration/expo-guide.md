@@ -1,16 +1,14 @@
 ---
 title: Expo Guide
 excerpt: >-
-  If you are using expo to build your application, Setup is a little bit
-  different, Please follow this guide.
+  Use this with an Expo app that includes native code (a development build or an
+  EAS build). Expo Go cannot load this SDK.
 deprecated: false
 hidden: false
 metadata:
   robots: index
 ---
-# VWO Insights on Expo
-
-Use this with an Expo app that includes native code (a development build or an EAS build). Expo Go cannot load this SDK.
+## VWO Insights on Expo
 
 The React Native CLI setup still applies on iOS. Android in an Expo app needs the config plugin below. Do not paste the init call into `MainApplication` by hand.
 
