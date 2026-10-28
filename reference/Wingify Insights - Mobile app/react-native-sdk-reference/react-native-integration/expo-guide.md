@@ -36,7 +36,7 @@ Use `npx expo install`, not `npm install`, so the version stays compatible with 
 
 Create `plugins/withWingifyAndroidInit.js`:
 
-```js
+```javascript withWingifyAndroidInit
 const { withMainApplication } = require("expo/config-plugins");
 
 function withWingifyAndroidInit(
