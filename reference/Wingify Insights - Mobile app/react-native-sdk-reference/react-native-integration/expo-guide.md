@@ -190,19 +190,6 @@ export function VwoScreenTracking() {
 }
 ```
 
-## 6. Trigger a survey
-
-Call `trackEvent` with the event name configured on the survey. Recording must already be running.
-
-```javascript
-import { Pressable, Text } from 'react-native';
-import { trackEvent } from 'vwo-insights-react-native-sdk';
-
-<Pressable onPress={() => trackEvent('eventSurvey2')}>
-  <Text>Feedback</Text>
-</Pressable>
-```
-
 ## Checklist
 
 - Plugin is listed in `app.json` with `accountId` and `sdkKey`.
@@ -210,4 +197,3 @@ import { trackEvent } from 'vwo-insights-react-native-sdk';
 - The app is a development build or an EAS build, not Expo Go.
 - `config()` and `startRecording()` run from JavaScript.
 - Screen names do not start with `/` or `./`.
-- `trackEvent` uses the survey's event name, after recording has started.
