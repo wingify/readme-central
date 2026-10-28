@@ -39,7 +39,7 @@ Use `npx expo install`, not `npm install`, so the version stays compatible with 
 
 Create `plugins/withWingifyAndroidInit.js`:
 
-```javascript withWingifyAndroidInit
+```javascript withWingifyAndroidInit.js
 const { withMainApplication } = require("expo/config-plugins");
 
 function withWingifyAndroidInit(
@@ -125,82 +125,6 @@ npx expo run:android
 ```
 
 Prebuild writes `WingifyLog.setLogLevel(WingifyLog.ALL)` and `WingifyInsightsReactNativeSdkModule.init(...)` into `MainApplication.onCreate`, immediately after `super.onCreate()`.
-
-iOS:
-
-```bash
-npx expo run:ios
-```
-
-After the native module is installed, ship with a development build or EAS Build. Do not use Expo Go.
-
-## 4. Start the SDK from JavaScript
-
-Call this once from the root component, on both platforms. `config()` initializes iOS. `startRecording()` starts the session after native init has finished, so it is delayed briefly. Android ignores `startRecording()` until `init` in `Application.onCreate` has succeeded.
-
-```javascript
-import { useEffect } from "react";
-import {
-  config,
-  setScreenViewed,
-  startRecording,
-} from "wingify-insights-react-native-sdk";
-
-const accountId = "YOUR_ACCOUNT_ID";
-const sdkKey = "YOUR_SDK_KEY";
-
-export function WingifyInsights() {
-  useEffect(() => {
-    config(accountId, sdkKey, "");
-    const timer = setTimeout(() => startRecording(), 1000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  return null;
-}
-```
-
-Use the same account id and SDK key on Android and iOS.
-
-## 5. Report the screen name
-
-A React Native app is one Activity and one view controller. Route changes do not create a new screen by themselves. Call `setScreenViewed` on every route change.
-
-Pass a screen name, not a URL path. On iOS the SDK ignores any name that starts with `/` or `./`, so only the first automatic screen view is recorded and later routes are dropped. Android accepts the path, which is why the same call can look fine on Android and fail on iOS.
-
-React Navigation already gives you a name such as `Home` or `Cart`:
-
-```javascript
-import { NavigationContainer } from "@react-navigation/native";
-import { setScreenName } from "wingify-insights-react-native-sdk";
-
-<NavigationContainer onStateChange={(state) => setScreenName(state)}>
-  {/* navigators */}
-</NavigationContainer>;
-```
-
-Expo Router's `usePathname()` returns `/`, `/checkout`, `/package`. Strip the leading slash before sending it. The index route becomes `index`.
-
-```javascript
-import { useEffect } from "react";
-import { usePathname } from "expo-router";
-import { setScreenViewed } from "wingify-insights-react-native-sdk";
-
-function screenName(pathname: string) {
-  const name = pathname.replace(/^\//, "");
-  return name.length > 0 ? name : "index";
-}
-
-export function WingifyScreenTracking() {
-  const pathname = usePathname();
-
-  useEffect(() => {
-    setScreenViewed(screenName(pathname));
-  }, [pathname]);
-
-  return null;
-}
-```
 
 ## Checklist
 
