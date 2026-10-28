@@ -135,7 +135,7 @@ After the native module is installed, ship with a development build or EAS Build
 
 Call this once from the root component, on both platforms. `config()` initializes iOS. `startRecording()` starts the session after native init has finished, so it is delayed briefly. Android ignores `startRecording()` until `init` in `Application.onCreate` has succeeded.
 
-```tsx
+```javascript
 import { useEffect } from "react";
 import {
   config,
@@ -167,7 +167,7 @@ Pass a screen name, not a URL path. On iOS the SDK ignores any name that starts 
 
 React Navigation already gives you a name such as `Home` or `Cart`:
 
-```tsx
+```javascript
 import { NavigationContainer } from "@react-navigation/native";
 import { setScreenName } from "wingify-insights-react-native-sdk";
 
@@ -178,7 +178,7 @@ import { setScreenName } from "wingify-insights-react-native-sdk";
 
 Expo Router's `usePathname()` returns `/`, `/checkout`, `/package`. Strip the leading slash before sending it. The index route becomes `index`.
 
-```tsx
+```javascript
 import { useEffect } from "react";
 import { usePathname } from "expo-router";
 import { setScreenViewed } from "wingify-insights-react-native-sdk";
