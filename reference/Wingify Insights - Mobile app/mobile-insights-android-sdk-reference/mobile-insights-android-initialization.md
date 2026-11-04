@@ -10,46 +10,47 @@ metadata:
 next:
   description: ''
 ---
-After installing the SDK, initialize the app in the _onCreate_ function of the Application class.
+After installing the SDK, initialize the app in the *onCreate* function of the Application class.
 
 ## Parameters
 
-| Key                                      | Description                    |
-| :--------------------------------------- | :----------------------------- |
-| **ACCOUNT_ID**<br />_Required_           | Wingify Account ID             |
-| **SDK_KEY**<br />_Required_              | SDK key                        |
-| **USER_ID**<br />_Optional_              | Unique identifier for the user |
-| **IWingifyInitCallback**<br />_Optional_ | SDK Initialization callback    |
+| Key                                  | Description                    |
+| :----------------------------------- | :----------------------------- |
+| **ACCOUNT\_ID**<br />*Required*      | Wingify Account ID             |
+| **SDK\_KEY**<br />*Required*         | SDK key                        |
+| **USER\_ID**<br />*Optional*         | Unique identifier for the user |
+| **IWingifyInitCallback**<br />*Optional* | SDK Initialization callback    |
 
 ### Example
 
 ```java
-package com.wingify.screenshotsample
+package com.wingify.screenshotsample;
 
-import android.app.Application
-import com.wingify.insights.WingifyInsights
-import com.wingify.insights.core.models.ClientConfiguration
-import com.wingify.insights.exposed.IWingifyInitCallback
+import android.app.Application;
+import androidx.annotation.NonNull;
+import com.wingify.insights.WingifyInsights;
+import com.wingify.insights.exposed.IWingifyInitCallback;
+import com.wingify.insights.exposed.models.ClientConfiguration;
 
-class WingifyApplication : Application() {
+public class VWOApplication extends Application {
 
-    override fun onCreate() {
-        super.onCreate()
-
+    @Override
+    public void onCreate() {
+        super.onCreate();
 
         ClientConfiguration configuration = new ClientConfiguration("ACCOUNT_ID", "SDK_KEY", "USER_ID");
-        WingifyInsights.init(this, new IWingifyInitCallback() { 
-                @Override  
+        WingifyInsights.init(this, new IWingifyInitCallback() {
+                @Override
                 public void wingifyInitSuccess(@NonNull String s) {
-                     // Insights SDK Initialized successfully 
+                     // Insights SDK Initialized successfully
                 }
-     
+
                 @Override
                 public void wingifyInitFailed(@NonNull String s) {
                      // Insights SDK NOT Initialized successfully
                 }
-         }, configuration, null);
-    
+         }, configuration);
+
     }
 }
 ```
@@ -58,15 +59,15 @@ package com.wingify.screenshotsample
 
 import android.app.Application
 import com.wingify.insights.WingifyInsights
-import com.wingify.insights.core.models.ClientConfiguration
 import com.wingify.insights.exposed.IWingifyInitCallback
+import com.wingify.insights.exposed.models.ClientConfiguration
 
-class WingifyApplication : Application() {
+class VWOApplication : Application() {
 
     override fun onCreate() {
-        super.onCreate()
-
-        val configuration = ClientConfiguration("ACCOUNT_ID","APPLICATION_ID", "USER_ID")
+      super.onCreate()
+ 
+        val configuration = ClientConfiguration("ACCOUNT_ID", "SDK_KEY", "USER_ID")
 
         WingifyInsights.init(this, object : IWingifyInitCallback {
               override fun wingifyInitSuccess(message: String) {  
@@ -84,7 +85,7 @@ class WingifyApplication : Application() {
 }
 ```
 
-## Enable Performance Mode
+## Performance Mode
 
 From SDK version 2.6.0+, Mobile Insights provides an optional performance mode that uses a highly optimized recording mechanism for Android native apps.
 
@@ -99,15 +100,15 @@ Call `enablePerformanceMode()` before `init()`, typically in your `Application.o
 | Requirement                | Value                                       |
 | -------------------------- | ------------------------------------------- |
 | Minimum for optimized path | Android 8.0 (API 26).                       |
-| Call on API \< 26          | Safe — SDK uses the standard recording path |
+| Call on API < 26           | Safe — SDK uses the standard recording path |
 
 ***
 
 ### Guidelines
 
-- Enable performance mode if you want the optimized recording path introduced in 2.6.0+.
-- Always call it before SDK initialization.
-- If you observe unexpected behavior after enabling it, remove the call and verify again.
+* Enable performance mode if you want the optimized recording path introduced in 2.6.0+.
+* Always call it before SDK initialization.
+* If you observe unexpected behavior after enabling it, remove the call and verify again.
 
 ***
 
