@@ -12,7 +12,7 @@ next:
 ---
 # Introduction
 
-This guide outlines the integration process for the **[Wingify Insights Mobile SDK](https://developers.wingify.com/reference/mobile-insights-introduction) and [Wingify Feature Experimentation(FE) SDK](https://developers.wingify.com/v2/docs/fme-overview)** to ensure seamless session data synchronization.
+This guide outlines the integration process for the **[Wingify Feature Experimentation(FE) SDK](https://developers.wingify.com/v2/docs/fme-overview) and [Wingify Insights Mobile SDK](https://developers.wingify.com/reference/mobile-insights-introduction)** to ensure seamless session data synchronization.
 
 With this integration, customers can **link session data** between Wingify Insights Mobile SDK and Wingify FE SDK, enabling **post-segmentation of session data** based on various attributes. This empowers them to analyze user behavior more effectively, identify friction points, and optimize user experiences with precise insights.
 
@@ -45,7 +45,7 @@ private fun getSessionCallback(): IWingifySessionCallback {
 }
 ```
 ```swift
-func wingifyScreenCaptureSessionDidUpdate(sessionData: [String : Any]) {
+func vwoScreenCaptureSessionDidUpdate(sessionData: [String : Any]) {
     FmeConfig.setSessionData(sessionData)
 }
 ```
@@ -54,11 +54,10 @@ func wingifyScreenCaptureSessionDidUpdate(sessionData: [String : Any]) {
 
 ```kotlin
 val sessionCallback = getSessionCallback()
-
-WingifyInsights.linkFME(sessionCallback, USER_ID)
+WingifyInsights.linkFME(sessionCallback, "USER_ID")
 ```
 ```swift
-Wingify.linkFme(sessionCallback: self, userId: "")
+VWO.linkFme(sessionCallback: self, userId: "USER_ID")
 ```
 
 * **Initialize the Wingify Insights Mobile SDK first**, as it handles session recording and tracking.
@@ -68,65 +67,87 @@ Wingify.linkFme(sessionCallback: self, userId: "")
 ## Step 1: Configure and Initialize the Wingify Insights Mobile SDK
 
 ```kotlin
-class WingifyApplication : Application() {
+package com.example.myapp
+
+import android.app.Application
+import android.util.Log
+import com.vwo.VWO
+import com.wingify.insights.WingifyInsights
+import com.wingify.insights.exposed.IWingifyInitCallback
+import com.wingify.insights.exposed.IWingifySessionCallback
+import com.wingify.insights.exposed.models.ClientConfiguration
+import com.vwo.models.user.FMEConfig
+import com.vwo.models.user.VWOInitOptions
+
+class MyApplication : Application() {
+
     override fun onCreate() {
         super.onCreate()
-
-        initWingifyInsights()
+        initVWOInsights()
     }
 
-    private fun initWingifyInsights() {
-        val config = ClientConfiguration(ACCOUNT_ID, SDK_KEY, null)
+    private fun initVWOInsights() {
+        val config = ClientConfiguration("ACCOUNT_ID", "SDK_KEY", "USER_ID")
 
-        /* Below two lines are extra code needed to link both the SDKs.*/
+        /* Below two lines are extra code needed to link both the SDKs. */
 
         // SessionCallback to revalidate sessions
         val sessionCallback = getSessionCallback()
         // USER_ID is mandatory to link between both the SDKs
-        WingifyInsights.linkFME(sessionCallback, USER_ID)
+        WingifyInsights.linkFME(sessionCallback, "USER_ID")
 
-        // Initialize Wingify Insights Mobile SDK
+        // Initialize Insights Mobile SDK
         WingifyInsights.init(this, object : IWingifyInitCallback {
             override fun wingifyInitSuccess(message: String) {
-							  // Wingify Mobile Insights SDK initializated successfully
+                // Insights SDK initialized successfully
                 WingifyInsights.startSessionRecording()
 
-                // Init Wingify FE SDK
-                initWingifyFME()
+                // Init FE SDK
+                initVWOFME()
             }
 
             override fun wingifyInitFailed(message: String) {
-                WingifyLog.i(WingifyLog.INITIALIZATION_LOGS, "wingifyInitFailed: $message", false)
+                Log.i("init", "wingifyInitFailed: $message")
             }
         }, config)
+    }
+
+    private fun getSessionCallback(): IWingifySessionCallback {
+        return IWingifySessionCallback { sessionData ->
+            FMEConfig.setSessionData(sessionData)
+        }
+    }
+
+    private fun initVWOFME() {
+        // See Step 2
     }
 }
 ```
 ```swift
-import Wingify_FME
-import Wingify_Insights
+import VWO_FME
+import VWO_Insights
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, WingifySessionCallback {
+class AppDelegate: UIResponder, UIApplicationDelegate, VWOSessionCallback {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         self.initMiSDK()
         return true
     }
 
     func initMiSDK() {
-				// SessionCallback to revalidate sessions and userId is mandatory
-        Wingify.linkFme(sessionCallback: self, userId: "")
+        // SessionCallback to revalidate sessions and userId is mandatory
+        VWO.linkFme(sessionCallback: self, userId: "USER_ID")
 
-        Wingify.configure(accountId: "", sdkKey: "", userId: "", completion: { result in
+        VWO.configure(accountId: "ACCOUNT_ID", sdkKey: "SDK_KEY", userId: "USER_ID", completion: { result in
             switch result {
             case .success(_):
-                // Wingify Mobile Insights SDK initializated successfully
-                Wingify.startSessionRecording()
+                // Insights SDK initialized successfully
+                VWO.startSessionRecording()
 
-                // Init Wingify FE SDK
-                self.initWingifyFME()
+                // Init FE SDK
+                self.initVWOFME()
             case .failure(_):
-                print("Wingify Insights initialization failed")
+                print("Insights initialization failed")
             }
         })
     }
@@ -136,38 +157,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate, WingifySessionCallback {
 ## Step 2: Initialize the Wingify FE SDK
 
 ```kotlin
-private fun initWingifyFME() {
-    val wingifyInitOptions = WingifyInitOptions()
-    wingifyInitOptions.sdkKey = FME_SDK_KEY
-    wingifyInitOptions.accountId = Wingify_ACCOUNT_ID
-    wingifyInitOptions.context = this@WingifyApplication.applicationContext
+private fun initVWOFME() {
+    val vwoInitOptions = VWOInitOptions()
+    vwoInitOptions.sdkKey = "FME_SDK_KEY"
+    vwoInitOptions.accountId = ACCOUNT_ID // Int account id
+    vwoInitOptions.context = applicationContext
 
-    Wingify.init(wingifyInitOptions, object : com.wingify.interfaces.IWingifyInitCallback {
-        override fun wingifyInitSuccess(wingifyClient: Wingify, message: String) {
-            // use wingifyClient to invoke Wingify FE SDK APIs
+    VWO.init(vwoInitOptions, object : com.vwo.interfaces.IVwoInitCallback {
+        override fun vwoInitSuccess(vwoClient: VWO, message: String) {
+            // use vwoClient to invoke FE SDK APIs
         }
 
-        override fun wingifyInitFailed(message: String) {
-            Log.i("WingifySession", "SessionId Uuid FE Init failed: $message")
-        }
-    })
-}
-```
-```swift
-private fun initWingifyFME() {
-    val wingifyInitOptions = WingifyInitOptions()
-
-    wingifyInitOptions.sdkKey = FME_SDK_KEY
-    wingifyInitOptions.accountId = Wingify_ACCOUNT_ID
-    wingifyInitOptions.context = this@WingifyApplication.applicationContext
-
-    Wingify.init(wingifyInitOptions, object : com.wingify.interfaces.IWingifyInitCallback {
-        override fun wingifyInitSuccess(wingifyClient: Wingify, message: String) {
-            // use wingifyClient to invoke Wingify FE SDK APIs
-        }
-
-        override fun wingifyInitFailed(message: String) {
-            Log.i("WingifySession", "SessionId Uuid FE Init failed: $message")
+        override fun vwoInitFailed(message: String) {
+            Log.i("VWOSession", "FE Init failed: $message")
         }
     })
 }
@@ -177,22 +179,39 @@ private fun initWingifyFME() {
 
 ```kotlin
 private fun getSessionCallback(): IWingifySessionCallback {
-    return IWingifySessionCallback { sessionDetails ->
+    return IWingifySessionCallback { sessionData ->
         // Pass the received session data to the FE SDK for session validation
-        FMEConfig.setSessionData(sessionDetails)
+        FMEConfig.setSessionData(sessionData)
     }
 }
 ```
 ```swift
-func wingifyScreenCaptureSessionDidUpdate(sessionDetails: [String : Any]) {
+func vwoScreenCaptureSessionDidUpdate(sessionData: [String : Any]) {
     // Pass the received session data to the FE SDK for session validation
-    FmeConfig.setSessionData(sessionDetails)
+    FmeConfig.setSessionData(sessionData)
 }
 ```
 
 ## Sequence Diagram
 
-<Image align="center" src="https://files.readme.io/9934d795f79209e4d2c39261460b85ffe673cf8fdb50040514cba8af13f280ad-Screenshot_2025-04-03_at_1.21.19_PM.png" />
+```mermaid
+sequenceDiagram
+    participant App as Application / AppDelegate
+    participant Insights as Insights Mobile SDK
+    participant FE as FE SDK
+
+    App->>Insights: linkFME(sessionCallback, USER_ID)
+    App->>Insights: init / configure(accountId, sdkKey, userId, callback)
+    Insights-->>App: session callback
+    App->>FE: setSessionData(sessionMap)
+    Insights-->>App: init success
+    App->>Insights: startSessionRecording()
+    App->>FE: init FE SDK
+    FE-->>App: FE SDK initialised successfully
+
+```
+
+<br />
 
 # Summary
 
