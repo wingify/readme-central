@@ -10,6 +10,8 @@ metadata:
 next:
   description: ''
 ---
+# Introduction
+
 This guide outlines the integration process for the **[Wingify Feature Experimentation(FE) SDK](https://developers.wingify.com/v2/docs/fme-overview) and [Wingify Insights Mobile SDK](https://developers.wingify.com/reference/mobile-insights-introduction)** to ensure seamless session data synchronization.
 
 With this integration, customers can **link session data** between Wingify Insights Mobile SDK and Wingify FE SDK, enabling **post-segmentation of session data** based on various attributes. This empowers them to analyze user behavior more effectively, identify friction points, and optimize user experiences with precise insights.
