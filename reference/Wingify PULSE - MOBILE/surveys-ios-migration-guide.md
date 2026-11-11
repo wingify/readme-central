@@ -5,11 +5,11 @@ hidden: false
 metadata:
   robots: index
 ---
-# Migration Guide: Blitzllama to Wingify Pulse iOS SDK
+# Migration Guide: Blitzllama to Wingify User Feedback iOS SDK
 
 ## Overview
 
-This guide helps you migrate your application from the **Blitzllama SDK** to the **Wingify Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
+This guide helps you migrate your application from the **Blitzllama SDK** to the **Wingify User Feedback SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
 
 **Minimum Requirements:**
 
@@ -20,7 +20,7 @@ This guide helps you migrate your application from the **Blitzllama SDK** to the
 
 ## Migration Summary
 
-| Feature          | Blitzllama SDK                  | Wingify Pulse SDK                                                                   |
+| Feature          | Blitzllama SDK                  | Wingify User Feedback SDK                                                                   |
 | ---------------- | ------------------------------- | ------------------------------------------------------------------------------- |
 | Dependency       | `BlitzLlamaSDK`                 | `Wingify_Insights`                                                                  |
 | API Key Location | AppDelegate.swift               | AppDelegate.swift                                                               |
@@ -43,9 +43,9 @@ This guide helps you migrate your application from the **Blitzllama SDK** to the
 pod 'Blitzllama-ios', '1.6.29'
 ```
 
-## Add Wingify Pulse Dependency
+## Add Wingify User Feedback Dependency
 
-**After (Wingify Pulse):**
+**After (Wingify User Feedback):**
 
 ```ruby
 # Podfile
@@ -58,7 +58,7 @@ pod 'Wingify-Insights', '~> 2.7.0'
 
 ## Remove Blitzllama Configuration
 
-Blitzllama does not use Info.plist for API keys. The API key is set programmatically via `setBlitzLlamaAPIKey()`. Wingify Pulse also uses programmatic configuration but passes credentials during initialization.
+Blitzllama does not use Info.plist for API keys. The API key is set programmatically via `setBlitzLlamaAPIKey()`. Wingify User Feedback also uses programmatic configuration but passes credentials during initialization.
 
 ## Wingify Configuration
 
@@ -99,7 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-## Wingify Pulse Approach (After)
+## Wingify User Feedback Approach (After)
 
 ```swift
 import Wingify_Insights
@@ -159,7 +159,7 @@ let eventProperties: [String: Any] = [
 BlitzLlamaSDKController.getSDKManager().fetchSurvey(triggerName: "trigger_name", properties: eventProperties)
 ```
 
-## Wingify Pulse (After)
+## Wingify User Feedback (After)
 
 ```swift
 // Get Survey SDK manager
@@ -175,7 +175,7 @@ surveySDK.trackEvent(
 
 ## Method Mapping
 
-| Blitzllama                                   | Wingify Pulse                                  |
+| Blitzllama                                   | Wingify User Feedback                                  |
 | -------------------------------------------- | ------------------------------------------ |
 | `triggerEvent("name")`                       | `trackEvent("name")`                       |
 | `triggerEvent("name", properties)`           | `trackEvent("name", properties)`           |
@@ -194,7 +194,7 @@ BlitzLlamaSDKController.getSDKManager.updateUserEmail("user@example.com")
 BlitzLlamaSDKController.getSDKManager.updateUserName("user_name")
 ```
 
-**Wingify Pulse (After):**
+**Wingify User Feedback (After):**
 
 In Wingify, use `setAttribute()` to set user email and name:
 
@@ -223,7 +223,7 @@ BlitzLlamaSDKController.getSDKManager.updateUserAttributes("user_level", attribu
 BlitzLlamaSDKController.getSDKManager.updateUserAttributes("is_active", attributeValue: "true", dataType: "boolean")
 ```
 
-**Wingify Pulse (After):**
+**Wingify User Feedback (After):**
 
 ```swift
 let surveySDK = Wingify.getSurveyManager()
@@ -250,7 +250,7 @@ surveySDK.setAttribute(attributes: attributes)
 BlitzLlamaSDKController.getSDKManager.setLanguageCode("en")
 ```
 
-**Wingify Pulse (After):**
+**Wingify User Feedback (After):**
 
 ```swift
 let surveySDK = Wingify.getSurveyManager()
@@ -269,9 +269,9 @@ This API remains largely the same.
 BlitzLlamaSDK.logout()
 ```
 
-## Wingify Pulse (After)
+## Wingify User Feedback (After)
 
-Wingify Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+Wingify User Feedback does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
 
 ### Switching to a New User
 
@@ -315,7 +315,7 @@ Wingify.setUserId(randomUserId) { result in
 
 ### Key Differences
 
-| Blitzllama                 | Wingify Pulse                                        |
+| Blitzllama                 | Wingify User Feedback                                        |
 | -------------------------- | ------------------------------------------------ |
 | `BlitzLlamaSDK.logout()`   | No direct logout method                          |
 | N/A                        | `Wingify.setUserId(userId, completion)`              |
@@ -394,7 +394,7 @@ class ViewController: UIViewController {
 }
 ```
 
-## After (Wingify Pulse)
+## After (Wingify User Feedback)
 
 ```swift
 import UIKit
@@ -507,7 +507,7 @@ Wingify.configure(
 
 | Component                               | Version |
 | --------------------------------------- | ------- |
-| Wingify Pulse SDK Version                   | 2.7.0+  |
+| Wingify User Feedback SDK Version                   | 2.7.0+  |
 | Minimum iOS Version                     | 12.0    |
 | Swift Version                           | 5.0+    |
 | Blitzllama SDK Version (migrating from) | 1.6.29  |

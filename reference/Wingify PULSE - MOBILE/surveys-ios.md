@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-# Wingify Pulse iOS SDK - Survey Feature
+# Wingify User Feedback iOS SDK - Survey Feature
 
-The Wingify Pulse iOS SDK enables you to deliver in-app surveys directly inside your iOS application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
+The Wingify User Feedback iOS SDK enables you to deliver in-app surveys directly inside your iOS application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
 
 ## Key Features
 

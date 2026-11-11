@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-# Wingify Pulse Android SDK - Survey Feature
+# Wingify User Feedback Android SDK - Survey Feature
 
-The Wingify Pulse Android SDK enables you to deliver in-app surveys directly inside your Android application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
+The Wingify User Feedback Android SDK enables you to deliver in-app surveys directly inside your Android application. By integrating the SDK, you can collect targeted user feedback at critical moments in the user journey.
 
 ## Key Features
 

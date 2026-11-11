@@ -5,11 +5,11 @@ hidden: false
 metadata:
   robots: index
 ---
-# Migration Guide: Blitzllama to Wingify Pulse Android SDK
+# Migration Guide: Blitzllama to Wingify User Feedback Android SDK
 
 ## Overview
 
-This guide helps you migrate your Android application from the **Blitzllama SDK** to the **Wingify Pulse SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
+This guide helps you migrate your Android application from the **Blitzllama SDK** to the **Wingify User Feedback SDK** for in-app surveys. Both SDKs provide similar functionality, but there are key differences in initialization, configuration, and API methods.
 
 **Minimum Requirements:**
 
@@ -20,7 +20,7 @@ This guide helps you migrate your Android application from the **Blitzllama SDK*
 
 ## Migration Summary
 
-| Feature          | Blitzllama SDK                    | Wingify Pulse SDK                                                                   |
+| Feature          | Blitzllama SDK                    | Wingify User Feedback SDK                                                                   |
 | ---------------- | --------------------------------- | ------------------------------------------------------------------------------- |
 | Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.wingify:insights:2.7.0`                                                        |
 | API Key Location | AndroidManifest.xml               | ClientConfiguration object                                                      |
@@ -45,9 +45,9 @@ dependencies {
 }
 ```
 
-## Add Wingify Pulse Dependency
+## Add Wingify User Feedback Dependency
 
-**After (Wingify Pulse):**
+**After (Wingify User Feedback):**
 
 ```groovy
 // app/build.gradle
@@ -73,7 +73,7 @@ Remove the following from `AndroidManifest.xml`:
 
 ## Wingify Configuration
 
-Wingify Pulse does not require manifest configuration. Credentials are passed programmatically during SDK initialization.
+Wingify User Feedback does not require manifest configuration. Credentials are passed programmatically during SDK initialization.
 
 > 📘 **Note:** If you had `<uses-sdk tools:overrideLibrary="com.blitzllama.androidSDK" />`, you can remove it as well.
 
@@ -121,7 +121,7 @@ class MyApplication : BlitzLlamaSDK() {
 BlitzLlamaSDK.getSdkManager(this).createUser("user_id")
 ```
 
-## Wingify Pulse Approach (After)
+## Wingify User Feedback Approach (After)
 
 ### Java
 
@@ -229,7 +229,7 @@ BlitzLlamaSDK.getSdkManager(context).triggerEvent("trigger_name");
 BlitzLlamaSDK.getSdkManager(context).triggerEvent("trigger_name")
 ```
 
-**Wingify Pulse (After):**
+**Wingify User Feedback (After):**
 
 ### Java
 
@@ -270,7 +270,7 @@ val properties = mapOf(
 BlitzLlamaSDK.getSdkManager(context).triggerEvent("purchase_completed", properties)
 ```
 
-**Wingify Pulse (After):**
+**Wingify User Feedback (After):**
 
 ### Java
 
@@ -314,7 +314,7 @@ BlitzLlamaSDK.getSdkManager(context).triggerEvent("event_name", properties, new 
 });
 ```
 
-**Wingify Pulse (After):**
+**Wingify User Feedback (After):**
 
 ### Java
 
@@ -363,7 +363,7 @@ sdkManager.trackEventWithActivity(this, "checkout_screen")
 
 ## Method Mapping
 
-| Blitzllama                                   | Wingify Pulse                                  |
+| Blitzllama                                   | Wingify User Feedback                                  |
 | -------------------------------------------- | ------------------------------------------ |
 | `triggerEvent("name")`                       | `trackEvent("name")`                       |
 | `triggerEvent("name", properties)`           | `trackEvent("name", properties)`           |
@@ -383,7 +383,7 @@ BlitzLlamaSDK.getSdkManager(context).setUserEmail("user@example.com");
 BlitzLlamaSDK.getSdkManager(context).setUserName("John Doe");
 ```
 
-**Wingify Pulse (After):**
+**Wingify User Feedback (After):**
 
 In Wingify, use `setAttribute()` to set user email and name:
 
@@ -420,7 +420,7 @@ BlitzLlamaSDK.getSdkManager(context).setUserAttribute("plan_type", "premium", "s
 BlitzLlamaSDK.getSdkManager(context).setUserAttribute("user_level", "5", "number");
 ```
 
-**Wingify Pulse (After):**
+**Wingify User Feedback (After):**
 
 ### Java
 
@@ -458,7 +458,7 @@ WingifyInsights.setAttribute(attributes)
 BlitzLlamaSDK.getSdkManager(context).setSurveyLanguage("en");
 ```
 
-**Wingify Pulse (After):**
+**Wingify User Feedback (After):**
 
 ```java
 WingifyInsights.getSurveySdkManager(context).setSurveyLanguage("en");
@@ -476,9 +476,9 @@ This API remains largely the same.
 BlitzLlamaSDK.logout();
 ```
 
-## Wingify Pulse (After)
+## Wingify User Feedback (After)
 
-Wingify Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+Wingify User Feedback does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
 
 ### Switching to a New User
 
@@ -563,7 +563,7 @@ WingifyInsights.setUserId(randomUserId, object : IWingifyInitCallback {
 
 ### Key Differences
 
-| Blitzllama                 | Wingify Pulse                                        |
+| Blitzllama                 | Wingify User Feedback                                        |
 | -------------------------- | ------------------------------------------------ |
 | `BlitzLlamaSDK.logout()`   | No direct logout method                          |
 | N/A                        | `WingifyInsights.setUserId(userId, callback)`        |
@@ -591,7 +591,7 @@ If you're using triggers configured in the Blitzllama dashboard, you may need to
 
 Update all your import statements:
 
-| Blitzllama Import                                            | Wingify Pulse Import                            |
+| Blitzllama Import                                            | Wingify User Feedback Import                            |
 | ------------------------------------------------------------ | ------------------------------------------- |
 | `com.blitzllama.androidSDK.*`                                | `com.wingify.insights.*`                        |
 | `com.blitzllama.androidSDK.BlitzLlamaSDK`                    | `com.wingify.insights.WingifyInsights`              |
@@ -631,7 +631,7 @@ class MainActivity : AppCompatActivity() {
 }
 ```
 
-## After (Wingify Pulse)
+## After (Wingify User Feedback)
 
 ```kotlin
 // MyApplication.kt
@@ -712,7 +712,7 @@ val callback = object : IWingifyInitCallback {
 
 # Migration Checklist
 
-* [ ] Updated `build.gradle` dependency from Blitzllama to Wingify Pulse
+* [ ] Updated `build.gradle` dependency from Blitzllama to Wingify User Feedback
 * [ ] Removed Blitzllama meta-data from `AndroidManifest.xml`
 * [ ] Updated Application class initialization
 * [ ] Replaced `createUser()` with `setUserId()` for user identification
@@ -728,6 +728,6 @@ val callback = object : IWingifyInitCallback {
 
 | Component                               | Version          |
 | --------------------------------------- | ---------------- |
-| Wingify Pulse SDK Version                   | `2.7.0`          |
+| Wingify User Feedback SDK Version                   | `2.7.0`          |
 | Minimum Android SDK                     | 21 (Android 5.0) |
 | Blitzllama SDK Version (migrating from) | `1.9.1`          |

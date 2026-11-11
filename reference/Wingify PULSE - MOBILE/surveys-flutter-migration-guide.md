@@ -6,19 +6,19 @@ hidden: false
 metadata:
   robots: index
 ---
-# Migration Guide: Blitzllama to Wingify Pulse Flutter SDK
+# Migration Guide: Blitzllama to Wingify User Feedback Flutter SDK
 
-This guide provides step-by-step instructions for migrating your Flutter application from Blitzllama's Survey SDK to Wingify Pulse Survey SDK.
+This guide provides step-by-step instructions for migrating your Flutter application from Blitzllama's Survey SDK to Wingify User Feedback Survey SDK.
 
 ***
 
 ## Overview
 
-Wingify Pulse SDK provides the same core functionality as Blitzllama with some key architectural differences. The most significant change is that SDK initialization now happens in native code (Android/iOS) rather than in Dart.
+Wingify User Feedback SDK provides the same core functionality as Blitzllama with some key architectural differences. The most significant change is that SDK initialization now happens in native code (Android/iOS) rather than in Dart.
 
 ### Key Differences at a Glance
 
-| Aspect          | Blitzllama              | Wingify Pulse                                                     |
+| Aspect          | Blitzllama              | Wingify User Feedback                                                     |
 | --------------- | ----------------------- | ------------------------------------------------------------- |
 | Package         | blitzllama_flutter      | wingify_insights_flutter_sdk                                      |
 | Class Name      | BlitzllamaFlutter       | WingifyFlutter                                                    |
@@ -42,9 +42,9 @@ dependencies:
   blitzllama_flutter: ^0.6.3
 ```
 
-## Add Wingify Pulse SDK
+## Add Wingify User Feedback SDK
 
-Add the Wingify Pulse Flutter SDK:
+Add the Wingify User Feedback Flutter SDK:
 
 ```yaml
 dependencies:
@@ -69,7 +69,7 @@ Replace Blitzllama imports with Wingify imports in your Dart files.
 import 'package:blitzllama_flutter/blitzllama_flutter.dart';
 ```
 
-**After (Wingify Pulse):**
+**After (Wingify User Feedback):**
 
 ```dart
 import 'package:wingify_insights_flutter_sdk/wingify_insights_flutter_sdk.dart';
@@ -207,7 +207,7 @@ Blitzllama's createUser() is no longer needed. The user ID can be passed during 
 BlitzllamaFlutter.createUser(user_id);
 ```
 
-**After (Wingify Pulse):**
+**After (Wingify User Feedback):**
 
 User ID is passed in native initialization (optional), or use `setUserId()` in Dart:
 
@@ -231,7 +231,7 @@ BlitzllamaFlutter.setUserAttribute("age", "25", "number");
 BlitzllamaFlutter.setUserAttribute("is_active", "true", "boolean");
 ```
 
-**After (Wingify Pulse):**
+**After (Wingify User Feedback):**
 
 ```dart
 WingifyFlutter.setAttribute({
@@ -254,7 +254,7 @@ BlitzllamaFlutter.setUserEmail(email);
 BlitzllamaFlutter.setUserName(username);
 ```
 
-**After (Wingify Pulse):**
+**After (Wingify User Feedback):**
 
 ```dart
 WingifyFlutter.setAttribute({
@@ -271,7 +271,7 @@ WingifyFlutter.setAttribute({
 BlitzllamaFlutter.setSurveyLanguage("en");
 ```
 
-**After (Wingify Pulse):**
+**After (Wingify User Feedback):**
 
 ```dart
 WingifyFlutter.setSurveyLanguage("en");
@@ -291,7 +291,7 @@ The method name for triggering surveys has changed from triggerEvent to trackEve
 BlitzllamaFlutter.triggerEvent("purchase_completed");
 ```
 
-**After (Wingify Pulse):**
+**After (Wingify User Feedback):**
 
 ```dart
 WingifyFlutter.trackEvent("purchase_completed");
@@ -308,7 +308,7 @@ BlitzllamaFlutter.triggerEvent("HomeActivity", {
 });
 ```
 
-**After (Wingify Pulse):**
+**After (Wingify User Feedback):**
 
 ```dart
 WingifyFlutter.trackEvent("HomeActivity", {
@@ -331,13 +331,13 @@ The setCustomFont() method is not available in Wingify SDK.
 BlitzllamaFlutter.setCustomFont("Roboto-Regular", "Roboto-Bold");
 ```
 
-**After (Wingify Pulse):**
+**After (Wingify User Feedback):**
 
 Not available - remove this call.
 
 ## User Switching
 
-Wingify Pulse does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
+Wingify User Feedback does **not have a `logout()` method**. Instead, use `setUserId()` to switch between users. To create anonymous sessions (equivalent to logout), pass a random string as the user ID.
 
 **Before (Blitzllama):**
 
@@ -345,7 +345,7 @@ Wingify Pulse does **not have a `logout()` method**. Instead, use `setUserId()` 
 BlitzllamaFlutter.logout();
 ```
 
-**After (Wingify Pulse):**
+**After (Wingify User Feedback):**
 
 ### Switching to a New User
 
@@ -377,7 +377,7 @@ if (success) {
 
 # API Reference Mapping
 
-| Blitzllama Method         | Wingify Pulse Equivalent    | Notes                                |
+| Blitzllama Method         | Wingify User Feedback Equivalent    | Notes                                |
 | ------------------------- | ----------------------- | ------------------------------------ |
 | init(apiKey)              | Native initialization   | See Step 3                           |
 | createUser(userId)        | setUserId(userId)       | Use after initialization             |
@@ -455,7 +455,7 @@ For additional support or questions:
 
 | Component                       | Version          |
 | ------------------------------- | ---------------- |
-| Wingify Pulse Flutter SDK           | ^2.7.0           |
+| Wingify User Feedback Flutter SDK           | ^2.7.0           |
 | Native Android SDK              | 2.7.0            |
 | Native iOS SDK                  | 2.7.0            |
 | Minimum iOS Version             | 12.0             |
