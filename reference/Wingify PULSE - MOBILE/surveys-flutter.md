@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-# Wingify Pulse Flutter SDK - Survey Feature
+# Wingify User Feedback Flutter SDK - Survey Feature
 
-The Wingify Pulse Flutter SDK allows you to deliver in-app surveys seamlessly within your Flutter application. Wingify's survey integration enables you to collect targeted user feedback during critical moments in the user journey.
+The Wingify User Feedback Flutter SDK allows you to deliver in-app surveys seamlessly within your Flutter application. Wingify's survey integration enables you to collect targeted user feedback during critical moments in the user journey.
 
 ## Key Features
 
@@ -33,7 +33,7 @@ The Wingify Pulse Flutter SDK allows you to deliver in-app surveys seamlessly wi
 
 1. **Obtain Your API Key**<br />Log in to the Wingify dashboard and navigate to:<br />Configuration > Websites and apps > Default mobile app > SDK<br />Retrieve your API key from this section.
 
-2. **Setup&#x20;**&#x57;ingif&#x79;**&#x20;Pulse**<br />Ensure you have the Wingify Pulse SDK integrated into your Flutter project.
+2. **Setup&#x20;**&#x57;ingif&#x79;**&#x20;User Feedback**<br />Ensure you have the Wingify User Feedback SDK integrated into your Flutter project.
 
 ***
 

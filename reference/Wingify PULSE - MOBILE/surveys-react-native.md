@@ -5,9 +5,9 @@ hidden: false
 metadata:
   robots: index
 ---
-# Wingify Pulse React Native SDK - Survey Feature
+# Wingify User Feedback React Native SDK - Survey Feature
 
-The Wingify Pulse React Native SDK provides comprehensive survey functionality that allows you to trigger surveys based on user events, set user attributes for targeting, and manage user identification. Surveys help you collect feedback directly from users within your React Native application.
+The Wingify User Feedback React Native SDK provides comprehensive survey functionality that allows you to trigger surveys based on user events, set user attributes for targeting, and manage user identification. Surveys help you collect feedback directly from users within your React Native application.
 
 ## Key Features
 
