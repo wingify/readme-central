@@ -49,7 +49,7 @@ pod 'Blitzllama-ios', '1.6.29'
 
 ```ruby
 # Podfile
-pod 'VWO-Insights', '~> 2.6.1'
+pod 'VWO-Insights', '~> 2.7.0'
 ```
 
 ***
@@ -515,7 +515,7 @@ VWO.configure(
 
 | Component                               | Version |
 | --------------------------------------- | ------- |
-| Wingify Pulse SDK Version               | 2.6.1   |
+| Wingify Pulse SDK Version               | 2.7.0   |
 | Minimum iOS Version                     | 12.0    |
 | Swift Version                           | 5.0+    |
 | Blitzllama SDK Version (migrating from) | 1.6.29  |
