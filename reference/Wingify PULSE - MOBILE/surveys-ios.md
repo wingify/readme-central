@@ -1,7 +1,7 @@
 ---
 title: Surveys - iOS
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
