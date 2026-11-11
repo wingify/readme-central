@@ -1,7 +1,7 @@
 ---
 title: Surveys - Android - Migration Guide
 deprecated: false
-hidden: true
+hidden: false
 metadata:
   robots: index
 ---
