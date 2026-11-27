@@ -24,3 +24,5 @@ viewObject.setTag(com.wingify.insights.R.id.hideViewId, "Tag Name");
 viewObject.setTag(com.wingify.insights.R.id.hideViewId, "Tag Name");
 
 ```
+
+> Note: Tag do not apply to Compose nodes. For Compose, use the [modifier](./hide-views#jetpack-compose) (or hide a containing Android View if hybrid).
