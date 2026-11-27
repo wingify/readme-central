@@ -14,6 +14,8 @@ Use `setScreenViewed` to report a screen viewed or screen change event with a cu
 
 Automatic Activity-based screen detection remains unchanged. Call this API when the SDK cannot infer the logical screen from Activity transitions alone.
 
+> **Note:** The screen name you set here is also used for screen masking rules.
+
 <br />
 
 ## When to use
@@ -61,5 +63,3 @@ fun AppNavHost(currentScreen: String) {
     }
 }
 ```
-
-> **Note:** The screen name you set here is also used for screen masking rules.
