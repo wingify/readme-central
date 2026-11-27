@@ -61,4 +61,6 @@ fun AppNavHost(currentScreen: String) {
         VWOInsights.setScreenViewed(currentScreen)
     }
 }
+
+> **Note:** The screen name you set here is also used for screen masking rules.
 ```
