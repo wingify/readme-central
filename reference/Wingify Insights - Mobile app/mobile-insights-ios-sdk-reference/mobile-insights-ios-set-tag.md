@@ -13,7 +13,7 @@ next:
 A developer can set the same/multiple tags to multiple views for dynamic view hiding functionality as below:
 
 ```swift
-yourView.tag = "YOUR TAG VALUE";
+yourView.tag = 101 // UIView.tag is an Int
 ```
 
 Alternatively you can set tags in StoryBoard as well.
