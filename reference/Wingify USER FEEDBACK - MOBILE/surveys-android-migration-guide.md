@@ -22,7 +22,7 @@ This guide helps you migrate your Android application from the **Blitzllama SDK*
 
 | Feature          | Blitzllama SDK                    | Wingify User Feedback SDK                                                                   |
 | ---------------- | --------------------------------- | ------------------------------------------------------------------------------- |
-| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.wingify:insights:2.7.0`                                                        |
+| Dependency       | `com.blitzllama:Blitzllama:1.9.1` | `com.wingify:insights:2.7.1`                                                        |
 | API Key Location | AndroidManifest.xml               | ClientConfiguration object                                                      |
 | User Creation    | Separate `createUser()` call      | Passed during initialization (optional), then use `setUserId()` to switch users |
 | User Switching   | `logout()`                        | `setUserId(randomString, callback)`                                             |
@@ -52,7 +52,7 @@ dependencies {
 ```groovy
 // app/build.gradle
 dependencies {
-    implementation 'com.wingify:insights:2.7.0'
+    implementation 'com.wingify:insights:2.7.1'
 }
 ```
 
@@ -728,6 +728,6 @@ val callback = object : IWingifyInitCallback {
 
 | Component                               | Version          |
 | --------------------------------------- | ---------------- |
-| Wingify User Feedback SDK Version                   | `2.7.0`          |
+| Wingify User Feedback SDK Version                   | `2.7.1`          |
 | Minimum Android SDK                     | 21 (Android 5.0) |
 | Blitzllama SDK Version (migrating from) | `1.9.1`          |
