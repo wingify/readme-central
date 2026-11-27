@@ -49,7 +49,7 @@ VWOInsights.hideView(view2)
 
 ## Jetpack Compose
 
-For Jetpack Compose, do not wrap each composable in an `AndroidView`. Apply the masking modifier on the sensitive composable. Pass a **unique** `id` for each composable (do not reuse the same id on multiple nodes) and pass `LocalView.current` as `localView`.
+For Jetpack Compose, apply the masking modifier on the sensitive composable. You do not need to wrap it in an AndroidView. Pass a **unique** `id` for each composable (do not reuse the same id on multiple nodes) and pass `LocalView.current` as `localView`.
 
 ```kotlin
 import androidx.compose.foundation.layout.fillMaxWidth
