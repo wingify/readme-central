@@ -61,3 +61,5 @@ fun AppNavHost(currentScreen: String) {
     }
 }
 ```
+
+> **Note:** The screen name you set here is also used for screen masking rules.
