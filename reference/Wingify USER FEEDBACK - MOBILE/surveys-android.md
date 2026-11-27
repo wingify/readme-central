@@ -43,7 +43,7 @@ Add the SDK dependency to your `app/build.gradle`:
 
 ```groovy
 dependencies {
-    implementation 'com.vwo:insights:2.7.0'
+    implementation 'com.vwo:insights:2.7.1'
 }
 ```
 
@@ -444,7 +444,7 @@ override fun vwoInitSuccess(message: String) {
 
 | Component           | Version          |
 | ------------------- | ---------------- |
-| SDK Version         | `2.7.0`          |
+| SDK Version         | `2.7.1`          |
 | Minimum Android SDK | 21 (Android 5.0) |
 
 <br />

@@ -1,6 +1,6 @@
 ---
 title: Surveys - React Native - Migration Guide
-excerpt: Latest SDK version is 2.7.0
+excerpt: Latest SDK version is 2.7.1
 deprecated: false
 hidden: false
 metadata:
@@ -50,7 +50,7 @@ pod 'Blitzllama-ios', '1.6.29'
 
 ```ruby
 # Podfile
-pod 'VWO-Insights', '~> 2.7.0'
+pod 'VWO-Insights', '~> 2.7.1'
 ```
 
 ***
@@ -516,7 +516,7 @@ VWO.configure(
 
 | Component                               | Version |
 | --------------------------------------- | ------- |
-| Wingify User Feedback SDK Version               | 2.7.0   |
+| Wingify User Feedback SDK Version               | 2.7.1   |
 | Minimum iOS Version                     | 12.0    |
 | Swift Version                           | 5.0+    |
 | Blitzllama SDK Version (migrating from) | 1.6.29  |

@@ -1,6 +1,6 @@
 ---
 title: Installation
-excerpt: Latest SDK version - 2.7.0
+excerpt: Latest SDK version - 2.7.1
 deprecated: false
 hidden: false
 link:
@@ -24,7 +24,7 @@ $ flutter pub add vwo_insights_flutter_sdk
 
 This will add a line like the one below to your package's pubspec.yaml file. Use the latest SDK version for new features and improvements.
 
-> dependencies:<br />vwo_insights_flutter_sdk: 2.7.0
+> dependencies:<br />vwo_insights_flutter_sdk: 2.7.1
 
 <br />
 
