@@ -16,18 +16,16 @@ A developer can either pass multiple views at once or pass each view separately 
 
 ```swift
 // pass multiple views at once
-Var views : [UIView]= []
-views.append(view1);
-views.append(view2);
+var views: [UIView] = []
+views.append(view1)
+views.append(view2)
 // .. and so on
-WingifyInsights.hideViews(views : views);
-OR
-WingifyInsights.hideViews(views : [view1, view2]);
-
-
+Wingify.hideViews(views: views)
+// OR
+Wingify.hideViews(views: [view1, view2])
 
 // or simply pass each view separately
-WingifyInsights.hideView(view :view1)
-WingifyInsights.hideView(view :view2)
+Wingify.hideView(view: view1)
+Wingify.hideView(view: view2)
 // .. and so on
 ```

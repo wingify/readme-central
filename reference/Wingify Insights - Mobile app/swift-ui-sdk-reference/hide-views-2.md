@@ -17,10 +17,9 @@ You can manually hide specific views from being recorded using **Wingify Manual 
 
 **Steps:**
 
-1. Wrap your content inside the WingifyHideContainer.
-2. Mark the views you want to hide using either of the following methods:
+Mark the views you want to hide using either of the following methods:
 
-* Apply the .WingifyhideView() modifier directly on the SwiftUI view.
+* Apply the .wingifyHideView() modifier directly on the SwiftUI view.
 
   OR
 
@@ -38,15 +37,13 @@ struct ExampleScreen: View {
     @State private var hideText = false
 
     var body: some View {
-        WingifyHideContainer {
-            VStack {
-                if !hideText {
-                    Text("This can be hidden")
-                        .WingifyhideView()
-                }
-                Button("Toggle Hide") {
-                    hideText.toggle()
-                }
+        VStack {
+            if !hideText {
+                Text("This can be hidden")
+                    .wingifyHideView()
+            }
+            Button("Toggle Hide") {
+                hideText.toggle()
             }
         }
     }
@@ -55,4 +52,4 @@ struct ExampleScreen: View {
 
 <br />
 
-This setup ensures that any view marked with .WingifyhideView() will be hidden during session recording, providing enhanced privacy and control over sensitive UI elements.
+This setup ensures that any view marked with .wingifyHideView() will be hidden during session recording, providing enhanced privacy and control over sensitive UI elements.

@@ -28,8 +28,8 @@ func application(
     Wingify.configure(
         accountId: "<YOUR_ACCOUNT_ID>",
         sdkKey: "<YOUR_SDK_KEY>",
-        isSwiftUI: true, // Set to true if your app is fully built with SwiftUI
-        userId: "<USER_ID>" // Optional: Pass a unique identifier if available
+        userId: "<USER_ID>", //Pass a unique identifier if available or an empty string ""
+        isSwiftUI: true // Set to true if your app is fully built with SwiftUI
     ) { result in
         switch result {
         case .success(_):

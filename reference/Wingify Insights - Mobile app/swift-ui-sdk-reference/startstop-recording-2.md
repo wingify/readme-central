@@ -7,7 +7,7 @@ metadata:
 ---
 <br />
 
-After initializing the SDK successfully, you can manage the session recording feature from your Application class or any Activity by using the below methods:
+After initializing the SDK successfully, you can manage the session recording feature from your App or AppDelegate class or any appropriate view by using the below methods:
 
 <br />
 

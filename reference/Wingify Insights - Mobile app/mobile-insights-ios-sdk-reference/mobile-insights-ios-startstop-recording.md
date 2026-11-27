@@ -10,7 +10,7 @@ metadata:
 next:
   description: ''
 ---
-After initializing the SDK successfully, a developer can start/stop the session recording feature from the application class or any activity using the below methods. 
+After initializing the SDK successfully, a developer can start/stop the session recording feature from the application class or any view controller using the below methods. 
 
 **To start the session recording** 
 

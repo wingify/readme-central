@@ -36,7 +36,7 @@ public static func setUserId(_ newUserId: String,
 **Example**
 
 ```swift
-import Wingify
+import Wingify_Insights
 
 func handleUserLogin(userId: String) {
     Wingify.setUserId(userId) { result in
