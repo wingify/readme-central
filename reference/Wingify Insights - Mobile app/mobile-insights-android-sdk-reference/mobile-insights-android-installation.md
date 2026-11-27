@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-      implementation 'com.vwo:insights:2.7.0'
+      implementation 'com.vwo:insights:2.7.1'
 }
 ```
 
