@@ -16,7 +16,7 @@ Read [here](https://help.vwo.com/hc/en-us/articles/360038019054-Creating-a-Custo
 
 > 📘 Note:
 >
-> This is available from version **2.7.0** onwards.
+> This is available from version **2.7.1** onwards.
 
 ## Description
 

@@ -48,7 +48,7 @@ Add the SDK dependency to your `Podfile`:
 
 ```ruby
 # Podfile
-pod 'Wingify-Insights', '~> 2.7.0'
+pod 'Wingify-Insights', '~> 2.7.1'
 ```
 
 Then run:
