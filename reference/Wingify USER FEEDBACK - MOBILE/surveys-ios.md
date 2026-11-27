@@ -44,7 +44,7 @@ Add the SDK dependency to your `Podfile`:
 
 ```ruby
 # Podfile
-pod 'VWO-Insights', '~> 2.7.0'
+pod 'VWO-Insights', '~> 2.7.1'
 ```
 
 Then run:
@@ -341,7 +341,7 @@ VWO.configure(
 
 | Component           | Version |
 | ------------------- | ------- |
-| SDK Version         | `2.7.0` |
+| SDK Version         | `2.7.1` |
 | Minimum iOS Version | 12.0    |
 | Swift Version       | 5.0+    |
 
